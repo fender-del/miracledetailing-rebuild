@@ -26,7 +26,10 @@ import { steps, tbcs } from './svc.js';
 import { cold } from './cold.js';
 import { snav, more, tabs, lit, filmHero, compare, coverage as ppfCoverage } from './ppf.js';
 import { gallery } from './gallery.js';
-import { arrival, heroFrame, rails, stacks, samples, zooms, collages, stages, odometer, railMeta, accordions, progress } from './kit.js';
+import { arrival, heroFrame, rails, stacks, samples, zooms, collages, stages, railMeta, accordions, progress } from './kit.js';
+import { timeline, timelinePics } from './about.js';
+import { shows, gauges, lenses, layers, indexes, cardMore } from './formats.js';
+import { benches, chooses } from './formats-b.js';
 
 const root = document.documentElement;
 const safe = fn => { try { fn(); } catch (e) { if (window.console) console.warn('[motion]', fn.name, e); } };
@@ -50,7 +53,13 @@ function boot() {
   /* the archive (06/10): filter + lightbox, every tier */
   safe(gallery);
   /* the scroll kit (07/10): how the inner pages read, every tier */
-  safe(accordions); safe(railMeta); safe(odometer);
+  safe(accordions); safe(railMeta);
+  /* About (07/10): the timeline's year, bar and stage */
+  safe(timeline);
+  /* blocks 45–49 (07/10, tint rebuild): controls work in every tier */
+  safe(gauges); safe(indexes); safe(shows); safe(lenses); safe(layers); safe(cardMore);
+  /* blocks 51–52 (07/10, ceramic): the test panel, choose one */
+  safe(benches); safe(chooses);
   if (env.motion) {
     safe(heroVideo);
     safe(filmHero);
@@ -83,6 +92,7 @@ function boot() {
       safe(steps);
       /* the scroll kit (07/10) */
       safe(rails); safe(stacks); safe(samples); safe(zooms); safe(collages);
+      if (env.entrance) safe(timelinePics);
       if (env.entrance) safe(lit);
       if (env.fine) safe(tilt);
     }

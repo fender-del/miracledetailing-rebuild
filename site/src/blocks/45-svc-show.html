@@ -1,0 +1,47 @@
+<!-- ============ 45 · SERVICE: SHOWCASE ============
+     A photo held large with an effect painted on a marked part of it
+     (07/10, tint: the chameleon film on a windscreen). Numbered points
+     sit under the photo; each one lights its part and sets a look on
+     the photo while it is active ([data-look]: shift · clear · outline
+     · pair). Desktop: the points take turns by themselves while the
+     section is on screen (a hairline fills under the active one);
+     pointing at one holds it, and the colour follows the pointer.
+     Phones: the same, a tap holds a point. Reduced motion: no turns,
+     no drift; a tap still sets the look. No JS: the first look, every
+     point shown. Built by lib/formats.js show(); motion/formats.js. -->
+<section class="sshow sec" id="{{show.id}}" data-section="show"{{#show.light}} data-bg="light" data-theme="light"{{/show.light}}{{#show.graphite}} data-bg="graphite"{{/show.graphite}}>
+  <div class="wrap">
+    <div class="sshow__head{{#show.hasIntro}} has-intro{{/show.hasIntro}}">
+      <div class="sshow__titles">
+        {{#show.eyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&show.eyebrow}}</p>{{/show.eyebrow}}
+        {{#show.title}}<h2 class="disp h2" data-split>{{&show.title}}</h2>{{/show.title}}
+      </div>
+      {{#show.hasIntro}}<div class="sshow__intro more" data-more><div class="more__body" data-reveal>{{#show.intro}}<p>{{&.}}</p>{{/show.intro}}</div></div>{{/show.hasIntro}}
+    </div>
+
+    <figure class="sshow__fig" data-show data-look="{{show.first}}" data-rg="{{show.firstRegion}}">
+      <div class="sshow__media" data-reveal="card">
+        {{&show.img}}
+        {{#show.regions}}<div class="sshow__fill sshow__fill--{{fx}}" data-fill="{{id}}" style="clip-path:{{clip}}" aria-hidden="true"></div>{{/show.regions}}
+        <svg class="sshow__svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          {{#show.regions}}<polygon class="sshow__line" data-line="{{id}}" points="{{points}}" pathLength="1"/>{{/show.regions}}
+        </svg>
+        <span class="sshow__glint" aria-hidden="true"></span>
+      </div>
+      {{#show.cap}}<figcaption class="sshow__cap">{{&.}}</figcaption>{{/show.cap}}
+    </figure>
+
+    <ol class="sshow__pts" role="list" style="--cols:{{show.cols}}">
+      {{#show.points}}
+      <li class="sshow__pt{{#_first}} is-on{{/_first}}" data-pt data-look="{{look}}" data-rg="{{region}}" data-reveal="card" style="--k:{{_i}}">
+        <button class="sshow__btn" type="button" aria-pressed="{{#_first}}true{{/_first}}{{^_first}}false{{/_first}}">
+          <span class="sshow__n">{{n}}</span>
+          <span class="sshow__name">{{&name}}</span>
+          <span class="sshow__bar" aria-hidden="true"><i></i></span>
+        </button>
+        <div class="sshow__txt"><div class="sshow__tx">{{#paras}}<p>{{&.}}</p>{{/paras}}</div></div>
+      </li>
+      {{/show.points}}
+    </ol>
+  </div>
+</section>

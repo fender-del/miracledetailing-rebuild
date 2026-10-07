@@ -1,0 +1,54 @@
+<!-- ============ 48 · SERVICE: LAYERS ============
+     An exploded drawing of what a part is made of, beside the numbered
+     items that explain it (07/10, tint: the glass and the film plies
+     bonded to its inside, beside Paul's three properties; it replaced
+     a canvas of a pane being shot, which Fender found childish). As an
+     item reaches the middle of the screen the drawing changes:
+       1  the layers part, the plies light (they take the energy)
+       2  the layers close, the bonded edge lights (the pane is held)
+       3  the layers merge into one clear pane (nothing shows)
+     Desktop: the drawing holds beside the items. Phones: it holds small
+     under the page bar (about a quarter of the screen). A tap on an item
+     sets its state too. No JS / reduced motion: the drawing parted, no
+     movement. Built by lib/formats.js layers(); motion/formats.js. -->
+<section class="slay sec" id="{{lay.id}}" data-section="layers"{{#lay.light}} data-bg="light" data-theme="light"{{/lay.light}}{{#lay.graphite}} data-bg="graphite"{{/lay.graphite}}>
+  <div class="wrap">
+    <div class="slay__head">
+      {{#lay.eyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&lay.eyebrow}}</p>{{/lay.eyebrow}}
+      {{#lay.title}}<h2 class="disp h2" data-split>{{&lay.title}}</h2>{{/lay.title}}
+    </div>
+    <div class="slay__in" data-layers>
+      <figure class="slay__fig" data-state="0">
+        <svg class="slay__svg" viewBox="0 0 720 470" role="img" aria-label="{{lay.label}}">
+          <defs>
+            <linearGradient id="{{lay.id}}-gl" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#cfe0ef" stop-opacity=".34"/><stop offset=".55" stop-color="#8aa2b8" stop-opacity=".12"/><stop offset="1" stop-color="#d9e6f2" stop-opacity=".26"/>
+            </linearGradient>
+            <pattern id="{{lay.id}}-ht" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><path d="M0 0v9" stroke="#E6CC85" stroke-opacity=".5" stroke-width="1"/></pattern>
+            <path id="{{lay.id}}-pane" d="M20 240H380V74Q372 22 318 20H124Q52 24 20 122Z"/>
+          </defs>
+          {{#lay.plies}}<g class="slay__ly slay__ply" style="--i:{{i}}"><g transform="translate(70 116) matrix(.94 -.19 .1 .88 0 0)"><use href="#{{lay.id}}-pane" class="slay__pf"/><use href="#{{lay.id}}-pane" class="slay__ph" fill="url(#{{lay.id}}-ht)"/></g>{{#lab}}<g class="slay__lab slay__lab--film"><path d="M446 252 476 292H556"/><text x="556" y="318" text-anchor="end">{{&lay.film}}</text></g>{{/lab}}</g>{{/lay.plies}}
+          <g class="slay__ly slay__glass" style="--i:0"><g transform="translate(70 116) matrix(.94 -.19 .1 .88 0 0)">
+            <use href="#{{lay.id}}-pane" class="slay__gf" fill="url(#{{lay.id}}-gl)"/>
+            <use href="#{{lay.id}}-pane" class="slay__edge"/>
+            <path class="slay__shine" d="M70 210 210 40M110 228 250 58"/>
+            <path class="slay__glint" d="M-40 260 120 0"/>
+          </g></g>
+          <g class="slay__lab slay__lab--glass"><path d="M150 116 112 80H24"/><text x="24" y="68">{{&lay.glass}}</text></g>
+        </svg>
+      </figure>
+      <ol class="slay__items" role="list">
+        {{#lay.items}}
+        <li class="slay__it" data-lay-it="{{_n}}" data-reveal>
+          <button class="slay__btn" type="button" aria-pressed="false">
+            <span class="slay__n">{{n}}</span>
+            <span class="slay__nm">{{&name}}</span>
+            {{#sub}}<span class="slay__sub">{{&.}}</span>{{/sub}}
+          </button>
+          <div class="slay__tx">{{#paras}}<p>{{&.}}</p>{{/paras}}</div>
+        </li>
+        {{/lay.items}}
+      </ol>
+    </div>
+  </div>
+</section>

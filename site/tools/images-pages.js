@@ -55,6 +55,19 @@ module.exports = [
   ...hero('wt-hero', O + '2023_11_The-Best-Quality-Window-Tinting-in-Lingfield-Surrey-Miracle-Detail.jpg', { l: .25, t: 0, w: .5, h: 1 }),
   { id: 'wt-film',   src: O + '2023_11_window-tinting-on-cars-at-miracle-detail.png', widths: [600, 900, 1089] },
   { id: 'wt-glass',  src: 'stock/pexels-20036216.jpg', crop: { l: .1, t: .1, w: .8, h: .8 }, widths: [600, 900, 1200] },
+  /* 07/10 rebuild (Fender: "thiếu visual, dùng stock được"): Pexels,
+     free licence. Polygons drawn over these live in pages/14-tint.js,
+     measured in % of the crop below: re-crop = re-measure. */
+  { id: 'wt-dyed',   src: 'stock/pexels-26691322.jpg', crop: { l: .05, t: .12, w: .9, h: .8 }, widths: [600, 900, 1300] },
+  { id: 'wt-cham',   src: 'stock/pexels-1574846.jpg', widths: [600, 900, 1300] },
+  { id: 'wt-screen', src: 'stock/pexels-39835378.jpg', widths: [600, 900, 1300] },
+  { id: 'wt-jag',    src: 'stock/pexels-4096380.jpg', widths: [800, 1200, 1700, 2400] },
+  { id: 'wt-merc',   src: 'stock/pexels-17233277.jpg', widths: [700, 1000, 1400, 1900] },
+  { id: 'wt-side',   src: 'stock/pexels-20036216.jpg', crop: { l: 0, t: .14, w: 1, h: .643 }, widths: [900, 1400, 2000, 2600] },
+  { id: 'wt-who-1',  src: 'stock/pexels-7594130.jpg', crop: { l: 0, t: .17, w: 1, h: .5 }, widths: [600, 900, 1200] },
+  { id: 'wt-who-2',  src: 'stock/pexels-1467591.jpg', crop: { l: .05, t: .1, w: .9, h: .8 }, widths: [600, 900, 1200] },
+  { id: 'wt-who-3',  src: 'stock/pexels-33203858.jpg', crop: { l: 0, t: .25, w: 1, h: .6 }, widths: [600, 900, 1200] },
+  { id: 'wt-note',   src: 'stock/pexels-11877373.jpg', crop: { l: 0, t: .2, w: 1, h: .45 }, widths: [900, 1400, 2000], q: 46 },
 
   /* ---------- Mobile ---------- */
   ...hero('mb-hero', V + 'about-paul/download-33-1.jpg', { l: .15, t: 0, w: .6, h: 1 }),

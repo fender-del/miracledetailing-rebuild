@@ -21,7 +21,6 @@
      collages()     photos round a quote drift at their own depth
    Every tier with JS (they are how the page reads, not decoration):
      stages()       steps beside a picture that holds still ([data-stage])
-     odometer()     About: one year counter beside the timeline
      railMeta()     phones: the count under a row you swipe
      accordions()   phones: options as a price list ([data-acc])
      progress()     "Step n / N" while a long procedure is read
@@ -382,42 +381,6 @@ export function stages() {
       });
     });
     return () => undo.forEach(f => f());
-  });
-}
-
-/* ---------- About: one year counter beside the timeline ---------- */
-export function odometer() {
-  const tl = $('.tl');
-  const odo = tl && $('[data-odo]', tl);
-  if (!odo || !('IntersectionObserver' in window)) return;
-  const cols = $$('.odo__d', odo);
-  cols.forEach(c => { c.innerHTML = '<span class="odo__s">' + '0123456789'.split('').map(d => `<span>${d}</span>`).join('') + '</span>'; });
-  const strips = cols.map(c => c.firstElementChild);
-  const items = $$('.tl__it', tl);
-  const count = $('[data-odo-n]', tl);
-  gsap.matchMedia().add(DESK, () => {
-    tl.classList.add('is-odo');
-    let cur = -1;
-    const set = i => {
-      if (i === cur) return;
-      const quiet = cur === -1;
-      cur = i;
-      const y = items[i].getAttribute('data-label') || '';
-      strips.forEach((s, j) => {
-        s.style.transitionDelay = env.motion ? (j * 0.06) + 's' : '0s';
-        if (!env.motion) s.style.transitionDuration = '0s';
-        s.style.setProperty('--v', y[j] || 0);
-      });
-      items.forEach((li, j) => li.classList.toggle('is-on', j === i));
-      if (count) count.textContent = pad(i + 1);
-      if (!quiet) sfx('tap');
-    };
-    set(0);
-    const io = new IntersectionObserver(es => es.forEach(e => {
-      if (e.isIntersecting) set(items.indexOf(e.target));
-    }), { rootMargin: '-40% 0px -59% 0px' });
-    items.forEach(li => io.observe(li));
-    return () => { io.disconnect(); tl.classList.remove('is-odo'); items.forEach(li => li.classList.remove('is-on')); };
   });
 }
 

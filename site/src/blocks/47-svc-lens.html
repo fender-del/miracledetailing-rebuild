@@ -1,0 +1,36 @@
+<!-- ============ 47 · SERVICE: LENS ============
+     A wide photo with a hidden layer under it, seen through a round
+     lens (07/10, tint: ballistic film "that cannot be seen", so the lens
+     shows the film's layers on the glass). Desktop: the lens follows
+     the pointer and settles back on the glass when the pointer leaves;
+     it sweeps once across the glass when the section arrives. Touch:
+     drag it; left alone it drifts slowly over the glass. Reduced
+     motion: it waits on the glass, drag still works. No JS: the lens
+     waits on the glass. The heading sits on the photo; Paul's words
+     follow under it, his first line large. Reusable as an inspection
+     light (correction: the swirls under the paint, ceramic: the
+     coating). Built by lib/formats.js lens(); motion/formats.js. -->
+<section class="slens sec" id="{{lens.id}}" data-section="lens"{{#lens.light}} data-bg="light" data-theme="light"{{/lens.light}}{{#lens.graphite}} data-bg="graphite"{{/lens.graphite}}>
+  <figure class="slens__fig" data-lens style="--ar:{{lens.ar}};--fx:{{lens.focus}}" data-rest="{{lens.restX}},{{lens.restY}}">
+    <div class="wrap slens__cap">
+      {{#lens.eyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&lens.eyebrow}}</p>{{/lens.eyebrow}}
+      {{#lens.title}}<h2 class="disp h2" data-split>{{&lens.title}}</h2>{{/lens.title}}
+    </div>
+    <div class="slens__win">
+      <div class="slens__stage" style="--lx:{{lens.restX}};--ly:{{lens.restY}}">
+        <div class="slens__base">{{&lens.img}}</div>
+        <div class="slens__x" aria-hidden="true">
+          <div class="slens__ximg">{{&lens.img2}}</div>
+          {{#lens.regions}}<div class="slens__rg" style="clip-path:{{clip}}"><i></i></div>{{/lens.regions}}
+          <svg class="slens__svg" viewBox="0 0 100 100" preserveAspectRatio="none">{{#lens.regions}}<polygon points="{{points}}"/>{{#layers}}<polygon class="ply" style="stroke-opacity:{{o}}" points="{{points}}" transform="translate({{cx}} {{cy}}) scale({{k}}) translate(-{{cx}} -{{cy}})"/>{{/layers}}{{/lens.regions}}</svg>
+        </div>
+        <span class="slens__ring"{{#lens.tag}} data-tag="{{lens.tag}}"{{/lens.tag}} aria-hidden="true"></span>
+      </div>
+      {{#lens.hint}}<p class="slens__hint" aria-hidden="true"><span></span>{{&.}}</p>{{/lens.hint}}
+    </div>
+  </figure>
+  <div class="wrap slens__in">
+    {{#lens.lead}}<p class="slens__lead" data-reveal>{{&.}}</p>{{/lens.lead}}
+    <div class="slens__body more" data-more><div class="more__body" data-reveal>{{#lens.paras}}<p>{{&.}}</p>{{/lens.paras}}</div></div>
+  </div>
+</section>

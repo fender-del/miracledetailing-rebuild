@@ -1,0 +1,26 @@
+<!-- ============ 42 · ABOUT: FIFTH GEAR, 2006 ============
+     One magazine spread (07/10; it was three ivory blocks with a screen
+     of empty paper between them): the heading and the three figures
+     beside the MC12, Paul's two paragraphs across the page, then the
+     line a generation of detailers remembers, lit word by word as it
+     scrolls through (motion/ppf.js lit). The figures count up once. -->
+<section class="abf sec" id="{{feat.id}}" data-section="feature" data-bg="light" data-theme="light">
+  <div class="wrap abf__in">
+    <div class="abf__head">
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&feat.eyebrow}}</p>
+      <h2 class="disp h2" data-split>{{&feat.title}}</h2>
+      <ul class="abf__figs" role="list">
+        {{#feat.figs}}<li data-reveal><p class="abf__n" data-count="{{n}}">{{n}}</p><p class="abf__l">{{l}}</p></li>{{/feat.figs}}
+      </ul>
+    </div>
+    <figure class="abf__fig">
+      <div class="abf__media" data-reveal="card"><div data-parallax>{{&feat.img}}</div></div>
+      <figcaption class="abf__cap">{{&feat.cap}}</figcaption>
+    </figure>
+    <div class="abf__body" data-reveal>{{#feat.paras}}<p>{{&.}}</p>{{/feat.paras}}</div>
+    <figure class="abf__quote">
+      <blockquote class="abqt abf__qt" data-lit>{{&feat.quote}}</blockquote>
+      <figcaption class="abcite" data-reveal>{{&feat.cite}}</figcaption>
+    </figure>
+  </div>
+</section>

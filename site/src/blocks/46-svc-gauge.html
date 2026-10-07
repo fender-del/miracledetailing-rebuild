@@ -1,0 +1,59 @@
+<!-- ============ 46 · SERVICE: GAUGE ============
+     A value the visitor sets with a slider, read against a photo and a
+     set of limits (07/10, tint: how much light the glass lets through,
+     against the UK minimums Paul lists). Each zone of the photo is a
+     polygon that darkens with the value; its row says whether it is
+     within its limit. Paul's words and list stay whole on the other
+     side. Phones: the tool comes first under the heading, the words
+     after it. No JS: the default value, worked out at build time (the
+     slider is hidden). Built by lib/formats.js gauge(); motion/formats.js. -->
+<section class="sgauge sec" id="{{gauge.id}}" data-section="gauge" data-gauge data-pass="{{gauge.pass}}" data-fail="{{gauge.fail}}"{{#gauge.light}} data-bg="light" data-theme="light"{{/gauge.light}}{{#gauge.graphite}} data-bg="graphite"{{/gauge.graphite}}>
+  <div class="wrap sgauge__in">
+    <div class="sgauge__head">
+      {{#gauge.eyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&gauge.eyebrow}}</p>{{/gauge.eyebrow}}
+      {{#gauge.title}}<h2 class="disp h2" data-split>{{&gauge.title}}</h2>{{/gauge.title}}
+    </div>
+
+    <div class="sgauge__tool" data-reveal="card">
+      <figure class="sgauge__fig">
+        <div class="sgauge__media" style="--d:{{gauge.dark}}" data-gauge-media>
+          {{&gauge.img}}
+          {{#gauge.zones}}<div class="sgauge__z sgauge__z--clear" style="clip-path:{{clip}}" aria-hidden="true"></div><div class="sgauge__z sgauge__z--dark" style="clip-path:{{clip}}" aria-hidden="true"></div>{{/gauge.zones}}
+          <svg class="sgauge__svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            {{#gauge.zones}}<polygon class="sgauge__line{{^ok}} is-fail{{/ok}}" data-zl="{{id}}" points="{{points}}"/>{{/gauge.zones}}
+          </svg>
+          {{#gauge.zones}}<span class="sgauge__pin{{^ok}} is-fail{{/ok}}" data-zp="{{id}}" style="left:{{cx}}%;top:{{cy}}%" aria-hidden="true"><i></i></span>{{/gauge.zones}}
+        </div>
+      </figure>
+
+      <div class="sgauge__ctl">
+        <div class="sgauge__read">
+          <label class="sgauge__lab" for="{{gauge.id}}-v">{{gauge.range.label}}</label>
+          <output class="sgauge__out" for="{{gauge.id}}-v"><b data-gauge-v>{{gauge.range.value}}</b>{{gauge.range.unit}}</output>
+        </div>
+        <div class="sgauge__track">
+          <input class="sgauge__range" id="{{gauge.id}}-v" type="range" min="{{gauge.range.min}}" max="{{gauge.range.max}}" step="{{gauge.range.step}}" value="{{gauge.range.value}}" data-gauge-in>
+          {{#gauge.marks}}<span class="sgauge__mark" style="--at:{{at}}" aria-hidden="true"><i>{{m}}%</i></span>{{/gauge.marks}}
+        </div>
+        <ul class="sgauge__zones" role="list">
+          {{#gauge.zones}}
+          <li class="sgauge__row{{^ok}} is-fail{{/ok}}" data-zr="{{id}}">
+            <span class="sgauge__dot" aria-hidden="true"></span>
+            <span class="sgauge__zn">{{&name}}</span>
+            <span class="sgauge__min">{{&minLabel}}</span>
+            <span class="sgauge__st" data-st aria-live="polite">{{status}}</span>
+          </li>
+          {{/gauge.zones}}
+        </ul>
+      </div>
+      <script type="application/json" data-gauge-data>{{&gauge.data}}</script>
+    </div>
+
+    <div class="sgauge__text">
+      <div class="sgauge__body more" data-more><div class="more__body" data-reveal>{{#gauge.paras}}<p>{{&.}}</p>{{/gauge.paras}}</div></div>
+      {{#gauge.listTitle}}<p class="sgauge__lt" data-reveal>{{&.}}</p>{{/gauge.listTitle}}
+      {{#gauge.hasList}}<ul class="sgauge__list" role="list" data-reveal>{{#gauge.list}}<li>{{&.}}</li>{{/gauge.list}}</ul>{{/gauge.hasList}}
+      {{#gauge.price}}<p class="sgauge__price" data-reveal>{{&.}}</p>{{/gauge.price}}
+    </div>
+  </div>
+</section>

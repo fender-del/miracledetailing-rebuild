@@ -12,27 +12,56 @@
    intro instead of its own line; Nippon TV shows one photo three times
    (kept once); 2015 LaFerrari shows the dry ice photo (this page shows
    v0.5's own LaFerrari photo, download.jpg, instead).
+   07/10 rebuild (Fender: the layout and the scroll did not land; on a
+   phone the story could not be read in full): the timeline reads top to
+   bottom with a year bar (desktop: a photo stage beside it), Fifth Gear
+   is one spread, credentials / new to detailing / on price are numbered
+   lists, the two quotes share one photo, and nothing folds. Same words,
+   same order.
    ============================================================ */
 'use strict';
 const { frame, images } = require('../lib/pic.js');
-const { stars, reviews, crumbs, cards, prose, quote } = require('../lib/shared.js');
+const { stars, reviews, crumbs, prose } = require('../lib/shared.js');
 
 const SLUG = 'about-paul-dalton-car-detailing';
 
-/* one timeline photo: portrait rows get a taller frame */
-const ph = (n, cap, alt, tall) => ({ n, cap, alt, tall });
-function photos(list) {
-  const portrait = list.filter(p => { const im = images['ab-' + p.n]; return im && im.h > im.w; }).length;
-  const ratio = portrait > list.length / 2 ? '4 / 5' : '3 / 2';
-  const cols = list.length === 1 ? '(max-width: 767px) 86vw, 640px' : '(max-width: 767px) 44vw, 24vw';
-  return list.map(p => ({ img: frame('ab-' + p.n, { alt: p.alt || p.cap, sizes: cols, ratio }), cap: p.cap }));
+/* one timeline photo. The frames take their shape from the layout
+   (40-timeline.css: a phone grid, or the desktop stage), so no ratio
+   here; sizes follow the tile each layout gives the photo. */
+const ph = (n, cap, alt) => ({ n, cap, alt });
+const isPort = n => { const im = images['ab-' + n]; return !!im && im.h > im.w; };
+function photos(list, port) {
+  const n = list.length;
+  const size = i => {
+    if (n === 1) return '(max-width: 1023px) 92vw, 46vw';
+    if (n === 2) return '(max-width: 1023px) 46vw, 46vw';
+    if (n === 3 && !port) return i === 0 ? '(max-width: 1023px) 92vw, 46vw' : '(max-width: 1023px) 46vw, 23vw';
+    if (port) return '(max-width: 1023px) 31vw, 16vw';
+    return '(max-width: 1023px) 46vw, 23vw';
+  };
+  return list.map((p, i) => ({ img: frame('ab-' + p.n, { alt: p.alt || p.cap, sizes: size(i), ratio: false }), cap: p.cap, portrait: isPort(p.n), ar: `${images['ab-' + p.n].w} / ${images['ab-' + p.n].h}` }));
 }
+/* block 43: a numbered list (credentials, new to detailing, on price) */
+const list = o => ({
+  id: o.id, light: !!o.light, eyebrow: o.eyebrow, title: o.title,
+  intro: o.intro || null, hasIntro: !!(o.intro && o.intro.length),
+  items: o.items.map(it => ({ n: it.n, name: it.name, sub: it.sub || null, paras: it.paras ? [].concat(it.paras) : null, hasText: !!it.paras }))
+});
+let seq = 0;
 const entry = (year, title, paras, list = []) => {
-  const ps = photos(list);
-  return { year, title, paras: [].concat(paras), photos: ps, hasPhotos: ps.length > 0, count: ps.length };
+  const port = list.filter(p => isPort(p.n)).length > list.length / 2;
+  const ps = photos(list, port);
+  const idx = String(++seq).padStart(2, '0');
+  return {
+    id: 'tl-' + idx, idx, year, title, paras: [].concat(paras), photos: ps,
+    hasPhotos: ps.length > 0, count: ps.length, shape: port ? 'port' : 'land',
+    /* phones: three or more photos share one line of captions */
+    capLine: ps.length >= 3 ? ps.map(p => p.cap).join(' · ') : null
+  };
 };
 
 module.exports = site => {
+  seq = 0;
   const nav = crumbs([
     { name: 'Home', href: '/' },
     { name: 'About Paul', href: `/${SLUG}/` }
@@ -120,30 +149,23 @@ module.exports = site => {
         ]
       }) } },
       '40-timeline',
-      { block: '33-svc-prose', with: { prose: prose({
-        id: 'fifth-gear', light: true, reverse: true,
+      { block: '42-ab-feature', with: { feat: {
+        id: 'fifth-gear',
         eyebrow: 'Fifth Gear, 2006',
         title: 'The £5,000 car wash: <span class="gold">61 stages, 64 hours.</span>',
-        img: frame('ab-50', { alt: 'The white and blue Maserati MC12 detailed on Fifth Gear', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '4 / 3' }),
+        img: frame('ab-50', { alt: 'The white and blue Maserati MC12 detailed on Fifth Gear', sizes: '(max-width: 899px) 92vw, 54vw', ratio: '4 / 3' }),
         cap: 'Maserati MC12 · Fifth Gear · 2006 · One of only 50 ever made',
+        figs: [{ n: '61', l: 'Stages' }, { n: '64', l: 'Hours' }, { n: '7', l: 'National newspapers' }],
         paras: [
           'In 2006, Paul appeared on Fifth Gear to detail a Maserati MC12, one of only 50 ever built, properly. 61 stages. 64 hours. £5,000. It gave a television audience their first real look at what obsessive paint correction actually involves: not a wash and wax, but full inspection, correction and protection carried out to a standard most viewers didn’t know existed. The segment was broadcast globally and picked up by seven national newspapers.',
           'The response was immediate and international. Phone calls came in from around the world for a week. Requests from Hong Kong, Monaco, Portugal and the Middle East followed. A generation of detailers, many of whom are now prominent in the industry, point to that segment as the moment they understood what detailing could actually be.'
-        ]
-      }) } },
-      { block: '21-svc-proof', with: { proofId: 'fifth-gear-figures', proofN: 3, proofLight: true, proof: [
-        { n: '61', l: 'Stages', rating: null, tbc: null },
-        { n: '64', l: 'Hours', rating: null, tbc: null },
-        { n: '7', l: 'National newspapers', rating: null, tbc: null }
-      ] } },
-      { block: '38-svc-quote', with: { quote: quote({
-        id: 'generation', light: true,
-        text: '“A generation of detailers cites this as the moment they understood <span class="gold">what the craft could become.</span>”',
+        ],
+        quote: '“A generation of detailers cites this as the moment they understood <span class="gold">what the craft could become.</span>”',
         cite: 'Fifth Gear · 2006 · Broadcast globally'
-      }) } },
+      } } },
       '24-svc-work',
-      { block: '37-svc-cards', with: { cards: cards({
-        id: 'credentials', variant: 'points', cols: 3,
+      { block: '43-ab-list', with: { list: list({
+        id: 'credentials',
         eyebrow: 'Background',
         title: 'A few credentials, <span class="gold">for context.</span>',
         items: [
@@ -154,19 +176,16 @@ module.exports = site => {
           { n: 'V', name: '30+ Years: Clients Who Stay', sub: 'Since 1994', paras: 'The clients who found Paul when he first opened his doors in 1994 are still with him today. No advertising. No promotions. A business built entirely on the quality of the work and the trust it creates.' }
         ]
       }) } },
-      { block: '38-svc-quote', with: { quote: quote({
-        id: 'one-detailer',
+      { block: '44-ab-quotes', with: { q: {
+        id: 'quotes',
         img: frame('ab-54', { alt: '', sizes: '100vw', ratio: false }),
-        text: '“One detailer. Every car. <span class="gold">No exceptions.</span>”',
-        cite: 'Paul Dalton · Ferrari Monza SP · Photography: Andreas Jansson'
-      }) } },
-      { block: '38-svc-quote', with: { quote: quote({
-        id: 'pebble-beach',
-        text: '“My LaFerrari looks better than cars prepared for the prestigious <span class="gold">Pebble Beach Concours d’Elegance.</span>”',
-        cite: 'Private Client · Monaco'
-      }) } },
-      { block: '37-svc-cards', with: { cards: cards({
-        id: 'new', light: true, cols: 3, rail: false, acc: true,
+        items: [
+          { text: '“One detailer. Every car. <span class="gold">No exceptions.</span>”', cite: 'Paul Dalton · Ferrari Monza SP · Photography: Andreas Jansson' },
+          { text: '“My LaFerrari looks better than cars prepared for the prestigious <span class="gold">Pebble Beach Concours d’Elegance.</span>”', cite: 'Private Client · Monaco' }
+        ]
+      } } },
+      { block: '43-ab-list', with: { list: list({
+        id: 'new', light: true,
         eyebrow: 'New to detailing?',
         title: 'Not sure what your car <span class="gold">actually needs?</span>',
         intro: [
@@ -181,8 +200,8 @@ module.exports = site => {
           { n: 'V', name: 'Not sure: just ask', paras: 'Tell Paul about the car and what concerns you. He’ll tell you what he sees and what he recommends. No obligation, no pressure.' }
         ]
       }) } },
-      { block: '37-svc-cards', with: { cards: cards({
-        id: 'price', variant: 'points', cols: 4,
+      { block: '43-ab-list', with: { list: list({
+        id: 'price',
         eyebrow: 'On price',
         title: 'Yes, Paul costs more. <span class="gold">Here is exactly why.</span>',
         intro: [
@@ -251,7 +270,9 @@ module.exports = site => {
         title: 'From a Surrey driveway to <span class="gold">Monaco and beyond.</span>',
         items: timeline,
         total: String(timeline.length).padStart(2, '0'),
-        first: timeline[0].year
+        /* the year bar: each year once, linked to its first entry */
+        years: timeline.filter((t, i) => timeline.findIndex(u => u.year === t.year) === i)
+          .map(t => ({ label: t.year, href: t.id, first: timeline.indexOf(t) }))
       },
 
       workEyebrow: 'The work itself',

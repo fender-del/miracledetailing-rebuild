@@ -1,0 +1,45 @@
+<!-- ============ 52 · SERVICE: CHOOSE ONE ============
+     Two or three versions of one service that differ in a single
+     measure (07/10, ceramic: wheel coating, 1 year or 3–5 years). A
+     photo beside Paul's words; under them one button per version (its
+     name and price, every price in view), a scale of that measure, and
+     the list of the version picked. The lines that differ between the
+     versions are the bright ones. Phones: the photo cropped short above,
+     the buttons side by side. No JS: every version's list, each under
+     its name; the scale is hidden. Built by lib/formats-b.js choose();
+     motion/formats-b.js. -->
+<section class="schoose sec" id="{{choose.id}}" data-section="choose" data-choose{{#choose.light}} data-bg="light" data-theme="light"{{/choose.light}}{{#choose.graphite}} data-bg="graphite"{{/choose.graphite}}>
+  <div class="wrap schoose__in">
+    <figure class="schoose__media" data-reveal="card"><div class="schoose__pic">{{&choose.img}}</div></figure>
+    <div class="schoose__copy">
+      {{#choose.eyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&choose.eyebrow}}</p>{{/choose.eyebrow}}
+      <h2 class="disp h2" data-split>{{&choose.title}}</h2>
+      {{#choose.hasIntro}}<div class="schoose__intro more" data-more><div class="more__body" data-reveal>{{#choose.intro}}<p>{{&.}}</p>{{/choose.intro}}</div></div>{{/choose.hasIntro}}
+
+      <div class="schoose__pick" data-reveal>
+        <div class="schoose__opts" role="group" aria-label="{{choose.label}}" style="--n:{{choose.count}}">
+          {{#choose.options}}
+          <button class="schoose__opt" type="button" data-opt data-a="{{a}}" data-b="{{b}}" aria-pressed="false" aria-controls="{{choose.id}}-o{{_n}}">
+            <span class="schoose__kick">{{&kicker}}</span>
+            <span class="schoose__name">{{&name}}</span>
+            <span class="schoose__price">{{&price}}</span>
+          </button>
+          {{/choose.options}}
+        </div>
+        <div class="schoose__scale" aria-hidden="true">
+          <p class="schoose__scale-k"><span>{{choose.scaleLabel}}</span><span>{{choose.scaleUnit}}</span></p>
+          <div class="schoose__track"><i class="schoose__fill"></i><i class="schoose__range"></i></div>
+          <ol class="schoose__ticks" role="list">{{#choose.ticks}}<li>{{.}}</li>{{/choose.ticks}}</ol>
+        </div>
+        <div class="schoose__panels">
+          {{#choose.options}}
+          <div class="schoose__panel" id="{{choose.id}}-o{{_n}}" data-panel>
+            <p class="schoose__pname">{{&kicker}} · {{&name}}</p>
+            <ul class="schoose__list" role="list">{{#rows}}<li{{#diff}} class="is-diff"{{/diff}}>{{&text}}</li>{{/rows}}</ul>
+          </div>
+          {{/choose.options}}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

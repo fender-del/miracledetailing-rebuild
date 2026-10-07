@@ -1,0 +1,18 @@
+<!-- ============ 50 · SERVICE: NOTE ============
+     A closing note (07/10, tint: complete discretion): one dark photo
+     behind, the words set centred and narrow, the first paragraph
+     large and lit word by word as it scrolls through (the page's one
+     lit line; motion/ppf.js lit), a call button under the last line.
+     The photo drifts with the scroll on a mouse (data-parallax).
+     Reusable for any page's last word before the form. Built by
+     lib/formats.js note(). -->
+<section class="snote sec" id="{{note.id}}" data-section="note">
+  {{#note.img}}<div class="snote__bg" aria-hidden="true"><div data-parallax>{{&.}}</div></div>{{/note.img}}
+  <div class="wrap snote__in">
+    {{#note.eyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&note.eyebrow}}</p>{{/note.eyebrow}}
+    {{#note.title}}<h2 class="disp h2" data-split>{{&note.title}}</h2>{{/note.title}}
+    {{#note.lead}}<p class="snote__lead" data-lit>{{&.}}</p>{{/note.lead}}
+    <div class="snote__body" data-reveal>{{#note.paras}}<p>{{&.}}</p>{{/note.paras}}</div>
+    {{#note.cta}}<p class="snote__cta" data-reveal><a class="btn btn--ghost" href="{{href}}"><span class="btn__in">{{label}}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></span></a></p>{{/note.cta}}
+  </div>
+</section>

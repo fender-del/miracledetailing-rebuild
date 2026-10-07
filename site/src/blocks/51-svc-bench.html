@@ -1,0 +1,50 @@
+<!-- ============ 51 · SERVICE: TEST PANEL ============
+     A close-up of painted metal, split down the middle: unprotected on
+     the left, coated on the right (07/10, ceramic: why Feynlab). Each of
+     Paul's points plays its own test on the panel, drawn in code:
+       heal    gentle heat passes over; the coated half's swirls close
+       chem    fallout lands; it beads and runs off the coated half,
+               etches the other
+       uv      years of sun; the unprotected half fades
+       gloss   one strip light; sharp and deep on the coated half
+     Desktop: the points take turns while the section is on screen (a
+     hairline fills under the open one); the pointer on the list or the
+     panel holds the turn, a click holds it for good, and the heat and
+     the light follow the pointer over the panel. Tablets and phones:
+     the panel sits above the list (not held); a tap opens a point and
+     plays its test. Reduced motion: each test at its end, no turns.
+     No JS: the plain panel, every point open. Data: lib/formats-b.js
+     bench(); behaviour: motion/formats-b.js. -->
+<section class="sbench sec" id="{{bench.id}}" data-section="bench" data-bench{{#bench.light}} data-bg="light" data-theme="light"{{/bench.light}}{{#bench.graphite}} data-bg="graphite"{{/bench.graphite}}>
+  <div class="wrap sbench__in">
+    <div class="sbench__copy">
+      <div class="sbench__head">
+        {{#bench.eyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&bench.eyebrow}}</p>{{/bench.eyebrow}}
+        <h2 class="disp h2" data-split>{{&bench.title}}</h2>
+      </div>
+      <ol class="sbench__pts" role="list">
+        {{#bench.items}}
+        <li class="sbench__pt" data-pt data-demo="{{demo}}" data-cap="{{cap}}" data-reveal="row">
+          <button class="sbench__btn" type="button" aria-expanded="true" aria-controls="{{bench.id}}-t{{_n}}">
+            <span class="sbench__n">{{n}}</span>
+            <span class="sbench__name">{{&name}}</span>
+            <span class="sbench__ico" aria-hidden="true"></span>
+          </button>
+          <div class="sbench__txt" id="{{bench.id}}-t{{_n}}"><div>{{#paras}}<p>{{&.}}</p>{{/paras}}</div></div>
+          <span class="sbench__bar" aria-hidden="true"><i></i></span>
+        </li>
+        {{/bench.items}}
+      </ol>
+    </div>
+    <figure class="sbench__fig" data-reveal="card">
+      <div class="sbench__panel" data-bench-panel>
+        <canvas class="sbench__cv" data-bench-cv aria-hidden="true"></canvas>
+        <span class="sbench__seam" aria-hidden="true"></span>
+        <span class="sbench__side sbench__side--l">{{bench.left}}</span>
+        <span class="sbench__side sbench__side--r">{{bench.right}}</span>
+        <span class="sbench__meter" data-bench-meter aria-hidden="true"></span>
+      </div>
+      <figcaption class="sbench__cap"><span class="sbench__cap-n" data-bench-n>{{bench.firstN}}</span><span data-bench-cap>{{bench.firstCap}}</span></figcaption>
+    </figure>
+  </div>
+</section>

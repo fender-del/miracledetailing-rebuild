@@ -75,7 +75,7 @@ function cards(o) {
   const fx = o.fx || null;
   return {
     id: o.id, variant, light: !!o.light, graphite: !!o.graphite,
-    fx, acc, fxRail: fx === 'rail',
+    fx, acc, fxRail: fx === 'rail', compact: !!o.compact,
     counted: rail || fx === 'rail',
     total: String(items.length).padStart(2, '0'),
     eyebrow: o.eyebrow || null, title: o.title || null,

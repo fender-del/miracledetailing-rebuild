@@ -123,6 +123,26 @@ Reduced motion / no JS: none of the motion; stage and year counter still work wi
 
 QA 07/10 (after the revision): 17 pages × 7 modes, 0 console errors, 1 H1, 0 horizontal overflow, 0 hidden text. Lighthouse mobile (local): Dry ice 98, Correction 99, Wheels 99; CLS 0. JS 93 KB gz.
 
+## New block shapes 45–50 (07/10, the window tint rebuild)
+
+Fender: the tint page had too few visuals and every section was "heading left, text right" or "a row of cards". Rebuilt with Paul's words unchanged, each section a different shape. The shapes are generic (data in `src/lib/formats.js`, behaviour in `src/motion/formats.js`), so other pages can use them:
+
+| Block | What it is | Tint uses it for | Could serve |
+|---|---|---|---|
+| 45 show | a large photo, an effect painted on a traced part (`regions`: `poly` in % of the image, `fx` shift / hatch), numbered points that take turns and set a look | chameleon film on a Jaguar windscreen, following the pointer; IV hatches the bonnet (PPF) | leather areas, wheel parts |
+| 46 gauge | a slider against a photo and limits; each zone darkens and says pass / fail | UK VLT: windscreen 75, front 70, rear none, on a Mercedes E-class | correction % levels |
+| 47 lens | a wide photo with a hidden layer seen through a lens (pointer / drag / drift), a label riding under it | bulletproof film: honeycomb, plies, bonded edge on the side glass | an inspection light on paint |
+| 48 layers | an exploded drawing; the item in the middle of the screen sets its state | glass + film plies: part (I), bonded edge holds (II), one clear pane (III) | ceramic layers, PPF build-up |
+| 49 index | big editorial rows, one open at a time on a paragraph + photo | who it's for | areas, audiences |
+| 50 note | a closing note on a dark photo, the page's one lit paragraph, a call button | complete discretion | any page's last word |
+
+Also: `cards({ compact: true })` (37): on phones each card shows photo, name, line and price, "Read more" opens the rest (tint film options, Fender 07/10).
+
+- Dropped the same day: a canvas of the pane being shot (Fender: "trông trẻ con quá"); 48 layers replaced it.
+- Photos: Pexels (free licence) in `../assets-src/stock/pexels-<id>.jpg`: 26691322, 1574846, 39835378, 4096380, 17233277, 20036216, 7594130, 1467591, 33203858, 11877373. The traced glass is in `pages/14-tint.js`; re-cropping a photo in `tools/images-pages.js` means re-tracing.
+- Canva stock was asked for, but the Canva connector was not signed in on 07/10.
+- QA 07/10: tint and ceramic, 7 modes each, clean.
+
 ## Where things live
 
 | What | File |

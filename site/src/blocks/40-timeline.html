@@ -1,34 +1,57 @@
 <!-- ============ 40 · ABOUT: THE FULL STORY ============
-     v0.5 About's timeline, every entry whole: the year held large on the
-     left while its entry passes (sticky), a gold diamond on the line, the
-     title, Paul's paragraph and the photos v0.5 shows for it, captioned.
-     07/10: on desktop one year counter holds the left column and turns
-     over like an odometer to each entry's year (motion/kit.js); each
-     entry keeps its own year for screen readers and without JS.
-     Phones (07/10, the timeline ran to ~19 screens): the entries become a
-     row to swipe, one card each, the year and a count under it; long
-     entries fold (Read more). -->
+     v0.5 About's timeline, every entry whole (rebuilt 07/10, Fender: the
+     sideways row hid 25 of the 26 entries on a phone, and the desktop
+     column ran to ~20 screens of the same beat).
+       years    one list of the years, a link to each (the plan's "year
+                bar to jump between the entries"). Desktop: a column held
+                beside the entries, the year in view rolled large on an
+                odometer above it. Phones: a bar held under the page nav,
+                the odometer small, the years to swipe beside it.
+       entries  the year, Paul's title and paragraph, and the photos v0.5
+                shows for it, captioned. Everything readable on a phone,
+                nothing behind a swipe or a fold.
+       stage    desktop with JS (motion/about.js): each entry's photos move
+                into one frame held beside the text, and change as the
+                entry in view changes; the entries keep only their words.
+     Without JS: the years are plain links, the photos stay in each entry. -->
 <section class="tl sec" id="{{tl.id}}" data-section="timeline">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head tl__head">
       <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&tl.eyebrow}}</p>
       <h2 class="disp h2" data-split>{{&tl.title}}</h2>
     </div>
-    <div class="tl__frame">
-    <div class="tl__odo" aria-hidden="true"><div class="odo__stick"><div class="odo" data-odo><span class="odo__d"></span><span class="odo__d"></span><span class="odo__d"></span><span class="odo__d"></span></div><p class="odo__n"><span data-odo-n>01</span> / {{tl.total}}</p></div></div>
-    <ol class="tl__list" role="list" data-rail>
-      {{#tl.items}}
-      <li class="tl__it" data-label="{{year}}">
-        <p class="tl__year"><span>{{year}}</span></p>
-        <div class="tl__body" data-reveal>
-          <h3 class="tl__title">{{&title}}</h3>
-          <div class="tl__text more" data-more><div class="more__body">{{#paras}}<p>{{&.}}</p>{{/paras}}</div></div>
-          {{#hasPhotos}}<ul class="tl__photos" role="list" data-n="{{count}}">{{#photos}}<li><figure>{{&img}}<figcaption>{{&cap}}</figcaption></figure></li>{{/photos}}</ul>{{/hasPhotos}}
+    <div class="tl__grid">
+      <nav class="tl__nav" aria-label="Jump to a year">
+        <div class="tl__now" aria-hidden="true">
+          <div class="odo" data-odo><span class="odo__d"></span><span class="odo__d"></span><span class="odo__d"></span><span class="odo__d"></span><span class="odo__w" data-odo-w></span></div>
+          <p class="tl__count"><span data-odo-n>01</span> / {{tl.total}}</p>
         </div>
-      </li>
-      {{/tl.items}}
-    </ol>
+        <ol class="tl__years" role="list" data-years>
+          {{#tl.years}}<li><a class="tl__ya" href="#{{href}}" data-ya="{{first}}">{{label}}</a></li>{{/tl.years}}
+        </ol>
+        <span class="tl__bar" aria-hidden="true"><i></i></span>
+      </nav>
+      <div class="tl__track">
+      <span class="tl__fill" aria-hidden="true"></span>
+      <ol class="tl__list" role="list" data-tl>
+        {{#tl.items}}
+        <li class="tl__it{{#hasPhotos}} has-photos{{/hasPhotos}}" id="{{id}}" data-label="{{year}}">
+          <p class="tl__meta"><span class="tl__year">{{year}}</span><span class="tl__idx">{{idx}}</span></p>
+          <div class="tl__body">
+            <h3 class="tl__title" data-tlr>{{&title}}</h3>
+            <div class="tl__text" data-tlr>{{#paras}}<p>{{&.}}</p>{{/paras}}</div>
+            {{#hasPhotos}}<div class="tl__pics" data-pics>
+              <ul class="tl__photos" role="list" data-n="{{count}}" data-shape="{{shape}}">{{#photos}}<li class="tl__ph{{#portrait}} is-port{{/portrait}}" style="--ar:{{ar}}"><figure>{{&img}}<figcaption>{{&cap}}</figcaption></figure></li>{{/photos}}</ul>
+              {{#capLine}}<p class="tl__caps" aria-hidden="true">{{&.}}</p>{{/capLine}}
+            </div>{{/hasPhotos}}
+          </div>
+        </li>
+        {{/tl.items}}
+      </ol>
+      </div>
+      <div class="tl__stage" aria-hidden="true">
+        <div class="tl__frame"><div class="tl__panels" data-panels></div></div>
+      </div>
     </div>
-    <div class="rmeta" aria-hidden="true"><span class="rmeta__n"><b data-rail-n>{{tl.first}}</b><span data-rail-i>01</span> / {{tl.total}}</span><span class="rmeta__bar"><i></i></span></div>
   </div>
 </section>

@@ -6,6 +6,8 @@
      hero (headline, intro, three figures) · Paul and Feynlab
      · why ceramic matters · Ceramic by Paul Dalton · the full range (6)
      · why Feynlab (4) · wheel ceramic (2) · Veyron + McLaren F1 · book
+   07/10: why Feynlab plays each point on a test panel (block 51), the
+   wheel coating is one choice between its two versions (block 52).
    v0.5 slip, fixed: under "Ceramic by Paul Dalton" it shows the tint
    page's VLT paragraph, and the tint page shows this one. Each sits on
    its own page here (REQUESTS.md asks Paul to confirm).
@@ -13,6 +15,7 @@
 'use strict';
 const { frame } = require('../lib/pic.js');
 const { crumbs, cards, prose } = require('../lib/shared.js');
+const { bench, choose } = require('../lib/formats-b.js');
 
 const SLUG = 'ceramic-coatings';
 
@@ -96,29 +99,37 @@ module.exports = site => {
             list: ['Underbody, arches and suspension', 'Chemical and abrasion resistance', 'Extreme hydrophobicity', 'Reduces repainting and cleaning costs'] }
         ]
       }) } },
-      { block: '37-svc-cards', with: { cards: cards({
-        id: 'why-feynlab', variant: 'points', cols: 4,
+      { block: '51-svc-bench', with: { bench: bench({
+        id: 'why-feynlab',
         eyebrow: 'Why Feynlab',
         title: 'The coating Paul chose to put <span class="gold">his name on.</span>',
+        left: 'Unprotected', right: 'Feynlab',
         items: [
-          { n: 'I', name: 'Self-Healing Technology', paras: 'The flagship Feynlab coatings heal minor surface scratches with the application of gentle heat. No other coating brand has refined this technology further.' },
-          { n: 'II', name: 'Chemical Resistance', paras: 'Bird lime, acid rain, industrial fallout, brake dust: Feynlab coatings are formulated to resist chemical attack that degrades unprotected or lesser-coated paint.' },
-          { n: 'III', name: 'UV Protection', paras: 'Ultraviolet radiation fades paint over time. Every Feynlab coating in the range includes UV resistance, protecting the colour and clarity of your paintwork for years.' },
-          { n: 'IV', name: 'Depth of Gloss', paras: 'No wax or sealant delivers the depth of gloss a properly applied ceramic coating achieves. Applied over corrected paint, the result is paint that looks better than new.' }
+          { n: 'I', name: 'Self-Healing Technology', demo: 'heal', cap: 'Swirls, then gentle heat',
+            paras: 'The flagship Feynlab coatings heal minor surface scratches with the application of gentle heat. No other coating brand has refined this technology further.' },
+          { n: 'II', name: 'Chemical Resistance', demo: 'chem', cap: 'Acid rain and fallout',
+            paras: 'Bird lime, acid rain, industrial fallout, brake dust: Feynlab coatings are formulated to resist chemical attack that degrades unprotected or lesser-coated paint.' },
+          { n: 'III', name: 'UV Protection', demo: 'uv', cap: 'Five summers in the sun',
+            paras: 'Ultraviolet radiation fades paint over time. Every Feynlab coating in the range includes UV resistance, protecting the colour and clarity of your paintwork for years.' },
+          { n: 'IV', name: 'Depth of Gloss', demo: 'gloss', cap: 'One strip light across both halves',
+            paras: 'No wax or sealant delivers the depth of gloss a properly applied ceramic coating achieves. Applied over corrected paint, the result is paint that looks better than new.' }
         ]
       }) } },
-      { block: '37-svc-cards', with: { cards: cards({
-        id: 'wheels', graphite: true, cols: 2, rail: false,
+      { block: '52-svc-choose', with: { choose: choose({
+        id: 'wheels', graphite: true,
         eyebrow: 'Additional service',
         title: 'Wheel ceramic <span class="gold">coating.</span>',
         intro: [
           'Wheels take more punishment than any other surface on the car: brake dust, road salt, stone chips and heat. A ceramic coating applied properly means they stay cleaner for longer, are far easier to maintain, and look significantly better.',
           'Paul removes the wheels from the car and applies the coating inside and out, the correct way. Painted calipers are included where the car has them.'
         ],
-        items: [
-          { kicker: '1-Year Protection', name: 'Wheel Ceramic Coating', price: 'From £200 + VAT',
+        img: frame('cc-wheel', { alt: 'The wheel and yellow painted caliper of a Ferrari 458 Speciale', sizes: '(max-width: 1023px) 92vw, 38vw', ratio: '4 / 5' }),
+        label: 'Wheel coating options',
+        scale: { label: 'Durability', unit: 'Years', max: 5 },
+        options: [
+          { kicker: '1-Year Protection', name: 'Wheel Ceramic Coating', price: 'From £200 + VAT', to: 1,
             list: ['Wheels removed from the car', 'Ceramic coating applied inside and out', 'Painted calipers included', '1-year durability'] },
-          { kicker: '3–5 Year Protection', name: 'Durable Wheel Ceramic Coating', price: 'From £300 + VAT', hi: true,
+          { kicker: '3–5 Year Protection', name: 'Durable Wheel Ceramic Coating', price: 'From £300 + VAT', from: 3, to: 5,
             list: ['Wheels removed from the car', 'Durable ceramic applied inside and out', 'Painted calipers included', '3–5 year durability'] }
         ]
       }) } },

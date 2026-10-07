@@ -1,0 +1,26 @@
+<!-- ============ 43 · ABOUT: A NUMBERED LIST ============
+     Credentials, New to detailing, On price (07/10; they were cards three
+     across that left a hole in the second row, the new-to-detailing ones
+     behind taps on a phone). Desktop: the heading and Paul's lines held
+     on the left while the numbered rows pass on the right. Phones: the
+     same rows, one under the other, every word showing. -->
+<section class="abl sec" id="{{list.id}}" data-section="list"{{#list.light}} data-bg="light" data-theme="light"{{/list.light}}>
+  <div class="wrap abl__in">
+    <div class="abl__side">
+      <div class="abl__stick">
+        <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&list.eyebrow}}</p>
+        <h2 class="disp h2" data-split>{{&list.title}}</h2>
+        {{#list.hasIntro}}<div class="abl__intro" data-reveal>{{#list.intro}}<p>{{&.}}</p>{{/list.intro}}</div>{{/list.hasIntro}}
+      </div>
+    </div>
+    <ol class="abl__list" role="list">
+      {{#list.items}}
+      <li class="abl__it{{^hasText}} is-bare{{/hasText}}" data-reveal>
+        <span class="abl__n" aria-hidden="true">{{n}}</span>
+        <div class="abl__h"><h3 class="abl__name">{{&name}}</h3>{{#sub}}<p class="abl__sub">{{&sub}}</p>{{/sub}}</div>
+        {{#hasText}}<div class="abl__p">{{#paras}}<p>{{&.}}</p>{{/paras}}</div>{{/hasText}}
+      </li>
+      {{/list.items}}
+    </ol>
+  </div>
+</section>

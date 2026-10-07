@@ -1,0 +1,40 @@
+<!-- ============ 49 · SERVICE: INDEX ============
+     An editorial list (07/10, tint: who ballistic film is for): a few
+     large rows, number, name and a capitals line; one row is open at a
+     time on a paragraph and a photo. Desktop: pointing at a row opens
+     it (after a short pause, so a pass over the list does not flicker);
+     a click or Enter/Space does the same everywhere. The first row
+     starts open. No JS: every row open. Reusable for any short list of
+     named things that each have a photo (areas, audiences, coatings).
+     Built by lib/formats.js index(); motion/formats.js. -->
+<section class="sidx sec" id="{{idx.id}}" data-section="index" data-idx{{#idx.light}} data-bg="light" data-theme="light"{{/idx.light}}{{#idx.graphite}} data-bg="graphite"{{/idx.graphite}}>
+  <div class="wrap">
+    <div class="sidx__head{{#idx.hasIntro}} has-intro{{/idx.hasIntro}}">
+      <div class="sidx__titles">
+        {{#idx.eyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&idx.eyebrow}}</p>{{/idx.eyebrow}}
+        {{#idx.title}}<h2 class="disp h2" data-split>{{&idx.title}}</h2>{{/idx.title}}
+      </div>
+      {{#idx.hasIntro}}<div class="sidx__intro" data-reveal>{{#idx.intro}}<p>{{&.}}</p>{{/idx.intro}}</div>{{/idx.hasIntro}}
+    </div>
+    <ol class="sidx__list" role="list">
+      {{#idx.items}}
+      <li class="sidx__row{{#open}} is-open{{/open}}" data-row data-reveal style="--k:{{_i}}">
+        <h3 class="sidx__h">
+          <button class="sidx__bar" type="button" id="{{bid}}" aria-controls="{{pid}}" aria-expanded="{{#open}}true{{/open}}{{^open}}false{{/open}}">
+            <span class="sidx__n">{{n}}</span>
+            <span class="sidx__nm">{{&name}}</span>
+            {{#sub}}<span class="sidx__sub">{{&.}}</span>{{/sub}}
+            <span class="sidx__ic" aria-hidden="true"></span>
+          </button>
+        </h3>
+        <div class="sidx__panel" id="{{pid}}" role="region" aria-labelledby="{{bid}}">
+          <div class="sidx__pin">
+            <div class="sidx__tx">{{#paras}}<p>{{&.}}</p>{{/paras}}</div>
+            {{#img}}<div class="sidx__ph">{{&.}}</div>{{/img}}
+          </div>
+        </div>
+      </li>
+      {{/idx.items}}
+    </ol>
+  </div>
+</section>

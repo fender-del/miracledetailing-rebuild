@@ -1,0 +1,42 @@
+/* ============ 42 · ABOUT: FIFTH GEAR, 2006 ============ */
+.abf__in{display:grid;gap:clamp(28px,4vw,56px)}
+.abf__head{display:grid;gap:22px;align-content:start}
+.abf__figs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:clamp(6px,1.4vw,20px) 0 0;padding:0;list-style:none;box-shadow:inset 0 1px 0 var(--line)}
+.abf__figs li{display:grid;gap:8px;align-content:start;padding:18px 14px 0 0}
+.abf__figs li+li{padding-left:16px;box-shadow:inset 1px 0 0 var(--line)}
+.abf__n{font-family:var(--fd);font-weight:500;font-style:italic;font-synthesis:none;font-size:clamp(2.6rem,1.6rem + 3.4vw,5rem);line-height:.95;letter-spacing:-.02em;color:var(--gold)}
+.abf__l{font-size:.6875rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);line-height:1.45}
+.abf__fig{display:grid;gap:12px;margin:0}
+.abf__media{border-radius:var(--r-lg);overflow:hidden;box-shadow:0 40px 70px -40px rgba(17,17,17,.45)}
+.abf__media .media{aspect-ratio:4 / 3}
+.abf__cap{font-size:.6875rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);line-height:1.5}
+.abf__body p{font-size:clamp(1rem,.96rem + .2vw,1.12rem);line-height:1.75}
+.abf__body p+p{margin-top:1.1em}
+.abf__quote{display:grid;gap:22px;margin:clamp(12px,3vw,40px) 0 0;padding-top:clamp(28px,4vw,56px);box-shadow:inset 0 1px 0 var(--line)}
+.abf__qt{font-size:clamp(1.75rem,1.1rem + 2.6vw,3.6rem)}
+@media (min-width:900px){
+  .abf__in{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(24px,3vw,48px);row-gap:clamp(48px,5vw,80px)}
+  .abf__head{grid-column:1 / span 5;align-self:center}
+  .abf__fig{grid-column:6 / -1}
+  .abf__body{grid-column:2 / -2;columns:2;column-gap:clamp(32px,4vw,64px)}
+  .abf__body p{break-inside:avoid}
+  .abf__quote{grid-column:1 / -1;justify-items:center;text-align:center}
+  .abf__qt{max-width:22ch}
+}
+
+/* ---------- About, page-wide: the quotes (here and 44) ---------- */
+.abqt{
+  margin:0;font-family:var(--fd);font-weight:500;font-synthesis:none;letter-spacing:-.01em;
+  line-height:1.14;color:var(--white);text-wrap:balance;
+}
+.abqt .gold{font-style:italic}
+.abqt .w{opacity:var(--o,1);transition:opacity .25s linear}
+.js-motion .abqt.is-split .w{--o:.18}
+.js-motion .abqt.is-split .w.is-lit{--o:1}
+.abcite{display:flex;align-items:center;gap:14px;font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);line-height:1.5}
+.abcite::before{content:"";flex:none;width:7px;height:7px;background:currentColor;transform:rotate(45deg)}
+
+/* ---------- About, page-wide (07/10): nothing folds on this page ----------
+   Fender: on a phone the story could not be read in full. Paul's words
+   show whole here; Read more stays on the service pages. */
+#beginning .more__body{--fold:999}

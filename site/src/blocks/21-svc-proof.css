@@ -1,6 +1,9 @@
 /* ============ 21 · SERVICE PROOF STRIP ============ */
 .sproof{padding:clamp(28px,3vw,44px) 0;border-block:1px solid var(--line)}
 .sproof__list{display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:24px;list-style:none;margin-block:0}
+/* ul[role=list] resets padding: keep the .wrap gutter (07/10, the
+   figures sat on the screen edge on a phone) */
+.sproof__list.wrap{padding-inline:var(--gut)}
 .sproof__it{display:grid;gap:6px;align-content:start}
 .sproof__it+.sproof__it{padding-left:24px;box-shadow:inset 1px 0 0 var(--line)}
 .sproof__n{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.8rem,1.3rem + 1.4vw,2.7rem);line-height:1;color:var(--gold)}

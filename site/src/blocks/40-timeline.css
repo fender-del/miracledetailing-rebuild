@@ -1,67 +1,194 @@
-/* ============ 40 · ABOUT: THE FULL STORY ============ */
-.tl__list{position:relative;display:grid;gap:clamp(56px,7vw,110px);margin:0;padding:0;list-style:none}
-/* the line, behind the diamonds */
-.tl__list::before{content:"";position:absolute;left:calc(clamp(150px,17vw,250px) + 1px);top:12px;bottom:12px;width:1px;background:linear-gradient(180deg,var(--gold-a30),var(--line) 12%,var(--line) 88%,transparent)}
-.tl__it{position:relative;display:grid;grid-template-columns:clamp(150px,17vw,250px) minmax(0,1fr);column-gap:clamp(36px,5vw,80px)}
-.tl__it::before{content:"";position:absolute;left:calc(clamp(150px,17vw,250px) - 4px);top:clamp(16px,1.6vw,26px);width:9px;height:9px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 0 6px var(--ink)}
-.tl__year{margin:0}
-.tl__year span{
-  position:sticky;top:calc(var(--hd-h) + 80px);display:block;
-  font-family:var(--fd);font-weight:500;font-style:italic;font-synthesis:none;letter-spacing:-.02em;
-  font-size:clamp(2.6rem,1.6rem + 3vw,4.6rem);line-height:.95;color:var(--gold);
+/* ============ 40 · ABOUT: THE FULL STORY (rebuilt 07/10) ============
+   Phones and tablets: one column, every entry whole; a bar held under
+   the page nav carries the year (an odometer) and the years to jump to.
+   Desktop: years | entries | a photo stage held still beside them. */
+.tl{--tl-top:calc(var(--hd-h) + 56px)}
+html:has(.hd.is-hidden) .tl{--tl-top:56px}
+
+/* ---------- the year bar ---------- */
+.tl__nav{
+  position:sticky;top:var(--tl-top);z-index:55;transition:top .5s var(--ease);
+  display:flex;align-items:center;gap:14px;min-height:52px;
+  margin-inline:calc(-1 * var(--gut));padding:0 var(--gut);
+  background:rgba(14,14,15,.88);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);
+  box-shadow:inset 0 -1px 0 var(--line);
 }
-.tl__body{display:grid;gap:16px;max-width:880px}
-.tl__title{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.55rem,1.2rem + 1vw,2.25rem);line-height:1.12}
-.tl__text p{max-width:66ch;font-size:clamp(1rem,.96rem + .2vw,1.1rem);line-height:1.75}
-.tl__text p+p{margin-top:1em}
-.tl__photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:10px 0 0;padding:0;list-style:none}
-.tl__photos[data-n="1"]{grid-template-columns:minmax(0,1fr);max-width:640px}
-.tl__photos[data-n="2"],.tl__photos[data-n="4"]{grid-template-columns:repeat(2,minmax(0,1fr))}
-.tl__photos figure{display:grid;gap:8px;margin:0}
-.tl__photos .media{border-radius:10px}
-.tl__photos figcaption{font-size:.6875rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);line-height:1.4}
-/* ---------- the year counter (07/10, desktop + motion) ----------
-   kit.js adds .is-odo: one counter holds the year column and rolls each
-   digit to the entry beside it; the entries' own years go to screen
-   readers only. */
-.tl__frame{position:relative}
-.tl__odo{display:none}
-.tl.is-odo .tl__odo{display:block;position:absolute;left:0;top:0;bottom:0;width:clamp(150px,17vw,250px);z-index:1}
-.tl.is-odo .tl__year span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.odo__stick{position:sticky;top:calc(var(--hd-h) + 56px + 16vh)}
+.tl__now{display:none;flex:none;align-items:baseline;gap:10px}
+.js .tl__now{display:flex}
+.tl__count{font-size:.625rem;font-weight:500;letter-spacing:.22em;color:var(--muted);white-space:nowrap}
+.tl__count span{color:var(--white)}
+.tl__years{
+  flex:1;min-width:0;display:flex;gap:2px;margin:0;padding:0;list-style:none;
+  overflow-x:auto;scrollbar-width:none;overscroll-behavior-x:contain;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 24px),transparent);mask-image:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 24px),transparent);
+}
+.tl__years::-webkit-scrollbar{display:none}
+.tl__ya{
+  display:inline-flex;align-items:center;min-height:44px;padding:0 10px;white-space:nowrap;
+  font-size:.6875rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+  transition:color .35s var(--ease);
+}
+.tl__ya:hover{color:var(--white)}
+.tl__ya.is-on{color:var(--gold)}
+.tl__bar{position:absolute;left:0;right:0;bottom:0;height:1px;overflow:hidden}
+.tl__bar i{position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:0 50%}
+
+/* the odometer: four digit strips roll to the year in view; a label
+   that is not a year (Concours) shows as a word instead */
 .odo{
-  display:flex;
+  position:relative;display:flex;
   font-family:var(--fd);font-weight:500;font-style:italic;font-synthesis:none;letter-spacing:-.02em;
-  font-size:clamp(3rem,1.6rem + 3.6vw,5.4rem);line-height:1;color:var(--gold);
+  font-size:1.6rem;line-height:1;color:var(--gold);
 }
-.odo__d{position:relative;display:block;height:1em;width:.6em;clip-path:inset(0 -30% 0 -30%)}
+.odo__d{position:relative;display:block;height:1em;width:.6em;clip-path:inset(0 -30% 0 -30%);transition:opacity .4s var(--ease)}
 .odo__s{position:absolute;left:0;top:0;display:grid;transform:translateY(calc(var(--v,0) * -1em));transition:transform 1.1s cubic-bezier(.65,0,.2,1)}
 .odo__s span{display:block;height:1em}
-.odo__n{margin-top:18px;font-size:.6875rem;font-weight:500;letter-spacing:.24em;color:var(--muted)}
-.odo__n span{color:var(--white)}
-.tl.is-odo .tl__it::before{transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
-.tl.is-odo .tl__it.is-on::before{transform:rotate(45deg) scale(1.45);box-shadow:0 0 0 6px var(--ink),0 0 22px 4px var(--gold-a30)}
+.odo__w{position:absolute;left:0;top:0;white-space:nowrap;opacity:0;transform:translateY(.3em);transition:opacity .4s var(--ease),transform .5s var(--ease)}
+.odo.is-word .odo__d{display:none}
+.odo.is-word .odo__w{position:static;opacity:1;transform:none}
 
-/* ---------- phones: a row of entries to swipe (07/10) ---------- */
-@media (max-width:767px){
-  .tl__list{
-    grid-auto-flow:column;grid-auto-columns:86%;gap:12px;align-items:start;
-    overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;
-    margin-inline:calc(-1 * var(--gut));padding:4px var(--gut) 8px;scroll-padding-inline:var(--gut);
+/* ---------- the entries ---------- */
+/* .tl: ol[role=list] resets padding */
+.tl .tl__list{position:relative;display:grid;gap:clamp(44px,6vw,64px);margin:clamp(28px,4vw,40px) 0 0;padding:0 0 0 26px;list-style:none}
+/* the line, and the gold that runs down it as the story is read */
+.tl__track{position:relative}
+.tl__list::before,.tl__fill{content:"";position:absolute;left:4px;top:10px;bottom:10px;width:1px}
+.tl__list::before{background:linear-gradient(180deg,var(--gold-a30),var(--line) 4%,var(--line) 96%,transparent)}
+.tl__fill{display:none;z-index:1;top:calc(clamp(28px,4vw,40px) + 10px);background:var(--gold);transform:scaleY(0);transform-origin:50% 0}
+.js .tl__fill{display:block}
+/* entrances (motion/about.js; ScrollTrigger, so a fast scroll past
+   them never leaves one hidden) */
+.js-motion .tl [data-tlr]{visibility:hidden}
+.tl__it{position:relative;scroll-margin-top:calc(var(--hd-h) + 56px + 52px + 20px)}
+.tl__it::before{
+  content:"";position:absolute;left:-26px;top:.62rem;width:9px;height:9px;background:var(--ink);
+  box-shadow:inset 0 0 0 1px var(--gold);transform:rotate(45deg);transition:background .5s var(--ease),box-shadow .5s var(--ease),transform .5s var(--ease);
+}
+.tl__it.is-past::before,.tl__it.is-on::before{background:var(--gold)}
+.tl__it.is-on::before{transform:rotate(45deg) scale(1.35);box-shadow:inset 0 0 0 1px var(--gold),0 0 0 5px var(--ink),0 0 18px 3px var(--gold-a30)}
+.tl__meta{display:flex;align-items:baseline;gap:12px;margin:0 0 10px}
+.tl__year{font-family:var(--fd);font-weight:500;font-style:italic;font-synthesis:none;letter-spacing:-.02em;font-size:clamp(1.9rem,1.5rem + 1.4vw,2.6rem);line-height:1;color:var(--gold)}
+.tl__idx{font-size:.625rem;font-weight:500;letter-spacing:.22em;color:var(--muted)}
+.tl__body{display:grid;gap:14px;max-width:760px}
+.tl__title{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.35rem,1.15rem + .8vw,1.9rem);line-height:1.15}
+.tl__text p{max-width:66ch;font-size:clamp(.98rem,.95rem + .15vw,1.06rem);line-height:1.72}
+.tl__text p+p{margin-top:1em}
+
+/* ---------- photos inside an entry (phones, tablets, no JS) ---------- */
+.tl__pics{display:grid;gap:10px;margin-top:6px}
+.tl__photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.tl__ph figure{display:grid;gap:7px;margin:0}
+.tl__ph .media{border-radius:10px;aspect-ratio:4 / 3}
+.tl__ph figcaption,.tl__caps{font-size:.625rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);line-height:1.5}
+.tl__caps{display:none;margin:0}
+/* one photo: its own shape (a tall one squared off) */
+.tl__photos[data-n="1"]{grid-template-columns:1fr}
+.tl__photos[data-n="1"] .media{aspect-ratio:var(--ar)}
+.tl__photos[data-n="1"] .is-port .media{aspect-ratio:1 / 1}
+.tl__photos[data-n="1"] .is-port .media img{object-position:50% 30%}
+/* three wide ones: the first across, two under it */
+.tl__photos[data-n="3"][data-shape=land] li:first-child{grid-column:1 / -1}
+.tl__photos[data-n="3"][data-shape=land] li:first-child .media{aspect-ratio:16 / 9}
+/* tall sets: three across */
+.tl__photos[data-shape=port]:not([data-n="1"],[data-n="2"]){grid-template-columns:repeat(3,minmax(0,1fr))}
+.tl__photos[data-shape=port] .media{aspect-ratio:3 / 4}
+/* three or more: the captions read as one line under the set */
+.tl__photos:not([data-n="1"],[data-n="2"]) figcaption{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.tl__photos:not([data-n="1"],[data-n="2"])+.tl__caps{display:block}
+@media (min-width:768px) and (max-width:1023px){
+  .tl__photos:not([data-n="1"]){grid-template-columns:repeat(3,minmax(0,1fr))}
+  .tl__photos[data-n="2"],.tl__photos[data-n="4"]{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tl__photos[data-n="1"]{max-width:560px}
+}
+
+/* ---------- desktop: years | entries | the stage ---------- */
+.tl__stage{display:none}
+@media (min-width:1024px){
+  /* held at one place whether the header is showing or not (07/10: when
+     they followed the header, every change of scroll direction moved the
+     stage, resized its photos and, through the last entry, shifted the
+     whole page below by 76px) */
+  .tl,html:has(.hd.is-hidden) .tl{--tl-top:calc(var(--hd-h) + 56px + 28px)}
+  .tl__grid{display:grid;grid-template-columns:clamp(128px,11vw,170px) minmax(0,1fr);column-gap:clamp(32px,4vw,64px);align-items:start}
+  .tl__nav{
+    grid-column:1;grid-row:1;display:grid;align-items:start;gap:26px;margin:0;padding:0;
+    background:none;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none;
   }
-  .tl__list::-webkit-scrollbar{display:none}
-  .tl__list::before,.tl__it::before{display:none}
-  .tl__it{
-    grid-template-columns:1fr;padding:22px 20px 20px;scroll-snap-align:start;border-radius:var(--r-lg);
-    background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));box-shadow:inset 0 0 0 1px var(--line);
+  .tl__now{flex-direction:column;align-items:flex-start;gap:12px}
+  .odo{font-size:clamp(2.6rem,1.5rem + 2.2vw,3.6rem)}
+  .tl__years{
+    flex-direction:column;gap:0;overflow:auto;max-height:calc(100svh - var(--tl-top) - 170px);
+    -webkit-mask-image:linear-gradient(180deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(180deg,#000 calc(100% - 28px),transparent);
+    box-shadow:inset 1px 0 0 var(--line);
   }
-  .tl__year span{position:static;font-size:2.5rem;margin-bottom:10px}
-  .tl__body{gap:12px}
-  .tl__title{font-size:1.4rem}
-  .tl__text{--fold:7em}
-  .tl__text p{font-size:.98rem;line-height:1.7}
-  .tl__photos{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:4px}
-  .tl__photos[data-n="1"]{grid-template-columns:1fr}
-  .tl__photos[data-n="3"] li:first-child{grid-column:1 / -1}
-  .tl__photos figcaption{font-size:.5625rem;letter-spacing:.12em}
+  .tl__ya{position:relative;min-height:0;padding:6px 0 6px 18px;letter-spacing:.18em}
+  .tl__ya::before{content:"";position:absolute;left:-3px;top:50%;width:7px;height:7px;margin-top:-3.5px;background:var(--gold);transform:rotate(45deg) scale(0);transition:transform .45s var(--ease)}
+  .tl__ya.is-on::before{transform:rotate(45deg) scale(1)}
+  .tl__bar{display:none}
+  .tl__track{grid-column:2;grid-row:1}
+  .tl .tl__list{margin:0;padding:0;gap:clamp(64px,7vw,110px)}
+  .tl__list::before,.js .tl__fill,.tl__it::before{display:none}
+  .tl__it{scroll-margin-top:calc(var(--tl-top) + 8px)}
+  .tl__photos{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .tl__photos[data-n="2"],.tl__photos[data-n="4"]{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tl__photos[data-n="1"]{max-width:620px}
+  .tl__photos[data-shape=port]:not([data-n="1"],[data-n="2"]){grid-template-columns:repeat(6,minmax(0,1fr))}
+  .tl__photos[data-shape=port][data-n="3"]{grid-template-columns:repeat(3,minmax(0,1fr));max-width:620px}
+
+  /* the stage (motion/about.js adds .is-stage and moves the photos in) */
+  .tl.is-stage .tl__grid{grid-template-columns:clamp(120px,10vw,160px) minmax(0,1fr) minmax(0,1.35fr)}
+  .tl.is-stage .tl__stage{display:block;grid-column:3;grid-row:1;position:sticky;top:var(--tl-top);height:calc(100svh - var(--tl-top) - 32px)}
+  .tl.is-stage .tl__list{gap:0}
+  .tl.is-stage .tl__it{display:flex;flex-direction:column;justify-content:center;min-height:40svh;padding-block:4svh;opacity:.26;transition:opacity .6s var(--ease)}
+  .tl.is-stage .tl__it.has-photos{min-height:56svh}
+  .tl.is-stage .tl__it:first-child{justify-content:flex-start;padding-top:0}
+  .tl.is-stage .tl__it:last-child{min-height:calc(100svh - var(--tl-top) - 32px)}
+  .tl.is-stage .tl__it.is-on{opacity:1}
+  .tl.is-stage .tl__meta{margin-bottom:14px}
+  .tl.is-stage .tl__year{font-size:1.15rem;letter-spacing:.02em}
+  .tl.is-stage .tl__title{font-size:clamp(1.6rem,1.1rem + 1vw,2.25rem)}
+}
+/* no box round the stage: the photos stand on the page, each its own frame */
+.tl__frame{position:relative;height:100%}
+.tl__panels{position:absolute;inset:0}
+.tl__panel{position:absolute;inset:0;display:none;opacity:0;transition:opacity .7s var(--ease)}
+.tl__panel.is-near,.tl__panel.is-on{display:block}
+.tl__panel.is-on{opacity:1;z-index:1}
+/* inside the stage the set fills the frame, a layout per count */
+.tl__panel .tl__photos{position:absolute;inset:0;gap:8px;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;max-width:none}
+.tl__panel .tl__ph{position:relative;overflow:hidden;min-height:0;border-radius:10px}
+.tl__panel .tl__ph figure,.tl__panel .tl__ph .media{height:100%}
+.tl__panel .tl__ph .media{aspect-ratio:auto;border-radius:0}
+.tl__panel .tl__ph .media img{transform:scale(1.07);transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.tl__panel.is-on .tl__ph .media img{transform:none}
+.tl__panel .tl__ph figcaption{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;width:auto;height:auto;clip:auto;overflow:visible;white-space:normal;
+  padding:40px 16px 14px;color:rgba(255,255,255,.86);background:linear-gradient(180deg,transparent,rgba(0,0,0,.72));
+  opacity:0;transform:translateY(8px);transition:opacity .6s var(--ease) .35s,transform .6s var(--ease) .35s;
+}
+.tl__panel.is-on .tl__ph figcaption{opacity:1;transform:none}
+/* one photo: its own shape, as wide as the stage (a tall one as tall) */
+.tl__panel .tl__photos[data-n="1"]{grid-template-columns:1fr;grid-auto-rows:auto;align-content:center;justify-items:start}
+.tl__panel .tl__photos[data-n="1"] .tl__ph{width:100%;max-height:100%;aspect-ratio:var(--ar)}
+.tl__panel .tl__photos[data-n="1"] .is-port{width:auto;height:100%}
+.tl__panel .tl__photos[data-n="2"][data-shape=land]{grid-template-columns:1fr}
+.tl__panel .tl__photos[data-n="3"][data-shape=land]{grid-template-rows:1.3fr 1fr}
+.tl__panel .tl__photos[data-n="3"][data-shape=land] li:first-child{grid-column:1 / -1}
+.tl__panel .tl__photos[data-n="3"][data-shape=port],.tl__panel .tl__photos[data-n="6"][data-shape=port]{grid-template-columns:repeat(3,1fr)}
+.tl__panel .tl__ph:nth-child(2) img{transition-delay:.08s}
+.tl__panel .tl__ph:nth-child(3) img{transition-delay:.16s}
+.tl__panel .tl__ph:nth-child(4) img{transition-delay:.24s}
+.tl__panel .tl__ph:nth-child(n+5) img{transition-delay:.32s}
+/* an entry without photos: its title, set like a placard */
+.tl__card{position:absolute;inset:0;border-radius:var(--r-lg);box-shadow:inset 0 0 0 1px var(--line);display:grid;place-content:center;justify-items:center;gap:22px;padding:12%;text-align:center;background:radial-gradient(80% 60% at 50% 40%,rgba(201,168,77,.1),transparent 70%)}
+.tl__card i{width:9px;height:9px;background:var(--gold);transform:rotate(45deg)}
+.tl__card b{font-family:var(--fd);font-weight:500;font-style:italic;font-synthesis:none;font-size:clamp(4rem,2rem + 5vw,7.5rem);line-height:.9;letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1px var(--gold)}
+.tl__card span{max-width:18ch;font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.4rem,1rem + 1vw,2rem);line-height:1.15;color:var(--white)}
+.tl__panel .tl__card>*{opacity:0;transform:translateY(14px);transition:opacity .7s var(--ease),transform .9s var(--ease)}
+.tl__panel.is-on .tl__card>*{opacity:1;transform:none}
+.tl__panel.is-on .tl__card>:nth-child(2){transition-delay:.08s}
+.tl__panel.is-on .tl__card>:nth-child(3){transition-delay:.16s}
+
+@media (prefers-reduced-motion:reduce){
+  .odo__s,.odo__w,.tl__panel,.tl__panel *,.tl__it,.tl__it::before{transition:none!important}
 }

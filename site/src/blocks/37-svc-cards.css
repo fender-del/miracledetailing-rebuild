@@ -260,3 +260,18 @@
   .scards--fx-samples .scards__grid[data-cols="3"] .card:nth-child(even){margin-top:clamp(56px,7vw,120px)}
 }
 .card__media .media img{transform-origin:50% 50%}
+
+/* ---------- compact (07/10, cards.compact): phones show the essentials,
+   "Read more" opens the rest of a card ---------- */
+.card__bi{display:contents}
+.card__mbtn{display:none}
+@media (max-width:767px){
+  .scards--compact .scards__grid{align-items:start}
+  .js .scards--compact .card__b{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--ease)}
+  .js .scards--compact .card__bi{display:grid;gap:14px;min-height:0;overflow:hidden}
+  .js .scards--compact .card.is-open .card__b{grid-template-rows:1fr}
+  .js .scards--compact .card__mbtn:not([hidden]){display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0;background:none;border:0;cursor:pointer;
+    font:500 .75rem/1 var(--f);letter-spacing:.2em;text-transform:uppercase;color:var(--white);justify-self:start}
+  .scards--compact .card__mbtn svg{width:14px;height:14px;color:var(--gold);transition:transform .4s var(--ease)}
+  .scards--compact .card.is-open .card__mbtn svg{transform:rotate(180deg)}
+}

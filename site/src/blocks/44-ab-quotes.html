@@ -1,0 +1,14 @@
+<!-- ============ 44 · ABOUT: TWO QUOTES ============
+     Paul's line and the Monaco client's, together on one photo of Paul
+     and the Monza SP (07/10; they were two full screens one after the
+     other). The photo comes down from a slight zoom as the section
+     passes, on a phone too (motion/reveal.js photoBgs). -->
+<section class="abq" id="{{q.id}}" data-section="quote" data-photo-bg>
+  <div class="abq__bg" aria-hidden="true">{{&q.img}}</div>
+  <div class="wrap abq__in">
+    {{#q.items}}<figure class="abq__q">
+      <blockquote class="abqt abq__text" data-lit>{{&text}}</blockquote>
+      <figcaption class="abcite" data-reveal>{{&cite}}</figcaption>
+    </figure>{{/q.items}}
+  </div>
+</section>
