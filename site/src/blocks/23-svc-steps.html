@@ -1,8 +1,15 @@
 <!-- ============ 23 · SERVICE: HOW A JOB RUNS ============
      Four steps, the same shape on every service page; the words are the
      service's own. A gold line draws itself along the steps as they
-     scroll into view (motion/svc.js); without it the line is simply there. -->
-<section class="ssteps sec{{#stepsLong}} ssteps--long{{/stepsLong}}{{#stepsTight}} ssteps--tight{{/stepsTight}}" id="{{stepsId}}{{^stepsId}}process{{/stepsId}}" data-section="process" data-steps{{#stepsLight}} data-bg="light" data-theme="light"{{/stepsLight}}{{#stepsGraphite}} data-bg="graphite"{{/stepsGraphite}}>
+     scroll into view (motion/svc.js); without it the line is simply there.
+     Stage (07/10, steps.stage, PDR and bodyshop): on desktop one picture
+     holds still on the left (a photo, or the step's number in a ring)
+     while the steps pass on the right; the step beside it lights and the
+     number turns over (motion/kit.js). Phones: the plain list.
+     Progress (aftercare): a slim bar under the page bar says which step
+     you are reading. Long step texts fold on phones (Read more). -->
+<section class="ssteps sec{{#stepsLong}} ssteps--long{{/stepsLong}}{{#stepsTight}} ssteps--tight{{/stepsTight}}{{#stepsStage}} ssteps--stage{{/stepsStage}}{{#stepsRail}} ssteps--rail{{/stepsRail}}" id="{{stepsId}}{{^stepsId}}process{{/stepsId}}" data-section="process" data-steps{{#stepsStage}} data-stage{{/stepsStage}}{{#stepsProgress}} data-progress{{/stepsProgress}}{{#stepsLight}} data-bg="light" data-theme="light"{{/stepsLight}}{{#stepsGraphite}} data-bg="graphite"{{/stepsGraphite}}>
+  {{#stepsProgress}}<div class="ssteps__prog" aria-hidden="true"><div class="wrap ssteps__prog-in"><span class="ssteps__prog-n">Step <b data-prog-n>1</b> / {{stepsTotal}}</span><span class="ssteps__prog-bar"><i data-prog-bar></i></span></div></div>{{/stepsProgress}}
   <div class="wrap">
     {{^stepsBare}}<div class="sec-head">
       {{#stepsEyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&stepsEyebrow}}</p>{{/stepsEyebrow}}
@@ -10,17 +17,28 @@
       {{#stepsIntro}}<p class="lede ssteps__intro" data-reveal>{{&.}}</p>{{/stepsIntro}}
     </div>{{/stepsBare}}
     <div class="ssteps__track">
+    {{#stepsStage}}<div class="ssteps__stage" aria-hidden="true">
+      <div class="stage{{#stepsStageImg}} stage--img{{/stepsStageImg}}">
+        {{#stepsStageImg}}<div class="stage__media">{{&.}}</div>{{/stepsStageImg}}
+        <svg class="stage__ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="96"/><circle class="stage__arc" cx="100" cy="100" r="96" pathLength="1"/></svg>
+        <div class="stage__read">
+          <p class="stage__num"><span class="stage__digits" data-stage-n>01</span><span class="stage__of">/ {{stepsCount}}</span></p>
+          <p class="stage__name" data-stage-name>{{&steps.0.name}}</p>
+        </div>
+      </div>
+    </div>{{/stepsStage}}
     <span class="ssteps__line" aria-hidden="true"><span data-steps-line></span></span>
-    <ol class="ssteps__list" role="list"{{#stepsN}} style="--n:{{stepsN}}"{{/stepsN}}>
+    <ol class="ssteps__list" role="list"{{#stepsN}} style="--n:{{stepsN}}"{{/stepsN}}{{#stepsRail}} data-rail{{/stepsRail}}>
       {{#steps}}
       <li class="ssteps__it" data-reveal>
         <p class="ssteps__n"><span>{{#num}}{{num}}{{/num}}{{^num}}{{_idx}}{{/num}}</span></p>
         <h3 class="ssteps__name">{{&name}}</h3>
-        <p class="ssteps__text">{{&text}}{{&tbc}}</p>
+        <div class="ssteps__body more" data-more><div class="more__body"><p class="ssteps__text">{{&text}}{{&tbc}}</p></div></div>
         {{#hasLinks}}<p class="ssteps__links">{{#links}}<a href="{{href}}"{{#ext}} target="_blank" rel="noopener"{{/ext}}>{{label}}</a>{{/links}}</p>{{/hasLinks}}
       </li>
       {{/steps}}
     </ol>
     </div>
+    {{#stepsRail}}<div class="rmeta" aria-hidden="true"><span class="rmeta__n">Step <b data-rail-n>01</b>/ {{stepsCount}}</span><span class="rmeta__bar"><i></i></span></div>{{/stepsRail}}
   </div>
 </section>

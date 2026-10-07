@@ -24,6 +24,8 @@ module.exports = site => {
 
   return {
     slug: SLUG,
+    /* scroll kit (07/10, PLAN-interactions §3) */
+    cluster: 'process',
     title: 'Bodyshop & Paint Repair in Surrey | Miracle Detail',
     description: 'Bodyshop and paint repair through Miracle Detail, Lingfield, Surrey: panel repair, single panel respray, full respray and full restoration, coordinated by Paul Dalton with correction and protection.',
     preload: [
@@ -79,6 +81,7 @@ module.exports = site => {
       }) } },
       { block: '23-svc-steps', with: steps({
         id: 'process', graphite: true,
+        stage: { img: frame('bs-roma', { alt: '', sizes: '(max-width: 1023px) 1px, 36vw', ratio: false }) },
         eyebrow: 'How it works',
         title: 'The right order. <span class="gold">Every time.</span>',
         steps: [
@@ -89,7 +92,7 @@ module.exports = site => {
         ]
       }) },
       { block: '38-svc-quote', with: { quote: quote({
-        id: 'one-call',
+        id: 'one-call', light: true,
         eyebrow: 'How it actually works',
         title: 'One call. <span class="gold">No stress.</span>',
         text: '“She crashed her car. She made one phone call. <span class="gold">That was all she had to do.</span>”',
@@ -100,7 +103,7 @@ module.exports = site => {
         ]
       }) } },
       { block: '23-svc-steps', with: steps({
-        id: 'one-call-steps', tight: true,
+        id: 'one-call-steps', tight: true, light: true,
         steps: [
           { num: '1', name: 'One phone call to Paul', text: 'Describe the situation. Paul handles everything from there.' },
           { num: '2', name: 'Covered collection arranged', text: 'The car is collected from wherever it is, transported safely and securely to the bodyshop.' },

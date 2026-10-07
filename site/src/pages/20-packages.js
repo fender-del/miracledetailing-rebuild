@@ -25,6 +25,8 @@ module.exports = site => {
 
   return {
     slug: SLUG,
+    /* scroll kit (07/10, PLAN-interactions §3) */
+    cluster: 'story',
     title: 'Car Detailing Packages | Five Levels | Miracle Detail, Surrey',
     description: 'Five detailing packages by Paul Dalton in Lingfield, Surrey: Maintenance, Protection, Correction, Ultimate and the Paul Dalton Signature Detail. From £175 + VAT.',
     preload: [
@@ -46,7 +48,7 @@ module.exports = site => {
         ]
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'levels', light: true, cols: 3,
+        id: 'levels', light: true, cols: 3, fx: 'stack',
         items: [
           { kicker: 'Level 1', name: 'Maintenance Detail',
             paras: 'For cars that have already received a full detail and protective coating and need bringing back to standard after a period of use. A thorough wash, dry, window clean, tyre dress and Feynlab Hybrid Detailer application: the standard Miracle Detail wash your car deserves every time.',

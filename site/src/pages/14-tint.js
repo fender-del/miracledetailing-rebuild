@@ -25,6 +25,8 @@ module.exports = site => {
 
   return {
     slug: SLUG,
+    /* scroll kit (07/10, PLAN-interactions §3) */
+    cluster: 'restore',
     title: 'Window Tinting & Bulletproof Film in Surrey | Miracle Detail',
     description: 'Window tinting through Miracle Detail in Lingfield, Surrey: standard dyed tint, chameleon film and windscreen tint within UK VLT law, plus invisible ballistic protection film.',
     preload: [
@@ -36,7 +38,7 @@ module.exports = site => {
       '01-header',
       '20-svc-hero', '29-svc-nav',
       { block: '33-svc-prose', with: { prose: prose({
-        id: 'overview',
+        id: 'overview', zoom: { focus: '30% 42%' },
         title: 'More than privacy. <span class="gold">A complete transformation.</span>',
         img: frame('wt-film', { alt: 'Tint film being laid onto a car’s side window with a squeegee', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
         paras: [
@@ -46,7 +48,7 @@ module.exports = site => {
         ]
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'films', light: true, cols: 3,
+        id: 'films', light: true, cols: 3, fx: 'samples',
         eyebrow: 'Film options',
         title: 'Two films. <span class="gold">Every application covered.</span>',
         items: [
@@ -81,7 +83,7 @@ module.exports = site => {
         ]
       }) } },
       { block: '33-svc-prose', with: { prose: prose({
-        id: 'legal', graphite: true,
+        id: 'legal', graphite: true, zoom: { focus: '45% 40%', glass: true },
         eyebrow: 'UK legal requirements',
         title: 'Tinted legally. <span class="gold">Done properly.</span>',
         img: frame('wt-glass', { alt: 'The dark tinted side glass of a black saloon', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
@@ -102,7 +104,7 @@ module.exports = site => {
         price: 'From £???'
       }) } },
       { block: '33-svc-prose', with: { prose: prose({
-        id: 'bulletproof',
+        id: 'bulletproof', light: true,
         eyebrow: 'Also available through Miracle Detail · Bulletproof Film',
         title: 'Protection that <span class="gold">cannot be seen.</span>',
         paras: [
@@ -113,7 +115,7 @@ module.exports = site => {
         ]
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'ballistic', variant: 'points', cols: 3,
+        id: 'ballistic', light: true, variant: 'points', cols: 3,
         eyebrow: 'How it works',
         title: 'Three properties. <span class="gold">One purpose.</span>',
         items: [

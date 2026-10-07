@@ -15,7 +15,7 @@
    Reduced motion never gets here (index.js): the drawing stays the
    still frame the HTML ships, every beat lit.
    ============================================================ */
-import { gsap, $, $$ } from './core.js';
+import { gsap, whenSeen, $, $$ } from './core.js';
 import { sfx } from './sound.js';
 
 /* where the pellets leave the gun (its tip, in SVG units) */
@@ -106,8 +106,13 @@ export function cold() {
   };
   paint(0);
 
-  /* a proxy scrubbed by the scroll (smoothed), painting the film */
+  /* phones: the film plays once, on its own, when the drawing arrives */
   const state = { p: 0 };
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    whenSeen(svg, () => gsap.to(state, { p: 1, duration: 4.2, ease: 'power1.inOut', delay: 0.2, onUpdate: () => paint(state.p) }), 0.25);
+    return;
+  }
+  /* a proxy scrubbed by the scroll (smoothed), painting the film */
   gsap.to(state, {
     p: 1, ease: 'none', onUpdate: () => paint(state.p),
     scrollTrigger: { trigger: list, start: 'top 62%', end: 'bottom 62%', scrub: 0.6 }

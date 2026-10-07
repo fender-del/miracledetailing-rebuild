@@ -7,12 +7,22 @@
        (none)   boxed cards, the price at the foot (options, levels)
        points   no box, a hairline above each (why Paul, the rules)
        versus   two columns side by side, ticks against dashes (PDR)
-     cards.light = on ivory. Phones: three or more boxed cards become a
-     row to swipe (each ~85% of the screen), so the page does not run on
-     for ever; points and versus stack. Long paragraphs fold on phones
-     (Read more, motion/ppf.js). Built by lib/shared.js cards(). -->
-<section class="scards sec scards--{{cards.variant}}{{#cards.rail}} scards--rail{{/cards.rail}}" id="{{cards.id}}" data-section="cards"{{#cards.light}} data-bg="light" data-theme="light"{{/cards.light}}{{#cards.graphite}} data-bg="graphite"{{/cards.graphite}}>
-  <div class="wrap">
+     cards.light = on ivory.
+     Scroll kit (07/10, cards.fx, motion/kit.js):
+       rail     desktop: the section holds the screen and the cards run
+                past right to left as you scroll (levels, coatings)
+       stack    desktop: each card sticks and the next slides up over it
+                (packages)
+       samples  the cards sit staggered like material samples and drift
+                at their own pace (wheels, leather, tint)
+     Phones: cards that carry a price and no photo become a price list
+     (cards.acc): every option on one screen, name + facts + price,
+     a tap opens the rest. Three or more other boxed cards become a row
+     to swipe with a count under it. Long paragraphs fold (Read more).
+     The wrappers card__h / __b / __f are display:contents unless a
+     layout needs them. Built by lib/shared.js cards(). -->
+<section class="scards sec scards--{{cards.variant}}{{#cards.rail}} scards--rail{{/cards.rail}}{{#cards.fx}} scards--fx-{{cards.fx}}{{/cards.fx}}{{#cards.acc}} scards--acc{{/cards.acc}}" id="{{cards.id}}" data-section="cards"{{#cards.fx}} data-fx="{{cards.fx}}"{{/cards.fx}}{{#cards.acc}} data-acc{{/cards.acc}}{{#cards.light}} data-bg="light" data-theme="light"{{/cards.light}}{{#cards.graphite}} data-bg="graphite"{{/cards.graphite}}>
+  <div class="wrap scards__wrap">
     {{#cards.hasHead}}
     <div class="scards__head{{#cards.hasIntro}} has-intro{{/cards.hasIntro}}{{#cards.fig}} has-intro has-fig{{/cards.fig}}">
       <div class="scards__titles">
@@ -24,24 +34,33 @@
     </div>
     {{/cards.hasHead}}
 
-    <ol class="scards__grid" role="list" style="--cols:{{cards.cols}}" data-cols="{{cards.cols}}">
+    <div class="scards__track">
+    <ol class="scards__grid" role="list" style="--cols:{{cards.cols}}" data-cols="{{cards.cols}}"{{#cards.counted}} data-rail{{/cards.counted}}>
       {{#cards.items}}
-      <li class="card{{#hi}} is-hi{{/hi}}{{#no}} is-no{{/no}}"{{#anchor}} id="{{anchor}}"{{/anchor}} data-reveal="card">
+      <li class="card{{#hi}} is-hi{{/hi}}{{#no}} is-no{{/no}}"{{#anchor}} id="{{anchor}}"{{/anchor}} data-reveal="card" style="--k:{{_i}}">
         {{#img}}<div class="card__media">{{&.}}</div>{{/img}}
+        <div class="card__h">
         {{#hasTop}}<p class="card__top">{{#n}}<span class="card__n">{{n}}</span>{{/n}}{{#tag}}<span class="card__tag">{{tag}}</span>{{/tag}}</p>{{/hasTop}}
         {{#kicker}}<p class="card__kicker">{{&.}}</p>{{/kicker}}
         <h3 class="card__name">{{&name}}</h3>
         {{#sub}}<p class="card__sub">{{&.}}</p>{{/sub}}
+        </div>
+        {{#hasBody}}<div class="card__b">
         {{#hasText}}<div class="card__text more" data-more><div class="more__body">{{#paras}}<p>{{&.}}</p>{{/paras}}</div></div>{{/hasText}}
         {{#hasList}}<ul class="card__list" role="list">{{#list}}<li>{{&.}}</li>{{/list}}</ul>{{/hasList}}
+        </div>{{/hasBody}}
+        {{#hasEnd}}<div class="card__f">
         {{#hasFacts}}<dl class="card__facts">{{#facts}}<div><dt>{{k}}</dt><dd>{{&v}}</dd></div>{{/facts}}</dl>{{/hasFacts}}
         {{#hasFoot}}<div class="card__foot">
           {{#price}}<p class="card__price">{{&.}}</p>{{/price}}
           {{#links}}<a class="link-arrow" href="{{href}}"{{#ext}} target="_blank" rel="noopener"{{/ext}}><span>{{label}}</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></a>{{/links}}
         </div>{{/hasFoot}}
+        </div>{{/hasEnd}}
       </li>
       {{/cards.items}}
     </ol>
+    </div>
+    {{#cards.counted}}<div class="rmeta" aria-hidden="true"><span class="rmeta__n"><b data-rail-n>01</b>/ {{cards.total}}</span><span class="rmeta__bar"><i></i></span></div>{{/cards.counted}}
 
     {{#cards.hasNote}}<div class="scards__note" data-reveal>{{#cards.note}}<p>{{&.}}</p>{{/cards.note}}</div>{{/cards.hasNote}}
   </div>

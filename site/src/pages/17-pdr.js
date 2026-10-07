@@ -23,6 +23,8 @@ module.exports = site => {
 
   return {
     slug: SLUG,
+    /* scroll kit (07/10, PLAN-interactions §3) */
+    cluster: 'process',
     title: 'Paintless Dent Removal (PDR) in Surrey | Miracle Detail',
     description: 'Paintless dent removal through Miracle Detail, Lingfield, Surrey: car park dents, hail damage and larger dents removed from behind the panel. No filler, no respray, the original paint intact.',
     preload: [
@@ -34,7 +36,7 @@ module.exports = site => {
       '01-header',
       '20-svc-hero', '29-svc-nav',
       { block: '33-svc-prose', with: { prose: prose({
-        id: 'overview',
+        id: 'overview', light: true,
         title: 'Original paint. No dent. <span class="gold">No compromise.</span>',
         paras: [
           'A dent in a panel used to mean one thing: filler, primer and a respray. The original paint disturbed, the factory finish lost, and a repair that, however good, will never be quite the same as what came before it.',
@@ -53,7 +55,7 @@ module.exports = site => {
         ]
       }) } },
       { block: '23-svc-steps', with: steps({
-        id: 'how-steps', graphite: true, tight: true, n: 5,
+        id: 'how-steps', graphite: true, tight: true, n: 5, stage: {},
         steps: [
           { name: 'Assessment', text: 'The dent is assessed under specialist lighting: size, depth, location and paint condition all evaluated before any tools are used.' },
           { name: 'Access', text: 'The technician gains access behind the panel (through door apertures, boot openings or by removing trim) to reach the back of the dent.' },

@@ -28,6 +28,8 @@ module.exports = site => {
 
   return {
     slug: SLUG,
+    /* scroll kit (07/10, PLAN-interactions §3) */
+    cluster: 'paint',
     title: 'Paint Correction in Surrey | Five Levels | Miracle Detail',
     description: 'Paint correction in Lingfield, Surrey, by Paul Dalton: five levels from enhancement polish to concours perfect, every car measured with a paint depth gauge, gloss meter and digital microscope first.',
     preload: [
@@ -67,7 +69,7 @@ module.exports = site => {
         ]
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'levels', light: true, cols: 5,
+        id: 'levels', light: true, cols: 5, fx: 'rail',
         eyebrow: 'Before a pad is lifted',
         title: 'Five levels. <span class="gold">One standard.</span>',
         fig: frame('pc-rolls', { alt: 'A Rolls-Royce Silver Shadow before and after its full paint correction', sizes: '(max-width: 767px) 92vw, 44vw', ratio: '16 / 9' }),

@@ -104,18 +104,23 @@ export function bands() {
 export function lightBands() {
   if (!env.entrance) return;
   const root = document.documentElement;
+  /* the paint pages lay their paper down behind a light instead
+     (kit.js transitions); neighbouring ivory sections read as one */
+  const paint = document.body.getAttribute('data-cluster') === 'paint';
+  const light = el => !!el && el.getAttribute('data-bg') === 'light';
   $$('[data-bg=light]').forEach(s => {
-    gsap.fromTo(s, { '--cx': '5%', '--rt': '56px' }, {
-      '--cx': '0%', '--rt': '0px', ease: 'none',
-      scrollTrigger: { trigger: s, start: 'top bottom', end: 'top 25%', scrub: true }
-    });
-    gsap.fromTo(s, { '--cx2': '0%', '--rb': '0px' }, {
-      '--cx2': '5%', '--rb': '56px', ease: 'none', immediateRender: false,
-      scrollTrigger: { trigger: s, start: 'bottom 75%', end: 'bottom top', scrub: true }
-    });
     ScrollTrigger.create({
       trigger: s, start: 'top 50%', end: 'bottom 50%',
       onToggle: self => root.classList.toggle('on-light', self.isActive)
+    });
+    if (paint) return;
+    if (!light(s.previousElementSibling)) gsap.fromTo(s, { '--cx': '5%', '--rt': '56px' }, {
+      '--cx': '0%', '--rt': '0px', ease: 'none',
+      scrollTrigger: { trigger: s, start: 'top bottom', end: 'top 25%', scrub: true }
+    });
+    if (!light(s.nextElementSibling)) gsap.fromTo(s, { '--cx2': '0%', '--rb': '0px' }, {
+      '--cx2': '5%', '--rb': '56px', ease: 'none', immediateRender: false,
+      scrollTrigger: { trigger: s, start: 'bottom 75%', end: 'bottom top', scrub: true }
     });
   });
 }

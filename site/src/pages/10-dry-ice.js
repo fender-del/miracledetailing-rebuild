@@ -32,6 +32,8 @@ module.exports = site => {
 
   return {
     slug: SLUG,
+    /* scroll kit (07/10, PLAN-interactions §3) */
+    cluster: 'process',
     title: 'Dry Ice Cleaning in Surrey | First in the UK, 2014 | Miracle Detail',
     description: 'Dry ice cleaning in Lingfield, Surrey, by Paul Dalton, the first detailer in the UK to offer it, in 2014. Engine bays, underbodies, interiors and restoration. £200 + VAT per hour.',
     preload: [
@@ -44,7 +46,7 @@ module.exports = site => {
       '20-svc-hero', '29-svc-nav',
       '32-svc-statement',
       { block: '33-svc-prose', with: { prose: prose({
-        id: 'science',
+        id: 'science', light: true,
         eyebrow: 'What it actually is',
         title: 'The science behind <span class="gold">dry ice cleaning.</span>',
         img: frame('di-pellets', { alt: 'A hopper full of dry ice pellets', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),

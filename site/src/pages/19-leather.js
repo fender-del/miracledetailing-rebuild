@@ -25,6 +25,8 @@ module.exports = site => {
 
   return {
     slug: SLUG,
+    /* scroll kit (07/10, PLAN-interactions §3) */
+    cluster: 'restore',
     title: 'Leather Restoration in Surrey | Miracle Detail',
     description: 'Car leather restoration through Miracle Detail, Lingfield, Surrey: colour restoration, scuff and scratch repair and full interior restoration, to the same standard as the paintwork.',
     preload: [
@@ -36,7 +38,7 @@ module.exports = site => {
       '01-header',
       '20-svc-hero', '29-svc-nav',
       { block: '33-svc-prose', with: { prose: prose({
-        id: 'overview',
+        id: 'overview', zoom: { focus: '48% 62%' },
         title: 'The interior is half the car. <span class="gold">It deserves the same attention.</span>',
         img: frame('lr-fixed', { alt: 'A cream leather seat after colour restoration', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '4 / 3' }),
         paras: [
@@ -46,7 +48,7 @@ module.exports = site => {
         ]
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'covered', light: true, cols: 3,
+        id: 'covered', light: true, cols: 3, fx: 'samples',
         eyebrow: 'What’s covered',
         title: 'Colour. Repair. <span class="gold">Restoration.</span>',
         items: [
@@ -65,7 +67,7 @@ module.exports = site => {
         ]
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'areas', variant: 'points', cols: 4,
+        id: 'areas', variant: 'points', cols: 4, rail: false,
         eyebrow: 'Areas covered',
         title: 'Every leather surface <span class="gold">in the car.</span>',
         items: [

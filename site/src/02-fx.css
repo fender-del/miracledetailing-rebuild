@@ -1,0 +1,105 @@
+/* ============================================================
+   02-fx.css — the shared scroll kit (07/10, PLAN-interactions §1-3).
+   One set of moves, written once; each page picks its cluster
+   (body[data-cluster]) and the blocks pick their kind (data-fx).
+
+     paint    Correction, Ceramic, PPF. The hero closes into a framed
+              photo as it leaves; each section arrives under an
+              inspection light that sweeps across it (Ceramic: water
+              spreading from one point instead), and an ivory section's
+              paper is laid down behind the light.
+     process  Dry ice, PDR, Bodyshop. A hairline cuts across the page
+              at each new section, a gold diamond at its tip.
+     restore  Wheels, Leather, Tint. Photos open on a close-up of the
+              material and pull back (33 prose, data-zoom).
+     story    About, Mobile, Packages. Quotes take the whole screen as
+              chapter breaks; photos float at different depths.
+
+   Everything here is a layer over the page (pointer-events none,
+   aria-hidden). With reduced motion or no JS none of it is drawn:
+   the CSS only paints it under .js-motion, and motion/kit.js only
+   moves it when motion is allowed.
+   ============================================================ */
+
+/* ---------- paint: the inspection light ---------- */
+.fxb{display:none}
+.js-motion .fxb{
+  display:block;position:absolute;left:0;right:0;top:0;height:min(100%,115vh);z-index:1;
+  overflow:hidden;pointer-events:none;
+  -webkit-mask-image:linear-gradient(180deg,#000 0,#000 45%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 45%,transparent 100%);
+}
+/* the beam: a soft LED panel caught in paint, with a hot core */
+.fxb__beam{
+  position:absolute;top:-12%;bottom:-12%;left:var(--bx,-40%);width:clamp(260px,34vw,560px);
+  transform:translateX(-50%) skewX(-14deg);opacity:var(--bo,0);
+  background:linear-gradient(90deg,transparent 0,rgba(255,238,200,.04) 28%,rgba(255,244,222,.15) 46%,rgba(255,252,244,.32) 50%,rgba(255,244,222,.15) 54%,rgba(255,238,200,.04) 72%,transparent 100%);
+  mix-blend-mode:screen;will-change:left,opacity;
+}
+/* where the light runs along the section's top edge */
+.fxb__edge{
+  position:absolute;top:0;left:var(--bx,-40%);width:clamp(220px,28vw,460px);height:1px;
+  transform:translateX(-50%);opacity:var(--bo,0);
+  background:linear-gradient(90deg,transparent,rgba(230,204,133,.9) 45%,#fff 50%,rgba(230,204,133,.9) 55%,transparent);
+}
+/* on paper the light is white and the ground follows it */
+[data-theme=light] .fxb__beam{
+  mix-blend-mode:normal;
+  background:linear-gradient(90deg,transparent 0,rgba(255,250,236,.06) 30%,rgba(255,250,236,.28) 45%,#fff 49.5%,#fff 50.5%,rgba(255,250,236,.28) 55%,rgba(255,250,236,.06) 70%,transparent 100%);
+  filter:blur(1px);
+}
+[data-theme=light] .fxb__edge{background:linear-gradient(90deg,transparent,rgba(139,110,34,.7) 45%,#C9A84D 50%,rgba(139,110,34,.7) 55%,transparent)}
+/* the paper is laid behind the light (left to right) */
+.js-motion [data-cluster=paint] [data-bg=light]::before{clip-path:inset(0 calc(100% - var(--sw,100%)) 0 0)}
+
+/* Ceramic: a bead of water spreads from one point instead of a beam */
+.fxb__ring{
+  position:absolute;left:var(--rx,18%);top:0;width:calc(var(--rp,0px) * 2);height:calc(var(--rp,0px) * 2);
+  transform:translate(-50%,-50%);border-radius:50%;opacity:var(--ro,0);
+  box-shadow:inset 0 0 0 1px rgba(255,248,230,.35),inset 0 0 60px rgba(255,244,222,.14),0 0 40px rgba(255,244,222,.08);
+  mix-blend-mode:screen;
+}
+[data-theme=light] .fxb__ring{
+  mix-blend-mode:normal;
+  /* the water's edge: a bright rim on the dark side, a soft meniscus
+     on the paper side */
+  box-shadow:0 0 0 1px rgba(255,252,240,.85),0 0 30px 5px rgba(255,248,228,.38),0 0 100px 24px rgba(255,244,214,.12),
+    inset 0 0 0 1px rgba(17,17,17,.10),inset 0 0 50px rgba(139,110,34,.10);
+}
+.js-motion [data-cluster=paint][data-sweep=ripple] [data-bg=light]::before{clip-path:circle(var(--rr,150%) at var(--rx,18%) 0)}
+
+/* the hero closes into a framed photo as it leaves (paint) */
+.js-motion [data-cluster=paint] .shero__media{clip-path:inset(var(--hf-y,0px) var(--hf-x,0px) round var(--hf-r,0px))}
+
+/* ---------- process: a hairline cuts across ---------- */
+.fxl{display:none}
+.js-motion .fxl{
+  display:block;position:absolute;left:0;right:0;top:0;height:1px;z-index:1;pointer-events:none;
+  background:var(--line-2);transform:scaleX(var(--lp,0));transform-origin:0 50%;
+}
+.js-motion .fxl::after{
+  content:"";position:absolute;right:2px;top:-4px;width:9px;height:9px;background:var(--gold);
+  transform:rotate(45deg) scale(var(--ld,1));box-shadow:0 0 18px 2px var(--gold-a30);
+}
+.js-motion .fxl::before{
+  content:"";position:absolute;right:0;top:0;height:1px;width:min(30vw,380px);
+  background:linear-gradient(90deg,transparent,var(--gold));
+}
+
+/* ---------- story: quotes as chapter breaks ---------- */
+@media (min-width:768px){
+  [data-cluster=story] .squote:not(.has-paras){min-height:min(100svh,980px);display:grid;align-items:center}
+  [data-cluster=story] .squote:not(.has-paras) .squote__in{justify-items:center;text-align:center}
+  [data-cluster=story] .squote:not(.has-paras) .squote__cite{justify-content:center}
+}
+
+/* ---------- rail meta: where you are in a row you swipe ----------
+   A count and a short bar; the label is the item's own (the year on
+   the timeline) or its number. motion/kit.js keeps it in step. */
+.rmeta{display:none}
+.rmeta__n{display:flex;align-items:baseline;gap:10px;font-size:.6875rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.rmeta__n b{font-family:var(--fd);font-style:italic;font-weight:500;font-synthesis:none;font-size:1.35rem;letter-spacing:0;color:var(--gold)}
+.rmeta__bar{position:relative;flex:1;max-width:220px;height:1px;background:var(--line-2);overflow:hidden}
+.rmeta__bar i{position:absolute;inset:0;background:var(--gold);transform:scaleX(var(--rm,0));transform-origin:0 50%;transition:transform .35s var(--ease)}
+@media (max-width:767px){
+  .js .rmeta{display:flex;align-items:center;gap:18px;margin-top:18px}
+}

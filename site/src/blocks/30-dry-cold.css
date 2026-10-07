@@ -38,12 +38,16 @@
   .cold__grid{grid-template-columns:1fr;gap:0}
   /* tablets + phones: the drawing holds under the top of the screen and
      the beats run up beneath it */
-  .cold__stage{order:0;top:12px;z-index:2;max-width:640px;width:100%;margin-inline:auto}
+  .cold__stage{order:0;top:calc(56px + 12px);z-index:2;max-width:640px;width:100%;margin-inline:auto}
   .cold.is-live .cold__beat{min-height:42svh;max-width:none}
   .cold__beats{max-width:640px;width:100%;margin-inline:auto}
 }
 @media (max-width:767px){
   .cold__stage{aspect-ratio:4 / 3.1}
   .cold__lbls{display:none}
-  .cold.is-live .cold__beat{min-height:38svh;padding:20px 0}
+  /* phones (07/10, the PPF lesson: a drawing held on screen hides the
+     text): the drawing scrolls with the page and plays once when it
+     arrives (svc.js); the three beats read straight on, all lit */
+  .cold__stage{position:relative;top:auto;margin-bottom:8px}
+  .cold.is-live .cold__beat{min-height:0;padding:20px 0;opacity:1}
 }

@@ -75,9 +75,14 @@ export function more() {
     box._fit = () => {
       box.classList.remove('is-foldable', 'is-folded');
       if (!mq.matches) return;
-      /* fold only what is clearly longer than the fold (13.5em of text) */
-      const fold = parseFloat(getComputedStyle(body).fontSize) * 13.5;
-      if (body.scrollHeight > fold * 1.35) {
+      /* fold only what is clearly longer than the fold: --fold per block
+         (07/10: about three lines of Paul's prose, Fender 06/10) */
+      const cs = getComputedStyle(body);
+      const fold = parseFloat(cs.fontSize) * (parseFloat(cs.getPropertyValue('--fold')) || 13.5);
+      /* …and only when it hides at least two and a half lines: a button
+         that saves one line is noise */
+      const lh = parseFloat(cs.lineHeight) || parseFloat(cs.fontSize) * 1.65;
+      if (body.scrollHeight > Math.max(fold * 1.3, fold + lh * 2.5)) {
         box.classList.add('is-foldable', 'is-folded');
         btn.setAttribute('aria-expanded', 'false');
         btn.firstChild.textContent = 'Read more';

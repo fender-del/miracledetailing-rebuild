@@ -137,6 +137,12 @@ p{text-wrap:pretty}
   background:radial-gradient(140% 100% at 50% 35%,var(--paper) 45%,#E7E3D9 100%);
   clip-path:inset(0 calc(var(--cx,0%) + var(--cx2,0%)) round var(--rt,0px) var(--rt,0px) var(--rb,0px) var(--rb,0px));
 }
+/* two ivory sections in a row read as one chapter (07/10): no seam,
+   no double gap between them (scroll.js leaves their shared edge be) */
+[data-bg=light]:has(+[data-bg=light])::before,[data-bg=light]+[data-bg=light]::before{
+  background:linear-gradient(90deg,#E9E5DB 0%,var(--paper) 18%,var(--paper) 82%,#E9E5DB 100%);
+}
+[data-bg=light]+[data-bg=light]{padding-top:calc(var(--sec) * .4)}
 [data-theme=light]{
   --white:#111111;--text:#36332D;--muted:#5F5B53;--raise:#FFFFFF;
   --line:rgba(17,17,17,.12);--line-2:rgba(17,17,17,.22);

@@ -31,6 +31,8 @@ module.exports = site => {
 
   return {
     slug: SLUG,
+    /* scroll kit (07/10, PLAN-interactions §3) */
+    cluster: 'utility',
     title: 'Ceramic Coating Aftercare & Washing Guide | Miracle Detail',
     description: 'How to wash a Feynlab ceramic-coated car: Paul Dalton’s six rules, eight-step procedure and the exact products he recommends to every client, with a 10% Feynlab discount code.',
     preload: [
@@ -59,7 +61,7 @@ module.exports = site => {
         ]
       }) } },
       { block: '23-svc-steps', with: steps({
-        id: 'procedure', graphite: true,
+        id: 'procedure', graphite: true, progress: true, railPhone: true,
         steps: [
           { num: '1', name: 'Rinse or snow foam first', text: 'Before the wash mitt touches the car, rinse the vehicle thoroughly with a pressure washer or apply snow foam to loosen surface contamination. Never put a dry mitt on a dry car: even small particles of dust can scratch the paint.' },
           { num: '2', name: 'Set up your two buckets', text: 'Fill one bucket with warm water and Feynlab Pure Wash shampoo. Fill a second bucket with clean water for rinsing the wash pad between panels. Put a grit guard in the bottom of each bucket. The grit guard traps contamination at the bottom so it doesn’t transfer back to the mitt.',

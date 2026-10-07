@@ -35,6 +35,8 @@ module.exports = site => {
 
   return {
     slug: SLUG,
+    /* scroll kit (07/10, PLAN-interactions §3) */
+    cluster: 'story',
     title: 'Mobile Car Detailing | Surrey, Kent, Sussex, London | Miracle Detail',
     description: 'Mobile detailing by Paul Dalton: the studio standard at your home, office or storage, across Surrey, Kent, Sussex, London and beyond. Packages from £200 + VAT.',
     preload: [
@@ -71,7 +73,7 @@ module.exports = site => {
         ]
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'packages', light: true, cols: 4,
+        id: 'packages', light: true, cols: 4, fx: 'rail',
         eyebrow: 'Mobile packages',
         title: 'What’s <span class="gold">included.</span>',
         intro: ['All packages use the same Feynlab products and multi-stage wash process Paul uses in the studio. Prices are indicative: every car is assessed individually.'],
@@ -98,7 +100,13 @@ module.exports = site => {
         id: 'field',
         eyebrow: 'The van in the field',
         title: 'Portugal. <span class="gold">One week. Three cars.</span>',
-        img: frame('mb-polish', { alt: '', sizes: '100vw', ratio: false }),
+        /* 07/10: the three Portugal cars float round the words (the
+           grid that repeated them under the quote is gone) */
+        collage: [
+          frame('mb-f12', { alt: 'A blue Ferrari F12 TDF detailed on location in Portugal', sizes: '(max-width: 899px) 40vw, 21vw', ratio: false }),
+          frame('mb-599', { alt: 'A grey Ferrari 599 GTO detailed on location in Portugal', sizes: '(max-width: 899px) 52vw, 25vw', ratio: false }),
+          frame('mb-f12b', { alt: 'The blue Ferrari F12 TDF in an underground garage', sizes: '(max-width: 899px) 36vw, 16vw', ratio: false })
+        ],
         text: '“Same standard. <span class="gold">Different postcode.</span>”',
         cite: 'Paul Dalton · Miracle Detail',
         paras: [
@@ -109,7 +117,6 @@ module.exports = site => {
         ],
         price: 'From £???'
       }) } },
-      '24-svc-work',
       '28-svc-faq',
       { block: '33-svc-prose', with: { prose: prose({
         id: 'wheels', graphite: true,
@@ -144,13 +151,6 @@ module.exports = site => {
         { id: 'packages', label: 'Packages' },
         { id: 'field', label: 'In the field' },
         { id: 'faq', label: 'Questions' }
-      ],
-
-      workId: 'portugal',
-      work: [
-        { img: frame('mb-f12', { alt: 'A blue Ferrari F12 TDF detailed on location in Portugal', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Ferrari F12 TDF, Portugal', third: true },
-        { img: frame('mb-599', { alt: 'A grey Ferrari 599 GTO detailed on location in Portugal', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Ferrari 599 GTO, Portugal', third: true },
-        { img: frame('mb-f12b', { alt: 'The blue Ferrari F12 TDF in an underground garage', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Ferrari F12 TDF, blue', third: true }
       ],
 
       faqTitle: 'Things people <span class="gold">ask.</span>',

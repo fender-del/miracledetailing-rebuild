@@ -26,6 +26,8 @@ module.exports = site => {
 
   return {
     slug: SLUG,
+    /* scroll kit (07/10, PLAN-interactions §3) */
+    cluster: 'paint', sweep: 'ripple',
     title: 'Ceramic Coating in Surrey | Feynlab, by Paul Dalton | Miracle Detail',
     description: 'Feynlab ceramic coatings applied in Lingfield, Surrey, by Paul Dalton, Feynlab’s only global ambassador and co-developer of Ceramic by Paul Dalton. Six coatings, 1 to 10 years.',
     preload: [
@@ -38,7 +40,7 @@ module.exports = site => {
       '20-svc-hero', '29-svc-nav',
       '32-svc-statement',
       { block: '33-svc-prose', with: { prose: prose({
-        id: 'why',
+        id: 'why', light: true,
         eyebrow: 'The beginning',
         title: 'Why ceramic coating matters, and why who applies it <span class="gold">matters more.</span>',
         img: frame('cc-laf', { alt: 'The front of a red LaFerrari in the studio, its coated paint reflecting the strip lights', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
@@ -69,7 +71,7 @@ module.exports = site => {
         price: 'From £???'
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'range', light: true, cols: 3,
+        id: 'range', light: true, cols: 3, fx: 'rail', acc: true,
         eyebrow: 'The full Feynlab range',
         title: 'Six coatings. <span class="gold">One standard of application.</span>',
         items: [

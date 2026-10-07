@@ -13,3 +13,6 @@
   .sproof__it:nth-child(2n+1){padding-left:0;box-shadow:none}
   .sproof__it:last-child:nth-child(odd){grid-column:1 / -1}
 }
+
+/* on ivory between two ivory sections (About, Fifth Gear, 07/10) */
+.sproof[data-bg=light]{border-block:0;padding-block:0 clamp(28px,3vw,44px)}

@@ -23,6 +23,8 @@ module.exports = site => {
 
   return {
     slug: SLUG,
+    /* scroll kit (07/10, PLAN-interactions §3) */
+    cluster: 'restore',
     title: 'Wheel Refurbishment in Surrey | Diamond Cut & Powder Coat | Miracle Detail',
     description: 'Wheel refurbishment through Miracle Detail, Lingfield, Surrey: diamond cut, powder coat, colour change and crack and buckle repair, coordinated alongside your detail.',
     preload: [
@@ -34,7 +36,7 @@ module.exports = site => {
       '01-header',
       '20-svc-hero', '29-svc-nav',
       { block: '33-svc-prose', with: { prose: prose({
-        id: 'overview',
+        id: 'overview', zoom: { focus: '37% 30%', rot: 14 },
         title: 'The finishing touch that <span class="gold">ties a detail together.</span>',
         img: frame('wr-stands', { alt: 'Refurbished alloy wheels on stands in the workshop', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
         paras: [
@@ -44,7 +46,7 @@ module.exports = site => {
         ]
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'available', light: true, cols: 4,
+        id: 'available', light: true, cols: 4, fx: 'samples',
         eyebrow: 'What’s available',
         title: 'Four services. <span class="gold">Every wheel covered.</span>',
         items: [

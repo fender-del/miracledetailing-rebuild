@@ -42,3 +42,9 @@
   .sprose__body{padding-top:0}
 }
 
+
+/* phones: Paul's paragraphs fold after about three lines (Fender 06/10) */
+.sprose__body{--fold:7.4em}
+/* zoom (07/10): kit.js scales the photo's holder; the frame opens with it */
+.sprose__media[data-zoom]>div{transform-origin:var(--zf,50% 50%)}
+.js-motion .sprose__media[data-zoom]{clip-path:inset(var(--zi,0%) round var(--r-lg))}

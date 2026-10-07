@@ -2,14 +2,17 @@
      Paul's longer explanations, kept whole (06/10). Desktop: the heading
      and a photo hold still on the left while the paragraphs pass on the
      right, one measure wide. Phones: the first lines of each paragraph,
-     then "Read more" (motion/ppf.js; without JS every line shows). -->
+     then "Read more" (motion/ppf.js; without JS every line shows).
+     Zoom (07/10, prose.zoom, the restoration pages): the photo opens on
+     a close-up of the material and pulls back to the whole picture as
+     it scrolls in (motion/kit.js); { focus, rot, glass }. -->
 <section class="sprose sec{{#prose.reverse}} sprose--rev{{/prose.reverse}}{{^prose.img}} sprose--noimg{{/prose.img}}" id="{{prose.id}}" data-section="prose"{{#prose.light}} data-bg="light" data-theme="light"{{/prose.light}}{{#prose.graphite}} data-bg="graphite"{{/prose.graphite}}>
   <div class="wrap sprose__in">
     <div class="sprose__side">
       <div class="sprose__stick">
         {{#prose.eyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{prose.eyebrow}}</p>{{/prose.eyebrow}}
         <h2 class="disp h2" data-split>{{&prose.title}}</h2>
-        {{#prose.img}}<figure class="sprose__fig"><div class="sprose__media" data-reveal="card"><div data-parallax>{{&prose.img}}</div>{{#prose.tagL}}<span class="sprose__tag sprose__tag--l">{{&.}}</span>{{/prose.tagL}}{{#prose.tagR}}<span class="sprose__tag sprose__tag--r">{{&.}}</span>{{/prose.tagR}}</div>{{#prose.cap}}<figcaption class="sprose__cap">{{&prose.cap}}</figcaption>{{/prose.cap}}</figure>{{/prose.img}}
+        {{#prose.img}}<figure class="sprose__fig"><div class="sprose__media"{{^prose.zoom}} data-reveal="card"{{/prose.zoom}}{{#prose.zoom}} data-zoom data-focus="{{focus}}" data-rot="{{rot}}"{{#glass}} data-glass{{/glass}}{{/prose.zoom}}><div data-parallax>{{&prose.img}}</div>{{#prose.tagL}}<span class="sprose__tag sprose__tag--l">{{&.}}</span>{{/prose.tagL}}{{#prose.tagR}}<span class="sprose__tag sprose__tag--r">{{&.}}</span>{{/prose.tagR}}</div>{{#prose.cap}}<figcaption class="sprose__cap">{{&prose.cap}}</figcaption>{{/prose.cap}}</figure>{{/prose.img}}
       </div>
     </div>
     <div class="sprose__body more" data-more>

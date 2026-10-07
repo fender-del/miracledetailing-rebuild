@@ -23,3 +23,35 @@
 .squote__body p+p{margin-top:1.2em}
 .squote__price{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.4rem,1.2rem + .6vw,1.9rem);color:var(--gold)}
 .squote .h2+.squote__fig{margin-top:clamp(12px,2vw,28px);padding-top:clamp(20px,2.4vw,32px);box-shadow:inset 0 1px 0 var(--line)}
+.squote__stage{display:grid;gap:clamp(22px,2.4vw,34px)}
+
+/* ---------- collage (07/10: About, Mobile) ----------
+   The words in the middle, Paul's photos round them at three depths;
+   kit.js drifts each at its own pace. Phones: a loose row above. */
+.squote.has-collage{overflow:hidden}
+.squote__ph{position:absolute;margin:0;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 40px 80px -42px rgba(0,0,0,.9);will-change:transform}
+.squote__phm,.squote__phm .media{height:100%}
+.squote__phm .media{aspect-ratio:auto!important}
+.squote__ph--1{aspect-ratio:4 / 5}
+.squote__ph--2{aspect-ratio:4 / 3}
+.squote__ph--3{aspect-ratio:3 / 2}
+@media (min-width:900px){
+  .has-collage .squote__in>.squote__stage{max-width:none}
+  .has-collage .squote__stage{position:relative;min-height:min(104svh,980px);align-content:center;justify-items:center;text-align:center;padding-block:clamp(60px,10vh,120px)}
+  .has-collage .squote__stage>:not(.squote__col){position:relative;z-index:1;max-width:min(740px,50vw)}
+  .has-collage .squote__cite{justify-content:center}
+  .squote__col{position:absolute;inset:0;pointer-events:none}
+  .squote__ph--1{left:0;top:2%;width:min(21vw,310px)}
+  .squote__ph--2{right:0;top:14%;width:min(25vw,380px)}
+  .squote__ph--3{left:8%;bottom:0;width:min(16vw,240px);z-index:0;filter:brightness(.82)}
+  .squote__ph--2{filter:brightness(.92)}
+  .has-collage .squote__body{justify-self:center;max-width:68ch}
+  .has-collage .squote__price{justify-self:center}
+}
+@media (max-width:899px){
+  .squote__col{position:relative;height:clamp(230px,64vw,340px);margin-bottom:6px}
+  .squote__ph--1{left:0;top:8%;width:40%}
+  .squote__ph--2{right:0;top:0;width:52%;z-index:1}
+  .squote__ph--3{left:26%;bottom:0;width:36%;z-index:2}
+}
+.squote__body{--fold:7.6em}

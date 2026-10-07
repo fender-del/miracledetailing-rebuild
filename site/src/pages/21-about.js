@@ -92,6 +92,8 @@ module.exports = site => {
 
   return {
     slug: SLUG,
+    /* scroll kit (07/10, PLAN-interactions §3) */
+    cluster: 'story',
     title: 'About Paul Dalton | 37 Years of Car Detailing | Miracle Detail',
     description: 'Paul Dalton, founder of Miracle Detail in Lingfield, Surrey: from washing cars at 13 to Fifth Gear, Koenigsegg, Monaco and Feynlab’s only global ambassador. 37 years, more than 10,000 cars.',
     preload: [
@@ -119,7 +121,7 @@ module.exports = site => {
       }) } },
       '40-timeline',
       { block: '33-svc-prose', with: { prose: prose({
-        id: 'fifth-gear', graphite: true, reverse: true,
+        id: 'fifth-gear', light: true, reverse: true,
         eyebrow: 'Fifth Gear, 2006',
         title: 'The £5,000 car wash: <span class="gold">61 stages, 64 hours.</span>',
         img: frame('ab-50', { alt: 'The white and blue Maserati MC12 detailed on Fifth Gear', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '4 / 3' }),
@@ -129,13 +131,13 @@ module.exports = site => {
           'The response was immediate and international. Phone calls came in from around the world for a week. Requests from Hong Kong, Monaco, Portugal and the Middle East followed. A generation of detailers, many of whom are now prominent in the industry, point to that segment as the moment they understood what detailing could actually be.'
         ]
       }) } },
-      { block: '21-svc-proof', with: { proofId: 'fifth-gear-figures', proofN: 3, proof: [
+      { block: '21-svc-proof', with: { proofId: 'fifth-gear-figures', proofN: 3, proofLight: true, proof: [
         { n: '61', l: 'Stages', rating: null, tbc: null },
         { n: '64', l: 'Hours', rating: null, tbc: null },
         { n: '7', l: 'National newspapers', rating: null, tbc: null }
       ] } },
       { block: '38-svc-quote', with: { quote: quote({
-        id: 'generation',
+        id: 'generation', light: true,
         text: '“A generation of detailers cites this as the moment they understood <span class="gold">what the craft could become.</span>”',
         cite: 'Fifth Gear · 2006 · Broadcast globally'
       }) } },
@@ -164,7 +166,7 @@ module.exports = site => {
         cite: 'Private Client · Monaco'
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'new', light: true, cols: 3, rail: false,
+        id: 'new', light: true, cols: 3, rail: false, acc: true,
         eyebrow: 'New to detailing?',
         title: 'Not sure what your car <span class="gold">actually needs?</span>',
         intro: [
@@ -247,7 +249,9 @@ module.exports = site => {
         id: 'story',
         eyebrow: 'The full story',
         title: 'From a Surrey driveway to <span class="gold">Monaco and beyond.</span>',
-        items: timeline
+        items: timeline,
+        total: String(timeline.length).padStart(2, '0'),
+        first: timeline[0].year
       },
 
       workEyebrow: 'The work itself',

@@ -61,16 +61,29 @@ function cards(o) {
     c.hasList = has(c.list);
     c.hasFacts = has(c.facts);
     c.hasFoot = has(c.price) || has(c.links);
+    c.hasBody = c.hasText || c.hasList;
+    c.hasEnd = c.hasFacts || c.hasFoot;
     return c;
   });
   const variant = o.variant || 'boxed';
+  /* phones (07/10, Fender: "don't bury the packages, don't let it run
+     on"): options that carry a price and no photo read as a price list,
+     every one on screen, a tap opens the rest */
+  const acc = o.acc === true || (o.acc !== false && variant === 'boxed' && items.length >= 3
+    && items.every(i => !i.img && (has(i.price) || has(i.facts))));
+  /* points: four or more become a row to swipe on phones too (07/10) */
+  const rail = o.rail !== false && !acc && ((variant === 'boxed' && items.length >= 3) || (variant === 'points' && items.length >= 4));
+  const fx = o.fx || null;
   return {
     id: o.id, variant, light: !!o.light, graphite: !!o.graphite,
+    fx, acc,
+    counted: rail || fx === 'rail',
+    total: String(items.length).padStart(2, '0'),
     eyebrow: o.eyebrow || null, title: o.title || null,
     intro: o.intro || [], hasIntro: has(o.intro),
     hasHead: has(o.eyebrow) || has(o.title) || has(o.intro) || has(o.fig),
     cols: o.cols || Math.min(items.length, 3),
-    rail: variant === 'boxed' && items.length >= 3 && o.rail !== false,
+    rail,
     items,
     fig: o.fig || null, figCap: o.figCap || null,
     note: o.note || [], hasNote: has(o.note)
@@ -82,13 +95,20 @@ const fill = (o, keys) => { const c = Object.assign({}, o); keys.forEach(k => { 
 function prose(o) {
   const c = fill(o, ['eyebrow', 'img', 'cap', 'tagL', 'tagR', 'reverse', 'light', 'graphite', 'listTitle', 'list', 'listCols', 'after', 'price']);
   c.paras = c.paras || [];
+  if (c.zoom) c.zoom = Object.assign({ focus: '50% 50%', rot: 0, glass: false }, c.zoom === true ? {} : c.zoom);
+  else c.zoom = null;
   c.hasList = has(c.list); c.hasAfter = has(c.after);
   c.hasExtra = c.hasList || c.hasAfter || has(c.price) || has(c.listTitle);
   return c;
 }
 function quote(o) {
-  const c = fill(o, ['eyebrow', 'title', 'cite', 'img', 'price']);
+  const c = fill(o, ['eyebrow', 'title', 'cite', 'img', 'price', 'light']);
   c.paras = c.paras || []; c.hasParas = has(c.paras);
+  /* 07/10: collage = [img, img, img] floating round the words; each
+     gets a depth (how far it drifts) */
+  const depths = [1.4, 0.8, 1.9];
+  c.collage = (o.collage || []).map((img, i) => ({ img, depth: depths[i % 3] }));
+  c.hasCollage = c.collage.length > 0;
   return c;
 }
 
@@ -100,7 +120,12 @@ function steps(o) {
     stepsId: o.id || null, stepsEyebrow: o.eyebrow || null, stepsTitle: o.title || null, stepsIntro: o.intro || null,
     steps: list, stepsN: n === 4 ? null : n, stepsLong: list.length > n,
     stepsBare: !(o.eyebrow || o.title || o.intro), stepsTight: !!o.tight,
-    stepsLight: !!o.light, stepsGraphite: !!o.graphite
+    stepsLight: !!o.light, stepsGraphite: !!o.graphite,
+    /* 07/10: stage = { img } or {} (the number in a ring); progress = the
+       "Step n / N" bar */
+    stepsStage: !!o.stage, stepsStageImg: (o.stage && o.stage.img) || null,
+    stepsRail: !!o.railPhone,
+    stepsProgress: !!o.progress, stepsCount: String(list.length).padStart(2, '0'), stepsTotal: list.length
   };
 }
 

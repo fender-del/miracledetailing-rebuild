@@ -64,7 +64,9 @@ for (const p of pages) {
    Each page inlines tokens + base + only the blocks it uses (06/10: the
    service pages brought their own blocks; the homepage should not carry
    them). assets/css/site.css = every used block, for the <link> option. */
-const base = read(path.join(SRC, '00-tokens.css')) + '\n' + read(path.join(SRC, '01-base.css'));
+/* 02-fx.css = the shared scroll kit (07/10, PLAN-interactions §1): small,
+   and any page may use any of it, so it rides with the base */
+const base = ['00-tokens.css', '01-base.css', '02-fx.css'].map(f => read(path.join(SRC, f))).join('\n');
 
 /* Conservative: comments, whitespace, last semicolons. Refuses to ship
    if the declaration count changes (DMI-2026 rule). */

@@ -76,6 +76,8 @@ module.exports = site => {
 
   return {
     slug: SLUG,
+    /* scroll kit (07/10, PLAN-interactions §3) */
+    cluster: 'paint',
     title: 'Paint Protection Film (PPF) in Surrey | Miracle Detail',
     description: 'Paint protection film fitted by Paul Dalton in Lingfield, Surrey, since 2006: XPEL, SunTek, Profilm and STEK in gloss, matte and colour. Full front end from £1,500 + VAT.',
     preload: [

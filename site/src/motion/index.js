@@ -25,6 +25,7 @@ import { menu, form } from './ui.js';
 import { cold, steps, tbcs } from './svc.js';
 import { snav, more, tabs, lit, filmHero, compare, coverage as ppfCoverage } from './ppf.js';
 import { gallery } from './gallery.js';
+import { transitions, heroFrame, rails, stacks, samples, zooms, collages, stages, odometer, railMeta, accordions, progress } from './kit.js';
 
 const root = document.documentElement;
 const safe = fn => { try { fn(); } catch (e) { if (window.console) console.warn('[motion]', fn.name, e); } };
@@ -47,11 +48,14 @@ function boot() {
   safe(snav); safe(tabs); safe(more); safe(compare); safe(ppfCoverage);
   /* the archive (06/10): filter + lightbox, every tier */
   safe(gallery);
+  /* the scroll kit (07/10): how the inner pages read, every tier */
+  safe(accordions); safe(railMeta); safe(odometer);
   if (env.motion) {
     safe(heroVideo);
     safe(filmHero);
     if (env.entrance) {
       safe(lines); safe(fadeUps); safe(bands); safe(lightBands);
+      safe(transitions); safe(heroFrame);
       /* the story splits its manifesto into words: wait for Saira */
       if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { safe(story); ScrollTrigger.refresh(); safe(rehash); });
       else { safe(story); safe(rehash); }
@@ -77,9 +81,15 @@ function boot() {
       /* service pages (06/10) */
       safe(cold);
       safe(steps);
+      /* the scroll kit (07/10) */
+      safe(rails); safe(stacks); safe(samples); safe(zooms); safe(collages);
       if (env.entrance) safe(lit);
       if (env.fine) safe(tilt);
     }
+    safe(stages); safe(progress);
+    /* the pins above were made after the triggers below them: put the
+       triggers back in page order before measuring */
+    ScrollTrigger.sort();
     ScrollTrigger.refresh();
     /* the deck and the coverage pin change the height above #book;
        land on the hash again */

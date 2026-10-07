@@ -93,6 +93,28 @@ Scope = the 13 content pages on the v0.5 staging site + Services, Gallery and Jo
 - **v0.5 slips** fixed or left out (ceramic/tint paragraphs swapped, leather areas carrying PPF lines, duplicated headings…): each page's header comment, and REQUESTS section 3.
 - **Menu / footer:** no links to pages that do not exist (new car, supercar, classic, contact, privacy, terms). "Contact" opens the booking form.
 
+## Scroll kit on the inner pages (07/10, `../PLAN-interactions.md` §1–4)
+
+The layout and scroll motion from the plan, applied to every v0.5 page. **The page-specific interactions at the top of that plan (VLT slider, five-level slider, PDR reflection lines…) are NOT built yet.** Paul's words unchanged; only grounds (dark / ivory) moved to keep the rhythm (never three dark sections in a row; two ivory sections in a row read as one chapter, no seam).
+
+Code: `src/02-fx.css` (rides with every page) + `src/motion/kit.js`; a page sets `cluster` (and `sweep`), a block sets its kind.
+
+| Cluster | Pages | Signature |
+|---|---|---|
+| paint | Correction, Ceramic, PPF | hero closes into a framed photo as it leaves; each section arrives under an inspection light that sweeps across it and lays an ivory section's paper down behind it (Ceramic: `sweep: 'ripple'`, a bead of water spreading); Correction's five levels and Ceramic's six coatings run past on a **pinned rail** (desktop) |
+| process | Dry ice, PDR, Bodyshop | a hairline cuts across at each section, gold diamond at its tip; PDR's five steps and Bodyshop's process on a **stage** (desktop: the picture holds still, the number turns over, the step beside it lights; PDR = the number in a ring, Bodyshop = photo) |
+| restore | Wheels, Leather, Tint | photos open on a close-up and pull back (`prose.zoom`, wheels turn a little; tint's legal photo darkens like film as the limits are read); options sit staggered like material samples |
+| story | About, Mobile, Packages | quotes take the whole screen; About: one **year counter** rolls beside the timeline (odometer); Packages: the five levels **stack** (each card sticks, the next slides over); Mobile: the three Portugal cars float round the quote (collage; the grid that repeated them is gone) |
+| utility | Aftercare | "Step n / 8" pill while the procedure is read |
+
+Kinds: `cards.fx` = `rail` | `stack` | `samples`; `steps.stage` = `{}` or `{ img }`; `steps.progress`; `quote.collage` = [3 frames]; `prose.zoom` = `{ focus, rot, glass }`. Each desktop-only piece checks the screen first (a rail only pins when the whole section fits; a stack only when every card fits under the bar) and lives in a `gsap.matchMedia` context.
+
+**Phones (Fender: don't bury the packages, don't let it run on):** nothing sticks over the text (the dry ice drawing now scrolls with the page and plays once when it arrives); options with a price and no photo become a **price list** (`cards.acc`: number, name, facts and price on one screen, a tap opens the rest); other rows of three or more cards, points of four or more, About's timeline and Aftercare's eight steps become **rows to swipe** with a count under them (the timeline was ~19 screens, now 1.6); Paul's paragraphs fold after about three lines (`--fold` per block, only when it hides 2.5+ lines); project photos two up. About on a phone: 37 → 15 screens, Aftercare 12 → 8.
+
+Reduced motion / no JS: none of the motion; stage and odometer still work with JS (they are how the page reads), every rail and list shows in full without it.
+
+QA 07/10: 17 pages × 7 modes, 0 console errors, 1 H1, 0 horizontal overflow, 0 hidden text. Lighthouse mobile (local): Correction 99, Packages 99, About 98; CLS 0. JS 88.5 KB gz (+3 KB).
+
 ## Where things live
 
 | What | File |

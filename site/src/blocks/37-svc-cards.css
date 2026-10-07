@@ -91,3 +91,126 @@
   .scards--points .scards__grid{gap:8px}
 }
 .scards--points .card__media{margin:0 0 10px;border-radius:10px}
+
+/* ---------- wrappers (07/10): no box of their own unless a layout asks ---------- */
+.card__h,.card__b,.card__f{display:contents}
+.card__text{--fold:6.6em}
+.scards__intro{--fold:7.6em}
+
+/* ---------- phones: options as a price list (cards.acc) ----------
+   motion/kit.js adds .acc-on and one button per card. Closed: the
+   card's number, name and line, then its facts and price on a hairline.
+   Open: the whole card. One open at a time. Without JS every card
+   simply shows in full. */
+.card__acc{display:none}
+@media (max-width:767px){
+  .acc-on .scards__grid{gap:10px}
+  .acc-on .card{gap:8px;padding:20px 20px 18px;transition:box-shadow .5s var(--ease),background .5s var(--ease)}
+  .acc-on .card__acc{
+    display:block;position:absolute;inset:0;z-index:2;border-radius:inherit;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .acc-on .card__acc:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .card__chev{
+    position:absolute;right:16px;top:18px;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;
+    box-shadow:inset 0 0 0 1px var(--gold-a30);color:var(--gold);transition:transform .5s var(--ease),background .4s var(--ease),color .4s var(--ease);
+  }
+  .card__chev svg{width:15px;height:15px}
+  .acc-on .card.is-open .card__acc{inset:0 0 auto auto;width:70px;height:70px}
+  .acc-on .card.is-open .card__chev{transform:rotate(180deg);background:var(--gold);color:var(--ink)}
+  [data-theme=light] .acc-on .card.is-open .card__chev,.acc-on[data-theme=light] .card.is-open .card__chev{color:#fff}
+  .acc-on .card__top{padding-right:46px;min-height:34px}
+  .acc-on .card__name{font-size:1.45rem;padding-right:46px}
+  .acc-on .card__top+.card__name,.acc-on .card__kicker+.card__name{padding-right:0}
+  /* closed: number and kicker on one line, then the name */
+  .acc-on .card:not(.is-open){padding-block:16px 15px;gap:4px}
+  .acc-on .card:not(.is-open) .card__h{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:12px;align-items:center;padding-right:46px}
+  .acc-on .card:not(.is-open) .card__h>*{grid-column:1 / -1}
+  .acc-on .card:not(.is-open) .card__top{grid-column:1;min-height:0;padding-right:0}
+  .acc-on .card:not(.is-open) .card__top+.card__kicker{grid-column:2}
+  .acc-on .card:not(.is-open) .card__name{padding-right:0;font-size:1.32rem}
+  .acc-on .card:not(.is-open) .card__sub{font-size:.625rem}
+  .acc-on .card:not(.is-open) .card__chev{top:50%;margin-top:-17px}
+  .acc-on .card:not(.is-open) .card__b,
+  .acc-on .card:not(.is-open) .card__foot .link-arrow{display:none}
+  .acc-on .card:not(.is-open) .card__f{
+    display:flex;align-items:flex-end;justify-content:space-between;gap:10px 16px;flex-wrap:wrap;
+    margin-top:6px;padding-top:12px;box-shadow:inset 0 1px 0 var(--line);
+  }
+  .acc-on .card:not(.is-open) .card__facts{display:flex;flex-wrap:wrap;gap:4px 16px;margin:0;padding:0;box-shadow:none}
+  .acc-on .card:not(.is-open) .card__facts dd{font-size:1rem;margin-top:2px}
+  .acc-on .card:not(.is-open) .card__foot{margin:0 0 0 auto;padding:0;text-align:right}
+  .acc-on .card:not(.is-open) .card__price{font-size:1.2rem}
+  .acc-on .card:not(.is-open) .card__media{display:none}
+  .acc-on .card.is-open .card__text .more__body{max-height:none;-webkit-mask-image:none;mask-image:none}
+  .acc-on .card.is-open .card__text .more__btn{display:none}
+  .acc-on .scards__note{margin-top:22px}
+  .scards--acc .rmeta{display:none!important}
+}
+
+/* ---------- desktop: the row runs past (cards.fx = rail) ----------
+   motion/kit.js adds .is-pinrail only when the whole section fits the
+   screen, then pins it and moves the row with the scroll. */
+@media (min-width:1024px){
+  .scards.is-pinrail{display:flex;align-items:center;min-height:100vh;padding-block:calc(56px + clamp(24px,5vh,56px)) clamp(24px,5vh,56px)}
+  .is-pinrail .scards__wrap{
+    width:100%;max-width:none;display:grid;grid-template-columns:minmax(300px,29%) minmax(0,1fr);grid-template-rows:1fr auto;
+    column-gap:clamp(40px,4vw,80px);padding-right:0;padding-left:max(var(--gut),calc((100vw - var(--wrap)) / 2 + var(--gut)));
+  }
+  .is-pinrail .scards__head,.is-pinrail .scards__head.has-intro{grid-column:1;grid-row:1;align-self:center;margin:0;grid-template-columns:1fr;gap:26px}
+  .is-pinrail .scards__head .scards__fig{grid-column:auto!important}
+  .is-pinrail .scards__head .h2{font-size:clamp(2.1rem,1.2rem + 2.2vw,3.4rem)}
+  .is-pinrail .scards__track{
+    grid-column:2;grid-row:1 / span 2;align-self:center;min-width:0;overflow:hidden;padding-block:8px 24px;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 56px);mask-image:linear-gradient(90deg,transparent 0,#000 56px);
+  }
+  .is-pinrail .scards__grid{
+    display:flex;width:max-content;gap:clamp(16px,1.4vw,24px);will-change:transform;
+    padding-left:56px;padding-right:max(var(--gut),calc((100vw - var(--wrap)) / 2 + var(--gut)));
+  }
+  .is-pinrail .card{flex:none;width:clamp(310px,24vw,390px)}
+  .is-pinrail .rmeta{display:flex;align-items:center;gap:18px;grid-column:1;grid-row:2;margin-top:30px}
+  .is-pinrail .scards__note{grid-column:1 / -1}
+}
+
+/* ---------- desktop: cards stack (cards.fx = stack) ----------
+   Each card holds under the bar and the next one slides up over it;
+   the one beneath settles back a touch and dims (--cv, kit.js). Name,
+   facts and price on the left, Paul's words and the list on the right.
+   Only when every card fits the screen (kit.js checks). */
+@media (min-width:1024px){
+  .is-stack .scards__grid{display:grid;grid-template-columns:1fr;gap:clamp(24px,3vh,36px);max-width:1140px;margin-inline:auto}
+  .is-stack .card{
+    position:sticky;top:calc(var(--hd-h) + 56px + 22px + var(--k) * 14px);
+    display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.4fr);grid-template-areas:"h b" "f b";
+    column-gap:clamp(32px,4vw,72px);row-gap:22px;align-items:start;
+    padding:clamp(28px,2.6vw,40px);transform-origin:50% 0;transform:scale(calc(1 - var(--cv,0) * .05));
+  }
+  .is-stack .card__h{display:grid;gap:10px;grid-area:h}
+  .is-stack .card__b{display:grid;gap:18px;grid-area:b}
+  .is-stack .card__f{display:grid;gap:18px;grid-area:f;align-self:end}
+  .is-stack .card__text{margin:0}
+  .is-stack .card__list{grid-template-columns:1fr 1fr;column-gap:28px;margin:0}
+  .is-stack .card__foot{margin:0;padding:0}
+  .is-stack .card::before{content:"";position:absolute;inset:0;z-index:3;border-radius:inherit;background:#111;opacity:calc(var(--cv,0) * .14);pointer-events:none}
+  [data-theme=light] .is-stack .card{box-shadow:0 1px 0 rgba(17,17,17,.04),0 -18px 50px -30px rgba(17,17,17,.28),0 30px 60px -40px rgba(17,17,17,.4),inset 0 0 0 1px var(--line)}
+}
+
+/* ---------- material samples (cards.fx = samples) ----------
+   Staggered like swatches pinned to a board; each photo pulls back
+   from a close-up as it passes (kit.js). */
+@media (min-width:1024px){
+  .scards--fx-samples .scards__grid{align-items:start}
+  .scards--fx-samples .card:nth-child(even){margin-top:clamp(48px,6vw,104px)}
+  .scards--fx-samples .scards__grid[data-cols="3"] .card:nth-child(even){margin-top:clamp(56px,7vw,120px)}
+}
+.card__media .media img{transform-origin:50% 50%}
+
+/* phones: four or more points become a row of soft cards (07/10) */
+@media (max-width:767px){
+  .scards--points.scards--rail .scards__grid{gap:12px;align-items:stretch}
+  .scards--points.scards--rail .card{padding:22px 20px 20px;border-radius:var(--r-lg);
+    background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));box-shadow:inset 0 0 0 1px var(--line)}
+  [data-theme=light] .scards--points.scards--rail .card,.scards--points.scards--rail[data-theme=light] .card{background:#fff;box-shadow:0 24px 50px -36px rgba(17,17,17,.35),inset 0 0 0 1px var(--line)}
+  .scards--points.scards--rail .card::after{left:20px}
+}

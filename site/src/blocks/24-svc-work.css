@@ -19,8 +19,16 @@
 @media (max-width:767px){
   .swork__head{grid-template-columns:1fr}
   .swork__aside{justify-content:flex-start}
-  .swork__grid{grid-template-columns:1fr;grid-auto-rows:auto}
-  .swork__it,.swork__it.is-wide,.swork__it.is-full,.swork__it.is-half,.swork__it.is-third{grid-column:auto}
-  .swork__media .media{aspect-ratio:3 / 2!important}
+  /* two up (07/10: five photos stacked ran to two screens); a wide or
+     full photo, or a single one left on its own, takes the row */
+  .swork__grid{grid-template-columns:1fr 1fr;grid-auto-rows:auto;gap:12px 10px}
+  .swork__it,.swork__it.is-half,.swork__it.is-third{grid-column:auto}
+  .swork__it.is-wide,.swork__it.is-full,
+  .swork__it:not(.is-wide,.is-full):has(+:is(.is-wide,.is-full)),
+  :is(.is-wide,.is-full)+.swork__it:not(.is-wide,.is-full):last-child,
+  .swork__it:only-child{grid-column:1 / -1}
+  .swork__media .media{aspect-ratio:4 / 3!important}
+  .swork__it.is-wide .swork__media .media,.swork__it.is-full .swork__media .media{aspect-ratio:3 / 2!important}
+  .swork__it figcaption{font-size:.625rem;letter-spacing:.12em}
 }
 .swork--bare{padding-block:clamp(32px,4vw,64px)}

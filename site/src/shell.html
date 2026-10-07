@@ -39,7 +39,7 @@
 </script>
 {{#schema}}<script type="application/ld+json">{{&.}}</script>
 {{/schema}}</head>
-<body>
+<body{{#page.cluster}} data-cluster="{{page.cluster}}"{{/page.cluster}}{{#page.sweep}} data-sweep="{{page.sweep}}"{{/page.sweep}}>
 <a class="skip" href="#main">Skip to content</a>
 <div class="ld" aria-hidden="true"><span class="ld__wm"><span class="logo"></span></span></div>
 <div class="bgfx" aria-hidden="true"></div>

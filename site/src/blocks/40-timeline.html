@@ -2,24 +2,33 @@
      v0.5 About's timeline, every entry whole: the year held large on the
      left while its entry passes (sticky), a gold diamond on the line, the
      title, Paul's paragraph and the photos v0.5 shows for it, captioned.
-     Phones: the year sits above its title. -->
+     07/10: on desktop one year counter holds the left column and turns
+     over like an odometer to each entry's year (motion/kit.js); each
+     entry keeps its own year for screen readers and without JS.
+     Phones (07/10, the timeline ran to ~19 screens): the entries become a
+     row to swipe, one card each, the year and a count under it; long
+     entries fold (Read more). -->
 <section class="tl sec" id="{{tl.id}}" data-section="timeline">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&tl.eyebrow}}</p>
       <h2 class="disp h2" data-split>{{&tl.title}}</h2>
     </div>
-    <ol class="tl__list" role="list">
+    <div class="tl__frame">
+    <div class="tl__odo" aria-hidden="true"><div class="odo__stick"><div class="odo" data-odo><span class="odo__d"></span><span class="odo__d"></span><span class="odo__d"></span><span class="odo__d"></span></div><p class="odo__n"><span data-odo-n>01</span> / {{tl.total}}</p></div></div>
+    <ol class="tl__list" role="list" data-rail>
       {{#tl.items}}
-      <li class="tl__it">
+      <li class="tl__it" data-label="{{year}}">
         <p class="tl__year"><span>{{year}}</span></p>
         <div class="tl__body" data-reveal>
           <h3 class="tl__title">{{&title}}</h3>
-          <div class="tl__text">{{#paras}}<p>{{&.}}</p>{{/paras}}</div>
+          <div class="tl__text more" data-more><div class="more__body">{{#paras}}<p>{{&.}}</p>{{/paras}}</div></div>
           {{#hasPhotos}}<ul class="tl__photos" role="list" data-n="{{count}}">{{#photos}}<li><figure>{{&img}}<figcaption>{{&cap}}</figcaption></figure></li>{{/photos}}</ul>{{/hasPhotos}}
         </div>
       </li>
       {{/tl.items}}
     </ol>
+    </div>
+    <div class="rmeta" aria-hidden="true"><span class="rmeta__n"><b data-rail-n>{{tl.first}}</b><span data-rail-i>01</span> / {{tl.total}}</span><span class="rmeta__bar"><i></i></span></div>
   </div>
 </section>

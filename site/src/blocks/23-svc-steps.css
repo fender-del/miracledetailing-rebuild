@@ -10,6 +10,7 @@
   font-family:var(--fd);font-style:italic;font-weight:500;font-size:1.2rem;color:var(--gold)}
 .ssteps__name{margin-top:10px;font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.35rem,1.1rem + .6vw,1.65rem);line-height:1.15}
 .ssteps__text{font-size:.95rem}
+.ssteps__body{--fold:5.6em}
 .ssteps__intro{max-width:62ch}
 .ssteps__links{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
 .ssteps__links a{display:inline-flex;align-items:center;min-height:32px;padding:0 12px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--gold-a30);font-size:.625rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);transition:background .35s var(--ease),color .35s var(--ease)}
@@ -31,3 +32,80 @@
   .ssteps__it:not(:last-child)::before{content:"";position:absolute;left:27px;top:60px;bottom:6px;width:1px;background:var(--line-2)}
 }
 .ssteps--tight{padding-top:0}
+
+/* ---------- stage (07/10, PDR + bodyshop) ----------
+   Desktop: the picture holds still on the left, centred on the screen,
+   while the steps pass on the right along a line that fills as you go.
+   kit.js lights the step level with the picture and turns the number. */
+.ssteps__stage{display:none}
+@media (min-width:1024px){
+  .ssteps--stage.is-live .ssteps__track{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);column-gap:clamp(48px,7vw,130px);align-items:start}
+  .ssteps--stage.is-live .ssteps__line{display:none}
+  .ssteps--stage.is-live .ssteps__stage{display:block;position:sticky;top:calc(50vh - min(30vh,250px) + 28px)}
+  .ssteps--stage.is-live .ssteps__list{grid-template-columns:1fr;row-gap:0;padding-block:4vh 10vh}
+  .ssteps--stage.is-live .ssteps__list::before,.ssteps--stage.is-live .ssteps__list::after{content:"";position:absolute;left:27px;top:calc(4vh + 27px);bottom:calc(10vh + 60px);width:1px;background:var(--line-2)}
+  .ssteps--stage.is-live .ssteps__list::after{background:var(--gold);transform:scaleY(var(--sp,0));transform-origin:50% 0}
+  .ssteps--stage.is-live .ssteps__it{grid-template-columns:54px 1fr;column-gap:24px;padding-block:clamp(40px,9vh,96px)}
+  .ssteps--stage.is-live .ssteps__it>:not(.ssteps__n){grid-column:2}
+  .ssteps--stage.is-live .ssteps__n{grid-row:1 / span 3;position:relative;z-index:1}
+  .ssteps--stage.is-live .ssteps__name{margin-top:12px;font-size:clamp(1.6rem,1.2rem + .9vw,2.2rem)}
+  .ssteps--stage.is-live .ssteps__text{font-size:1.02rem;max-width:52ch}
+  .ssteps--stage.is-live .ssteps__n span{transition:background .6s var(--ease),color .6s var(--ease),box-shadow .6s var(--ease)}
+  .ssteps--stage.is-live .ssteps__it>:not(.ssteps__n){opacity:.3;transition:opacity .7s var(--ease)}
+  .ssteps--stage.is-live .ssteps__it.is-on>:not(.ssteps__n){opacity:1}
+  .ssteps--stage.is-live .ssteps__it.is-on .ssteps__n span{background:var(--gold);color:var(--ink)}
+}
+.stage{position:relative;display:grid;place-items:center;width:min(100%,500px);aspect-ratio:1;margin-inline:auto}
+.stage__ring{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
+.stage__ring circle{fill:none;stroke:var(--line-2);stroke-width:1;vector-effect:non-scaling-stroke}
+.stage__ring .stage__arc{stroke:var(--gold);stroke-width:1.5;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--sp,0));transition:stroke-dashoffset .2s linear}
+.stage__read{position:relative;display:grid;justify-items:center;gap:14px;text-align:center;padding:0 12%}
+.stage__num{display:flex;align-items:baseline;gap:12px;margin:0}
+.stage__digits{position:relative;display:inline-block;overflow:hidden;height:1.02em;line-height:1;
+  font-family:var(--fd);font-style:italic;font-weight:500;font-synthesis:none;letter-spacing:-.02em;font-size:clamp(5.5rem,3rem + 6vw,9rem);color:var(--gold)}
+.stage__digits>span{display:block}
+.stage__of{font-size:.75rem;font-weight:500;letter-spacing:.24em;color:var(--muted)}
+.stage__name{min-height:2.3em;font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.4rem,1.1rem + .7vw,1.9rem);line-height:1.15;color:var(--white);transition:opacity .4s var(--ease)}
+.stage__name.is-out{opacity:0}
+/* a photo on the stage: number and name low on the left of it */
+.stage--img{aspect-ratio:4 / 5;width:min(100%,460px);place-items:end start;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 50px 90px -50px rgba(0,0,0,.9)}
+.stage--img .stage__media,.stage--img .stage__media .media{position:absolute;inset:0;height:100%;aspect-ratio:auto!important}
+.stage--img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0) 35%,rgba(10,10,10,.82) 100%)}
+.stage--img .stage__ring{display:none}
+.stage--img .stage__read{z-index:1;justify-items:start;text-align:left;padding:0 28px 30px;gap:6px}
+.stage--img .stage__digits{font-size:clamp(4rem,2.4rem + 4vw,6.4rem)}
+.stage--img::before{content:"";position:absolute;left:0;bottom:0;z-index:2;height:2px;width:100%;background:var(--gold);transform:scaleX(var(--sp,0));transform-origin:0 50%}
+
+/* ---------- reading progress (07/10, aftercare's eight steps) ---------- */
+.ssteps__prog{display:none}
+.js .ssteps__prog{display:block;position:sticky;top:calc(var(--hd-h) + 56px);z-index:55;height:0;transition:top .5s var(--ease)}
+html:has(.hd.is-hidden) .ssteps__prog{top:56px}
+.ssteps__prog-in{display:flex;justify-content:flex-end;padding-top:12px}
+.ssteps__prog-in>*{opacity:0;transform:translateY(-6px);transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.ssteps.is-reading .ssteps__prog-in>*{opacity:1;transform:none}
+.ssteps__prog-n{display:inline-flex;align-items:center;gap:6px;min-height:34px;padding:0 14px;border-radius:999px 0 0 999px;
+  background:rgba(14,14,15,.84);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:inset 0 0 0 1px var(--line);
+  font-size:.625rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.ssteps__prog-n b{font-family:var(--fd);font-style:italic;font-weight:500;font-size:1.05rem;letter-spacing:0;color:var(--gold)}
+.ssteps__prog-bar{position:relative;display:block;align-self:center;width:clamp(90px,14vw,180px);height:34px;border-radius:0 999px 999px 0;
+  background:rgba(14,14,15,.84);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:inset 0 0 0 1px var(--line)}
+.ssteps__prog-bar i{position:absolute;left:12px;right:16px;top:50%;height:1px;background:var(--line-2)}
+.ssteps__prog-bar i::after{content:"";position:absolute;inset:0;background:var(--gold);transform:scaleX(var(--pp,0));transform-origin:0 50%;transition:transform .3s var(--ease)}
+@media (max-width:767px){
+  .js .ssteps__prog{top:calc(var(--hd-h) + 50px)}
+  html:has(.hd.is-hidden) .ssteps__prog{top:50px}
+}
+
+/* ---------- phones: a long procedure as a row to swipe (07/10) ---------- */
+@media (max-width:767px){
+  .ssteps--rail .ssteps__list{
+    grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:86%;gap:12px;align-items:start;
+    overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;
+    margin-inline:calc(-1 * var(--gut));padding:4px var(--gut) 8px;scroll-padding-inline:var(--gut);
+  }
+  .ssteps--rail .ssteps__list::-webkit-scrollbar{display:none}
+  .ssteps--rail .ssteps__it{scroll-snap-align:start;padding:22px 20px 20px;border-radius:var(--r-lg);
+    background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));box-shadow:inset 0 0 0 1px var(--line)}
+  .ssteps--rail .ssteps__it:not(:last-child)::before{display:none}
+  .ssteps--rail .ssteps__prog{display:none}
+}
