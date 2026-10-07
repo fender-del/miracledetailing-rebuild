@@ -1,0 +1,14 @@
+// Cloudflare Workers (static assets only, no server code).
+// Serves the built site in ./site; _headers and _redirects there apply as on Netlify.
+{
+  "name": "miracle-detail-rebuild",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./site",
+    "html_handling": "auto-trailing-slash"
+  },
+  "observability": {
+    "logs": { "enabled": true, "head_sampling_rate": 1, "invocation_logs": true, "persist": true },
+    "traces": { "enabled": false, "head_sampling_rate": 1, "persist": true }
+  }
+}

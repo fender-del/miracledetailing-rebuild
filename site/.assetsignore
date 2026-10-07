@@ -1,0 +1,9 @@
+# Not part of the public site (build tooling, source, Netlify config)
+src
+tools
+node_modules
+build.js
+package.json
+package-lock.json
+netlify.toml
+README.md
