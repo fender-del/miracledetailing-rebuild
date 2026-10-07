@@ -22,10 +22,11 @@ import { heroVideo } from './video.js';
 import { coverage } from './coverage.js';
 import { sound } from './sound.js';
 import { menu, form } from './ui.js';
-import { cold, steps, tbcs } from './svc.js';
+import { steps, tbcs } from './svc.js';
+import { cold } from './cold.js';
 import { snav, more, tabs, lit, filmHero, compare, coverage as ppfCoverage } from './ppf.js';
 import { gallery } from './gallery.js';
-import { transitions, heroFrame, rails, stacks, samples, zooms, collages, stages, odometer, railMeta, accordions, progress } from './kit.js';
+import { arrival, heroFrame, rails, stacks, samples, zooms, collages, stages, odometer, railMeta, accordions, progress } from './kit.js';
 
 const root = document.documentElement;
 const safe = fn => { try { fn(); } catch (e) { if (window.console) console.warn('[motion]', fn.name, e); } };
@@ -55,7 +56,7 @@ function boot() {
     safe(filmHero);
     if (env.entrance) {
       safe(lines); safe(fadeUps); safe(bands); safe(lightBands);
-      safe(transitions); safe(heroFrame);
+      safe(arrival); safe(heroFrame);
       /* the story splits its manifesto into words: wait for Saira */
       if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { safe(story); ScrollTrigger.refresh(); safe(rehash); });
       else { safe(story); safe(rehash); }
@@ -79,7 +80,6 @@ function boot() {
       safe(marquees);
       safe(reviews);
       /* service pages (06/10) */
-      safe(cold);
       safe(steps);
       /* the scroll kit (07/10) */
       safe(rails); safe(stacks); safe(samples); safe(zooms); safe(collages);
@@ -87,6 +87,8 @@ function boot() {
       if (env.fine) safe(tilt);
     }
     safe(stages); safe(progress);
+    /* dry ice: the canvas drawing, every tier (a still frame without motion) */
+    safe(cold);
     /* the pins above were made after the triggers below them: put the
        triggers back in page order before measuring */
     ScrollTrigger.sort();

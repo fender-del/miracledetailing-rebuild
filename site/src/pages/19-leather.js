@@ -48,7 +48,7 @@ module.exports = site => {
         ]
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'covered', light: true, cols: 3, fx: 'samples',
+        id: 'covered', light: true, cols: 3, fx: 'rail',
         eyebrow: 'What’s covered',
         title: 'Colour. Repair. <span class="gold">Restoration.</span>',
         items: [

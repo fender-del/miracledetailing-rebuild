@@ -80,7 +80,7 @@ module.exports = site => {
         ]
       }) },
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'products', light: true, cols: 4,
+        id: 'products', light: true, cols: 4, acc: true,
         eyebrow: 'Products at a glance',
         title: 'Everything you need. <span class="gold">Nothing you don’t.</span>',
         items: [

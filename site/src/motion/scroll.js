@@ -104,21 +104,25 @@ export function bands() {
 export function lightBands() {
   if (!env.entrance) return;
   const root = document.documentElement;
-  /* the paint pages lay their paper down behind a light instead
-     (kit.js transitions); neighbouring ivory sections read as one */
-  const paint = document.body.getAttribute('data-cluster') === 'paint';
+  /* the section a page arrives on with a light lays its paper down
+     behind it instead (kit.js arrival); neighbouring ivory sections
+     read as one */
+  const arrive = (document.body.getAttribute('data-arrive') || '').split(':');
   const light = el => !!el && el.getAttribute('data-bg') === 'light';
   $$('[data-bg=light]').forEach(s => {
     ScrollTrigger.create({
       trigger: s, start: 'top 50%', end: 'bottom 50%',
       onToggle: self => root.classList.toggle('on-light', self.isActive)
     });
-    if (paint) return;
+    if (s.id === arrive[0] && arrive[1] !== 'cut') return;
     if (!light(s.previousElementSibling)) gsap.fromTo(s, { '--cx': '5%', '--rt': '56px' }, {
       '--cx': '0%', '--rt': '0px', ease: 'none',
       scrollTrigger: { trigger: s, start: 'top bottom', end: 'top 25%', scrub: true }
     });
-    if (!light(s.nextElementSibling)) gsap.fromTo(s, { '--cx2': '0%', '--rb': '0px' }, {
+    /* a pinned row (kit.js rails) holds the section: its bottom edge
+       would close in while it is still on screen */
+    const pinned = s.getAttribute('data-fx') === 'rail' && window.matchMedia('(min-width: 1024px)').matches;
+    if (!light(s.nextElementSibling) && !pinned) gsap.fromTo(s, { '--cx2': '0%', '--rb': '0px' }, {
       '--cx2': '5%', '--rb': '56px', ease: 'none', immediateRender: false,
       scrollTrigger: { trigger: s, start: 'bottom 75%', end: 'bottom top', scrub: true }
     });

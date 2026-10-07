@@ -71,12 +71,11 @@ function cards(o) {
      every one on screen, a tap opens the rest */
   const acc = o.acc === true || (o.acc !== false && variant === 'boxed' && items.length >= 3
     && items.every(i => !i.img && (has(i.price) || has(i.facts))));
-  /* points: four or more become a row to swipe on phones too (07/10) */
-  const rail = o.rail !== false && !acc && ((variant === 'boxed' && items.length >= 3) || (variant === 'points' && items.length >= 4));
+  const rail = o.rail !== false && !acc && variant === 'boxed' && items.length >= 3;
   const fx = o.fx || null;
   return {
     id: o.id, variant, light: !!o.light, graphite: !!o.graphite,
-    fx, acc,
+    fx, acc, fxRail: fx === 'rail',
     counted: rail || fx === 'rail',
     total: String(items.length).padStart(2, '0'),
     eyebrow: o.eyebrow || null, title: o.title || null,
@@ -95,7 +94,7 @@ const fill = (o, keys) => { const c = Object.assign({}, o); keys.forEach(k => { 
 function prose(o) {
   const c = fill(o, ['eyebrow', 'img', 'cap', 'tagL', 'tagR', 'reverse', 'light', 'graphite', 'listTitle', 'list', 'listCols', 'after', 'price']);
   c.paras = c.paras || [];
-  if (c.zoom) c.zoom = Object.assign({ focus: '50% 50%', rot: 0, glass: false }, c.zoom === true ? {} : c.zoom);
+  if (c.zoom) c.zoom = Object.assign({ focus: '50% 50%', rot: 0, glass: false, still: false }, c.zoom === true ? {} : c.zoom);
   else c.zoom = null;
   c.hasList = has(c.list); c.hasAfter = has(c.after);
   c.hasExtra = c.hasList || c.hasAfter || has(c.price) || has(c.listTitle);

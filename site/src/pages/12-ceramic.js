@@ -27,7 +27,7 @@ module.exports = site => {
   return {
     slug: SLUG,
     /* scroll kit (07/10, PLAN-interactions §3) */
-    cluster: 'paint', sweep: 'ripple',
+    cluster: 'paint', arrive: 'why:ripple',
     title: 'Ceramic Coating in Surrey | Feynlab, by Paul Dalton | Miracle Detail',
     description: 'Feynlab ceramic coatings applied in Lingfield, Surrey, by Paul Dalton, Feynlab’s only global ambassador and co-developer of Ceramic by Paul Dalton. Six coatings, 1 to 10 years.',
     preload: [

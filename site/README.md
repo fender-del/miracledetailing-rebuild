@@ -93,27 +93,35 @@ Scope = the 13 content pages on the v0.5 staging site + Services, Gallery and Jo
 - **v0.5 slips** fixed or left out (ceramic/tint paragraphs swapped, leather areas carrying PPF lines, duplicated headings…): each page's header comment, and REQUESTS section 3.
 - **Menu / footer:** no links to pages that do not exist (new car, supercar, classic, contact, privacy, terms). "Contact" opens the booking form.
 
-## Scroll kit on the inner pages (07/10, `../PLAN-interactions.md` §1–4)
+## Scroll kit on the inner pages (07/10, `../PLAN-interactions.md` §1–4, revised the same day)
 
-The layout and scroll motion from the plan, applied to every v0.5 page. **The page-specific interactions at the top of that plan (VLT slider, five-level slider, PDR reflection lines…) are NOT built yet.** Paul's words unchanged; only grounds (dark / ivory) moved to keep the rhythm (never three dark sections in a row; two ivory sections in a row read as one chapter, no seam).
+The layout and scroll motion from the plan, on every v0.5 page. **The page-specific interactions at the top of that plan (VLT slider, five-level slider, PDR reflection lines…) are NOT built yet.** Paul's words unchanged; only grounds (dark / ivory) moved to keep the rhythm (never three dark sections in a row; two ivory sections in a row read as one chapter, no seam).
 
-Code: `src/02-fx.css` (rides with every page) + `src/motion/kit.js`; a page sets `cluster` (and `sweep`), a block sets its kind.
+**Rule after Fender's review (07/10): one effect, once per page.** An effect repeated block after block (the light sweeping every section, the hairline at every section, every quote lighting word by word) read cheap, so:
+- one section per page arrives with an effect, set by the page: `arrive: 'id:beam|ripple|cut'` (Correction: Diagnosis under the inspection light; Ceramic: Why, a bead of water spreading; Dry ice, PDR, Bodyshop: one hairline cut; PPF: none, its hero film sweep is its one);
+- only the first statement or quote of a page lights word by word, the others simply rise in;
+- one zoom per page (Tint: the overview zooms, the legal photo only darkens like film);
+- phones: at most one row to swipe per page.
 
-| Cluster | Pages | Signature |
+Code: `src/02-fx.css` + `src/motion/kit.js` (+ `motion/cold.js` for dry ice); a page sets `cluster` and `arrive`, a block sets its kind.
+
+**The main list of each page runs sideways under an anchored header** (Fender 07/10: scroll down, travel sideways, keep the header so the visitor knows what is being talked about): `cards.fx = 'rail'` on Correction (5 levels), Ceramic (6 coatings), Mobile (4 packages), Bodyshop (4), Wheels (4), Leather (3), Tint (3 films), Dry ice (4 uses). Desktop/tablet landscape (≥1024 wide, ≥600 tall): the section holds the screen; heading on top, under it the names of every item (the one in view lit, a click goes to it) and a count; the cards run past edge to edge; a card with a photo becomes a slide (photo left, words right); Correction's Rolls-Royce photo leads the row. It fits itself to the screen: normal → tighter → wide cards with Paul's words beside the list (laptops ~650 px tall) → otherwise the plain grid. Packages keeps its stacked cards, PPF its coverage drawing.
+
+| Cluster | Pages | What stays |
 |---|---|---|
-| paint | Correction, Ceramic, PPF | hero closes into a framed photo as it leaves; each section arrives under an inspection light that sweeps across it and lays an ivory section's paper down behind it (Ceramic: `sweep: 'ripple'`, a bead of water spreading); Correction's five levels and Ceramic's six coatings run past on a **pinned rail** (desktop) |
-| process | Dry ice, PDR, Bodyshop | a hairline cuts across at each section, gold diamond at its tip; PDR's five steps and Bodyshop's process on a **stage** (desktop: the picture holds still, the number turns over, the step beside it lights; PDR = the number in a ring, Bodyshop = photo) |
-| restore | Wheels, Leather, Tint | photos open on a close-up and pull back (`prose.zoom`, wheels turn a little; tint's legal photo darkens like film as the limits are read); options sit staggered like material samples |
-| story | About, Mobile, Packages | quotes take the whole screen; About: one **year counter** rolls beside the timeline (odometer); Packages: the five levels **stack** (each card sticks, the next slides over); Mobile: the three Portugal cars float round the quote (collage; the grid that repeated them is gone) |
+| paint | Correction, Ceramic, PPF | hero closes into a framed photo as it leaves |
+| process | Dry ice, PDR, Bodyshop | PDR's five steps and Bodyshop's process on a **stage** (desktop: the picture holds still, the number turns over, the step beside it lights) |
+| restore | Wheels, Leather, Tint | the first photo opens on a close-up and pulls back |
+| story | About, Mobile, Packages | quotes take the whole screen; About: a **year counter** rolls beside the timeline; Packages: the five levels **stack**; Mobile: the three Portugal cars float round the quote |
 | utility | Aftercare | "Step n / 8" pill while the procedure is read |
 
-Kinds: `cards.fx` = `rail` | `stack` | `samples`; `steps.stage` = `{}` or `{ img }`; `steps.progress`; `quote.collage` = [3 frames]; `prose.zoom` = `{ focus, rot, glass }`. Each desktop-only piece checks the screen first (a rail only pins when the whole section fits; a stack only when every card fits under the bar) and lives in a `gsap.matchMedia` context.
+**Dry ice, redrawn (07/10, `motion/cold.js`):** one canvas, no images: a machined aluminium casing (brushed top catching two softboxes, cooling ribs), a stainless lance with a fan nozzle that frosts over, a stream of pellets, a caked crust of grime. The scroll tells it: I the pellets strike and the crust shivers; II frost spreads and crystals grow, the readout falls to −78.5°C, the crust cracks; III the pellets turn straight to gas (CO2 is heavier than air: the vapour rolls along the surface and spills over the edge), the crust breaks off from the centre out, a light runs along the clean edge. Held on screen while the beats pass (desktop: right column; phones: a band under the page bar, about a fifth of the screen). Painted only while on screen. Reduced motion: one still frame. No JS: `assets/img/cold-still.webp`, rendered from the canvas (re-render it after changing the drawing: open the page with reduced motion and save `.cold__cv` as an image).
 
-**Phones (Fender: don't bury the packages, don't let it run on):** nothing sticks over the text (the dry ice drawing now scrolls with the page and plays once when it arrives); options with a price and no photo become a **price list** (`cards.acc`: number, name, facts and price on one screen, a tap opens the rest); other rows of three or more cards, points of four or more, About's timeline and Aftercare's eight steps become **rows to swipe** with a count under them (the timeline was ~19 screens, now 1.6); Paul's paragraphs fold after about three lines (`--fold` per block, only when it hides 2.5+ lines); project photos two up. About on a phone: 37 → 15 screens, Aftercare 12 → 8.
+**Phones:** nothing covers the text (held pictures stay small); options with a price and no photo become a **price list** (`cards.acc`: every option on one screen, a tap opens the rest); About's timeline and Aftercare's steps become rows to swipe with a count; Paul's paragraphs fold after about three lines (only when 2.5+ lines would hide); project photos two up. About on a phone: 37 → ~15 screens, Aftercare 12 → 8.
 
-Reduced motion / no JS: none of the motion; stage and odometer still work with JS (they are how the page reads), every rail and list shows in full without it.
+Reduced motion / no JS: none of the motion; stage and year counter still work with JS (they are how the page reads); every list shows in full without it.
 
-QA 07/10: 17 pages × 7 modes, 0 console errors, 1 H1, 0 horizontal overflow, 0 hidden text. Lighthouse mobile (local): Correction 99, Packages 99, About 98; CLS 0. JS 88.5 KB gz (+3 KB).
+QA 07/10 (after the revision): 17 pages × 7 modes, 0 console errors, 1 H1, 0 horizontal overflow, 0 hidden text. Lighthouse mobile (local): Dry ice 98, Correction 99, Wheels 99; CLS 0. JS 93 KB gz.
 
 ## Where things live
 

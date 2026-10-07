@@ -24,7 +24,7 @@ module.exports = site => {
   return {
     slug: SLUG,
     /* scroll kit (07/10, PLAN-interactions §3) */
-    cluster: 'process',
+    cluster: 'process', arrive: 'how:cut',
     title: 'Paintless Dent Removal (PDR) in Surrey | Miracle Detail',
     description: 'Paintless dent removal through Miracle Detail, Lingfield, Surrey: car park dents, hail damage and larger dents removed from behind the panel. No filler, no respray, the original paint intact.',
     preload: [

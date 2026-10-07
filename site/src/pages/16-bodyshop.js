@@ -25,7 +25,7 @@ module.exports = site => {
   return {
     slug: SLUG,
     /* scroll kit (07/10, PLAN-interactions §3) */
-    cluster: 'process',
+    cluster: 'process', arrive: 'process:cut',
     title: 'Bodyshop & Paint Repair in Surrey | Miracle Detail',
     description: 'Bodyshop and paint repair through Miracle Detail, Lingfield, Surrey: panel repair, single panel respray, full respray and full restoration, coordinated by Paul Dalton with correction and protection.',
     preload: [
@@ -47,7 +47,7 @@ module.exports = site => {
         ]
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'available', light: true, cols: 4,
+        id: 'available', light: true, cols: 4, fx: 'rail',
         eyebrow: 'What’s available',
         title: 'From single panels to <span class="gold">full restorations.</span>',
         items: [

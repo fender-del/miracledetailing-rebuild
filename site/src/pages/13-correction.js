@@ -29,7 +29,7 @@ module.exports = site => {
   return {
     slug: SLUG,
     /* scroll kit (07/10, PLAN-interactions §3) */
-    cluster: 'paint',
+    cluster: 'paint', arrive: 'diagnosis:beam',
     title: 'Paint Correction in Surrey | Five Levels | Miracle Detail',
     description: 'Paint correction in Lingfield, Surrey, by Paul Dalton: five levels from enhancement polish to concours perfect, every car measured with a paint depth gauge, gloss meter and digital microscope first.',
     preload: [

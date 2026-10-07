@@ -38,65 +38,66 @@ const body = document.body;
 const cluster = body.getAttribute('data-cluster');
 const pad = n => String(n).padStart(2, '0');
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
-const sections = () => $$('main > section.sec').filter(s => !s.hasAttribute('data-hero'));
 
-/* ---------- how a section arrives ---------- */
-export function transitions() {
-  if (cluster === 'paint') paintLight();
-  else if (cluster === 'process') hairlines();
-}
+/* ---------- how ONE section arrives ----------
+   07/10 (Fender: an effect repeated block after block reads cheap): each
+   page names one section and one arrival, body[data-arrive="id:kind"].
+     beam    an inspection light sweeps across it (an ivory section's
+             paper is laid down behind the light)       Correction
+     ripple  a bead of water spreads from one point    Ceramic
+     cut     a hairline cuts across, diamond at its tip   process pages */
+export function arrival() {
+  const [id, kind] = (body.getAttribute('data-arrive') || '').split(':');
+  const sec = id && document.getElementById(id);
+  if (!sec) return;
+  if (kind === 'cut') { cut(sec); return; }
+  const ripple = kind === 'ripple';
+  sec.setAttribute('data-arrive-on', ripple ? 'ripple' : 'beam');
+  const fx = document.createElement('span');
+  fx.className = 'fxb';
+  fx.setAttribute('aria-hidden', 'true');
+  fx.innerHTML = ripple ? '<i class="fxb__ring"></i>' : '<i class="fxb__beam"></i><i class="fxb__edge"></i>';
+  sec.prepend(fx);
+  const light = sec.getAttribute('data-bg') === 'light';
+  let W = 1, H = 1;
+  const measure = () => { W = sec.offsetWidth; H = sec.offsetHeight; };
+  measure();
+  ScrollTrigger.addEventListener('refreshInit', measure);
 
-function paintLight() {
-  const ripple = body.getAttribute('data-sweep') === 'ripple';
-  sections().forEach(sec => {
-    const fx = document.createElement('span');
-    fx.className = 'fxb';
-    fx.setAttribute('aria-hidden', 'true');
-    fx.innerHTML = ripple ? '<i class="fxb__ring"></i>' : '<i class="fxb__beam"></i><i class="fxb__edge"></i>';
-    sec.prepend(fx);
-    const light = sec.getAttribute('data-bg') === 'light';
-    let W = 1, H = 1;
-    const measure = () => { W = sec.offsetWidth; H = sec.offsetHeight; };
-    measure();
-    ScrollTrigger.addEventListener('refreshInit', measure);
-
-    const paint = p => {
-      if (ripple) {
-        /* the bead spreads fast, then slows, like water on a coating */
-        const e = 1 - Math.pow(1 - p, 2.2);
-        const rr = e * 150;
-        fx.style.setProperty('--rp', (rr / 100 * Math.hypot(W, H) / Math.SQRT2).toFixed(1) + 'px');
-        fx.style.setProperty('--ro', (p <= 0 || p >= 1 ? 0 : Math.min(1, p * 6) * Math.pow(1 - p, 0.7)).toFixed(3));
-        if (light) sec.style.setProperty('--rr', rr.toFixed(2) + '%');
-      } else {
-        /* the beam's centre runs from off the left to off the right; the
-           paper's edge sits under it */
-        const bx = -25 + p * 150;
-        fx.style.setProperty('--bx', bx.toFixed(2) + '%');
-        fx.style.setProperty('--bo', Math.sin(Math.PI * p).toFixed(3));
-        if (light) sec.style.setProperty('--sw', (clamp(bx / 100) * 100).toFixed(2) + '%');
-      }
-    };
-    const st = { p: 0 };
-    gsap.to(st, {
-      p: 1, ease: 'none', onUpdate: () => paint(st.p),
-      scrollTrigger: { trigger: sec, start: 'top 94%', end: () => (window.matchMedia(PHONE).matches ? 'top 45%' : 'top 28%'), scrub: 0.6, invalidateOnRefresh: true }
-    });
-    /* start dark; the trigger then scrubs to wherever the page is */
-    paint(0);
+  const paint = p => {
+    if (ripple) {
+      /* the bead spreads fast, then slows, like water on a coating */
+      const e = 1 - Math.pow(1 - p, 2.2);
+      const rr = e * 150;
+      fx.style.setProperty('--rp', (rr / 100 * Math.hypot(W, H) / Math.SQRT2).toFixed(1) + 'px');
+      fx.style.setProperty('--ro', (p <= 0 || p >= 1 ? 0 : Math.min(1, p * 6) * Math.pow(1 - p, 0.7)).toFixed(3));
+      if (light) sec.style.setProperty('--rr', rr.toFixed(2) + '%');
+    } else {
+      /* the beam's centre runs from off the left to off the right; the
+         paper's edge sits under it */
+      const bx = -25 + p * 150;
+      fx.style.setProperty('--bx', bx.toFixed(2) + '%');
+      fx.style.setProperty('--bo', Math.sin(Math.PI * p).toFixed(3));
+      if (light) sec.style.setProperty('--sw', (clamp(bx / 100) * 100).toFixed(2) + '%');
+    }
+  };
+  const st = { p: 0 };
+  gsap.to(st, {
+    p: 1, ease: 'none', onUpdate: () => paint(st.p),
+    scrollTrigger: { trigger: sec, start: 'top 94%', end: () => (window.matchMedia(PHONE).matches ? 'top 45%' : 'top 28%'), scrub: 0.6, invalidateOnRefresh: true }
   });
+  /* start dark; the trigger then scrubs to wherever the page is */
+  paint(0);
 }
 
-function hairlines() {
-  sections().forEach(sec => {
-    const l = document.createElement('span');
-    l.className = 'fxl';
-    l.setAttribute('aria-hidden', 'true');
-    sec.prepend(l);
-    gsap.fromTo(l, { '--lp': 0 }, {
-      '--lp': 1, ease: 'power1.inOut',
-      scrollTrigger: { trigger: sec, start: 'top 98%', end: 'top 42%', scrub: 0.5 }
-    });
+function cut(sec) {
+  const l = document.createElement('span');
+  l.className = 'fxl';
+  l.setAttribute('aria-hidden', 'true');
+  sec.prepend(l);
+  gsap.fromTo(l, { '--lp': 0 }, {
+    '--lp': 1, ease: 'power1.inOut',
+    scrollTrigger: { trigger: sec, start: 'top 98%', end: 'top 42%', scrub: 0.5 }
   });
 }
 
@@ -119,35 +120,118 @@ export function heroFrame() {
   });
 }
 
-/* ---------- desktop: the row runs past ---------- */
+/* ---------- desktop: the row runs past, the header anchored ----------
+   v2 (07/10): heading, the names of every item and a count stay on top
+   while the cards travel; the name of the card in view is lit and a
+   click on a name scrolls to it. Pins only when it all fits the screen
+   (tries a tighter set first), else the plain grid stays. */
 export function rails() {
   const list = $$('[data-fx=rail]');
   if (!list.length) return;
-  gsap.matchMedia().add(`${DESK} and (min-height: 640px)`, () => {
+  gsap.matchMedia().add(`${DESK} and (min-height: 600px)`, () => {
     const undo = [];
     list.forEach(sec => {
-      sec.classList.add('is-pinrail');
-      /* only when the whole section fits the screen: a cut-off card
-         behind a pin is worse than a plain grid */
-      if (sec.offsetHeight > window.innerHeight + 2) { sec.classList.remove('is-pinrail'); return; }
       const grid = $('.scards__grid', sec), track = $('.scards__track', sec);
+      const chipsEl = $('[data-rchips]', sec), rbar = $('.rbar', sec), meta = $('.rmeta', sec);
+      const fig = $('.scards__head .scards__fig', sec);
+      const metaHome = meta && meta.parentNode, metaNext = meta && meta.nextSibling;
+      const figHome = fig && fig.parentNode, figNext = fig && fig.nextSibling;
+      let figLi = null;
+
+      sec.classList.add('is-pinrail');
+      if (fig) {
+        figLi = document.createElement('li');
+        figLi.className = 'card--fig';
+        figLi.setAttribute('aria-hidden', 'false');
+        figLi.appendChild(fig);
+        grid.prepend(figLi);
+      }
+      if (meta && rbar) rbar.appendChild(meta);
       const cards = $$('.card', grid);
-      const n = $('[data-rail-n]', sec), bar = $('.rmeta__bar', sec);
+      const fits = () => sec.scrollHeight <= window.innerHeight + 1
+        && cards.every(c => c.scrollHeight <= c.clientHeight + 1);
+      /* normal, then tighter, then wide cards (words beside the list) */
+      if (!fits()) sec.classList.add('is-tight');
+      if (!fits()) sec.classList.add('is-wide');
+      const restore = () => {
+        sec.classList.remove('is-pinrail', 'is-tight', 'is-wide');
+        if (figLi) { figHome.insertBefore(fig, figNext); figLi.remove(); }
+        if (meta && metaHome) metaHome.insertBefore(meta, metaNext);
+        if (chipsEl) chipsEl.replaceChildren();
+        gsap.set(grid, { clearProps: 'transform' });
+        const n = meta && $('[data-rail-n]', meta);
+        if (n) n.textContent = '01';
+      };
+      if (!fits()) { restore(); return; }
+
+      /* the names, from the cards' own headings */
+      const chips = cards.map((c, i) => {
+        const li = document.createElement('li');
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'rchip';
+        const num = $('.card__n', c);
+        const nm = $('.card__name', c);
+        b.innerHTML = (num ? `<span class="rchip__n">${num.textContent}</span>` : '') + `<span>${nm ? nm.innerHTML : pad(i + 1)}</span>`;
+        li.appendChild(b);
+        if (chipsEl) chipsEl.appendChild(li);
+        return b;
+      });
+
+      const n = meta && $('[data-rail-n]', meta), bar = meta && $('.rmeta__bar', meta);
+      const pad0 = parseFloat(getComputedStyle(grid).paddingLeft) || 0;
       const dist = () => Math.max(0, grid.scrollWidth - track.clientWidth);
-      let cur = 0;
-      gsap.to(grid, {
+      /* where each card's left edge sits along the row */
+      let offs = [], wids = [];
+      const measure = () => { offs = cards.map(c => c.offsetLeft - pad0); wids = cards.map(c => c.offsetWidth); };
+      measure();
+      let cur = -1;
+      const light = i => {
+        if (i === cur) return;
+        cur = i;
+        chips.forEach((c, j) => { c.classList.toggle('is-on', j === i); if (j === i) c.setAttribute('aria-current', 'true'); else c.removeAttribute('aria-current'); });
+        if (n) n.textContent = pad(i + 1);
+        const c = chips[i];
+        if (c && chipsEl) {
+          const l = c.parentNode.offsetLeft, r = l + c.parentNode.offsetWidth;
+          if (l < chipsEl.scrollLeft || r > chipsEl.scrollLeft + chipsEl.clientWidth) chipsEl.scrollTo({ left: l - 12, behavior: 'smooth' });
+        }
+      };
+      const tw = gsap.to(grid, {
         x: () => -dist(), ease: 'none',
         scrollTrigger: {
-          trigger: sec, start: 'top top', end: () => '+=' + Math.max(dist() * 1.1, window.innerHeight * 0.5),
+          trigger: sec, start: 'top top', end: () => '+=' + Math.max(dist() * 1.15, window.innerHeight * 0.6),
           pin: true, scrub: 0.8, anticipatePin: 1, invalidateOnRefresh: true,
+          onRefresh: measure,
           onUpdate: self => {
             if (bar) bar.style.setProperty('--rm', self.progress.toFixed(3));
-            const i = Math.min(cards.length - 1, Math.round(self.progress * (cards.length - 1)));
-            if (i !== cur) { cur = i; if (n) n.textContent = pad(i + 1); }
+            const x = self.progress * dist();
+            /* the card whose left edge has come nearest the start of the
+               row; the last one once the row has run out */
+            /* the card that fills most of the row right now */
+            const W = track.clientWidth;
+            let i = 0, best = -1;
+            offs.forEach((o, j) => {
+              const l = o + pad0 - x, r = l + wids[j];
+              const seen = Math.max(0, Math.min(r, W) - Math.max(l, 0)) / Math.min(wids[j], W);
+              if (seen > best + 0.02) { best = seen; i = j; }
+            });
+            if (self.progress > 0.985) i = cards.length - 1;
+            light(i);
           }
         }
       });
-      undo.push(() => { sec.classList.remove('is-pinrail'); gsap.set(grid, { clearProps: 'transform' }); if (n) n.textContent = '01'; });
+      light(0);
+
+      chips.forEach((b, i) => b.addEventListener('click', () => {
+        const st = tw.scrollTrigger;
+        const p = dist() ? Math.min(1, offs[i] / dist()) : 0;
+        const y = st.start + p * (st.end - st.start) + 2;
+        if (env.lenis) env.lenis.scrollTo(y, { duration: 1.2 });
+        else window.scrollTo({ top: y, behavior: env.motion ? 'smooth' : 'auto' });
+      }));
+
+      undo.push(restore);
     });
     return () => undo.forEach(f => f());
   });
@@ -196,15 +280,17 @@ export function zooms() {
     if (!inner) return;
     fr.style.setProperty('--zf', fr.getAttribute('data-focus') || '50% 50%');
     const rot = parseFloat(fr.getAttribute('data-rot')) || 0;
-    const S = 2.2;
+    /* data-still: no pull-back, only the tint (one zoom per page, 07/10) */
+    const S = fr.hasAttribute('data-still') ? 1 : 2.2;
+    if (S === 1) fr.style.setProperty('--zi', '0%');
     const st = { p: 0 };
     const paint = () => {
       const k = 1 - st.p;
       inner.style.transform = `scale(${(1 + (S - 1) * k).toFixed(4)})` + (rot ? ` rotate(${(rot * k).toFixed(3)}deg)` : '');
       fr.style.setProperty('--zi', (10 * k).toFixed(3) + '%');
     };
-    paint();
-    gsap.to(st, {
+    if (S > 1) paint();
+    if (S > 1) gsap.to(st, {
       p: 1, ease: 'power2.out', onUpdate: paint,
       scrollTrigger: { trigger: fr, start: 'top 96%', end: 'center 48%', scrub: 0.7 }
     });

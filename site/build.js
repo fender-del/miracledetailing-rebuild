@@ -128,6 +128,12 @@ const written = [];
    [{ id, media, sizes }]. */
 /* Videos get the same ?v= content hash as images, for the same reason. */
 function versionVideos(html) {
+  /* 07/10: also any image a block names by hand (the dry ice still) */
+  html = html.replace(/\/assets\/img\/([\w.-]+\.(?:webp|png|jpg))(?![?\w.-])/g, (m, f) => {
+    const file = path.join(ROOT, 'assets', 'img', f);
+    if (!fs.existsSync(file)) return m;
+    return `${m}?v=${require('crypto').createHash('md5').update(fs.readFileSync(file)).digest('hex').slice(0, 8)}`;
+  });
   return html.replace(/\/assets\/video\/([\w.-]+\.mp4)/g, (m, f) => {
     const file = path.join(ROOT, 'assets', 'video', f);
     if (!fs.existsSync(file)) return m;

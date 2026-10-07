@@ -48,7 +48,7 @@ module.exports = site => {
         ]
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'films', light: true, cols: 3, fx: 'samples',
+        id: 'films', light: true, cols: 3, fx: 'rail',
         eyebrow: 'Film options',
         title: 'Two films. <span class="gold">Every application covered.</span>',
         items: [
@@ -83,7 +83,7 @@ module.exports = site => {
         ]
       }) } },
       { block: '33-svc-prose', with: { prose: prose({
-        id: 'legal', graphite: true, zoom: { focus: '45% 40%', glass: true },
+        id: 'legal', graphite: true, zoom: { glass: true, still: true },
         eyebrow: 'UK legal requirements',
         title: 'Tinted legally. <span class="gold">Done properly.</span>',
         img: frame('wt-glass', { alt: 'The dark tinted side glass of a black saloon', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),

@@ -149,28 +149,83 @@
 }
 
 /* ---------- desktop: the row runs past (cards.fx = rail) ----------
-   motion/kit.js adds .is-pinrail only when the whole section fits the
-   screen, then pins it and moves the row with the scroll. */
+   07/10 v2 (Fender: scroll down, travel sideways, keep the header
+   anchored so the visitor knows what is being talked about). The
+   section holds the screen: the heading stays on top, under it the
+   names of every item (the one in view lit, a click goes to it) and a
+   count; the cards run past below, edge to edge. A card with a photo
+   becomes a slide, photo left, words right. kit.js adds .is-pinrail
+   (and .is-tight if needed) only when everything fits the screen. */
+.rbar{display:none}
 @media (min-width:1024px){
-  .scards.is-pinrail{display:flex;align-items:center;min-height:100vh;padding-block:calc(56px + clamp(24px,5vh,56px)) clamp(24px,5vh,56px)}
-  .is-pinrail .scards__wrap{
-    width:100%;max-width:none;display:grid;grid-template-columns:minmax(300px,29%) minmax(0,1fr);grid-template-rows:1fr auto;
-    column-gap:clamp(40px,4vw,80px);padding-right:0;padding-left:max(var(--gut),calc((100vw - var(--wrap)) / 2 + var(--gut)));
-  }
-  .is-pinrail .scards__head,.is-pinrail .scards__head.has-intro{grid-column:1;grid-row:1;align-self:center;margin:0;grid-template-columns:1fr;gap:26px}
-  .is-pinrail .scards__head .scards__fig{grid-column:auto!important}
-  .is-pinrail .scards__head .h2{font-size:clamp(2.1rem,1.2rem + 2.2vw,3.4rem)}
+  .scards.is-pinrail{height:100vh;min-height:0;padding-block:calc(56px + clamp(18px,3.4vh,40px)) clamp(18px,3.4vh,40px);display:flex}
+  .is-pinrail .scards__wrap{width:100%;display:grid;grid-template-rows:auto auto minmax(0,1fr);min-height:0}
+  .is-pinrail .scards__head,.is-pinrail .scards__head.has-intro{display:flex;align-items:flex-end;justify-content:space-between;gap:24px 64px;margin:0}
+  .is-pinrail .scards__titles{gap:14px}
+  .is-pinrail .scards__head .h2{font-size:clamp(2rem,1.1rem + 1.9vw,3.1rem)}
+  .is-pinrail .scards__intro{max-width:46ch}
+  .is-pinrail .scards__intro p{font-size:.95rem;line-height:1.6}
+  .is-pinrail .rbar{display:flex;align-items:center;justify-content:space-between;gap:32px;margin:clamp(16px,2.6vh,30px) 0 clamp(14px,2.2vh,26px);box-shadow:inset 0 -1px 0 var(--line)}
+  .rchips{display:flex;gap:clamp(18px,2.2vw,34px);margin:0;padding:0;list-style:none;overflow-x:auto;scrollbar-width:none;min-width:0}
+  .rchips::-webkit-scrollbar{display:none}
+  .rchip{position:relative;display:inline-flex;align-items:baseline;gap:9px;min-height:44px;white-space:nowrap;
+    font-weight:500;font-size:.6875rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);transition:color .4s var(--ease)}
+  .rchip__n{font-family:var(--fd);font-style:italic;font-weight:500;font-size:.95rem;letter-spacing:0;text-transform:none;color:var(--gold);opacity:.6;transition:opacity .4s}
+  .rchip::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:0 50%;transition:transform .6s var(--ease)}
+  .rchip:hover{color:var(--white)}
+  .rchip.is-on{color:var(--white)}
+  .rchip.is-on .rchip__n{opacity:1}
+  .rchip.is-on::after{transform:none}
+  .is-pinrail .rmeta{display:flex;flex:none;align-items:center;gap:16px;margin:0}
+  .is-pinrail .rmeta__bar{width:clamp(90px,10vw,160px);flex:none}
   .is-pinrail .scards__track{
-    grid-column:2;grid-row:1 / span 2;align-self:center;min-width:0;overflow:hidden;padding-block:8px 24px;
-    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 56px);mask-image:linear-gradient(90deg,transparent 0,#000 56px);
+    min-height:0;margin-inline:calc(50% - 50vw);overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 3%,#000 97%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 3%,#000 97%,transparent 100%);
   }
   .is-pinrail .scards__grid{
-    display:flex;width:max-content;gap:clamp(16px,1.4vw,24px);will-change:transform;
-    padding-left:56px;padding-right:max(var(--gut),calc((100vw - var(--wrap)) / 2 + var(--gut)));
+    display:flex;align-items:stretch;width:max-content;height:100%;gap:clamp(14px,1.3vw,22px);will-change:transform;
+    padding-inline:max(var(--gut),calc((100vw - var(--wrap)) / 2 + var(--gut)));padding-block:2px 6px;
   }
-  .is-pinrail .card{flex:none;width:clamp(310px,24vw,390px)}
-  .is-pinrail .rmeta{display:flex;align-items:center;gap:18px;grid-column:1;grid-row:2;margin-top:30px}
-  .is-pinrail .scards__note{grid-column:1 / -1}
+  .is-pinrail .card{flex:none;width:clamp(300px,24vw,380px);min-height:0}
+  .is-pinrail .card__foot{margin-top:auto}
+  /* a card with a photo: a slide */
+  .is-pinrail .card:has(>.card__media){
+    width:min(66vw,980px);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);grid-template-rows:auto auto minmax(0,1fr);
+    column-gap:clamp(24px,2.6vw,44px);row-gap:14px;padding:0 clamp(24px,2.4vw,40px) clamp(22px,2.4vw,34px) 0;
+  }
+  .is-pinrail .card:has(>.card__media)>.card__media{grid-column:1;grid-row:1 / -1;margin:0;border-radius:var(--r-lg) 0 0 var(--r-lg);height:100%}
+  .is-pinrail .card:has(>.card__media) .card__f{align-self:end}
+  .is-pinrail .card:has(>.card__media)>.card__media .media{aspect-ratio:auto;height:100%}
+  .is-pinrail .card:has(>.card__media)>:not(.card__media){grid-column:2}
+  .is-pinrail .card:has(>.card__media) .card__h{display:grid;gap:10px;padding-top:clamp(24px,2.4vw,36px)}
+  .is-pinrail .card:has(>.card__media) .card__b,.is-pinrail .card:has(>.card__media) .card__f{display:grid;gap:12px}
+  /* Correction: the Rolls-Royce photo leads the row */
+  .card--fig{flex:none;display:grid;grid-template-rows:minmax(0,1fr) auto;gap:10px;width:clamp(320px,30vw,480px);margin:0;list-style:none}
+  .card--fig .scards__figm{min-height:0;height:100%}
+  .card--fig .scards__figm .media{aspect-ratio:auto;height:100%}
+  /* tighter, for shorter screens */
+  .is-pinrail.is-tight .card{padding:clamp(18px,1.6vw,24px);gap:8px}
+  .is-pinrail.is-tight .card:has(>.card__media){padding:0 24px 20px 0}
+  .is-pinrail.is-tight .card__text p{font-size:.9rem;line-height:1.6}
+  .is-pinrail.is-tight .card__list{gap:6px;padding-top:12px}
+  .is-pinrail.is-tight .card__list li{font-size:.84rem}
+  .is-pinrail.is-tight .card__name{font-size:1.45rem}
+  .is-pinrail.is-tight .card{width:clamp(320px,27vw,420px)}
+  .is-pinrail.is-tight .card:has(>.card__media){width:min(72vw,1040px)}
+  .is-pinrail.is-tight .scards__head .h2{font-size:clamp(1.8rem,1rem + 1.6vw,2.6rem)}
+  /* short screens (laptops): a wider card, Paul's words beside the list */
+  .is-pinrail.is-wide .card:not(:has(>.card__media)){
+    width:clamp(460px,40vw,620px);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
+    grid-template-areas:"h h" "t l" "f f";grid-template-rows:auto auto minmax(0,1fr);column-gap:26px;row-gap:12px;align-content:start;
+  }
+  .is-pinrail.is-wide .card:not(:has(>.card__media)) .card__h{display:grid;gap:8px;grid-area:h}
+  .is-pinrail.is-wide .card:not(:has(>.card__media)) .card__text{grid-area:t;margin:0}
+  .is-pinrail.is-wide .card:not(:has(>.card__media)) .card__list{grid-area:l;margin:0;padding:0;box-shadow:none;align-content:start}
+  .is-pinrail.is-wide .card:not(:has(>.card__media)) .card__b:not(:has(.card__list)) .card__text{grid-column:1 / -1}
+  .is-pinrail.is-wide .card:not(:has(>.card__media)) .card__f{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;grid-area:f;align-self:end}
+  .is-pinrail.is-wide .card__facts{flex:1;margin:0}
+  .is-pinrail.is-wide .card__foot{padding:0}
+  .is-pinrail.is-wide .rbar{margin-block:10px 12px}
 }
 
 /* ---------- desktop: cards stack (cards.fx = stack) ----------
@@ -205,12 +260,3 @@
   .scards--fx-samples .scards__grid[data-cols="3"] .card:nth-child(even){margin-top:clamp(56px,7vw,120px)}
 }
 .card__media .media img{transform-origin:50% 50%}
-
-/* phones: four or more points become a row of soft cards (07/10) */
-@media (max-width:767px){
-  .scards--points.scards--rail .scards__grid{gap:12px;align-items:stretch}
-  .scards--points.scards--rail .card{padding:22px 20px 20px;border-radius:var(--r-lg);
-    background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));box-shadow:inset 0 0 0 1px var(--line)}
-  [data-theme=light] .scards--points.scards--rail .card,.scards--points.scards--rail[data-theme=light] .card{background:#fff;box-shadow:0 24px 50px -36px rgba(17,17,17,.35),inset 0 0 0 1px var(--line)}
-  .scards--points.scards--rail .card::after{left:20px}
-}

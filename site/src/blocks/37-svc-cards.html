@@ -34,6 +34,7 @@
     </div>
     {{/cards.hasHead}}
 
+    {{#cards.fxRail}}<div class="rbar"><ol class="rchips" role="list" data-rchips></ol></div>{{/cards.fxRail}}
     <div class="scards__track">
     <ol class="scards__grid" role="list" style="--cols:{{cards.cols}}" data-cols="{{cards.cols}}"{{#cards.counted}} data-rail{{/cards.counted}}>
       {{#cards.items}}

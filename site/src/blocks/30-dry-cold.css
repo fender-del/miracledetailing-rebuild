@@ -5,15 +5,18 @@
 /* the drawing on the right stays in view while the beats pass */
 .cold__stage{
   order:2;position:sticky;top:calc(50svh - min(21vw,280px));
-  aspect-ratio:4 / 3;border-radius:var(--r-lg);overflow:hidden;isolation:isolate;
+  aspect-ratio:16 / 10;border-radius:var(--r-lg);overflow:hidden;isolation:isolate;
   background:#0B0D10;box-shadow:inset 0 0 0 1px var(--line),0 50px 90px -50px rgba(0,0,0,.8);
 }
 .cold__stage::before{ /* cold air: a blue cast low in the frame */
   content:"";position:absolute;inset:0;z-index:-1;
   background:radial-gradient(70% 60% at 55% 72%,rgba(120,160,215,.14),transparent 70%),radial-gradient(60% 50% at 15% 10%,rgba(201,168,77,.08),transparent 70%);
 }
-.cold__svg{position:absolute;inset:0;width:100%;height:100%}
-.cold__lbls text{font:500 11px var(--f);letter-spacing:.2em;text-transform:uppercase;fill:rgba(255,255,255,.45)}
+/* 07/10: the drawing is painted on a canvas (motion/cold.js) */
+.cold__cv{position:absolute;inset:0;z-index:0;width:100%;height:100%;display:block}
+.cold__still{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cold.is-canvas .cold__still{display:none}
+.cold__read,.cold__dots{z-index:1}
 .cold__read{position:absolute;right:clamp(16px,2.4vw,30px);top:clamp(14px,2vw,26px);z-index:1;text-align:right}
 .cold__deg{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(2.2rem,1.4rem + 2.6vw,4rem);line-height:1;color:#EAF3FF;font-variant-numeric:tabular-nums}
 .cold__unit{font-size:.5em;margin-left:.08em;vertical-align:.7em;color:var(--gold)}
@@ -39,15 +42,22 @@
   /* tablets + phones: the drawing holds under the top of the screen and
      the beats run up beneath it */
   .cold__stage{order:0;top:calc(56px + 12px);z-index:2;max-width:640px;width:100%;margin-inline:auto}
+  html:has(.hd:not(.is-hidden)) .cold__stage{top:calc(var(--hd-h) + 56px + 12px)}
   .cold.is-live .cold__beat{min-height:42svh;max-width:none}
   .cold__beats{max-width:640px;width:100%;margin-inline:auto}
 }
 @media (max-width:767px){
-  .cold__stage{aspect-ratio:4 / 3.1}
-  .cold__lbls{display:none}
-  /* phones (07/10, the PPF lesson: a drawing held on screen hides the
-     text): the drawing scrolls with the page and plays once when it
-     arrives (svc.js); the three beats read straight on, all lit */
-  .cold__stage{position:relative;top:auto;margin-bottom:8px}
-  .cold.is-live .cold__beat{min-height:0;padding:20px 0;opacity:1}
+  /* phones (07/10, Fender: hold it, but never cover the screen): a band
+     under the page bar, about a third of the screen; the beats pass
+     beneath it, the one under it lit */
+  .cold__stage{top:calc(50px + 8px);transition:top .5s var(--ease)}
+  html:has(.hd:not(.is-hidden)) .cold__stage{top:calc(var(--hd-h) + 50px + 8px)}
+  .cold__read{right:12px;top:10px}
+  .cold__deg{font-size:1.7rem}
+  .cold__phase{margin-top:4px;font-size:.5625rem}
+  .cold__dots{left:12px;bottom:10px}
+  .cold.is-live .cold__beat{min-height:56svh;padding:26px 0}
+  .cold.is-still .cold__beat{min-height:0;opacity:1}
 }
+
+.cold.is-still .cold__beat{opacity:1}

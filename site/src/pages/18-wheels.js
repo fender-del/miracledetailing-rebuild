@@ -46,7 +46,7 @@ module.exports = site => {
         ]
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'available', light: true, cols: 4, fx: 'samples',
+        id: 'available', light: true, cols: 4, fx: 'rail',
         eyebrow: 'What’s available',
         title: 'Four services. <span class="gold">Every wheel covered.</span>',
         items: [

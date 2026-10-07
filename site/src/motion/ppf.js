@@ -11,7 +11,7 @@
      lit()       the statement's words light up as it scrolls through
      (coverage's line work drawing in and the sheen over the film)
    ============================================================ */
-import { gsap, ScrollTrigger, env, $, $$ } from './core.js';
+import { gsap, ScrollTrigger, env, whenSeen, $, $$ } from './core.js';
 
 const PHONE = '(max-width: 767px)';
 const ARROW = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.8"/></svg>';
@@ -127,7 +127,16 @@ export function tabs() {
 
 /* ---------- Statement, lit word by word ---------- */
 export function lit() {
-  $$('[data-lit]').forEach(p => {
+  /* once per page (07/10, Fender: the same effect block after block
+     reads cheap): the first statement or quote lights word by word, the
+     others simply rise in */
+  const all = $$('[data-lit]');
+  all.slice(1).forEach(p => {
+    if (p.getBoundingClientRect().top < window.innerHeight) return;
+    gsap.set(p, { autoAlpha: 0, y: 30 });
+    whenSeen(p, () => gsap.to(p, { autoAlpha: 1, y: 0, duration: 1.2, ease: 'expo.out', clearProps: 'transform' }), 0.1);
+  });
+  all.slice(0, 1).forEach(p => {
     /* wrap every word, keeping the gold spans around theirs */
     const wrap = node => {
       [...node.childNodes].forEach(n => {

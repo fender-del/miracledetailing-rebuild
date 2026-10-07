@@ -4,12 +4,11 @@
    (body[data-cluster]) and the blocks pick their kind (data-fx).
 
      paint    Correction, Ceramic, PPF. The hero closes into a framed
-              photo as it leaves; each section arrives under an
-              inspection light that sweeps across it (Ceramic: water
-              spreading from one point instead), and an ivory section's
-              paper is laid down behind the light.
-     process  Dry ice, PDR, Bodyshop. A hairline cuts across the page
-              at each new section, a gold diamond at its tip.
+              photo as it leaves.
+     arrival  ONE section per page (07/10: never the same effect block
+              after block) arrives under an inspection light, a bead of
+              water spreading, or a hairline cutting across
+              (body[data-arrive="id:beam|ripple|cut"]).
      restore  Wheels, Leather, Tint. Photos open on a close-up of the
               material and pull back (33 prose, data-zoom).
      story    About, Mobile, Packages. Quotes take the whole screen as
@@ -49,7 +48,7 @@
 }
 [data-theme=light] .fxb__edge{background:linear-gradient(90deg,transparent,rgba(139,110,34,.7) 45%,#C9A84D 50%,rgba(139,110,34,.7) 55%,transparent)}
 /* the paper is laid behind the light (left to right) */
-.js-motion [data-cluster=paint] [data-bg=light]::before{clip-path:inset(0 calc(100% - var(--sw,100%)) 0 0)}
+.js-motion [data-arrive-on=beam][data-bg=light]::before{clip-path:inset(0 calc(100% - var(--sw,100%)) 0 0)}
 
 /* Ceramic: a bead of water spreads from one point instead of a beam */
 .fxb__ring{
@@ -65,7 +64,7 @@
   box-shadow:0 0 0 1px rgba(255,252,240,.85),0 0 30px 5px rgba(255,248,228,.38),0 0 100px 24px rgba(255,244,214,.12),
     inset 0 0 0 1px rgba(17,17,17,.10),inset 0 0 50px rgba(139,110,34,.10);
 }
-.js-motion [data-cluster=paint][data-sweep=ripple] [data-bg=light]::before{clip-path:circle(var(--rr,150%) at var(--rx,18%) 0)}
+.js-motion [data-arrive-on=ripple][data-bg=light]::before{clip-path:circle(var(--rr,150%) at var(--rx,18%) 0)}
 
 /* the hero closes into a framed photo as it leaves (paint) */
 .js-motion [data-cluster=paint] .shero__media{clip-path:inset(var(--hf-y,0px) var(--hf-x,0px) round var(--hf-r,0px))}

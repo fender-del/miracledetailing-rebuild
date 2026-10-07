@@ -1,6 +1,6 @@
 # Ý tưởng tương tác cho các trang có chất liệu (06/10/2026)
 
-> **07/10: đã dựng phần "Cách trình bày khi cuộn" (§1–4) cho mọi trang**, chi tiết ở `site/README.md` mục "Scroll kit". Bảng tương tác riêng từng trang ngay dưới đây **chưa dựng**, chờ Fender chọn.
+> **07/10: đã dựng phần "Cách trình bày khi cuộn" (§1–4) cho mọi trang, rồi sửa theo góp ý cùng ngày** (mỗi hiệu ứng 1 lần/trang; danh mục chính đi ngang có tiêu đề neo; Dry ice vẽ lại bằng canvas và ghim lại). Chi tiết ở `site/README.md` mục "Scroll kit". Bảng tương tác riêng từng trang ngay dưới đây **chưa dựng**, chờ Fender chọn.
 
 Chưa build gì. Fender chỉ cần ý tưởng trước. Nguyên tắc:
 - Tương tác chỉ trình bày lại chữ và số liệu của Paul trên v0.5, không thêm nội dung mới.
