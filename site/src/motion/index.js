@@ -30,6 +30,9 @@ import { arrival, heroFrame, rails, stacks, samples, zooms, collages, stages, ra
 import { timeline, timelinePics } from './about.js';
 import { shows, gauges, lenses, layers, indexes, cardMore } from './formats.js';
 import { benches, chooses } from './formats-b.js';
+import { ladders } from './ladder.js';
+import { sheets } from './sheet.js';
+import { youtube } from './journal.js';
 
 const root = document.documentElement;
 const safe = fn => { try { fn(); } catch (e) { if (window.console) console.warn('[motion]', fn.name, e); } };
@@ -60,6 +63,12 @@ function boot() {
   safe(gauges); safe(indexes); safe(shows); safe(lenses); safe(layers); safe(cardMore);
   /* blocks 51–52 (07/10, ceramic): the test panel, choose one */
   safe(benches); safe(chooses);
+  /* block 53 (07/10, packages): the five levels and their panel */
+  safe(ladders);
+  /* any card's "What's included" sheet (07/10, mobile page packages) */
+  safe(sheets);
+  /* block 61 (07/10, journal posts): the film loads when pressed */
+  safe(youtube);
   if (env.motion) {
     safe(heroVideo);
     safe(filmHero);

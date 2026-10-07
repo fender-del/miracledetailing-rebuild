@@ -1,0 +1,77 @@
+/* ============ 61 · JOURNAL: ONE POST ============ */
+.post{--col:68ch;padding-bottom:var(--sec)}
+.post__head{padding-top:calc(var(--hd-h) + clamp(40px,7vw,104px));display:grid;gap:22px;justify-items:start}
+.post__crumbs{font-size:.8125rem}
+.post__meta{flex-wrap:wrap;gap:6px 12px}
+.post__h1{margin:0;font-size:clamp(2.6rem,1.4rem + 4.6vw,6rem);line-height:1;max-width:16ch}
+.post__sub{margin:0;max-width:34ch;font-family:var(--fd);font-weight:400;font-style:italic;font-size:clamp(1.3rem,1.05rem + 1vw,2rem);line-height:1.25;color:var(--gold-2)}
+
+.post__lead{margin:clamp(36px,5vw,72px) auto 0}
+.post__frame{border-radius:var(--r-lg);overflow:hidden}
+.post__frame picture{display:block}
+
+.post__body{margin-top:clamp(48px,6vw,96px)}
+.post__col{max-width:var(--col);margin-inline:auto;font-size:clamp(1.05rem,1rem + .2vw,1.15rem);line-height:1.75;color:var(--text)}
+.post__col>*{margin:0}
+.post__col>*+*{margin-top:1.15em}
+.post__col a:not(.yt){color:var(--white);background:linear-gradient(var(--gold),var(--gold)) 0 100%/100% 1px no-repeat;padding-bottom:1px;transition:color .3s}
+.post__col a:not(.yt):hover{color:var(--gold-2)}
+.post__col h3{margin-top:2.2em;font-family:var(--f);font-weight:500;font-size:.8125rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.post__col h3+*{margin-top:.9em}
+
+/* the competition question */
+.post__ask{padding:22px 26px;border-radius:var(--r);background:var(--gold-a12);box-shadow:inset 3px 0 0 var(--gold);font-family:var(--fd);font-style:italic;font-size:clamp(1.25rem,1.1rem + .6vw,1.6rem);line-height:1.35;color:var(--white)}
+
+/* the bottle beside the opening (new product launch) */
+.post__intro{display:grid;grid-template-columns:minmax(0,1fr) clamp(150px,22vw,240px);gap:12px clamp(24px,4vw,48px);align-items:start}
+.post__intro>*{grid-column:1;margin:0}
+.post__intro>*+*:not(.post__bottle){margin-top:1.15em}
+.post__intro h2{font-family:var(--fd);font-weight:400;font-size:clamp(1.6rem,1.2rem + 1.4vw,2.4rem);line-height:1.15;color:var(--white)}
+.post__bottle{grid-column:2;grid-row:1 / span 3;border-radius:var(--r-lg);overflow:hidden}
+.post__bottle picture{display:block}
+
+/* Feynlab's words */
+.post__quote{position:relative;box-shadow:inset 3px 0 0 var(--gold);padding:clamp(28px,4vw,44px) clamp(24px,4vw,48px);border-radius:var(--r-lg);background:var(--graphite)}
+.post__quote p{margin:0;font-family:var(--fd);font-size:clamp(1.15rem,1.05rem + .45vw,1.45rem);line-height:1.5;color:var(--white)}
+.post__quote p+p{margin-top:1em}
+
+/* where to buy: one row per country */
+.post__buy{list-style:none;padding:0;border-top:1px solid var(--line)}
+.post__buy li{border-bottom:1px solid var(--line)}
+.post__col .post__buy a{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;padding:12px 4px;background:none;color:var(--white);transition:color .3s,padding .5s var(--ease)}
+.post__col .post__buy a:hover{color:var(--gold-2);padding-left:12px}
+.post__buy svg{flex:none;width:18px;height:18px;color:var(--gold)}
+
+/* small print */
+.post__terms{padding:22px 24px;border-radius:var(--r);box-shadow:inset 0 0 0 1px var(--line-2);font-size:.875rem;line-height:1.65;color:var(--muted)}
+.post__terms strong{color:var(--text);font-weight:500}
+
+/* YouTube: a poster until pressed */
+.post__col .post__video{margin-top:2.4em}
+.yt{position:relative;display:block;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:16/9;background:#000}
+.yt picture,.yt .media{display:block;height:100%}
+.yt img{transition:transform 1s var(--ease),filter .6s}
+.yt:hover img{transform:scale(1.03);filter:brightness(.8)}
+.yt__play{position:absolute;inset:0;margin:auto;width:76px;height:76px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:var(--ink);transition:transform .5s var(--ease)}
+.yt__play svg{width:26px;height:26px;margin-left:4px}
+.yt:hover .yt__play{transform:scale(1.08)}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* the other post */
+.post__foot{margin-top:clamp(72px,9vw,140px);padding-top:clamp(40px,5vw,64px);box-shadow:inset 0 1px 0 var(--line);display:grid;gap:clamp(24px,3vw,36px);justify-items:start}
+.post__next{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(20px,4vw,56px);align-items:center;width:100%}
+.post__nextmedia{display:block;border-radius:var(--r-lg);overflow:hidden}
+.post__nextmedia picture{display:block}
+.post__nextmedia img{transition:transform 1.2s var(--ease),opacity .9s var(--ease)}
+.post__next:hover .post__nextmedia img{transform:scale(1.04)}
+.post__nexttext{display:grid;gap:14px;justify-items:start}
+.post__nextmeta{font-size:.8125rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.post__nexttitle{font-size:clamp(1.8rem,1.2rem + 2vw,3rem);line-height:1.05;color:var(--white)}
+
+@media (max-width:767px){
+  .post__intro{grid-template-columns:1fr}
+  .post__bottle{grid-column:1;grid-row:auto;width:min(220px,60%);margin-top:1.4em!important}
+  .post__next{grid-template-columns:1fr}
+  .post__ask{padding:18px 20px}
+  .yt__play{width:64px;height:64px}
+}

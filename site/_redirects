@@ -17,8 +17,7 @@
 /videos/                          /car-detail-gallery/            301
 /blog/                            /journal/                       301
 /category/uncategorized/          /journal/                       301
-/facebook-competition/            /journal/                       301
-/new-product-launch/              /ceramic-coatings/              301
+# 07/10: the two blog posts are rebuilt under their old slugs
 /gallery/:job/                    /car-detail-gallery/?job=:job   301
 /gallery/                         /car-detail-gallery/            301
 /vehiclemake/:make/               /car-detail-gallery/?make=:make 301

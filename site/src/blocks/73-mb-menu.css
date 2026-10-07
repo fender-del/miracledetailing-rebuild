@@ -1,0 +1,119 @@
+/* ============ 73 · MOBILE: THE FOUR PACKAGES ============ */
+.mbm__in{display:grid;gap:clamp(28px,4vw,56px)}
+.mbm__head{display:grid;gap:20px}
+.mbm__titles{display:grid;gap:22px}
+.mbm__intro{max-width:52ch;font-size:clamp(1rem,.96rem + .2vw,1.1rem);line-height:1.72}
+.mbm__hint{display:none}
+.mbm__grid{display:grid;gap:clamp(14px,1.6vw,22px);margin:0}
+.mbm__card{
+  position:relative;display:grid;gap:14px;align-content:start;
+  padding:clamp(24px,2.4vw,34px) clamp(20px,2vw,28px) clamp(26px,2.6vw,36px);
+  background:#FFFFFF;border-radius:var(--r-lg);box-shadow:0 1px 0 rgba(17,17,17,.06),0 30px 60px -40px rgba(17,17,17,.35);
+}
+/* the Premier card, inverted: black, gold figures */
+.mbm__card.is-hi{
+  --white:#FFFFFF;--text:#D9D6CF;--muted:#A7A39A;--line:rgba(255,255,255,.12);--gold:#C9A84D;
+  background:#111111;color:var(--text);box-shadow:0 40px 70px -36px rgba(17,17,17,.6)
+}
+.mbm__tag{display:flex;align-items:baseline;gap:10px;font-size:.6875rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.mbm__no{font-family:var(--fd);font-style:italic;font-synthesis:none;font-size:1rem;letter-spacing:0}
+.mbm__price{display:grid;grid-template-columns:auto 1fr;align-items:end;column-gap:10px;padding:6px 0 16px;box-shadow:inset 0 -1px 0 var(--line)}
+.mbm__from{grid-column:1 / -1;font-size:.6875rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.mbm__amt{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(3.4rem,2.6rem + 2.6vw,5rem);line-height:.92;letter-spacing:-.03em;color:var(--white)}
+.mbm__card.is-hi .mbm__amt{color:var(--gold)}
+.mbm__vat{white-space:nowrap;padding-bottom:.55em;font-size:.75rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.mbm__name{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.35rem,1.15rem + .7vw,1.75rem);line-height:1.12;letter-spacing:-.01em}
+.mbm__p{font-size:.97rem;line-height:1.66}
+.mbm__facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin:0;padding:12px 0;box-shadow:inset 0 1px 0 var(--line),inset 0 -1px 0 var(--line)}
+.mbm__facts div{display:grid;gap:4px}
+.mbm__facts div+div{padding-left:12px;box-shadow:inset 1px 0 0 var(--line)}
+.mbm__facts dt{font-size:.625rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.mbm__facts dd{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:1.05rem;line-height:1.2;color:var(--white)}
+.mbm__list{display:grid;gap:8px;align-content:start;margin:2px 0 0}
+.mbm__list li{position:relative;padding-left:20px;font-size:.92rem;line-height:1.45}
+.mbm__list li::before{content:"";position:absolute;left:2px;top:.58em;width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+
+/* "What's included": a button on phones only (with JS) */
+.mbm__more{display:none}
+
+/* ---------- the sheet (motion/sheet.js), the same look as block 53's ---------- */
+.pks{position:fixed;inset:0;z-index:300;display:flex;align-items:flex-end;justify-content:center}
+.pks[hidden]{display:none!important}
+.pks__bg{position:absolute;inset:0;background:rgba(8,8,8,.62);opacity:0;transition:opacity .4s var(--ease)}
+.pks__panel{
+  position:relative;display:flex;flex-direction:column;width:100%;max-width:720px;max-height:88vh;max-height:88dvh;
+  border-radius:22px 22px 0 0;background:var(--paper);color:var(--text);
+  box-shadow:0 -30px 60px -30px rgba(0,0,0,.6);transform:translateY(100%);transition:transform .5s var(--ease);
+}
+.pks.is-open .pks__bg{opacity:1}
+.pks.is-open .pks__panel{transform:none}
+.pks__top{position:relative;flex:none;display:grid;gap:6px;padding:26px 64px 16px 22px;box-shadow:inset 0 -1px 0 var(--line)}
+.pks__top::before{content:"";position:absolute;left:50%;top:9px;width:40px;height:4px;margin-left:-20px;border-radius:4px;background:rgba(17,17,17,.18)}
+.pks__kick{margin:0;font-size:.625rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.pks__name{margin:0;font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:1.6rem;line-height:1.1;color:var(--white)}
+.pks__x{position:absolute;right:14px;top:18px;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:none;color:var(--white);box-shadow:inset 0 0 0 1px var(--line-2);cursor:pointer}
+.pks__x svg{width:16px;height:16px}
+.pks__body{overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:18px 22px calc(22px + env(safe-area-inset-bottom))}
+html.pks-lock,html.pks-lock body{overflow:hidden}
+.pks__body .mbm__p{font-size:1rem;line-height:1.72;margin-bottom:16px}
+.pks__body .mbm__facts{margin-bottom:18px}
+.pks__body .mbm__list li{font-size:.98rem}
+
+/* phones: a row to swipe, the next card peeking */
+@media (max-width:699px){
+  .mbm__hint{display:flex;align-items:center;gap:10px;margin:-12px 0 -8px;font-size:.6875rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+  .mbm__hint svg{width:18px;height:18px}
+  .mbm__grid{
+    grid-auto-flow:column;grid-auto-columns:82%;align-items:stretch;
+    overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;
+    margin-inline:calc(var(--gut) * -1);padding:4px var(--gut) 40px;scroll-padding-inline:var(--gut);
+  }
+  .mbm__grid::-webkit-scrollbar{display:none}
+  .mbm__card{scroll-snap-align:start}
+  /* round 4: the card stops at the facts; the list opens in the sheet */
+  :root[data-motion] .mbm__card .mbm__list{display:none}
+  :root[data-motion] .mbm__more{
+    display:inline-flex;align-items:center;justify-content:space-between;gap:12px;width:100%;margin-top:4px;padding:13px 16px;
+    border:0;border-radius:999px;background:none;box-shadow:inset 0 0 0 1px var(--line-2);
+    font:500 .6875rem/1 var(--f);letter-spacing:.2em;text-transform:uppercase;color:var(--white);cursor:pointer
+  }
+  .mbm__more svg{width:16px;height:16px;color:var(--gold)}
+  .mbm__card.is-hi .mbm__more{box-shadow:inset 0 0 0 1px rgba(201,168,77,.5)}
+  .mbm__grid{align-items:start}
+}
+@media (min-width:700px) and (max-width:1099px){
+  .mbm__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (min-width:900px){
+  .mbm__head{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:clamp(40px,6vw,110px);align-items:end}
+}
+@media (min-width:1100px){
+  .mbm__grid{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(6,auto)}
+  .mbm__card{grid-row:span 6;grid-template-rows:subgrid;row-gap:14px}
+  .mbm__card.is-hi{transform:translateY(-14px)}
+  .mbm__amt{font-size:clamp(3rem,1.6rem + 2vw,4.2rem)}
+}
+
+/* a mouse (Fender 07/10: "chuột di tới đâu thẻ tương tác lại tới đó"):
+   the black follows the pointer. The card pointed at turns black with
+   gold figures and lifts; while another card is pointed at, Premier
+   gives its black up (its tokens taken back from the section); off the
+   row, Premier is the black one again. */
+@media (hover:hover){
+  .mbm__card{transition:background-color .5s var(--ease),box-shadow .5s var(--ease),transform .6s var(--ease)}
+  .mbm__card *{transition:color .45s var(--ease),box-shadow .45s var(--ease)}
+  .mbm__card:not(.is-hi):hover{
+    --white:#FFFFFF;--text:#D9D6CF;--muted:#A7A39A;--line:rgba(255,255,255,.12);--gold:#C9A84D;
+    background:#111111;color:var(--text);box-shadow:0 40px 70px -36px rgba(17,17,17,.6)
+  }
+  .mbm__card:not(.is-hi):hover .mbm__amt{color:var(--gold)}
+  .mbm__grid:has(.mbm__card:not(.is-hi):hover) .mbm__card.is-hi{
+    --white:inherit;--text:inherit;--muted:inherit;--line:inherit;--gold:inherit;
+    background:#FFFFFF;color:var(--text);box-shadow:0 1px 0 rgba(17,17,17,.06),0 30px 60px -40px rgba(17,17,17,.35)
+  }
+  .mbm__grid:has(.mbm__card:not(.is-hi):hover) .mbm__card.is-hi .mbm__amt{color:var(--white)}
+}
+@media (hover:hover) and (min-width:1100px){
+  .mbm__card:not(.is-hi):hover{transform:translateY(-14px)}
+  .mbm__grid:has(.mbm__card:not(.is-hi):hover) .mbm__card.is-hi{transform:none}
+}

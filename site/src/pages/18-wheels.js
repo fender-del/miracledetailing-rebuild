@@ -92,7 +92,7 @@ module.exports = site => {
         lede: 'Kerbed, corroded, faded or simply in need of a refresh: wheel refurbishment is available through Miracle Detail as part of a full detail package. Diamond cut, powder coat, colour change and structural repair all covered.',
         img: frame('wr-hero', {
           priority: true, ratio: false, sizes: '100vw',
-          alt: 'Gold wheels on a black and blue Pagani in the studio',
+          alt: 'A kerbed alloy wheel before refurbishment, and the same wheel after, as new',
           art: [{ media: '(max-width: 900px)', id: 'wr-hero-m', sizes: '100vw' }]
         }),
         facts: []

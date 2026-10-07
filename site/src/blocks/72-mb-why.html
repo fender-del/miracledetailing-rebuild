@@ -1,0 +1,24 @@
+<!-- ============ 72 · MOBILE: WHY CHOOSE MOBILE ============
+     (07/10, round 2.) One photo for the whole section: Paul polishing the
+     Koenigsegg's windscreen out on the concours lawn, darkened, the title
+     large in the middle and the three reasons across it under big hollow
+     numerals. Phones: the three reasons one under the other, short, the
+     photo still behind them. -->
+<section class="mbw" id="{{why.id}}" data-section="why">
+  <div class="mbw__bg" aria-hidden="true">{{&why.img}}</div>
+  <div class="wrap mbw__in">
+    <div class="mbw__head">
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&why.eyebrow}}</p>
+      <h2 class="disp mbw__title" data-split>{{&why.title}}</h2>
+    </div>
+    <ol class="mbw__list" role="list">
+      {{#why.items}}
+      <li class="mbw__it" data-reveal>
+        <p class="mbw__n" aria-hidden="true">{{n}}</p>
+        <h3 class="mbw__name">{{&name}}</h3>
+        <p class="mbw__p">{{&text}}</p>
+      </li>
+      {{/why.items}}
+    </ol>
+  </div>
+</section>

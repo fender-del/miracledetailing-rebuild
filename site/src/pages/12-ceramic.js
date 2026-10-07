@@ -148,7 +148,7 @@ module.exports = site => {
         lede: 'Paul Dalton is Feynlab’s only global ambassador, and the detailer behind Ceramic by Paul Dalton, a coating developed with Feynlab and sold to professionals worldwide. When your car receives a Feynlab coating at Miracle Detail, it’s applied by the person who knows it better than almost anyone on earth.',
         img: frame('cc-hero', {
           priority: true, ratio: false, sizes: '100vw',
-          alt: 'A purple McLaren F1 in the studio after its ceramic coating',
+          alt: 'Water beading into tight droplets on a freshly coated blue panel',
           art: [{ media: '(max-width: 900px)', id: 'cc-hero-m', sizes: '100vw' }]
         }),
         facts: [

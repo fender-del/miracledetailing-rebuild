@@ -4,7 +4,7 @@
    1. reads crawl/old/gallery-inventory.csv, keeps jobs with >= 3 full-size
       photos, fetches each old project page (max 6 at a time) and caches
       title / description / photo URLs in assets-src/gallery/_jobs.json
-   2. downloads the first 12 photos per job to assets-src/gallery/<slug>/
+   2. downloads the first 12 photos per job (all for FULL) to assets-src/gallery/<slug>/
       as NN-<original name> (skips files already there, retries once)
    3. encodes site/assets/gallery/<slug>/<i>-480.webp (q60) and
       <i>-1400.webp (max 1400 wide, no upscale, q66), EXIF auto-rotated;
@@ -37,6 +37,10 @@ let BIG_Q = +arg('--q', 66);
 let FORCE_BIG = argv.includes('--force-big');
 const BUDGET_MB = 180;
 const MAX_PHOTOS = 12;
+/* the homepage project cards open these jobs: every photo, so the card's
+   count is what the lightbox shows (Fender 07/10) */
+const FULL = new Set(['ferrari-enzo-rossa-corsa', 'koenigsegg-ccx-r-edition-clear-coated-carbon-fibre',
+  'ferrari-f40', 'ferrari-458-speciale-in-yellow', '1984-porsche-carrera-clubsport-white']);
 const MIN_PHOTOS = 3;
 const UA = { 'User-Agent': 'Mozilla/5.0' };
 
@@ -232,7 +236,7 @@ function dirMB(d) {
     const dir = path.join(SRC, j.slug);
     fs.mkdirSync(dir, { recursive: true });
     j.files = [];
-    j.photos.slice(0, MAX_PHOTOS).forEach((u, i) => {
+    j.photos.slice(0, FULL.has(j.slug) ? Infinity : MAX_PHOTOS).forEach((u, i) => {
       const file = path.join(dir, String(i + 1).padStart(2, '0') + '-' + decodeURIComponent(u.split('/').pop()));
       j.files.push(file);
       if (!(fs.existsSync(file) && fs.statSync(file).size > 0)) tasks.push({ u, file });

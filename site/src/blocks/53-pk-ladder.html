@@ -1,0 +1,139 @@
+<!-- ============ 53 · PACKAGES: THE LADDER ============
+     The five levels (07/10, Fender: make the packages page more
+     appealing). Paul's words for each level read one after another;
+     beside them a dark panel holds still and answers "what changes as
+     I go up": the level's photo and name, a step for each level (a tap
+     goes to it), estimated time, coating durability, polishing stages
+     and the price. The panel follows the level being read. In each
+     list the lines new at that level are the strong ones.
+     Desktop (1024+ wide, 640+ tall): panel left, levels right.
+     Tablets, phones and short screens (Fender 07/10: "creative on
+     mobile too", then "the pinned bar is ugly"): nothing held. The
+     levels are a row of dark cards to swipe (one swipe row on the
+     page), each card the level's photo, then (off the photo, Fender 07/10:
+     words over it sank in) its name, numeral and a small ladder of five
+     rungs lit up to it, time and coating gauges,
+     polishing stages and price; a count and arrows under the row.
+     "What's included" opens a sheet from the bottom with Paul's words
+     and the list (motion/ladder.js builds it from the level below).
+     No JS: every level open with its own facts; no panel.
+     Built by lib/packages.js ladder(); motion/ladder.js. -->
+<section class="pkl sec" id="{{ladder.id}}" data-section="ladder" data-ladder{{#ladder.light}} data-bg="light" data-theme="light"{{/ladder.light}}>
+  <div class="wrap">
+    <div class="pkl__head">
+      <div>
+        {{#ladder.eyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&ladder.eyebrow}}</p>{{/ladder.eyebrow}}
+        <h2 class="disp h2" data-split>{{&ladder.title}}</h2>
+      </div>
+      {{#ladder.hasIntro}}<div class="pkl__intro more" data-more><div class="more__body" data-reveal>{{#ladder.intro}}<p>{{&.}}</p>{{/ladder.intro}}</div></div>{{/ladder.hasIntro}}
+    </div>
+
+    <div class="pkl__body">
+      <div class="pkl__deck" data-pkl-deck hidden>
+        <ol class="pkl__cards" role="list" data-pkl-cards>
+          {{#ladder.levels}}
+          <li class="pkc{{#hi}} is-hi{{/hi}}">
+            <div class="pkc__pic">{{&img}}</div>
+            <div class="pkc__b">
+              <div class="pkc__t">
+                <p class="pkc__kick"><span>{{&kicker}}</span><span class="pkc__lad" aria-hidden="true">{{#rungs}}<i class="{{#on}}on{{/on}}{{#cur}} is-cur{{/cur}}"></i>{{/rungs}}</span></p>
+                <div class="pkc__nr"><h3 class="pkc__name">{{&name}}</h3><span class="pkc__roman" aria-hidden="true">{{roman}}</span></div>
+                {{#sub}}<p class="pkc__sub">{{&.}}</p>{{/sub}}
+              </div>
+              <dl class="pkc__facts">
+                <div><dt>{{ladder.timeLabel}}</dt><dd>{{timeText}}</dd><span class="pkl__bar" style="--a:{{timeA}};--b:{{timeB}}" aria-hidden="true"><i></i></span></div>
+                <div><dt>{{ladder.lifeLabel}}</dt><dd>{{#lifeText}}{{.}}{{/lifeText}}{{^lifeText}}—{{/lifeText}}</dd><span class="pkl__bar{{#lifeOpen}} is-open{{/lifeOpen}}{{#lifeNone}} is-none{{/lifeNone}}" style="--a:{{lifeA}};--b:{{lifeB}}" aria-hidden="true"><i></i></span></div>
+                <div class="pkc__st"><dt>{{ladder.stageLabel}}</dt><dd>{{#stageText}}{{.}}{{/stageText}}{{^stageText}}—{{/stageText}}</dd><span class="pkl__dots" aria-hidden="true">{{#pips}}<i{{#on}} class="on"{{/on}}></i>{{/pips}}</span></div>
+              </dl>
+              <div class="pkc__foot">
+                <p class="pkc__price">{{&price}}</p>
+                <div class="pkc__acts">
+                  <button class="pkc__more" type="button" data-open="{{_i}}" aria-haspopup="dialog"><span>What’s included</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6"/></svg></button>
+                  {{#ladder.book}}<a class="btn pkc__btn" href="{{href}}"><span class="btn__in">{{label}}</span></a>{{/ladder.book}}
+                </div>
+              </div>
+            </div>
+          </li>
+          {{/ladder.levels}}
+        </ol>
+        <div class="pkl__nav">
+          <span class="pkl__count" aria-hidden="true"><b data-pkl-n>01</b> / {{ladder.total}}</span>
+          <span class="pkl__prog" aria-hidden="true"><i data-pkl-prog></i></span>
+          <button class="pkl__arr" type="button" data-pkl-prev aria-label="Previous level"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 12H5m0 0 5.5-5.5M5 12l5.5 5.5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <button class="pkl__arr" type="button" data-pkl-next aria-label="Next level"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        </div>
+      </div>
+      <aside class="pkl__panel" data-pkl-panel hidden>
+        <div class="pkl__pics" aria-hidden="true">
+          {{#ladder.levels}}<div class="pkl__pic" data-pic>{{&img}}</div>{{/ladder.levels}}
+          <div class="pkl__names">
+            {{#ladder.levels}}<p class="pkl__nm" data-nm><span class="pkl__nk">{{&kicker}}</span><span class="pkl__nn">{{&name}}</span></p>{{/ladder.levels}}
+          </div>
+          <span class="pkl__roman" data-roman>{{ladder.first.roman}}</span>
+        </div>
+
+        <div class="pkl__steps" role="group" aria-label="The levels">
+          {{#ladder.levels}}<button class="pkl__step" type="button" data-go="{{_i}}" style="--h:{{n}}" aria-label="{{kicker}}: {{name}}"><i></i><span>{{roman}}</span></button>{{/ladder.levels}}
+        </div>
+
+        <div class="pkl__gauges" aria-hidden="true">
+          <div class="pkl__g" data-g="time">
+            <p class="pkl__gk"><span>{{ladder.timeLabel}}</span><b data-gv></b></p>
+            <div class="pkl__track"><i class="pkl__range"></i></div>
+            <ol class="pkl__ticks" role="list">{{#ladder.timeTicks}}<li style="left:{{at}}">{{t}}</li>{{/ladder.timeTicks}}</ol>
+          </div>
+          <div class="pkl__g" data-g="life">
+            <p class="pkl__gk"><span>{{ladder.lifeLabel}}</span><b data-gv></b></p>
+            <div class="pkl__track"><i class="pkl__range"></i></div>
+            <ol class="pkl__ticks" role="list">{{#ladder.lifeTicks}}<li style="left:{{at}}">{{t}}</li>{{/ladder.lifeTicks}}</ol>
+          </div>
+          <div class="pkl__g" data-g="stages">
+            <p class="pkl__gk"><span>{{ladder.stageLabel}}</span><b data-gv></b></p>
+            <ol class="pkl__pips" role="list">{{#ladder.stagePips}}<li><i></i></li>{{/ladder.stagePips}}</ol>
+          </div>
+        </div>
+
+        <div class="pkl__buy">
+          <p class="pkl__price" aria-hidden="true" data-price></p>
+          {{#ladder.book}}<a class="btn pkl__btn" href="{{href}}"><span class="btn__in">{{label}}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></span></a>{{/ladder.book}}
+        </div>
+      </aside>
+
+      <ol class="pkl__list" role="list" data-pkl-list>
+        {{#ladder.levels}}
+        <li class="pkl__lv{{#hi}} is-hi{{/hi}}" id="{{#anchor}}{{.}}{{/anchor}}{{^anchor}}{{ladder.id}}-{{n}}{{/anchor}}" data-lv
+            data-ta="{{timeA}}" data-tb="{{timeB}}" data-tv="{{timeText}}"
+            data-la="{{lifeA}}" data-lb="{{lifeB}}" data-lv-life="{{lifeText}}"{{#lifeOpen}} data-lopen{{/lifeOpen}}{{#lifeNone}} data-lnone{{/lifeNone}}
+            data-sn="{{stageN}}" data-sv="{{stageText}}">
+          <div class="pkl__hd" data-reveal>
+            <p class="pkl__kick"><span>{{&kicker}}</span></p>
+            <h3 class="pkl__name">{{&name}}</h3>
+            {{#sub}}<p class="pkl__sub">{{&.}}</p>{{/sub}}
+          </div>
+          <div class="pkl__b" id="{{ladder.id}}-b{{n}}">
+            <div class="pkl__bi">
+              {{#img}}<div class="pkl__photo">{{&.}}</div>{{/img}}
+              <div class="pkl__text" data-reveal>{{#paras}}<p>{{&.}}</p>{{/paras}}</div>
+              <dl class="pkl__facts">
+                <div><dt>Estimated time</dt><dd>{{timeText}}</dd><span class="pkl__bar" style="--a:{{timeA}};--b:{{timeB}}" aria-hidden="true"><i></i></span></div>
+                {{#lifeText}}<div><dt>Coating durability</dt><dd>{{.}}</dd><span class="pkl__bar{{#lifeOpen}} is-open{{/lifeOpen}}" style="--a:{{lifeA}};--b:{{lifeB}}" aria-hidden="true"><i></i></span></div>{{/lifeText}}
+                {{#stageText}}<div><dt>{{ladder.stageLabel}}</dt><dd>{{.}}</dd><span class="pkl__dots" aria-hidden="true">{{#pips}}<i{{#on}} class="on"{{/on}}></i>{{/pips}}</span></div>{{/stageText}}
+              </dl>
+              {{#hasList}}<div class="pkl__inc" data-reveal>
+                {{#marks}}<p class="pkl__legend"><i aria-hidden="true"></i>New at this level</p>{{/marks}}
+                <ul class="pkl__ul" role="list">{{#list}}<li{{#fresh}} class="is-new"{{/fresh}}>{{&text}}</li>{{/list}}</ul>
+              </div>{{/hasList}}
+              <div class="pkl__foot">
+                {{#price}}<p class="pkl__p">{{&.}}</p>{{/price}}
+                {{#ladder.book}}<a class="link-arrow" href="{{href}}"><span>{{label}}</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></a>{{/ladder.book}}
+              </div>
+            </div>
+          </div>
+        </li>
+        {{/ladder.levels}}
+      </ol>
+    </div>
+
+    {{#ladder.hasNote}}<div class="pkl__note" data-reveal>{{#ladder.note}}<p>{{&.}}</p>{{/ladder.note}}{{#ladder.link}}<a class="link-arrow" href="{{href}}"><span>{{label}}</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></a>{{/ladder.link}}</div>{{/ladder.hasNote}}
+  </div>
+</section>

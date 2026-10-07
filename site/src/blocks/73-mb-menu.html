@@ -1,0 +1,39 @@
+<!-- ============ 73 · MOBILE: THE FOUR PACKAGES ============
+     (07/10, round 2: Fender "các gói trên mobile nên kéo ngang… chưa nổi
+     giá".) The price leads each card in large figures; the Premier card
+     is inverted (black, gold figures). Desktop: four cards side by side,
+     rows lined up across them (subgrid); tablets two by two; phones a
+     row to swipe (CSS scroll-snap, the next card peeking). Phones, round
+     4 (Fender: a card taller than the screen): the card stops at the
+     facts; "What's included" opens a sheet from the bottom with Paul's
+     line, the facts and the list (motion/sheet.js, the packages page's
+     look). Without JS the list stays on the card. -->
+<section class="mbm sec" id="{{menu.id}}" data-section="packages" data-bg="light" data-theme="light">
+  <div class="wrap mbm__in">
+    <div class="mbm__head">
+      <div class="mbm__titles">
+        <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&menu.eyebrow}}</p>
+        <h2 class="disp h2" data-split>{{&menu.title}}</h2>
+      </div>
+      {{#menu.intro}}<p class="mbm__intro" data-reveal>{{&.}}</p>{{/menu.intro}}
+    </div>
+    <p class="mbm__hint" aria-hidden="true">Swipe · {{menu.count}} packages<svg viewBox="0 0 24 24" fill="none"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.6"/></svg></p>
+    <ol class="mbm__grid" role="list">
+      {{#menu.items}}
+      <li class="mbm__card{{#hi}} is-hi{{/hi}}" data-reveal data-sheet-card>
+        <p class="mbm__tag"><span class="mbm__no">{{_idx}}</span><span data-sheet-kick>{{&tag}}</span></p>
+        <p class="mbm__price"><span class="mbm__from">From</span><span class="mbm__amt">£{{amt}}</span><span class="mbm__vat">{{tail}}</span></p>
+        <h3 class="mbm__name" data-sheet-name>{{&name}}</h3>
+        <p class="mbm__p" data-sheet-part>{{&text}}</p>
+        <dl class="mbm__facts" data-sheet-part>
+          {{#facts}}<div><dt>{{k}}</dt><dd>{{v}}</dd></div>{{/facts}}
+        </dl>
+        <ul class="mbm__list" role="list" data-sheet-part>
+          {{#list}}<li>{{&.}}</li>{{/list}}
+        </ul>
+        <button class="mbm__more" type="button" data-sheet-open aria-haspopup="dialog"><span>What’s included</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6"/></svg></button>
+      </li>
+      {{/menu.items}}
+    </ol>
+  </div>
+</section>

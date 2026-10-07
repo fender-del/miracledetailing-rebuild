@@ -1,0 +1,23 @@
+<!-- ============ 60 · JOURNAL: ARTICLES ============
+     The old blog's posts (07/10, Fender: "the journal is the blog").
+     One row per post, photo and words side by side, the sides swapping
+     from one post to the next; phones: photo on top, words below.
+     Titles, dates and excerpts are the old blog's own. -->
+<section class="jnl sec" id="articles" data-section="articles">
+  <div class="wrap">
+    <p class="eyebrow jnl__eyebrow" data-reveal><span class="eyebrow__mark"></span>{{jn.eyebrow}}</p>
+    <ol class="jnl__list" role="list">
+      {{#jn.posts}}<li class="jnl__it">
+        <article class="jnl__post">
+          <a class="jnl__media" href="{{href}}" tabindex="-1" aria-hidden="true" data-reveal="card">{{&img}}</a>
+          <div class="jnl__text" data-reveal>
+            <p class="jnl__meta"><span class="jnl__n">{{n}}</span><time datetime="{{date}}">{{dateText}}</time><span aria-hidden="true">·</span><span>{{author}}</span></p>
+            <h2 class="disp jnl__title"><a href="{{href}}">{{&title}}</a></h2>
+            <p class="jnl__ex">{{&excerpt}}</p>
+            <a class="link-arrow" href="{{href}}"><span>Read article</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg><span class="sr">: {{&title}}</span></a>
+          </div>
+        </article>
+      </li>{{/jn.posts}}
+    </ol>
+  </div>
+</section>

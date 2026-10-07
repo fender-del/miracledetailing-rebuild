@@ -1,0 +1,34 @@
+<!-- ============ 61 · JOURNAL: ONE POST ============
+     An old blog post, word for word (07/10). Head on clean black (date,
+     author, title), the post's own photo wide, then the text one
+     measure wide: headings, a quote, the shop links as rows, the small
+     print in a box, the YouTube film as a poster that loads the player
+     only when pressed (motion/journal.js; without JS it opens YouTube).
+     The body is built in pages/25-journal.js. Foot: the other post. -->
+<article class="post" data-section="post">
+  <header class="wrap post__head">
+    <div class="post__crumbs">{{&crumbs}}</div>
+    <p class="eyebrow post__meta"><span class="eyebrow__mark" aria-hidden="true"></span><span>Journal</span><span aria-hidden="true">·</span><time datetime="{{post.date}}">{{post.dateText}}</time><span aria-hidden="true">·</span><span>{{post.author}}</span></p>
+    <h1 class="disp post__h1">{{&post.h1}}</h1>
+    {{#post.sub}}<h2 class="post__sub">{{&.}}</h2>{{/post.sub}}
+  </header>
+
+  <figure class="wrap post__lead"><div class="post__frame">{{&post.img}}</div></figure>
+
+  <div class="wrap post__body">
+    <div class="post__col">{{&post.body}}</div>
+  </div>
+
+  <footer class="wrap post__foot">
+    <p class="eyebrow" data-reveal><span class="eyebrow__mark" aria-hidden="true"></span>More from the Journal</p>
+    {{#post.next}}<a class="post__next" href="{{href}}" data-reveal>
+      <span class="post__nextmedia">{{&img}}</span>
+      <span class="post__nexttext">
+        <span class="post__nextmeta"><time datetime="{{date}}">{{dateText}}</time></span>
+        <span class="disp post__nexttitle">{{&title}}</span>
+        <span class="link-arrow"><span>Read article</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></span>
+      </span>
+    </a>{{/post.next}}
+    <a class="btn btn--ghost post__all" href="/journal/"><span class="btn__in">All articles</span></a>
+  </footer>
+</article>

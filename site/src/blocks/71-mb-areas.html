@@ -1,0 +1,24 @@
+<!-- ============ 71 · MOBILE: COVERAGE AREAS ============
+     (07/10, round 2: Fender "9 khu vực hơi lê thê trên mobile + chưa đẹp
+     trên pc".) A chart on paper: rings around Lingfield, each county
+     placed on its true bearing and rough distance from the studio
+     (county centres, 15-mobile.js), "International on request" leaving
+     the chart along a dashed line, a soft light sweeping round. Round 3
+     (Fender: the names showed twice, on the chart and in a list): the
+     chart alone, heading centred above it; v0.5's nine lines stay in the
+     HTML for screen readers and search only. -->
+<section class="mba sec" id="{{areas.id}}" data-section="areas" data-bg="light" data-theme="light">
+  <div class="wrap mba__in">
+    <div class="mba__side">
+      {{#areas.eyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&areas.eyebrow}}</p>{{/areas.eyebrow}}
+      <h2 class="disp h2" data-split>{{&areas.title}}</h2>
+      <ol class="mba__list sr" role="list">
+        {{#areas.items}}<li>{{&text}}</li>{{/areas.items}}
+      </ol>
+    </div>
+    <figure class="mba__chart" data-reveal="card">
+      <div class="mba__sweep" aria-hidden="true"></div>
+      {{&areas.svg}}
+    </figure>
+  </div>
+</section>

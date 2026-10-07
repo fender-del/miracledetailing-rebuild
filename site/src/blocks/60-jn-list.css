@@ -1,0 +1,23 @@
+/* ============ 60 · JOURNAL: ARTICLES ============ */
+.jnl__eyebrow{margin-bottom:clamp(32px,4vw,56px)}
+.jnl__list{list-style:none;margin:0;padding:0;display:grid;gap:clamp(56px,8vw,120px)}
+.jnl__post{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,80px);align-items:center}
+.jnl__it:nth-child(even) .jnl__post{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+.jnl__it:nth-child(even) .jnl__media{order:2}
+.jnl__media{display:block;overflow:hidden;border-radius:var(--r-lg)}
+.jnl__media picture{display:block}
+.jnl__media img{transition:transform 1.2s var(--ease),opacity .9s var(--ease)}
+.jnl__post:hover .jnl__media img{transform:scale(1.04)}
+.jnl__text{display:grid;gap:18px;justify-items:start}
+.jnl__meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:0;font-size:.8125rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.jnl__n{color:var(--gold);font-family:var(--fd);font-style:italic;font-size:1.5rem;letter-spacing:0;text-transform:none;margin-right:6px;line-height:1}
+.jnl__title{margin:0;font-size:clamp(2rem,1.3rem + 2.4vw,3.4rem);line-height:1.05}
+.jnl__title a{background:linear-gradient(var(--gold),var(--gold)) 0 100%/0 1px no-repeat;transition:background-size .6s var(--ease)}
+.jnl__post:hover .jnl__title a,.jnl__title a:focus-visible{background-size:100% 1px}
+.jnl__ex{margin:0;max-width:46ch;color:var(--text);line-height:1.65}
+
+@media (max-width:860px){
+  .jnl__post,.jnl__it:nth-child(even) .jnl__post{grid-template-columns:1fr;gap:22px}
+  .jnl__it:nth-child(even) .jnl__media{order:0}
+  .jnl__text{gap:14px}
+}

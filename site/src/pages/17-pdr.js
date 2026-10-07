@@ -100,7 +100,7 @@ module.exports = site => {
         lede: 'Paintless dent removal is the only method that removes a dent without disturbing the original paint. No filler, no respray, no risk to the original finish. Available through Miracle Detail, carried out by a technician Paul trusts completely.',
         img: frame('pd-hero', {
           priority: true, ratio: false, sizes: '100vw',
-          alt: 'Studio light running across the curve of a red supercar’s bodywork',
+          alt: 'A technician working a dent out of a black Audi’s door by hand, a PDR light board beside him',
           art: [{ media: '(max-width: 900px)', id: 'pd-hero-m', sizes: '100vw' }]
         }),
         facts: []

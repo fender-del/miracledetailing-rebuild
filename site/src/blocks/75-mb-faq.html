@@ -1,0 +1,23 @@
+<!-- ============ 75 · MOBILE: COMMON QUESTIONS ============
+     (07/10, round 2: Fender "phần QnA trên mobile cũng dài quá".) Phones
+     and tablets: native <details>, only the questions show, the first
+     one open; a tap opens the others (no JS). Desktop: every answer
+     printed (::details-content forced visible), heading held on the
+     left. The FAQPage schema carries the same text. -->
+<section class="mbq sec" id="{{qa.id}}" data-section="faq" data-bg="light" data-theme="light">
+  <div class="wrap mbq__in">
+    <div class="mbq__head">
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&qa.eyebrow}}</p>
+      <h2 class="disp h2" data-split>{{&qa.title}}</h2>
+      <p class="mbq__more" data-reveal>Something else? Call <a href="{{site.phoneHref}}">{{site.phone}}</a></p>
+    </div>
+    <div class="mbq__list">
+      {{#qa.items}}
+      <details class="mbq__it" data-reveal{{#_first}} open{{/_first}}>
+        <summary class="mbq__sum"><span class="mbq__n" aria-hidden="true">{{_idx}}</span><span class="mbq__q">{{&q}}</span><i class="mbq__plus" aria-hidden="true"></i></summary>
+        <p class="mbq__a">{{&a}}</p>
+      </details>
+      {{/qa.items}}
+    </div>
+  </div>
+</section>

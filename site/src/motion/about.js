@@ -7,11 +7,14 @@
                     to its year, its year is lit in the year bar
                   - the gold runs down the line as the story is read
                   - a year in the bar scrolls to its first entry
-                desktop (1024+): the entries' photos move into one stage
-                held beside the text and change with the entry in view;
-                an entry without photos shows its title as a placard.
+                desktop (1024+): in each run of entries with photos, the
+                photos move into one stage held beside the text and change
+                with the entry in view. Entries without photos are their
+                own runs and read across the page (Ed 07/10: no title
+                placards, no photos borrowed from another entry).
    timelinePics()  motion: each entry's words rise as they arrive; below
                 desktop its photos open on a curtain (the stage has its own).
+                Also the Fifth Gear cutting (pressDrift).
    ============================================================ */
 import { gsap, ScrollTrigger, env, $, $$ } from './core.js';
 import { sfx } from './sound.js';
@@ -24,6 +27,7 @@ export function timeline() {
   const list = tl && $('[data-tl]', tl);
   if (!list) return;
   const items = $$('.tl__it', list);
+  const runs = $$('.tl__seg', list).filter(seg => $('[data-panels]', seg));
   const links = $$('[data-ya]', tl);
   const years = $('[data-years]', tl);
   const count = $('[data-odo-n]', tl);
@@ -34,7 +38,7 @@ export function timeline() {
     return c.firstElementChild;
   }) : [];
 
-  let cur = -1, hold = 0, panels = null;
+  let cur = -1, hold = 0, staged = false;
   const linkFor = i => {
     let best = links[0];
     links.forEach(a => { if (+a.getAttribute('data-ya') <= i) best = a; });
@@ -65,7 +69,7 @@ export function timeline() {
       if (vertical) years.scrollTo({ top: a.offsetTop - years.clientHeight / 2 + a.offsetHeight / 2, behavior: env.motion ? 'smooth' : 'auto' });
       else years.scrollTo({ left: a.offsetLeft - years.offsetLeft - 12, behavior: env.motion ? 'smooth' : 'auto' });
     }
-    if (panels) show(panels, i);
+    if (staged) sync(i);
     if (!first && !quiet) sfx('tap');
   };
 
@@ -105,43 +109,59 @@ export function timeline() {
     history.replaceState(null, '', '#' + el.id);
   }));
 
-  /* ---------- desktop: the stage ---------- */
-  const stage = $('[data-panels]', tl);
-  if (!stage) return;
+  /* every stage shows what its run would show at this point of the
+     story: the entry's own photos in its run, the first set in the runs
+     still to come, the last set in the runs already read (a jump by
+     year never lands beside a stage left on another entry) */
+  const sync = i => runs.forEach(run => {
+    const its = run._items;
+    if (!its || !its.length) return;
+    const a = items.indexOf(its[0]), b = items.indexOf(its[its.length - 1]);
+    show((i < a ? its[0] : i > b ? its[its.length - 1] : items[i])._panel);
+  });
+
+  /* ---------- desktop: a stage per run of entries with photos ---------- */
+  if (!runs.length) return;
   gsap.matchMedia().add(DESK, () => {
-    const moved = [];
-    panels = items.map(li => {
-      const p = document.createElement('div');
-      p.className = 'tl__panel';
-      const pics = $('[data-pics]', li);
-      const ul = pics && $('.tl__photos', pics);
-      if (ul) { moved.push([ul, pics]); p.appendChild(ul); }
-      else {
-        const t = $('.tl__title', li);
-        p.innerHTML = `<div class="tl__card"><b></b><i></i><span></span></div>`;
-        $('b', p).textContent = li.getAttribute('data-label') || '';
-        $('span', p).textContent = t ? t.textContent : '';
-      }
-      stage.appendChild(p);
-      return p;
+    const moved = [], made = [];
+    runs.forEach(run => {
+      const stage = $('[data-panels]', run);
+      run._items = $$('.tl__it', run);
+      run._items.forEach((li, k) => {
+        const pics = $('[data-pics]', li);
+        const ul = pics && $('.tl__photos', pics);
+        if (!ul) return;
+        const p = document.createElement('div');
+        p.className = 'tl__panel' + (k === 0 ? ' is-on' : ' is-near');
+        moved.push([ul, pics]);
+        p.appendChild(ul);
+        stage.appendChild(p);
+        made.push(p);
+        li._panel = p;
+      });
     });
+    staged = true;
     tl.classList.add('is-stage');
-    show(panels, Math.max(cur, 0));
+    sync(Math.max(cur, 0));
     ScrollTrigger.refresh();
     return () => {
       moved.forEach(([ul, pics]) => pics.prepend(ul));
-      panels.forEach(p => p.remove());
-      panels = null;
+      made.forEach(p => p.remove());
+      items.forEach(li => { li._panel = null; });
+      staged = false;
       tl.classList.remove('is-stage');
     };
   });
 }
 
-/* the one in view on, its neighbours mounted (their photos start loading) */
-function show(panels, i) {
-  panels.forEach((p, j) => {
-    p.classList.toggle('is-on', j === i);
-    p.classList.toggle('is-near', Math.abs(j - i) <= 2 && j !== i);
+/* in its own stage: this panel on, the two either side mounted (their
+   photos start loading) */
+function show(p) {
+  const all = [...p.parentNode.children];
+  const i = all.indexOf(p);
+  all.forEach((q, j) => {
+    q.classList.toggle('is-on', j === i);
+    q.classList.toggle('is-near', Math.abs(j - i) <= 2 && j !== i);
   });
 }
 
@@ -149,6 +169,7 @@ function show(panels, i) {
    ScrollTrigger.batch, not an observer: a quick flick past an entry
    still fires its onEnter, so nothing is left hidden. */
 export function timelinePics() {
+  pressDrift();
   const words = $$('.tl [data-tlr]');
   if (!words.length) return;
   ScrollTrigger.batch(words, {
@@ -168,5 +189,28 @@ export function timelinePics() {
       });
       if (img) gsap.fromTo(img, { scale: 1.3 }, { scale: 1, duration: 1.6, ease: 'expo.out', delay: n * 0.09, clearProps: 'transform' });
     })
+  });
+}
+
+/* ---------- Fifth Gear: the Sunday Mirror cutting ----------
+   It lies over the MC12's corner and rides a little slower than the
+   page, so it reads as paper on top of the photo. Its tilt is CSS
+   (rotate), so the transform here is only the drift. */
+function pressDrift() {
+  const el = $('[data-press]');
+  if (!el) return;
+  /* the drift where it lies over the photo (900+); on a phone it sits
+     in the flow above the caption, where drifting would cover it */
+  gsap.matchMedia().add('(min-width: 900px)', () => {
+    gsap.fromTo(el, { y: 70 }, {
+      y: -30, ease: 'none',
+      scrollTrigger: { trigger: el.parentNode, start: 'top bottom', end: 'bottom top', scrub: 0.6 }
+    });
+  });
+  /* it lands once, after the photo has opened */
+  gsap.set(el, { autoAlpha: 0 });
+  ScrollTrigger.create({
+    trigger: el.parentNode, start: 'top 80%', once: true,
+    onEnter: () => gsap.to(el, { autoAlpha: 1, duration: 0.9, delay: 0.35, ease: 'power2.out' })
   });
 }

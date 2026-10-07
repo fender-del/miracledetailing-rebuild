@@ -25,8 +25,13 @@ html:has(.hd.is-hidden) .snav{top:0}
 .snav__cta{
   flex:none;display:inline-flex;align-items:center;gap:10px;min-height:38px;padding:0 18px;border-radius:999px;
   font-weight:500;font-size:.6875rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:var(--gold);
-  transition:background .35s var(--ease);
+  transition:background .35s var(--ease),opacity .4s var(--ease),transform .5s var(--ease),visibility 0s linear .5s;
 }
+/* one booking button on screen at a time (07/10, Fender: scrolling up
+   brought the header back and showed two): the bar's own button only
+   while the header is away */
+.snav__cta{opacity:0;visibility:hidden;transform:translateY(-8px);pointer-events:none}
+html:has(.hd.is-hidden) .snav__cta{opacity:1;visibility:visible;transform:none;pointer-events:auto;transition:background .35s var(--ease),opacity .4s var(--ease) .1s,transform .5s var(--ease) .1s,visibility 0s}
 .snav__cta svg{width:15px;height:15px}
 @media (hover:hover){.snav__cta:hover{background:var(--white)}}
 /* phones: the sticky bar at the bottom already books */

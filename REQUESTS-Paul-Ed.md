@@ -79,6 +79,7 @@ Also, on the ceramic range only Heal Lite has a price ("From £2,000 + VAT"). Do
 | Bodyshop | Old-site photo of a Ferrari Roma, and the Mercedes 600 restoration | Repair jobs, before/after |
 | Wheel refurbishment, leather | Old-site photos (1,200 px wide, a little soft on large screens) | Larger originals or newer jobs |
 | Mobile detailing | Paul's own photo of the Caddy in Portugal. v0.5 uses an AI picture of the van. | A current photo of the van at a client's home |
+| Mobile detailing, Portugal | The F12 TDF and 599 GTO from Portugal; the third car is a 997 GT3 RS from the old gallery, captioned "from the gallery" | A photo of the Porsche GT3 RS detailed in Portugal (2020) |
 | About Paul, 2026 new studio | One photo | More photos of the new Lingfield studio |
 | Gallery | 133 jobs from the old site, mostly 2016. Only 9 have a description. | Newer jobs, and a line or two about each car if you have it. Should the "50/50s" collection stay? |
 | Every service page | Hero photos taken from v0.5, the old site and the Drive set | 4K originals, if Paul has them |

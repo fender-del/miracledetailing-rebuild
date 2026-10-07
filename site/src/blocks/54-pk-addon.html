@@ -1,0 +1,17 @@
+<!-- ============ 54 · PACKAGES: ADD-ON ============
+     One service offered on its own or with any level (07/10, packages:
+     the wheel ceramic coating). A wide photo and Paul's words on one
+     band, the button at the end. Phones: the photo above, the words
+     under it. Built by
+     lib/packages.js addon(). -->
+<section class="pka sec" id="{{addon.id}}" data-section="addon"{{#addon.light}} data-bg="light" data-theme="light"{{/addon.light}}>
+  <div class="wrap pka__in">
+    {{#addon.img}}<figure class="pka__media" data-reveal="card"><div class="pka__pic">{{&.}}</div></figure>{{/addon.img}}
+    <div class="pka__copy">
+      {{#addon.eyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&addon.eyebrow}}</p>{{/addon.eyebrow}}
+      <h2 class="disp h2" data-split>{{&addon.title}}</h2>
+      <div class="pka__text" data-reveal>{{#addon.paras}}<p>{{&.}}</p>{{/addon.paras}}</div>
+      {{#addon.hasLinks}}<p class="pka__links" data-reveal>{{#addon.links}}<a class="link-arrow" href="{{href}}"><span>{{label}}</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></a>{{/addon.links}}</p>{{/addon.hasLinks}}
+    </div>
+  </div>
+</section>

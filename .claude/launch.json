@@ -27,6 +27,15 @@
         "8767"
       ],
       "port": 8767
+    },
+    {
+      "name": "miracle-site-d",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "site/tools/serve.js",
+        "8768"
+      ],
+      "port": 8768
     }
   ]
 }

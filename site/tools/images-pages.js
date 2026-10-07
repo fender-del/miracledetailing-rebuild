@@ -7,6 +7,8 @@
                        backgrounds and images), downloaded 06/10
      old-site/         the old miracledetail.co.uk service photos
      drive/            the Drive set already used on the homepage
+     drive-paul/       Paul's "High res pics for Ed" Drive folder (07/10),
+                       the heroes that show the work itself
    A page v0.5 shows no photo for (tint, bodyshop, PDR, wheels,
    leather, aftercare) borrows the old site's own photos of that work.
    ============================================================ */
@@ -33,7 +35,7 @@ module.exports = [
   /* ---------- Ceramic ---------- */
   /* hero = the McLaren F1 v0.5 shows (Paul's job); Paul with his own
      coating carries "Ceramic by Paul Dalton" */
-  ...hero('cc-hero', V + 'ceramic-coatings/download-99.jpg', { l: .3, t: 0, w: .5, h: 1 }),
+  ...hero('cc-hero', 'drive-paul/hero-ceramic-beading.png', { l: .3, t: 0, w: .45, h: 1 }),  /* Paul's Drive set, 07/10 */
   { id: 'cc-paul',    src: O + '2024_08_Feynlab-Ceramic-Paul-Dalton.jpg', crop: { l: .12, t: 0, w: .76, h: 1 }, widths: [600, 900, 1400] },
   { id: 'cc-laf',     src: O + '2023_11_Top-Quality-Ceramic-Coatings-in-Lingfield-Surrey-miracle-detail.jpg', widths: [600, 900, 1200] },
   { id: 'cc-laf2',    src: O + '2023_11_Top-Quality-Ceramic-Coatings-in-Lingfield-Surrey-miracle-detail-2.jpg', widths: [600, 900, 1200] },
@@ -70,24 +72,28 @@ module.exports = [
   { id: 'wt-note',   src: 'stock/pexels-11877373.jpg', crop: { l: 0, t: .2, w: 1, h: .45 }, widths: [900, 1400, 2000], q: 46 },
 
   /* ---------- Mobile ---------- */
-  ...hero('mb-hero', V + 'about-paul/download-33-1.jpg', { l: .15, t: 0, w: .6, h: 1 }),
+  /* phone crop widened 07/10 so the whole van shows (Fender) */
+  ...hero('mb-hero', V + 'about-paul/download-33-1.jpg', { l: .1, t: 0, w: .64, h: 1 }),
   { id: 'mb-pagani', src: O + '2023_11_Miracle-Detail-near-Kent-mobile-detailing-1024x576.jpg.webp', widths: [600, 1024] },
   { id: 'mb-spyker', src: O + '2023_11_Miracle-Detail-near-Sussex-mobile-auto-detailing-1024x576.jpg.webp', widths: [600, 1024] },
   { id: 'mb-polish', src: O + '2023_11_Miracle-Detail-LINGFIELD-SURREY-Mobile-auto-detailing.jpg', widths: [600, 1200] },
   { id: 'mb-f12',    src: V + 'about-paul/download-30-1.jpg', widths: W },
   { id: 'mb-599',    src: V + 'about-paul/download-31-1.jpg', widths: W },
   { id: 'mb-f12b',   src: V + 'about-paul/download-32-1.jpg', widths: W },
+  /* NOT the Portugal car: a 997 GT3 RS from Paul's gallery, standing in
+     until Paul sends the Portugal one (REQUESTS) */
+  { id: 'mb-gt3',    src: 'gallery/porsche-997-gt3rs-in-blue/01-gal-603-DSC01853.jpg', widths: [600, 900, 1200] },
 
   /* ---------- Bodyshop ---------- */
-  ...hero('bs-hero', O + '2023_11_High-class-Bodyshop-repairs-andbo-renovation-in-Lingfield-Surrey-miracle-detail.jpg', { l: .25, t: 0, w: .5, h: 1 }),
+  ...hero('bs-hero', 'drive-paul/hero-bodyshop-masked.png', { l: .25, t: 0, w: .5, h: 1 }),  /* Paul's Drive set, 07/10 */
   { id: 'bs-600',    src: V + 'about-paul/download-24-1.jpg', widths: [600, 1125] },
   { id: 'bs-roma',   src: O + '2023_11_Paint-Correction-and-Polishing-in-Lingfield-Surrey-miracle-detail-3.jpg', widths: [600, 1200] },
 
   /* ---------- PDR ---------- */
-  ...hero('pd-hero', 'drive/02-gfw-red-macro-dark.jpg', { l: .3, t: 0, w: .45, h: 1 }),
+  ...hero('pd-hero', 'drive-paul/hero-pdr-board.png', { l: 0, t: 0, w: 1, h: 1 }),  /* Paul's Drive set, 07/10 */
 
   /* ---------- Wheels ---------- */
-  ...hero('wr-hero', O + '2023_11_Wheel-Refurbishment-in-Lingfield-SurreY-MIRACLE-DETAIL.jpg', { l: 0, t: 0, w: .5, h: 1 }),
+  ...hero('wr-hero', 'drive-paul/hero-wheel-before-after.png', { l: .5, t: .03, w: .5, h: .63 }),  /* Paul's Drive set, 07/10 */
   { id: 'wr-stands', src: O + '2023_11_Excellent-Wheel-Refurbishment-in-Lingfield-Surrey.-Miracle-Detail.jpg', widths: [600, 1200] },
   { id: 'wr-audi',   src: O + '2023_11_Wheel-Refurbishment-in-Lingfield-Surrey.-Miracle-Detail-2.jpg', widths: [600, 1200] },
   { id: 'wr-face',   src: O + '2023_11_Wheel-Refurbishment-in-Lingfield-Surrey.-Miracle-Detail-4.jpg', widths: [600, 1200] },
@@ -109,6 +115,14 @@ module.exports = [
   { id: 'pk-split',  src: V + 'packages/download-69-scaled.webp', crop: { l: 0, t: .2, w: 1, h: .5 }, widths: [600, 1179] },
   { id: 'pk-pagani', src: V + 'packages/download-70.jpg', widths: [600, 1000] },
   { id: 'pk-dry',    src: V + 'packages/download-71.jpg', widths: W },
+  /* the ladder (07/10): one photo per level, shown in its panel */
+  { id: 'pk-l1', src: 'drive/03-gfw-water-beading.jpg', crop: { l: .25, t: .1, w: .7, h: .7 }, widths: W },
+  { id: 'pk-l2', src: 'Ferrari-SF90-Spider-ceramic.jpg', crop: { l: 0, t: 0, w: .78, h: 1 }, widths: [600, 842] },
+  { id: 'pk-l3', src: V + 'packages/download-69-scaled.webp', crop: { l: 0, t: .3, w: 1, h: .3 }, widths: [600, 1179] },
+  { id: 'pk-l4', src: 'stock/pexels-37809561.jpg', crop: { l: .25, t: .42, w: .75, h: .3 }, widths: W },
+  { id: 'pk-l5', src: V + 'packages/download-71.jpg', widths: W },
+  { id: 'pk-wheel', src: 'drive/20-gfw-458-speciale.jpg', crop: { l: .22, t: .43, w: .7, h: .292 }, widths: [700, 1100, 1500] },
+  { id: 'pk-note', src: V + 'packages/download-70.jpg', crop: { l: 0, t: .22, w: 1, h: .5 }, widths: [700, 1000], q: 50 },
 
   /* ---------- About Paul ---------- */
   ...hero('ab-hero', V + 'about-paul/download-21-1.jpg', { l: .3, t: 0, w: .5, h: 1 }),
@@ -125,5 +139,13 @@ module.exports = [
   /* ---------- Hubs ---------- */
   ...hero('sv-hero', 'drive/15-mclaren-studio.png', { l: .25, t: 0, w: .5, h: 1 }),
   ...hero('gl-hero', 'drive/12-bugatti-studio.png', { l: .25, t: 0, w: .5, h: 1 }),
-  ...hero('jn-hero', 'drive/16-studio-interior.png', { l: .25, t: 0, w: .5, h: 1 })
+  ...hero('jn-hero', 'drive/16-studio-interior.png', { l: .25, t: 0, w: .5, h: 1 }),
+
+  /* ---------- Journal posts (07/10): the old blog's two posts, their own
+     photos (1920 originals) + the poster of the YouTube film both embed
+     (sddefault is letterboxed 4:3: the bars are cropped off) ---------- */
+  { id: 'jn-fb',     src: 'journal/fb-competition.jpg', widths: [600, 900, 1400, 1920] },
+  { id: 'jn-npl',    src: 'journal/feynlab-ceramic-paul-dalton.jpg', widths: [600, 900, 1400, 1920] },
+  { id: 'jn-bottle', src: 'journal/feynlab-ceramic-paul-dalton-bottle.jpg', widths: [300, 600] },
+  { id: 'jn-yt',     src: 'journal/yt-sddefault.jpg', crop: { l: 0, t: .125, w: 1, h: .75 }, widths: [640] }
 ];

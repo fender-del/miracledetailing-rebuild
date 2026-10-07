@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Miracle Detail · Heading fonts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500;1,6..96,700&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=Instrument+Serif:ital@0;1&family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+Display:ital,wght@0,500;1,500&family=Schibsted+Grotesk:ital,wght@0,400;0,500;1,400;1,500&family=Familjen+Grotesk:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111;--panel:#161617;--gold:#C9A84D;--text:#D9D6CF;--muted:#A7A39A;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:#0a0a0a;color:var(--text);font:400 17px/1.65 "Jost",sans-serif;-webkit-font-smoothing:antialiased}
+.top{max-width:1240px;margin:0 auto;padding:40px 32px 8px}
+.top h1{font:500 26px/1.2 "Jost";color:#fff;margin:0 0 8px}
+.top p{margin:0;max-width:760px;color:var(--muted);font-size:15px}
+.opt{max-width:1240px;margin:0 auto;padding:36px 32px 8px}
+.opt__head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:12px;border-top:1px solid rgba(255,255,255,.12);padding-top:18px}
+.opt__head b{font:500 16px "Jost";color:#fff}
+.opt__head span{font-size:13px;color:var(--muted);text-align:right}
+.tag{display:inline-block;margin-left:8px;padding:2px 9px;border-radius:99px;background:var(--gold);color:#111;font:500 11px/1.6 "Jost";letter-spacing:.08em;text-transform:uppercase;vertical-align:2px}
+.tag--ghost{background:none;border:1px solid rgba(255,255,255,.3);color:var(--muted)}
+.hero{position:relative;border-radius:14px 14px 0 0;overflow:hidden;aspect-ratio:16/6.4;background:#000 url(../../site/assets/img/hero-v-1440.webp) center 60%/cover}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.35) 45%,rgba(0,0,0,0) 70%)}
+.hero__in{position:absolute;left:48px;bottom:44px;max-width:620px}
+.eye{display:flex;align-items:center;gap:10px;font:500 12px "Jost";letter-spacing:.22em;text-transform:uppercase;color:#fff;margin-bottom:16px}
+.eye::before{content:"";width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+.h1{margin:0 0 24px;color:#fff;font-size:64px;line-height:1.04}
+.btn{display:inline-block;padding:13px 24px;border-radius:99px;background:var(--gold);color:#111;font:500 12px "Jost";letter-spacing:.16em;text-transform:uppercase}
+.panel{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:center;background:var(--panel);border-radius:0 0 14px 14px;padding:48px}
+.h2{margin:0 0 20px;color:#fff;font-size:40px;line-height:1.1}
+.panel p{margin:0;max-width:520px}
+.card{background:#fff;color:#222;border-radius:14px;padding:26px 28px}
+.card .eye{color:var(--gold);font-size:11px;margin-bottom:10px}
+.card .eye::before{display:none}
+.h3{margin:0 0 6px;color:#111;font-size:26px;line-height:1.15}
+.card p{font-size:14px;color:#555;line-height:1.55}
+.small{margin-top:22px;padding-top:18px;border-top:1px solid #eee;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.small div{font-size:12px;color:#777}
+.small strong{display:block;color:#111;font-size:22px;line-height:1.2}
+.phone{display:flex;gap:20px;align-items:flex-start;margin-top:28px}
+.phone__note{font-size:13px;color:var(--muted);max-width:180px}
+
+/* option fonts */
+.f-now .hd{font-family:"Bodoni Moda";font-weight:500;letter-spacing:-.01em;font-variation-settings:"opsz" 96}
+.f-now .acc{font-style:italic;color:var(--gold)}
+
+.f-bold .hd{font-family:"Bodoni Moda";font-weight:700;letter-spacing:-.005em;font-variation-settings:"opsz" 11}
+.f-bold .acc{font-style:italic;color:var(--gold)}
+
+.f-fraunces .hd{font-family:"Fraunces";font-weight:400;letter-spacing:-.015em;font-variation-settings:"opsz" 48,"SOFT" 30}
+.f-fraunces .acc{font-style:italic;color:var(--gold)}
+
+.f-cormorant .hd{font-variant-numeric:lining-nums;font-family:"Cormorant Garamond";font-weight:600;letter-spacing:-.005em;line-height:1}
+.f-cormorant .h1{font-size:76px}.f-cormorant .h2{font-size:48px}.f-cormorant .h3{font-size:31px}.f-cormorant .small strong{font-size:27px}
+.f-cormorant .acc{font-style:italic;color:var(--gold)}
+
+.f-dmserif .hd{font-family:"DM Serif Display";font-weight:400;letter-spacing:-.005em}
+.f-dmserif .h1{font-size:62px}
+.f-dmserif .acc{font-style:italic;color:var(--gold)}
+
+.f-instrument .hd{font-family:"Instrument Serif";font-weight:400;letter-spacing:-.005em;line-height:1}
+.f-instrument .h1{font-size:80px}.f-instrument .h2{font-size:50px}.f-instrument .h3{font-size:32px}.f-instrument .small strong{font-size:28px}
+.f-instrument .acc{font-style:italic;color:var(--gold)}
+
+.f-noto .hd{font-family:"Noto Serif Display";font-weight:500;letter-spacing:-.01em}
+.f-noto .acc{font-style:italic;color:var(--gold)}
+
+.f-sg .hd{font-family:"Schibsted Grotesk";font-weight:500;letter-spacing:-.02em;line-height:1.02}
+.f-sg .h1{font-size:62px}.f-sg .acc{font-style:italic;color:var(--gold)}
+.f-sgcaps .hd{font-family:"Schibsted Grotesk";font-weight:400;text-transform:uppercase;letter-spacing:.07em;line-height:1.1}
+.f-sgcaps .h1{font-size:50px}.f-sgcaps .h2{font-size:30px}.f-sgcaps .h3{font-size:19px}.f-sgcaps .small strong{font-size:19px}
+.f-sgcaps .acc{font-style:italic;color:var(--gold)}
+.f-fg .hd{font-family:"Familjen Grotesk";font-weight:500;letter-spacing:-.015em;line-height:1.02}
+.f-fg .h1{font-size:64px}.f-fg .acc{font-style:italic;color:var(--gold)}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>Miracle Detail · Heading font options</h1>
+  <p>Body text stays Jost on every option (as agreed). Only the headings change: hero title, section title, card title and the small figures. Option 0 is what the site uses now, shown for comparison. Options 7–9 test the Patek Philippe direction (Monotype Grotesque); it is a paid font, so free look-alikes stand in for it.</p>
+</header>
+
+<script>
+const OPTS=[
+ {k:"now",n:"0 · Now: Bodoni Moda",d:"high-contrast serif · hairlines disappear on dark and over photos",tag:"current",ghost:1},
+ {k:"bold",n:"1 · Bodoni Moda, heavier cut",d:"smallest change · same look, thicker hairlines"},
+ {k:"noto",n:"2 · Noto Serif Display",d:"Didone like Bodoni, sturdier strokes · fashion-house feel"},
+ {k:"dmserif",n:"3 · DM Serif Display",d:"bold Didone · Vogue / watch-advert feel, strong on photos"},
+ {k:"cormorant",n:"4 · Cormorant Garamond",d:"classic Garamond · Rolls-Royce / old-money feel, beautiful italic"},
+ {k:"instrument",n:"5 · Instrument Serif",d:"tall, narrow editorial serif · modern luxury, very elegant italic"},
+ {k:"fraunces",n:"6 · Fraunces",d:"soft modern serif · warm, easiest to read"},
+ {k:"sg",n:"7 · Grotesque (Patek Philippe direction)",d:"Monotype Grotesque is paid · stand-in: Schibsted Grotesk · quiet Swiss-watch feel"},
+ {k:"sgcaps",n:"8 · Grotesque capitals, spaced",d:"stand-in: Schibsted Grotesk · set the way watch brands set their name"},
+ {k:"fg",n:"9 · Grotesque (alt)",d:"stand-in: Familjen Grotesk · a little more character in the letters"}
+];
+const sec=o=>`
+<section class="opt f-${o.k}">
+  <div class="opt__head"><b>${o.n}${o.tag?`<span class="tag ${o.ghost?'tag--ghost':''}">${o.tag}</span>`:''}</b><span>${o.d}</span></div>
+  <div class="hero"><div class="hero__in">
+    <div class="eye">Car detailing in Surrey</div>
+    <h2 class="hd h1">There is only<br>one standard.<br><span class="acc">Perfection.</span></h2>
+    <span class="btn">Book a consultation →</span>
+  </div></div>
+  <div class="panel">
+    <div>
+      <div class="eye" style="color:var(--gold)">Ceramic coatings</div>
+      <h3 class="hd h2">Ceramic by <span class="acc">Paul Dalton</span></h3>
+      <p>Developed in collaboration with Feynlab’s chemists, Ceramic by Paul Dalton is a professional-grade coating designed to bring professional performance to both detailers and enthusiasts. Easy to apply, with strong slickness, water beading and three years of durability.</p>
+    </div>
+    <div class="card">
+      <div class="eye">Dunsfold Park · 2015</div>
+      <h4 class="hd h3">Ferrari LaFerrari</h4>
+      <p>A week-long detail. GF Williams came down to shoot it while the work was still going on.</p>
+      <div class="small">
+        <div><strong class="hd">2006</strong>PPF since</div>
+        <div><strong class="hd">10,000+</strong>cars</div>
+        <div><strong class="hd">3 yrs</strong>durability</div>
+      </div>
+    </div>
+  </div>
+</section>`;
+document.write(OPTS.map(sec).join(""));
+</script>
+<div style="height:48px"></div>
+</body>
+</html>

@@ -125,7 +125,7 @@ module.exports = site => {
         lede: 'From a single scuffed panel to a full restoration, bodyshop and paint repair is available through Miracle Detail. One point of contact, coordinated around your detail, finished to the same standard as the detailing work that follows it.',
         img: frame('bs-hero', {
           priority: true, ratio: false, sizes: '100vw',
-          alt: 'A grey Ferrari Roma in the workshop on a red protective mat',
+          alt: 'A red car masked up in the spray booth, its freshly painted panel gleaming',
           art: [{ media: '(max-width: 900px)', id: 'bs-hero-m', sizes: '100vw' }]
         }),
         facts: []

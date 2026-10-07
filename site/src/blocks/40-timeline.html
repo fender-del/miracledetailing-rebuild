@@ -10,9 +10,14 @@
        entries  the year, Paul's title and paragraph, and the photos v0.5
                 shows for it, captioned. Everything readable on a phone,
                 nothing behind a swipe or a fold.
-       stage    desktop with JS (motion/about.js): each entry's photos move
-                into one frame held beside the text, and change as the
-                entry in view changes; the entries keep only their words.
+       runs     the entries come in runs (21-about.js tl.groups): a run of
+                entries with photos, or a run of entries without (07/10,
+                Ed: no placards, and no borrowing another entry's photos).
+                Desktop: an entry without photos reads across the page,
+                its title on the left and Paul's words on the right.
+       stage    desktop with JS (motion/about.js): in a run with photos,
+                each entry's photos move into one frame held beside the
+                text, and change as the entry in view changes.
      Without JS: the years are plain links, the photos stay in each entry. -->
 <section class="tl sec" id="{{tl.id}}" data-section="timeline">
   <div class="wrap">
@@ -31,26 +36,28 @@
         </ol>
         <span class="tl__bar" aria-hidden="true"><i></i></span>
       </nav>
-      <div class="tl__track">
+      <div class="tl__track" data-tl>
       <span class="tl__fill" aria-hidden="true"></span>
-      <ol class="tl__list" role="list" data-tl>
-        {{#tl.items}}
-        <li class="tl__it{{#hasPhotos}} has-photos{{/hasPhotos}}" id="{{id}}" data-label="{{year}}">
-          <p class="tl__meta"><span class="tl__year">{{year}}</span><span class="tl__idx">{{idx}}</span></p>
-          <div class="tl__body">
-            <h3 class="tl__title" data-tlr>{{&title}}</h3>
-            <div class="tl__text" data-tlr>{{#paras}}<p>{{&.}}</p>{{/paras}}</div>
-            {{#hasPhotos}}<div class="tl__pics" data-pics>
-              <ul class="tl__photos" role="list" data-n="{{count}}" data-shape="{{shape}}">{{#photos}}<li class="tl__ph{{#portrait}} is-port{{/portrait}}" style="--ar:{{ar}}"><figure>{{&img}}<figcaption>{{&cap}}</figcaption></figure></li>{{/photos}}</ul>
-              {{#capLine}}<p class="tl__caps" aria-hidden="true">{{&.}}</p>{{/capLine}}
-            </div>{{/hasPhotos}}
-          </div>
-        </li>
-        {{/tl.items}}
+      {{#tl.groups}}
+      <div class="tl__seg{{#isNotes}} tl__seg--notes{{/isNotes}}">
+      <ol class="tl__list" role="list">
+        {{#items}}
+          <li class="tl__it{{#hasPhotos}} has-photos{{/hasPhotos}}" id="{{id}}" data-label="{{year}}">
+            <p class="tl__meta"><span class="tl__year">{{year}}</span><span class="tl__idx">{{idx}}</span></p>
+            <div class="tl__body">
+              <h3 class="tl__title" data-tlr>{{&title}}</h3>
+              <div class="tl__text" data-tlr>{{#paras}}<p>{{&.}}</p>{{/paras}}</div>
+              {{#hasPhotos}}<div class="tl__pics" data-pics>
+                <ul class="tl__photos" role="list" data-n="{{count}}" data-shape="{{shape}}">{{#photos}}<li class="tl__ph{{#portrait}} is-port{{/portrait}}" style="--ar:{{ar}}"><figure>{{&img}}<figcaption>{{&cap}}</figcaption></figure></li>{{/photos}}</ul>
+                {{#capLine}}<p class="tl__caps" aria-hidden="true">{{&.}}</p>{{/capLine}}
+              </div>{{/hasPhotos}}
+            </div>
+          </li>
+        {{/items}}
       </ol>
+      {{#isStage}}<div class="tl__stage" aria-hidden="true"><div class="tl__frame"><div class="tl__panels" data-panels></div></div></div>{{/isStage}}
       </div>
-      <div class="tl__stage" aria-hidden="true">
-        <div class="tl__frame"><div class="tl__panels" data-panels></div></div>
+      {{/tl.groups}}
       </div>
     </div>
   </div>

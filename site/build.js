@@ -43,7 +43,8 @@ const gzKB = s => (zlib.gzipSync(s).length / 1024).toFixed(1);
 const pages = fs.readdirSync(PAGES).filter(f => f.endsWith('.js')).sort()
   .flatMap(f => {
     const mod = require(path.join(PAGES, f));
-    return (Array.isArray(mod) ? mod : [mod]).map(p => (typeof p === 'function' ? p(site) : p))
+    return (Array.isArray(mod) ? mod : [mod])/* a page file may return several pages (07/10: the journal and its posts) */
+      .flatMap(p => (typeof p === 'function' ? p(site) : p))
       .map(p => Object.assign({ _from: f }, p));
   });
 
@@ -230,8 +231,7 @@ fs.writeFileSync(path.join(ROOT, '_redirects'), [
   '/videos/                          /car-detail-gallery/            301',
   '/blog/                            /journal/                       301',
   '/category/uncategorized/          /journal/                       301',
-  '/facebook-competition/            /journal/                       301',
-  '/new-product-launch/              /ceramic-coatings/              301',
+  '# 07/10: the two blog posts are rebuilt under their old slugs',
   '/gallery/:job/                    /car-detail-gallery/?job=:job   301',
   '/gallery/                         /car-detail-gallery/            301',
   '/vehiclemake/:make/               /car-detail-gallery/?make=:make 301',

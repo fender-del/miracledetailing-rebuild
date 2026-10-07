@@ -85,7 +85,7 @@ Scope = the 13 content pages on the v0.5 staging site + Services, Gallery and Jo
 | Aftercare guide | `22-aftercare.js` | /aftercare-washing-guide/ |
 | Services hub (homepage cards) | `23-services.js` | /car-care-services/ |
 | Gallery (133 old jobs, filter + lightbox) | `24-gallery.js` | /car-detail-gallery/ |
-| Journal (placeholder text, noindex) | `25-journal.js` | /journal/ |
+| Journal = the old blog + its 2 posts, word for word (07/10) | `25-journal.js` | /journal/, /facebook-competition/, /new-product-launch/ |
 
 - **A block used twice on a page:** `blocks: [{ block: '33-svc-prose', with: { prose: … } }]` (build.js). Helpers in `lib/shared.js` (`cards`, `prose`, `quote`, `steps`) set every key, because the template engine looks a missing key up in the outer context.
 - **New blocks:** 37 cards (variants boxed / points / versus; three or more boxed cards swipe as a row on phones), 38 quote (words lit one by one, optional photo ground), 39 price band, 40 timeline (About), 41 gallery (+ `motion/gallery.js`). 33 prose gained a list, price, photo caption, before/after tags, photo on the right; 23 steps any count, step tags, no heading; 21 proof any count; 24 work optional heading and full/half/third widths; 28 FAQ and 30 cold take their heading from the page.
@@ -143,6 +143,37 @@ Also: `cards({ compact: true })` (37): on phones each card shows photo, name, li
 - Canva stock was asked for, but the Canva connector was not signed in on 07/10.
 - QA 07/10: tint and ceramic, 7 modes each, clean.
 
+## Mobile detailing, rebuilt (07/10, blocks 70–77)
+
+Fender, round 1: "audit build lại kĩ… quan trọng không kém trang about paul, không cần interactive function". Round 2 the same day: "chưa đủ ấn tượng, cấu trúc các block vẫn lặp lại; các gói trên mobile nên kéo ngang, chưa nổi giá; 9 khu vực lê thê / chưa đẹp; QnA trên mobile dài quá". Paul's words unchanged (checked line by line against `../crawl/v05/pages/mobile-detailing.md`; only the CTA labels differ, site-wide). Each section has its own shape:
+
+| Block | What it is |
+|---|---|
+| 70 mb-how | a full-bleed photo (Koenigsegg + the old van on the London Concours lawn) with the heading over it (the page's one parallax), then Paul's first line large and the other two beside it |
+| 77 mb-route | the Caddy: heading + paragraph, then the van's road as a gold line with three stops (UK, Monaco, Portugal), each a photo + Paul's words |
+| 71 mb-areas | a chart round Lingfield on ivory: rings, each county on its true bearing / rough distance (county centres, `15-mobile.js`), "International on request" leaving along a dashed arrow, a slow light sweep (CSS, off with reduced motion). Desktop: v0.5's nine lines beside it; phones: the chart alone (list kept for screen readers) |
+| 72 mb-why | one photo behind the section, title large and centred, three reasons under hollow gold numerals |
+| 73 mb-menu | cards led by large prices (Premier inverted: black, gold figures); desktop four across with subgrid, tablets 2×2, phones a row to swipe (CSS scroll-snap, next card peeking, "Swipe · 4 packages") |
+| 74 mb-field | Portugal: heading centred and large, F12 TDF wide + 599 GTO tall, paragraphs, the one lit quote, closing line + "From £???" |
+| 75 mb-faq | phones/tablets: `<details>`, questions only, first open; desktop (≥1024): every answer printed (`::details-content` forced visible) |
+| 76 mb-addon | wheel ceramic: 458 Speciale wheel close-up beside the heading, the two prices as a small list |
+
+Round 3 (Fender): the hero photo is held in the right two thirds (`hero.shift`, block 20) so the van clears the copy, phone crop widened; how it works is words-first with a framed photo (a full-bleed photo right after the hero read as a second hero); the chart stands alone (the names showed twice; v0.5's list stays for screen readers); Portugal shows three cars, the GT3 RS a gallery stand-in (`mb-gt3`, captioned "from the gallery", in REQUESTS §4).
+
+Round 4 (Fender: the phone block did not fit one screen; text on the photo with a gradient; a sideways scroll): how it works on phones = the photo across the top, heading on its lower edge over a gradient, the rest on dark, one screen (835 px at 390×844); on every width the photo pans sideways as the section passes (CSS scroll-driven `view-timeline` on the section, since the clipping frame would otherwise be the timeline's scroller; static where unsupported or with reduced motion). It replaces the page's parallax.
+
+Round 5 (Fender: a package card was taller than the phone screen): on phones each card stops at its facts (~500 px) and "What's included" opens a sheet from the bottom with Paul's line, the facts and the list, the same look as the packages page's sheet. `motion/sheet.js` is generic: any `[data-sheet-card]` with `[data-sheet-kick]`, `[data-sheet-name]`, `[data-sheet-part]` and a `[data-sheet-open]` button; its CSS (.pks) is copied into block 73 so the page does not need block 53. Without JS the list stays on the card.
+
+No photo is used twice. Round 2 was built without the QA pass (Fender: "bỏ qua bước QA để tiết kiệm tg"); round 1 QA was clean, Lighthouse mobile 96. Phone length ~13 screens (round 1: 17).
+
+## Packages rebuilt: blocks 53–54 (07/10)
+
+Fender: audit the packages page and make it more appealing; PC approved, then "mobile chán quá, sáng tạo cho mobile nữa". Paul's words unchanged. Page: hero (gold figures 5 · 100 · £175) · **53 ladder** · 50 note "Just ask Paul" (Paul at work behind, the page's one lit line) · **54 add-on** (wheel ceramic, one band) · reviews · book. The stacked cards (37 `fx:'stack'`) and the photo strip are gone from this page.
+
+- **53 ladder** (`lib/packages.js` ladder(), `motion/ladder.js`): desktop 1024+ × 640+ = Paul's intro, then the five levels on ivory beside a dark panel held still: the level's photo (`pk-l1…l5`), name + roman numeral, a step per level (rising bars, a click goes to the level), estimated time (log scale, hours → 100 hours), coating durability (0–7+ years), polishing stages (diamonds) and the price + Book Now. The panel follows the level crossing 45% of the screen. Lines new at each level are the strong ones (a list line starting with `+` in the page data). Tablets/phones/short screens (Fender: the first phone version was "chán", the pinned staircase after it "xấu"): **nothing pinned**. A row of dark cards to swipe (the page's one swipe row), each = photo, then under it (words over the photo sank in, Fender 07/10) roman numeral, name, sub, five small rungs lit up to the level, time + coating gauges, polishing stages, price, "What's included" + Book Now; count, bar and arrows under it. "What's included" opens a sheet from the bottom (copied from the level's own words and list; ×, Esc, the backdrop or a pull down closes it). No JS: every level open with its facts.
+- **54 add-on**: wide photo + Paul's words + button on one band (`pk-wheel`, a tighter crop of the GF Williams 458).
+- QA 07/10: packages 7 modes clean.
+
 ## Where things live
 
 | What | File |
@@ -179,3 +210,10 @@ Images, logos and videos carry `?v=<content hash>` (images.json / build.js): `/a
 - The hero is stock footage (a Ferrari Paul did not necessarily work on) and only 720p at source. Paul's own clip, ideally 4K, can replace it with `tools/video.js`.
 - Ceramic card photo (Fender's SF90 Spider) carries an "ESOTERIC" watermark — another detailer's work; needs their permission or a replacement before going live.
 - Logos are trademarks of their owners (footer says so). Pagani mark is CC BY 4.0 — credited in the footer. Motorheads logo: ask Paul for it or a still from the show. Fifth Gear mark is the 2024 relaunch logo, not the 2006 one.
+
+## 07/10: Journal, socials, project cards
+
+- **Journal = the old /blog/** (Fender): `/journal/` lists the two posts of 7 August 2024 (block 60, photo and words side by side, sides swapping); each post keeps its old slug (`/facebook-competition/`, `/new-product-launch/`, block 61) with every word, link and photo of the old page (`../assets-src/journal/`, ids `jn-fb`, `jn-npl`, `jn-bottle`). Titles use the old pages' own title case. The YouTube film both posts embed (f3v_am1UsVc) is a poster (`jn-yt`) until pressed, then a youtube-nocookie player (`motion/journal.js`). The old star-rating widget is not carried over. Indexed now (was noindex); the two 301s that sent the posts elsewhere are gone. A page file may now return several pages (build.js flatMap).
+- **Socials (footer):** X (@MiracleDetailUK, from the old site) added beside Instagram, Facebook, YouTube, TikTok. The icons sat high in their circles: `.ft__col li a` (padding, inline-block) beat `.ft__social a`; now `.ft .ft__social a`, 42 px so the five fit one row.
+- **Project cards (homepage)** open the car in the Gallery lightbox (`/car-detail-gallery/?job=…`) or the Gallery filtered to the make (`?make=ferrari|pagani`) instead of old-site URLs that relied on a 301. The five card jobs keep every photo (`tools/gallery.js` FULL), so "78 photographs" opens 78; the 458 tag says 4 (its old page showed two photos twice).
+- **Grouping the gallery by service: not built.** The crawl names the work on 11 of 133 jobs only (9 descriptions + 2 titles), so a service filter would hide most of the archive. It needs Paul to tag the jobs.

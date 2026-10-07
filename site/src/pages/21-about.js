@@ -43,7 +43,7 @@ function photos(list, port) {
 }
 /* block 43: a numbered list (credentials, new to detailing, on price) */
 const list = o => ({
-  id: o.id, light: !!o.light, eyebrow: o.eyebrow, title: o.title,
+  id: o.id, light: !!o.light, cards: !!o.cards, eyebrow: o.eyebrow, title: o.title,
   intro: o.intro || null, hasIntro: !!(o.intro && o.intro.length),
   items: o.items.map(it => ({ n: it.n, name: it.name, sub: it.sub || null, paras: it.paras ? [].concat(it.paras) : null, hasText: !!it.paras }))
 });
@@ -154,6 +154,9 @@ module.exports = site => {
         eyebrow: 'Fifth Gear, 2006',
         title: 'The £5,000 car wash: <span class="gold">61 stages, 64 hours.</span>',
         img: frame('ab-50', { alt: 'The white and blue Maserati MC12 detailed on Fifth Gear', sizes: '(max-width: 899px) 92vw, 54vw', ratio: '4 / 3' }),
+        /* the Sunday Mirror cutting laid over the MC12 (Fender 07/10) */
+        press: frame('ab-1-1', { alt: 'Sunday Mirror cutting: “The £5K carwash”', sizes: '(max-width: 899px) 64vw, 26vw' }),
+        pressCap: 'Sunday Mirror, 2006',
         cap: 'Maserati MC12 · Fifth Gear · 2006 · One of only 50 ever made',
         figs: [{ n: '61', l: 'Stages' }, { n: '64', l: 'Hours' }, { n: '7', l: 'National newspapers' }],
         paras: [
@@ -185,7 +188,7 @@ module.exports = site => {
         ]
       } } },
       { block: '43-ab-list', with: { list: list({
-        id: 'new', light: true,
+        id: 'new', light: true, cards: true,
         eyebrow: 'New to detailing?',
         title: 'Not sure what your car <span class="gold">actually needs?</span>',
         intro: [
@@ -270,6 +273,14 @@ module.exports = site => {
         title: 'From a Surrey driveway to <span class="gold">Monaco and beyond.</span>',
         items: timeline,
         total: String(timeline.length).padStart(2, '0'),
+        /* runs of entries with photos (they share a stage on desktop)
+           and runs without (they read across the page) */
+        groups: timeline.reduce((gs, t) => {
+          const g = gs[gs.length - 1];
+          if (g && g.isStage === t.hasPhotos) g.items.push(t);
+          else gs.push({ isStage: t.hasPhotos, isNotes: !t.hasPhotos, items: [t] });
+          return gs;
+        }, []),
         /* the year bar: each year once, linked to its first entry */
         years: timeline.filter((t, i) => timeline.findIndex(u => u.year === t.year) === i)
           .map(t => ({ label: t.year, href: t.id, first: timeline.indexOf(t) }))

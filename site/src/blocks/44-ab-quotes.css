@@ -4,13 +4,16 @@
 .abq__bg .media{height:100%;aspect-ratio:auto!important}
 .abq__bg .media img{object-position:50% 38%}
 .abq__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,17,17,.92),rgba(17,17,17,.55) 30%,rgba(17,17,17,.6) 62%,rgba(17,17,17,.94))}
-.abq__in{display:grid;gap:clamp(64px,14vh,160px);padding-block:clamp(110px,22vh,220px)}
-.abq__q{display:grid;gap:22px;margin:0}
-.abq__q:first-child .abq__text{font-size:clamp(2.2rem,1.3rem + 3.6vw,5rem);line-height:1.06}
-.abq__q+.abq__q .abq__text{font-size:clamp(1.45rem,1rem + 1.7vw,2.5rem);line-height:1.2}
-.abq__q+.abq__q{max-width:780px;padding-top:clamp(28px,4vw,48px);box-shadow:inset 0 1px 0 var(--line-2)}
-@media (min-width:900px){
-  .abq__q:first-child{justify-items:center;text-align:center}
-  .abq__q:first-child .abq__text{max-width:16ch}
-  .abq__q+.abq__q{margin-left:auto}
-}
+/* both quotes on one centre line (07/10, Fender: the second one sat
+   off to the side under a hairline that lined up with nothing); a gold
+   diamond between them */
+.abq__in{display:grid;justify-items:center;gap:clamp(48px,9vh,96px);padding-block:clamp(110px,22vh,220px);text-align:center}
+.abq__q{display:grid;justify-items:center;gap:24px;margin:0}
+.abq__q .abcite{justify-content:center}
+/* centred, the cite drops its diamond (the gold diamond between the
+   quotes carries it); beside a two-line cite it sat adrift */
+.abq__q .abcite::before{display:none}
+.abq__q:first-child .abq__text{max-width:15ch;font-size:clamp(2.2rem,1.3rem + 3.6vw,5rem);line-height:1.06}
+.abq__q+.abq__q{position:relative;padding-top:clamp(48px,9vh,96px)}
+.abq__q+.abq__q::before{content:"";position:absolute;left:50%;top:0;width:9px;height:9px;margin-left:-4.5px;background:var(--gold);transform:rotate(45deg);box-shadow:-64px 4px 0 -4px var(--line-2),64px -4px 0 -4px var(--line-2)}
+.abq__q+.abq__q .abq__text{max-width:26ch;font-size:clamp(1.45rem,1rem + 1.7vw,2.5rem);line-height:1.22}

@@ -28,36 +28,38 @@ const mark = id => {
    Koenigsegg at the London Concours, Top Gear Live and the factory) and
    the old gallery (its photo count per job: full-size images on the
    page). No spec sheets, no trivia. The DB11 had no story and left.
-   A card links to its old gallery page where the archive has that
-   exact car, otherwise to the make page. The Enzo leads (Fender 02/10). */
+   A card opens that car in the Gallery (?job=, the lightbox) where the
+   archive has it, otherwise the Gallery filtered to the make (?make=).
+   Those five jobs keep every photo (tools/gallery.js FULL), so the
+   counts match; the 458's old page showed two photos twice. The Enzo leads (Fender 02/10). */
 const CARS = [
   { id: 'car-enzo', name: 'Ferrari Enzo', tag: 'From the gallery', sub: 'Rosso Corsa',
     story: 'An Enzo in Rosso Corsa, one of 150+ jobs in Paul’s gallery, told there in seventeen photographs.',
-    work: ['Detailed by Paul', '17 photographs'], href: '/gallery/ferrari-enzo-rossa-corsa/',
+    work: ['Detailed by Paul', '17 photographs'], href: '/car-detail-gallery/?job=ferrari-enzo-rossa-corsa',
     alt: 'Red Ferrari Enzo in a white showroom' },
   { id: 'car-laferrari', name: 'Ferrari LaFerrari', tag: 'Dunsfold Park · 2015', sub: 'Red',
     story: 'A week-long detail. GF Williams came down to shoot it while the work was still going on.',
-    work: ['Week-long detail', 'Shot by GF Williams'], href: '/vehiclemake/ferrari/',
+    work: ['Week-long detail', 'Shot by GF Williams'], href: '/car-detail-gallery/?make=ferrari',
     alt: 'Red Ferrari LaFerrari under studio lights in a burst of water spray' },
   { id: 'car-ccxr', name: 'Koenigsegg CCX-R Edition', tag: 'From the gallery', sub: 'Clear-coated carbon fibre',
     story: 'Bare carbon shows every mark. Paul has prepared Koenigseggs for the London Concours, the Top Gear Live stand and on the factory floor in Sweden.',
-    work: ['Carbon finish', '78 photographs'], href: '/gallery/koenigsegg-ccx-r-edition-clear-coated-carbon-fibre/',
+    work: ['Carbon finish', '78 photographs'], href: '/car-detail-gallery/?job=koenigsegg-ccx-r-edition-clear-coated-carbon-fibre',
     alt: 'Clear-coated carbon Koenigsegg CCX-R Edition' },
   { id: 'car-zonda', name: 'Pagani Zonda', tag: 'From the gallery', sub: 'Exposed carbon',
     story: 'Three Zondas in Paul’s gallery, among them a Zonda F Clubsport Final Edition in full carbon, one of 25.',
-    work: ['Exposed carbon', '3 Zondas'], href: '/vehiclemake/pagani/',
+    work: ['Exposed carbon', '3 Zondas'], href: '/car-detail-gallery/?make=pagani',
     alt: 'Blue carbon Pagani Zonda with gold wheels in a studio' },
   { id: 'car-f40', name: 'Ferrari F40', tag: 'Monaco · 2016', sub: 'Private collection',
     story: 'Detailed on location for a private collection in Monaco, the start of a long relationship with the client.',
-    work: ['On location', '5 photographs'], href: '/gallery/ferrari-f40/',
+    work: ['On location', '5 photographs'], href: '/car-detail-gallery/?job=ferrari-f40',
     alt: 'Red Ferrari F40 in a private garage under work lights' },
   { id: 'car-458', name: 'Ferrari 458 Speciale', tag: 'Dunsfold Park', sub: 'Yellow',
     story: 'Prepared at Paul’s studio at Dunsfold Park, the home of Top Gear’s test track, and photographed by GF Williams.',
-    work: ['Dunsfold studio', '6 photographs'], href: '/gallery/ferrari-458-speciale-in-yellow/',
+    work: ['Dunsfold studio', '4 photographs'], href: '/car-detail-gallery/?job=ferrari-458-speciale-in-yellow',
     alt: 'Yellow Ferrari 458 Speciale on wet tarmac', credit: 'GF Williams' },
   { id: 'car-porsche', name: 'Porsche 911 Carrera Clubsport', tag: 'From the gallery', sub: '1984 · White',
     story: 'An air-cooled 3.2 Clubsport from 1984. Paul’s work on it fills thirty-two photographs in the gallery.',
-    work: ['Classic', '32 photographs'], href: '/gallery/1984-porsche-carrera-clubsport-white/',
+    work: ['Classic', '32 photographs'], href: '/car-detail-gallery/?job=1984-porsche-carrera-clubsport-white',
     alt: 'White classic Porsche 911 Carrera with red script in the studio' }
 ];
 

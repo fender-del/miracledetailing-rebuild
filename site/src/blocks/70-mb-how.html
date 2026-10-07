@@ -1,0 +1,25 @@
+<!-- ============ 70 · MOBILE: HOW IT WORKS ============
+     (07/10, round 3: Fender "ảnh liền sau hero không hợp lý… như một hero
+     thứ 2".) Words first, right after the hero: the heading, Paul's first
+     line set large, his other two lines in a narrow column; the photo
+     (Paul washing the Koenigsegg on the London Concours lawn, the old
+     Miracle Detail van open behind him) held in a tall frame beside
+     them, not edge to edge. Round 4 (Fender: on a phone the block did not
+     fit one screen; "đè text lên ảnh… thêm 1 lớp gradient… hiệu ứng cuộn
+     ngang"): phones put the words on the photo over a gradient, one
+     screen; everywhere the photo pans sideways as the section scrolls
+     past (CSS scroll-driven, the page's one scroll effect on a photo). -->
+<section class="mbh sec" id="{{how.id}}" data-section="how">
+  <div class="wrap mbh__in">
+    <header class="mbh__head">
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&how.eyebrow}}</p>
+      <h2 class="disp h2 mbh__title" data-split>{{&how.title}}</h2>
+    </header>
+    <p class="mbh__lead" data-reveal>{{&how.lead}}</p>
+    <figure class="mbh__fig">
+      <div class="mbh__frame" data-reveal="card">{{&how.img}}</div>
+      <figcaption class="mbcap">{{&how.cap}}</figcaption>
+    </figure>
+    <div class="mbh__rest">{{#how.paras}}<p data-reveal>{{&.}}</p>{{/how.paras}}</div>
+  </div>
+</section>

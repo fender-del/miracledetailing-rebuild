@@ -3,7 +3,9 @@
      of empty paper between them): the heading and the three figures
      beside the MC12, Paul's two paragraphs across the page, then the
      line a generation of detailers remembers, lit word by word as it
-     scrolls through (motion/ppf.js lit). The figures count up once. -->
+     scrolls through (motion/ppf.js lit). The figures count up once.
+     The Sunday Mirror cutting lies over the photo's corner and drifts a
+     little slower than the page (motion/about.js). -->
 <section class="abf sec" id="{{feat.id}}" data-section="feature" data-bg="light" data-theme="light">
   <div class="wrap abf__in">
     <div class="abf__head">
@@ -15,6 +17,7 @@
     </div>
     <figure class="abf__fig">
       <div class="abf__media" data-reveal="card"><div data-parallax>{{&feat.img}}</div></div>
+      {{#feat.press}}<figure class="abf__press" data-press><div class="abf__pressm">{{&feat.press}}</div><figcaption>{{&feat.pressCap}}</figcaption></figure>{{/feat.press}}
       <figcaption class="abf__cap">{{&feat.cap}}</figcaption>
     </figure>
     <div class="abf__body" data-reveal>{{#feat.paras}}<p>{{&.}}</p>{{/feat.paras}}</div>

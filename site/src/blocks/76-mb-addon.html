@@ -1,0 +1,17 @@
+<!-- ============ 76 · MOBILE: AN ADD-ON AT YOUR LOCATION ============
+     Wheel ceramic, v0.5's last word before booking: a wheel close-up
+     beside the heading, Paul's line and the two prices set as a small
+     price list. Graphite, so it does not run into the ivory questions. -->
+<section class="mbx sec" id="{{addon.id}}" data-section="addon" data-bg="graphite">
+  <div class="wrap mbx__in">
+    <figure class="mbx__fig" data-reveal="card"><div class="mbx__img">{{&addon.img}}</div></figure>
+    <div class="mbx__txt">
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&addon.eyebrow}}</p>
+      <h2 class="disp mbx__title" data-split>{{&addon.title}}</h2>
+      <p class="mbx__p" data-reveal>{{&addon.text}}</p>
+      <ul class="mbx__prices" role="list">
+        {{#addon.prices}}<li data-reveal><span class="mbx__term">{{&term}}</span> <span class="mbx__amt">{{&amt}}</span></li>{{/addon.prices}}
+      </ul>
+    </div>
+  </div>
+</section>

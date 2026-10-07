@@ -156,12 +156,17 @@ function bench(sec) {
   };
   /* water lying flat on bare paint: wide, irregular, barely there */
   const blob = (x, y, r, shape) => {
-    g.beginPath();
-    shape.forEach((k, i) => {
+    /* a smooth closed curve through the midpoints of an uneven ring */
+    const P = shape.map((k, i) => {
       const an = i / shape.length * Math.PI * 2;
-      const px = x + Math.cos(an) * r * k, py = y + Math.sin(an) * r * k * 0.9;
-      if (i) g.lineTo(px, py); else g.moveTo(px, py);
+      return [x + Math.cos(an) * r * k, y + Math.sin(an) * r * k * 0.9];
     });
+    const mid = (a, b) => [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+    const n = P.length;
+    g.beginPath();
+    const m0 = mid(P[n - 1], P[0]);
+    g.moveTo(m0[0], m0[1]);
+    for (let i = 0; i < n; i++) { const m = mid(P[i], P[(i + 1) % n]); g.quadraticCurveTo(P[i][0], P[i][1], m[0], m[1]); }
     g.closePath();
   };
 
@@ -241,7 +246,7 @@ function bench(sec) {
     chem() {
       const r = rng(23), P = [];
       for (let i = 0; i < 10; i++) {
-        const shape = Array.from({ length: 11 }, () => 0.82 + r() * 0.34);
+        const shape = Array.from({ length: 9 }, () => 0.84 + r() * 0.3);
         P.push({ fx: 0.07 + r() * 0.34, fy: 0.12 + r() * 0.62, s: 0.6 + r() * 0.6, tl: 0.25 + i * 0.19 + r() * 0.12, go: 0.7 + r() * 0.7, acc: 0.8 + r() * 0.9, wob: r() * 6, shape, y: 0, v: 0 });
       }
       const size = p => p.s * Math.min(W, H) * 0.03;
@@ -263,7 +268,7 @@ function bench(sec) {
             if (dry > 0) {
               blob(x, y, rr * (1 - 0.06 * dry), p.shape);
               g.fillStyle = `rgba(206,196,226,${(0.07 * dry).toFixed(3)})`; g.fill();
-              g.strokeStyle = `rgba(232,224,246,${(0.3 * dry).toFixed(3)})`; g.lineWidth = 1.1; g.stroke();
+              g.strokeStyle = `rgba(232,224,246,${(0.22 * dry).toFixed(3)})`; g.lineWidth = 1.4; g.stroke();
             }
             const k = clamp((t - p.tl) / 0.22);
             const a = k * (1 - dry);
@@ -327,10 +332,10 @@ function bench(sec) {
           if (k <= 0.001) return;
           half('l', () => {
             g.globalCompositeOperation = 'saturation';
-            g.fillStyle = `rgba(128,128,128,${(0.8 * k).toFixed(3)})`;
+            g.fillStyle = `rgba(128,128,128,${(0.62 * k).toFixed(3)})`;
             g.fillRect(0, 0, W / 2, H);
             g.globalCompositeOperation = 'source-over';
-            g.fillStyle = `rgba(176,164,190,${(0.3 * k).toFixed(3)})`;
+            g.fillStyle = `rgba(168,150,186,${(0.19 * k).toFixed(3)})`;
             g.fillRect(0, 0, W / 2, H);
             g.globalCompositeOperation = 'screen';
             B.forEach(b => {

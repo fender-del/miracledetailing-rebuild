@@ -1,0 +1,26 @@
+<!-- ============ 77 · MOBILE: THE CADDY, AND WHERE IT HAS BEEN ============
+     (07/10, round 2.) The Caddy paragraph's bold lead becomes the
+     heading, the paragraph beside it, then the van's road as a line with
+     three stops (UK, Monaco, Portugal), each a photo of work done there
+     and a few of Paul's own words. Phones: the three stops stay on one
+     row as small frames, so the section is about one screen. -->
+<section class="mbj sec" id="{{route.id}}" data-section="route" data-bg="graphite">
+  <div class="wrap mbj__in">
+    <div class="mbj__head">
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&route.eyebrow}}</p>
+      <h2 class="disp mbj__title" data-split>{{&route.title}}</h2>
+    </div>
+    <p class="mbj__p" data-reveal>{{&route.text}}</p>
+    <ol class="mbj__stops" role="list">
+      {{#route.stops}}
+      <li class="mbj__stop" data-reveal="card">
+        <span class="mbj__pin" aria-hidden="true"></span>
+        <div class="mbj__img">{{&img}}</div>
+        <p class="mbj__n">{{_idx}}</p>
+        <h3 class="mbj__place">{{&place}}</h3>
+        <p class="mbj__note">{{&note}}</p>
+      </li>
+      {{/route.stops}}
+    </ol>
+  </div>
+</section>

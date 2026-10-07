@@ -28,6 +28,7 @@
 .sbench.is-live .sbench__pt:not(.is-on) .sbench__txt{grid-template-rows:0fr;opacity:0}
 .sbench.is-live .sbench__pt:not(.is-on) .sbench__name{color:var(--muted)}
 .sbench.is-live .sbench__pt.is-on .sbench__ico::after{transform:rotate(0deg)}
+.sbench:not(.is-live) .sbench__ico{display:none}
 @media (hover:hover){.sbench.is-live .sbench__pt:not(.is-on) .sbench__btn:hover .sbench__name{color:var(--white)}}
 .sbench.is-live .sbench__pt.is-on .sbench__bar i{transform:none}
 .sbench.is-auto .sbench__pt.is-on .sbench__bar i{animation:sbench-bar var(--turn,8000ms) linear both}
@@ -69,6 +70,7 @@
   .sbench__copy{display:contents}
   .sbench__head{order:1;margin-bottom:clamp(28px,5vw,44px)}
   .sbench__fig{order:2;max-width:680px;margin-bottom:clamp(22px,4vw,36px)}
+  .sbench__panel{aspect-ratio:16 / 10}
   .sbench__pts{order:3}
 }
 @media (max-width:767px){

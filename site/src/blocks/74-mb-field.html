@@ -1,0 +1,32 @@
+<!-- ============ 74 · MOBILE: THE VAN IN THE FIELD ============
+     Portugal as a magazine spread on black (round 2: heading centred
+     and large): the F12 TDF large, the 599 GTO and the GT3 RS (round 3; a gallery
+     photo until Paul sends the Portugal one) stacked beside it, Paul's
+     paragraphs across, then his line "Same standard. Different postcode."
+     lit word by word as it scrolls through (the page's one lit line,
+     motion/ppf.js lit), the closing paragraph and v0.5's price line. -->
+<section class="mbf sec" id="{{field.id}}" data-section="field">
+  <div class="wrap mbf__in">
+    <header class="mbf__head">
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&field.eyebrow}}</p>
+      <h2 class="disp h2" data-split>{{&field.title}}</h2>
+    </header>
+    <div class="mbf__set">
+      {{#field.photos}}
+      <figure class="mbf__ph mbf__ph--{{_n}}" data-reveal="card">
+        <div class="mbf__img">{{&img}}</div>
+        <figcaption class="mbcap">{{&cap}}</figcaption>
+      </figure>
+      {{/field.photos}}
+    </div>
+    <div class="mbf__body" data-reveal>{{#field.paras}}<p>{{&.}}</p>{{/field.paras}}</div>
+    <figure class="mbf__quote">
+      <blockquote class="mbf__qt" data-lit>{{&field.quote}}</blockquote>
+      <figcaption class="mbf__cite" data-reveal>{{&field.cite}}</figcaption>
+    </figure>
+    <div class="mbf__close" data-reveal>
+      <p>{{&field.close}}</p>
+      <p class="mbf__price">{{&field.price}}</p>
+    </div>
+  </div>
+</section>

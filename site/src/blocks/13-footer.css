@@ -12,9 +12,9 @@
 .ft address{font-style:normal;color:var(--text);line-height:1.6}
 .ft__phone{display:inline-block;margin:14px 0 4px;font-weight:500;letter-spacing:.04em;font-size:1.15rem;color:var(--white)}
 .ft__phone:hover{color:var(--gold)}
-.ft__social{display:flex!important;gap:8px!important;margin-top:18px!important}
-.ft__social a{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--line-2);color:var(--text);transition:color .3s,box-shadow .3s}
-.ft__social a:hover{color:var(--ink);background:var(--gold);box-shadow:none}
+.ft__social{display:flex!important;flex-wrap:wrap;gap:6px!important;margin-top:18px!important}
+.ft .ft__social a{display:grid;place-items:center;width:42px;height:42px;padding:0;border-radius:50%;box-shadow:inset 0 0 0 1px var(--line-2);color:var(--text);transition:color .3s,box-shadow .3s}
+.ft .ft__social a:hover{color:var(--ink);background:var(--gold);box-shadow:none}
 .ft__social svg{width:18px;height:18px}
 
 
