@@ -1,0 +1,52 @@
+<!-- ============ 13 · FOOTER ============
+     One copy of the address and phone (from site.js). -->
+<footer class="ft" data-section="footer" id="site-footer">
+  <div class="wrap">
+    <div class="ft__top">
+      <div class="ft__intro">
+        <a class="ft__brand" href="/" aria-label="Miracle Detail, home"><img src="/assets/img/logo-full-640.webp" srcset="/assets/img/logo-full-640.webp 640w, /assets/img/logo-full-1200.webp 1200w" sizes="260px" width="640" height="299" alt="Miracle Detail. There is only one standard. Perfection." loading="lazy" decoding="async"></a>
+        <p>Personally detailed by Paul Dalton since 1994. Based in Lingfield, Surrey. By appointment only.</p>
+        <p class="ft__amb">Feynlab’s only global ambassador</p>
+      </div>
+
+      <nav class="ft__col" aria-label="Services">
+        <p class="ft__h">Services</p>
+        <ul role="list">{{#site.services}}<li><a href="{{href}}">{{name}}</a></li>{{/site.services}}
+          <li><a href="/mobile-car-detailing/">Mobile Detailing</a></li>
+          <li><a href="/car-care-services/">All services</a></li>
+        </ul>
+      </nav>
+
+      <nav class="ft__col" aria-label="Studio">
+        <p class="ft__h">Studio</p>
+        <ul role="list">
+          <li><a href="/about-paul-dalton-car-detailing/">About Paul</a></li>
+          <li><a href="/car-detail-gallery/">Projects</a></li>
+          <li><a href="/car-detailing-studio/">Packages</a></li>
+          <li><a href="/journal/">Journal</a></li>
+          <li><a href="/aftercare-washing-guide/">Aftercare &amp; Washing Guide</a></li>
+          <li><a href="{{site.cta.href}}">{{site.cta.label}}</a></li>
+        </ul>
+      </nav>
+
+      <div class="ft__col ft__visit">
+        <p class="ft__h">Visit</p>
+        <address>
+          {{site.name}}<br>{{site.address.unit}}<br>{{site.address.street}}<br>{{site.address.town}}, {{site.address.county}} {{site.address.postcode}}
+        </address>
+        <a class="ft__phone" href="{{site.phoneHref}}">{{site.phone}}</a>
+        <p class="muted">{{site.hours}}</p>
+        <ul class="ft__social" role="list">
+          {{#site.social}}<li><a href="{{href}}" target="_blank" rel="noopener" aria-label="{{label}}">{{&icon}}</a></li>{{/site.social}}
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="ft__bot">
+      <p>© {{year}} {{site.legalName}} · VAT No. {{site.vatNo}} · {{site.addressShort}}</p>
+      <p>Photography: GF Williams (selected images) · Logos are trademarks of their owners · Pagani logo: Gabriele0921, <a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener" target="_blank">CC BY 4.0</a></p>
+      {{#site.legal.0}}<ul role="list">{{#site.legal}}<li><a href="{{href}}">{{name}}</a></li>{{/site.legal}}</ul>{{/site.legal.0}}
+    </div>
+  </div>
+</footer>

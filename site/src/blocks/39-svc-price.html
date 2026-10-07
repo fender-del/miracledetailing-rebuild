@@ -1,0 +1,13 @@
+<!-- ============ 39 · SERVICE: PRICE BAND ============
+     A price v0.5 states on its own (dry ice by the hour), as one band:
+     what it is, the figure, Paul's note, the button. -->
+<section class="sband" id="{{band.id}}" data-section="price">
+  <div class="wrap">
+    <div class="sband__in" data-reveal="card">
+      <p class="sband__k">{{&band.k}}</p>
+      <p class="sband__amt">{{&band.amount}}</p>
+      {{#band.note}}<p class="sband__note">{{&.}}</p>{{/band.note}}
+      {{^band.nobtn}}<a class="btn" href="{{site.cta.href}}"><span class="btn__in">{{site.cta.label}}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></span></a>{{/band.nobtn}}
+    </div>
+  </div>
+</section>

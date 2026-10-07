@@ -1,0 +1,77 @@
+/* ============ 08 · SERVICES ============ */
+/* One logo in the ground (Fender 02/10, round 7): large, off to the
+   left, out of focus, faint ink on the ivory; behind the service list,
+   where the paper shows through (the photo cards would hide it). The
+   header's inlined white logo turned to ink (no extra request);
+   reveal.js lets it drift against the scroll. */
+.svcs{isolation:isolate;overflow-x:clip} /* the logo runs off the left edge */
+.svcs__mark{
+  position:absolute;z-index:-1;left:-6vw;bottom:12%;
+  width:min(1200px,76vw);height:auto;aspect-ratio:1744 / 636;
+  opacity:.08;filter:brightness(0) blur(5px);pointer-events:none;
+}
+@media (max-width:767px){.svcs__mark{left:-24vw;bottom:14%;width:124vw;filter:brightness(0) blur(4px)}}
+
+/* On the ivory the photo cards keep their dark tokens. */
+[data-theme=light] .svc{
+  --white:#FFFFFF;--text:#D9D6CF;--muted:#A7A39A;--raise:#232326;--gold:#C9A84D;
+  --line:rgba(255,255,255,.1);--line-2:rgba(255,255,255,.18);
+  box-shadow:0 28px 50px -28px rgba(17,17,17,.55);
+}
+.svcs__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.4vw,20px);list-style:none;margin:0;padding:0}
+.svcs__grid>li{perspective:1000px}
+
+.svc{
+  position:relative;display:block;height:100%;aspect-ratio:4 / 5.4;border-radius:var(--r-lg);overflow:hidden;isolation:isolate;
+  background:var(--raise);box-shadow:0 0 0 1px var(--line);
+  transform-style:preserve-3d;will-change:transform;
+}
+.svc::after{ /* lift shadow, faded in with opacity only */
+  content:"";position:absolute;inset:0;z-index:3;border-radius:inherit;pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(201,168,77,.55);opacity:0;transition:opacity .5s var(--ease);
+}
+.svc:hover::after,.svc:focus-visible::after{opacity:1}
+.svc__media{position:absolute;inset:-4%;z-index:-2}
+.svc__media .media{height:100%;aspect-ratio:auto!important}
+.svc__media img{transition:transform 1.2s var(--ease)}
+@media (hover:hover){.svcs__grid>li:hover .svc__media img{transform:scale(1.05)}}
+.svc__body{
+  position:absolute;inset:auto 0 0;z-index:1;padding:clamp(18px,1.8vw,26px);display:grid;gap:8px;
+  background:linear-gradient(180deg,transparent,rgba(8,8,8,.72) 34%,rgba(8,8,8,.94));
+  padding-top:90px;
+}
+.svc__badge{font-size:.625rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.svc__name{font-family:var(--fd);font-weight:500;font-style:normal;text-transform:none;font-synthesis:none;font-size:clamp(1.45rem,1.05rem + .9vw,1.85rem);line-height:1.05}
+.svc__line{font-size:.9rem;line-height:1.45;color:var(--text)}
+.svc__foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:8px;padding-top:14px;box-shadow:inset 0 1px 0 var(--line-2)}
+.svc__price{font-weight:500;font-size:.875rem;letter-spacing:.06em;color:var(--white)}
+.svc__go{display:grid;place-items:center;width:38px;height:38px;margin-left:auto;border-radius:50%;background:var(--gold);color:var(--ink);transition:transform .5s var(--ease)}
+.svc__go svg{width:16px;height:16px}
+@media (hover:hover){.svcs__grid>li:hover .svc__go{transform:rotate(-45deg)}}
+/* The inspection-lamp glint: a soft spot that follows the pointer. */
+.svc__shine{
+  position:absolute;left:0;top:0;z-index:2;width:140%;aspect-ratio:1;margin:-70% 0 0 -70%;border-radius:50%;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(255,244,220,.28),rgba(255,244,220,.08) 40%,transparent 70%);
+  mix-blend-mode:soft-light;opacity:0;transition:opacity .5s var(--ease);will-change:transform;
+}
+.svc:hover .svc__shine{opacity:1}
+
+.svcs__ctas{display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px;margin-top:clamp(40px,5vw,64px)}
+.svcs__note{margin-left:auto;font-size:.8125rem}
+
+/* Tablets: three across. Phones: two across, each card down to photo,
+   name, price and arrow (round 5: a card must not fill a phone). */
+@media (max-width:1100px){.svcs__grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:767px){
+  .svcs__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .svc{aspect-ratio:3 / 4;border-radius:12px}
+  .svc__body{padding:12px;gap:4px;padding-top:56px}
+  .svc__badge,.svc__line{display:none}
+  .svc__name{font-size:clamp(1.05rem,.8rem + 1.3vw,1.25rem);line-height:1.08}
+  .svc__foot{gap:8px;margin-top:6px;padding-top:9px}
+  .svc__price{font-size:.6875rem;letter-spacing:.02em;line-height:1.3}
+  .svc__go{flex:none;width:28px;height:28px}
+  .svc__go svg{width:13px;height:13px}
+  .svcs__ctas .btn{flex:1 1 100%}
+  .svcs__note{margin-left:0}
+}

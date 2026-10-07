@@ -1,0 +1,49 @@
+/* ============ 30 · DRY ICE: −78.5°C ============ */
+.cold{overflow-x:clip}
+.cold__head .lede{max-width:56ch}
+.cold__grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,96px);align-items:start}
+/* the drawing on the right stays in view while the beats pass */
+.cold__stage{
+  order:2;position:sticky;top:calc(50svh - min(21vw,280px));
+  aspect-ratio:4 / 3;border-radius:var(--r-lg);overflow:hidden;isolation:isolate;
+  background:#0B0D10;box-shadow:inset 0 0 0 1px var(--line),0 50px 90px -50px rgba(0,0,0,.8);
+}
+.cold__stage::before{ /* cold air: a blue cast low in the frame */
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(70% 60% at 55% 72%,rgba(120,160,215,.14),transparent 70%),radial-gradient(60% 50% at 15% 10%,rgba(201,168,77,.08),transparent 70%);
+}
+.cold__svg{position:absolute;inset:0;width:100%;height:100%}
+.cold__lbls text{font:500 11px var(--f);letter-spacing:.2em;text-transform:uppercase;fill:rgba(255,255,255,.45)}
+.cold__read{position:absolute;right:clamp(16px,2.4vw,30px);top:clamp(14px,2vw,26px);z-index:1;text-align:right}
+.cold__deg{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(2.2rem,1.4rem + 2.6vw,4rem);line-height:1;color:#EAF3FF;font-variant-numeric:tabular-nums}
+.cold__unit{font-size:.5em;margin-left:.08em;vertical-align:.7em;color:var(--gold)}
+.cold__phase{margin-top:8px;font-size:.625rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.cold__dots{position:absolute;left:clamp(16px,2.4vw,30px);bottom:clamp(14px,2vw,24px);display:none;gap:8px;list-style:none;margin:0;padding:0}
+.cold.is-live .cold__dots{display:flex}
+.cold__dots li{width:22px;height:2px;background:rgba(255,255,255,.22);transition:background .4s,width .5s var(--ease)}
+.cold__dots li.is-on{width:40px;background:var(--gold)}
+
+.cold__beats{order:1;display:grid;list-style:none;margin:0;padding:0}
+.cold__beat{display:grid;align-content:center;gap:10px;padding:clamp(28px,4vw,56px) 0;max-width:46ch}
+.cold__beat+.cold__beat{box-shadow:inset 0 1px 0 var(--line)}
+.cold__n{font-family:var(--fd);font-style:italic;font-weight:500;font-size:1.1rem;color:var(--gold)}
+.cold__name{font-size:clamp(2rem,1.3rem + 2vw,3.2rem)}
+.cold__sub{font-size:.75rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#BFD6F2}
+.cold__text{margin-top:6px}
+/* with the script: each beat is most of a screen tall and lights up in turn */
+.cold.is-live .cold__beat{min-height:min(54svh,480px);opacity:.28;transition:opacity .6s var(--ease)}
+.cold.is-live .cold__beat.is-on{opacity:1}
+
+@media (max-width:1023px){
+  .cold__grid{grid-template-columns:1fr;gap:0}
+  /* tablets + phones: the drawing holds under the top of the screen and
+     the beats run up beneath it */
+  .cold__stage{order:0;top:12px;z-index:2;max-width:640px;width:100%;margin-inline:auto}
+  .cold.is-live .cold__beat{min-height:42svh;max-width:none}
+  .cold__beats{max-width:640px;width:100%;margin-inline:auto}
+}
+@media (max-width:767px){
+  .cold__stage{aspect-ratio:4 / 3.1}
+  .cold__lbls{display:none}
+  .cold.is-live .cold__beat{min-height:38svh;padding:20px 0}
+}

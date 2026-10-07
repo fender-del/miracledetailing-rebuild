@@ -1,0 +1,119 @@
+old website: https://miracledetail.co.uk/
+
+
+retheme v0.5: https://miracledetailuk.detailersmovement.com/
+
+visual: https://drive.google.com/drive/folders/1Cjyb4LlDDot7CHKf2-vcqLuNc_Mwdjs4 use fender email to see
+
+reskin homepage v1, other person build it
+https://miracledetaild-new-homepage.netlify.app/#m12-intro
+
+web rules from DMI want to apply to all clients but for this VIP client things can change: https://drive.google.com/drive/folders/1DBcjRD9eBR8JyqkeUyXwQUXizuUz2wY1
+
+message Paul leave to Ed after v1 homepage reskin:
+
+Hi Ed,
+
+I've been thinking a bit more about what we discussed with the normal website we're building now and then potentially taking it to the full motion/animation version in around six months.
+
+I definitely think getting the current site finished and live first is the right move, especially as we've already put so much work into all the individual pages, content and SEO structure.
+
+My main thought is that I don't want us to lose any of that work when we eventually move to the killer animated version.
+
+As you already know, I want everything centred around Miracle Detail and Paul Dalton and the 30+ years of history behind the brand. You're already very aware of that and you've built a lot of this into what we're doing, so I'm not looking to change direction.
+
+I just want to make sure we're building something now that we can evolve later rather than effectively starting again.
+
+From an SEO point of view, I'd really like us to keep pushing the main areas we've already built around:
+
+Car Detailing
+
+Car Detailing Surrey
+
+Paint Correction
+
+Ceramic Coatings
+
+Paint Protection Film / PPF
+
+Dry Ice Cleaning
+
+Underbody Cleaning & Protection
+
+Classic & Concours Car Detailing
+
+Supercar & Hypercar Detailing
+
+New Car Protection
+
+Leather Restoration
+
+Maintenance Detailing
+
+And obviously Paul Dalton / Miracle Detail itself.
+
+I think "car detailing" is particularly important because ultimately that's the umbrella term for what we do, with all the specialist services sitting underneath it.
+
+One thing I'd also really like to develop further over time is the Projects / Case Studies side.
+
+We have such a ridiculous archive now that I think we could continually add proper project pages for the significant cars we've worked on, both past and present.
+
+Things like the McLaren F1, Bugatti Veyrons, Pagani Zonda Tricolore, Koenigsegg, LaFerrari and then all the current projects we're doing.
+
+Rather than all that content disappearing down Instagram and Facebook over time, it would be great for the website to become a permanent archive of the cars and work.
+
+Then when we move onto the full motion/animation version, I'd love for all the SEO foundations, existing URLs, pages and authority we've built to remain underneath it.
+
+Visually that's where I think we can really go crazy.
+
+Cinematic video, smooth scrolling, interactive before and afters, the lighting tunnel, dry ice, PPF, ceramic coating effects, cars appearing and moving through sections, my career/history and some really high-end transitions.
+
+Something with the impact of the Lando Norris and Lamborghini type websites we've been looking at, but unmistakably Miracle Detail.
+
+I don't want animation for the sake of animation though. The cars, the work and the photography still need to be the stars.
+
+The other big thing for me is mobile. So much of my traffic comes from Instagram and Facebook that whatever crazy stuff we eventually do needs to look and perform just as well on an iPhone as it does on a big desktop screen.
+Basically, I see it as:
+
+Get the current site finished and live.
+
+Let all the pages and SEO we've already built start doing their job.
+
+Keep adding quality projects and content.
+
+Then in around six months evolve the same website into the full motion/animation experience without sacrificing what we've built with Google.
+
+You know far more about the technical side of all this than I do, so I'm interested to hear how you'd approach that transition and whether what I'm thinking makes sense.
+
+I'm really excited about it. I think if we get both sides right, the SEO/content underneath and the visual experience on top, we could build something pretty special.
+
+I know the animation website is going to take time and I need to finish the studio get GF Williams down and the hyper cars we spoke about which all
+Is going to take time. So I say we run with the current plan and build the animation website over the next few months. But also sort out me getting loads of work and enquires in the meantime. Happy to pay for it all as we have discussed just I think this is the best route for everyone 
+
+Chat in the morning 
+
+Many thanks mate 
+
+Paul
+Miracle Detail
+
+
+
+MESSAGE I DISCUSS AFFTER RECEIVED THE ORDER TO DO RESKIN THE WHOLE WEBSITE
+hey Ed, in case any information was missed:
+
+making a realistic video is extremely expensive in both time and cost, as this type usually needs multiple generations and revisions even for small issues. the cost can also add up if Paul wants any details changed. There may be other solutions, like a different video style - not ultra realistic, or asking him to record suitable footage, so i’ll discuss this with you again on monday.
+
+but this part is important:
+
+from my first look, the homepage feels more like a portfolio of Paul’s career than a service website. i know he’s proud of what he’s achieved and he should be, but for new customers who don’t know him, it feels a bit too long-winded.
+
+the other pages also have a lot of text. people don’t really read long blocks these days, and i’d guess only a small percentage will care about the deeper technical details. i think we could simplify the key info and make it easier to digest.
+
+if we’re only changing the UI, it won’t really change the overall experience from the customer's perspective.
+So could i have some flexibility to adjust the content and overall layout as well? or if it still not, just please let me know, thanks Ed
+
+
+Hi fender, i have read and agree with you - keep the main details and Pauls story can really go in the about us
+
+Thanks Ed, will send you reskined homepage soon so we can see better

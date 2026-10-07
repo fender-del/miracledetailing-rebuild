@@ -1,0 +1,35 @@
+# Old site (miracledetail.co.uk): pages that merge into another (PLAN.md §5.3).
+# 06/10: only the v0.5 pages are rebuilt, so the area pages land on the
+# homepage (coverage + booking) and the 153 project pages on the gallery.
+/surrey-car-detailing/            /                               301
+/sussex-car-detailing/            /                               301
+/kent-car-detailing/              /                               301
+/london-car-detailing/            /                               301
+/essex-car-detailing/             /                               301
+/hampshire-car-detailing/         /                               301
+/hertfordshire-car-detailing/     /                               301
+/oxfordshire-car-detailing/       /                               301
+/buckinghamshire-car-detailing/   /                               301
+/contact-us/                      /#book                          301
+/studio-car-valeting/             /car-detailing-studio/          301
+/car-detail-faqs/                 /car-detailing-studio/          301
+/after-care-with-feynlab/         /aftercare-washing-guide/       301
+/videos/                          /car-detail-gallery/            301
+/blog/                            /journal/                       301
+/category/uncategorized/          /journal/                       301
+/facebook-competition/            /journal/                       301
+/new-product-launch/              /ceramic-coatings/              301
+/gallery/:job/                    /car-detail-gallery/?job=:job   301
+/gallery/                         /car-detail-gallery/            301
+/vehiclemake/:make/               /car-detail-gallery/?make=:make 301
+
+# v0.5 staging slugs (WordPress) -> the kept old-site slugs
+/paint-correction/                /paint-correction-and-polishing/       301
+/paint-protection-film/           /paint-protection-film-ppf/            301
+/dry-ice-cleaning/                /dry-ice-blasting-and-laser-cleaning/  301
+/window-tinting-protection/       /window-tinting/                       301
+/bodyshop-paint-repair/           /bodyshop-repair/                      301
+/mobile-detailing/                /mobile-car-detailing/                 301
+/packages/                        /car-detailing-studio/                 301
+/about-paul/                      /about-paul-dalton-car-detailing/      301
+/services/                        /car-care-services/                    301

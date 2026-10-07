@@ -1,0 +1,55 @@
+/* ============ 09 · COVERAGE ============
+   Base = a plain list (no JS, reduced motion). .is-rail (motion) = one
+   held screen with the names running past at full size. */
+.cov{position:relative}
+.cov__pin{padding-block:clamp(64px,8vw,120px)}
+.cov__head{display:grid;gap:18px}
+.cov__h{
+  font-family:var(--fd);font-weight:500;font-style:normal;text-transform:none;font-synthesis:none;
+  font-size:clamp(1.35rem,1rem + 1.4vw,2.2rem);line-height:1.25;color:var(--white);max-width:30ch;
+}
+.cov__h .muted{display:block}
+.cov__track{max-width:var(--wrap);margin:clamp(28px,4vw,56px) auto 0;padding-inline:var(--gut)}
+.cov__list{display:flex;flex-wrap:wrap;gap:24px clamp(28px,4vw,64px);margin:0;padding:0;list-style:none}
+.cov__name{
+  position:relative;display:block;white-space:nowrap;
+  font-family:var(--fd);font-weight:500;font-style:normal;text-transform:none;font-synthesis:none;font-size:clamp(2.4rem,1.5rem + 4.2vw,5.4rem);line-height:1;
+  color:var(--white);
+}
+.cov__ref{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:.75rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.cov__ref:empty{display:none}
+.cov__ref .eyebrow__mark{width:6px;height:6px}
+.cov__card{
+  display:grid;gap:12px;justify-items:start;max-width:460px;margin-top:clamp(36px,4vw,56px);
+  padding:clamp(22px,2.4vw,32px);border-radius:var(--r-lg);background:var(--raise);box-shadow:inset 0 0 0 1px var(--line);
+}
+.cov__card p{font-size:.95rem;line-height:1.5;color:var(--text)}
+.cov__k{display:block;margin-bottom:2px;font-size:.6875rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.cov__card .btn{margin-top:6px}
+.cov__card .cov__note{font-size:.75rem;color:var(--muted)}
+
+/* ---- The rail ---- */
+.cov.is-rail .cov__pin{
+  height:100svh;min-height:560px;display:flex;flex-direction:column;justify-content:center;
+  padding-block:calc(var(--hd-h) + 12px) 32px;overflow:hidden;
+}
+.cov.is-rail .cov__track{
+  display:flex;align-items:center;gap:clamp(48px,5vw,88px);width:max-content;max-width:none;
+  margin:clamp(28px,6vh,72px) 0 0;padding:0;will-change:transform;
+}
+/* names at ~60% of round 5's first size (Fender 02/10: "too big") */
+.cov.is-rail .cov__list{flex-wrap:nowrap;gap:clamp(48px,5vw,88px)}
+.cov.is-rail .cov__name{font-size:clamp(2.6rem,1rem + 4vw,5.5rem);color:rgba(255,255,255,.1)}
+/* the gold copy over each name; --a (0–1) = how near the middle it is */
+.cov.is-rail .cov__name::after{content:attr(data-t);position:absolute;inset:0;color:var(--gold);opacity:var(--a,0)}
+.cov.is-rail .cov__ref{
+  margin-top:14px;font-size:.75rem;color:var(--text);
+  opacity:calc(.2 + var(--a,0) * .8);transform:translateY(calc((1 - var(--a,0)) * 10px));
+}
+.cov.is-rail .cov__ref .eyebrow__mark{color:var(--gold)}
+.cov.is-rail .cov__card{flex:none;width:min(440px,84vw);margin:0}
+
+@media (max-width:767px){
+  .cov__card .btn{width:100%}
+  .cov.is-rail .cov__name{font-size:clamp(2.4rem,13vw,3.6rem)}
+}

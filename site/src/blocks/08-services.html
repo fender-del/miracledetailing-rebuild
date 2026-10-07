@@ -1,0 +1,42 @@
+<!-- ============ 08 · SERVICES ============
+     v0.5 position and copy. Fixed: "ineeds", "5 LEVELS -ENHANCEMENT",
+     the Leather row that carried the Tint line. Added "From £X + VAT"
+     where v0.5 had a real price (site.js). Ivory ground, the first
+     light section after the dark story (Fender 02/10, round 5), with
+     one large logo out of focus behind it (round 7: a repeated deboss
+     read as kitsch). Every service is a photo card (Ed 06/10: the text
+     list went; "keep all services in the format" of the four cards):
+     four across on desktop, three on tablets, two on phones (Fender:
+     a long list scrolls forever on a phone). -->
+<section class="svcs sec" id="services" data-section="services" data-motion="tilt" data-bg="light" data-theme="light">
+  <span class="logo svcs__mark" aria-hidden="true" data-drift></span>
+  <div class="wrap">
+    <div class="sec-head svcs__head">
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>Everything available through Miracle Detail</p>
+      <h2 class="disp h2" data-split>Find what your car needs.</h2>
+    </div>
+
+    <ul class="svcs__grid" role="list" data-reveal-group>
+      {{#services}}
+      <li data-reveal="card">
+        <a class="svc" href="{{href}}" data-tilt>
+          <div class="svc__media" data-tilt-img>{{&img}}</div>
+          <span class="svc__shine" aria-hidden="true" data-tilt-shine></span>
+          <div class="svc__body">
+            <p class="svc__badge">{{badge}}</p>
+            <h3 class="svc__name">{{name}}</h3>
+            <p class="svc__line">{{line}}</p>
+            <p class="svc__foot">{{#price}}<span class="svc__price">{{.}}</span>{{/price}}<span class="svc__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></span></p>
+          </div>
+        </a>
+      </li>
+      {{/services}}
+    </ul>
+
+    <div class="svcs__ctas" data-reveal>
+      <a class="btn" href="{{site.cta.href}}"><span class="btn__in">{{site.cta.label}}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></span></a>
+      <a class="link-arrow" href="/car-detailing-studio/"><span>View Packages</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></a>
+      <p class="svcs__note muted">{{priceNote}}</p>
+    </div>
+  </div>
+</section>

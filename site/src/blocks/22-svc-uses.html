@@ -1,0 +1,34 @@
+<!-- ============ 22 · SERVICE USES + PRICE ============
+     On ivory (Fender round 5: a light section between the dark ones so
+     visitors keep their bearings). What the service is used for, as
+     photo cards, then the price panel. A stock photo standing in for
+     Paul's own carries "To confirm". -->
+<section class="suses sec" id="uses" data-section="uses" data-bg="light" data-theme="light">
+  <div class="wrap">
+    <div class="sec-head suses__head">
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{usesEyebrow}}</p>
+      <h2 class="disp h2" data-split>{{&usesTitle}}</h2>
+    </div>
+
+    <ul class="suses__grid" role="list">
+      {{#uses}}
+      <li class="use" data-reveal="card">
+        <div class="use__media">{{&img}}{{#tbc}}<span class="use__tbc">{{&.}}</span>{{/tbc}}</div>
+        <p class="use__n">{{_idx}}</p>
+        <h3 class="use__name">{{name}}</h3>
+        <p class="use__text">{{text}}</p>
+      </li>
+      {{/uses}}
+    </ul>
+
+    <div class="sprice" data-reveal>
+      <div class="sprice__fig">
+        <p class="sprice__k">{{price.k}}</p>
+        <p class="sprice__amt">{{price.amount}} <span>{{price.per}}</span></p>
+        <p class="sprice__min">{{price.min}}</p>
+      </div>
+      <p class="sprice__note">{{price.note}}</p>
+      <a class="btn" href="{{site.cta.href}}"><span class="btn__in">{{site.cta.label}}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></span></a>
+    </div>
+  </div>
+</section>

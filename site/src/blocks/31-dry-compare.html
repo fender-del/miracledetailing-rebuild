@@ -1,0 +1,43 @@
+<!-- ============ 31 · DRY ICE: COMPARED ============
+     Dry ice's second own block (Fender 06/10). Dry ice against the
+     three methods people already know, on four things that matter
+     under a bonnet. Desktop: all four columns, dry ice lit in gold.
+     Phones: dry ice against one method at a time, picked with the
+     chips above (radio buttons: works without JS, CSS :has()).
+     How the other methods are described waits on Paul: "To confirm". -->
+<section class="cmp sec" id="compared" data-section="compare" data-bg="graphite">
+  <div class="wrap">
+    <div class="sec-head cmp__head">
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>Compared{{&compareTbc}}</p>
+      <h2 class="disp h2" data-split>Dry ice, <span class="gold">against the rest.</span></h2>
+    </div>
+
+    <fieldset class="cmp__pick" data-reveal>
+      <legend class="sr">Compare dry ice with</legend>
+      <span class="cmp__vs" aria-hidden="true">Dry ice vs</span>
+      {{#methods}}<label class="cmp__chip"><input type="radio" name="cmp" value="{{key}}" id="cmp-{{key}}"{{#_first}} checked{{/_first}}><span>{{name}}</span></label>{{/methods}}
+    </fieldset>
+
+    <div class="cmp__wrap" data-reveal="card">
+      <table class="cmp__t">
+        <caption class="sr">Dry ice cleaning compared with pressure washing, steam and chemical degreaser</caption>
+        <thead>
+          <tr>
+            <td></td>
+            <th scope="col" class="cmp__c cmp__c--dry"><span class="cmp__th">Dry ice</span></th>
+            {{#methods}}<th scope="col" class="cmp__c cmp__c--{{key}}"><span class="cmp__th">{{name}}</span></th>{{/methods}}
+          </tr>
+        </thead>
+        <tbody>
+          {{#rows}}
+          <tr>
+            <th scope="row">{{k}}</th>
+            {{#dry}}<td class="cmp__c cmp__c--dry"><span class="cmp__m cmp__m--{{m}}">{{t}}</span></td>{{/dry}}
+            {{#o}}<td class="cmp__c cmp__c--{{key}}"><span class="cmp__m cmp__m--{{m}}">{{t}}</span></td>{{/o}}
+          </tr>
+          {{/rows}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

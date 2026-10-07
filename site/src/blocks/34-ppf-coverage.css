@@ -1,0 +1,117 @@
+/* ============ 34 · PPF: COVERAGE ============ */
+.pc__grid{display:grid;grid-template-columns:minmax(300px,410px) minmax(0,1fr);gap:clamp(32px,5vw,88px);align-items:start}
+.pc__grid>*{min-width:0}
+
+/* packages */
+.pc__tabs{display:flex;flex-direction:column;box-shadow:inset 0 1px 0 var(--line)}
+.pc__tab{
+  display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:baseline;gap:8px;
+  padding:18px 0;text-align:left;color:var(--muted);box-shadow:inset 0 -1px 0 var(--line);
+  transition:color .4s var(--ease);
+}
+.pc__n{font-family:var(--fd);font-style:italic;font-weight:500;font-size:1.2rem;color:var(--gold-deep);transition:color .4s}
+.pc__name{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.4rem,1.1rem + .7vw,1.8rem);line-height:1.1;color:inherit}
+.pc__from{font-size:.6875rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.pc__tab:hover{color:var(--text)}
+.pc__tab[aria-selected=true]{color:var(--white)}
+.pc__tab[aria-selected=true] .pc__n{color:var(--gold)}
+/* without JS the tabs are only a list of names: the panels follow */
+html:not(.js) .pc__tabs{display:none}
+.pc__pname{display:none}
+html:not(.js) .pc__pname{display:block;margin-top:34px;font-family:var(--fd);font-weight:500;font-size:1.8rem}
+
+.pc__panel{padding-top:28px}
+.js .pc__panel[hidden]{display:none}
+.pc__sub{font-size:.6875rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.pc__desc{margin-top:14px;max-width:60ch}
+.pc__items{margin-top:24px;box-shadow:inset 0 1px 0 var(--line)}
+.pc__item{
+  display:flex;align-items:center;gap:14px;padding:11px 0;box-shadow:inset 0 -1px 0 var(--line);
+  color:var(--text);cursor:default;outline-offset:2px;transition:color .3s,padding .45s var(--ease);
+}
+.pc__item::before{content:"";flex:none;width:6px;height:6px;box-shadow:inset 0 0 0 1px var(--gold);transform:rotate(45deg);transition:background .3s}
+.pc__item.is-on,.pc__item:hover{color:var(--white);padding-left:6px}
+.pc__item.is-on::before,.pc__item:hover::before{background:var(--gold)}
+.pc__price{margin-top:26px;font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.9rem,1.5rem + 1.2vw,2.6rem);line-height:1;color:var(--white)}
+.pc__note{margin-top:24px;font-size:.95rem;color:var(--muted);max-width:52ch}
+
+/* the drawing sheet */
+.pc__sheet{
+  position:relative;margin:0;padding:clamp(18px,2.4vw,36px);border-radius:6px;
+  background:radial-gradient(120% 80% at 50% 0%,rgba(201,168,77,.06),transparent 60%),var(--ink-2);
+  box-shadow:inset 0 0 0 1px var(--line),0 50px 90px -50px rgba(0,0,0,.9);
+}
+.pc__sheet::before,.pc__sheet::after{content:"";position:absolute;width:14px;height:14px;border:1px solid var(--gold);opacity:.6}
+.pc__sheet::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.pc__sheet::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+.pc__view{position:relative}
+.pc__view+.pc__view{margin-top:clamp(6px,1.4vw,18px);padding-top:clamp(12px,1.6vw,20px);box-shadow:inset 0 1px 0 rgba(201,168,77,.12)}
+.pc__cap{position:absolute;top:0;left:0;font-size:.625rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+.pc__view+.pc__view .pc__cap{top:clamp(12px,1.6vw,20px)}
+.pc__legend{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-top:12px;font-size:.625rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.pc__legend i{width:18px;height:10px;background:linear-gradient(180deg,rgba(230,204,133,.55),rgba(201,168,77,.22));box-shadow:inset 0 0 0 1px rgba(230,204,133,.7)}
+
+.pc__svg{width:100%;height:auto;overflow:visible}
+.pc__svg .ln{fill:none;stroke:var(--gold);stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.pc__svg .ln.o{stroke-width:1.5;stroke-opacity:.95}
+.pc__svg .ln.p{stroke-width:1;stroke-opacity:.7}
+.pc__svg .ln.d{stroke-width:.8;stroke-opacity:.45}
+.pc__svg .ln.h{stroke-width:.8;stroke-opacity:.3;stroke-dasharray:5 5}
+.pc__svg .ln.c{stroke-width:.7;stroke-opacity:.22;stroke-dasharray:22 6 3 6}
+.pc__svg .glass{fill:url(#pc-glass)}
+.wh__tyre{fill:#070707;stroke:var(--gold);stroke-opacity:.5;stroke-width:1;vector-effect:non-scaling-stroke}
+.wh__rim{fill:url(#pc-rim)}
+.wh .sp{fill:none;stroke:var(--gold);stroke-opacity:.6;stroke-width:1;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.wh .sp-f{fill:var(--gold);fill-opacity:.07}
+.wh__disc{fill:none;stroke:var(--gold);stroke-opacity:.22;stroke-width:1;vector-effect:non-scaling-stroke}
+.wh__cal{fill:none;stroke:var(--gold);stroke-opacity:.75;stroke-width:5;stroke-linecap:round}
+.wh__hub{fill:#0b0b0c;stroke:var(--gold);stroke-opacity:.6;stroke-width:1;vector-effect:non-scaling-stroke}
+.wh__lip{fill:none;stroke:var(--gold);stroke-opacity:.55;stroke-width:1;vector-effect:non-scaling-stroke}
+
+/* film */
+.pc__svg .z{fill:url(#pc-film);opacity:0;transition:opacity .55s var(--ease)}
+.pc__svg .z.a{opacity:1;transition-delay:calc(var(--i,0) * 70ms)}
+.pc__svg .zm{cursor:pointer}
+.pc__svg.hl .z.a{opacity:.3;transition-delay:0s}
+.pc__svg.hl .z.k{opacity:1;fill:url(#pc-filmHi)}
+.pc__hatch{opacity:0;transition:opacity .8s var(--ease) .45s}
+.pc__svg.is-on .pc__hatch{opacity:1}
+html:not(.js) .pc__hatch{opacity:1}
+.pc__sheen{mix-blend-mode:screen;pointer-events:none}
+.pc__svg .zones,.pc__svg .z{pointer-events:visiblePainted}
+.pc__svg .glass,.pc__svg .drawn,.pc__hatch,.pc__sheen,.wh{pointer-events:none}
+
+/* callout: a dot on the panel, a hairline up to its name */
+.co{opacity:0;transition:opacity .35s var(--ease);pointer-events:none}
+.co.is-on{opacity:1}
+.co__l{fill:none;stroke:var(--gold-2);stroke-width:1;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1}
+.co.is-on .co__l{stroke-dashoffset:0;transition:stroke-dashoffset .55s var(--ease) .05s}
+.co__dot{fill:var(--gold-2)}
+.co__ring{fill:none;stroke:var(--gold-2);stroke-width:1;vector-effect:non-scaling-stroke;transform-box:fill-box;transform-origin:center}
+.co.is-on .co__ring{animation:co-ring 1.6s var(--ease) infinite}
+@keyframes co-ring{from{transform:scale(.4);opacity:1}to{transform:scale(2.2);opacity:0}}
+.co__t{font-family:var(--f);font-weight:500;font-size:15px;letter-spacing:.2em;text-transform:uppercase;fill:var(--white)}
+.co__bg{fill:var(--ink-2)}
+@media (max-width:900px){.co__t{font-size:30px;letter-spacing:.14em}.co__dot{r:6px}}
+
+/* line work draws itself in, once, when the sheet is seen */
+.js-motion .pc__svg .drawn .ln{stroke-dasharray:1;stroke-dashoffset:1}
+.js-motion .pc__svg.is-drawn .drawn .ln{stroke-dashoffset:0;transition:stroke-dashoffset 2.2s var(--ease) calc(var(--d,0) * 1ms)}
+.js-motion .pc__svg.is-drawn .drawn .ln.h,.js-motion .pc__svg.is-drawn .drawn .ln.c{stroke-dasharray:5 5;transition:none}
+
+@media (max-width:900px){
+  .pc__grid{grid-template-columns:1fr}
+  .pc__sheet{order:-1}
+  /* the three packages side by side, all in view (Fender 06/10) */
+  .pc__tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;box-shadow:inset 0 -1px 0 var(--line)}
+  .pc__tab{grid-template-columns:1fr;row-gap:4px;padding:12px 0;box-shadow:none;border-bottom:2px solid transparent}
+  .pc__tab .pc__from{display:block;font-size:.625rem}
+  .pc__tab[aria-selected=true]{border-bottom-color:var(--gold)}
+  .pc__name{font-size:1.15rem}
+  .pc__n{font-size:1rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .pc__svg .z,.pc__item,.co,.co__l{transition:none!important}
+  .co.is-on .co__ring{animation:none}
+  .pc__sheen{display:none}
+}

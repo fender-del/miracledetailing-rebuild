@@ -1,0 +1,53 @@
+<!-- ============ 35 · SERVICE: OPTIONS AS TABS ============
+     On ivory. A few options of one service (PPF: gloss, matte, colour),
+     Paul's words whole. Desktop: the names on the left, the open one on
+     the right with a before/after of one real car (Fender 06/10: a GF Williams 458
+     Speciale, its matte, colour and worn versions made with AI from
+     that photo) under a slider. A CSS swatch stays as the fallback.
+     Phones: the names run sideways above. Without JS: every option
+     shows, one after another. -->
+<section class="stabs sec" id="{{tabs.id}}" data-section="tabs" data-bg="light" data-theme="light" data-tabs>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{tabs.eyebrow}}</p>
+      <h2 class="disp h2" data-split>{{&tabs.title}}</h2>
+    </div>
+
+    <div class="stabs__grid">
+      <div class="stabs__list" role="tablist" aria-label="{{tabs.label}}">
+        {{#tabs.items}}
+        <button class="stabs__tab" type="button" role="tab" id="st-t-{{key}}" aria-controls="st-p-{{key}}" aria-selected="{{#first}}true{{/first}}{{^first}}false{{/first}}" tabindex="{{#first}}0{{/first}}{{^first}}-1{{/first}}" data-tab="{{key}}">
+          <span class="stabs__n">{{_idx}}</span>
+          <span class="stabs__tname">{{name}}</span>
+          <span class="stabs__tsub">{{sub}}</span>
+        </button>
+        {{/tabs.items}}
+      </div>
+
+      <div class="stabs__panels">
+        {{#tabs.items}}
+        <article class="stabs__panel" role="tabpanel" id="st-p-{{key}}" aria-labelledby="st-t-{{key}}" data-panel="{{key}}">
+          {{#ba}}<div class="ba" data-ba style="--p:50%">
+            <div class="ba__img ba__after">{{&post}}</div>
+            <div class="ba__img ba__before">{{&pre}}</div>
+            <span class="ba__tag ba__tag--l">{{bl}}</span><span class="ba__tag ba__tag--r">{{al}}</span>
+            <span class="ba__handle" aria-hidden="true"><i></i></span>
+            <input class="ba__range" type="range" min="0" max="100" value="50" aria-label="Compare {{bl}} and {{al}}">
+          </div>{{/ba}}{{^ba}}<div class="sw sw--{{key}}" aria-hidden="true"><span class="sw__light"></span><span class="sw__edge"></span><span class="sw__name">{{name}}</span></div>{{/ba}}
+          <div class="stabs__copy">
+            <h3 class="stabs__name">{{name}}</h3>
+            <p class="stabs__sub">{{sub}}</p>
+            <div class="more" data-more>
+              <div class="more__body">
+                {{#paras}}<p>{{&.}}</p>{{/paras}}
+                {{#pull}}<p class="stabs__pull">{{&.}}</p>{{/pull}}
+                {{#after}}<p>{{&.}}</p>{{/after}}
+              </div>
+            </div>
+          </div>
+        </article>
+        {{/tabs.items}}
+      </div>
+    </div>
+  </div>
+</section>

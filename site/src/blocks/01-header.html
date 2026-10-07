@@ -1,0 +1,58 @@
+<!-- ============ 01 · HEADER ============
+     v0.5 menu order, old-site slugs. Hides on scroll down, returns on
+     scroll up. The phone menu opens with :target when JS is off.
+     Menu hover: each letter rolls up and a gold copy rolls in behind it
+     (Fender 02/10); the letters are aria-hidden, the .sr copy is read.
+     Sound switch: shown by the script (sound.js), bars move while on. -->
+<header class="hd" id="top" data-section="header" data-motion="header" data-hd>
+  <div class="hd__in wrap">
+    <a class="hd__brand" href="/" aria-label="Miracle Detail, home"><span class="logo" role="img" aria-label="Miracle Detail"></span></a>
+
+    <nav class="hd__nav" aria-label="Main">
+      <ul role="list">
+        {{#site.nav}}
+        <li class="hd__item{{#mega}} has-mega{{/mega}}">
+          <a class="hd__link" href="{{href}}"><span class="sr">{{name}}</span><span class="roll" aria-hidden="true">{{#chars}}<span class="roll__c" style="--i:{{i}}" data-c="{{c}}">{{c}}</span>{{/chars}}</span>{{#mega}}<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>{{/mega}}</a>
+          {{#mega}}
+          <div class="mega">
+            <div class="mega__in">
+              {{#site.serviceGroups}}
+              <div class="mega__col">
+                <p class="mega__h">{{name}}</p>
+                <ul role="list">{{#links}}<li><a href="{{href}}">{{name}}</a></li>{{/links}}</ul>
+              </div>
+              {{/site.serviceGroups}}
+              <a class="mega__all" href="/car-care-services/">All services <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.6"/></svg></a>
+            </div>
+          </div>
+          {{/mega}}
+        </li>
+        {{/site.nav}}
+      </ul>
+    </nav>
+
+    <button class="hd__snd" type="button" aria-pressed="false" title="Sound on / off" data-sound hidden><span class="sr">Sound</span><i></i><i></i><i></i><i></i></button>
+    <a class="btn hd__cta" href="{{site.cta.href}}"><span class="btn__in">{{site.cta.label}}</span></a>
+    <a class="hd__burger" href="#menu" aria-controls="menu" aria-expanded="false" data-menu-open>
+      <span class="sr">Open menu</span><i></i><i></i>
+    </a>
+  </div>
+
+  <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" data-menu>
+    <div class="menu__in wrap">
+      <div class="menu__top">
+        <a class="hd__brand" href="/" aria-label="Miracle Detail, home"><span class="logo" role="img" aria-label="Miracle Detail"></span></a>
+        <a class="menu__close" href="#top" data-menu-close><span class="sr">Close menu</span><i></i><i></i></a>
+      </div>
+      <ul class="menu__list" role="list">
+        {{#site.nav}}<li><a href="{{href}}" data-menu-item>{{name}}</a></li>{{/site.nav}}
+        <li><a href="#book" data-menu-item>Contact</a></li>
+      </ul>
+      <div class="menu__foot" data-menu-item>
+        <a class="btn" href="{{site.cta.href}}" data-menu-link>{{site.cta.label}}</a>
+        <a class="menu__phone" href="{{site.phoneHref}}">{{site.phone}}</a>
+        <p class="muted">{{site.hours}}</p>
+      </div>
+    </div>
+  </div>
+</header>

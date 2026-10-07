@@ -1,0 +1,19 @@
+<!-- ============ 38 · SERVICE: QUOTE ============
+     One line of Paul's (or a client's) set large, with who said it, and
+     any paragraphs that belong to it (bodyshop: the client story; mobile:
+     the van abroad). quote.img = a photo under the words, dimmed; without
+     one the quote stands on the page colour. The words light up one by
+     one as the quote scrolls through (motion/ppf.js lit). -->
+<section class="squote sec{{#quote.img}} has-img{{/quote.img}}" id="{{quote.id}}" data-section="quote">
+  {{#quote.img}}<div class="squote__bg" aria-hidden="true"><div data-parallax>{{&.}}</div></div>{{/quote.img}}
+  <div class="wrap squote__in">
+    {{#quote.eyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&quote.eyebrow}}</p>{{/quote.eyebrow}}
+    {{#quote.title}}<h2 class="disp h2" data-split>{{&quote.title}}</h2>{{/quote.title}}
+    <figure class="squote__fig">
+      <blockquote class="squote__text" data-lit>{{&quote.text}}</blockquote>
+      {{#quote.cite}}<figcaption class="squote__cite" data-reveal>{{&.}}</figcaption>{{/quote.cite}}
+    </figure>
+    {{#quote.hasParas}}<div class="squote__body more" data-more><div class="more__body" data-reveal>{{#quote.paras}}<p>{{&.}}</p>{{/quote.paras}}</div></div>{{/quote.hasParas}}
+    {{#quote.price}}<p class="squote__price" data-reveal>{{&.}}</p>{{/quote.price}}
+  </div>
+</section>

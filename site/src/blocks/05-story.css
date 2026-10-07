@@ -1,0 +1,73 @@
+/* ============ 05 · STORY ============
+   Base (no JS, reduced motion): photo + two stacked beats, then the
+   closing line on its own.
+   .js-motion on phones / short screens: the closing line holds the
+   screen (sticky) while it grows and fades.
+   .is-pinned (desktop + motion, set by motion/story.js): one screen,
+   beats swapped in place, the closing line laid over the middle. */
+/* clip, not hidden: no scroll container, so the sticky photo and line
+   still stick; it stops beat 2 (arriving from the right) widening the page */
+.story{position:relative;padding-top:var(--sec);overflow-x:clip}
+.story__in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(36px,6vw,110px);align-items:start}
+
+.story__fig{position:sticky;top:calc(var(--hd-h) + 24px);margin:0}
+.story__photo{border-radius:var(--r-lg);overflow:hidden}
+.story__photo .media{aspect-ratio:4 / 5!important}
+.story__photo img{transform-origin:40% 30%}
+.story__cap{margin-top:14px;font-size:.6875rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+/* The cutting, pinned to the corner of the photo like a press clipping. */
+.story__paper{
+  position:absolute;right:-14%;bottom:12%;width:58%;margin:0;
+  padding:8px 8px 10px;background:#ECE7DA;border-radius:4px;
+  box-shadow:0 30px 60px rgba(0,0,0,.55),0 4px 12px rgba(0,0,0,.4);
+  transform:rotate(-4deg);
+}
+.story__paper .media{border-radius:2px;background-color:#ddd}
+.story__paper figcaption{margin-top:8px;font-size:.625rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3A352B}
+
+.story__beats{display:grid;gap:clamp(56px,7vw,96px);padding-top:clamp(8px,4vw,64px)}
+.beat{display:grid;gap:24px;justify-items:start;max-width:600px}
+.beat__big{font-size:clamp(2.4rem,1.2rem + 3.6vw,4.8rem)}
+.beat__text{font-size:clamp(1.15rem,1rem + .55vw,1.5rem);line-height:1.55;color:var(--white)}
+.num{font-family:var(--fd);font-weight:500;font-style:italic;text-transform:none;font-synthesis:none;color:var(--gold);font-variant-numeric:tabular-nums;white-space:nowrap}
+/* counted once: stays shown even if the sentence is split again (story.js) */
+.story.is-counted [data-count]{visibility:visible}
+
+/* The closing line. */
+.story__end{display:grid;place-items:center;padding:clamp(96px,14vw,200px) var(--gut);text-align:center}
+.story__line{margin:0;font-size:clamp(1.9rem,.4rem + 6.6vw,7.2rem);line-height:1.02;letter-spacing:-.005em}
+/* 110svh: the line holds the screen only briefly (Fender 02/10: 3/4 of
+   the scroll it had) */
+.js-motion .story__end{display:block;height:110svh;padding:0}
+.js-motion .story__line{position:sticky;top:0;height:100svh;display:grid;place-content:center;padding:0 var(--gut)}
+
+.story__dots{display:none}
+
+/* ---- Pinned (desktop + motion) ---- */
+.story.is-pinned{padding:0}
+.story.is-pinned .story__in{height:100svh;min-height:640px;align-items:center;padding-top:calc(var(--hd-h) * .5)}
+.story.is-pinned .story__fig{position:relative;top:auto;align-self:center}
+.story.is-pinned .story__photo{height:min(70svh,640px);aspect-ratio:4 / 5;max-width:100%}
+.story.is-pinned .story__photo .media{height:100%;aspect-ratio:auto!important}
+.story.is-pinned .story__beats{position:relative;height:min(70svh,640px);padding:0;display:block}
+.story.is-pinned .beat{position:absolute;inset:0;align-content:center}
+.story.is-pinned .story__end{position:absolute;inset:0;height:auto;display:grid;place-items:center;pointer-events:none;z-index:2}
+.story.is-pinned .story__line{position:static;height:auto;display:block;transform-origin:50% 50%}
+.story.is-pinned .story__dots{
+  display:flex;flex-direction:column;gap:10px;position:absolute;right:var(--gut);top:50%;margin:0;padding:0;list-style:none;transform:translateY(-50%);
+}
+.story__dots li{width:2px;height:28px;background:var(--line-2);transition:background .4s}
+.story__dots li.is-on{background:var(--gold)}
+
+@media (max-width:1023px){
+  .story__in{grid-template-columns:1fr}
+  .story__fig{position:relative;top:auto;max-width:560px}
+  .story__paper{right:-4%;bottom:7%;width:50%}
+  .story__beats{padding-top:clamp(48px,10vw,80px)}
+}
+@media (max-width:767px){
+  .story__photo .media{aspect-ratio:1 / 1!important}
+  .story__paper{right:-2%;bottom:6%;width:56%}
+  .story__line{font-size:8.4vw}
+}

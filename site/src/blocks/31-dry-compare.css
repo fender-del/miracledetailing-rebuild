@@ -1,0 +1,47 @@
+/* ============ 31 · DRY ICE: COMPARED ============ */
+.cmp__pick{display:none;border:0;margin:0 0 18px;padding:0;min-width:0}
+.cmp__wrap{border-radius:var(--r-lg);background:var(--ink);box-shadow:inset 0 0 0 1px var(--line);overflow:hidden}
+.cmp__t{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed}
+.cmp__t th,.cmp__t td{padding:18px clamp(14px,1.8vw,26px);text-align:left;vertical-align:top}
+.cmp__t thead td{width:20%}
+.cmp__t tbody th{font-size:.75rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);line-height:1.5}
+.cmp__t tbody tr>*{box-shadow:inset 0 1px 0 var(--line)}
+.cmp__th{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.15rem,.9rem + .7vw,1.5rem);line-height:1.15;color:var(--white)}
+.cmp__t thead th{padding-top:28px;padding-bottom:18px}
+
+/* dry ice: lit in gold */
+.cmp__c--dry{background:linear-gradient(180deg,rgba(201,168,77,.13),rgba(201,168,77,.06))}
+.cmp__t thead .cmp__c--dry .cmp__th{color:var(--gold)}
+.cmp__t thead .cmp__c--dry{box-shadow:inset 0 2px 0 var(--gold)}
+
+/* marks: a gold tick, a half disc, a cross (the words carry the meaning) */
+.cmp__m{display:grid;grid-template-columns:20px 1fr;gap:10px;align-items:start;font-size:.95rem;line-height:1.45;color:var(--text)}
+.cmp__m::before{content:"";width:20px;height:20px;margin-top:1px;border-radius:50%}
+.cmp__m--yes{color:var(--white)}
+.cmp__m--yes::before{background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5.5 10.4 3 3 6-6.6' fill='none' stroke='%23111' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/20px no-repeat}
+.cmp__m--part::before{box-shadow:inset 0 0 0 1.5px #8C887F;background:linear-gradient(90deg,#8C887F 50%,transparent 50%)}
+.cmp__m--no::before{box-shadow:inset 0 0 0 1.5px #6E6A63;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m7 7 6 6m0-6-6 6' fill='none' stroke='%238C887F' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") center/20px no-repeat}
+@media (hover:hover){.cmp__t tbody tr:hover>*{background-color:rgba(255,255,255,.025)}}
+.cmp__t tbody tr:hover>.cmp__c--dry{background-color:transparent}
+
+/* Phones: dry ice against one method, picked with the chips */
+@media (max-width:767px){
+  .cmp__pick{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+  .cmp__vs{flex:1 1 100%;margin-bottom:2px;font-size:.6875rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .cmp__chip{position:relative;cursor:pointer}
+  .cmp__chip input{position:absolute;opacity:0;width:1px;height:1px}
+  .cmp__chip span{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line-2);font-size:.875rem;color:var(--text);transition:background .3s,box-shadow .3s,color .3s}
+  .cmp__chip input:checked+span{background:var(--gold-a12);box-shadow:inset 0 0 0 1px var(--gold);color:var(--white)}
+  .cmp__chip input:focus-visible+span{outline:2px solid var(--gold);outline-offset:3px}
+
+  .cmp__t{table-layout:auto}
+  .cmp__t thead td{width:30%}
+  .cmp__t th,.cmp__t td{padding:16px 12px}
+  .cmp__t tbody th{font-size:.625rem;letter-spacing:.12em}
+  .cmp__m{grid-template-columns:1fr;gap:8px;font-size:.875rem}
+  .cmp__c--steam,.cmp__c--chem{display:none}
+  .cmp:has(#cmp-steam:checked) .cmp__c--pressure,
+  .cmp:has(#cmp-chem:checked) .cmp__c--pressure{display:none}
+  .cmp:has(#cmp-steam:checked) .cmp__c--steam,
+  .cmp:has(#cmp-chem:checked) .cmp__c--chem{display:table-cell}
+}

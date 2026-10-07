@@ -1,0 +1,48 @@
+<!-- ============ 37 · SERVICE: CARDS ============
+     The shape most v0.5 sections share (06/10): a heading, a line or two
+     of Paul's, then numbered items, each with a name, a sub-line, his
+     paragraph, a ticked list, a few facts and a price. Paul's words
+     whole; only the layout is new.
+     Variants (cards.variant):
+       (none)   boxed cards, the price at the foot (options, levels)
+       points   no box, a hairline above each (why Paul, the rules)
+       versus   two columns side by side, ticks against dashes (PDR)
+     cards.light = on ivory. Phones: three or more boxed cards become a
+     row to swipe (each ~85% of the screen), so the page does not run on
+     for ever; points and versus stack. Long paragraphs fold on phones
+     (Read more, motion/ppf.js). Built by lib/shared.js cards(). -->
+<section class="scards sec scards--{{cards.variant}}{{#cards.rail}} scards--rail{{/cards.rail}}" id="{{cards.id}}" data-section="cards"{{#cards.light}} data-bg="light" data-theme="light"{{/cards.light}}{{#cards.graphite}} data-bg="graphite"{{/cards.graphite}}>
+  <div class="wrap">
+    {{#cards.hasHead}}
+    <div class="scards__head{{#cards.hasIntro}} has-intro{{/cards.hasIntro}}{{#cards.fig}} has-intro has-fig{{/cards.fig}}">
+      <div class="scards__titles">
+        {{#cards.eyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&cards.eyebrow}}</p>{{/cards.eyebrow}}
+        {{#cards.title}}<h2 class="disp h2" data-split>{{&cards.title}}</h2>{{/cards.title}}
+      </div>
+      {{#cards.hasIntro}}<div class="scards__intro more" data-more><div class="more__body" data-reveal>{{#cards.intro}}<p>{{&.}}</p>{{/cards.intro}}</div></div>{{/cards.hasIntro}}
+      {{#cards.fig}}<figure class="scards__fig" data-reveal="card"><div class="scards__figm">{{&cards.fig}}</div>{{#cards.figCap}}<figcaption>{{&.}}</figcaption>{{/cards.figCap}}</figure>{{/cards.fig}}
+    </div>
+    {{/cards.hasHead}}
+
+    <ol class="scards__grid" role="list" style="--cols:{{cards.cols}}" data-cols="{{cards.cols}}">
+      {{#cards.items}}
+      <li class="card{{#hi}} is-hi{{/hi}}{{#no}} is-no{{/no}}"{{#anchor}} id="{{anchor}}"{{/anchor}} data-reveal="card">
+        {{#img}}<div class="card__media">{{&.}}</div>{{/img}}
+        {{#hasTop}}<p class="card__top">{{#n}}<span class="card__n">{{n}}</span>{{/n}}{{#tag}}<span class="card__tag">{{tag}}</span>{{/tag}}</p>{{/hasTop}}
+        {{#kicker}}<p class="card__kicker">{{&.}}</p>{{/kicker}}
+        <h3 class="card__name">{{&name}}</h3>
+        {{#sub}}<p class="card__sub">{{&.}}</p>{{/sub}}
+        {{#hasText}}<div class="card__text more" data-more><div class="more__body">{{#paras}}<p>{{&.}}</p>{{/paras}}</div></div>{{/hasText}}
+        {{#hasList}}<ul class="card__list" role="list">{{#list}}<li>{{&.}}</li>{{/list}}</ul>{{/hasList}}
+        {{#hasFacts}}<dl class="card__facts">{{#facts}}<div><dt>{{k}}</dt><dd>{{&v}}</dd></div>{{/facts}}</dl>{{/hasFacts}}
+        {{#hasFoot}}<div class="card__foot">
+          {{#price}}<p class="card__price">{{&.}}</p>{{/price}}
+          {{#links}}<a class="link-arrow" href="{{href}}"{{#ext}} target="_blank" rel="noopener"{{/ext}}><span>{{label}}</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></a>{{/links}}
+        </div>{{/hasFoot}}
+      </li>
+      {{/cards.items}}
+    </ol>
+
+    {{#cards.hasNote}}<div class="scards__note" data-reveal>{{#cards.note}}<p>{{&.}}</p>{{/cards.note}}</div>{{/cards.hasNote}}
+  </div>
+</section>

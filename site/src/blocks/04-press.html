@@ -1,0 +1,19 @@
+<!-- ============ 04 · PRESS STRIP ============
+     v0.5 "Featured On", run as the strip under the hero (Fender 02/10:
+     the old "Detailing from Surrey to the world" + place names read as
+     "not based in the UK"). The label stays put at the start; the logos
+     (tools/images.js turns each into one white mark) run past it, faster
+     with scroll speed, turning with scroll direction, and stop while
+     hovered. -->
+<section class="press" data-section="press" data-motion="marquee" aria-labelledby="press-cap">
+  <div class="press__row">
+    <p class="eyebrow press__cap" id="press-cap"><span class="eyebrow__mark"></span><span>As featured on</span></p>
+    <div class="mq mq--press" data-marquee data-speed="0.45" data-velocity>
+      <div class="mq__track">
+        <ul class="mq__group" role="list">
+          {{#press}}<li>{{#mark}}<img class="mq__mark" src="{{src}}" width="{{w}}" height="{{h}}" style="--k:{{k}}" alt="{{name}}" loading="lazy" decoding="async">{{/mark}}{{^mark}}<span class="mq__word">{{name}}</span>{{/mark}}<i aria-hidden="true"></i></li>{{/press}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

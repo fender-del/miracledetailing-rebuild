@@ -1,0 +1,554 @@
+{
+ "types": {
+  "post": 2,
+  "page": 30
+ },
+ "taxonomies": {
+  "category": [
+   {
+    "name": "Uncategorized",
+    "slug": "uncategorized",
+    "count": 2,
+    "link": "https://miracledetail.co.uk/category/uncategorized/"
+   }
+  ],
+  "post_tag": [],
+  "wp_pattern_category": []
+ },
+ "items": [
+  {
+   "type": "post",
+   "id": 24571,
+   "link": "https://miracledetail.co.uk/facebook-competition/",
+   "slug": "facebook-competition",
+   "title": "FACEBOOK COMPETITION!",
+   "date": "2024-08-07T16:03:44",
+   "modified": "2024-08-07T16:53:03",
+   "parent": null,
+   "template": ""
+  },
+  {
+   "type": "post",
+   "id": 24484,
+   "link": "https://miracledetail.co.uk/new-product-launch/",
+   "slug": "new-product-launch",
+   "title": "NEW PRODUCT LAUNCH!",
+   "date": "2024-08-07T14:40:12",
+   "modified": "2024-08-07T16:53:24",
+   "parent": null,
+   "template": ""
+  },
+  {
+   "type": "page",
+   "id": 25019,
+   "link": "https://miracledetail.co.uk/studio-car-valeting/",
+   "slug": "studio-car-valeting",
+   "title": "Studio Car Valeting",
+   "date": "2025-07-15T15:47:33",
+   "modified": "2025-07-16T16:54:46",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 24914,
+   "link": "https://miracledetail.co.uk/videos/",
+   "slug": "videos",
+   "title": "Videos",
+   "date": "2024-12-10T13:52:36",
+   "modified": "2024-12-10T14:05:05",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 23391,
+   "link": "https://miracledetail.co.uk/blog/",
+   "slug": "blog",
+   "title": "Blog",
+   "date": "2023-12-14T07:29:46",
+   "modified": "2024-08-07T21:21:56",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 20060,
+   "link": "https://miracledetail.co.uk/hertfordshire-car-detailing/",
+   "slug": "hertfordshire-car-detailing",
+   "title": "Hertfordshire",
+   "date": "2023-11-15T01:56:40",
+   "modified": "2024-11-14T12:36:49",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 20054,
+   "link": "https://miracledetail.co.uk/oxfordshire-car-detailing/",
+   "slug": "oxfordshire-car-detailing",
+   "title": "Oxfordshire",
+   "date": "2023-11-15T01:47:31",
+   "modified": "2024-11-14T12:41:44",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 20048,
+   "link": "https://miracledetail.co.uk/buckinghamshire-car-detailing/",
+   "slug": "buckinghamshire-car-detailing",
+   "title": "Buckinghamshire",
+   "date": "2023-11-15T01:40:20",
+   "modified": "2024-11-14T12:32:49",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 20042,
+   "link": "https://miracledetail.co.uk/hampshire-car-detailing/",
+   "slug": "hampshire-car-detailing",
+   "title": "Hampshire",
+   "date": "2023-11-15T01:28:24",
+   "modified": "2024-11-14T12:35:17",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 20030,
+   "link": "https://miracledetail.co.uk/london-car-detailing/",
+   "slug": "london-car-detailing",
+   "title": "London",
+   "date": "2023-11-15T01:18:26",
+   "modified": "2024-11-14T12:40:14",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 20023,
+   "link": "https://miracledetail.co.uk/essex-car-detailing/",
+   "slug": "essex-car-detailing",
+   "title": "Essex",
+   "date": "2023-11-15T01:04:53",
+   "modified": "2024-11-14T12:31:42",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 16465,
+   "link": "https://miracledetail.co.uk/car-care-services/",
+   "slug": "car-care-services",
+   "title": "Car Care Services",
+   "date": "2023-11-13T06:07:33",
+   "modified": "2025-01-21T09:40:18",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 1135,
+   "link": "https://miracledetail.co.uk/car-detail-gallery/",
+   "slug": "car-detail-gallery",
+   "title": "Car Detail Gallery",
+   "date": "2023-11-10T02:15:15",
+   "modified": "2024-06-28T09:48:21",
+   "parent": 0,
+   "template": "page-gallery.php"
+  },
+  {
+   "type": "page",
+   "id": 1117,
+   "link": "https://miracledetail.co.uk/car-detail-faqs/",
+   "slug": "car-detail-faqs",
+   "title": "Car Detail Faqs",
+   "date": "2023-11-10T01:57:19",
+   "modified": "2024-11-14T12:21:38",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 652,
+   "link": "https://miracledetail.co.uk/car-detailing-studio/",
+   "slug": "car-detailing-studio",
+   "title": "Studio Car Detailing MAIN",
+   "date": "2023-11-08T06:20:27",
+   "modified": "2025-07-15T17:15:41",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 475,
+   "link": "https://miracledetail.co.uk/after-care-with-feynlab/",
+   "slug": "after-care-with-feynlab",
+   "title": "After care with Feynlab",
+   "date": "2023-11-01T02:16:34",
+   "modified": "2024-11-14T12:12:37",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 76,
+   "link": "https://miracledetail.co.uk/contact-us/",
+   "slug": "contact-us",
+   "title": "Contact Us",
+   "date": "2023-10-31T03:49:50",
+   "modified": "2025-01-21T09:41:05",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 38,
+   "link": "https://miracledetail.co.uk/sussex-car-detailing/",
+   "slug": "sussex-car-detailing",
+   "title": "Sussex",
+   "date": "2023-10-31T03:27:28",
+   "modified": "2024-11-14T12:45:51",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 36,
+   "link": "https://miracledetail.co.uk/kent-car-detailing/",
+   "slug": "kent-car-detailing",
+   "title": "Kent",
+   "date": "2023-10-31T03:27:16",
+   "modified": "2024-11-14T12:38:29",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 34,
+   "link": "https://miracledetail.co.uk/surrey-car-detailing/",
+   "slug": "surrey-car-detailing",
+   "title": "Surrey",
+   "date": "2023-10-31T03:26:40",
+   "modified": "2024-11-14T12:44:10",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 32,
+   "link": "https://miracledetail.co.uk/wheel-refurbishment/",
+   "slug": "wheel-refurbishment",
+   "title": "Wheel refurbishment",
+   "date": "2023-10-31T03:26:27",
+   "modified": "2024-11-14T12:05:32",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 30,
+   "link": "https://miracledetail.co.uk/leather-restoration/",
+   "slug": "leather-restoration",
+   "title": "Leather Restoration",
+   "date": "2023-10-31T03:26:13",
+   "modified": "2024-11-14T11:47:56",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 28,
+   "link": "https://miracledetail.co.uk/car-audio-installation-fabrication-pssound/",
+   "slug": "car-audio-installation-fabrication-pssound",
+   "title": "Car Audio Installation",
+   "date": "2023-10-31T03:26:00",
+   "modified": "2024-11-14T12:16:41",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 26,
+   "link": "https://miracledetail.co.uk/mobile-car-detailing/",
+   "slug": "mobile-car-detailing",
+   "title": "Mobile Detailing",
+   "date": "2023-10-31T03:25:40",
+   "modified": "2024-11-14T11:55:50",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 24,
+   "link": "https://miracledetail.co.uk/dry-ice-blasting-and-laser-cleaning/",
+   "slug": "dry-ice-blasting-and-laser-cleaning",
+   "title": "Dry ice and laser cleaning",
+   "date": "2023-10-31T03:25:27",
+   "modified": "2024-11-14T11:22:17",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 22,
+   "link": "https://miracledetail.co.uk/paint-correction-and-polishing/",
+   "slug": "paint-correction-and-polishing",
+   "title": "Paint correction and Polishing",
+   "date": "2023-10-31T03:25:11",
+   "modified": "2024-11-14T11:59:39",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 20,
+   "link": "https://miracledetail.co.uk/bodyshop-repair/",
+   "slug": "bodyshop-repair",
+   "title": "Bodyshop repairs and/body renovation",
+   "date": "2023-10-31T03:24:56",
+   "modified": "2024-11-14T11:19:07",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 18,
+   "link": "https://miracledetail.co.uk/window-tinting/",
+   "slug": "window-tinting",
+   "title": "Window tinting",
+   "date": "2023-10-31T03:24:36",
+   "modified": "2025-06-19T03:30:15",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 16,
+   "link": "https://miracledetail.co.uk/paint-protection-film-ppf/",
+   "slug": "paint-protection-film-ppf",
+   "title": "Paint protection film",
+   "date": "2023-10-31T03:24:15",
+   "modified": "2025-06-19T03:32:10",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 14,
+   "link": "https://miracledetail.co.uk/ceramic-coatings/",
+   "slug": "ceramic-coatings",
+   "title": "Ceramic coating",
+   "date": "2023-10-31T03:24:01",
+   "modified": "2025-06-19T03:32:58",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 12,
+   "link": "https://miracledetail.co.uk/about-paul-dalton-car-detailing/",
+   "slug": "about-paul-dalton-car-detailing",
+   "title": "About us",
+   "date": "2023-10-31T03:23:43",
+   "modified": "2025-01-21T09:38:50",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  },
+  {
+   "type": "page",
+   "id": 10,
+   "link": "https://miracledetail.co.uk/",
+   "slug": "home",
+   "title": "Home",
+   "date": "2023-10-31T03:23:05",
+   "modified": "2025-07-16T17:44:44",
+   "parent": 0,
+   "template": "elementor_header_footer"
+  }
+ ],
+ "sitemap_files": [
+  "https://miracledetail.co.uk/category-sitemap1.xml",
+  "https://miracledetail.co.uk/page-sitemap1.xml",
+  "https://miracledetail.co.uk/post-sitemap1.xml",
+  "https://miracledetail.co.uk/post_tag-sitemap1.xml",
+  "https://miracledetail.co.uk/sitemap.xml",
+  "https://miracledetail.co.uk/sitemap_index.xml",
+  "https://miracledetail.co.uk/sitemaps.xml",
+  "https://miracledetail.co.uk/wp-sitemap.xml"
+ ],
+ "sitemap_urls": [
+  [
+   "https://miracledetail.co.uk/",
+   "",
+   "https://miracledetail.co.uk/post-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/new-product-launch/",
+   "2024-08-07T16:53:24+00:00",
+   "https://miracledetail.co.uk/post-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/facebook-competition/",
+   "2024-08-07T16:53:03+00:00",
+   "https://miracledetail.co.uk/post-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/",
+   "2025-07-16T17:44:44+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/studio-car-valeting/",
+   "2025-07-16T16:54:46+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/car-detailing-studio/",
+   "2025-07-15T17:15:41+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/ceramic-coatings/",
+   "2025-06-19T03:32:58+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/paint-protection-film-ppf/",
+   "2025-06-19T03:32:10+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/window-tinting/",
+   "2025-06-19T03:30:15+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/contact-us/",
+   "2025-01-21T09:41:05+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/car-care-services/",
+   "2025-01-21T09:40:18+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/about-paul-dalton-car-detailing/",
+   "2025-01-21T09:38:50+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/videos/",
+   "2024-12-10T14:05:05+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/sussex-car-detailing/",
+   "2024-11-14T12:45:51+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/surrey-car-detailing/",
+   "2024-11-14T12:44:10+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/oxfordshire-car-detailing/",
+   "2024-11-14T12:41:44+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/london-car-detailing/",
+   "2024-11-14T12:40:14+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/kent-car-detailing/",
+   "2024-11-14T12:38:29+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/hertfordshire-car-detailing/",
+   "2024-11-14T12:36:49+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/hampshire-car-detailing/",
+   "2024-11-14T12:35:17+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/buckinghamshire-car-detailing/",
+   "2024-11-14T12:32:49+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/essex-car-detailing/",
+   "2024-11-14T12:31:42+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/car-detail-faqs/",
+   "2024-11-14T12:21:38+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/car-audio-installation-fabrication-pssound/",
+   "2024-11-14T12:16:41+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/after-care-with-feynlab/",
+   "2024-11-14T12:12:37+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/wheel-refurbishment/",
+   "2024-11-14T12:05:32+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/paint-correction-and-polishing/",
+   "2024-11-14T11:59:39+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/mobile-car-detailing/",
+   "2024-11-14T11:55:50+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/leather-restoration/",
+   "2024-11-14T11:47:56+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/dry-ice-blasting-and-laser-cleaning/",
+   "2024-11-14T11:22:17+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/bodyshop-repair/",
+   "2024-11-14T11:19:07+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/blog/",
+   "2024-08-07T21:21:56+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/car-detail-gallery/",
+   "2024-06-28T09:48:21+00:00",
+   "https://miracledetail.co.uk/page-sitemap1.xml"
+  ],
+  [
+   "https://miracledetail.co.uk/category/uncategorized/",
+   "",
+   "https://miracledetail.co.uk/category-sitemap1.xml"
+  ]
+ ]
+}

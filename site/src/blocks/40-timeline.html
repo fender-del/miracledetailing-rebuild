@@ -1,0 +1,25 @@
+<!-- ============ 40 · ABOUT: THE FULL STORY ============
+     v0.5 About's timeline, every entry whole: the year held large on the
+     left while its entry passes (sticky), a gold diamond on the line, the
+     title, Paul's paragraph and the photos v0.5 shows for it, captioned.
+     Phones: the year sits above its title. -->
+<section class="tl sec" id="{{tl.id}}" data-section="timeline">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&tl.eyebrow}}</p>
+      <h2 class="disp h2" data-split>{{&tl.title}}</h2>
+    </div>
+    <ol class="tl__list" role="list">
+      {{#tl.items}}
+      <li class="tl__it">
+        <p class="tl__year"><span>{{year}}</span></p>
+        <div class="tl__body" data-reveal>
+          <h3 class="tl__title">{{&title}}</h3>
+          <div class="tl__text">{{#paras}}<p>{{&.}}</p>{{/paras}}</div>
+          {{#hasPhotos}}<ul class="tl__photos" role="list" data-n="{{count}}">{{#photos}}<li><figure>{{&img}}<figcaption>{{&cap}}</figcaption></figure></li>{{/photos}}</ul>{{/hasPhotos}}
+        </div>
+      </li>
+      {{/tl.items}}
+    </ol>
+  </div>
+</section>

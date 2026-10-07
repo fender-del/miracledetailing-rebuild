@@ -1,0 +1,306 @@
+{
+ "types": {
+  "post": 0,
+  "page": 17
+ },
+ "taxonomies": {
+  "category": [
+   {
+    "name": "Blog",
+    "slug": "blog",
+    "count": 0,
+    "link": "https://miracledetailuk.detailersmovement.com/category/blog/"
+   }
+  ],
+  "post_tag": [],
+  "wp_pattern_category": []
+ },
+ "items": [
+  {
+   "type": "page",
+   "id": 4022,
+   "link": "https://miracledetailuk.detailersmovement.com/aftercare-washing-guide/",
+   "slug": "aftercare-washing-guide",
+   "title": "Aftercare & Washing Guide",
+   "date": "2026-09-13T03:36:19",
+   "modified": "2026-09-13T05:38:53",
+   "parent": 0,
+   "template": ""
+  },
+  {
+   "type": "page",
+   "id": 3848,
+   "link": "https://miracledetailuk.detailersmovement.com/paintless-dent-removal/",
+   "slug": "paintless-dent-removal",
+   "title": "Paintless Dent Removal",
+   "date": "2026-09-10T09:10:35",
+   "modified": "2026-09-10T09:53:41",
+   "parent": 0,
+   "template": ""
+  },
+  {
+   "type": "page",
+   "id": 3704,
+   "link": "https://miracledetailuk.detailersmovement.com/bodyshop-paint-repair/",
+   "slug": "bodyshop-paint-repair",
+   "title": "Bodyshop & Paint Repair",
+   "date": "2026-09-10T05:48:14",
+   "modified": "2026-09-10T09:51:48",
+   "parent": 0,
+   "template": ""
+  },
+  {
+   "type": "page",
+   "id": 3438,
+   "link": "https://miracledetailuk.detailersmovement.com/window-tinting-protection/",
+   "slug": "window-tinting-protection",
+   "title": "Window Tinting & Protection",
+   "date": "2026-09-06T05:02:37",
+   "modified": "2026-09-06T08:56:00",
+   "parent": 0,
+   "template": ""
+  },
+  {
+   "type": "page",
+   "id": 3366,
+   "link": "https://miracledetailuk.detailersmovement.com/wheel-refurbishment/",
+   "slug": "wheel-refurbishment",
+   "title": "Wheel Refurbishment",
+   "date": "2026-09-06T03:32:08",
+   "modified": "2026-09-06T08:58:51",
+   "parent": 0,
+   "template": ""
+  },
+  {
+   "type": "page",
+   "id": 3151,
+   "link": "https://miracledetailuk.detailersmovement.com/mobile-detailing/",
+   "slug": "mobile-detailing",
+   "title": "Mobile Detailing",
+   "date": "2026-09-05T08:48:05",
+   "modified": "2026-09-16T06:04:47",
+   "parent": 0,
+   "template": ""
+  },
+  {
+   "type": "page",
+   "id": 3031,
+   "link": "https://miracledetailuk.detailersmovement.com/leather-restoration/",
+   "slug": "leather-restoration",
+   "title": "Leather Restoration",
+   "date": "2026-09-05T06:30:49",
+   "modified": "2026-09-06T08:58:34",
+   "parent": 0,
+   "template": ""
+  },
+  {
+   "type": "page",
+   "id": 2723,
+   "link": "https://miracledetailuk.detailersmovement.com/ceramic-coatings/",
+   "slug": "ceramic-coatings",
+   "title": "Ceramic Coatings",
+   "date": "2026-08-17T05:35:28",
+   "modified": "2026-09-22T06:59:32",
+   "parent": 0,
+   "template": ""
+  },
+  {
+   "type": "page",
+   "id": 2548,
+   "link": "https://miracledetailuk.detailersmovement.com/paint-protection-film/",
+   "slug": "paint-protection-film",
+   "title": "Paint Protection Film",
+   "date": "2026-08-17T03:55:40",
+   "modified": "2026-09-16T06:02:58",
+   "parent": 0,
+   "template": ""
+  },
+  {
+   "type": "page",
+   "id": 2132,
+   "link": "https://miracledetailuk.detailersmovement.com/paint-correction/",
+   "slug": "paint-correction",
+   "title": "Paint Correction",
+   "date": "2026-08-16T08:46:22",
+   "modified": "2026-09-16T06:02:12",
+   "parent": 0,
+   "template": ""
+  },
+  {
+   "type": "page",
+   "id": 1776,
+   "link": "https://miracledetailuk.detailersmovement.com/packages/",
+   "slug": "packages",
+   "title": "Packages",
+   "date": "2026-08-16T06:01:41",
+   "modified": "2026-08-16T10:47:36",
+   "parent": 0,
+   "template": ""
+  },
+  {
+   "type": "page",
+   "id": 1581,
+   "link": "https://miracledetailuk.detailersmovement.com/dry-ice-cleaning/",
+   "slug": "dry-ice-cleaning",
+   "title": "Dry Ice Cleaning",
+   "date": "2026-08-16T04:36:42",
+   "modified": "2026-09-16T06:03:32",
+   "parent": 0,
+   "template": ""
+  },
+  {
+   "type": "page",
+   "id": 20,
+   "link": "https://miracledetailuk.detailersmovement.com/",
+   "slug": "home",
+   "title": "Home",
+   "date": "2026-08-11T03:51:16",
+   "modified": "2026-09-16T06:00:22",
+   "parent": 0,
+   "template": ""
+  },
+  {
+   "type": "page",
+   "id": 18,
+   "link": "https://miracledetailuk.detailersmovement.com/journal/",
+   "slug": "journal",
+   "title": "Journal",
+   "date": "2026-08-11T03:50:55",
+   "modified": "2026-08-11T03:50:55",
+   "parent": 0,
+   "template": ""
+  },
+  {
+   "type": "page",
+   "id": 16,
+   "link": "https://miracledetailuk.detailersmovement.com/gallery/",
+   "slug": "gallery",
+   "title": "Gallery",
+   "date": "2026-08-11T03:50:43",
+   "modified": "2026-08-11T03:50:43",
+   "parent": 0,
+   "template": ""
+  },
+  {
+   "type": "page",
+   "id": 14,
+   "link": "https://miracledetailuk.detailersmovement.com/services/",
+   "slug": "services",
+   "title": "Services",
+   "date": "2026-08-11T03:50:31",
+   "modified": "2026-08-11T03:50:31",
+   "parent": 0,
+   "template": ""
+  },
+  {
+   "type": "page",
+   "id": 12,
+   "link": "https://miracledetailuk.detailersmovement.com/about-paul/",
+   "slug": "about-paul",
+   "title": "About Paul",
+   "date": "2026-08-11T03:50:13",
+   "modified": "2026-08-16T09:56:17",
+   "parent": 0,
+   "template": ""
+  }
+ ],
+ "sitemap_files": [
+  "https://miracledetailuk.detailersmovement.com/sitemap.xml",
+  "https://miracledetailuk.detailersmovement.com/sitemap_index.xml",
+  "https://miracledetailuk.detailersmovement.com/wp-sitemap-posts-page-1.xml",
+  "https://miracledetailuk.detailersmovement.com/wp-sitemap-users-1.xml",
+  "https://miracledetailuk.detailersmovement.com/wp-sitemap.xml"
+ ],
+ "sitemap_urls": [
+  [
+   "https://miracledetailuk.detailersmovement.com/about-paul/",
+   "2026-08-16T09:56:17+00:00",
+   "https://miracledetailuk.detailersmovement.com/wp-sitemap-posts-page-1.xml"
+  ],
+  [
+   "https://miracledetailuk.detailersmovement.com/services/",
+   "2026-08-11T03:50:31+00:00",
+   "https://miracledetailuk.detailersmovement.com/wp-sitemap-posts-page-1.xml"
+  ],
+  [
+   "https://miracledetailuk.detailersmovement.com/gallery/",
+   "2026-08-11T03:50:43+00:00",
+   "https://miracledetailuk.detailersmovement.com/wp-sitemap-posts-page-1.xml"
+  ],
+  [
+   "https://miracledetailuk.detailersmovement.com/journal/",
+   "2026-08-11T03:50:55+00:00",
+   "https://miracledetailuk.detailersmovement.com/wp-sitemap-posts-page-1.xml"
+  ],
+  [
+   "https://miracledetailuk.detailersmovement.com/",
+   "2026-09-16T06:00:22+00:00",
+   "https://miracledetailuk.detailersmovement.com/wp-sitemap-posts-page-1.xml"
+  ],
+  [
+   "https://miracledetailuk.detailersmovement.com/dry-ice-cleaning/",
+   "2026-09-16T06:03:32+00:00",
+   "https://miracledetailuk.detailersmovement.com/wp-sitemap-posts-page-1.xml"
+  ],
+  [
+   "https://miracledetailuk.detailersmovement.com/packages/",
+   "2026-08-16T10:47:36+00:00",
+   "https://miracledetailuk.detailersmovement.com/wp-sitemap-posts-page-1.xml"
+  ],
+  [
+   "https://miracledetailuk.detailersmovement.com/paint-correction/",
+   "2026-09-16T06:02:12+00:00",
+   "https://miracledetailuk.detailersmovement.com/wp-sitemap-posts-page-1.xml"
+  ],
+  [
+   "https://miracledetailuk.detailersmovement.com/paint-protection-film/",
+   "2026-09-16T06:02:58+00:00",
+   "https://miracledetailuk.detailersmovement.com/wp-sitemap-posts-page-1.xml"
+  ],
+  [
+   "https://miracledetailuk.detailersmovement.com/ceramic-coatings/",
+   "2026-09-22T06:59:32+00:00",
+   "https://miracledetailuk.detailersmovement.com/wp-sitemap-posts-page-1.xml"
+  ],
+  [
+   "https://miracledetailuk.detailersmovement.com/leather-restoration/",
+   "2026-09-06T08:58:34+00:00",
+   "https://miracledetailuk.detailersmovement.com/wp-sitemap-posts-page-1.xml"
+  ],
+  [
+   "https://miracledetailuk.detailersmovement.com/mobile-detailing/",
+   "2026-09-16T06:04:47+00:00",
+   "https://miracledetailuk.detailersmovement.com/wp-sitemap-posts-page-1.xml"
+  ],
+  [
+   "https://miracledetailuk.detailersmovement.com/wheel-refurbishment/",
+   "2026-09-06T08:58:51+00:00",
+   "https://miracledetailuk.detailersmovement.com/wp-sitemap-posts-page-1.xml"
+  ],
+  [
+   "https://miracledetailuk.detailersmovement.com/window-tinting-protection/",
+   "2026-09-06T08:56:00+00:00",
+   "https://miracledetailuk.detailersmovement.com/wp-sitemap-posts-page-1.xml"
+  ],
+  [
+   "https://miracledetailuk.detailersmovement.com/bodyshop-paint-repair/",
+   "2026-09-10T09:51:48+00:00",
+   "https://miracledetailuk.detailersmovement.com/wp-sitemap-posts-page-1.xml"
+  ],
+  [
+   "https://miracledetailuk.detailersmovement.com/paintless-dent-removal/",
+   "2026-09-10T09:53:41+00:00",
+   "https://miracledetailuk.detailersmovement.com/wp-sitemap-posts-page-1.xml"
+  ],
+  [
+   "https://miracledetailuk.detailersmovement.com/aftercare-washing-guide/",
+   "2026-09-13T05:38:53+00:00",
+   "https://miracledetailuk.detailersmovement.com/wp-sitemap-posts-page-1.xml"
+  ],
+  [
+   "https://miracledetailuk.detailersmovement.com/author/DMI-Webmaster/",
+   "",
+   "https://miracledetailuk.detailersmovement.com/wp-sitemap-users-1.xml"
+  ]
+ ]
+}

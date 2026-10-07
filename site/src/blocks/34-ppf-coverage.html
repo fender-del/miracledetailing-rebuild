@@ -1,0 +1,50 @@
+<!-- ============ 34 · PPF: COVERAGE ============
+     The PPF page's own block (Fender 06/10). v0.5's three packages,
+     word for word, beside a technical drawing of a mid-engined car (side
+     + top view, src/lib/ppf-car.js). Picking a package lights its panels
+     in fitting order and sweeps a sheen over the film; pointing at a
+     line of the list lights that panel and draws a callout to it, and
+     pointing at a panel lights its line (motion/ppf.js).
+     Without JS: the three packages are listed one after another and the
+     drawing shows the first. -->
+<section class="pc sec" id="coverage" data-section="coverage" data-pc data-bg="graphite">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{pcEyebrow}}</p>
+      <h2 class="disp h2" data-split>{{&pcTitle}}</h2>
+    </div>
+
+    <div class="pc__grid">
+      <div class="pc__copy">
+        <div class="pc__tabs" role="tablist" aria-label="Coverage options">
+          {{#packages}}
+          <button class="pc__tab" type="button" role="tab" id="pc-t-{{key}}" aria-controls="pc-p-{{key}}" aria-selected="{{#first}}true{{/first}}{{^first}}false{{/first}}" tabindex="{{#first}}0{{/first}}{{^first}}-1{{/first}}" data-pc-tab="{{key}}">
+            <span class="pc__n">{{n}}</span><span class="pc__name">{{name}}</span><span class="pc__from">{{priceShort}}</span>
+          </button>
+          {{/packages}}
+        </div>
+
+        {{#packages}}
+        <div class="pc__panel" role="tabpanel" id="pc-p-{{key}}" aria-labelledby="pc-t-{{key}}" data-pc-panel="{{key}}">
+          <h3 class="pc__pname">{{name}}</h3>
+          <p class="pc__sub">{{sub}}</p>
+          <p class="pc__desc">{{desc}}</p>
+          <ul class="pc__items" role="list">
+            {{#items}}<li class="pc__item" tabindex="0" data-zs="{{zs}}">{{t}}</li>{{/items}}
+          </ul>
+          <p class="pc__price">{{price}}</p>
+        </div>
+        {{/packages}}
+
+        <p class="pc__note">{{pcNote}}</p>
+      </div>
+
+      <figure class="pc__sheet" data-pc-sheet>
+        <div class="pc__view"><span class="pc__cap" aria-hidden="true">Side</span>{{&pcSide}}</div>
+        <div class="pc__view"><span class="pc__cap" aria-hidden="true">Top</span>{{&pcPlan}}</div>
+        <figcaption class="pc__legend"><i aria-hidden="true"></i>Film coverage</figcaption>
+      </figure>
+    </div>
+  </div>
+  <script type="application/json" data-pc-data>{{&pcData}}</script>
+</section>

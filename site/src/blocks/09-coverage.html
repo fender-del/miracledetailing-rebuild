@@ -1,0 +1,33 @@
+<!-- ============ 09 · COVERAGE ============
+     v0.5 Coverage Area (Fender 02/10, round 5): the counties clients
+     travel from, in big type. With motion the block holds the screen and
+     the names run past from right to left, each turning gold as it
+     crosses the middle, with how far it is from Lingfield; the studio,
+     hours and directions arrive last. No JS / reduced motion: the names
+     wrap as a plain list. -->
+<section class="cov" id="visit" data-section="coverage" data-bg="graphite">
+  <div class="cov__pin">
+    <div class="wrap cov__head">
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>Coverage area</p>
+      <h2 class="cov__h" data-reveal>Based in Lingfield, Surrey. <span class="muted">Clients travel from</span></h2>
+    </div>
+    <div class="cov__rail" data-cov>
+      <div class="cov__track" data-cov-track>
+        <ol class="cov__list" role="list">
+          {{#coverage}}
+          <li class="cov__stop" data-cov-stop>
+            <span class="cov__name" data-t="{{name}}">{{name}}</span>
+            <span class="cov__ref">{{#home}}<i class="eyebrow__mark" aria-hidden="true"></i>{{/home}}{{ref}}</span>
+          </li>
+          {{/coverage}}
+        </ol>
+        <div class="cov__card">
+          <p><span class="cov__k">Studio</span>{{site.address.unit}}, {{site.address.street}}, {{site.address.town}} {{site.address.postcode}}</p>
+          <p><span class="cov__k">Hours</span>{{site.hours}}</p>
+          <a class="btn btn--ghost" href="{{site.mapDirections}}" target="_blank" rel="noopener"><span class="btn__in">Get directions<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7m0 0H8m9 0v9" stroke="currentColor" stroke-width="1.8"/></svg></span></a>
+          <p class="cov__note">Miles as the crow flies from Lingfield.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

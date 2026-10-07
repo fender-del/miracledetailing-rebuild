@@ -1,0 +1,33 @@
+/* ============ 23 · SERVICE: HOW A JOB RUNS ============ */
+.ssteps__track{position:relative}
+.ssteps__list{position:relative;z-index:1;display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:clamp(20px,3vw,48px);list-style:none;margin:0;padding:0}
+/* the line runs behind the four numbers */
+.ssteps__line{position:absolute;left:0;right:0;top:27px;height:1px;background:var(--line-2)}
+.ssteps__line span{position:absolute;inset:0;background:var(--gold);transform-origin:0 50%}
+.ssteps__it{position:relative;display:grid;align-content:start;gap:12px}
+.ssteps__n{display:flex}
+.ssteps__n span{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:var(--ink);box-shadow:inset 0 0 0 1px var(--gold);
+  font-family:var(--fd);font-style:italic;font-weight:500;font-size:1.2rem;color:var(--gold)}
+.ssteps__name{margin-top:10px;font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.35rem,1.1rem + .6vw,1.65rem);line-height:1.15}
+.ssteps__text{font-size:.95rem}
+.ssteps__intro{max-width:62ch}
+.ssteps__links{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.ssteps__links a{display:inline-flex;align-items:center;min-height:32px;padding:0 12px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--gold-a30);font-size:.625rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);transition:background .35s var(--ease),color .35s var(--ease)}
+@media (hover:hover){.ssteps__links a:hover{background:var(--gold);color:var(--ink)}}
+/* more than one row: no line along the numbers */
+.ssteps--long .ssteps__line{display:none}
+.ssteps--long .ssteps__list{row-gap:clamp(36px,4vw,56px)}
+.ssteps__text .tbc{margin-top:6px}
+@media (max-width:1023px){
+  .ssteps__list{grid-template-columns:1fr 1fr;row-gap:44px}
+  .ssteps__line{display:none}
+}
+@media (max-width:600px){
+  .ssteps__list{grid-template-columns:1fr;row-gap:0}
+  .ssteps__it{grid-template-columns:54px 1fr;column-gap:18px;padding-bottom:30px}
+  .ssteps__it>:not(.ssteps__n){grid-column:2}
+  .ssteps__n{grid-row:1 / span 2}
+  .ssteps__name{margin-top:12px}
+  .ssteps__it:not(:last-child)::before{content:"";position:absolute;left:27px;top:60px;bottom:6px;width:1px;background:var(--line-2)}
+}
+.ssteps--tight{padding-top:0}

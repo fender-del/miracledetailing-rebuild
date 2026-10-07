@@ -1,0 +1,27 @@
+<!-- ============ 36 · SERVICE: THE PRODUCTS PAUL USES ============
+     The brands behind a service (PPF: four film makers), Paul's words.
+     Real marks as white logos (tools/images.js, licences in
+     assets-src/logos/SOURCES.md); a brand without a usable mark is set
+     in type until Paul sends one. -->
+<section class="sbrands sec" id="{{brands.id}}" data-section="brands">
+  <div class="wrap">
+    <div class="sbrands__head">
+      <div class="sbrands__titles">
+        <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{brands.eyebrow}}</p>
+        <h2 class="disp h2" data-split>{{&brands.title}}</h2>
+      </div>
+      <div class="sbrands__intro more" data-more>
+        <div class="more__body" data-reveal>{{#brands.intro}}<p>{{&.}}</p>{{/brands.intro}}</div>
+      </div>
+    </div>
+    <ul class="sbrands__grid" role="list">
+      {{#brands.items}}
+      <li class="brand" data-reveal="card">
+        <div class="brand__mark">{{#mark}}<img src="{{src}}" width="{{w}}" height="{{h}}" style="--k:{{k}}" alt="{{name}}" loading="lazy" decoding="async">{{/mark}}{{^mark}}<span class="brand__word">{{name}}</span>{{/mark}}</div>
+        <p class="brand__text">{{text}}</p>
+        {{#badge}}<p class="brand__badge">{{badge}}</p>{{/badge}}
+      </li>
+      {{/brands.items}}
+    </ul>
+  </div>
+</section>

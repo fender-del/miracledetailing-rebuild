@@ -1,0 +1,17 @@
+<!-- ============ 25 · SERVICE: WHY PAUL ============
+     Why Paul for this service: v0.5's own words, three points. -->
+<section class="swhy sec" id="why" data-section="why" data-bg="graphite">
+  <div class="wrap swhy__in">
+    <div class="swhy__media" data-reveal="card"><div class="swhy__pic" data-parallax>{{&whyImg}}</div></div>
+    <div class="swhy__copy">
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{whyEyebrow}}</p>
+      <h2 class="disp h2" data-split>{{&whyTitle}}</h2>
+      <p class="lede" data-reveal>{{&whyLede}}</p>
+      <dl class="swhy__list">
+        {{#why}}
+        <div class="swhy__it" data-reveal="row"><dt>{{k}}{{&tbc}}</dt><dd>{{v}}</dd></div>
+        {{/why}}
+      </dl>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,126 @@
+<!-- ============ 30 · DRY ICE: −78.5°C ============
+     Dry ice's own block (Fender 06/10, picked over a car diagram and a
+     price estimator). v0.5's three mechanisms, played by the scroll on
+     one drawing: I pellets fly from the gun and strike the grime; II the
+     cold hits (frost, cracks, the readout falls to −78.5°C); III the
+     pellets turn to gas, the grime flakes away and the bare metal
+     shines. The drawing stays in view (CSS sticky, no pin) while the
+     three beats scroll past it; the beat on screen lights up.
+     Without JS or with reduced motion: one still frame of all three
+     and the three beats as plain text. The drawing is decorative
+     (aria-hidden); the beats carry the words. -->
+<section class="cold sec" id="{{coldId}}{{^coldId}}science{{/coldId}}" data-section="cold" data-cold>
+  <div class="wrap">
+    <div class="sec-head cold__head">
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&coldEyebrow}}</p>
+      <h2 class="disp h2" data-split>{{&coldTitle}}</h2>
+    </div>
+
+    <div class="cold__grid">
+      <div class="cold__stage" aria-hidden="true">
+        <div class="cold__read">
+          <p class="cold__deg"><span data-cold-deg>−78.5</span><span class="cold__unit">°C</span></p>
+          <p class="cold__phase" data-cold-phase>On contact</p>
+        </div>
+        <svg class="cold__svg" viewBox="0 0 640 480" focusable="false">
+          <defs>
+            <linearGradient id="cold-metal" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#3A3A3F"/><stop offset=".08" stop-color="#26262A"/><stop offset="1" stop-color="#121214"/>
+            </linearGradient>
+            <linearGradient id="cold-grime" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#6B5A45"/><stop offset="1" stop-color="#3B3027"/>
+            </linearGradient>
+            <radialGradient id="cold-frost">
+              <stop offset="0" stop-color="#DCEBFF" stop-opacity=".75"/><stop offset=".55" stop-color="#A9C8F0" stop-opacity=".22"/><stop offset="1" stop-color="#A9C8F0" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="cold-shine" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#E6CC85" stop-opacity="0"/><stop offset=".5" stop-color="#FFF6DD" stop-opacity=".95"/><stop offset="1" stop-color="#E6CC85" stop-opacity="0"/>
+            </linearGradient>
+            <clipPath id="cold-top"><rect x="100" y="352" width="480" height="20"/></clipPath>
+            <filter id="cold-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
+          </defs>
+
+          <!-- the surface: a metal part, its top edge catching the light -->
+          <rect x="0" y="362" width="640" height="118" fill="url(#cold-metal)"/>
+          <line class="cold__edge" x1="100" y1="362.5" x2="580" y2="362.5" stroke="#C9A84D" stroke-width="1.4" stroke-opacity=".35"/>
+          <g clip-path="url(#cold-top)"><rect class="cold__shine" x="-200" y="352" width="200" height="20" fill="url(#cold-shine)" opacity="0"/></g>
+
+          <!-- the cold spreading on impact -->
+          <ellipse class="cold__frost" cx="345" cy="332" rx="240" ry="60" fill="url(#cold-frost)" opacity=".7"/>
+
+          <g class="cold__dirt" transform="matrix(1 0 0 1.7 0 -253.4)">
+          <!-- contamination: years of grime, in chunks that can break away -->
+          <g class="cold__grime" fill="url(#cold-grime)">
+            <path d="M110 362 L110.0 332.2 L120.4 337.4 L132.4 335.6 L146.7 327.9 L160.0 335.1 L160 362 Z"/>
+            <path d="M160 362 L160.0 327.6 L173.4 328.1 L185.0 333.8 L203.2 329.0 L215.0 330.6 L215 362 Z"/>
+            <path d="M215 362 L215.0 337.0 L229.4 336.2 L237.9 342.6 L247.5 340.7 L262.0 331.6 L262 362 Z"/>
+            <path d="M262 362 L262.0 329.3 L273.7 331.9 L291.9 329.9 L304.5 337.2 L318.0 333.0 L318 362 Z"/>
+            <path d="M318 362 L318.0 335.8 L328.4 328.0 L342.2 337.9 L356.6 332.0 L370.0 336.4 L370 362 Z"/>
+            <path d="M370 362 L370.0 334.3 L381.5 339.7 L396.7 330.9 L408.7 335.4 L421.0 341.0 L421 362 Z"/>
+            <path d="M421 362 L421.0 338.7 L432.0 342.7 L443.2 333.7 L459.3 329.4 L470.0 334.8 L470 362 Z"/>
+            <path d="M470 362 L470.0 327.6 L484.0 339.2 L496.4 341.0 L507.9 338.1 L522.0 336.5 L522 362 Z"/>
+            <path d="M522 362 L522.0 336.3 L533.7 340.4 L548.7 334.6 L559.0 328.0 L570.0 338.2 L570 362 Z"/>
+          </g>
+          <!-- cracks as the cold makes it brittle -->
+          <g class="cold__cracks" fill="none" stroke="#EAF3FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke">
+            <path pathLength="1" d="M236 338 L244 347 L240 356 L247 361"/>
+            <path pathLength="1" d="M286 331 L281 341 L289 350 L285 360"/>
+            <path pathLength="1" d="M330 330 L338 340 L333 349 L341 360"/>
+            <path pathLength="1" d="M384 338 L377 347 L385 353 L380 361"/>
+            <path pathLength="1" d="M437 337 L445 345 L441 354"/>
+            <path pathLength="1" d="M488 340 L482 349 L490 360"/>
+            <path pathLength="1" d="M268 345 L296 348 L312 343"/>
+            <path pathLength="1" d="M350 350 L372 346 L402 351"/>
+          </g>
+          </g>
+
+          <!-- the gun, top left, aimed down at the grime -->
+          <g class="cold__gun" transform="translate(70 70) rotate(38)">
+            <rect x="-90" y="-14" width="182" height="28" rx="8" fill="#2A2A2E" stroke="#C9A84D" stroke-opacity=".45"/>
+            <rect x="-70" y="-14" width="10" height="28" fill="#C9A84D" opacity=".55"/>
+            <rect x="92" y="-7" width="40" height="14" rx="3" fill="#9C7F2E"/>
+          </g>
+
+          <!-- pellets: solid CO2, in flight from the gun to the surface -->
+          <g class="cold__pellets" fill="#EEF5FF">
+            <rect x="-8" y="-4.5" width="16" height="9" rx="3" transform="translate(205 182) rotate(38)"/>
+            <rect x="-8" y="-4.5" width="16" height="9" rx="3" transform="translate(232 214) rotate(41)"/>
+            <rect x="-8" y="-4.5" width="16" height="9" rx="3" transform="translate(222 235) rotate(52)"/>
+            <rect x="-8" y="-4.5" width="16" height="9" rx="3" transform="translate(262 238) rotate(35)"/>
+            <rect x="-8" y="-4.5" width="16" height="9" rx="3" transform="translate(252 268) rotate(48)"/>
+            <rect x="-8" y="-4.5" width="16" height="9" rx="3" transform="translate(296 262) rotate(33)"/>
+            <rect x="-8" y="-4.5" width="16" height="9" rx="3" transform="translate(281 296) rotate(46)"/>
+            <rect x="-8" y="-4.5" width="16" height="9" rx="3" transform="translate(332 290) rotate(31)"/>
+            <rect x="-8" y="-4.5" width="16" height="9" rx="3" transform="translate(318 318) rotate(44)"/>
+            <rect x="-8" y="-4.5" width="16" height="9" rx="3" transform="translate(372 312) rotate(29)"/>
+            <rect x="-8" y="-4.5" width="16" height="9" rx="3" transform="translate(410 324) rotate(27)"/>
+            <rect x="-8" y="-4.5" width="16" height="9" rx="3" transform="translate(452 330) rotate(25)"/>
+          </g>
+
+          <!-- sublimation: the pellets go straight to gas -->
+          <g class="cold__vapour" fill="#E8F0FA" filter="url(#cold-blur)" opacity=".55">
+            <circle cx="250" cy="322" r="22"/><circle cx="300" cy="316" r="26"/><circle cx="350" cy="320" r="24"/>
+            <circle cx="400" cy="318" r="28"/><circle cx="452" cy="322" r="22"/><circle cx="325" cy="296" r="18"/><circle cx="420" cy="292" r="20"/>
+          </g>
+
+          <g class="cold__lbls">
+            <text class="cold__lbl-dirt" x="570" y="290" text-anchor="end">Contamination</text>
+            <text x="560" y="420" text-anchor="end">Surface</text>
+          </g>
+        </svg>
+        <ol class="cold__dots"><li class="is-on"></li><li></li><li></li></ol>
+      </div>
+
+      <ol class="cold__beats" role="list">
+        {{#beats}}
+        <li class="cold__beat" data-cold-beat>
+          <p class="cold__n">{{n}}</p>
+          <h3 class="cold__name disp">{{name}}</h3>
+          <p class="cold__sub">{{sub}}</p>
+          <p class="cold__text">{{text}}</p>
+        </li>
+        {{/beats}}
+      </ol>
+    </div>
+  </div>
+</section>

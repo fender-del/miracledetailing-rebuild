@@ -1,0 +1,7 @@
+# Reinstall with: cd site && npm install
+node_modules/
+# Source photos/video (562 MB): kept locally, too big for the repo
+assets-src/
+# Old Netlify deploy zips
+*.zip
+.claude/settings.local.json

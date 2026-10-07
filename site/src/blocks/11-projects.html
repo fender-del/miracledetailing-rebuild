@@ -1,0 +1,57 @@
+<!-- ============ 11 · PROJECTS: THE STUDIO SEES EVERYTHING ============
+     v0.5 line + car list. The archive as a deck of cards (Fender 02/10,
+     after the HB Body product cards; white and gold in turn). Two plain
+     arrow buttons under the deck move through it (Ed 06/10: "rather
+     than drag, a simple button that goes left to right"); the top card
+     slides off to the right and is filed at the back. Arrow keys do the
+     same; on a phone a swipe still works too. No JS / reduced motion:
+     a plain swipeable row. Each card is a job Paul has done, told from
+     what he has published (round 6: not a sales catalogue). -->
+<section class="proj sec" id="projects" data-section="projects" data-motion="deck">
+  <div class="wrap proj__head">
+    <div>
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>Projects · From the archive</p>
+      <h2 class="disp h2" data-split>The studio sees everything from classics to daily drivers.</h2>
+    </div>
+    <div class="proj__ctl" data-reveal>
+      <a class="btn btn--ghost" href="/car-detail-gallery/"><span class="btn__in">See 150+ projects</span></a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="deck" id="deck" data-deck role="region" aria-roledescription="carousel" aria-label="Projects from the archive" tabindex="0">
+      <ol class="deck__list" role="list">
+        {{#cars}}
+        <li class="pcard{{#gold}} pcard--gold{{/gold}}" data-card aria-roledescription="slide" aria-label="{{_n}} of {{total}}: {{name}}">
+          <div class="pcard__media">{{&img}}</div>
+          <div class="pcard__body">
+            <p class="pcard__cat">{{tag}}</p>
+            <h3 class="pcard__name">{{name}}</h3>
+            <p class="pcard__sub">{{sub}}</p>
+            <p class="pcard__story">{{story}}</p>
+            <ul class="pcard__tags" role="list">{{#work}}<li>{{.}}</li>{{/work}}</ul>
+            <div class="pcard__foot">
+              <a class="pcard__go" href="{{href}}"><span class="pcard__btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7m0 0H8m9 0v9" stroke="currentColor" stroke-width="1.8"/></svg></span>See the job<span class="sr">: {{name}}</span></a>
+              <span class="pcard__num" aria-hidden="true">{{_n}}</span>
+            </div>
+          </div>
+        </li>
+        {{/cars}}
+      </ol>
+    </div>
+    <div class="deck__nav" data-deck-nav hidden>
+      <button class="deck__btn deck__btn--prev" type="button" aria-controls="deck" data-deck-prev><span class="sr">Previous project</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></button>
+      <button class="deck__btn" type="button" aria-controls="deck" data-deck-next><span class="sr">Next project</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></button>
+      <p class="deck__count" aria-hidden="true"><span data-deck-n>01</span> / {{totalPad}}</p>
+    </div>
+  </div>
+
+  <div class="names press__row" role="group" aria-labelledby="makes-cap">
+    <p class="eyebrow press__cap" id="makes-cap"><span class="eyebrow__mark"></span><span>In the studio</span></p>
+    <div class="mq mq--makes" data-marquee data-speed="0.35" data-velocity>
+      <div class="mq__track">
+        <ul class="mq__group" role="list">{{#makes}}<li><a class="mq__link" href="/car-detail-gallery/?make={{id}}" aria-label="{{name}} in the gallery">{{#mark}}<img class="mq__mark" src="{{src}}" width="{{w}}" height="{{h}}" style="--k:{{k}}" alt="" loading="lazy" decoding="async">{{/mark}}{{^mark}}<span class="mq__name">{{name}}</span>{{/mark}}</a></li>{{/makes}}</ul>
+      </div>
+    </div>
+  </div>
+</section>

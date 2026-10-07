@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{canonical}}">
+{{#robots}}<meta name="robots" content="{{.}}">
+{{/robots}}<meta name="theme-color" content="#111111">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{site.name}}">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:image" content="{{ogImage}}">
+<meta name="twitter:card" content="summary_large_image">
+
+{{&preload}}
+<link rel="preload" href="/assets/fonts/bodoni-moda.woff2" as="font" type="font/woff2" crossorigin>
+{{&styles}}
+<script>
+/* Motion is opt-in. Content ships visible; this only arms the hidden
+   pre-states when JS runs and motion is allowed, and a watchdog
+   un-arms them if the bundle never reports in. */
+(function(){
+  try{
+    var d=document.documentElement;
+    d.classList.add("js");
+    if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+    d.classList.add("js-motion");
+    try{if(!sessionStorage.getItem("md-ld")){d.classList.add("show-ld");sessionStorage.setItem("md-ld","1")}}catch(e){}
+    setTimeout(function(){if(!d.hasAttribute("data-motion")){d.classList.remove("js-motion","show-ld")}},4500);
+  }catch(e){}
+})();
+</script>
+{{#schema}}<script type="application/ld+json">{{&.}}</script>
+{{/schema}}</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="ld" aria-hidden="true"><span class="ld__wm"><span class="logo"></span></span></div>
+<div class="bgfx" aria-hidden="true"></div>
+{{&BLOCKS}}
+<div class="cur" aria-hidden="true"><span class="cur__ring"><span class="cur__label"></span></span><span class="cur__dot"></span></div>
+<script>
+/* The motion bundle loads once the page has: the hero poster (the LCP)
+   paints first, and nothing on screen waits for the script (the hero
+   entrance is CSS; menu and form work without it). */
+addEventListener("load",function(){
+  var go=function(){requestAnimationFrame(function(){setTimeout(function(){var s=document.createElement("script");s.src="/assets/js/site.js?v={{v}}";document.body.appendChild(s)},0)})};
+  var im=document.querySelector("[data-hero-media] img");
+  if(im&&im.decode)im.decode().then(go,go);else go();
+});
+</script>
+</body>
+</html>

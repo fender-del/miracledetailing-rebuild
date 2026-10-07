@@ -1,0 +1,26 @@
+<!-- ============ 02 · HERO ============
+     v0.5 H1 + slogan + the one CTA (Fender 02/10: eyebrow, lede and the
+     story link dropped — the story block sits right below).
+     A muted 60 fps loop of a red Ferrari (tools/video.js; Ed 05/10:
+     "a red Ferrari, more visible"); its first frame is the poster, so
+     the photo you see first is where the video starts. No glass over
+     it any more: the car fills the frame and the copy sits low on the
+     left over a soft shade, just enough to read.
+     No video with reduced motion, Save-Data or iOS Low Power Mode: the
+     poster stays. -->
+<section class="hero" data-section="hero" data-motion="hero" data-hero>
+  <div class="hero__media" data-hero-media>
+    {{&heroPoster}}
+    <video class="hero__video" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" data-start="0.5"
+           data-src-d="/assets/video/hero-1920.mp4" data-src-t="/assets/video/hero-1920.mp4" data-src-m="/assets/video/hero-1080.mp4"></video>
+  </div>
+  <div class="hero__shade" aria-hidden="true"></div>
+
+  <div class="wrap hero__in">
+    <h1 class="eyebrow hero__h1" data-hero-in style="--i:0"><span class="eyebrow__mark" aria-hidden="true"></span>Car detailing in Surrey</h1>
+    <p class="hero__slogan disp" data-split="hero">There is only<br> one standard.<br> <span class="hero__perf"><span class="shine">Perfection.</span></span></p>
+    <div class="hero__ctas" data-hero-in style="--i:5">
+      <a class="btn" href="{{site.cta.href}}"><span class="btn__in">{{site.cta.label}}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></span></a>
+    </div>
+  </div>
+</section>

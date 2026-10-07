@@ -1,0 +1,25 @@
+/* ============ 38 · SERVICE: QUOTE ============ */
+.squote{overflow:hidden;isolation:isolate}
+.squote__bg{position:absolute;inset:0;z-index:-1}
+.squote__bg>div,.squote__bg .media{height:100%}
+.squote__bg .media{aspect-ratio:auto!important}
+.squote__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--ink) 0%,rgba(17,17,17,.78) 22%,rgba(17,17,17,.7) 60%,var(--ink) 100%)}
+.squote__in{display:grid;gap:clamp(22px,2.4vw,34px)}
+.squote__in>*{max-width:1120px}
+.squote.has-img .squote__in{padding-block:clamp(20px,4vw,60px)}
+.squote__fig{display:grid;gap:22px;margin:0}
+.squote__text{
+  margin:0;font-family:var(--fd);font-weight:500;font-synthesis:none;letter-spacing:-.01em;
+  font-size:clamp(1.9rem,1.2rem + 2.4vw,3.4rem);line-height:1.16;color:var(--white);text-wrap:balance;
+}
+.squote__text .gold{font-style:italic}
+.squote__text .w{opacity:var(--o,1);transition:opacity .25s linear}
+.js-motion .squote__text.is-split .w{--o:.18}
+.js-motion .squote__text.is-split .w.is-lit{--o:1}
+.squote__cite{display:flex;align-items:center;gap:14px;font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.squote__cite::before{content:"";flex:none;width:7px;height:7px;background:currentColor;transform:rotate(45deg)}
+.squote__body{max-width:68ch}
+.squote__body p{font-size:clamp(1.02rem,.98rem + .2vw,1.15rem);line-height:1.75}
+.squote__body p+p{margin-top:1.2em}
+.squote__price{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.4rem,1.2rem + .6vw,1.9rem);color:var(--gold)}
+.squote .h2+.squote__fig{margin-top:clamp(12px,2vw,28px);padding-top:clamp(20px,2.4vw,32px);box-shadow:inset 0 1px 0 var(--line)}

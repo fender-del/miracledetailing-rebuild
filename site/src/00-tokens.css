@@ -1,0 +1,51 @@
+/* Bodoni Moda + Jost (Paul via Ed 05/10: "a font that looks more
+   classy and luxury"; Fender picked direction 1 of 3), self-hosted:
+   Google's latin files cut to the glyphs this site uses (tools:
+   fonttools instancer + subset; originals in assets-src/fonts).
+   Bodoni Moda pinned at weight 500 with its optical-size axis kept, so
+   big headings get the fine display cut and small italics stay sturdy;
+   Jost 300–600. */
+@font-face{font-family:"Bodoni Moda";font-style:normal;font-weight:500;font-display:swap;
+  src:url(/assets/fonts/bodoni-moda.woff2) format("woff2")}
+@font-face{font-family:"Bodoni Moda";font-style:italic;font-weight:500;font-display:swap;
+  src:url(/assets/fonts/bodoni-moda-italic.woff2) format("woff2")}
+@font-face{font-family:"Jost";font-style:normal;font-weight:300 600;font-display:swap;
+  src:url(/assets/fonts/jost.woff2) format("woff2")}
+
+/* ============================================================
+   Tokens — v0.5 palette (black / gold / white).
+   Display: Bodoni Moda 500, mixed case; gold words in italic.
+   Labels:  Jost 500, capitals, spaced. Body: Jost 400.
+   ============================================================ */
+:root{
+  --ink:#111111;          /* page */
+  --ink-2:#0A0A0A;        /* deepest wells */
+  --graphite:#1B1B1D;     /* alternate band */
+  --raise:#232326;        /* cards */
+  --line:rgba(255,255,255,.1);
+  --line-2:rgba(255,255,255,.18);
+  --gold:#C9A84D;
+  --gold-2:#E6CC85;       /* highlight in the shine */
+  --gold-deep:#9C7F2E;
+  --gold-a12:rgba(201,168,77,.12);
+  --gold-a30:rgba(201,168,77,.3);
+  --white:#FFFFFF;
+  --paper:#F5F3EE;        /* light sections */
+  --text:#D9D6CF;         /* 13.6:1 on --ink */
+  --muted:#A7A39A;        /* 7.4:1 on --ink */
+
+  --f:"Jost","Helvetica Neue",Arial,sans-serif;
+  --fd:"Bodoni Moda","Bodoni 72",Didot,Georgia,serif;
+
+  --wrap:1320px;
+  --gut:clamp(16px,4vw,48px);
+  --sec:clamp(80px,11vw,160px);
+  --r:6px;
+  --r-lg:14px;
+
+  --ease:cubic-bezier(.22,1,.36,1);       /* expo-ish out */
+  --ease-io:cubic-bezier(.76,0,.24,1);
+  --hd-h:76px;
+  color-scheme:dark;
+}
+@media (max-width:767px){:root{--hd-h:64px}}

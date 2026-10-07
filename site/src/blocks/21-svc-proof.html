@@ -1,0 +1,13 @@
+<!-- ============ 21 · SERVICE PROOF STRIP ============
+     Four or five facts under the hero, the service's own. A figure
+     still waiting on Paul carries the gold "To confirm" label. -->
+<section class="sproof" data-section="proof" aria-label="At a glance"{{#proofId}} id="{{proofId}}"{{/proofId}}>
+  <ul class="wrap sproof__list" role="list"{{#proofN}} style="--n:{{proofN}}"{{/proofN}}>
+    {{#proof}}
+    <li class="sproof__it" data-reveal>
+      <p class="sproof__n">{{n}}</p>
+      <p class="sproof__l">{{#rating}}<span class="stars" aria-hidden="true">{{&stars}}</span>{{/rating}}{{l}}{{&tbc}}</p>
+    </li>
+    {{/proof}}
+  </ul>
+</section>

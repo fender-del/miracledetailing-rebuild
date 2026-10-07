@@ -1,0 +1,267 @@
+/* ============================================================
+   Base: reset, type, buttons, media frames, shared chrome.
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html:not(.lenis){scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html:not(.lenis){scroll-behavior:auto}}
+body{
+  margin:0;background:var(--ink);color:var(--text);
+  font:400 1.0625rem/1.65 var(--f);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  overflow-x:clip;
+}
+img,svg,video,iframe{display:block;max-width:100%}
+img{height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3,h4,p,ul,ol,figure,blockquote,dl,dd{margin:0}
+ul[role=list],ol[role=list]{list-style:none;padding:0}
+h1,h2,h3{color:var(--white);font-weight:600;text-wrap:balance}
+p{text-wrap:pretty}
+::selection{background:var(--gold);color:var(--ink)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:16px;top:-100px;z-index:200;background:var(--gold);color:var(--ink);padding:10px 14px;border-radius:var(--r);font-weight:600}
+.skip:focus{top:16px}
+
+/* ---------- Type ---------- */
+.disp{
+  font-family:var(--fd);font-weight:500;font-style:normal;text-transform:none;font-synthesis:none;
+  letter-spacing:-.01em;line-height:1.04;color:var(--white);
+}
+.h2{font-size:clamp(2.1rem,1.2rem + 3.2vw,4rem)}
+/* the gold words of a display line are set in italic */
+.disp .gold,.disp em{font-style:italic}
+.h3{font-weight:500;font-size:1.2rem;line-height:1.25}
+.gold{color:var(--gold)}
+.eyebrow{
+  display:flex;align-items:center;gap:14px;
+  font-weight:500;font-size:.72rem;line-height:1.4;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--gold);
+}
+/* A small gold diamond (Fender 02/10: the hairline rule read as
+   "AI-generated site"). Same shape as the strip separators. */
+.eyebrow__mark{flex:none;width:7px;height:7px;background:currentColor;transform:rotate(45deg)}
+.lede{font-size:clamp(1.05rem,1rem + .25vw,1.2rem);line-height:1.6;color:var(--text);max-width:58ch}
+.muted{color:var(--muted)}
+
+.sec{padding-block:var(--sec);position:relative}
+.sec-head{display:grid;gap:22px;margin-bottom:clamp(40px,5vw,72px)}
+.sec-head--center{justify-items:center;text-align:center}
+.sec-head--center .eyebrow::after{content:"";width:7px;height:7px;background:currentColor;transform:rotate(45deg)}
+
+/* ---------- Buttons ----------
+   Hover = a colour sweep from left to right (no movement of the button
+   itself: Fender 02/10, the magnetic wobble felt wrong). */
+.btn{
+  --bg:var(--gold);--fg:var(--ink);
+  position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  min-height:52px;padding:0 26px;border-radius:999px;
+  background:var(--bg);color:var(--fg);
+  font-weight:500;font-size:.8125rem;letter-spacing:.2em;text-transform:uppercase;
+  white-space:nowrap;isolation:isolate;overflow:hidden;
+  transition:color .4s var(--ease),box-shadow .4s var(--ease);
+}
+.btn svg{width:18px;height:18px;flex:none;transition:transform .5s var(--ease)}
+.btn::before{
+  content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;
+  background:var(--white);transform:translateX(-101%);transition:transform .55s var(--ease);
+}
+.btn__in{display:inline-flex;align-items:center;gap:12px}
+@media (hover:hover){
+  .btn:hover::before,.btn:focus-visible::before{transform:none}
+  .btn:hover svg{transform:translateX(4px)}
+}
+.btn--ghost{--bg:transparent;--fg:var(--white);box-shadow:inset 0 0 0 1px var(--line-2)}
+.btn--ghost::before{background:var(--gold)}
+@media (hover:none){.btn:active::before{transform:none;transition-duration:.25s}}
+@media (hover:hover){.btn--ghost:hover{color:var(--ink);box-shadow:inset 0 0 0 1px var(--gold)}}
+
+.link-arrow{
+  display:inline-flex;align-items:center;gap:10px;min-height:44px;
+  font-weight:500;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--white);
+}
+.link-arrow span{background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;padding-bottom:3px;transition:background-size .5s var(--ease)}
+.link-arrow svg{width:16px;height:16px;color:var(--gold);transition:transform .5s var(--ease)}
+@media (hover:hover){
+  .link-arrow:hover span{background-size:0 1px;background-position:100% 100%}
+  .link-arrow:hover svg{transform:translateX(5px)}
+}
+
+/* ---------- Media frames ----------
+   The frame paints a 24px placeholder (inlined) under the image; the
+   browser's upscale is the blur. With JS the image fades in over it once
+   decoded. Without JS the image simply shows. */
+.media{position:relative;overflow:hidden;background:#1a1a1a var(--lq,none) center/cover no-repeat;isolation:isolate}
+.media::before{content:"";position:absolute;inset:-12px;background:inherit;filter:blur(14px);z-index:-1}
+.media picture,.media img{width:100%;height:100%}
+.media img{object-fit:cover}
+.js-motion .media img.lz{opacity:0;transition:opacity .9s var(--ease)}
+.js-motion .media.is-loaded img.lz{opacity:1}
+.credit{
+  position:absolute;right:10px;bottom:8px;z-index:2;
+  font-size:.625rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.62);
+  text-shadow:0 1px 4px rgba(0,0,0,.6);pointer-events:none;
+}
+
+/* ---------- Glass ---------- */
+.glass{
+  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.1),inset 0 1px 0 rgba(255,255,255,.12);
+  -webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);
+}
+
+/* ---------- Stars ---------- */
+.stars{display:inline-flex;gap:2px;color:var(--gold)}
+.stars svg{width:15px;height:15px}
+
+/* ---------- Background bands (motion swaps them for one fixed layer) ---------- */
+[data-bg=graphite]{background:var(--graphite)}
+.bgfx{position:fixed;inset:0;z-index:-1;background:var(--graphite);opacity:0;pointer-events:none}
+.js-motion [data-bg=graphite]{background:transparent}
+
+/* ---------- Light sections (Fender 02/10, rounds 5–7) ----------
+   The section paints its own paper ground on ::before; scroll.js moves
+   only its edges (--cx side inset, --rt/--rb corner radius). The tokens
+   flip inside it, so every block that reads them follows: "--white" is
+   the strong ink, gold darkens to a bronze that reads on paper (4.8:1). */
+[data-bg=light]{position:relative;isolation:isolate}
+[data-bg=light]::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  /* the paper darkens a little towards its edges (less glare) */
+  background:radial-gradient(140% 100% at 50% 35%,var(--paper) 45%,#E7E3D9 100%);
+  clip-path:inset(0 calc(var(--cx,0%) + var(--cx2,0%)) round var(--rt,0px) var(--rt,0px) var(--rb,0px) var(--rb,0px));
+}
+[data-theme=light]{
+  --white:#111111;--text:#36332D;--muted:#5F5B53;--raise:#FFFFFF;
+  --line:rgba(17,17,17,.12);--line-2:rgba(17,17,17,.22);
+  --gold:#8B6E22;--gold-a12:rgba(201,168,77,.18);
+  color:var(--text);color-scheme:light;
+}
+[data-theme=light] .btn{--bg:#111111;--fg:#FFFFFF}
+[data-theme=light] .btn::before{background:#C9A84D}
+@media (hover:hover){[data-theme=light] .btn:hover{color:#111111}}
+@media (hover:none){[data-theme=light] .btn:active{color:#111111}}
+.on-light .cur__ring::before{box-shadow:inset 0 0 0 1px rgba(17,17,17,.38)}
+
+/* ---------- Lenis ---------- */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:clip}
+
+/* ---------- Cursor (fine pointers, motion on) ----------
+   A gold dot on the pointer and a hairline ring that trails it. Over a
+   link the ring opens out and fades. Nothing else (Fender 02/10; the
+   "Drag" disc over the project deck went with the drag, Ed 06/10). */
+.cur{display:none}
+.has-cursor .cur{display:block;position:fixed;left:0;top:0;z-index:300;pointer-events:none;transition:opacity .3s}
+.has-cursor,.has-cursor a,.has-cursor button,.has-cursor [data-cursor],.has-cursor label{cursor:none}
+.has-cursor input,.has-cursor textarea,.has-cursor select{cursor:auto}
+.cur__dot,.cur__ring{position:absolute;left:0;top:0;border-radius:50%;will-change:transform}
+.cur__dot{width:6px;height:6px;margin:-3px 0 0 -3px;background:var(--gold);transition:transform .35s var(--ease)}
+.cur__ring{width:34px;height:34px;margin:-17px 0 0 -17px;display:grid;place-items:center}
+.cur__ring::before{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.32);
+  transition:transform .6s var(--ease),opacity .45s var(--ease),background-color .45s var(--ease),box-shadow .45s var(--ease);
+}
+.cur__label{
+  position:relative;font-weight:600;font-size:.625rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink);opacity:0;transform:scale(.6);transition:opacity .3s,transform .45s var(--ease);
+}
+.cur.is-link .cur__ring::before{transform:scale(1.7);opacity:0}
+.cur.is-link .cur__dot{transform:scale(1.5)}
+.cur.is-label .cur__ring::before{transform:scale(2.3);background-color:var(--gold);box-shadow:none;opacity:1}
+.cur.is-label .cur__label{opacity:1;transform:none}
+.cur.is-label .cur__dot{transform:scale(0)}
+.cur.is-hidden{opacity:0}
+
+/* ---------- Preloader (first view of the session only) ----------
+   Pure CSS so it can never wait on the script bundle. Never blocks input. */
+.ld{display:none}
+.show-ld .ld{
+  display:grid;place-items:center;position:fixed;inset:0;z-index:400;pointer-events:none;
+  background:var(--ink-2);
+  animation:ld-out .5s var(--ease-io) .42s forwards;
+}
+.ld__wm{position:relative;overflow:hidden;padding:6px 4px;animation:ld-in .4s var(--ease) both}
+.ld__wm .logo{width:clamp(180px,22vw,260px);aspect-ratio:1744 / 636}
+.ld__wm::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);
+  transform:translateX(-110%);animation:ld-sweep .6s var(--ease) .12s forwards;
+}
+@keyframes ld-in{from{opacity:0;transform:translateY(10px)}}
+@keyframes ld-sweep{to{transform:translateX(110%)}}
+@keyframes ld-out{to{transform:translateY(-100%)}}
+
+/* ---------- Motion pre-states ----------
+   Only ever applied under .js-motion, which the head script sets when
+   JS runs and motion is allowed, and removes again after 3s if the
+   bundle never reports in. Content is visible in every other case. */
+.js-motion [data-split],.js-motion [data-reveal],.js-motion [data-count]{visibility:hidden}
+
+section[id],[id=book]{scroll-margin-top:calc(var(--hd-h) + 12px)}
+html.menu-open{overflow:hidden}
+
+/* ---------- Logo ----------
+   White script on transparent. Inlined once as a data URI by build.js
+   (__LOGO__), so header, menu and preloader paint it with no request. */
+.logo{display:block;background:url(__LOGO__) left center/contain no-repeat}
+
+/* ---------- "To confirm" (Fender 06/10) ----------
+   A small gold label on every price or claim still waiting on Paul.
+   The note says what to check: hover or focus shows it (title for
+   touch screens' long-press). site.tbc = false removes them all. */
+.tbc{
+  position:relative;display:inline-flex;align-items:center;gap:6px;vertical-align:middle;
+  margin-inline:6px 0;padding:3px 9px 3px 7px;border-radius:999px;
+  font:600 .5625rem/1.3 var(--f);letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;
+  color:var(--ink);background:#E6CC85;box-shadow:0 0 0 1px rgba(17,17,17,.15);
+  -webkit-text-fill-color:var(--ink);font-style:normal;cursor:help;
+}
+.tbc::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--ink);opacity:.7}
+.tbc__note{
+  position:absolute;left:0;bottom:calc(100% + 8px);z-index:20;width:max-content;max-width:260px;
+  padding:9px 12px;border-radius:8px;background:#E6CC85;color:var(--ink);
+  font-weight:500;font-size:.75rem;line-height:1.4;letter-spacing:0;text-transform:none;white-space:normal;
+  box-shadow:0 12px 30px rgba(0,0,0,.35);pointer-events:none;
+  display:none;animation:tbc-in .3s var(--ease);
+}
+/* display:none while closed: a hidden note near the right edge would
+   still widen the page */
+.tbc:hover .tbc__note,.tbc:focus-visible .tbc__note{display:block}
+.tbc.is-right .tbc__note{left:auto;right:0}
+@keyframes tbc-in{from{opacity:0;transform:translateY(4px)}}
+
+/* ---------- Breadcrumbs (inner pages) ---------- */
+.crumbs ol{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;list-style:none;margin:0;padding:0;
+  font-size:.6875rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.crumbs li{display:inline-flex;align-items:center;gap:10px}
+.crumbs li+li::before{content:"";width:4px;height:4px;background:var(--gold);transform:rotate(45deg)}
+.crumbs a{transition:color .3s}
+.crumbs a:hover{color:var(--white)}
+.crumbs [aria-current]{color:var(--text)}
+
+/* ---------- Read more (phones; every block with [data-more]) ----------
+   .more is the wrapper, .more__body the text. motion/ppf.js adds
+   .is-folded and the button only when the text is taller than the fold. */
+.more__btn{display:none}
+@media (max-width:767px){
+  .more.is-folded .more__body{
+    max-height:var(--fold,13.5em);overflow:hidden;
+    -webkit-mask-image:linear-gradient(180deg,#000 55%,transparent);mask-image:linear-gradient(180deg,#000 55%,transparent);
+  }
+  .more.is-foldable .more__btn{
+    display:inline-flex;align-items:center;gap:10px;min-height:44px;margin-top:10px;
+    font-weight:500;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--white);
+  }
+  .more__btn svg{width:14px;height:14px;color:var(--gold);transition:transform .4s var(--ease)}
+  .more:not(.is-folded) .more__btn svg{transform:rotate(180deg)}
+}

@@ -1,0 +1,46 @@
+<!-- ============ 27 · SERVICE: ALONGSIDE IT ============
+     Related work that shares the page (dry ice: underbody protection and
+     laser cleaning, both waiting on Paul). Each has its own anchor, so
+     the homepage card "Underside Coating" lands on #underbody. -->
+<section class="salso sec" id="alongside" data-section="also">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{alsoEyebrow}}</p>
+      <h2 class="disp h2" data-split>{{&alsoTitle}}</h2>
+    </div>
+    <div class="salso__grid">
+      {{#also}}
+      <article class="salso__it{{#img}} has-img{{/img}}" id="{{id}}" data-reveal="card">
+        {{#img}}<div class="salso__media">{{&.}}</div>{{/img}}
+        {{#art}}<div class="salso__art" aria-hidden="true">
+          <svg viewBox="0 0 400 250" focusable="false">
+            <defs>
+              <linearGradient id="lz-metal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A4A50"/><stop offset=".1" stop-color="#2C2C30"/><stop offset="1" stop-color="#151517"/></linearGradient>
+              <linearGradient id="lz-beam" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E6CC85" stop-opacity="0"/><stop offset="1" stop-color="#FFF3D2"/></linearGradient>
+              <filter id="lz-glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+            </defs>
+            <rect x="0" y="160" width="400" height="90" fill="url(#lz-metal)"/>
+            <g class="salso__rust" fill="#7A4A26">
+              <path d="M0 160 h214 v-6 l-10 -3 -14 4 -12 -5 -16 3 -18 -4 -20 5 -22 -3 -24 4 -26 -4 -22 3 -30 -2 Z" opacity=".9"/>
+              <circle cx="40" cy="170" r="3" opacity=".7"/><circle cx="92" cy="176" r="2.5" opacity=".6"/><circle cx="150" cy="168" r="3.5" opacity=".7"/><circle cx="188" cy="178" r="2" opacity=".6"/>
+              <rect x="0" y="160" width="214" height="9" opacity=".55"/>
+            </g>
+            <line x1="214" y1="161" x2="400" y2="161" stroke="#E6CC85" stroke-width="1.6"/>
+            <path d="M300 0 L218 156" stroke="url(#lz-beam)" stroke-width="3" fill="none"/>
+            <path d="M300 0 L218 156" stroke="#E6CC85" stroke-width="10" stroke-opacity=".25" fill="none" filter="url(#lz-glow)"/>
+            <circle cx="216" cy="158" r="14" fill="#FFF3D2" opacity=".55" filter="url(#lz-glow)"/>
+            <circle cx="216" cy="158" r="3.5" fill="#FFFFFF"/>
+            <text x="20" y="215">Rust</text><text x="380" y="215" text-anchor="end">Bare metal</text>
+          </svg>
+        </div>{{/art}}
+        <div class="salso__body">
+          <h3 class="salso__name">{{name}}</h3>
+          <p>{{text}}</p>
+          {{#tbc}}<p class="salso__tbc">{{&.}}</p>{{/tbc}}
+          <a class="link-arrow" href="{{site.cta.href}}"><span>Ask Paul about it</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></a>
+        </div>
+      </article>
+      {{/also}}
+    </div>
+  </div>
+</section>

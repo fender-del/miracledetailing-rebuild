@@ -1,0 +1,138 @@
+/* ============ 20 · SERVICE HERO ============ */
+.shero{
+  position:relative;isolation:isolate;overflow:hidden;
+  min-height:min(92svh,920px);display:flex;align-items:flex-end;
+  padding:calc(var(--hd-h) + 40px) 0 clamp(56px,6vw,96px);background:var(--ink-2);
+}
+.shero__media{
+  position:absolute;inset:0;z-index:-3;
+  -webkit-mask-image:linear-gradient(180deg,#000 70%,transparent);mask-image:linear-gradient(180deg,#000 70%,transparent);
+}
+.shero__media .media,.shero__media picture,.shero__media img{position:absolute;inset:0;width:100%;height:100%}
+.shero__media img{object-fit:cover;object-position:50% 40%}
+.shero__shade{
+  position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(90% 90% at 0% 100%,rgba(10,10,10,.9) 0%,rgba(10,10,10,.62) 45%,rgba(10,10,10,0) 78%),
+    linear-gradient(180deg,rgba(10,10,10,.55) 0,transparent 20%,transparent 62%,var(--ink) 100%);
+}
+.shero__in{position:relative;width:100%;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:clamp(32px,5vw,96px);align-items:end}
+.shero__crumbs{margin-bottom:28px}
+.shero__h1{display:inline-flex;margin-bottom:20px;font-size:clamp(.8rem,.74rem + .28vw,.98rem);letter-spacing:.22em;color:var(--white)}
+.shero__h1 .eyebrow__mark{color:var(--gold)}
+.shero__line{font-size:clamp(2.5rem,1rem + 3.6vw,5rem);max-width:13ch;margin-bottom:34px}
+.shero__lede{max-width:48ch;margin-bottom:34px}
+.shero__ctas{display:flex;flex-wrap:wrap;align-items:center;gap:14px 30px}
+
+/* The four answers, on glass */
+.shero__card{display:grid;margin:0;padding:8px 24px;border-radius:var(--r-lg)}
+.shero__fact{display:grid;gap:4px;padding:16px 0}
+.shero__fact+.shero__fact{box-shadow:inset 0 1px 0 var(--line)}
+.shero__fact dt{font-size:.625rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.shero__fact dd{margin:0;font-size:.95rem;line-height:1.45;color:var(--white)}
+.shero__fact.is-big dd{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.6rem,1.2rem + 1vw,2.1rem);line-height:1.1}
+
+@media (prefers-reduced-motion:no-preference){
+  .js-motion .shero [data-hero-in]{animation:hero-in 1.1s var(--ease) backwards;animation-delay:calc(var(--i,0) * .09s + .15s)}
+  .show-ld .shero [data-hero-in]{animation-delay:calc(var(--i,0) * .09s + .8s)}
+  .js-motion .shero__media{animation:hero-media 1.8s var(--ease) backwards}
+}
+@keyframes hero-in{from{opacity:0;transform:translateY(26px)}}
+@keyframes hero-media{from{transform:scale(1.07)}}
+
+/* Split (PPF, 06/10): a portrait photo held in the right-hand part of
+   the screen, fading into the dark on its left, instead of a landscape
+   one stretched full width. */
+@media (min-width:901px){
+  .shero--split .shero__media{left:auto;width:min(50vw,800px);
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 34%),linear-gradient(180deg,#000 72%,transparent);
+    -webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 34%),linear-gradient(180deg,#000 72%,transparent);mask-composite:intersect}
+  .shero--split .shero__media img{object-position:50% 45%}
+  .shero--split .shero__shade{background:
+    radial-gradient(70% 90% at 0% 100%,rgba(10,10,10,.85) 0%,rgba(10,10,10,.4) 55%,rgba(10,10,10,0) 80%),
+    linear-gradient(180deg,rgba(10,10,10,.55) 0,transparent 20%,transparent 70%,var(--ink) 100%)}
+  .shero--split .shero__line{max-width:14ch}
+  .shero--split .shero__lede{max-width:44ch}
+}
+
+/* ---------- Video (PPF hero, round 4) ----------
+   Same player as the homepage (motion/video.js, .hero__video): the
+   poster image is the first frame; the loop fades in once it plays.
+   No video with reduced motion or Save-Data: the poster stays. */
+.shero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.03);opacity:0;transition:opacity 1s var(--ease);pointer-events:none}
+.shero__video.is-playing{opacity:1}
+/* the blur-up halo of the poster frame would draw a hairline at the panel's edge */
+.shero--panel .shero__media{overflow:hidden}
+.shero--panel .shero__media .media::before{display:none}
+
+/* ---------- Film sweep (PPF hero) ---------- */
+/* the photo is all car: the copy gets a dark side to stand on */
+.shero--film:not(.shero--panel) .shero__shade,
+/* every photo hero with the figure row (06/10): the copy stands on a dark left side */
+.shero--stats:not(.shero--panel) .shero__shade{background:
+  linear-gradient(90deg,rgba(10,10,10,.92) 0%,rgba(10,10,10,.8) 30%,rgba(10,10,10,.3) 58%,rgba(10,10,10,0) 76%),
+  linear-gradient(180deg,rgba(10,10,10,.6) 0,transparent 22%,transparent 60%,var(--ink) 100%)}
+.shero--film:not(.shero--panel):not(.shero--stats) .shero__card{background:linear-gradient(180deg,rgba(14,14,15,.72),rgba(14,14,15,.6));box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
+@media (max-width:900px){.shero--film .shero__shade,.shero--panel .shero__shade,.shero--stats .shero__shade{background:linear-gradient(180deg,rgba(10,10,10,.55) 0,transparent 22%,transparent 48%,rgba(10,10,10,.8) 72%,var(--ink) 100%)}}
+.shero--film:not(.shero--panel) .shero__media img{object-position:62% 50%}
+.film,.film__top,.film__band{position:absolute;inset:0}
+.film .media,.film picture,.film img{position:absolute;inset:0;width:100%;height:100%}
+.film img{object-fit:cover;object-position:inherit}
+/* bare paint underneath: flatter, less lit (only shows while the film
+   is going on; the script adds .is-armed) */
+.shero--film.is-armed .shero__media>.media img{filter:saturate(.82) contrast(.88) brightness(.8)}
+.film__band,.film__edge,.film__glint{opacity:0}
+.is-armed .film__band,.is-armed .film__edge,.is-armed .film__glint{opacity:1}
+.film__top img{filter:contrast(1.04) saturate(1.06)}
+/* light bends a little through the edge of the film */
+.film__band img{transform:translate(-3px,1px) scale(1.006);filter:brightness(1.22) contrast(1.1) saturate(1.1)}
+.film__edge{position:absolute;left:0;top:0;width:2px;transform-origin:50% 0;pointer-events:none;will-change:transform}
+.film__edge::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,250,235,.15),#fff 20%,#FFF3D2 60%,rgba(255,250,235,.2));box-shadow:0 0 6px rgba(255,244,214,.9),0 0 22px rgba(230,204,133,.55)}
+/* the film's lip throws a soft shadow on the paint ahead of it */
+.film__edge i{position:absolute;top:0;bottom:0;left:2px;width:46px;background:linear-gradient(90deg,rgba(0,0,0,.42),transparent)}
+.film__glint{position:absolute;top:-20%;bottom:-20%;left:0;width:34%;pointer-events:none;mix-blend-mode:screen;will-change:transform;
+  background:linear-gradient(90deg,transparent,rgba(255,246,222,.08) 35%,rgba(255,246,222,.28) 50%,rgba(255,246,222,.08) 65%,transparent)}
+
+@media (max-width:767px){:is(.shero--panel,.shero--stats) .shero__card{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}:is(.shero--panel,.shero--stats) .shero__fact dd{font-size:1.9rem}:is(.shero--panel,.shero--stats) .shero__fact dt{font-size:.5625rem;line-height:1.5}}
+/* ---------- Panel (PPF, round 3; Fender's ref) ----------
+   The photo holds the right half and fades into the dark on its left;
+   the copy stands on clean black; the three figures sit in one row
+   under the buttons instead of a glass card. */
+:is(.shero--panel,.shero--stats) .shero__in{grid-template-columns:minmax(0,1fr);max-width:var(--wrap)}
+:is(.shero--panel,.shero--stats) .shero__card{
+  display:flex;flex-wrap:wrap;gap:clamp(28px,3.4vw,56px);margin-top:clamp(32px,3vw,44px);padding:0;
+  background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;border-radius:0}
+:is(.shero--panel,.shero--stats) .shero__fact{display:flex;flex-direction:column-reverse;gap:6px;padding:0;box-shadow:none}
+:is(.shero--panel,.shero--stats) .shero__fact+.shero__fact{box-shadow:none}
+:is(.shero--panel,.shero--stats) .shero__fact dd{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(2.2rem,1.6rem + 1.6vw,3.2rem);line-height:1;color:var(--gold)}
+:is(.shero--panel,.shero--stats) .shero__fact dt{color:var(--muted);letter-spacing:.18em}
+@media (min-width:901px){
+  :is(.shero--panel,.shero--stats) .shero__copy{max-width:min(600px,46vw)}
+  .shero--panel{align-items:center;min-height:min(94svh,940px)}
+  .shero--panel .shero__media{left:auto;width:56vw;-webkit-mask-image:none;mask-image:none}
+  .shero--panel .shero__media img{object-position:50% 50%}
+  /* the panel's left edge melts into the page: a solid band of ink over
+     it, fading out across the first third of the photo (a mask left a
+     seam in Chrome) */
+  .shero--panel .shero__shade{background:
+    linear-gradient(90deg,var(--ink-2) 0,var(--ink-2) 44.5%,rgba(10,10,10,.85) 50%,rgba(10,10,10,0) 64%),
+    linear-gradient(180deg,rgba(10,10,10,.5) 0,transparent 18%,transparent 72%,var(--ink) 100%)}
+}
+
+@media (max-width:1100px){.shero__in{grid-template-columns:minmax(0,1fr) minmax(280px,.8fr)}}
+/* Portrait tablets + phones: the photo on top (5:4 crop), copy below */
+@media (max-width:900px){
+  .shero{display:block;min-height:0;padding:calc(var(--hd-h) + 58vw) 0 56px}
+  .shero__media{bottom:auto;height:calc(var(--hd-h) + 72vw);
+    -webkit-mask-image:linear-gradient(180deg,#000 60%,transparent);mask-image:linear-gradient(180deg,#000 60%,transparent)}
+  .shero__media img{object-position:50% 30%}
+  .shero__shade{background:linear-gradient(180deg,rgba(10,10,10,.55) 0,transparent 20%,transparent 50%,rgba(10,10,10,.75) 72%,var(--ink) 100%)}
+  .shero__in{grid-template-columns:1fr;gap:36px}
+  .shero__crumbs{margin-bottom:20px}
+}
+@media (max-width:767px){
+  .shero__line{font-size:clamp(2.1rem,9vw,2.7rem)}
+  .shero__ctas .btn{flex:1 1 100%}
+  .shero__card{padding:4px 18px}
+  .shero__fact{padding:13px 0}
+}

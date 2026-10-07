@@ -1,0 +1,95 @@
+/* ============ 02 · HERO ============ */
+.hero{
+  position:relative;isolation:isolate;overflow:hidden;
+  /* 94%: a sliver of the next block shows (the scroll hint), and the
+     poster is not viewport-sized, which Chrome would skip as a backdrop
+     when picking the LCP */
+  min-height:min(94svh,960px);
+  display:flex;align-items:flex-end;
+  padding:calc(var(--hd-h) + 40px) 0 clamp(64px,7vw,104px);
+  background:var(--ink-2);
+}
+/* Desktop: the loop fills the hero; the copy sits low on the left.
+   Never taller than 94% of the screen (it fades out below), so even when
+   the copy makes the hero taller the poster stays the LCP candidate. */
+.hero__media{
+  position:absolute;inset:0 0 auto;height:min(94svh,960px);z-index:-3;
+  -webkit-mask-image:linear-gradient(180deg,#000 72%,transparent);mask-image:linear-gradient(180deg,#000 72%,transparent);
+}
+.hero__media .media,.hero__media picture,.hero__media img,.hero__video{position:absolute;inset:0;width:100%;height:100%}
+.hero__media img,.hero__video{object-fit:cover;object-position:50% 50%}
+/* decorative: a click must not focus it (it is aria-hidden) */
+.hero__video{opacity:0;transition:opacity 1s var(--ease);pointer-events:none}
+.hero__video.is-playing{opacity:1}
+/* Shade: the header's strip at the top, the fade into the page at the
+   bottom, and a soft dark pool under the copy at the bottom left (Ed
+   05/10: the car must read; the glass panel is gone). */
+.hero__shade{
+  position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(95% 85% at 0% 100%,rgba(10,10,10,.85) 0%,rgba(10,10,10,.6) 42%,rgba(10,10,10,0) 76%),
+    linear-gradient(180deg,rgba(10,10,10,.5) 0,transparent 18%,transparent 70%,var(--ink) 100%),
+    /* Fender 06/10: the whole video a touch darker */
+    linear-gradient(rgba(10,10,10,.26),rgba(10,10,10,.26));
+}
+
+/* ---- Copy ---- */
+.hero__in{position:relative;width:100%}
+.hero__in>*{max-width:min(660px,50%)}
+.hero__in>.hero__slogan{max-width:min(780px,60%)}
+.hero__h1{
+  display:inline-flex;margin-bottom:22px;
+  font-size:clamp(.82rem,.75rem + .3vw,1rem);letter-spacing:.22em;color:var(--white);
+}
+.hero__h1 .eyebrow__mark{color:var(--gold)}
+.hero__slogan{font-size:clamp(2.6rem,1rem + 3.8vw,5.2rem);margin-bottom:34px}
+.hero__perf{display:inline-block}
+.shine{
+  display:inline-block;padding-right:.14em;margin-right:-.14em;
+  background:linear-gradient(100deg,var(--gold) 38%,var(--gold-2) 46%,#fff 50%,var(--gold-2) 54%,var(--gold) 62%) 100% 0/260% 100% no-repeat;
+  -webkit-background-clip:text;background-clip:text;color:var(--gold);-webkit-text-fill-color:transparent;
+}
+@media (prefers-reduced-motion:no-preference){
+  .js-motion .shine.is-on{animation:shine 1.8s var(--ease) both}
+}
+@keyframes shine{from{background-position:100% 0}to{background-position:0 0}}
+.hero__ctas{display:flex;flex-wrap:wrap;align-items:center;gap:14px 30px}
+
+/* ---- Entrance: CSS, so it never waits on the script ----
+   The slogan waits for SplitText; if the script is late it fades in on
+   its own at 1.5s. */
+@media (prefers-reduced-motion:no-preference){
+  .js-motion [data-hero-in]{animation:hero-in 1.1s var(--ease) backwards;animation-delay:calc(var(--i,0) * .1s + .15s)}
+  .show-ld [data-hero-in]{animation-delay:calc(var(--i,0) * .1s + .8s)}
+  .js-motion [data-split=hero]{visibility:visible;animation:hero-in 1.1s var(--ease) 1.5s backwards}
+  .js-motion [data-split=hero].is-split{animation:none}
+  .js-motion .hero__media{animation:hero-media 1.8s var(--ease) backwards}
+}
+@keyframes hero-in{from{opacity:0;transform:translateY(26px)}}
+/* transform only: the poster is the LCP, it must paint at full opacity */
+@keyframes hero-media{from{transform:scale(1.07)}}
+[data-split] .ln-mask{padding:0 .16em .08em 0;margin:0 -.16em -.08em 0}
+
+@media (max-width:1100px){
+  .hero__in>*{max-width:min(620px,70%)}
+  .hero__in>.hero__slogan{max-width:min(640px,74%)}
+}
+/* ---- Portrait tablet + phone: the 5:4 loop on top, copy below ---- */
+@media (max-width:900px){
+  .hero{display:block;min-height:0;padding:calc(var(--hd-h) + 50vw) 0 72px}
+  .hero__media{
+    bottom:auto;height:calc(var(--hd-h) + 60vw);
+    -webkit-mask-image:linear-gradient(180deg,#000 62%,rgba(0,0,0,.5) 84%,transparent 100%);mask-image:linear-gradient(180deg,#000 62%,rgba(0,0,0,.5) 84%,transparent 100%);
+  }
+  .hero__media img,.hero__video{object-position:50% 35%}
+  .hero__shade{background:linear-gradient(180deg,rgba(10,10,10,.5) 0,transparent 18%,transparent 56%,rgba(10,10,10,.7) 76%,var(--ink) 100%),linear-gradient(rgba(10,10,10,.24),rgba(10,10,10,.24))}
+  .hero__in>*,.hero__in>.hero__slogan{max-width:640px}
+}
+@media (max-width:767px){
+  .hero{padding:calc(var(--hd-h) + 66vw) 0 56px}
+  .hero__media{height:calc(var(--hd-h) + 80vw)}
+  .hero__media img,.hero__video{object-position:50% 50%}
+  .hero__in>*,.hero__in>.hero__slogan{max-width:none}
+  .hero__slogan{font-size:clamp(2.05rem,8.6vw,2.6rem);margin-bottom:28px}
+  .hero__ctas .btn{flex:1 1 100%}
+}

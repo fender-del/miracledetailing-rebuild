@@ -1,0 +1,52 @@
+/* ============ 10 · GOOGLE REVIEWS + shared loop ============ */
+.revs{overflow:hidden;isolation:isolate}
+/* Photo ground: GF Williams' water on a tail light, dimmed, its edges
+   fading into the black above and below. reveal.js moves the photo. */
+.revs__bg{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.revs__bg .media{position:absolute;inset:-8% 0;height:auto;aspect-ratio:auto!important;background-color:#0A0A0A}
+.revs__bg img{object-position:70% 45%}
+.revs__bg::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,var(--ink) 0%,rgba(17,17,17,.35) 22%,rgba(17,17,17,.45) 70%,var(--ink) 100%),
+    linear-gradient(90deg,rgba(10,10,10,.82) 0%,rgba(10,10,10,.35) 60%,rgba(10,10,10,.1) 100%);
+}
+.revs__head{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:clamp(36px,4.5vw,64px)}
+.revs__head .h2{margin-top:22px;max-width:16ch}
+.revs__score{display:flex;align-items:center;gap:16px;padding:16px 22px;border-radius:var(--r-lg);background:var(--raise);box-shadow:inset 0 0 0 1px var(--line)}
+.revs__n{font-family:var(--fd);font-weight:500;font-style:normal;text-transform:none;font-synthesis:none;font-size:2.8rem;line-height:1;color:var(--white)}
+.revs__meta{margin-top:4px;font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* Shared loop: no JS = native horizontal scroll with snap. */
+.loop{overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gut);scrollbar-width:none;padding-block:6px}
+.loop::-webkit-scrollbar{display:none}
+.loop__track{display:flex;gap:16px;list-style:none;margin:0;padding:0 var(--gut);width:max-content}
+.loop__track>li{scroll-snap-align:start}
+.loop.is-running{overflow:hidden;scroll-snap-type:none;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.loop.is-running .loop__track{padding:0;will-change:transform}
+.loop.is-dragging{cursor:grabbing}
+
+.rev{
+  flex:none;width:clamp(290px,30vw,420px);display:flex;flex-direction:column;gap:20px;
+  padding:26px;border-radius:var(--r-lg);background:rgba(24,24,27,.86);box-shadow:inset 0 0 0 1px var(--line-2);
+}
+@media (hover:hover) and (pointer:fine){
+  .rev,.revs__score{background:rgba(24,24,27,.62);-webkit-backdrop-filter:blur(14px) saturate(1.15);backdrop-filter:blur(14px) saturate(1.15)}
+}
+.rev__top{display:flex;align-items:center;justify-content:space-between}
+.rev__g{width:22px;height:22px}
+.rev__q{flex:1;font-size:1rem;line-height:1.6;color:var(--text)}
+.rev__who{display:flex;align-items:center;gap:12px;padding-top:16px;box-shadow:inset 0 1px 0 var(--line)}
+.rev__av{
+  display:grid;place-items:center;width:40px;height:40px;border-radius:50%;flex:none;
+  background:var(--c);color:#fff;font-weight:700;font-size:.875rem;
+}
+.rev__name{display:block;font-weight:500;color:var(--white);line-height:1.3}
+.rev__car{display:block;font-size:.8125rem;color:var(--muted)}
+
+.revs__foot{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:clamp(28px,3vw,40px)}
+
+@media (max-width:767px){
+  .revs__head{flex-direction:column;align-items:flex-start}
+  .rev{width:82vw;padding:22px}
+}

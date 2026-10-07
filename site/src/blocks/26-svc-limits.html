@@ -1,0 +1,21 @@
+<!-- ============ 26 · SERVICE: WHAT IT IS NOT ============
+     Honest limits (PLAN §8, item 8), each pointing to the service that
+     does that job instead. On ivory. -->
+<section class="slim sec" id="limits" data-section="limits" data-bg="light" data-theme="light">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{limitsEyebrow}}</p>
+      <h2 class="disp h2" data-split>{{&limitsTitle}}</h2>
+    </div>
+    <ul class="slim__grid" role="list">
+      {{#limits}}
+      <li class="slim__it" data-reveal="card">
+        <span class="slim__x" aria-hidden="true"></span>
+        <h3 class="slim__name">{{name}}</h3>
+        <p>{{text}}</p>
+        <a class="link-arrow" href="{{href}}"><span>{{link}}</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></a>
+      </li>
+      {{/limits}}
+    </ul>
+  </div>
+</section>

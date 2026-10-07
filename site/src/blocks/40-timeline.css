@@ -1,0 +1,30 @@
+/* ============ 40 · ABOUT: THE FULL STORY ============ */
+.tl__list{position:relative;display:grid;gap:clamp(56px,7vw,110px);margin:0;padding:0;list-style:none}
+/* the line, behind the diamonds */
+.tl__list::before{content:"";position:absolute;left:calc(clamp(150px,17vw,250px) + 1px);top:12px;bottom:12px;width:1px;background:linear-gradient(180deg,var(--gold-a30),var(--line) 12%,var(--line) 88%,transparent)}
+.tl__it{position:relative;display:grid;grid-template-columns:clamp(150px,17vw,250px) minmax(0,1fr);column-gap:clamp(36px,5vw,80px)}
+.tl__it::before{content:"";position:absolute;left:calc(clamp(150px,17vw,250px) - 4px);top:clamp(16px,1.6vw,26px);width:9px;height:9px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 0 6px var(--ink)}
+.tl__year{margin:0}
+.tl__year span{
+  position:sticky;top:calc(var(--hd-h) + 80px);display:block;
+  font-family:var(--fd);font-weight:500;font-style:italic;font-synthesis:none;letter-spacing:-.02em;
+  font-size:clamp(2.6rem,1.6rem + 3vw,4.6rem);line-height:.95;color:var(--gold);
+}
+.tl__body{display:grid;gap:16px;max-width:880px}
+.tl__title{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.55rem,1.2rem + 1vw,2.25rem);line-height:1.12}
+.tl__text p{max-width:66ch;font-size:clamp(1rem,.96rem + .2vw,1.1rem);line-height:1.75}
+.tl__text p+p{margin-top:1em}
+.tl__photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:10px 0 0;padding:0;list-style:none}
+.tl__photos[data-n="1"]{grid-template-columns:minmax(0,1fr);max-width:640px}
+.tl__photos[data-n="2"],.tl__photos[data-n="4"]{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tl__photos figure{display:grid;gap:8px;margin:0}
+.tl__photos .media{border-radius:10px}
+.tl__photos figcaption{font-size:.6875rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);line-height:1.4}
+@media (max-width:767px){
+  .tl__list::before{left:4px}
+  .tl__it{grid-template-columns:1fr;padding-left:30px}
+  .tl__it::before{left:0;top:14px}
+  .tl__year span{position:static;font-size:2.4rem;margin-bottom:8px}
+  .tl__photos{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tl__photos[data-n="1"]{grid-template-columns:1fr}
+}

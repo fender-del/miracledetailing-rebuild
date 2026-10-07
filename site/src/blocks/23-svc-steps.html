@@ -1,0 +1,26 @@
+<!-- ============ 23 · SERVICE: HOW A JOB RUNS ============
+     Four steps, the same shape on every service page; the words are the
+     service's own. A gold line draws itself along the steps as they
+     scroll into view (motion/svc.js); without it the line is simply there. -->
+<section class="ssteps sec{{#stepsLong}} ssteps--long{{/stepsLong}}{{#stepsTight}} ssteps--tight{{/stepsTight}}" id="{{stepsId}}{{^stepsId}}process{{/stepsId}}" data-section="process" data-steps{{#stepsLight}} data-bg="light" data-theme="light"{{/stepsLight}}{{#stepsGraphite}} data-bg="graphite"{{/stepsGraphite}}>
+  <div class="wrap">
+    {{^stepsBare}}<div class="sec-head">
+      {{#stepsEyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&stepsEyebrow}}</p>{{/stepsEyebrow}}
+      {{#stepsTitle}}<h2 class="disp h2" data-split>{{&stepsTitle}}</h2>{{/stepsTitle}}
+      {{#stepsIntro}}<p class="lede ssteps__intro" data-reveal>{{&.}}</p>{{/stepsIntro}}
+    </div>{{/stepsBare}}
+    <div class="ssteps__track">
+    <span class="ssteps__line" aria-hidden="true"><span data-steps-line></span></span>
+    <ol class="ssteps__list" role="list"{{#stepsN}} style="--n:{{stepsN}}"{{/stepsN}}>
+      {{#steps}}
+      <li class="ssteps__it" data-reveal>
+        <p class="ssteps__n"><span>{{#num}}{{num}}{{/num}}{{^num}}{{_idx}}{{/num}}</span></p>
+        <h3 class="ssteps__name">{{&name}}</h3>
+        <p class="ssteps__text">{{&text}}{{&tbc}}</p>
+        {{#hasLinks}}<p class="ssteps__links">{{#links}}<a href="{{href}}"{{#ext}} target="_blank" rel="noopener"{{/ext}}>{{label}}</a>{{/links}}</p>{{/hasLinks}}
+      </li>
+      {{/steps}}
+    </ol>
+    </div>
+  </div>
+</section>

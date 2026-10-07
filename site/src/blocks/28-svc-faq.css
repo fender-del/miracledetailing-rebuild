@@ -1,0 +1,22 @@
+/* ============ 28 · SERVICE: FAQ ============ */
+.sfaq__in{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(36px,6vw,112px);align-items:start}
+.sfaq__head{display:grid;gap:22px;position:sticky;top:calc(var(--hd-h) + 32px)}
+.sfaq__more{font-size:.95rem}
+.sfaq__more a{color:var(--white);background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat}
+.sfaq__it{box-shadow:inset 0 -1px 0 var(--line-2)}
+.sfaq__it:first-child{box-shadow:inset 0 1px 0 var(--line-2),inset 0 -1px 0 var(--line-2)}
+.sfaq__it summary{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:44px;padding:24px 0;cursor:pointer;list-style:none;
+  font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.15rem,1rem + .45vw,1.4rem);line-height:1.3;color:var(--white)}
+.sfaq__it summary::-webkit-details-marker{display:none}
+.sfaq__it summary i{position:relative;flex:none;width:34px;height:34px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--line-2);transition:box-shadow .3s,transform .5s var(--ease)}
+.sfaq__it summary i::before,.sfaq__it summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;margin:-.75px 0 0 -6px;background:var(--gold);transition:transform .5s var(--ease)}
+.sfaq__it summary i::after{transform:rotate(90deg)}
+.sfaq__it[open] summary i{transform:rotate(180deg);box-shadow:inset 0 0 0 1px var(--gold)}
+.sfaq__it[open] summary i::after{transform:rotate(0)}
+@media (hover:hover){.sfaq__it summary:hover i{box-shadow:inset 0 0 0 1px var(--gold)}}
+.sfaq__a{padding:0 56px 26px 0;max-width:62ch}
+@media (max-width:900px){
+  .sfaq__in{grid-template-columns:1fr}
+  .sfaq__head{position:static}
+  .sfaq__a{padding-right:0}
+}

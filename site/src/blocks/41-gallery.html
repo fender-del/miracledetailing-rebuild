@@ -1,0 +1,48 @@
+<!-- ============ 41 · GALLERY ============
+     The old site's 153 project pages, as one page (Fender 06/10): every
+     job with three or more photos (133), up to twelve photos each.
+     Filter by make (chips); a card opens the photos in a lightbox
+     (arrows, keys, swipe). /gallery/<job>/ on the old site lands here as
+     ?job=<job> and opens that job; /vehiclemake/<make>/ as ?make=<make>.
+     Without JS: every card shows and links to its first photo. -->
+<section class="gal sec" id="archive" data-section="gallery" data-gallery>
+  <div class="wrap">
+    <div class="gal__bar" role="toolbar" aria-label="Filter by make" data-reveal>
+      <button class="gal__chip is-on" type="button" data-make="all" aria-pressed="true">All <span>{{gal.total}}</span></button>
+      {{#gal.makes}}<button class="gal__chip" type="button" data-make="{{key}}" aria-pressed="false">{{name}} <span>{{count}}</span></button>{{/gal.makes}}
+    </div>
+    <p class="gal__status sr" role="status" aria-live="polite" data-gal-status></p>
+    <ul class="gal__grid" role="list">
+      {{#gal.jobs}}
+      <li class="gal__it" data-make="{{makeKey}}">
+        <a class="gal__card" href="/assets/gallery/{{slug}}/1-1400.webp" data-job="{{slug}}">
+          <div class="gal__media" style="--lq:url({{lqip}})"><img src="/assets/gallery/{{slug}}/1-480.webp" width="480" height="360" alt="{{title}}" loading="lazy" decoding="async"></div>
+          <div class="gal__body">
+            <p class="gal__meta">{{make}}{{#year}} · {{year}}{{/year}}</p>
+            <h3 class="gal__name">{{title}}</h3>
+            <p class="gal__n">{{count}} photos</p>
+          </div>
+        </a>
+      </li>
+      {{/gal.jobs}}
+    </ul>
+  </div>
+  <script type="application/json" data-gal-data>{{&gal.json}}</script>
+
+  <dialog class="lb" data-lb aria-labelledby="lb-title" data-lenis-prevent>
+    <div class="lb__top">
+      <div class="lb__cap">
+        <p class="lb__meta" data-lb-meta></p>
+        <h2 class="lb__title" id="lb-title" data-lb-title></h2>
+        <p class="lb__text" data-lb-text></p>
+      </div>
+      <p class="lb__count" data-lb-count></p>
+      <button class="lb__close" type="button" data-lb-close aria-label="Close"><i></i><i></i></button>
+    </div>
+    <figure class="lb__stage" data-lb-stage>
+      <img data-lb-img alt="">
+    </figure>
+    <button class="lb__nav lb__nav--prev" type="button" data-lb-prev aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 12H5m0 0 5.5-5.5M5 12l5.5 5.5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+    <button class="lb__nav lb__nav--next" type="button" data-lb-next aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+  </dialog>
+</section>

@@ -1,0 +1,22 @@
+<!-- ============ 24 · SERVICE: FROM THE STUDIO ============
+     Paul's own photos of this service (never stock), a wide and a narrow
+     frame per row, each with a short caption. Before/after pairs belong
+     here as soon as Paul sends them (To confirm). -->
+<section class="swork sec{{^workTitle}} swork--bare{{/workTitle}}" id="{{workId}}{{^workId}}work{{/workId}}" data-section="work">
+  <div class="wrap">
+    {{#workTitle}}<div class="sec-head swork__head">
+      <div>
+        {{#workEyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&workEyebrow}}</p>{{/workEyebrow}}
+        <h2 class="disp h2" data-split>{{&workTitle}}</h2>
+      </div>
+      <p class="swork__aside" data-reveal>{{&workTbc}}{{#workLede}}<span class="swork__lede">{{workLede}}</span>{{/workLede}}<a class="link-arrow" href="/car-detail-gallery/"><span>See the projects</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></a></p>
+    </div>{{/workTitle}}
+    <ul class="swork__grid" role="list">
+      {{#work}}
+      <li class="swork__it{{#wide}} is-wide{{/wide}}{{#full}} is-full{{/full}}{{#half}} is-half{{/half}}{{#third}} is-third{{/third}}" data-reveal="card">
+        <figure><div class="swork__media" data-parallax>{{&img}}</div>{{#cap}}<figcaption>{{cap}}</figcaption>{{/cap}}</figure>
+      </li>
+      {{/work}}
+    </ul>
+  </div>
+</section>

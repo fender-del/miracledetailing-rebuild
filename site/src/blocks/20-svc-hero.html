@@ -1,0 +1,45 @@
+<!-- ============ 20 · SERVICE HERO ============
+     Shared by the service pages (06/10). H1 = "[Service] in Surrey" in
+     the eyebrow style, as on the homepage; the display line carries the
+     service's own words. A photo of the real work fills the screen, the
+     copy sits low on the left and a glass card on the right answers the
+     four questions people ask first (what it suits, price, minimum, what
+     happens before). Phones: photo on top, copy and card below.
+     Film (PPF, 06/10): the photo twice, the lower one a touch flat like
+     bare paint, the upper one in full gloss behind a film edge that
+     sweeps across on arrival (motion/ppf.js filmHero). A thin band just
+     behind the edge is the photo shifted a hair (light bending through
+     the film), the edge is a bright line with a soft shadow ahead of
+     it, and a glint runs over the fresh film. Before or without the
+     script the upper layer simply covers everything: the finished look. -->
+<section class="shero{{#hero.split}} shero--split{{/hero.split}}{{#hero.film}} shero--film{{/hero.film}}{{#hero.panel}} shero--panel{{/hero.panel}}{{#hero.stats}} shero--stats{{/hero.stats}}" data-section="hero" data-hero>
+  <div class="shero__media" data-hero-media>{{&hero.img}}{{#hero.video}}
+    <video class="hero__video shero__video" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" data-start="0.5"
+           data-src-d="{{hero.video}}" data-src-t="{{hero.video}}" data-src-m="{{hero.video}}"></video>{{/hero.video}}{{#hero.film}}
+    <div class="film" data-film aria-hidden="true">
+      <div class="film__top">{{&hero.img}}</div>
+      <div class="film__band">{{&hero.img}}</div>
+      <span class="film__glint"></span>
+      <span class="film__edge"><i></i></span>
+    </div>{{/hero.film}}</div>
+  <div class="shero__shade" aria-hidden="true"></div>
+
+  <div class="wrap shero__in">
+    <div class="shero__copy">
+      <div class="shero__crumbs" data-hero-in style="--i:0">{{&crumbs}}</div>
+      <h1 class="eyebrow shero__h1" data-hero-in style="--i:1"><span class="eyebrow__mark" aria-hidden="true"></span>{{hero.h1}}</h1>
+      <p class="shero__line disp" data-hero-in style="--i:2">{{&hero.line}}</p>
+      {{#hero.lede}}<p class="lede shero__lede" data-hero-in style="--i:3">{{&.}}</p>{{/hero.lede}}
+      <div class="shero__ctas" data-hero-in style="--i:4">
+        <a class="btn" href="{{site.cta.href}}"><span class="btn__in">{{site.cta.label}}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></span></a>
+        <a class="link-arrow" href="{{site.phoneHref}}"><span>Call Paul · {{site.phone}}</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></a>
+      </div>
+    </div>
+
+    {{#hero.facts.0}}<dl class="shero__card glass" data-hero-in style="--i:5">
+      {{#hero.facts}}
+      <div class="shero__fact{{#big}} is-big{{/big}}"><dt>{{k}}</dt><dd>{{v}}</dd></div>
+      {{/hero.facts}}
+    </dl>{{/hero.facts.0}}
+  </div>
+</section>

@@ -1,0 +1,32 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "miracle-site",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "site/tools/serve.js",
+        "8765"
+      ],
+      "port": 8765
+    },
+    {
+      "name": "miracle-site-b",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "site/tools/serve.js",
+        "8766"
+      ],
+      "port": 8766
+    },
+    {
+      "name": "miracle-site-c",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "site/tools/serve.js",
+        "8767"
+      ],
+      "port": 8767
+    }
+  ]
+}

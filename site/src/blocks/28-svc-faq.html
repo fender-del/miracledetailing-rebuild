@@ -1,0 +1,20 @@
+<!-- ============ 28 · SERVICE: FAQ ============
+     Native <details>: they open and shut without JS, and every answer is
+     in the HTML (and in the FAQPage schema). On ivory. -->
+<section class="sfaq sec" id="faq" data-section="faq" data-bg="light" data-theme="light">
+  <div class="wrap sfaq__in">
+    <div class="sfaq__head">
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&faqEyebrow}}{{^faqEyebrow}}Common questions{{/faqEyebrow}}</p>
+      <h2 class="disp h2" data-split>{{&faqTitle}}{{^faqTitle}}Things people <span class="gold">ask Paul.</span>{{/faqTitle}}</h2>
+      <p class="sfaq__more" data-reveal>Something else? Call <a href="{{site.phoneHref}}">{{site.phone}}</a></p>
+    </div>
+    <div class="sfaq__list">
+      {{#faqs}}
+      <details class="sfaq__it" data-reveal{{#_first}} open{{/_first}}>
+        <summary><span>{{q}}</span><i aria-hidden="true"></i></summary>
+        <div class="sfaq__a"><p>{{&a}}{{&tbc}}</p></div>
+      </details>
+      {{/faqs}}
+    </div>
+  </div>
+</section>

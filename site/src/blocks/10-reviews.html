@@ -1,0 +1,43 @@
+<!-- ============ 10 · GOOGLE REVIEWS ============
+     v0.5's six reviews. One count everywhere (site.js). The loop runs
+     on its own, can be dragged with inertia, stops while hovered.
+     Without JS it is a plain swipeable row. On a photo ground (Fender
+     02/10, round 5) that comes down from a zoom as the section passes. -->
+<section class="revs sec" id="reviews" data-section="reviews" data-motion="loop">
+  <div class="revs__bg" aria-hidden="true" data-photo-bg>{{&revsBg}}</div>
+  <div class="wrap revs__head">
+    <div>
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>Google Reviews</p>
+      <h2 class="disp h2" data-split>What clients say about Paul.</h2>
+    </div>
+    <div class="revs__score" data-reveal>
+      <p class="revs__n">{{site.rating}}</p>
+      <div>
+        <span class="stars" role="img" aria-label="Rated {{site.rating}} out of 5">{{&stars}}</span>
+        <p class="revs__meta">Google rating · {{site.reviewCount}} reviews</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="loop revs__loop" data-loop data-speed="0.4" data-draggable aria-label="Reviews" role="region">
+    <ul class="loop__track" role="list">
+      {{#reviews}}
+      <li class="rev">
+        <div class="rev__top">
+          <span class="stars" aria-hidden="true">{{&stars}}</span>
+          <svg class="rev__g" viewBox="0 0 24 24" aria-label="Google review" role="img"><path fill="#4285F4" d="M21.6 12.23c0-.68-.06-1.36-.18-2.02H12v3.83h5.4a4.6 4.6 0 0 1-2 3.02v2.5h3.23c1.9-1.75 2.97-4.32 2.97-7.33Z"/><path fill="#34A853" d="M12 22c2.7 0 4.97-.9 6.63-2.43l-3.23-2.5c-.9.6-2.05.95-3.4.95-2.6 0-4.81-1.76-5.6-4.12H3.07v2.58A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.4 13.9a6 6 0 0 1 0-3.8V7.52H3.07a10 10 0 0 0 0 8.96L6.4 13.9Z"/><path fill="#EA4335" d="M12 5.98c1.47 0 2.79.5 3.83 1.5l2.87-2.87A9.62 9.62 0 0 0 12 2a10 10 0 0 0-8.93 5.52L6.4 10.1C7.19 7.74 9.4 5.98 12 5.98Z"/></svg>
+        </div>
+        <blockquote class="rev__q">“{{text}}”</blockquote>
+        <div class="rev__who">
+          <span class="rev__av" style="--c:{{color}}">{{initials}}</span>
+          <span><span class="rev__name">{{name}}</span><span class="rev__car">{{car}}</span></span>
+        </div>
+      </li>
+      {{/reviews}}
+    </ul>
+  </div>
+
+  <div class="wrap revs__foot">
+    <a class="link-arrow" href="{{site.reviewsUrl}}" target="_blank" rel="noopener"><span>Read all reviews on Google</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7m0 0H8m9 0v9" stroke="currentColor" stroke-width="1.8"/></svg></a>
+  </div>
+</section>

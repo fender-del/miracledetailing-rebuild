@@ -1,0 +1,13 @@
+<!-- ============ 29 · SERVICE: ON THIS PAGE ============
+     The long service pages (PPF first, 06/10: Paul's text kept whole)
+     get a bar of their sections that sticks under the header and slides
+     up to the top when the header hides. The section on screen is lit
+     (motion/ppf.js); without JS it is a plain row of anchor links. -->
+<nav class="snav" aria-label="On this page" data-snav>
+  <div class="wrap snav__in">
+    <ol class="snav__list" role="list">
+      {{#snav}}<li><a class="snav__a" href="#{{id}}" data-snav-link>{{label}}</a></li>{{/snav}}
+    </ol>
+    <a class="snav__cta" href="{{site.cta.href}}">{{site.cta.label}}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></a>
+  </div>
+</nav>

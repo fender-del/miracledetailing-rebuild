@@ -1,0 +1,130 @@
+<!-- ============ 12 · BOOK A CONSULTATION ============
+     v0.5 close ("The studio is ready. Is your car?"), lorem ipsum
+     replaced. Three steps: the car, the work (+ photos), how to reach
+     you. JS off = one ordinary form. Netlify Forms receives it.
+     Fender 02/10: no "what happens next" list, no repeated address; a
+     short nudge to call sits over the phone number for anyone who would
+     rather talk. On phones the form comes straight after the heading. -->
+<section class="book sec" id="book" data-section="book" data-motion="form" data-bg="graphite">
+  <div class="wrap book__in">
+    <div class="book__aside">
+      <div class="book__head">
+        <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>Book a consultation</p>
+        <h2 class="disp h2" data-split>{{&bookTitle}}{{^bookTitle}}The studio is ready. Is your car?{{/bookTitle}}</h2>
+        <p class="lede" data-reveal>{{&bookLede}}{{^bookLede}}Tell Paul about the car and what you would like done.{{/bookLede}}</p>
+      </div>
+
+      <div class="book__nap" data-reveal>
+        <p class="book__quick">Prefer something quicker? Call Paul.</p>
+        <a class="book__phone" href="{{site.phoneHref}}">{{site.phone}}</a>
+        <a class="link-arrow" href="{{site.whatsapp}}" target="_blank" rel="noopener"><span>WhatsApp Paul</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7m0 0H8m9 0v9" stroke="currentColor" stroke-width="1.8"/></svg></a>
+        {{#bookEmail}}<a class="link-arrow" href="mailto:{{site.email}}"><span>{{site.email}}</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7m0 0H8m9 0v9" stroke="currentColor" stroke-width="1.8"/></svg></a>{{/bookEmail}}
+      </div>
+    </div>
+
+    <form class="qf" name="consultation" method="POST" action="/?sent=1#book" enctype="multipart/form-data"
+          data-netlify="true" netlify-honeypot="bot-field" novalidate data-qform data-reveal="card">
+      <input type="hidden" name="form-name" value="consultation">
+      <p class="sr"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+      <ol class="qf__prog" aria-hidden="true">
+        <li class="is-on"><span>1</span>Your car</li>
+        <li><span>2</span>The work</li>
+        <li><span>3</span>Your details</li>
+      </ol>
+      <p class="sr" role="status" aria-live="polite" data-qstatus></p>
+
+      <div class="qf__steps" data-qsteps>
+      <fieldset class="qf__step" data-qstep="1">
+        <legend class="qf__legend" tabindex="-1">Your car</legend>
+        <div class="qf__row qf__row--car">
+          <p class="qf__f">
+            <label for="q-car">Make &amp; model <abbr title="required">*</abbr></label>
+            <input id="q-car" name="car" type="text" placeholder="Porsche 911 GT3" autocomplete="off" required>
+          </p>
+          <p class="qf__f">
+            <label for="q-year">Year</label>
+            <input id="q-year" name="year" type="text" inputmode="numeric" maxlength="4" placeholder="2019">
+          </p>
+        </div>
+        <p class="qf__f">
+          <label for="q-colour">Colour <span class="qf__opt">optional</span></label>
+          <input id="q-colour" name="colour" type="text" placeholder="Guards red, satin black…">
+        </p>
+        <div class="qf__nav">
+          <button class="btn qf__next" type="button" data-qnext><span class="btn__in">Next: the work<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></span></button>
+        </div>
+      </fieldset>
+
+      <fieldset class="qf__step" data-qstep="2">
+        <legend class="qf__legend" tabindex="-1">The work</legend>
+        <fieldset class="qf__f qf__picks-wrap">
+          <legend>What would you like done? <abbr title="pick at least one">*</abbr></legend>
+          <div class="qf__picks">
+            {{#formServices}}<label class="pick"><input type="checkbox" name="work" value="{{v}}"{{#on}} checked{{/on}}><span>{{v}}</span></label>{{/formServices}}
+          </div>
+          <p class="qf__err" data-qerr hidden>Pick at least one, or choose “Not sure yet”.</p>
+        </fieldset>
+        <p class="qf__f">
+          <label for="q-notes">Anything Paul should know <span class="qf__opt">optional</span></label>
+          <textarea id="q-notes" name="notes" rows="3" placeholder="Swirls on the bonnet, a stone chip on the nose, an event date…"></textarea>
+        </p>
+        <p class="qf__f">
+          <label for="q-photos">Photos of the car <span class="qf__opt">optional · up to 4</span></label>
+          <input id="q-photos" name="photos" type="file" accept="image/*" multiple data-qfiles>
+          <span class="qf__hint" data-qfiles-out>Photos help Paul see the paint before he calls. You can also send them on WhatsApp.</span>
+        </p>
+        <div class="qf__nav">
+          <button class="btn btn--ghost qf__back" type="button" data-qback><span class="btn__in">Back</span></button>
+          <button class="btn qf__next" type="button" data-qnext><span class="btn__in">Next: your details<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></span></button>
+        </div>
+      </fieldset>
+
+      <fieldset class="qf__step" data-qstep="3">
+        <legend class="qf__legend" tabindex="-1">Your details</legend>
+        <p class="qf__f">
+          <label for="q-name">Your name <abbr title="required">*</abbr></label>
+          <input id="q-name" name="name" type="text" autocomplete="name" required>
+        </p>
+        <div class="qf__row">
+          <p class="qf__f">
+            <label for="q-phone">Phone <abbr title="required">*</abbr></label>
+            <input id="q-phone" name="phone" type="tel" autocomplete="tel" placeholder="07…" required aria-describedby="q-phone-why">
+            <span class="qf__hint" id="q-phone-why">So Paul can call or WhatsApp you back.</span>
+          </p>
+          <p class="qf__f">
+            <label for="q-email">Email <span class="qf__opt">optional</span></label>
+            <input id="q-email" name="email" type="email" autocomplete="email">
+          </p>
+        </div>
+        <fieldset class="qf__f">
+          <legend>Best way to reach you</legend>
+          <div class="qf__picks qf__picks--radio">
+            <label class="pick"><input type="radio" name="contact_by" value="Call" checked><span>Call</span></label>
+            <label class="pick"><input type="radio" name="contact_by" value="WhatsApp"><span>WhatsApp</span></label>
+            <label class="pick"><input type="radio" name="contact_by" value="Email"><span>Email</span></label>
+          </div>
+        </fieldset>
+        <p class="qf__f">
+          <label for="q-heard">How did you hear about Paul? <span class="qf__opt">optional</span></label>
+          <select id="q-heard" name="heard">
+            <option value="">Choose one</option>
+            {{#heardFrom}}<option>{{.}}</option>{{/heardFrom}}
+          </select>
+        </p>
+        <div class="qf__nav">
+          <button class="btn btn--ghost qf__back" type="button" data-qback><span class="btn__in">Back</span></button>
+          <button class="btn qf__send" type="submit"><span class="btn__in">Send to Paul<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></span></button>
+        </div>
+      </fieldset>
+      </div>
+
+      <p class="qf__note">A request, not a booking. No deposit, no call centre. Paul replies himself.</p>
+
+      <div class="qf__done" data-qdone hidden tabindex="-1">
+        <p class="qf__done-h">Thank you. Paul has your enquiry.</p>
+        <p>He will call or message you on the number you gave. If it is urgent, call <a href="{{site.phoneHref}}">{{site.phone}}</a>.</p>
+      </div>
+    </form>
+  </div>
+</section>
