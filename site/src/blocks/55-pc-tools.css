@@ -1,0 +1,58 @@
+/* ============ 55 · SERVICE: THE INSTRUMENTS ============ */
+.ptools__head{display:grid;justify-items:center;gap:22px;text-align:center;margin-bottom:clamp(48px,6vw,88px)}
+.ptools__head .h2{max-width:16ch}
+.ptools__intro{max-width:64ch}
+.ptools__intro p{font-size:clamp(1rem,.96rem + .2vw,1.1rem);line-height:1.7}
+.ptools__intro p+p{margin-top:1em}
+
+.ptools__list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,3vw,48px);margin:0;padding:0;list-style:none}
+.ptools__it{display:grid;align-content:start;gap:clamp(20px,2vw,28px)}
+.ptools__fig{display:contents}
+/* the gauge's caption goes under its words, so the three names line up */
+.ptools__cap{order:9;padding-top:10px;border-top:1px solid var(--line)}
+.ptools__media{position:relative;aspect-ratio:4 / 3;border-radius:var(--r-lg);overflow:hidden;background:#0B0B0E;box-shadow:0 40px 70px -46px rgba(0,0,0,.55)}
+.ptools__media .media{height:100%;aspect-ratio:auto!important}
+.ptools__media img{width:100%;height:100%;object-fit:cover}
+.ptools__cap{font-size:.6875rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;line-height:1.5;color:var(--muted)}
+.ptools__txt{display:grid;gap:12px;align-content:start}
+.ptools__n{font-family:var(--fd);font-style:italic;font-weight:500;font-size:1.35rem;line-height:1;color:var(--gold)}
+.ptools__name{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.45rem,1.15rem + .7vw,1.95rem);line-height:1.12;color:var(--white)}
+.ptools__p{font-size:1rem;line-height:1.7;max-width:46ch}
+
+/* the microscope: a dark screen, the paint in a ring with a reticle.
+   Without JS the ring holds a still of fine circular swirls. */
+.ptools__scope{display:grid;place-items:center;background:radial-gradient(120% 90% at 50% 40%,#17181D,#060608)}
+.ptools__scope canvas,.ptools__scope::before{position:absolute;top:50%;left:50%;width:76%;aspect-ratio:1;height:auto;transform:translate(-50%,-50%);border-radius:50%}
+.ptools__scope::before{content:"";
+  background:
+    radial-gradient(circle at 42% 38%,rgba(255,255,255,.55) 0,rgba(255,255,255,.12) 4%,transparent 14%),
+    repeating-radial-gradient(circle at 42% 38%,rgba(255,255,255,.07) 0 1px,transparent 1px 7px),
+    radial-gradient(circle at 42% 38%,#2A2C33,#0C0D10 70%);
+  box-shadow:0 0 0 1px rgba(255,255,255,.16),0 0 0 9px rgba(0,0,0,.6),0 0 0 10px rgba(255,255,255,.08)}
+.ptools__scope.is-live::before{background:none}
+.ptools__scope canvas{display:block;z-index:1}
+.ptools__ret{position:absolute;top:50%;left:50%;z-index:2;width:76%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
+  background:
+    linear-gradient(rgba(201,168,77,.55),rgba(201,168,77,.55)) 50% 50%/1px 22% no-repeat,
+    linear-gradient(rgba(201,168,77,.55),rgba(201,168,77,.55)) 50% 50%/22% 1px no-repeat,
+    repeating-linear-gradient(90deg,rgba(255,255,255,.4) 0 1px,transparent 1px 8%) 50% 88%/60% 6px no-repeat}
+.ptools__ret::after{content:"";position:absolute;inset:-1px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22),inset 0 0 40px 10px rgba(0,0,0,.65)}
+
+@media (max-width:1023px) and (min-width:768px){
+  .ptools__list{gap:20px}
+  .ptools__p{font-size:.95rem}
+}
+/* phones: a row per instrument, a small picture beside its name */
+@media (max-width:767px){
+  .ptools__head{justify-items:start;text-align:left;margin-bottom:36px}
+  .ptools__list{grid-template-columns:1fr;gap:0}
+  .ptools__it{grid-template-columns:116px minmax(0,1fr);column-gap:18px;row-gap:12px;align-items:center;padding:22px 0;box-shadow:inset 0 1px 0 var(--line)}
+  .ptools__it:last-child{box-shadow:inset 0 1px 0 var(--line),inset 0 -1px 0 var(--line)}
+  .ptools__txt{display:contents}
+  .ptools__media{grid-column:1;grid-row:1 / span 2;aspect-ratio:1;border-radius:12px;align-self:start}
+  .ptools__n{grid-column:2;grid-row:1;align-self:end;font-size:1.15rem}
+  .ptools__name{grid-column:2;grid-row:2;align-self:start;font-size:1.4rem}
+  .ptools__p{grid-column:1 / -1;font-size:.98rem;max-width:none}
+  .ptools__cap{grid-column:1 / -1;font-size:.625rem;padding-top:0;border:0}
+  .ptools__scope canvas,.ptools__scope::before,.ptools__ret{width:86%}
+}

@@ -1,0 +1,36 @@
+<!-- ============ 57 · SERVICE: BEFORE & AFTER ============
+     Paul's own jobs, each the same part before and after, side by side
+     (08/10, Fender on leather: "thêm ảnh before after như showcase,
+     trước form booking"). Side by side, not a slider: the pairs are
+     hand-held shots, never framed alike, so a slider would jump.
+     One pair on the stage at a time; the small photos pick the job
+     (a swipe across the stage on a phone does too). On arrival the
+     "after" opens across from the left, once per job shown.
+     Desktop: heading and picker on the left, the pair on the right.
+     Phones: heading, pair, picker, all on one screen.
+     No JS: every pair, one under another. Built by lib/shared.js pairs(). -->
+<section class="bapr sec{{#pairs.square}} bapr--sq{{/pairs.square}}" id="{{pairs.id}}" data-section="pairs"{{#pairs.light}} data-bg="light" data-theme="light"{{/pairs.light}} data-pairs>
+  <div class="wrap bapr__in">
+    <div class="bapr__side">
+      <div class="bapr__head">
+        <div>
+          {{#pairs.eyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&pairs.eyebrow}}</p>{{/pairs.eyebrow}}
+          <h2 class="disp h2" data-split>{{&pairs.title}}</h2>
+        </div>
+        <p class="bapr__n" aria-hidden="true"><b data-pairs-n>01</b>/ {{pairs.total}}</p>
+      </div>
+      <div class="bapr__pick" role="group" aria-label="Choose a job" data-pairs-pick hidden>
+        {{#pairs.items}}<button class="bapr__t{{#_first}} is-on{{/_first}}" type="button" aria-pressed="{{#_first}}true{{/_first}}{{^_first}}false{{/_first}}" aria-controls="{{pairs.id}}-{{_n}}" aria-label="Job {{_idx}} of {{pairs.total}}"><span class="bapr__tm">{{&thumb}}</span><span class="bapr__tn" aria-hidden="true">{{_idx}}</span></button>{{/pairs.items}}
+      </div>
+    </div>
+
+    <ol class="bapr__list" role="list" data-pairs-stage>
+      {{#pairs.items}}
+      <li class="bapr__pair{{#_first}} is-on{{/_first}}" id="{{pairs.id}}-{{_n}}" data-pair>
+        <figure class="bapr__f is-before"><div class="bapr__m">{{&before}}</div><figcaption>{{&bl}}</figcaption></figure>
+        <figure class="bapr__f is-after"><div class="bapr__m">{{&after}}</div><figcaption>{{&al}}</figcaption></figure>
+      </li>
+      {{/pairs.items}}
+    </ol>
+  </div>
+</section>

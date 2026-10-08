@@ -104,3 +104,4 @@
   .qf__row--car{grid-template-columns:1fr 96px;gap:12px}
   .qf__prog li{font-size:.625rem;letter-spacing:.06em}
 }
+.book__more{justify-self:start}

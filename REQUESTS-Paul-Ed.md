@@ -58,7 +58,7 @@ Also, on the ceramic range only Heal Lite has a price ("From £2,000 + VAT"). Do
 1. **Ceramic and Window tinting swapped a paragraph.** The ceramic page showed the UK VLT paragraph under "Ceramic by Paul Dalton", and the tint page showed the Ceramic by Paul Dalton paragraph under "UK legal requirements". Each paragraph is now on its own page.
 2. **Dry ice:** the paragraph "First, kinetic energy…" appeared twice (also under "Experience that matters"). It now appears once.
 3. **Paint correction:** the levels were numbered I, 2, 3, 4, 5. They now read I to V.
-4. **Paint correction:** the caption "Rolls-Royce Silver Shadow" also sat on a photo of Paul polishing a Pagani. It is now used only on the Rolls-Royce photo.
+4. **Paint correction:** the caption "Rolls-Royce Silver Shadow" also sat on a photo of Paul polishing a Pagani. It is now used only on the Rolls-Royce photo. The car in that photo looks like a Mercedes-Benz 600 Pullman (the same car as on the Bodyshop page), not a Silver Shadow. The caption is still as written: should it change, or is there a photo of the Silver Shadow? (08/10: Fender dropped this photo and its caption from the page.)
 5. **Small punctuation tidy-ups** caused by v0.5 line breaks: "What's . included." → "What's included." · "Why choose mobile Nothing compromised." → "Nothing compromised." · "Wheel ceramic. coating." → "Wheel ceramic coating." · "From / From £1,000+VAT" → "From £1,000+VAT".
 6. **About Paul, Nippon Television 2008:** v0.5 shows the same photo three times, so it now appears once.
 7. **About Paul, 2015 LaFerrari:** v0.5 showed the dry ice photo here. We used v0.5's own LaFerrari photo instead.
@@ -78,11 +78,13 @@ Also, on the ceramic range only Heal Lite has a price ("From £2,000 + VAT"). Do
 | Paintless dent removal | No PDR photo exists, so the hero is a GF Williams close-up of red paint | Before/after of a dent, or the technician at work |
 | Bodyshop | Old-site photo of a Ferrari Roma, and the Mercedes 600 restoration | Repair jobs, before/after |
 | Wheel refurbishment, leather | Old-site photos (1,200 px wide, a little soft on large screens) | Larger originals or newer jobs |
+| Wheel refurbishment, the work | One before & after only (the VW in Paul's Drive collage, small and soft once cropped; its tyre lettering looks retouched). The other three jobs are finished wheels from the old site, shown whole and up close | Before and after photos of a few wheel jobs, the same wheel shot from the same angle, and the car each belonged to |
 | Mobile detailing | Paul's own photo of the Caddy in Portugal. v0.5 uses an AI picture of the van. | A current photo of the van at a client's home |
 | Mobile detailing, Portugal | The F12 TDF and 599 GTO from Portugal; the third car is a 997 GT3 RS from the old gallery, captioned "from the gallery" | A photo of the Porsche GT3 RS detailed in Portugal (2020) |
 | About Paul, 2026 new studio | One photo | More photos of the new Lingfield studio |
 | Gallery | 133 jobs from the old site, mostly 2016. Only 9 have a description. | Newer jobs, and a line or two about each car if you have it. Should the "50/50s" collection stay? |
 | Every service page | Hero photos taken from v0.5, the old site and the Drive set | 4K originals, if Paul has them |
+| Paint correction, process | Decontamination: an old gallery photo of a C63 with its wheels off. Work: six cars from the Drive set, named only | A decontamination photo (iron fallout remover, clay). Which of the six cars had paint correction? Paint depth gauge: now a photo Fender supplied (`assets-src/drive/paint-depth-gauge.avif`, only 400 px wide, source/licence to confirm); a larger photo of Paul's own gauge would be better. |
 
 **Credits to confirm:** GF Williams (LaFerrari, 458 Speciale, water beading), Andreas Jansson (Paul with the Monza SP), and the homepage SF90 Spider photo, which carries another detailer's "ESOTERIC" watermark and needs their permission or a replacement.
 

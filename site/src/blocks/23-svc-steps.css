@@ -70,7 +70,8 @@
 /* a photo on the stage: number and name low on the left of it */
 .stage--img{aspect-ratio:4 / 5;width:min(100%,460px);place-items:end start;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 50px 90px -50px rgba(0,0,0,.9)}
 .stage--img .stage__media,.stage--img .stage__media .media{position:absolute;inset:0;height:100%;aspect-ratio:auto!important}
-.stage--img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0) 35%,rgba(10,10,10,.82) 100%)}
+.stage--img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0) 30%,rgba(10,10,10,.55) 62%,rgba(10,10,10,.92) 100%)}
+.stage--img .stage__read{text-shadow:0 2px 14px rgba(0,0,0,.7)}
 .stage--img .stage__ring{display:none}
 .stage--img .stage__read{z-index:1;justify-items:start;text-align:left;padding:0 28px 30px;gap:6px}
 .stage--img .stage__digits{font-size:clamp(4rem,2.4rem + 4vw,6.4rem)}
@@ -108,4 +109,20 @@ html:has(.hd.is-hidden) .ssteps__prog{top:56px}
     background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));box-shadow:inset 0 0 0 1px var(--line)}
   .ssteps--rail .ssteps__it:not(:last-child)::before{display:none}
   .ssteps--rail .ssteps__prog{display:none}
+}
+
+/* ---------- a picture per step (08/10, correction) ---------- */
+.stage__pic{position:absolute;inset:0;opacity:0;transform:scale(1.05);transition:opacity .9s var(--ease),transform 1.4s var(--ease)}
+.stage__pic.is-on{opacity:1;transform:none}
+.stage__pic .media{height:100%;aspect-ratio:auto!important}
+.ssteps__ph{display:none}
+@media (max-width:1023px){
+  .ssteps__ph{display:block;margin:6px 0 4px;border-radius:12px;overflow:hidden;aspect-ratio:16 / 10;box-shadow:0 24px 44px -30px rgba(0,0,0,.8)}
+  .ssteps__ph .media{height:100%;aspect-ratio:auto!important}
+}
+/* phones: the line fills down the numbers as the steps pass */
+@media (max-width:600px){
+  .ssteps.is-railed .ssteps__list::after{content:"";position:absolute;left:27px;top:27px;bottom:40px;width:1px;background:var(--gold);transform-origin:50% 0;transform:scaleY(var(--lp,0))}
+  .ssteps.is-railed .ssteps__n span{position:relative;z-index:1;transition:background .5s var(--ease),color .5s var(--ease)}
+  .ssteps.is-railed .ssteps__it.is-past .ssteps__n span{background:var(--gold);color:var(--ink)}
 }

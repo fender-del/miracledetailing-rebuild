@@ -81,7 +81,9 @@ const IMAGES = [
      already on the homepage (README: Paul's photos to replace them). */
   { id: 'di-hero',     src: 'dryice/download-62.webp', widths: [960, 1440, 2048], q: 56 },
   { id: 'di-hero-m',   src: 'dryice/download-62.webp', crop: { l: 0, t: 0, w: .8, h: .95 }, widths: [480, 720, 1080], q: 56 },
-  { id: 'di-pellets',  src: 'dryice/download-61.webp', widths: [700, 1200, 1800], q: 52 },
+  /* 08/10 (Fender: "lệch quá"): cropped to the mound, without the
+     hopper's arm and the agitator ball cutting in from the corners */
+  { id: 'di-pellets',  src: 'dryice/download-61.webp', crop: { l: .233, t: .1625, w: .667, h: .625 }, widths: [700, 1200], q: 52 },
   { id: 'di-pour',     src: 'dryice/Dry-ice-blasting-service-in-Lingfield-Surrey-miracle-detail-3.jpg', widths: [600, 1200] },
   { id: 'di-gun',      src: 'dryice/Dry-ice-blasting-service-in-Lingfield-Surrey-miracle-detail.jpg', widths: [600, 1200] },
   { id: 'di-bay',      src: 'drive/09-engine-bay.png', widths: [600, 1100, 1535] },
@@ -109,7 +111,7 @@ const IMAGES = [
      the round-3/4 copy layout): GF Williams' LaFerrari, full width. */
   { id: 'ppf-hero',    src: 'drive/04-gfw-red-detail.jpg', widths: [960, 1440, 2048, 2560], q: 54 },
   { id: 'ppf-hero-m',  src: 'drive/04-gfw-red-detail.jpg', crop: { l: .2, t: 0, w: .52, h: 1 }, widths: [480, 720, 1080], q: 54 },
-  { id: 'ppf-beads',   src: 'drive/03-gfw-water-beading.jpg', crop: { l: .2, t: .05, w: .8, h: .8 }, widths: [700, 1100, 1600] },
+  { id: 'ppf-beads',   src: 'drive-paul/5C4C0AE2-BDFF-4B50-9379-D4BE4FB7A3F1 2.PNG', crop: { l: .2, t: .24, w: .8, h: .375 }, widths: [700, 1100, 1600] },
   { id: 'ppf-door',    src: 'drive/07-ppf-squeegee.png', crop: { l: 0, t: .22, w: 1, h: .5 }, widths: [600, 900, 1086] },
   { id: 'ppf-stretch', src: 'ppf/Paint-Protection-Film-in-Lingfield-Surrey-Miracle-Detail-3.jpg', widths: [600, 900, 1200] },
   { id: 'ppf-lamp',    src: 'ppf/Paint-Protection-Film-in-Lingfield-Surrey-Miracle-Detail.jpg', widths: [600, 900, 1200] },
@@ -121,6 +123,9 @@ const IMAGES = [
      softer reflections): the depth the film adds. Matte = AI satin. */
   { id: 'fin-bare',    src: 'finishes/laf-bare-final.jpg', widths: [700, 1100, 1600] },
   { id: 'fin-film',    src: 'finishes/laf-gloss.jpg',      widths: [700, 1100, 1600] },
+  /* Gloss tab: strip-light reflections, bare (orange peel) vs film. GPT Image 2.5 on Higgsfield from laf-gloss, 08/10. */
+  { id: 'fin-led-bare',  src: 'finishes/laf-led-bare.png',  widths: [700, 1024] },
+  { id: 'fin-led-gloss', src: 'finishes/laf-led-gloss.png', widths: [700, 1024] },
   { id: 'fin-satin',   src: 'finishes/laf-matte.jpg',      widths: [700, 1100, 1600] },
   { id: 'fin-colour',  src: 'finishes/458-colour.jpg', widths: [700, 1100, 1600] },
 

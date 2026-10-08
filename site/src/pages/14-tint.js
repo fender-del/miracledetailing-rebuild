@@ -220,6 +220,8 @@ module.exports = site => {
 
       hero: {
         stats: true,
+        /* phones: where the poster crop is held (08/10) */
+        mfit: true,
         h1: 'Window Tinting & Protection',
         line: 'Privacy, protection, presence, <span class="gold">and security.</span>',
         lede: 'Window tinting and ballistic protection film, both available through Miracle Detail. From chameleon windscreen film to invisible security glazing for private clients and chauffeur vehicles. Coordinated alongside your detail.',

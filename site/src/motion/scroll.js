@@ -119,9 +119,9 @@ export function lightBands() {
       '--cx': '0%', '--rt': '0px', ease: 'none',
       scrollTrigger: { trigger: s, start: 'top bottom', end: 'top 25%', scrub: true }
     });
-    /* a pinned row (kit.js rails) holds the section: its bottom edge
+    /* a pinned row (kit.js rails, scope.js levels) holds the section: its bottom edge
        would close in while it is still on screen */
-    const pinned = s.getAttribute('data-fx') === 'rail' && window.matchMedia('(min-width: 1024px)').matches;
+    const pinned = (s.getAttribute('data-fx') === 'rail' || s.hasAttribute('data-scope-sec')) && window.matchMedia('(min-width: 1024px)').matches;
     if (!light(s.nextElementSibling) && !pinned) gsap.fromTo(s, { '--cx2': '0%', '--rb': '0px' }, {
       '--cx2': '5%', '--rb': '56px', ease: 'none', immediateRender: false,
       scrollTrigger: { trigger: s, start: 'bottom 75%', end: 'bottom top', scrub: true }

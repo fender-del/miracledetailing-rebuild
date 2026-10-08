@@ -1,0 +1,197 @@
+/* ============ 56 · SERVICE: FIVE LEVELS UNDER THE LIGHT ============ */
+.pscope__head{display:grid;grid-template-columns:minmax(0,1fr);align-items:end;gap:clamp(32px,5vw,96px);margin-bottom:clamp(40px,5vw,72px)}
+.pscope__titles{display:grid;gap:22px}
+.pscope__head:has(.pscope__ref){grid-template-columns:minmax(0,1fr) clamp(260px,28vw,400px)}
+.pscope__ref{display:grid;gap:10px;margin:0}
+.pscope__refm{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:16 / 9;box-shadow:0 30px 60px -40px rgba(0,0,0,.5)}
+.pscope__refm .media{height:100%;aspect-ratio:auto!important}
+.pscope__ref figcaption{font-size:.6875rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;line-height:1.5;color:var(--muted)}
+
+.pscope__body{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(40px,5vw,96px);align-items:start}
+
+/* ---- the panel: black paint under one light ---- */
+.pscope__panel{
+  position:relative;aspect-ratio:4 / 3;border-radius:var(--r-lg);overflow:hidden;isolation:isolate;color:#fff;
+  /* without JS: the paint, a light, faint rings of swirls round it */
+  background:
+    radial-gradient(circle at 44% 40%,rgba(255,255,255,.85) 0,rgba(255,255,255,.18) 2.5%,transparent 9%),
+    repeating-radial-gradient(circle at 44% 40%,rgba(255,255,255,.045) 0 1px,transparent 1px 9px),
+    radial-gradient(90% 80% at 44% 40%,#24262C,#0B0C0F 62%,#050506);
+  box-shadow:0 60px 100px -56px rgba(0,0,0,.75),inset 0 0 0 1px rgba(255,255,255,.06)
+}
+.pscope.is-live .pscope__panel{background:#08090B;touch-action:pan-y}
+.pscope__panel canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.pscope__lv{position:absolute;left:clamp(16px,2vw,26px);top:clamp(14px,1.8vw,22px);z-index:2;margin:0;
+  font-size:.625rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.75);text-shadow:0 1px 8px rgba(0,0,0,.7)}
+.pscope__read{position:absolute;left:clamp(16px,2vw,26px);bottom:clamp(14px,1.8vw,24px);z-index:2;display:grid;gap:6px;margin:0;text-shadow:0 2px 14px rgba(0,0,0,.8)}
+.pscope__rk{font-size:.625rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-2)}
+.pscope__rv{font-family:var(--fd);font-style:italic;font-weight:500;font-size:clamp(2rem,1.3rem + 2vw,3.4rem);line-height:1;color:#fff;transition:opacity .3s var(--ease)}
+.pscope__rv small{font-size:.42em;font-style:normal;font-family:var(--f);font-weight:400;letter-spacing:.04em;margin-right:.15em;color:rgba(255,255,255,.75)}
+.pscope__rv.is-out,.pscope__lv span.is-out{opacity:0}
+.pscope__lv span{transition:opacity .3s var(--ease)}
+.pscope__before{
+  position:absolute;right:clamp(14px,1.8vw,22px);bottom:clamp(14px,1.8vw,22px);z-index:2;display:inline-flex;align-items:center;gap:9px;
+  padding:10px 16px;border-radius:999px;background:rgba(10,10,12,.62);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);color:#fff;font-size:.6875rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  cursor:pointer;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;transition:background .3s var(--ease),color .3s var(--ease)
+}
+.pscope__before i{width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+.pscope__before.is-down{background:var(--gold);color:#111}
+.pscope__before.is-down i{background:#111}
+.pscope__before:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* ---- the five stops under the panel ---- */
+.pscope__stops{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:clamp(18px,2vw,26px)}
+.pscope__stops[hidden]{display:none!important}
+.pscope__track{position:absolute;left:4px;width:calc(80% - 4px);top:0;height:1px;background:var(--line-2)}
+.pscope__track i{position:absolute;inset:0;background:var(--gold);transform-origin:0 50%;transform:scaleX(var(--p,0));transition:transform .7s var(--ease)}
+.pscope__stop{position:relative;display:grid;justify-items:start;gap:6px;padding:20px 10px 6px 0;text-align:left;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.pscope__stop::before{content:"";position:absolute;left:0;top:-4px;width:9px;height:9px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--line-2);transform:rotate(45deg);transition:background .4s var(--ease),box-shadow .4s var(--ease)}
+.pscope__stop.is-past::before,.pscope__stop.is-on::before{background:var(--gold);box-shadow:none}
+.pscope__stop.is-on::before{box-shadow:0 0 0 4px var(--gold-a12)}
+.pscope__sn{font-family:var(--fd);font-style:italic;font-weight:500;font-size:1.25rem;line-height:1;color:var(--gold)}
+.pscope__sname{font-size:.6875rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;line-height:1.4;color:var(--muted);transition:color .4s var(--ease)}
+.pscope__stop.is-on .pscope__sname{color:var(--white)}
+@media (hover:hover){.pscope__stop:hover .pscope__sname{color:var(--white)}}
+.pscope__stop:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:4px}
+
+/* ---- the level's own words ---- */
+.pscope__cards{margin:0;padding:0;list-style:none;display:grid;gap:clamp(28px,3vw,44px)}
+.pscope__card{position:relative;display:grid;align-content:start;gap:16px}
+.pscope__kick{display:flex;align-items:baseline;gap:12px;margin:0;font-size:.6875rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.pscope__cn{font-family:var(--fd);font-style:italic;font-weight:500;font-size:1.4rem;letter-spacing:0;text-transform:none;color:var(--gold)}
+.pscope__name{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(2rem,1.3rem + 1.6vw,3rem);line-height:1.05;color:var(--white)}
+.pscope__p{font-size:1.04rem;line-height:1.75;max-width:46ch}
+.pscope__facts{display:grid;grid-template-columns:1fr auto;align-items:end;gap:18px;margin:8px 0 0;padding-top:18px;border-top:1px solid var(--line-2)}
+.pscope__facts dt{font-size:.625rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.pscope__facts dd{margin:0;font-family:var(--fd);font-weight:500;font-size:clamp(1.3rem,1.1rem + .5vw,1.6rem);line-height:1.1;color:var(--white)}
+.pscope__pr dd{font-style:italic;color:var(--gold)}
+.pscope__acts{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;margin-top:6px}
+.pscope__txt{display:grid;gap:12px}
+.pscope__more{display:none}
+.pscope__nav{display:none}
+
+/* desktop with JS: one level at a time, all five in one cell */
+@media (min-width:1024px){
+  .pscope.is-live .pscope__cards{grid-template-areas:"c";gap:0}
+  /* the level's words come in from the right, the last one leaves to
+     the left (scrolling back reverses it) */
+  .pscope.is-live .pscope__card{grid-area:c;opacity:0;visibility:hidden;transform:translateX(64px);transition:opacity .45s var(--ease),transform .7s var(--ease),visibility 0s linear .45s}
+  .pscope.is-live .pscope__card.is-prev{transform:translateX(-64px)}
+  .pscope.is-live .pscope__card.is-on{opacity:1;visibility:visible;transform:none;transition:opacity .7s var(--ease) .1s,transform .9s var(--ease) .1s,visibility 0s}
+  .pscope__side{align-self:center;padding-bottom:clamp(40px,5vw,72px)}
+}
+
+/* tablets and phones: titles, panel, stops, a row of cards, the photo */
+@media (max-width:1023px){
+  .pscope .wrap{display:flex;flex-direction:column}
+  .pscope__head{display:contents}
+  .pscope__titles{order:1;margin-bottom:clamp(26px,5vw,40px)}
+  .pscope__body{order:2;display:block;min-width:0;width:100%}
+  .pscope__titles,.pscope__ref{min-width:0}
+  .pscope__ref{order:3;margin-top:clamp(36px,6vw,56px);max-width:520px}
+  .pscope__viz{max-width:760px}
+  .pscope__stops{margin-top:4px}
+  .pscope__track{display:none}
+  .pscope__stop{justify-items:center;padding:12px 0 8px}
+  .pscope__stop::before{display:none}
+  .pscope__sn{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;font-size:1.15rem;transition:background .35s var(--ease),color .35s var(--ease)}
+  .pscope__stop.is-on .pscope__sn{background:var(--white);color:var(--paper)}
+  .pscope__stop.is-hi.is-on .pscope__sn{background:#111;color:var(--gold-2)}
+  .pscope__sname{display:none}
+
+  .pscope__side{margin-top:clamp(14px,3vw,24px)}
+  .pscope__cards{
+    display:flex;gap:12px;overflow-x:auto;overscroll-behavior-x:contain;
+    margin-inline:calc(var(--gut) * -1);padding:6px var(--gut) 18px;
+    scroll-snap-type:x mandatory;scroll-padding-inline:var(--gut);scrollbar-width:none
+  }
+  .pscope__cards::-webkit-scrollbar{display:none}
+  .pscope__card{flex:0 0 min(84%,440px);scroll-snap-align:start;gap:10px;padding:20px 20px 20px;border-radius:18px;background:#fff;box-shadow:0 24px 44px -30px rgba(0,0,0,.35)}
+  /* with JS: two lines of Paul's words, the rest in the sheet */
+  :root[data-motion] .pscope__card .pscope__txt{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+  :root[data-motion] .pscope__card .pscope__txt p+p{display:none}
+  :root[data-motion] .pscope__more{
+    flex:1 1 auto;display:inline-flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;
+    border:0;border-radius:999px;background:none;box-shadow:inset 0 0 0 1px var(--line-2);
+    font:500 .6875rem/1 var(--f);letter-spacing:.2em;text-transform:uppercase;color:var(--white);cursor:pointer
+  }
+  .pscope__more svg{width:16px;height:16px;color:var(--gold)}
+  .pscope__acts .pscope__book{flex:1 1 auto}
+  .pscope__card.is-hi .pscope__more{box-shadow:inset 0 0 0 1px rgba(201,168,77,.5)}
+  /* round 3 (Fender: a card still did not fit one screen): the removal
+     figure is already large on the panel and the sticky bar has Book, so
+     the card keeps the price and Read more on one row; both stay in the
+     sheet / the bar */
+  /* a wrapping row, so a narrow card (~320 px phones) puts Read more
+     under the price instead of over it (Fender 08/10) */
+  :root[data-motion] .pscope__card{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px 0}
+  :root[data-motion] .pscope__card>*{flex:1 1 100%;min-width:0}
+  :root[data-motion] .pscope__card .pscope__facts{flex:1 1 auto;display:flex;align-items:center;margin:4px 0 0;padding-top:14px}
+  :root[data-motion] .pscope__card .pscope__facts>div:first-child{display:none}
+  :root[data-motion] .pscope__card .pscope__pr{padding:0;border:0}
+  :root[data-motion] .pscope__card .pscope__pr dd{white-space:nowrap}
+  :root[data-motion] .pscope__card .pscope__acts{flex:0 0 auto;align-items:center;margin:4px 0 0;padding:14px 0 0 14px;border-top:1px solid var(--line-2)}
+  :root[data-motion] .pscope__card .pscope__more{flex:none}
+  :root[data-motion] .pscope__card .pscope__book{display:none}
+  /* a narrow card (under ~290 px of text, i.e. 360 px phones and less):
+     the price takes the row, Read more spans the card under it */
+  :root[data-motion] .pscope__card{container-type:inline-size}
+  @container (max-width:290px){
+    :root[data-motion] .pscope__card .pscope__facts{flex-basis:100%}
+    :root[data-motion] .pscope__card .pscope__acts{flex-basis:100%;margin:0;padding:4px 0 0;border:0}
+    :root[data-motion] .pscope__card .pscope__more{flex:1 1 auto}
+  }
+  .pscope__name{font-size:1.75rem}
+  .pscope__p{font-size:.97rem;line-height:1.65}
+  /* phones: the removal figure and the price each get a full row
+     (Fender 08/10: "up to 65–75%" wrapped over itself beside the price) */
+  .pscope__facts{grid-template-columns:1fr;gap:10px;margin-top:4px;padding-top:14px}
+  .pscope__facts>div{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+  .pscope__facts dt{margin:0;white-space:nowrap}
+  .pscope__facts dd{font-size:1.25rem;line-height:1.2;white-space:nowrap;text-align:right}
+  .pscope__pr{padding-top:10px;border-top:1px solid var(--line)}
+  .pscope__pr dd{font-size:1.45rem;text-align:left}
+  /* level five, concours: inverted */
+  .pscope__card.is-hi{background:#111;color:#D9D6CF;--white:#fff;--muted:#A7A39A;--gold:#C9A84D;--line-2:rgba(255,255,255,.18)}
+  .pscope.is-live .pscope__nav{display:flex;align-items:center;gap:16px;margin-top:14px}
+  .pscope__count{font-size:.75rem;font-weight:500;letter-spacing:.2em;color:var(--muted);white-space:nowrap}
+  .pscope__count b{font-family:var(--fd);font-style:italic;font-size:1.15rem;letter-spacing:0;color:var(--gold)}
+  .pscope__prog{position:relative;flex:1;height:1px;margin-right:6px;background:var(--line-2)}
+  .pscope__prog i{position:absolute;inset:0;background:var(--gold);transform-origin:0 50%;transform:scaleX(var(--p,.2));transition:transform .5s var(--ease)}
+  .pscope__arr{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--line-2);color:var(--white);cursor:pointer}
+  .pscope__arr svg{width:18px;height:18px}
+  .pscope__arr:disabled{opacity:.35;cursor:default}
+}
+@media (max-width:767px){
+  .pscope__panel{aspect-ratio:16 / 10;border-radius:14px}
+  .pscope__name{font-size:1.6rem}
+  .pscope__rv{font-size:2.1rem}
+  .pscope__before{top:12px;bottom:auto;right:12px;padding:9px 13px;font-size:.625rem}
+}
+
+/* ---------- the sheet (motion/sheet.js), the same look as blocks 53 and 73 ---------- */
+.pks{position:fixed;inset:0;z-index:300;display:flex;align-items:flex-end;justify-content:center}
+.pks[hidden]{display:none!important}
+.pks__bg{position:absolute;inset:0;background:rgba(8,8,8,.62);opacity:0;transition:opacity .4s var(--ease)}
+.pks__panel{
+  position:relative;display:flex;flex-direction:column;width:100%;max-width:720px;max-height:88vh;max-height:88dvh;
+  border-radius:22px 22px 0 0;background:var(--paper);color:var(--text);
+  box-shadow:0 -30px 60px -30px rgba(0,0,0,.6);transform:translateY(100%);transition:transform .5s var(--ease);
+}
+.pks.is-open .pks__bg{opacity:1}
+.pks.is-open .pks__panel{transform:none}
+.pks__top{position:relative;flex:none;display:grid;gap:6px;padding:26px 64px 16px 22px;box-shadow:inset 0 -1px 0 var(--line)}
+.pks__top::before{content:"";position:absolute;left:50%;top:9px;width:40px;height:4px;margin-left:-20px;border-radius:4px;background:rgba(17,17,17,.18)}
+.pks__kick{margin:0;font-size:.625rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.pks__name{margin:0;font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:1.6rem;line-height:1.1;color:var(--white)}
+.pks__x{position:absolute;right:14px;top:18px;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:none;color:var(--white);box-shadow:inset 0 0 0 1px var(--line-2);cursor:pointer}
+.pks__x svg{width:16px;height:16px}
+.pks__body{overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:18px 22px calc(22px + env(safe-area-inset-bottom))}
+html.pks-lock,html.pks-lock body{overflow:hidden}
+.pks__body .pscope__txt{display:grid;gap:12px;margin-bottom:18px}
+.pks__body .pscope__p{font-size:1rem;line-height:1.72}
+.pks__body .pscope__facts{display:grid;grid-template-columns:1fr;gap:10px;padding-top:14px;border-top:1px solid var(--line-2)}
+.pks__body .pscope__facts>div{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.pks__body .pscope__facts dt{margin:0}
+.pks__body .pscope__facts dd{font-size:1.25rem}

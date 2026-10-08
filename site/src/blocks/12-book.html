@@ -4,7 +4,9 @@
      you. JS off = one ordinary form. Netlify Forms receives it.
      Fender 02/10: no "what happens next" list, no repeated address; a
      short nudge to call sits over the phone number for anyone who would
-     rather talk. On phones the form comes straight after the heading. -->
+     rather talk. On phones the form comes straight after the heading.
+     bookMore = { href, label }: a second way on under the lede (08/10,
+     correction: v0.5's "View Packages"). -->
 <section class="book sec" id="book" data-section="book" data-motion="form" data-bg="graphite">
   <div class="wrap book__in">
     <div class="book__aside">
@@ -12,6 +14,7 @@
         <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>Book a consultation</p>
         <h2 class="disp h2" data-split>{{&bookTitle}}{{^bookTitle}}The studio is ready. Is your car?{{/bookTitle}}</h2>
         <p class="lede" data-reveal>{{&bookLede}}{{^bookLede}}Tell Paul about the car and what you would like done.{{/bookLede}}</p>
+        {{#bookMore}}<a class="link-arrow book__more" href="{{href}}" data-reveal><span>{{label}}</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></a>{{/bookMore}}
       </div>
 
       <div class="book__nap" data-reveal>

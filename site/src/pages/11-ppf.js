@@ -103,6 +103,8 @@ module.exports = site => {
            figures kept as the gold row under the buttons */
         film: true,
         stats: true,
+        /* phones: where the poster crop is held (08/10) */
+        mpos: '58% 50%',
         h1: 'Paint Protection Film',
         line: 'The strongest <span class="gold">shield</span> paint has ever had.',
         lede: 'Paint Protection Film is an invisible armour: a self-healing urethane film that absorbs stone chips, abrasion and environmental damage so your paint never has to. Paul has been installing PPF since 2006. Longer than any other detailer in the UK.',
@@ -138,7 +140,7 @@ module.exports = site => {
       prose: {
         id: 'protection',
         title: 'PPF isn’t just protection. <span class="gold">It’s peace of mind.</span>',
-        img: frame('ppf-beads', { alt: 'Water thrown off a red supercar’s wheel and wing under studio light', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10', credit: 'GF Williams' }),
+        img: frame('ppf-beads', { alt: 'Clear film being laid wet over the mirror of a red car, a pink squeegee in hand', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
         paras: [
           'Paint Protection Film is a virtually invisible urethane film applied directly to your car’s paintwork. It absorbs impacts, resists abrasion, deflects stone chips and shields against environmental contamination, all without altering the appearance of the paint beneath it.',
           'Modern PPF films are self-healing. Minor surface scratches and swirl marks disappear with the application of gentle heat, keeping the film, and the paint beneath it, looking perfect for years. Applied correctly, PPF stops physical damage that ceramic coating alone cannot prevent.',
@@ -163,7 +165,7 @@ module.exports = site => {
         label: 'Film finishes',
         items: [
           { key: 'gloss', first: true, name: 'Gloss PPF', sub: 'Invisible protection',
-            ba: { bl: 'Bare paint', al: 'Gloss PPF', pre: frame('fin-bare', { alt: 'The red bonnet of a LaFerrari, the paint without film, a little flat', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }), post: frame('fin-film', { alt: 'The same bonnet under gloss film, the strip lights reflected sharp and deep', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }) },
+            ba: { bl: 'Bare paint', al: 'Gloss PPF', pre: frame('fin-led-bare', { alt: 'The red bonnet of a LaFerrari under studio strip lights, the reflections broken by orange peel', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }), post: frame('fin-led-gloss', { alt: 'The same bonnet under gloss film, the strip lights reflected straight and sharp', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }) },
             
             paras: ['The standard choice. A virtually invisible film that enhances the depth and gloss of the paint beneath it while providing complete protection from stone chips, abrasion and environmental contamination. Self-healing under gentle heat.'] },
           { key: 'matte', name: 'Matte PPF', sub: 'Satin and matte finishes protected',

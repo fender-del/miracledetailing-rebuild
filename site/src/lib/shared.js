@@ -75,7 +75,11 @@ function cards(o) {
   const fx = o.fx || null;
   return {
     id: o.id, variant, light: !!o.light, graphite: !!o.graphite,
-    fx, acc, fxRail: fx === 'rail', compact: !!o.compact,
+    /* 08/10 wheels: brief = points on phones as one row each (numeral,
+       name, a ring to open the words), so the block fits one screen;
+       it rides on compact's button and toggle */
+    fx, acc, fxRail: fx === 'rail', compact: !!o.compact || !!o.brief,
+    brief: !!o.brief,
     counted: rail || fx === 'rail',
     total: String(items.length).padStart(2, '0'),
     eyebrow: o.eyebrow || null, title: o.title || null,
@@ -103,6 +107,9 @@ function prose(o) {
 function quote(o) {
   const c = fill(o, ['eyebrow', 'title', 'cite', 'img', 'price', 'light']);
   c.paras = c.paras || []; c.hasParas = has(c.paras);
+  /* 08/10: side = the photo sinks in behind the words from the right
+     (desktop), or behind the whole quote (phones) */
+  c.side = !!o.side;
   /* 07/10: collage = [img, img, img] floating round the words; each
      gets a depth (how far it drifts) */
   const depths = [1.4, 0.8, 1.9];
@@ -113,7 +120,9 @@ function quote(o) {
 
 /* Block 23 (steps): { stepsId, stepsEyebrow, stepsTitle, steps, ... } */
 function steps(o) {
-  const list = o.steps.map(s => Object.assign({ num: null, links: null, tbc: null }, s, { hasLinks: has(s.links) }));
+  /* 08/10: a step may bring its own picture: pic = the stage's (desktop),
+     img = under the step's name (tablets and phones) */
+  const list = o.steps.map(s => Object.assign({ num: null, links: null, tbc: null, img: null, pic: null }, s, { hasLinks: has(s.links) }));
   const n = o.n || Math.min(list.length, 4);
   return {
     stepsId: o.id || null, stepsEyebrow: o.eyebrow || null, stepsTitle: o.title || null, stepsIntro: o.intro || null,
@@ -123,9 +132,24 @@ function steps(o) {
     /* 07/10: stage = { img } or {} (the number in a ring); progress = the
        "Step n / N" bar */
     stepsStage: !!o.stage, stepsStageImg: (o.stage && o.stage.img) || null,
+    stepsStagePics: !!(o.stage && o.stage.pics),
     stepsRail: !!o.railPhone,
     stepsProgress: !!o.progress, stepsCount: String(list.length).padStart(2, '0'), stepsTotal: list.length
   };
 }
 
-module.exports = { STAR, stars: STAR.repeat(5), reviews, tbc, crumbs, mark, cards, prose, quote, steps };
+/* Data for block 57 (before & after, 08/10): items = [{ before, after,
+   thumb }] as frame() html; every key set, as for the others.
+   08/10 wheels: a job may name its two photos (bl / al, "Before" and
+   "After" by default: a finished wheel and its close-up are not a
+   before and after); square = 1:1 frames (round wheels). */
+function pairs(o) {
+  return {
+    id: o.id, light: !!o.light, square: !!o.square,
+    eyebrow: o.eyebrow || null, title: o.title,
+    total: String(o.items.length).padStart(2, '0'),
+    items: o.items.map(it => Object.assign({ bl: 'Before', al: 'After' }, it))
+  };
+}
+
+module.exports = { STAR, stars: STAR.repeat(5), reviews, tbc, crumbs, mark, cards, prose, quote, steps, pairs };

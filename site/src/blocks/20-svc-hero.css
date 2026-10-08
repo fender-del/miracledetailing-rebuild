@@ -120,22 +120,6 @@
 }
 
 @media (max-width:1100px){.shero__in{grid-template-columns:minmax(0,1fr) minmax(280px,.8fr)}}
-/* Portrait tablets + phones: the photo on top (5:4 crop), copy below */
-@media (max-width:900px){
-  .shero{display:block;min-height:0;padding:calc(var(--hd-h) + 58vw) 0 56px}
-  .shero__media{bottom:auto;height:calc(var(--hd-h) + 72vw);
-    -webkit-mask-image:linear-gradient(180deg,#000 60%,transparent);mask-image:linear-gradient(180deg,#000 60%,transparent)}
-  .shero__media img{object-position:50% 30%}
-  .shero__shade{background:linear-gradient(180deg,rgba(10,10,10,.55) 0,transparent 20%,transparent 50%,rgba(10,10,10,.75) 72%,var(--ink) 100%)}
-  .shero__in{grid-template-columns:1fr;gap:36px}
-  .shero__crumbs{margin-bottom:20px}
-}
-@media (max-width:767px){
-  .shero__line{font-size:clamp(2.1rem,9vw,2.7rem)}
-  .shero__ctas .btn{flex:1 1 100%}
-  .shero__card{padding:4px 18px}
-  .shero__fact{padding:13px 0}
-}
 
 /* Shift (Mobile, 07/10, Fender: "nhích chiếc xe sang phải để thấy rõ
    chiếc xe van hơn"): the photo held in the right two thirds, its left
@@ -146,4 +130,62 @@
     -webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 14%),linear-gradient(180deg,#000 72%,transparent);mask-composite:intersect}
   .shero--shift .shero__media img{object-position:0% 52%}
 }
-@media (max-width:900px){.shero--shift .shero__media img{object-position:50% 55%}}
+
+/* ---------- Phones + portrait tablets: the poster (08/10) ----------
+   Fender: the old phone hero (photo strip on top, a wall of words under
+   it) read dull. Now the photo is the first screen; the title and the
+   gold figures sit low on it; Paul's paragraph opens the page just
+   below, on the dark; the breadcrumb follows. Book lives in the sticky
+   bar on phones, so the hero carries no button there.
+   Legibility without a black wash: the lower part of the photo, behind
+   the words, is blurred and dimmed and fades to the page (__soft); a
+   thin veil sits under the logo (__shade). How strong both are comes
+   from the photo itself (--ta top, --da lower half; kit.js heroTone).
+   --ph is the poster height; the grid's ::before spans the poster rows
+   so the words stay pinned to its foot whatever their length. */
+.shero__soft,.shero__bg{display:none}
+@media (max-width:900px){
+  .shero{--ph:max(100svh,580px);--gap:clamp(40px,6vh,60px);display:block;min-height:0;padding:0 0 52px;background:var(--ink)}
+  .shero.shero .shero__media{inset:0 0 auto;height:var(--ph);-webkit-mask-image:none;mask-image:none}
+  .shero.shero.shero .shero__media img{object-position:var(--mpos,50% 50%)}
+  .shero.shero .shero__shade{inset:0 0 auto;height:150px;
+    background:linear-gradient(180deg,rgba(0,0,0,var(--ta,.45)),rgba(0,0,0,calc(var(--ta,.45) * .45)) 55%,rgba(0,0,0,0))}
+  .shero__soft{display:block;position:absolute;left:0;right:0;z-index:-2;pointer-events:none;
+    top:calc(var(--ph) * .4);height:calc(var(--ph) * .6 + 2px);
+    -webkit-backdrop-filter:blur(14px) saturate(1.1);backdrop-filter:blur(14px) saturate(1.1);
+    -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 42%);mask-image:linear-gradient(180deg,transparent 0,#000 42%);
+    background:linear-gradient(180deg,rgba(10,10,10,0) 0,rgba(10,10,10,var(--da,.38)) 40%,rgba(10,10,10,calc(var(--da,.38) + .22)) 84%,var(--ink) 100%)}
+
+  .shero__in{display:grid;grid-template-columns:minmax(0,1fr);gap:0;
+    grid-template-rows:minmax(0,1fr) auto auto auto var(--gap) auto auto auto}
+  .shero__in::before{content:"";grid-area:1/1/6/2;min-height:var(--ph)}
+  .shero__copy{display:contents}
+  /* every item in the one column: the ::before holds rows 1–5 of it */
+  .shero__in>*,.shero__copy>*{grid-column:1}
+  .shero__h1,.shero__line,.shero__card{text-shadow:0 1px 2px rgba(0,0,0,.35),0 2px 22px rgba(0,0,0,.45)}
+  .shero__h1{grid-row:2;justify-self:start;margin-bottom:14px}
+  .shero__line{grid-row:3;margin-bottom:0;max-width:14ch;font-size:clamp(2.3rem,11.5vw,3.4rem)}
+  .shero.shero .shero__card{grid-row:4;margin-top:22px}
+  .shero__lede{grid-row:6;margin:0;max-width:56ch}
+  .shero__ctas{grid-row:7;margin-top:28px}
+  .shero__crumbs{grid-row:8;margin:30px 0 0}
+  :is(.shero--panel,.shero--stats) .shero__fact dt{color:rgba(255,255,255,.78)}
+
+  /* mfit: a wide photo shown whole at the top, its blurred self behind */
+  .shero--mfit .shero__bg{display:block;position:absolute;inset:0 0 auto;height:var(--ph);z-index:-4;overflow:hidden}
+  .shero--mfit .shero__bg .media,.shero--mfit .shero__bg picture,.shero--mfit .shero__bg img{position:absolute;inset:0;width:100%;height:100%}
+  .shero--mfit .shero__bg img{object-fit:cover;filter:blur(26px) brightness(.62) saturate(1.15);transform:scale(1.25)}
+  .shero--mfit .shero__bg .media::before{display:none}
+  .shero.shero.shero--mfit .shero__media{height:auto;top:calc(var(--hd-h) + 8px);
+    -webkit-mask-image:linear-gradient(180deg,#000 72%,transparent);mask-image:linear-gradient(180deg,#000 72%,transparent)}
+  .shero--mfit .shero__media .media,.shero--mfit .shero__media picture{position:relative;inset:auto;height:auto}
+  .shero.shero.shero--mfit .shero__media img{position:relative;height:auto}
+}
+@media (max-width:767px){
+  /* the sticky bar books and calls on phones */
+  .shero__ctas{display:none}
+  .shero{--gap:92px}
+  /* the three figures always on one line */
+  .shero.shero .shero__card{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .shero.shero .shero__fact dd{font-size:clamp(1.6rem,8vw,2rem);white-space:nowrap}
+}

@@ -8,10 +8,12 @@
    film-brand lines (SunTek, Profilm, STEK). Only the areas' names show
    for those three until Paul sends their lines (REQUESTS.md).
    Photos: the old site's leather jobs (Paul's own).
+   Before & after (08/10, Fender): the old site's five pairs, the same
+   seat before and after, just before the booking form.
    ============================================================ */
 'use strict';
 const { frame } = require('../lib/pic.js');
-const { crumbs, cards, prose, quote } = require('../lib/shared.js');
+const { crumbs, cards, prose, quote, pairs } = require('../lib/shared.js');
 
 const SLUG = 'leather-restoration';
 
@@ -21,6 +23,8 @@ module.exports = site => {
     { name: 'Services', href: '/car-care-services/' },
     { name: 'Leather restoration', href: `/${SLUG}/` }
   ]);
+  const pairImg = (id, alt) => frame(id, { alt, sizes: '(max-width: 767px) 46vw, (max-width: 1023px) 45vw, 360px', ratio: '3 / 4' });
+  const thumb = id => frame(id, { alt: '', sizes: '72px', ratio: '1' });
   const cardImg = (id, alt) => frame(id, { alt, sizes: '(max-width: 767px) 86vw, (max-width: 1023px) 45vw, 30vw', ratio: '4 / 3' });
 
   return {
@@ -40,7 +44,7 @@ module.exports = site => {
       { block: '33-svc-prose', with: { prose: prose({
         id: 'overview', zoom: { focus: '48% 62%' },
         title: 'The interior is half the car. <span class="gold">It deserves the same attention.</span>',
-        img: frame('lr-fixed', { alt: 'A cream leather seat after colour restoration', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '4 / 3' }),
+        img: frame('lr-fixed', { alt: 'A cream leather seat after colour restoration', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
         paras: [
           'Paint correction and ceramic coating transform the exterior of a car. But if the leather is faded, scuffed or showing its age, the overall impression suffers, no matter how good the paintwork looks.',
           'Leather restoration is available through Miracle Detail as part of a full detail package. Colour restoration, scuff and scratch repair, and surface conditioning, delivered to the same standard as the rest of the work on your car.',
@@ -48,7 +52,7 @@ module.exports = site => {
         ]
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'covered', light: true, cols: 3, fx: 'rail',
+        id: 'covered', light: true, cols: 3, fx: 'rail', compact: true,
         eyebrow: 'What’s covered',
         title: 'Colour. Repair. <span class="gold">Restoration.</span>',
         items: [
@@ -82,6 +86,18 @@ module.exports = site => {
         img: frame('lr-hero', { alt: '', sizes: '100vw', ratio: false }),
         text: 'A car detailed to perfection on the outside deserves an interior that <span class="gold">tells the same story.</span>'
       }) } },
+      { block: '57-svc-pairs', with: { pairs: pairs({
+        id: 'before-after', light: true,
+        eyebrow: 'Before &amp; after',
+        title: 'Five interiors, <span class="gold">side by side.</span>',
+        items: [
+          ['lr-9', 'A cracked cream driver’s seat with a burn mark, before restoration', 'lr-seat', 'The same cream seat after restoration'],
+          ['lr-5', 'A worn, stained grey leather seat before restoration', 'lr-fixed', 'The same grey seat after restoration'],
+          ['lr-7', 'A cracked, marked cream seat cushion before restoration', 'lr-base', 'The same seat cushion after restoration'],
+          ['lr-bolster', 'A scuffed grey bolster with red piping before repair', 'lr-red', 'The same bolster after repair'],
+          ['lr-worn', 'A worn cream seat back before colour restoration', 'lr-4', 'The same seat back after colour restoration']
+        ].map(([b, ba, a, aa]) => ({ before: pairImg(b, ba), after: pairImg(a, aa), thumb: thumb(a) }))
+      }) } },
       '12-book',
       '13-footer', '14-sticky'
     ],
@@ -90,7 +106,9 @@ module.exports = site => {
       crumbs: nav.html,
 
       hero: {
-        stats: true,
+        stats: true, fit: true,
+        /* phones: where the poster crop is held (08/10) */
+        mfit: true,
         h1: 'Leather Restoration',
         line: 'Leather that looks <span class="gold">the way it should.</span>',
         lede: 'Faded, scuffed, cracked or discoloured leather doesn’t have to stay that way. Leather colour restoration and repair is available through Miracle Detail, so the interior of your car matches the standard of the exterior.',
@@ -105,7 +123,8 @@ module.exports = site => {
       snav: [
         { id: 'overview', label: 'Overview' },
         { id: 'covered', label: 'What’s covered' },
-        { id: 'areas', label: 'Areas' }
+        { id: 'areas', label: 'Areas' },
+        { id: 'before-after', label: 'Before & after' }
       ],
 
       bookTitle: 'Interior restored. <span class="gold">Detail complete.</span>',

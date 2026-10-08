@@ -24,7 +24,7 @@
   .swork__grid{grid-template-columns:1fr 1fr;grid-auto-rows:auto;gap:12px 10px}
   .swork__it,.swork__it.is-half,.swork__it.is-third{grid-column:auto}
   .swork__it.is-wide,.swork__it.is-full,
-  .swork__it:not(.is-wide,.is-full):has(+:is(.is-wide,.is-full)),
+  .swork__it:not(.is-wide,.is-full,.is-half):has(+:is(.is-wide,.is-full)),
   :is(.is-wide,.is-full)+.swork__it:not(.is-wide,.is-full):last-child,
   .swork__it:only-child{grid-column:1 / -1}
   .swork__media .media{aspect-ratio:4 / 3!important}

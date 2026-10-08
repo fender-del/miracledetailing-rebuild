@@ -120,6 +120,8 @@ module.exports = site => {
       hero: {
         stats: true,
         shift: true,
+        /* phones: where the poster crop is held (08/10) */
+        mfit: true,
         h1: 'Mobile Detailing',
         line: 'The studio. <span class="gold">At your location.</span>',
         lede: 'The same standard Paul applies in the studio, delivered to your home, your office, or anywhere else you need it. Surrey, Kent, Sussex, London and beyond.',

@@ -120,6 +120,8 @@ module.exports = site => {
 
       hero: {
         stats: true,
+        /* phones: where the poster crop is held (08/10) */
+        mpos: '42% 50%',
         h1: 'Bodyshop & Paint Repair',
         line: 'When the damage goes deeper <span class="gold">than the surface.</span>',
         lede: 'From a single scuffed panel to a full restoration, bodyshop and paint repair is available through Miracle Detail. One point of contact, coordinated around your detail, finished to the same standard as the detailing work that follows it.',

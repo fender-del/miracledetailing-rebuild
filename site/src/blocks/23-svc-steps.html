@@ -7,7 +7,11 @@
      while the steps pass on the right; the step beside it lights and the
      number turns over (motion/kit.js). Phones: the plain list.
      Progress (aftercare): a slim bar under the page bar says which step
-     you are reading. Long step texts fold on phones (Read more). -->
+     you are reading. Long step texts fold on phones (Read more).
+     Pictures per step (08/10, correction, stage.pics): the stage shows the
+     step's own photo (crossfade); tablets and phones show it under the
+     step's name. Phones: a gold line fills down the numbers as the steps
+     pass and each number lights when reached (motion/svc.js). -->
 <section class="ssteps sec{{#stepsLong}} ssteps--long{{/stepsLong}}{{#stepsTight}} ssteps--tight{{/stepsTight}}{{#stepsStage}} ssteps--stage{{/stepsStage}}{{#stepsRail}} ssteps--rail{{/stepsRail}}" id="{{stepsId}}{{^stepsId}}process{{/stepsId}}" data-section="process" data-steps{{#stepsStage}} data-stage{{/stepsStage}}{{#stepsProgress}} data-progress{{/stepsProgress}}{{#stepsLight}} data-bg="light" data-theme="light"{{/stepsLight}}{{#stepsGraphite}} data-bg="graphite"{{/stepsGraphite}}>
   {{#stepsProgress}}<div class="ssteps__prog" aria-hidden="true"><div class="wrap ssteps__prog-in"><span class="ssteps__prog-n">Step <b data-prog-n>1</b> / {{stepsTotal}}</span><span class="ssteps__prog-bar"><i data-prog-bar></i></span></div></div>{{/stepsProgress}}
   <div class="wrap">
@@ -18,8 +22,9 @@
     </div>{{/stepsBare}}
     <div class="ssteps__track">
     {{#stepsStage}}<div class="ssteps__stage" aria-hidden="true">
-      <div class="stage{{#stepsStageImg}} stage--img{{/stepsStageImg}}">
+      <div class="stage{{#stepsStageImg}} stage--img{{/stepsStageImg}}{{#stepsStagePics}} stage--img stage--pics{{/stepsStagePics}}">
         {{#stepsStageImg}}<div class="stage__media">{{&.}}</div>{{/stepsStageImg}}
+        {{#stepsStagePics}}<div class="stage__media">{{#steps}}<div class="stage__pic{{#_first}} is-on{{/_first}}" data-stage-pic>{{&pic}}</div>{{/steps}}</div>{{/stepsStagePics}}
         <svg class="stage__ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="96"/><circle class="stage__arc" cx="100" cy="100" r="96" pathLength="1"/></svg>
         <div class="stage__read">
           <p class="stage__num"><span class="stage__digits" data-stage-n>01</span><span class="stage__of">/ {{stepsCount}}</span></p>
@@ -33,6 +38,7 @@
       <li class="ssteps__it" data-reveal>
         <p class="ssteps__n"><span>{{#num}}{{num}}{{/num}}{{^num}}{{_idx}}{{/num}}</span></p>
         <h3 class="ssteps__name">{{&name}}</h3>
+        {{#img}}<div class="ssteps__ph">{{&img}}</div>{{/img}}
         <div class="ssteps__body more" data-more><div class="more__body"><p class="ssteps__text">{{&text}}{{&tbc}}</p></div></div>
         {{#hasLinks}}<p class="ssteps__links">{{#links}}<a href="{{href}}"{{#ext}} target="_blank" rel="noopener"{{/ext}}>{{label}}</a>{{/links}}</p>{{/hasLinks}}
       </li>

@@ -40,6 +40,8 @@ module.exports = site => {
       crumbs: nav.html,
       hero: {
         stats: true,
+        /* phones: where the poster crop is held (08/10) */
+        mpos: '50% 50%',
         h1: 'Services',
         line: 'Everything available through <span class="gold">Miracle Detail</span>',
         img: frame('sv-hero', {

@@ -6,10 +6,17 @@
      (3) · book
    v0.5 shows no photos on this page: the old site's wheel photos
    (Paul's own) carry the four services.
+   08/10 (Fender: QC + rebuild after Leather): hero = the "after" wheel
+   alone (the collage's seams showed on desktops), shifted right and fit
+   to one phone screen; the four services compact on phones (photo,
+   name, line, price, Read more); "Why it matters" brief on phones; the
+   work before the booking form (block 57, square): Paul's one before &
+   after (the VW from his Drive collage), then three finished wheels
+   from the old site, each whole and up close.
    ============================================================ */
 'use strict';
 const { frame } = require('../lib/pic.js');
-const { crumbs, cards, prose } = require('../lib/shared.js');
+const { crumbs, cards, prose, pairs } = require('../lib/shared.js');
 
 const SLUG = 'wheel-refurbishment';
 
@@ -20,6 +27,8 @@ module.exports = site => {
     { name: 'Wheel refurbishment', href: `/${SLUG}/` }
   ]);
   const cardImg = (id, alt) => frame(id, { alt, sizes: '(max-width: 767px) 86vw, (max-width: 1023px) 45vw, 24vw', ratio: '4 / 3' });
+  const pairImg = (id, alt) => frame(id, { alt, sizes: '(max-width: 767px) 46vw, (max-width: 1023px) 45vw, 370px', ratio: '1' });
+  const thumb = id => frame(id, { alt: '', sizes: '72px', ratio: '1' });
 
   return {
     slug: SLUG,
@@ -46,7 +55,7 @@ module.exports = site => {
         ]
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'available', light: true, cols: 4, fx: 'rail',
+        id: 'available', light: true, cols: 4, fx: 'rail', compact: true,
         eyebrow: 'What’s available',
         title: 'Four services. <span class="gold">Every wheel covered.</span>',
         items: [
@@ -69,13 +78,27 @@ module.exports = site => {
         ]
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'why', variant: 'points', cols: 3,
+        id: 'why', variant: 'points', cols: 3, brief: true,
         eyebrow: 'Why it matters',
         title: 'Wheels that match <span class="gold">the standard of the detail.</span>',
         items: [
           { n: 'I', name: 'Completed, Not Compromised', paras: 'A full detail with tired or kerbed wheels is an incomplete job. Coordinating wheel refurbishment alongside the detail means the car leaves looking exactly as it should, from every angle.' },
           { n: 'II', name: 'Residual Value', paras: 'Kerbed or corroded wheels are one of the most visible indicators of a car’s history and care. Restored wheels meaningfully improve the perceived condition and value of the vehicle at point of sale.' },
           { n: 'III', name: 'One Point of Contact', paras: 'Arranged through Miracle Detail, coordinated around your detail. You don’t need to manage multiple suppliers or work around separate collections and drop-offs. Paul handles the coordination.' }
+        ]
+      }) } },
+      { block: '57-svc-pairs', with: { pairs: pairs({
+        id: 'the-work', light: true, square: true,
+        eyebrow: 'The work',
+        title: 'Finished wheels, <span class="gold">up close.</span>',
+        items: [
+          { before: pairImg('wr-vw-b', 'A kerbed silver alloy wheel before refurbishment, the rim scraped through'),
+            after: pairImg('wr-vw-a', 'The same Volkswagen wheel after refurbishment'), thumb: thumb('wr-vw-a') },
+          ...[
+            ['wr-cupra', 'A black and copper Cupra wheel after refurbishment', 'wr-cupra-c', 'The copper-faced spoke of the same Cupra wheel, close up'],
+            ['wr-audi-w', 'A two-tone diamond cut Audi wheel after refurbishment', 'wr-audi-c', 'The Audi Sport lettering on the same wheel, close up'],
+            ['wr-911', 'A silver Porsche wheel after refurbishment', 'wr-911-c', 'The spoke and rim of the same Porsche wheel, close up']
+          ].map(([w, wa, c, ca]) => ({ before: pairImg(w, wa), after: pairImg(c, ca), thumb: thumb(w), bl: 'Finished', al: 'Up close' }))
         ]
       }) } },
       '12-book',
@@ -86,13 +109,15 @@ module.exports = site => {
       crumbs: nav.html,
 
       hero: {
-        stats: true,
+        stats: true, fit: true, shift: true,
+        /* phones: where the poster crop is held (08/10) */
+        mfit: true,
         h1: 'Wheel Refurbishment',
         line: 'Your wheels. <span class="gold">Restored to perfect.</span>',
         lede: 'Kerbed, corroded, faded or simply in need of a refresh: wheel refurbishment is available through Miracle Detail as part of a full detail package. Diamond cut, powder coat, colour change and structural repair all covered.',
         img: frame('wr-hero', {
           priority: true, ratio: false, sizes: '100vw',
-          alt: 'A kerbed alloy wheel before refurbishment, and the same wheel after, as new',
+          alt: 'A refurbished silver alloy wheel on a new Continental tyre in the workshop',
           art: [{ media: '(max-width: 900px)', id: 'wr-hero-m', sizes: '100vw' }]
         }),
         facts: []
@@ -101,7 +126,8 @@ module.exports = site => {
       snav: [
         { id: 'overview', label: 'Overview' },
         { id: 'available', label: 'What’s available' },
-        { id: 'why', label: 'Why it matters' }
+        { id: 'why', label: 'Why it matters' },
+        { id: 'the-work', label: 'The work' }
       ],
 
       bookTitle: 'Wheels restored. <span class="gold">Detail complete.</span>',

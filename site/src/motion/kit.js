@@ -100,6 +100,52 @@ function cut(sec) {
   });
 }
 
+/* ---------- phones: how dark the poster hero's veils are (08/10) ----------
+   Reads the photo the phone actually shows (cropped as the screen crops
+   it) on a tiny canvas: a bright top gets a stronger veil under the logo
+   (--ta), a bright lower half a stronger dim behind the words (--da). A
+   dark photo keeps almost all its light. Every tier; the CSS defaults
+   stand if the photo can't be read. */
+export function heroTone() {
+  const hero = $('[data-hero]');
+  const img = hero && $('.shero__media img', hero);
+  if (!img || !window.matchMedia('(max-width: 900px)').matches) return;
+  const run = () => {
+    try {
+      const nw = img.naturalWidth, nh = img.naturalHeight, box = $('.shero__media', hero).getBoundingClientRect();
+      const fit = hero.classList.contains('shero--mfit');
+      const W = 36, H = Math.round(W * Math.max(innerHeight, 580) / innerWidth);
+      const c = document.createElement('canvas'); c.width = W; c.height = H;
+      const x = c.getContext('2d', { willReadFrequently: true });
+      x.fillStyle = '#0a0a0a'; x.fillRect(0, 0, W, H);
+      if (fit) {
+        /* the whole photo at the top, under the header */
+        const top = box.top / innerWidth * W, h = W * nh / nw;
+        x.drawImage(img, 0, top, W, h);
+      } else {
+        /* object-fit: cover, held at --mpos */
+        const pos = getComputedStyle(img).objectPosition.split(' ').map(v => parseFloat(v) / 100);
+        const r = nw / nh, R = W / H;
+        let sw = nw, sh = nh;
+        if (r > R) sw = nh * R; else sh = nw / R;
+        x.drawImage(img, (nw - sw) * (pos[0] || .5), (nh - sh) * (isNaN(pos[1]) ? .5 : pos[1]), sw, sh, 0, 0, W, H);
+      }
+      const d = x.getImageData(0, 0, W, H).data;
+      const lum = (a, b) => {
+        let t = 0, n = 0;
+        for (let y = Math.floor(a * H); y < Math.floor(b * H); y++) for (let i = 0; i < W; i++) {
+          const k = (y * W + i) * 4; t += (.2126 * d[k] + .7152 * d[k + 1] + .0722 * d[k + 2]) / 255; n++;
+        }
+        return n ? t / n : .3;
+      };
+      hero.style.setProperty('--ta', clamp(.2 + lum(0, .14) * .75, .3, .72).toFixed(2));
+      hero.style.setProperty('--da', clamp(.12 + lum(.45, .85) * .8, .24, .6).toFixed(2));
+    } catch (e) { /* a tainted or undecoded image: the CSS defaults stand */ }
+  };
+  if (img.complete && img.naturalWidth) run();
+  else img.addEventListener('load', run, { once: true });
+}
+
 /* ---------- paint: the hero closes into a frame ---------- */
 export function heroFrame() {
   if (cluster !== 'paint') return;
@@ -333,6 +379,7 @@ export function stages() {
       const ol = $('.ssteps__list', sec);
       const digits = $('[data-stage-n]', sec), name = $('[data-stage-name]', sec), arc = $('.stage__arc', sec);
       const names = items.map(li => $('.ssteps__name', li).innerHTML);
+      const pics = $$('[data-stage-pic]', sec);
       if (!digits.firstElementChild) digits.innerHTML = `<span>${digits.textContent}</span>`;
       sec.classList.add('is-live');
       let cur = -1, nameT = 0;
@@ -342,6 +389,7 @@ export function stages() {
         const first = cur === -1;
         cur = i;
         items.forEach((li, j) => li.classList.toggle('is-on', j === i));
+        pics.forEach((p, j) => p.classList.toggle('is-on', j === i));
         const txt = pad(i + 1);
         if (first || !env.motion) { digits.innerHTML = `<span>${txt}</span>`; name.innerHTML = names[i]; return; }
         sfx('beat');

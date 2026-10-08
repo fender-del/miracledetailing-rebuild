@@ -135,6 +135,8 @@ module.exports = site => {
 
       hero: {
         stats: true,
+        /* phones: where the poster crop is held (08/10) */
+        mpos: '72% 50%',
         h1: 'Detailing Packages',
         line: 'Five levels. <span class="gold">One standard.</span>',
         lede: 'From a maintenance detail between full jobs to the complete Paul Dalton Signature: every package is carried out personally by Paul, to a standard that doesn’t change regardless of which level you choose.',

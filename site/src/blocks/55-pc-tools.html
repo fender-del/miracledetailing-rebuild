@@ -1,0 +1,35 @@
+<!-- ============ 55 · SERVICE: THE INSTRUMENTS ============
+     (08/10, paint correction rebuild.) The heading and Paul's two
+     paragraphs centred over three instruments set side by side as
+     equals, each with its own picture: a photo (the paint depth gauge on
+     an orange panel, Paul's gloss & orange peel meter), or for the
+     digital microscope the paint itself under a microscope's ring,
+     drawn in code (motion/scope.js: the swirls ring the light, the light
+     drifts). Phones: each instrument a row, a small picture beside its
+     name, the words under them. No JS: the microscope is a still ring.
+     Data: lib/correction.js tools(). -->
+<section class="ptools sec" id="{{tools.id}}" data-section="tools"{{#tools.light}} data-bg="light" data-theme="light"{{/tools.light}}>
+  <div class="wrap">
+    <div class="ptools__head">
+      {{#tools.eyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&tools.eyebrow}}</p>{{/tools.eyebrow}}
+      <h2 class="disp h2" data-split>{{&tools.title}}</h2>
+      {{#tools.hasIntro}}<div class="ptools__intro more" data-more><div class="more__body" data-reveal>{{#tools.intro}}<p>{{&.}}</p>{{/tools.intro}}</div></div>{{/tools.hasIntro}}
+    </div>
+    <ol class="ptools__list" role="list">
+      {{#tools.items}}
+      <li class="ptools__it" data-reveal="card">
+        <figure class="ptools__fig">
+          {{#img}}<div class="ptools__media">{{&.}}</div>{{/img}}
+          {{#scope}}<div class="ptools__media ptools__scope" data-scope="micro" aria-hidden="true"><canvas data-scope-cv></canvas><span class="ptools__ret"></span></div>{{/scope}}
+          {{#cap}}<figcaption class="ptools__cap">{{&.}}</figcaption>{{/cap}}
+        </figure>
+        <div class="ptools__txt">
+          <p class="ptools__n">{{n}}</p>
+          <h3 class="ptools__name">{{&name}}</h3>
+          {{#paras}}<p class="ptools__p">{{&.}}</p>{{/paras}}
+        </div>
+      </li>
+      {{/tools.items}}
+    </ol>
+  </div>
+</section>

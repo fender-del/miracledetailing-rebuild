@@ -275,3 +275,40 @@
   .scards--compact .card__mbtn svg{width:14px;height:14px;color:var(--gold);transition:transform .4s var(--ease)}
   .scards--compact .card.is-open .card__mbtn svg{transform:rotate(180deg)}
 }
+/* Leather (08/10, Fender: a block should fit one phone screen): the
+   three photo cards take a wider crop on phones so heading + card end
+   above the sticky bar (!important: frame() sets the ratio inline). */
+@media (max-width:767px){#covered.scards--compact .card__media .media{aspect-ratio:16 / 10!important}}
+/* Wheels (08/10, same rule): four cards, a two-line kicker, so 16:9
+   photos, the price on one line, no gap left by the folded words */
+@media (max-width:767px){
+  #available.scards--compact .card__media .media{aspect-ratio:16 / 9!important}
+  .js #available.scards--compact .card:not(.is-open) .card__b{margin-top:-12px}
+  #available.scards--compact .card__price{font-size:1.1rem}
+}
+/* brief (08/10, Wheels "Why it matters"): on phones each point is one
+   row (numeral, name, a gold ring); a tap anywhere on the row opens its
+   words under the name. Without JS the words simply show. */
+@media (max-width:767px){
+  .scards--brief .scards__grid{gap:0}
+  .scards--brief .card{position:relative;display:grid;grid-template-columns:2.2em minmax(0,1fr) 34px;column-gap:12px;align-items:center;padding:18px 0}
+  .scards--brief .card .card__top{grid-column:1;grid-row:1;min-height:0;margin:0}
+  .scards--brief .card__name{grid-column:2;grid-row:1;margin:0}
+  .scards--brief .card__b,.scards--brief .card__text,.scards--brief .card__list{grid-column:2 / 4;grid-row:2}
+  .scards--brief .card__text{padding-top:12px}
+  /* the ring sits in the row's third column; its ::before stretches the
+     tap area over the whole row (the button itself is not positioned) */
+  .js .scards--brief .card__mbtn:not([hidden]){grid-column:3;grid-row:1;align-self:center;width:34px;min-height:34px;padding:0;justify-content:center}
+  .scards--brief .card__mbtn::before{content:"";position:absolute;inset:0}
+  .scards--brief .card__mbtn span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+  .scards--brief .card__mbtn svg{box-sizing:border-box;width:34px;height:34px;padding:10px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--gold-a30)}
+  .scards--brief .card.is-open .card__mbtn svg{background:var(--gold);color:var(--ink)}
+  .scards--brief .card__mbtn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+}
+/* Leather "Areas covered" on phones: the three areas that carry only a
+   name sit as one line each (numeral beside the name), so the list ends
+   on the same screen as its heading. */
+@media (max-width:767px){
+  #areas.scards--points .card:not(:has(.card__b)){display:flex;flex-direction:row;align-items:baseline;gap:16px;padding-block:16px 6px}
+  #areas.scards--points .card:not(:has(.card__b)) .card__top{min-height:0;flex:0 0 1.6em}
+}

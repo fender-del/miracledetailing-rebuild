@@ -26,13 +26,15 @@ import { steps, tbcs } from './svc.js';
 import { cold } from './cold.js';
 import { snav, more, tabs, lit, filmHero, compare, coverage as ppfCoverage } from './ppf.js';
 import { gallery } from './gallery.js';
-import { arrival, heroFrame, rails, stacks, samples, zooms, collages, stages, railMeta, accordions, progress } from './kit.js';
+import { arrival, heroFrame, heroTone, rails, stacks, samples, zooms, collages, stages, railMeta, accordions, progress } from './kit.js';
 import { timeline, timelinePics } from './about.js';
 import { shows, gauges, lenses, layers, indexes, cardMore } from './formats.js';
 import { benches, chooses } from './formats-b.js';
 import { ladders } from './ladder.js';
+import { scopes } from './scope.js';
 import { sheets } from './sheet.js';
 import { youtube } from './journal.js';
+import { pairs } from './pairs.js';
 
 const root = document.documentElement;
 const safe = fn => { try { fn(); } catch (e) { if (window.console) console.warn('[motion]', fn.name, e); } };
@@ -49,6 +51,7 @@ function boot() {
   safe(menu);
   safe(header);
   safe(blurUp);
+  safe(heroTone);
   safe(sound);
   safe(tbcs);
   /* long service pages (PPF, 06/10): how the page works, every tier */
@@ -65,8 +68,12 @@ function boot() {
   safe(benches); safe(chooses);
   /* block 53 (07/10, packages): the five levels and their panel */
   safe(ladders);
+  /* blocks 55–56 (08/10, correction): paint under the light, every tier */
+  safe(scopes);
   /* any card's "What's included" sheet (07/10, mobile page packages) */
   safe(sheets);
+  /* block 57 (08/10, leather): before & after pairs, every tier */
+  safe(pairs);
   /* block 61 (07/10, journal posts): the film loads when pressed */
   safe(youtube);
   if (env.motion) {

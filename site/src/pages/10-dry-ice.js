@@ -98,6 +98,8 @@ module.exports = site => {
       /* ---------- Hero (v0.5's own background photo) ---------- */
       hero: {
         stats: true,
+        /* phones: where the poster crop is held (08/10) */
+        mpos: '40% 50%',
         h1: 'Dry Ice Cleaning',
         line: 'No water. No chemicals. <span class="gold">No compromise.</span>',
         lede: 'Dry ice cleaning removes contamination that nothing else can touch, without a single drop of water, without chemicals, and without any risk to the surfaces being cleaned. Paul was the first detailer in the UK to offer it, in 2014.',

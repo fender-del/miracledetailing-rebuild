@@ -46,7 +46,7 @@ module.exports = site => {
         id: 'why', light: true,
         eyebrow: 'The beginning',
         title: 'Why ceramic coating matters, and why who applies it <span class="gold">matters more.</span>',
-        img: frame('cc-laf', { alt: 'The front of a red LaFerrari in the studio, its coated paint reflecting the strip lights', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
+        img: frame('cc-bottle', { alt: 'A bottle of Ceramic by Paul Dalton, the Feynlab coating, on a dark studio floor', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
         paras: [
           'A ceramic coating is a semi-permanent protective layer bonded to your paintwork. Applied correctly, it provides years of protection against UV damage, chemical contamination, bird lime, water etching and environmental fallout, while delivering a depth of gloss that no wax or sealant can match.',
           'The key word is correctly. A ceramic coating is only as good as the preparation beneath it and the application above it. Applied over contaminated or uncorrected paint, it locks the problems in. Applied by someone who doesn’t understand the chemistry, it underperforms from day one.',
@@ -143,12 +143,14 @@ module.exports = site => {
 
       hero: {
         stats: true,
+        /* phones: where the poster crop is held (08/10) */
+        mfit: true,
         h1: 'Ceramic Coatings',
         line: 'Protection applied by the man who <span class="gold">helped create it.</span>',
         lede: 'Paul Dalton is Feynlab’s only global ambassador, and the detailer behind Ceramic by Paul Dalton, a coating developed with Feynlab and sold to professionals worldwide. When your car receives a Feynlab coating at Miracle Detail, it’s applied by the person who knows it better than almost anyone on earth.',
         img: frame('cc-hero', {
           priority: true, ratio: false, sizes: '100vw',
-          alt: 'Water beading into tight droplets on a freshly coated blue panel',
+          alt: 'A gloved hand laying a ceramic coating onto blue paint with a suede applicator',
           art: [{ media: '(max-width: 900px)', id: 'cc-hero-m', sizes: '100vw' }]
         }),
         facts: [
@@ -174,7 +176,14 @@ module.exports = site => {
 
       work: [
         { img: frame('cc-veyron', { alt: 'A black Bugatti Veyron outside the studio after its Feynlab ceramic coating', sizes: workSizes, ratio: '3 / 2' }), cap: 'Bugatti Veyron, Feynlab ceramic coating', wide: true },
-        { img: frame('cc-f1', { alt: 'The purple McLaren F1 from the rear, its coated paint under the studio lights', sizes: workSizes, ratio: '3 / 2' }), cap: 'McLaren F1, ceramic coating applied' }
+        /* 08/10: the McLaren F1 is the hero again, so its photo leaves the
+           grid; more of Paul's cars instead (Fender: "cho thêm vài chiếc") */
+        { img: frame('cc-w-348', { alt: 'A red Ferrari 348 on the studio lift under the Feynlab banner', sizes: '(max-width: 767px) 92vw, 40vw', ratio: '4 / 3' }), cap: 'Ferrari 348' },
+        { img: frame('cc-w-m3', { alt: 'A red BMW M3 Touring on the studio lift under the Feynlab banner', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'BMW M3 Touring', third: true },
+        { img: frame('cc-w-laf', { alt: 'The front of a red Ferrari LaFerrari in the studio', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'Ferrari LaFerrari', third: true },
+        { img: frame('cc-w-f50', { alt: 'A red Ferrari F50 outside the Miracle Detail studio', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'Ferrari F50', third: true },
+        { img: frame('cc-w-sto', { alt: 'A green Lamborghini Huracán STO under a summer sky', sizes: '(max-width: 767px) 46vw, 46vw', ratio: '4 / 3' }), cap: 'Lamborghini Huracán STO', half: true },
+        { img: frame('cc-w-599', { alt: 'A white Ferrari 599 GTB in the studio, a Bugatti Veyron behind it', sizes: '(max-width: 767px) 46vw, 46vw', ratio: '4 / 3' }), cap: 'Ferrari 599 GTB', half: true }
       ],
 
       bookTitle: 'Protect your paint with the <span class="gold">person who knows it best.</span>',

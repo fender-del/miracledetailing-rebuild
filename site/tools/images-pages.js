@@ -35,23 +35,58 @@ module.exports = [
   /* ---------- Ceramic ---------- */
   /* hero = the McLaren F1 v0.5 shows (Paul's job); Paul with his own
      coating carries "Ceramic by Paul Dalton" */
-  ...hero('cc-hero', 'drive-paul/hero-ceramic-beading.png', { l: .3, t: 0, w: .45, h: 1 }),  /* Paul's Drive set, 07/10 */
+  /* 08/10: a coating being applied, the suede applicator on blue paint
+     (Fender's pick, assets-src/ceramic hero.png; the Drive beading photo
+     was water on PPF, and Paul's set has no coating shot) */
+  ...hero('cc-hero', 'ceramic hero.png', { l: .22, t: 0, w: .66, h: 1 }),
   { id: 'cc-paul',    src: O + '2024_08_Feynlab-Ceramic-Paul-Dalton.jpg', crop: { l: .12, t: 0, w: .76, h: 1 }, widths: [600, 900, 1400] },
   { id: 'cc-laf',     src: O + '2023_11_Top-Quality-Ceramic-Coatings-in-Lingfield-Surrey-miracle-detail.jpg', widths: [600, 900, 1200] },
   { id: 'cc-laf2',    src: O + '2023_11_Top-Quality-Ceramic-Coatings-in-Lingfield-Surrey-miracle-detail-2.jpg', widths: [600, 900, 1200] },
   { id: 'cc-veyron',  src: V + 'ceramic-coatings/download-98.jpg', widths: W },
   { id: 'cc-f1',      src: V + 'ceramic-coatings/download-99.jpg', widths: W },
+  /* 08/10: the product itself in place of the red LaFerrari (Fender):
+     Feynlab's own cut-out bottle (old site) set on a dark studio floor,
+     products/cc-bottle-studio.png, composed in code, nothing redrawn */
+  { id: 'cc-bottle',  src: 'products/cc-bottle-studio.png', widths: [600, 900, 1400] },
+  /* 08/10: more cars for the work grid (Fender: "cho thêm vài chiếc"),
+     Paul's Drive set, none of them already on the Correction page */
+  { id: 'cc-w-348',    src: 'drive-paul/7874F526-4D71-43A2-8A15-AA699EBC0D37.PNG', widths: [500, 800, 1100] },
+  { id: 'cc-w-m3',     src: 'drive-paul/43A66CCD-792F-466A-9B58-9CD493AA852C.PNG', widths: [500, 800] },
+  { id: 'cc-w-laf',    src: 'drive-paul/7F092959-7052-463A-BCD6-D79366144417.PNG', crop: { l: 0, t: .2, w: 1, h: .563 }, widths: [500, 800] },
+  { id: 'cc-w-f50',    src: 'drive-paul/8BBD2C80-F2B6-4135-8BFA-DA13CA2CA434.PNG', widths: [500, 800] },
+  { id: 'cc-w-sto',    src: 'drive-paul/1D9733C6-7379-413C-A370-F7D973DF1A4D 2.PNG', widths: [600, 900, 1200] },
+  { id: 'cc-w-599',    src: 'drive-paul/38059B2A-8AC0-4D87-A082-3A08CDE2F9B7.PNG', widths: [600, 900, 1200] },
   { id: 'cc-wheel',   src: 'drive/20-gfw-458-speciale.jpg', crop: { l: 0, t: .4, w: .6, h: .5 }, widths: [600, 900, 1200] },
 
   /* ---------- Paint correction ---------- */
   ...hero('pc-hero', V + 'paint-correction/download-72.webp', { l: .3, t: 0, w: .5, h: 1 }),
   { id: 'pc-split',  src: V + 'paint-correction/download-73.jpg', widths: [600, 900, 1280] },
-  { id: 'pc-gauge',  src: V + 'paint-correction/Screenshot-2026-08-16-150942.png', widths: [502] },
-  { id: 'pc-rolls',  src: V + 'paint-correction/download-74.jpg', crop: { l: 0, t: .12, w: 1, h: .76 }, widths: W },
+  /* 08/10: Fender's photo of a paint depth gauge in use (was v0.5's small screenshot), 400 px source */
+  { id: 'pc-gauge',  src: 'drive/paint-depth-gauge.avif', crop: { l: 0, t: .08, w: 1, h: .75 }, widths: [400] },
+  { id: 'pc-rolls',  src: V + 'paint-correction/download-74.jpg', crop: { l: .035, t: .485, w: .92, h: .515 }, widths: W },  /* 08/10: the lower (after) half only; v0.5 shows a before/after pair split across the middle (Fender: unbalanced) */
   { id: 'pc-pagani', src: V + 'paint-correction/download-78.jpg', widths: [700, 1000] },
   { id: 'pc-gallardo', src: V + 'paint-correction/download-75.jpg', widths: W },
   { id: 'pc-alfa',   src: V + 'paint-correction/download-76.jpg', widths: W },
   { id: 'pc-f40',    src: V + 'paint-correction/download-77.jpg', widths: W },
+  /* 08/10 rebuild: Paul's Drive set, his gloss & orange peel meter and
+     him polishing an M3 under the hex lights */
+  { id: 'pc-gloss',  src: 'drive-paul/gloss-meter-pic/37077F18-952E-4750-A70F-5F06A6457865.png', widths: [600, 900, 1200] },
+  { id: 'pc-polish', src: 'drive-paul/paul-polishing-bmw-m3-to/A22AB860-218C-4E49-AFA9-8ADFFF9B39DE.png', crop: { l: 0, t: .06, w: 1, h: .94 }, widths: [500, 800, 1080] },
+  { id: 'pc-seat',   src: 'drive-paul/paul-polishing-bmw-m3-to/17E5B759-B2A0-41E1-9FB5-0317202D2108.png', widths: [500, 800, 1086] },
+  /* 08/10 round 2: a picture per process step (Fender: "lựa ảnh phù hợp
+     với các step"): swirls under a light (old gallery, Aston Vantage),
+     the C63 with its wheels off (old gallery), Paul's hands on the M3,
+     an inspection light held to a black panel (Drive) */
+  { id: 'pc-s1', src: 'gallery/aston-martin-vantage-v8/02-gal-571-IMG_2957.jpg', crop: { l: .2, t: 0, w: .6, h: 1 }, widths: [500, 760] },
+  { id: 'pc-s2', src: 'gallery/mercedes-c63-amg-brand-new-car-in-for-ultimate-detail/03-gal-614-DSC00004.jpg', crop: { l: .18, t: 0, w: .6, h: 1 }, widths: [500, 760] },
+  { id: 'pc-s4', src: 'drive/06-paint-correction-pad.png', crop: { l: .04, t: 0, w: .5, h: 1 }, widths: [500, 768] },
+  /* more cars for the work grid (Fender: "cho thêm nhiều xe"), Paul's Drive set */
+  { id: 'pc-w-enzo',   src: 'drive-paul/053055E7-247C-4CD1-8359-3EDF9D99BACF.PNG', widths: [500, 800] },
+  { id: 'pc-w-zonda',  src: 'drive-paul/0E5A99EA-6981-4FAD-8DCB-2CC4B41F5F3F.PNG', widths: [500, 800] },
+  { id: 'pc-w-monza',  src: 'drive-paul/3952C70D-2C9F-4808-8EC0-225C03BC209B.PNG', crop: { l: .06, t: 0, w: .94, h: 1 }, widths: [500, 800] },
+  { id: 'pc-w-f1',     src: 'drive-paul/538CBFA0-75B8-417F-AC36-54F812D4D390.PNG', widths: [500, 800] },
+  { id: 'pc-w-911',    src: 'drive-paul/3CE10B77-8075-49E1-B6CE-EC3922ED8BB8.PNG', widths: [500, 800] },
+  { id: 'pc-w-458',    src: 'drive-paul/523DD8E4-EB72-430C-9722-AD6EFA69A824.PNG', widths: [500, 800] },
 
   /* ---------- Window tinting ---------- */
   ...hero('wt-hero', O + '2023_11_The-Best-Quality-Window-Tinting-in-Lingfield-Surrey-Miracle-Detail.jpg', { l: .25, t: 0, w: .5, h: 1 }),
@@ -93,13 +128,24 @@ module.exports = [
   ...hero('pd-hero', 'drive-paul/hero-pdr-board.png', { l: 0, t: 0, w: 1, h: 1 }),  /* Paul's Drive set, 07/10 */
 
   /* ---------- Wheels ---------- */
-  ...hero('wr-hero', 'drive-paul/hero-wheel-before-after.png', { l: .5, t: .03, w: .5, h: .63 }),  /* Paul's Drive set, 07/10 */
+  /* 08/10: the hero is the "after" half alone on every screen (the whole
+     collage showed its seams and "»" on desktops). wheel-after-clean.png
+     = that half of Paul's collage, its "AFTER" label covered with the
+     blurred workshop just below it, composed in code, nothing redrawn. */
+  ...hero('wr-hero', 'drive-paul/wheel-after-clean.png', { l: 0, t: 0, w: 1, h: 1 }),  /* Paul's Drive set, 07/10 */
   { id: 'wr-stands', src: O + '2023_11_Excellent-Wheel-Refurbishment-in-Lingfield-Surrey.-Miracle-Detail.jpg', widths: [600, 1200] },
   { id: 'wr-audi',   src: O + '2023_11_Wheel-Refurbishment-in-Lingfield-Surrey.-Miracle-Detail-2.jpg', widths: [600, 1200] },
   { id: 'wr-face',   src: O + '2023_11_Wheel-Refurbishment-in-Lingfield-Surrey.-Miracle-Detail-4.jpg', widths: [600, 1200] },
   { id: 'wr-spoke',  src: O + '2023_11_Wheel-Refurbishment-in-Lingfield-Surrey.-Miracle-Detail-6.jpg', widths: [600, 1200] },
   { id: 'wr-porsche', src: O + '2023_11_Wheel-Refurbishment-in-Lingfield-Surrey.-Miracle-Detail.jpg', widths: [600, 1200] },
   { id: 'wr-bronze', src: O + '2023_11_Wheel-Refurbishment-in-Lingfield-SurreY-MIRACLE-DETAIL-2.jpg', widths: [600, 1440] },
+  /* 08/10 the work (block 57, square): the only real before & after is
+     Paul's collage (VW); the old site's other wheel photos are finished
+     wheels, two of each job (-3/-5/-7/-8 were on its server, unlinked) */
+  { id: 'wr-vw-b',   src: 'drive-paul/hero-wheel-before-after.png', crop: { l: .14, t: 0, w: .2897, h: .4346 }, widths: [445] },
+  { id: 'wr-vw-a',   src: 'drive-paul/wheel-after-clean.png', crop: { l: .0258, t: 0, w: .8682, h: 1 }, widths: [480, 672] },
+  ...[['wr-cupra', '-5', .2183], ['wr-cupra-c', '-7', .2183], ['wr-audi-w', '-4', .1667], ['wr-audi-c', '-2', .2183], ['wr-911', '-9', .3333], ['wr-911-c', '-8', .2183]]
+    .map(([id, n, l]) => ({ id, src: O + '2023_11_Wheel-Refurbishment-in-Lingfield-Surrey.-Miracle-Detail' + n + '.jpg', crop: { l, t: 0, w: .5625, h: 1 }, widths: [480, 675] })),
 
   /* ---------- Leather ---------- */
   ...hero('lr-hero', O + '2023_11_High-quality-Auto-Leather-Restoration-in-Lingfield-Surrey-miracle-detail.jpg', { l: .25, t: 0, w: .5, h: 1 }),
@@ -109,6 +155,9 @@ module.exports = [
   { id: 'lr-worn',   src: O + '2023_12_Auto-Leather-Restoration-services-in-Lingfield-Surrey-3.jpeg', widths: [480, 768] },
   { id: 'lr-fixed',  src: O + '2023_12_Auto-Leather-Restoration-services-in-Lingfield-Surrey-6.jpeg', widths: [480, 768] },
   { id: 'lr-base',   src: O + '2023_12_Auto-Leather-Restoration-services-in-Lingfield-Surrey-8.jpeg', widths: [480, 768] },
+  /* the before halves of the old site's pairs (08/10, block 57): 9→10,
+     5→6, 7→8, 11→12, 3→4 are the same seat before and after */
+  ...['4', '5', '7', '9'].map(n => ({ id: 'lr-' + n, src: O + '2023_12_Auto-Leather-Restoration-services-in-Lingfield-Surrey-' + n + '.jpeg', widths: [480, 768] })),
 
   /* ---------- Packages ---------- */
   ...hero('pk-hero', V + 'packages/download-68.webp', { l: .3, t: 0, w: .45, h: 1 }),
@@ -138,7 +187,8 @@ module.exports = [
 
   /* ---------- Hubs ---------- */
   ...hero('sv-hero', 'drive/15-mclaren-studio.png', { l: .25, t: 0, w: .5, h: 1 }),
-  ...hero('gl-hero', 'drive/12-bugatti-studio.png', { l: .25, t: 0, w: .5, h: 1 }),
+  /* the source is a phone screenshot: the phone crop keeps only the photo in it (08/10) */
+  ...hero('gl-hero', 'drive/12-bugatti-studio.png', { l: .15, t: .26, w: .85, h: .4 }),
   ...hero('jn-hero', 'drive/16-studio-interior.png', { l: .25, t: 0, w: .5, h: 1 }),
 
   /* ---------- Journal posts (07/10): the old blog's two posts, their own

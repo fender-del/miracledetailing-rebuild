@@ -95,6 +95,8 @@ module.exports = site => {
 
       hero: {
         stats: true,
+        /* phones: where the poster crop is held (08/10) */
+        mpos: '28% 50%',
         h1: 'Paintless Dent Removal',
         line: 'The dent is gone. <span class="gold">The paint stays.</span>',
         lede: 'Paintless dent removal is the only method that removes a dent without disturbing the original paint. No filler, no respray, no risk to the original finish. Available through Miracle Detail, carried out by a technician Paul trusts completely.',

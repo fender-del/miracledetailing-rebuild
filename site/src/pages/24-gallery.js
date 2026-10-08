@@ -67,6 +67,8 @@ module.exports = site => {
       crumbs: nav.html,
       hero: {
         stats: true,
+        /* phones: where the poster crop is held (08/10) */
+        mfit: true,
         h1: 'Gallery',
         line: 'From the <span class="gold">archive.</span>',
         img: frame('gl-hero', {

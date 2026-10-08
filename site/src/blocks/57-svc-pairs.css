@@ -1,0 +1,68 @@
+/* ============ 57 · SERVICE: BEFORE & AFTER ============ */
+.bapr__in{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(40px,6vw,112px);align-items:center}
+.bapr__side{display:grid;gap:clamp(28px,3vw,44px);align-content:center}
+.bapr__head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.bapr .h2{font-size:clamp(2.1rem,1.1rem + 2.4vw,3.4rem)}
+.bapr__n{display:none;margin:0;flex:none;font:500 .75rem/1 var(--f);letter-spacing:.18em;color:var(--muted)}
+.bapr__n b{margin-right:6px;font:italic 500 1.9rem/1 var(--fd);font-synthesis:none;letter-spacing:0;color:var(--gold)}
+.js .bapr__n{display:block}
+
+/* the stage: one pair, side by side */
+.bapr__list{display:grid;gap:clamp(40px,5vw,72px);margin:0;max-width:760px;width:100%;justify-self:end}
+.bapr__pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.2vw,18px)}
+.bapr__f{display:grid;gap:12px;margin:0}
+.bapr__m{border-radius:var(--r-lg);overflow:hidden;box-shadow:0 40px 70px -46px rgba(17,17,17,.6)}
+.bapr__m .media{aspect-ratio:3 / 4!important}
+/* square (08/10, wheels): a round wheel in a square frame */
+.bapr--sq .bapr__m .media{aspect-ratio:1!important}
+.bapr__m img{width:100%;height:100%;object-fit:cover}
+.bapr__f figcaption{font:500 .6875rem/1 var(--f);letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.bapr__f.is-after figcaption{color:var(--gold)}
+.bapr__f.is-after figcaption::before{content:"";display:inline-block;width:6px;height:6px;margin:0 10px 1px 0;background:currentColor;transform:rotate(45deg)}
+
+/* with JS: the pairs share one place, the chosen one shows */
+.js .bapr__list{gap:0}
+.js .bapr__pair{grid-area:1 / 1;opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility 0s linear .5s}
+.js .bapr__pair.is-on{opacity:1;visibility:visible;transition:opacity .5s var(--ease),visibility 0s}
+@media (prefers-reduced-motion:no-preference){
+  /* the after opens across from the left, a beat after the before */
+  .js .bapr__pair .is-after .bapr__m{clip-path:inset(0 100% 0 0 round var(--r-lg));transition:clip-path 0s linear .5s}
+  .js .bapr.is-seen .bapr__pair.is-on .is-after .bapr__m{clip-path:inset(0 0 0 0 round var(--r-lg));transition:clip-path 1s var(--ease) .25s}
+  .js .bapr:not(.is-seen) .bapr__pair .is-after figcaption{opacity:0}
+  .js .bapr__pair .is-after figcaption{transition:opacity .5s var(--ease) .7s}
+}
+
+/* the picker: the "after" of each job, small */
+.bapr__pick{display:flex;flex-wrap:wrap;gap:12px}
+.bapr__pick[hidden]{display:none}
+.bapr__t{position:relative;display:grid;width:72px;padding:0;border:0;background:none;cursor:pointer;border-radius:10px;
+  -webkit-tap-highlight-color:transparent}
+.bapr__tm{display:block;border-radius:10px;overflow:hidden;opacity:.8;filter:grayscale(.85) brightness(.92);transition:opacity .4s var(--ease),filter .4s var(--ease)}
+.bapr__tm .media{aspect-ratio:1!important}
+.bapr__tm img{width:100%;height:100%;object-fit:cover}
+.bapr__tn{position:absolute;left:6px;bottom:5px;padding:3px 5px;border-radius:4px;background:rgba(17,17,17,.78);
+  font:500 .5625rem/1 var(--f);letter-spacing:.12em;color:#fff}
+.bapr__t::after{content:"";position:absolute;inset:-4px;border-radius:13px;box-shadow:inset 0 0 0 1.5px var(--gold);opacity:0;transform:scale(.94);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.bapr__t.is-on .bapr__tm{opacity:1;filter:none}
+.bapr__t.is-on::after{opacity:1;transform:none}
+.bapr__t.is-on .bapr__tn{background:var(--gold);color:#111}
+@media (hover:hover){.bapr__t:hover .bapr__tm{opacity:.9;filter:none}}
+.bapr__t:focus-visible{outline:2px solid var(--gold);outline-offset:6px}
+
+@media (max-width:1023px){
+  .bapr__in{grid-template-columns:1fr;gap:clamp(24px,4vw,40px)}
+  /* the picker goes under the pair */
+  .bapr__side{display:contents}
+  .bapr__head{order:1}
+  .bapr__list{order:2;justify-self:stretch;max-width:none}
+  .bapr__pick{order:3}
+}
+@media (max-width:767px){
+  .bapr__in{gap:22px}
+  .bapr__pair{gap:10px}
+  .bapr__f{gap:10px}
+  .bapr__m{border-radius:10px}
+  .bapr__pick{flex-wrap:nowrap;gap:10px}
+  .bapr__t{flex:1 1 0;width:auto;max-width:64px}
+  .bapr__n b{font-size:1.6rem}
+}

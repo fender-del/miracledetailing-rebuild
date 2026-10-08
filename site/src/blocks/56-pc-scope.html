@@ -1,0 +1,77 @@
+<!-- ============ 56 · SERVICE: FIVE LEVELS UNDER THE LIGHT ============
+     (08/10, paint correction rebuild; PLAN-interactions idea 1.)
+     One panel of black paint under an inspection light, drawn in code
+     (motion/scope.js). The swirls, scratches and water spots show the
+     way they do on a real car: as rings round the light. Pick a level
+     and the share of defects it removes (Paul's "Defect removal" figure)
+     fades out, the deepest last; the haze lifts at level one and the
+     light's reflection sharpens as the paint clears. "Hold to see
+     before" brings the defects back while pressed. The light follows
+     the pointer on a desktop and drifts by itself elsewhere.
+     Desktop: panel + the five stops on the left, the picked level's own
+     words on the right (all five stacked in one cell: no jump).
+     Phones / tablets: the panel, five small stops, then the levels as
+     a row of cards to swipe (the page's one swipe row); the swipe and
+     the stops move together. Nothing is pinned.
+     Phones/tablets (08/10, Fender: a card did not fit one screen with
+     the panel): the card shows two lines of Paul's words, the removal
+     figure, the price and the buttons; "Read more" opens his full words
+     in a sheet from the bottom (motion/sheet.js).
+     Reduced motion: no drift, levels change at once. No JS: a still
+     panel and every level's card (swipe row on phones).
+     Data: lib/correction.js scope(). -->
+<section class="pscope sec" id="{{scope.id}}" data-section="levels" data-scope-sec{{#scope.light}} data-bg="light" data-theme="light"{{/scope.light}}>
+  <div class="wrap">
+    <div class="pscope__head">
+      <div class="pscope__titles">
+        {{#scope.eyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&scope.eyebrow}}</p>{{/scope.eyebrow}}
+        <h2 class="disp h2" data-split>{{&scope.title}}</h2>
+      </div>
+      {{#scope.fig}}<figure class="pscope__ref" data-reveal="card"><div class="pscope__refm">{{&scope.fig}}</div>{{#scope.figCap}}<figcaption>{{&scope.figCap}}</figcaption>{{/scope.figCap}}</figure>{{/scope.fig}}
+    </div>
+
+    <div class="pscope__body">
+      <div class="pscope__viz" data-reveal="card">
+        <div class="pscope__panel" data-scope="levels">
+          <canvas data-scope-cv aria-hidden="true"></canvas>
+          <p class="pscope__lv" aria-hidden="true"><span data-scope-lv>{{scope.first.kicker}}</span></p>
+          <p class="pscope__read" aria-hidden="true">
+            <span class="pscope__rk" data-scope-rk>Defect removal</span>
+            <span class="pscope__rv" data-scope-val>{{#scope.first.upTo}}<small>{{.}}</small> {{/scope.first.upTo}}{{scope.first.figure}}</span>
+          </p>
+          <button class="pscope__before" type="button" data-scope-before hidden><i aria-hidden="true"></i><span>Hold here to see before</span></button>
+        </div>
+        <div class="pscope__stops" role="group" aria-label="Five levels" data-scope-stops hidden>
+          <span class="pscope__track" aria-hidden="true"><i data-scope-fill></i></span>
+          {{#scope.levels}}<button class="pscope__stop{{#on}} is-on{{/on}}{{#hi}} is-hi{{/hi}}" type="button" data-go="{{_i}}" aria-pressed="{{#on}}true{{/on}}{{^on}}false{{/on}}" aria-controls="{{scope.id}}-l{{_n}}"><span class="pscope__sn">{{n}}</span><span class="pscope__sname">{{&name}}</span></button>{{/scope.levels}}
+        </div>
+      </div>
+
+      <div class="pscope__side">
+        <ol class="pscope__cards" role="list" data-scope-cards>
+          {{#scope.levels}}
+          <li class="pscope__card{{#on}} is-on{{/on}}{{#hi}} is-hi{{/hi}}" id="{{scope.id}}-l{{_n}}" data-card data-sheet-card data-f="{{f}}" data-up="{{upTo}}" data-fig="{{figure}}" data-kick="{{kicker}}">
+            <p class="pscope__kick"><span class="pscope__cn">{{n}}</span><span data-sheet-kick>{{&kicker}}</span></p>
+            <h3 class="pscope__name" data-sheet-name>{{&name}}</h3>
+            <div class="pscope__txt" data-sheet-part>{{#paras}}<p class="pscope__p">{{&.}}</p>{{/paras}}</div>
+            <dl class="pscope__facts" data-sheet-part>
+              <div><dt>Defect removal</dt><dd>{{removal}}</dd></div>
+              {{#price}}<div class="pscope__pr"><dt class="sr">Price</dt><dd>{{&.}}</dd></div>{{/price}}
+            </dl>
+            <div class="pscope__acts">
+              <button class="pscope__more" type="button" data-sheet-open aria-haspopup="dialog"><span>Read more</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6"/></svg></button>
+              {{#scope.book}}<a class="link-arrow pscope__book" href="{{href}}"><span>{{label}}</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></a>{{/scope.book}}
+            </div>
+          </li>
+          {{/scope.levels}}
+        </ol>
+        <div class="pscope__nav" aria-hidden="true">
+          <span class="pscope__count"><b data-scope-n>01</b> / {{scope.total}}</span>
+          <span class="pscope__prog"><i data-scope-prog></i></span>
+          <button class="pscope__arr" type="button" data-scope-prev tabindex="-1" aria-label="Previous level"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 12H5m0 0 5.5-5.5M5 12l5.5 5.5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <button class="pscope__arr" type="button" data-scope-next tabindex="-1" aria-label="Next level"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

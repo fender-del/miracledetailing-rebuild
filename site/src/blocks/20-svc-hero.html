@@ -11,8 +11,17 @@
      behind the edge is the photo shifted a hair (light bending through
      the film), the edge is a bright line with a soft shadow ahead of
      it, and a glint runs over the fresh film. Before or without the
-     script the upper layer simply covers everything: the finished look. -->
-<section class="shero{{#hero.split}} shero--split{{/hero.split}}{{#hero.film}} shero--film{{/hero.film}}{{#hero.panel}} shero--panel{{/hero.panel}}{{#hero.stats}} shero--stats{{/hero.stats}}{{#hero.shift}} shero--shift{{/hero.shift}}" data-section="hero" data-hero>
+     script the upper layer simply covers everything: the finished look.
+     Phones (08/10, Fender: the old hero read "chán"): a poster. The photo
+     fills the first screen, the title and the gold figures sit low on
+     it, and Paul's paragraph follows just below on the dark. No black
+     wash over the photo: only the part behind the words is softened and
+     dimmed (__soft), plus a thin veil under the logo; motion/kit.js
+     heroTone measures the photo and sets how much. mpos = where the
+     phone crop is held; mfit = a wide photo shown whole, over a blurred
+     copy of itself, rather than cropped to the subject's edge. -->
+<section class="shero{{#hero.split}} shero--split{{/hero.split}}{{#hero.film}} shero--film{{/hero.film}}{{#hero.panel}} shero--panel{{/hero.panel}}{{#hero.stats}} shero--stats{{/hero.stats}}{{#hero.shift}} shero--shift{{/hero.shift}}{{#hero.fit}} shero--fit{{/hero.fit}}{{#hero.mfit}} shero--mfit{{/hero.mfit}}" data-section="hero" data-hero{{#hero.mpos}} style="--mpos:{{hero.mpos}}"{{/hero.mpos}}>
+  {{#hero.mfit}}<div class="shero__bg" aria-hidden="true">{{&hero.img}}</div>{{/hero.mfit}}
   <div class="shero__media" data-hero-media>{{&hero.img}}{{#hero.video}}
     <video class="hero__video shero__video" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" data-start="0.5"
            data-src-d="{{hero.video}}" data-src-t="{{hero.video}}" data-src-m="{{hero.video}}"></video>{{/hero.video}}{{#hero.film}}
@@ -23,6 +32,7 @@
       <span class="film__edge"><i></i></span>
     </div>{{/hero.film}}</div>
   <div class="shero__shade" aria-hidden="true"></div>
+  <div class="shero__soft" aria-hidden="true"></div>
 
   <div class="wrap shero__in">
     <div class="shero__copy">

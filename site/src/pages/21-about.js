@@ -238,6 +238,8 @@ module.exports = site => {
 
       hero: {
         stats: true,
+        /* phones: where the poster crop is held (08/10) */
+        mpos: '45% 50%',
         h1: 'About Paul Dalton',
         line: '37 years. Not one <span class="gold">shortcut.</span>',
         lede: 'How a teenage mountain biker washing cars for pocket money in Surrey ended up detailing Bugattis, Koenigseggs, and a LaFerrari that out-shone Pebble Beach.',

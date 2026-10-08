@@ -37,7 +37,8 @@ html:has(.hd.is-hidden) .snav__cta{opacity:1;visibility:visible;transform:none;p
 /* phones: the sticky bar at the bottom already books */
 @media (max-width:767px){
   .snav__in{padding-inline:0;min-height:50px}
-  .snav__list{padding-inline:var(--gut);gap:22px}
+  /* .snav: base.css's ol[role=list]{padding:0} outranks a single class */
+  .snav .snav__list{padding-inline:var(--gut);gap:22px}
   .snav__a{min-height:50px}
   .snav__cta{display:none}
 }

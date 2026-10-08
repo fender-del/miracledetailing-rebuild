@@ -278,7 +278,7 @@ export function cold() {
   size();
 
   /* ---------- particles ---------- */
-  const pellets = [], fog = [], sparks = [];
+  const pellets = [], fog = [], sparks = [], jet = [];
   const R = rng(99);
   const surfaceY = (x, p) => {
     for (const c of crust) if (x >= c.x0 && x <= c.x1 && p < c.tD + 0.02) {
@@ -289,18 +289,28 @@ export function cold() {
     }
     return EDGE - 3;
   };
+  /* 08/10 (Fender: the stream read as a water jet): dry ice blasting
+     leaves the nozzle as a dense white plume of cold air and CO2 that
+     billows and widens on its way, the pellets only small specks inside
+     it, and it spreads sideways along the surface where it lands */
   const spawnPellet = p => {
-    const tx = HIT.x + (R() + R() + R() - 1.5) * 420;
-    pellets.push({ t: 0, d: 0.2 + R() * 0.12, sx: TIP.x + (R() - 0.5) * 6, sy: TIP.y + (R() - 0.5) * 14, tx, ty: surfaceY(tx, p), len: 12 + R() * 9, w: 4.5 + R() * 2.2 });
+    const tx = HIT.x + (R() + R() + R() - 1.5) * 300;
+    pellets.push({ t: 0, d: 0.22 + R() * 0.1, sx: TIP.x + (R() - 0.5) * 8, sy: TIP.y + (R() - 0.5) * 12, tx, ty: surfaceY(tx, p), s: 1.6 + R() * 1.8 });
   };
-  const puff = (x, y, big) => fog.push({
-    x, y, t: 0, life: big ? 2.2 + R() * 1.6 : 0.9 + R() * 0.8,
-    r0: big ? 30 + R() * 30 : 10 + R() * 12, r1: big ? 120 + R() * 110 : 46 + R() * 40,
-    vx: (R() - 0.5) * (big ? 90 : 60), vy: big ? (R() < 0.6 ? 14 + R() * 26 : -20 - R() * 30) : -10 - R() * 30, a: big ? 0.26 + R() * 0.14 : 0.2 + R() * 0.12
+  const spawnJet = p => {
+    /* lands across the strike zone, densest in the middle */
+    const tx = HIT.x + (R() + R() - 1) * 330;
+    jet.push({ t: 0, d: 0.42 + R() * 0.22, sx: TIP.x + (R() - 0.5) * 10, sy: TIP.y + (R() - 0.5) * 10, tx, ty: surfaceY(tx, p) - 6,
+      r0: 5 + R() * 6, r1: 46 + R() * 46, a: 0.16 + R() * 0.12, wob: R() * 6.28, sw: (R() - 0.5) * 2 });
+  };
+  const puff = (x, y, big, vx) => fog.push({
+    x, y, t: 0, life: big ? 2.2 + R() * 1.6 : 1.1 + R() * 0.9,
+    r0: big ? 30 + R() * 30 : 18 + R() * 14, r1: big ? 120 + R() * 110 : 70 + R() * 50,
+    vx: vx != null ? vx : (R() - 0.5) * (big ? 90 : 60), vy: big ? (R() < 0.6 ? 14 + R() * 26 : -20 - R() * 30) : -6 - R() * 18, a: big ? 0.26 + R() * 0.14 : 0.16 + R() * 0.1
   });
 
   /* ---------- the frame ---------- */
-  let pT = 0, pS = 0, last = 0, acc = 0, time = 0;
+  let pT = 0, pS = 0, last = 0, acc = 0, accJ = 0, time = 0;
   const draw = (p, dt) => {
     g.setTransform(1, 0, 0, 1, 0, 0);
     g.clearRect(0, 0, cv.width, cv.height);
@@ -425,44 +435,61 @@ export function cold() {
       g.fillStyle = gr; g.fillRect(sx - 230, TOP_BACK, 460, 90);
     }
 
-    /* the blast: a faint cone of cold air from the slot to the crust */
-    if (live) {
-      const k = p < 0.08 ? (p - 0.03) / 0.05 : p > 0.86 ? (0.97 - p) / 0.11 : 1;
+    /* the blast: a plume of cold vapour that widens and billows */
+    const flow = live ? clamp(p < 0.08 ? (p - 0.03) / 0.05 : p > 0.86 ? (0.97 - p) / 0.11 : 1) : 0;
+    if (dt > 0 && flow > 0) {
+      accJ += flow * 170 * dt;
+      while (accJ > 1) { spawnJet(p); accJ -= 1; }
+      acc += flow * 70 * dt;
+      while (acc > 1) { spawnPellet(p); acc -= 1; }
+    }
+    /* a soft glow along the axis, so the plume reads as one body of air */
+    if (flow > 0) {
       g.save();
-      g.globalAlpha = 0.5 * clamp(k);
+      g.globalAlpha = 0.55 * flow;
       gr = g.createLinearGradient(TIP.x, TIP.y, HIT.x, HIT.y);
-      gr.addColorStop(0, 'rgba(225,238,255,.16)'); gr.addColorStop(1, 'rgba(225,238,255,.02)');
+      gr.addColorStop(0, 'rgba(236,243,252,.34)'); gr.addColorStop(0.5, 'rgba(226,236,248,.14)'); gr.addColorStop(1, 'rgba(226,236,248,.05)');
       g.fillStyle = gr;
-      [[1, 1], [0.75, 0.82], [0.5, 0.64]].forEach(([w]) => {
-        g.beginPath(); g.moveTo(TIP.x + 6 * w, TIP.y - 14 * w); g.lineTo(HIT.x + 430 * w, EDGE - 40); g.lineTo(HIT.x - 360 * w, EDGE - 30); g.lineTo(TIP.x - 8 * w, TIP.y + 14 * w); g.closePath(); g.fill();
+      [1, 0.7, 0.42].forEach(w => {
+        g.beginPath(); g.moveTo(TIP.x + 8 * w, TIP.y - 16 * w); g.lineTo(HIT.x + 300 * w, EDGE - 46); g.lineTo(HIT.x - 260 * w, EDGE - 34); g.lineTo(TIP.x - 10 * w, TIP.y + 16 * w); g.closePath(); g.fill();
       });
       g.restore();
     }
-    /* pellets: a fan of them, streaking */
-    if (live && dt > 0) {
-      const rate = (p < 0.08 ? (p - 0.03) / 0.05 : p > 0.86 ? (0.97 - p) / 0.11 : 1) * 480;
-      acc += rate * dt;
-      while (acc > 1) { spawnPellet(p); acc -= 1; }
+    for (let i = jet.length - 1; i >= 0; i--) {
+      const q = jet[i];
+      q.t += dt;
+      const k = q.t / q.d;
+      if (k >= 1) {
+        jet.splice(i, 1);
+        /* it lands and rolls out sideways along the surface */
+        if (R() < 0.42) puff(q.tx, q.ty, false, Math.sign(q.tx - HIT.x || 1) * (70 + R() * 150));
+        continue;
+      }
+      /* fast out of the slot, slowing as it spreads; a little turbulence */
+      const e = 1 - Math.pow(1 - k, 1.7);
+      const turb = Math.sin(time * 9 + q.wob) * 14 * k + q.sw * 30 * k;
+      const ang = Math.atan2(q.ty - q.sy, q.tx - q.sx);
+      const x = lerp(q.sx, q.tx, e) - Math.sin(ang) * turb, y = lerp(q.sy, q.ty, e) + Math.cos(ang) * turb;
+      const r = lerp(q.r0, q.r1, Math.pow(k, 0.8));
+      g.globalAlpha = q.a * (k < 0.12 ? k / 0.12 : 1) * (1 - Math.pow(k, 3) * 0.6);
+      g.drawImage(sprite, x - r, y - r * 0.8, r * 2, r * 1.6);
     }
+    g.globalAlpha = 1;
+    /* the pellets: small hard specks carried in it */
     for (let i = pellets.length - 1; i >= 0; i--) {
       const q = pellets[i];
       q.t += dt;
       const k = q.t / q.d;
       if (k >= 1) {
         pellets.splice(i, 1);
-        if (R() < 0.5) sparks.push({ x: q.tx, y: q.ty, t: 0, a: R() * Math.PI - Math.PI, l: 6 + R() * 12 });
-        if (R() < (p > 0.62 ? 0.5 : 0.14)) puff(q.tx, q.ty - 4, false);
+        if (R() < 0.35) sparks.push({ x: q.tx, y: q.ty, t: 0, a: R() * Math.PI - Math.PI, l: 5 + R() * 9 });
+        if (R() < (p > 0.62 ? 0.4 : 0.1)) puff(q.tx, q.ty - 4, false);
         continue;
       }
-      const x = lerp(q.sx, q.tx, k), y = lerp(q.sy, q.ty, k) - Math.sin(k * Math.PI) * 10;
-      const a = Math.atan2(q.ty - q.sy, q.tx - q.sx);
-      g.save(); g.translate(x, y); g.rotate(a);
-      gr = g.createLinearGradient(-q.len * 3.2, 0, 0, 0);
-      gr.addColorStop(0, 'rgba(210,230,255,0)'); gr.addColorStop(1, 'rgba(225,238,255,.5)');
-      g.fillStyle = gr; g.fillRect(-q.len * 3.2, -q.w * 0.35, q.len * 3.2, q.w * 0.7);
-      g.fillStyle = '#f2f7ff';
-      g.beginPath(); g.roundRect(-q.len, -q.w / 2, q.len, q.w, q.w / 2); g.fill();
-      g.restore();
+      const x = lerp(q.sx, q.tx, k), y = lerp(q.sy, q.ty, k);
+      const dx = (q.tx - q.sx) * 0.035, dy = (q.ty - q.sy) * 0.035;
+      g.strokeStyle = 'rgba(245,250,255,.55)'; g.lineWidth = q.s;
+      g.beginPath(); g.moveTo(x - dx, y - dy); g.lineTo(x, y); g.stroke();
     }
     /* strike sparks */
     g.lineWidth = 1.2;
@@ -533,8 +560,12 @@ export function cold() {
   /* reduced motion: one still frame, mid-story, every beat lit */
   if (!env.motion) {
     sec.classList.add('is-still');
-    for (let k = 0; k < 40; k++) spawnPellet(0.5);
+    for (let k = 0; k < 30; k++) spawnPellet(0.5);
     pellets.forEach((q, i) => { q.t = q.d * ((i * 0.37) % 1); });
+    for (let k = 0; k < 90; k++) spawnJet(0.5);
+    jet.forEach((q, i) => { q.t = q.d * ((i * 0.618) % 1); });
+    for (let k = 0; k < 14; k++) puff(HIT.x + (R() - 0.5) * 600, EDGE - 10, false, (R() - 0.5) * 200);
+    fog.forEach(m => { m.t = m.life * (0.2 + R() * 0.5); });
     draw(0.52, 0);
     if (deg) deg.textContent = fmt(-78.5);
     window.addEventListener('resize', () => { size(); draw(0.52, 0); });
