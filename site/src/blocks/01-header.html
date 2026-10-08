@@ -45,7 +45,19 @@
         <a class="menu__close" href="#top" data-menu-close><span class="sr">Close menu</span><i></i><i></i></a>
       </div>
       <ul class="menu__list" role="list">
-        {{#site.nav}}<li><a href="{{href}}" data-menu-item>{{name}}</a></li>{{/site.nav}}
+        {{#site.nav}}{{^mega}}<li><a href="{{href}}" data-menu-item>{{name}}</a></li>{{/mega}}{{#mega}}
+        <!-- Services opens in place (Fender 08/10: no wait for the services
+             page). <details> so it opens without JS too. -->
+        <li><details class="menu__sub" data-menu-item>
+          <summary>{{name}}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.6"/></svg></summary>
+          <div class="menu__subin">
+            {{#site.serviceGroups}}
+            <p class="menu__subh">{{name}}</p>
+            <ul role="list">{{#links}}<li><a href="{{href}}">{{name}}</a></li>{{/links}}</ul>
+            {{/site.serviceGroups}}
+            <a class="menu__suball" href="{{href}}">All services <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.6"/></svg></a>
+          </div>
+        </details></li>{{/mega}}{{/site.nav}}
         <li><a href="#book" data-menu-item>Contact</a></li>
       </ul>
       <div class="menu__foot" data-menu-item>
