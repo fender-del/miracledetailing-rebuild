@@ -14,7 +14,7 @@
    ============================================================ */
 'use strict';
 const { frame } = require('../lib/pic.js');
-const { crumbs, cards, prose } = require('../lib/shared.js');
+const { stars, reviews, crumbs, cards, prose } = require('../lib/shared.js');
 const { bench, choose } = require('../lib/formats-b.js');
 
 const SLUG = 'ceramic-coatings';
@@ -134,6 +134,7 @@ module.exports = site => {
         ]
       }) } },
       '24-svc-work',
+      '10-reviews',
       '12-book',
       '13-footer', '14-sticky'
     ],
@@ -160,13 +161,19 @@ module.exports = site => {
         ]
       },
 
+      stars, reviews,
+
+      revsBg: frame('bg-reviews', { alt: '', sizes: '100vw', ratio: false }),
+
       snav: [
         { id: 'overview', label: 'Overview' },
         { id: 'why', label: 'Why it matters' },
         { id: 'paul-dalton', label: 'Ceramic by Paul Dalton' },
         { id: 'range', label: 'The range' },
         { id: 'why-feynlab', label: 'Why Feynlab' },
-        { id: 'wheels', label: 'Wheels' }
+        { id: 'wheels', label: 'Wheels' },
+
+        { id: 'reviews', label: 'Reviews' }
       ],
 
       statement: {

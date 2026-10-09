@@ -1,11 +1,14 @@
 <!-- ============ 39 · SERVICE: PRICE BAND ============
      A price v0.5 states on its own (dry ice by the hour), as one band:
-     what it is, the figure, Paul's note, the button. -->
+     what it is, the figure, Paul's note, the button.
+     band.copy (09/10, aftercare's code): a "Copy code" button beside
+     the figure (motion/check.js copies(); hidden without JS). -->
 <section class="sband" id="{{band.id}}" data-section="price">
   <div class="wrap">
     <div class="sband__in" data-reveal="card">
       <p class="sband__k">{{&band.k}}</p>
       <p class="sband__amt">{{&band.amount}}</p>
+      {{#band.copy}}<button class="sband__copy" type="button" data-copy="{{band.copy}}" hidden><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8" stroke="currentColor" stroke-width="1.6"/></svg><span data-copy-label>Copy code</span><span class="sr" aria-live="polite"></span></button>{{/band.copy}}
       {{#band.note}}<p class="sband__note">{{&.}}</p>{{/band.note}}
       {{^band.nobtn}}<a class="btn" href="{{site.cta.href}}"><span class="btn__in">{{site.cta.label}}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></span></a>{{/band.nobtn}}
     </div>

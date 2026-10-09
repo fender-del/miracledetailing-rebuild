@@ -63,11 +63,13 @@ export function story() {
 
       /* Windows in timeline progress: beat 1 0–.35, beat 2 .35–.69,
          close .69–1 (3/4 of the scroll the close had before). */
-      const marks = [0, 0.35, 0.69, 1.01];
+      /* the close now holds longer (Fender 09/10): the timeline runs to
+         1.24, so the beat marks are scaled to progress */
+      const marks = [0, 0.35 / 1.24, 0.69 / 1.24, 1.01];
       const tl = gsap.timeline({
         defaults: { ease: 'none' },
         scrollTrigger: {
-          trigger: sec, start: 'top top', end: '+=217%', pin: true, scrub: 0.7, anticipatePin: 1,
+          trigger: sec, start: 'top top', end: '+=270%', pin: true, scrub: 0.7, anticipatePin: 1,
           /* refreshed first: everything below depends on this pin's spacer */
           refreshPriority: 1,
           onEnter: count, onEnterBack: count,
@@ -89,7 +91,7 @@ export function story() {
         .to('.story__dots', { autoAlpha: 0, duration: 0.04 }, 0.7)
         .to(line, { autoAlpha: 1, scale: 1, duration: 0.15, ease: 'power2.out' }, 0.71)
         .call(() => sfx('swell'), null, 0.705)
-        .to(line, { autoAlpha: 0, scale: 1.14, duration: 0.09, ease: 'power1.in' }, 0.91)
+        .to(line, { autoAlpha: 0, scale: 1.14, duration: 0.09, ease: 'power1.in' }, 1.15)
         .fromTo(photo, { scale: 1.1 }, { scale: 1, duration: 0.69 }, 0);
       dots[0] && dots[0].classList.add('is-on');
 
@@ -116,8 +118,8 @@ export function story() {
       scrollTrigger: { trigger: end, start: 'top bottom', end: 'bottom top', scrub: 0.5 }
     })
       .call(() => sfx('swell'), null, 0.05)
-      .fromTo(line, { autoAlpha: 0, scale: 0.42 }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: 'power2.out' }, 0)
-      .to(line, { autoAlpha: 1, duration: 0.15 })
+      .fromTo(line, { autoAlpha: 0, scale: 0.28 }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: 'power2.out' }, 0)
+      .to(line, { autoAlpha: 1, duration: 0.6 })
       .to(line, { autoAlpha: 0, scale: 1.12, duration: 0.4, ease: 'power1.in' });
     return undefined;
   });

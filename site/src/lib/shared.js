@@ -146,6 +146,9 @@ function steps(o) {
 function pairs(o) {
   return {
     id: o.id, light: !!o.light, square: !!o.square,
+    /* 09/10 bodyshop: wide = 2:1 frames, the pair one above the other;
+       one job alone = no picker, no count */
+    wide: !!o.wide, one: o.items.length < 2,
     eyebrow: o.eyebrow || null, title: o.title,
     total: String(o.items.length).padStart(2, '0'),
     items: o.items.map(it => Object.assign({ bl: 'Before', al: 'After' }, it))

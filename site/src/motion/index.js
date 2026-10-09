@@ -35,6 +35,8 @@ import { scopes } from './scope.js';
 import { sheets } from './sheet.js';
 import { youtube } from './journal.js';
 import { pairs } from './pairs.js';
+import { dents } from './dent.js';
+import { checklists, copies } from './check.js';
 
 const root = document.documentElement;
 const safe = fn => { try { fn(); } catch (e) { if (window.console) console.warn('[motion]', fn.name, e); } };
@@ -70,10 +72,14 @@ function boot() {
   safe(ladders);
   /* blocks 55–56 (08/10, correction): paint under the light, every tier */
   safe(scopes);
+  /* block 59 (09/10, PDR): a dent read in the board's lines, every tier */
+  safe(dents);
   /* any card's "What's included" sheet (07/10, mobile page packages) */
   safe(sheets);
   /* block 57 (08/10, leather): before & after pairs, every tier */
   safe(pairs);
+  /* block 58 (09/10, aftercare): the wash checklist; the code band's copy */
+  safe(checklists); safe(copies);
   /* block 61 (07/10, journal posts): the film loads when pressed */
   safe(youtube);
   if (env.motion) {

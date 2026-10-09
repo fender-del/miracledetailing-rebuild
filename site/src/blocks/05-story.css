@@ -40,6 +40,8 @@
 /* 110svh: the line holds the screen only briefly (Fender 02/10: 3/4 of
    the scroll it had) */
 .js-motion .story__end{display:block;height:110svh;padding:0}
+/* phones/tablets: a longer stop on the line (Fender 09/10) */
+@media (max-width:1023px){.js-motion .story__end{height:190svh}}
 .js-motion .story__line{position:sticky;top:0;height:100svh;display:grid;place-content:center;padding:0 var(--gut)}
 
 .story__dots{display:none}
@@ -69,5 +71,5 @@
 @media (max-width:767px){
   .story__photo .media{aspect-ratio:1 / 1!important}
   .story__paper{right:-2%;bottom:6%;width:56%}
-  .story__line{font-size:8.4vw}
+  .story__line{font-size:11.2vw}
 }

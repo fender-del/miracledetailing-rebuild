@@ -11,10 +11,19 @@
    at the page itself. The step tags jump to the products below; the
    "Buy from" buttons go to each shop's home page until Paul sends the
    product links (REQUESTS.md).
+   09/10 (Fender: QA + build the page): the eight steps are a checklist
+   to wash by (block 58: tick a step, the count and bar follow, kept on
+   this device; phones one row per step, ticking opens the next); its
+   heading is new UI copy (v0.5's was the correction page's). Tags jump
+   to their product card; Buckets, Grit Guards and the two brushes have
+   no card, so they are plain labels. Six rules brief on phones; the
+   discount band copies the code; the hero fits one phone screen;
+   the reviews sit on a different photo from the hero (they were the
+   same water-spray shot).
    ============================================================ */
 'use strict';
 const { frame } = require('../lib/pic.js');
-const { stars, reviews, crumbs, cards, steps } = require('../lib/shared.js');
+const { stars, reviews, crumbs, cards } = require('../lib/shared.js');
 
 const SLUG = 'aftercare-washing-guide';
 const FEYNLAB = 'https://www.feynlab.co.uk/';
@@ -26,8 +35,15 @@ module.exports = site => {
     { name: 'Home', href: '/' },
     { name: 'Aftercare & washing guide', href: `/${SLUG}/` }
   ]);
-  const tag = label => ({ label, href: '#products', ext: null });
+  /* a tag points at its product's card, or is a plain label */
+  const tag = (label, card) => ({ label, href: card ? '#ac-' + card : null });
   const buy = (label, href) => [{ label, href, ext: true }];
+  /* block 58's data: every key set (the template engine would borrow a
+     missing one from the page) */
+  const check = o => Object.assign({ img: null, lede: null }, o, {
+    total: o.steps.length,
+    steps: o.steps.map(st => ({ num: st.num, name: st.name, text: st.text, links: st.links || null, hasLinks: !!(st.links && st.links.length) }))
+  });
 
   return {
     slug: SLUG,
@@ -44,7 +60,7 @@ module.exports = site => {
       '01-header',
       '20-svc-hero', '29-svc-nav',
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'rules', variant: 'points', cols: 3,
+        id: 'rules', variant: 'points', cols: 3, brief: true,
         eyebrow: 'Why it matters',
         title: 'Before you start. <span class="gold">Never break them.</span>',
         intro: [
@@ -60,38 +76,42 @@ module.exports = site => {
           { n: 'VI', name: 'Finish with Hybrid Detailer', paras: 'After every wash, apply Feynlab Hybrid Ceramic Detailer to each panel. This tops up the coating with every wash, maintaining the gloss and protection between annual inspections.' }
         ]
       }) } },
-      { block: '23-svc-steps', with: steps({
-        id: 'procedure', graphite: true, progress: true, railPhone: true,
+      { block: '58-ac-check', with: { check: check({
+        id: 'procedure', key: 'aftercare-wash',
+        eyebrow: 'The procedure',
+        title: 'Eight steps. <span class="gold">Every wash.</span>',
+        lede: 'Tick each step off as you go. Your progress stays on this device until you start again.',
+        img: frame('ac-bead', { alt: 'Water beading on a coated blue panel', sizes: '(max-width: 767px) 1px, (max-width: 1023px) 44vw, 34vw', ratio: '16 / 10' }),
         steps: [
           { num: '1', name: 'Rinse or snow foam first', text: 'Before the wash mitt touches the car, rinse the vehicle thoroughly with a pressure washer or apply snow foam to loosen surface contamination. Never put a dry mitt on a dry car: even small particles of dust can scratch the paint.' },
           { num: '2', name: 'Set up your two buckets', text: 'Fill one bucket with warm water and Feynlab Pure Wash shampoo. Fill a second bucket with clean water for rinsing the wash pad between panels. Put a grit guard in the bottom of each bucket. The grit guard traps contamination at the bottom so it doesn’t transfer back to the mitt.',
-            links: [tag('Feynlab Pure Wash'), tag('Buckets'), tag('Grit Guards')] },
+            links: [tag('Feynlab Pure Wash', 'pure-wash'), tag('Buckets'), tag('Grit Guards')] },
           { num: '3', name: 'Wash one section at a time, top to bottom', text: 'Work in sections: roof and windscreen first, then upper panels, then lower panels and sills, leaving the wheel arches and lower bumpers to last. After each section, rinse the wash pad thoroughly in the clean water bucket before returning it to the shampoo solution. Always wash in straight lines. Never circular motions.',
-            links: [tag('GT Wash Pad')] },
+            links: [tag('GT Wash Pad', 'wash-pad')] },
           { num: '4', name: 'Clean the wheels', text: 'Wheels carry the heaviest contamination: brake dust, road tar and grime. Use Feynlab Tyre and Wheel Cleaner with a dedicated wheel brush for the face of the wheel and an EZ Detail brush for the inside of the barrel. Never use the same mitt on the wheels that you use on the paint.',
-            links: [tag('Wheel Cleaner'), tag('Wheel Brush'), tag('Barrel Brush')] },
+            links: [tag('Wheel Cleaner', 'wheel-cleaner'), tag('Wheel Brush'), tag('Barrel Brush')] },
           { num: '5', name: 'Rinse the whole car thoroughly', text: 'Once the full car and wheels are washed, rinse everything thoroughly: roof to sills, wheels and arches. Make sure all shampoo residue is removed before drying begins.' },
           { num: '6', name: 'Dry with a quality drying towel', text: 'Use the Rag Company Liquid8r twisted loop microfibre drying towel: it’s the one Paul uses and recommends. Work panel by panel, top to bottom. Once the main panels are dry, blow out all the crevices, door shuts, mirror housings and badges with a forced air dryer to prevent water marks appearing after the car is put away.',
-            links: [tag('Drying Towel'), tag('Air Dryer')] },
+            links: [tag('Drying Towel', 'drying-towel'), tag('Air Dryer', 'air-dryer')] },
           { num: '7', name: 'Apply Feynlab Hybrid Ceramic Detailer', text: 'This is the step most people skip, and it’s the most important one for maintaining the coating long term. Shake the bottle well for a full minute before use. Spray one or two sprays onto each panel and buff with an Edgeless 365 microfibre. Work panel by panel. The Hybrid Detailer adds a fresh layer of ceramic protection with every wash, keeping the gloss deep and the water beading sharp.',
-            links: [tag('Hybrid Detailer'), tag('Edgeless 365 Microfibre')] },
+            links: [tag('Hybrid Detailer', 'hybrid'), tag('Edgeless 365 Microfibre', 'edgeless')] },
           { num: '8', name: 'Tyre dressing: Feynlab Black Velvet', text: 'For the finishing touch, apply Feynlab Black Velvet Tyre Sealant using a microfibre applicator. Wear rubber gloves: it can be messy on your hands. Black Velvet gives a deep, satin tyre finish and seals the rubber for lasting protection and appearance.',
-            links: [tag('Black Velvet Tyre Sealant')] }
+            links: [tag('Black Velvet Tyre Sealant', 'black-velvet')] }
         ]
-      }) },
+      }) } },
       { block: '37-svc-cards', with: { cards: cards({
         id: 'products', light: true, cols: 4, acc: true,
         eyebrow: 'Products at a glance',
         title: 'Everything you need. <span class="gold">Nothing you don’t.</span>',
         items: [
-          { kicker: 'Shampoo', name: 'Feynlab Pure Wash', paras: 'pH neutral shampoo formulated specifically for ceramic-coated vehicles. The only shampoo Paul recommends on a Feynlab-coated car.', links: buy('Buy from Feynlab', FEYNLAB) },
-          { kicker: 'Maintenance Detailer', name: 'Feynlab Hybrid Ceramic Detailer', paras: 'Tops up the coating with every wash. Shake for one minute before use: this is not optional. One to two sprays per panel, buff with a quality microfibre.', links: buy('Buy from Feynlab', FEYNLAB) },
-          { kicker: 'Wheel &amp; Tyre', name: 'Feynlab Tyre &amp; Wheel Cleaner', paras: 'Safe on all wheel finishes including diamond cut and powder coat. Effective on brake dust and road contamination without aggressive acids.', links: buy('Buy from Feynlab', FEYNLAB) },
-          { kicker: 'Tyre Dressing', name: 'Feynlab Black Velvet Tyre Sealant', paras: 'Deep satin finish and lasting tyre protection. Apply with a microfibre applicator. Wear gloves: it stains hands. Worth every bit of the effort.', links: buy('Buy from Feynlab', FEYNLAB) },
-          { kicker: 'Wash Pad', name: 'GT Wash Pad', paras: 'The wash pad Paul uses. Soft enough for coated paint, structured enough to hold shampoo solution and release contamination safely into the rinse bucket.', links: buy('Buy from Garage Therapy', GT) },
-          { kicker: 'Drying', name: 'Rag Company Liquid8r Drying Towel', paras: 'Paul’s recommended drying towel. Twisted loop construction absorbs water fast without dragging on the surface. Use with an air dryer for perfect results.', links: buy('Buy from Clean & Shiny', CS) },
-          { kicker: 'Air Dryer', name: 'Rokit R1 Forced Air Dryer', paras: 'Essential for blowing water out of door shuts, badges, mirrors and crevices after washing. Prevents the water marks that appear hours after a wash.', links: buy('Buy from Clean & Shiny', CS) },
-          { kicker: 'Microfibre', name: 'Rag Company Edgeless 365', paras: 'The microfibre Paul uses to apply and buff the Hybrid Detailer. Premium edgeless construction: no risk of scratching from hard edges. One side to apply, one side to buff.', links: buy('Buy from Clean & Shiny', CS) }
+          { kicker: 'Shampoo', anchor: 'ac-pure-wash', name: 'Feynlab Pure Wash', paras: 'pH neutral shampoo formulated specifically for ceramic-coated vehicles. The only shampoo Paul recommends on a Feynlab-coated car.', links: buy('Buy from Feynlab', FEYNLAB) },
+          { kicker: 'Maintenance Detailer', anchor: 'ac-hybrid', name: 'Feynlab Hybrid Ceramic Detailer', paras: 'Tops up the coating with every wash. Shake for one minute before use: this is not optional. One to two sprays per panel, buff with a quality microfibre.', links: buy('Buy from Feynlab', FEYNLAB) },
+          { kicker: 'Wheel &amp; Tyre', anchor: 'ac-wheel-cleaner', name: 'Feynlab Tyre &amp; Wheel Cleaner', paras: 'Safe on all wheel finishes including diamond cut and powder coat. Effective on brake dust and road contamination without aggressive acids.', links: buy('Buy from Feynlab', FEYNLAB) },
+          { kicker: 'Tyre Dressing', anchor: 'ac-black-velvet', name: 'Feynlab Black Velvet Tyre Sealant', paras: 'Deep satin finish and lasting tyre protection. Apply with a microfibre applicator. Wear gloves: it stains hands. Worth every bit of the effort.', links: buy('Buy from Feynlab', FEYNLAB) },
+          { kicker: 'Wash Pad', anchor: 'ac-wash-pad', name: 'GT Wash Pad', paras: 'The wash pad Paul uses. Soft enough for coated paint, structured enough to hold shampoo solution and release contamination safely into the rinse bucket.', links: buy('Buy from Garage Therapy', GT) },
+          { kicker: 'Drying', anchor: 'ac-drying-towel', name: 'Rag Company Liquid8r Drying Towel', paras: 'Paul’s recommended drying towel. Twisted loop construction absorbs water fast without dragging on the surface. Use with an air dryer for perfect results.', links: buy('Buy from Clean & Shiny', CS) },
+          { kicker: 'Air Dryer', anchor: 'ac-air-dryer', name: 'Rokit R1 Forced Air Dryer', paras: 'Essential for blowing water out of door shuts, badges, mirrors and crevices after washing. Prevents the water marks that appear hours after a wash.', links: buy('Buy from Clean & Shiny', CS) },
+          { kicker: 'Microfibre', anchor: 'ac-edgeless', name: 'Rag Company Edgeless 365', paras: 'The microfibre Paul uses to apply and buff the Hybrid Detailer. Premium edgeless construction: no risk of scratching from hard edges. One side to apply, one side to buff.', links: buy('Buy from Clean & Shiny', CS) }
         ]
       }) } },
       '39-svc-price',
@@ -104,7 +124,7 @@ module.exports = site => {
       crumbs: nav.html,
 
       hero: {
-        stats: true,
+        stats: true, fit: true,
         /* phones: where the poster crop is held (08/10) */
         mpos: '40% 50%',
         h1: 'Aftercare & Washing Guide',
@@ -128,12 +148,12 @@ module.exports = site => {
       band: {
         id: 'code', nobtn: true,
         k: 'Use Paul’s discount code for 10% off all Feynlab products at the Feynlab online store',
-        amount: 'MIRACLE',
+        amount: 'MIRACLE', copy: 'MIRACLE',
         note: 'Enter at checkout at <a class="gold" href="https://www.feynlab.co.uk/" target="_blank" rel="noopener">feynlab.co.uk</a>'
       },
 
       stars, reviews,
-      revsBg: frame('bg-reviews', { alt: '', sizes: '100vw', ratio: false }),
+      revsBg: frame('ac-revs', { alt: '', sizes: '100vw', ratio: false }),
 
       bookTitle: 'Any questions? <span class="gold">Just ask Paul.</span>',
       bookLede: 'If you’re unsure about anything (the procedure, the products, or how your coating is performing) get in touch directly. Paul is happy to advise.',

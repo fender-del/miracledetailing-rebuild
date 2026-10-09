@@ -15,6 +15,9 @@ export function pairs() {
     const items = $$('[data-pair]', sec);
     const btns = pick ? $$('button', pick) : [];
     const n = $('[data-pairs-n]', sec);
+    /* 09/10: a page with one job (bodyshop) has no picker; its after
+       still opens on arrival */
+    if (stage) whenSeen(stage, () => sec.classList.add('is-seen'), 0.2);
     if (!pick || items.length < 2) return;
     pick.hidden = false;
     let cur = 0;
@@ -47,6 +50,5 @@ export function pairs() {
       if (Math.abs(dx) > 44 && Math.abs(dx) > Math.abs(dy) * 1.4) go(cur + (dx < 0 ? 1 : -1));
     }, { passive: true });
 
-    whenSeen(stage, () => sec.classList.add('is-seen'), 0.2);
   });
 }

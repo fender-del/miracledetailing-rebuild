@@ -8,10 +8,16 @@
    v0.5 shows no photos on this page: the old site's bodyshop photo and
    the Mercedes 600 restoration from the About timeline stand in.
    "From £???" kept as written (Fender 06/10).
+   09/10 (Fender: QA + rebuild, like Wheels and Leather): Paul's own
+   booth photos from his Drive carry the page (overview, a photo per
+   service, a photo per step); the Mercedes 600 collage is no longer one
+   split frame: its two halves are the page's before & after, bare metal
+   and painted, after "Why"; the four services compact on
+   phones, "Why" brief on phones. Paul's words unchanged.
    ============================================================ */
 'use strict';
 const { frame } = require('../lib/pic.js');
-const { crumbs, cards, prose, quote, steps } = require('../lib/shared.js');
+const { stars, reviews, crumbs, cards, prose, quote, steps, pairs } = require('../lib/shared.js');
 
 const SLUG = 'bodyshop-repair';
 
@@ -21,6 +27,13 @@ module.exports = site => {
     { name: 'Services', href: '/car-care-services/' },
     { name: 'Bodyshop & paint repair', href: `/${SLUG}/` }
   ]);
+  const cardImg = (id, alt) => frame(id, { alt, sizes: '(max-width: 767px) 86vw, (max-width: 1023px) 45vw, 24vw', ratio: '4 / 3' });
+  /* a step's picture: pic = the stage's (desktop), img = under its name */
+  const stepPic = (id, alt) => ({
+    pic: frame(id, { alt: '', sizes: '(max-width: 1023px) 1px, 34vw', ratio: false }),
+    img: frame(id, { alt, sizes: '(max-width: 1023px) 84vw, 1px', ratio: false })
+  });
+  const wideImg = (id, alt) => frame(id, { alt, sizes: '(max-width: 1023px) 92vw, 640px', ratio: '2 / 1' });
 
   return {
     slug: SLUG,
@@ -39,7 +52,7 @@ module.exports = site => {
       { block: '33-svc-prose', with: { prose: prose({
         id: 'overview',
         title: 'The complete picture. <span class="gold">Paint repair and detailing. Together.</span>',
-        img: frame('bs-600', { alt: 'A Mercedes 600 before and after its full restoration, from bare metal to finished paint', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '1 / 1' }),
+        img: frame('bs-over', { alt: 'A grey car masked up under plastic in the spray booth, ready for paint', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
         paras: [
           'No detail, however thorough, can correct paint that needs repairing at a bodywork level. Stone chips that have broken through to bare metal, accident damage, faded single panels, or a car requiring a full respray: these need proper paint repair before detailing work begins.',
           'Bodyshop work is available through Miracle Detail as part of your overall package. Paul coordinates the repair work alongside the detail, so the car receives the right treatment in the right order, and leaves in the condition it should be in. No managing multiple suppliers, no gaps between what the bodyshop does and what the detailer expects.',
@@ -47,30 +60,30 @@ module.exports = site => {
         ]
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'available', light: true, cols: 4, fx: 'rail',
+        id: 'available', light: true, cols: 4, fx: 'rail', compact: true,
         eyebrow: 'What’s available',
         title: 'From single panels to <span class="gold">full restorations.</span>',
         items: [
-          { n: 'I', name: 'Panel Repair', sub: 'Localised damage, one panel',
+          { n: 'I', name: 'Panel Repair', sub: 'Localised damage, one panel', img: cardImg('bs-c1', 'A silver door with a small repair primed and feathered, the wheel arch masked off'),
             paras: 'For stone chips, scuffs, minor accident damage or corrosion on a single panel. The affected area is repaired and refinished to match the surrounding paintwork: blended, colour-matched and lacquered to an invisible finish.',
             list: ['Stone chip and scratch repair', 'Scuff and impact damage', 'Corrosion and rust treatment', 'Colour-matched refinish', 'Blend into surrounding panels where required'],
             price: 'From £???' },
-          { n: 'II', name: 'Single Panel Respray', sub: 'Full panel refinish',
+          { n: 'II', name: 'Single Panel Respray', sub: 'Full panel refinish', img: cardImg('bs-c2', 'A grey door masked at its edges, sprayed in the booth'),
             paras: 'Where repair alone isn’t sufficient, a full panel respray delivers a factory-quality finish across the entire panel. Correct preparation, accurate colour matching and a finish that holds up to paint correction and protective coating once cured.',
             list: ['Full panel strip and preparation', 'Factory-accurate colour matching', 'High-quality primer, base and lacquer', 'Blend into adjacent panels', 'Ready for detailing and protection'],
             price: 'From £???' },
-          { n: 'III', name: 'Full Respray', sub: 'Complete paint refresh or colour change',
+          { n: 'III', name: 'Full Respray', sub: 'Complete paint refresh or colour change', img: cardImg('bs-c3', 'A white car in the booth, its glass and wheels masked for a full respray'),
             paras: 'The entire car resprayed: original colour refreshed to concours standard, or a full colour change. For cars where the paint has aged beyond what correction can address, or where the owner wants a completely different finish. Coordinated with paint correction and protective coating once complete.',
             list: ['Full vehicle strip and preparation', 'Original colour or full colour change', 'All panels, shuts and edges', 'Primer, base, lacquer to factory standard', 'Followed by paint correction and protection'],
             price: 'From £???' },
-          { n: 'IV', name: 'Full Restoration', sub: 'Classic, historic and neglected cars', hi: true,
+          { n: 'IV', name: 'Full Restoration', sub: 'Classic, historic and neglected cars', hi: true, img: cardImg('bs-c4', 'Blue bumpers and panels off the car on stands in the spray booth'),
             paras: 'For cars requiring comprehensive bodywork restoration: rust removal, panel repair or replacement, bare metal preparation and full refinishing. Coordinated with Paul’s detailing work to deliver a car that is mechanically sound, structurally solid and finished to concours standard. Classic cars, investment vehicles and long-term restoration projects welcome.',
             list: ['Rust and corrosion removal', 'Panel repair and replacement', 'Bare metal preparation', 'Full refinishing to specification', 'Detailing and protection to complete the job'],
             price: 'Price on assessment' }
         ]
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
-        id: 'why', variant: 'points', cols: 3,
+        id: 'why', variant: 'points', cols: 3, brief: true,
         eyebrow: 'Why through Miracle Detail',
         title: 'One point of contact. <span class="gold">The right result.</span>',
         items: [
@@ -79,16 +92,27 @@ module.exports = site => {
           { n: 'III', name: 'The Full Package', paras: 'A car that has been repaired, corrected, coated and protected is a car that has been done properly, from the metal out. That is what Miracle Detail makes possible. Bodyshop, detailing and protection. Complete.' }
         ]
       }) } },
+      /* 09/10: the one real bodyshop before & after in the library; after
+         "Why" so the grounds alternate (one call + its steps are ivory) */
+      { block: '57-svc-pairs', with: { pairs: pairs({
+        id: 'the-work', light: true, wide: true,
+        eyebrow: 'The work',
+        title: 'From bare metal <span class="gold">to paint.</span>',
+        items: [
+          { before: wideImg('bs-600b', 'A Mercedes 600 stripped to bare metal, its chrome and bumpers off'),
+            after: wideImg('bs-600a', 'The same Mercedes 600 in fresh blue paint'), thumb: '', bl: 'Bare metal', al: 'Painted' }
+        ]
+      }) } },
       { block: '23-svc-steps', with: steps({
         id: 'process', graphite: true,
-        stage: { img: frame('bs-roma', { alt: '', sizes: '(max-width: 1023px) 1px, 36vw', ratio: false }) },
+        stage: { pics: true },
         eyebrow: 'How it works',
         title: 'The right order. <span class="gold">Every time.</span>',
         steps: [
-          { name: 'Assessment', text: 'Paul assesses the car in full: bodywork condition, paint condition and what the client wants to achieve. A clear plan is agreed before anything starts.' },
-          { name: 'Bodywork &amp; Repair', text: 'Panel repair, respray or restoration, completed first, to the correct standard, cured and ready for detailing work to follow.' },
-          { name: 'Paint Correction', text: 'Once the bodywork is complete, paint correction brings the entire car (new and existing panels) to a consistent, perfect finish.' },
-          { name: 'Protection', text: 'Ceramic coating, PPF or both, applied over corrected paint to preserve the result for years. The car leaves protected from the inside out.' }
+          { name: 'Assessment', ...stepPic('bs-s1', 'Deep scratches scraped along the front wing of a dark car'), text: 'Paul assesses the car in full: bodywork condition, paint condition and what the client wants to achieve. A clear plan is agreed before anything starts.' },
+          { name: 'Bodywork &amp; Repair', ...stepPic('bs-s2', 'A black car in the spray booth, its bonnet freshly painted and the rest masked'), text: 'Panel repair, respray or restoration, completed first, to the correct standard, cured and ready for detailing work to follow.' },
+          { name: 'Paint Correction', ...stepPic('bs-s3', 'Paul machine polishing the bonnet of a black BMW M3 under hexagon lights'), text: 'Once the bodywork is complete, paint correction brings the entire car (new and existing panels) to a consistent, perfect finish.' },
+          { name: 'Protection', ...stepPic('bs-s4', 'Paint protection film being laid over the front of a red Jaguar'), text: 'Ceramic coating, PPF or both, applied over corrected paint to preserve the result for years. The car leaves protected from the inside out.' }
         ]
       }) },
       { block: '38-svc-quote', with: { quote: quote({
@@ -111,6 +135,7 @@ module.exports = site => {
           { num: '4', name: 'Collect a better car', text: 'The car comes back corrected, protected and in better condition than before the accident. One call was all it took.' }
         ]
       }) },
+      '10-reviews',
       '12-book',
       '13-footer', '14-sticky'
     ],
@@ -133,12 +158,19 @@ module.exports = site => {
         facts: []
       },
 
+      stars, reviews,
+
+      revsBg: frame('bg-reviews', { alt: '', sizes: '100vw', ratio: false }),
+
       snav: [
         { id: 'overview', label: 'Overview' },
         { id: 'available', label: 'What’s available' },
         { id: 'why', label: 'Why us' },
+        { id: 'the-work', label: 'The work' },
         { id: 'process', label: 'How it works' },
-        { id: 'one-call', label: 'One call' }
+        { id: 'one-call', label: 'One call' },
+
+        { id: 'reviews', label: 'Reviews' }
       ],
 
       bookTitle: 'Start with an <span class="gold">honest conversation.</span>',

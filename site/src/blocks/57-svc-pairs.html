@@ -9,7 +9,7 @@
      Desktop: heading and picker on the left, the pair on the right.
      Phones: heading, pair, picker, all on one screen.
      No JS: every pair, one under another. Built by lib/shared.js pairs(). -->
-<section class="bapr sec{{#pairs.square}} bapr--sq{{/pairs.square}}" id="{{pairs.id}}" data-section="pairs"{{#pairs.light}} data-bg="light" data-theme="light"{{/pairs.light}} data-pairs>
+<section class="bapr sec{{#pairs.square}} bapr--sq{{/pairs.square}}{{#pairs.wide}} bapr--wide{{/pairs.wide}}" id="{{pairs.id}}" data-section="pairs"{{#pairs.light}} data-bg="light" data-theme="light"{{/pairs.light}} data-pairs>
   <div class="wrap bapr__in">
     <div class="bapr__side">
       <div class="bapr__head">
@@ -17,11 +17,11 @@
           {{#pairs.eyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&pairs.eyebrow}}</p>{{/pairs.eyebrow}}
           <h2 class="disp h2" data-split>{{&pairs.title}}</h2>
         </div>
-        <p class="bapr__n" aria-hidden="true"><b data-pairs-n>01</b>/ {{pairs.total}}</p>
+        {{^pairs.one}}<p class="bapr__n" aria-hidden="true"><b data-pairs-n>01</b>/ {{pairs.total}}</p>{{/pairs.one}}
       </div>
-      <div class="bapr__pick" role="group" aria-label="Choose a job" data-pairs-pick hidden>
+      {{^pairs.one}}<div class="bapr__pick" role="group" aria-label="Choose a job" data-pairs-pick hidden>
         {{#pairs.items}}<button class="bapr__t{{#_first}} is-on{{/_first}}" type="button" aria-pressed="{{#_first}}true{{/_first}}{{^_first}}false{{/_first}}" aria-controls="{{pairs.id}}-{{_n}}" aria-label="Job {{_idx}} of {{pairs.total}}"><span class="bapr__tm">{{&thumb}}</span><span class="bapr__tn" aria-hidden="true">{{_idx}}</span></button>{{/pairs.items}}
-      </div>
+      </div>{{/pairs.one}}
     </div>
 
     <ol class="bapr__list" role="list" data-pairs-stage>

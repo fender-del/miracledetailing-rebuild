@@ -30,7 +30,7 @@
    ============================================================ */
 'use strict';
 const { frame, images } = require('../lib/pic.js');
-const { crumbs, cards, prose } = require('../lib/shared.js');
+const { stars, reviews, crumbs, cards, prose } = require('../lib/shared.js');
 const { show, gauge, lens, layers, index, note, inCrop } = require('../lib/formats.js');
 
 const SLUG = 'window-tinting';
@@ -211,6 +211,7 @@ module.exports = site => {
         ],
         cta: { href: site.phoneHref, label: 'Call Paul' }
       }) } },
+      '10-reviews',
       '12-book',
       '13-footer', '14-sticky'
     ],
@@ -233,13 +234,19 @@ module.exports = site => {
         facts: []
       },
 
+      stars, reviews,
+
+      revsBg: frame('bg-reviews', { alt: '', sizes: '100vw', ratio: false }),
+
       snav: [
         { id: 'overview', label: 'Overview' },
         { id: 'films', label: 'Film options' },
         { id: 'chameleon', label: 'Chameleon' },
         { id: 'legal', label: 'UK law' },
         { id: 'bulletproof', label: 'Bulletproof film' },
-        { id: 'who', label: 'Who it’s for' }
+        { id: 'who', label: 'Who it’s for' },
+
+        { id: 'reviews', label: 'Reviews' }
       ],
 
       bookTitle: 'Complete your car. <span class="gold">Inside and out.</span>',

@@ -15,6 +15,7 @@
 'use strict';
 const V = 'v05pages/';
 const O = 'old-site/';
+const B = 'drive-paul/bodyshop-pictures/';
 
 /* a hero = a wide crop for desktops and a taller one for phones */
 const hero = (id, src, m = { l: .2, t: 0, w: .6, h: 1 }, q = 54) => [
@@ -121,11 +122,40 @@ module.exports = [
 
   /* ---------- Bodyshop ---------- */
   ...hero('bs-hero', 'drive-paul/hero-bodyshop-masked.png', { l: .25, t: 0, w: .5, h: 1 }),  /* Paul's Drive set, 07/10 */
-  { id: 'bs-600',    src: V + 'about-paul/download-24-1.jpg', widths: [600, 1125] },
-  { id: 'bs-roma',   src: O + '2023_11_Paint-Correction-and-Polishing-in-Lingfield-Surrey-miracle-detail-3.jpg', widths: [600, 1200] },
+  /* 09/10 rebuild: Paul's own booth photos (Drive "bodyshop pictures")
+     carry the page; the Roma at a show (a correction photo) is gone.
+     The Mercedes 600 is v0.5's About collage cut at its seam (y 559/563)
+     into its two halves, never shown as one split frame. */
+  { id: 'bs-over',   src: B + '0AB59D3B-8687-4370-9985-5CC0CCC0EBF8.png', crop: { l: 0, t: .3, w: 1, h: .469 }, widths: [600, 900, 1086] },
+  { id: 'bs-c1',     src: 'drive/d441c8df-8714-41a9-a8ff-a3d4c4d37c86.jpg', crop: { l: .06, t: 0, w: .84, h: 1 }, widths: [600, 860] },  /* Fender's pick 09/10; crop drops the corner sparkle mark */
+  { id: 'bs-c2',     src: B + '81f4868c-0c84-4afd-a3d3-ea397dd4b461.jpg', crop: { l: .28, t: .16, w: .72, h: .405 }, widths: [600, 864] },
+  { id: 'bs-c3',     src: B + 'D5DCAF3C-561A-4462-81CA-01BD1E7DC136.png', crop: { l: 0, t: .26, w: 1, h: .5625 }, widths: [600, 900, 1086] },
+  { id: 'bs-c4',     src: B + '651B3AA4-D762-4EAE-8DB5-6768167E779E.png', widths: [600, 900, 1200] },
+  { id: 'bs-s1',     src: 'stock/pexels-24960483.jpg', widths: [500, 760] },  /* 09/10 Fender: a scratched car; Pexels 24960483, Uiliam Nörnberg, free licence */
+  { id: 'bs-s2',     src: B + '9554EF30-BE93-4D42-AD81-4152BD8348DF.png', widths: [500, 760] },
+  { id: 'bs-s3',     src: 'drive-paul/paul-polishing-bmw-m3-to/117EEAB4-A76F-4EE7-AFE3-B85BE3EAF916.png', widths: [500, 760] },
+  { id: 'bs-s4',     src: 'drive-paul/17F632C3-19A3-4966-A277-403A63331A9C.PNG', widths: [500, 760] },
+  { id: 'bs-600b',   src: V + 'about-paul/download-24-1.jpg', crop: { l: 0, t: 0, w: 1, h: .4995 }, widths: [600, 900, 1125] },
+  { id: 'bs-600a',   src: V + 'about-paul/download-24-1.jpg', crop: { l: 0, t: .5045, w: 1, h: .4955 }, widths: [600, 900, 1125] },
 
   /* ---------- PDR ---------- */
   ...hero('pd-hero', 'drive-paul/hero-pdr-board.png', { l: 0, t: 0, w: 1, h: 1 }),  /* Paul's Drive set, 07/10 */
+  /* 09/10: Paul's other PDR photo (an E30 M3, a rod in at the tail light,
+     the light board beside the quarter panel) carries the overview */
+  { id: 'pd-e30', src: 'drive-paul/dent-removal-pics/F2F9CE10-DD6A-4EB3-BA67-F9ED1D4C1A8B.png', crop: { l: 0, t: .19, w: 1, h: .469 }, widths: [600, 900, 1086] },
+  /* 09/10: AI renders (GPT Image 2.5, Fender: "ảnh gen AI, close up
+     ultra real") until Paul has his own: one per step, 4:5 for the
+     desktop stage + a 16:10 band for phones; one per kind of dent */
+  ...[['s1', 'step1-assess', .3], ['s2', 'step2-access', .12], ['s3', 'step3-manip', .14], ['s4', 'step4-inspect', .32]].flatMap(([k, f, t]) => [
+    { id: `pd-${k}`, src: `pdr/${f}.png`, widths: [500, 800, 1100] },
+    { id: `pd-${k}m`, src: `pdr/${f}.png`, crop: { l: 0, t, w: 1, h: .5 }, widths: [500, 800] }
+  ]),
+  /* step 5 = Paul's own photo (Fender 09/10): his hands polishing the M3's bonnet */
+  { id: 'pd-s5',  src: 'drive-paul/paul-polishing-bmw-m3-to/4A1EB473-4EE4-4446-8221-687CDC0B4FB2.png', crop: { l: 0, t: .03, w: 1, h: .937 }, widths: [500, 800, 1086] },
+  { id: 'pd-s5m', src: 'drive-paul/paul-polishing-bmw-m3-to/4A1EB473-4EE4-4446-8221-687CDC0B4FB2.png', crop: { l: 0, t: .2, w: 1, h: .469 }, widths: [500, 800] },
+  { id: 'pd-ding',  src: 'pdr/for-ding.png',  widths: [400, 700, 1000] },
+  { id: 'pd-hail',  src: 'pdr/for-hail.png',  widths: [400, 700, 1000] },
+  { id: 'pd-large', src: 'pdr/for-large.png', widths: [400, 700, 1000] },
 
   /* ---------- Wheels ---------- */
   /* 08/10: the hero is the "after" half alone on every screen (the whole
@@ -184,6 +214,10 @@ module.exports = [
 
   /* ---------- Aftercare ---------- */
   ...hero('ac-hero', 'drive/03-gfw-water-beading.jpg', { l: .35, t: 0, w: .45, h: 1 }),
+  /* 09/10: the checklist's photo = Paul's own coated panel beading
+     (Drive); the reviews behind it a different photo from the hero */
+  { id: 'ac-bead', src: 'drive-paul/hero-ceramic-beading.png', crop: { l: 0, t: .1, w: 1, h: .833 }, widths: [600, 900, 1200] },
+  { id: 'ac-revs', src: 'drive/02-gfw-red-macro-dark.jpg', widths: [800, 1400, 2200], q: 46 },
 
   /* ---------- Hubs ---------- */
   ...hero('sv-hero', 'drive/15-mclaren-studio.png', { l: .25, t: 0, w: .5, h: 1 }),

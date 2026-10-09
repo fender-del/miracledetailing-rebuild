@@ -1,0 +1,55 @@
+<!-- ============ 58 · AFTERCARE: THE WASH CHECKLIST ============
+     Paul's eight steps as a checklist to wash by (09/10, PLAN-interactions
+     #6): a ring per step to tick it off, a count and a bar for how far
+     along you are, kept on this device (localStorage) so a wash can be
+     picked up where it was left. Product tags jump to their card below.
+     Desktop: heading, Paul's beading photo and the count held on the
+     left; every step open on the right.
+     Phones: heading and count, then one row per step (ring, name, open);
+     ticking a step folds it and opens the next one. Nothing pinned.
+     No JS: the eight steps, numbered and open; no rings, no count.
+     Built by the page's check() data. -->
+<section class="ackl sec" id="{{check.id}}" data-section="check" data-bg="graphite" data-check="{{check.key}}">
+  <div class="wrap ackl__in">
+    <div class="ackl__side">
+      <div class="ackl__head">
+        <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&check.eyebrow}}</p>
+        <h2 class="disp h2" data-split>{{&check.title}}</h2>
+        <p class="ackl__lede" data-check-lede hidden>{{&check.lede}}</p>
+      </div>
+      {{#check.img}}<div class="ackl__ph">{{&.}}</div>{{/check.img}}
+      <div class="ackl__prog" data-check-prog hidden>
+        <p class="ackl__count"><b data-check-n>0</b><span>/ {{check.total}}</span></p>
+        <p class="ackl__state" data-check-state aria-live="polite">steps done</p>
+        <span class="ackl__bar" aria-hidden="true"><i data-check-bar></i></span>
+        <button class="ackl__reset" type="button" data-check-reset hidden>Start again</button>
+      </div>
+    </div>
+
+    <ol class="ackl__list" role="list">
+      {{#check.steps}}
+      <li class="ackl__it" data-check-it>
+        <div class="ackl__row">
+          <span class="ackl__n" aria-hidden="true">{{num}}</span>
+          <button class="ackl__tick" type="button" aria-pressed="false" data-check-tick hidden>
+            <span class="ackl__num" aria-hidden="true">{{num}}</span>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5.5 12.5 4.2 4.2 8.8-9.4" stroke="currentColor" stroke-width="2" pathLength="1"/></svg>
+            <span class="sr">Step {{num}} done: {{&name}}</span>
+          </button>
+          <h3 class="ackl__name">{{&name}}</h3>
+          <button class="ackl__open" type="button" aria-expanded="false" aria-controls="{{check.id}}-{{_n}}" data-check-open hidden>
+            <span class="sr">Read step {{num}}</span>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.8"/></svg>
+          </button>
+        </div>
+        <div class="ackl__body" id="{{check.id}}-{{_n}}">
+          <div class="ackl__bi">
+            <p class="ackl__text">{{&text}}</p>
+            {{#hasLinks}}<p class="ackl__links">{{#links}}{{#href}}<a href="{{href}}">{{label}}</a>{{/href}}{{^href}}<span>{{label}}</span>{{/href}}{{/links}}</p>{{/hasLinks}}
+          </div>
+        </div>
+      </li>
+      {{/check.steps}}
+    </ol>
+  </div>
+</section>

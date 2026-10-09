@@ -75,7 +75,7 @@ Also, on the ceramic range only Heal Lite has a price ("From £2,000 + VAT"). Do
 |---|---|---|
 | Paint protection film, Gloss/Matte/Colour | AI edits of a GF Williams photo (demonstration only) | Paul's own gloss, matte and colour PPF jobs |
 | Window tinting | Two tint photos from the old site and one free stock photo (dark glass) | Chameleon film on a windscreen; any tint job; nothing for bulletproof film, since it must stay confidential |
-| Paintless dent removal | No PDR photo exists, so the hero is a GF Williams close-up of red paint | Before/after of a dent, or the technician at work |
+| Paintless dent removal | Paul's two PDR photos from the Drive (black Audi = hero, E30 M3 = overview); the five steps and the three kinds of dent are AI renders (close-ups, no logos) | His own photos of each step, and of a ding, hail damage and a larger dent, to replace the renders |
 | Bodyshop | Old-site photo of a Ferrari Roma, and the Mercedes 600 restoration | Repair jobs, before/after |
 | Wheel refurbishment, leather | Old-site photos (1,200 px wide, a little soft on large screens) | Larger originals or newer jobs |
 | Wheel refurbishment, the work | One before & after only (the VW in Paul's Drive collage, small and soft once cropped; its tyre lettering looks retouched). The other three jobs are finished wheels from the old site, shown whole and up close | Before and after photos of a few wheel jobs, the same wheel shot from the same angle, and the car each belonged to |

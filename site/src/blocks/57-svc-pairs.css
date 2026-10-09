@@ -20,6 +20,11 @@
 .bapr__f.is-after figcaption{color:var(--gold)}
 .bapr__f.is-after figcaption::before{content:"";display:inline-block;width:6px;height:6px;margin:0 10px 1px 0;background:currentColor;transform:rotate(45deg)}
 
+/* wide (09/10, bodyshop): a whole car, 2:1, the pair one above the other */
+.bapr--wide .bapr__pair{grid-template-columns:1fr;gap:clamp(18px,2vw,26px)}
+.bapr--wide .bapr__m .media{aspect-ratio:2 / 1!important}
+.bapr--wide .bapr__list{max-width:620px}
+
 /* with JS: the pairs share one place, the chosen one shows */
 .js .bapr__list{gap:0}
 .js .bapr__pair{grid-area:1 / 1;opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility 0s linear .5s}

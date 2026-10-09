@@ -1,0 +1,32 @@
+<!-- ============ 59 · PDR: THE FIVE STEPS ============
+     The five steps of a dent removal beside one picture per step
+     (09/10). First built as a panel drawn in code; Fender the same day:
+     use realistic close-up photos instead, so it reads as real work.
+     The pictures are AI renders of each step, close on the panel
+     (assets-src/pdr/), until Paul has his own.
+     Desktop: the picture holds still on the left and changes with the
+     step level with it (crossfade), the number turns over, the steps
+     pass on the right (motion/dent.js).
+     Phones and tablets: each step's picture under its name.
+     No JS: the steps with their pictures, one under another. -->
+<section class="pdrd sec" id="{{read.id}}" data-section="process" data-bg="graphite" data-dent-sec>
+  <div class="wrap pdrd__in">
+    <div class="pdrd__stage" aria-hidden="true">
+      <div class="pdrd__panel">
+        {{#read.steps}}<div class="pdrd__pic{{#_first}} is-on{{/_first}}" data-dent-pic>{{&pic}}</div>{{/read.steps}}
+        <p class="pdrd__read"><span class="pdrd__digits" data-dent-n>01</span><span class="pdrd__of">/ {{read.total}}</span><span class="pdrd__name" data-dent-name>{{&read.steps.0.name}}</span></p>
+        <span class="pdrd__bar"><i></i></span>
+      </div>
+    </div>
+    <ol class="pdrd__list" role="list">
+      {{#read.steps}}
+      <li class="pdrd__it{{#_first}} is-on{{/_first}}">
+        <p class="pdrd__n"><span>{{_idx}}</span></p>
+        <h3 class="pdrd__h">{{&name}}</h3>
+        <div class="pdrd__ph">{{&img}}</div>
+        <p class="pdrd__t">{{&text}}</p>
+      </li>
+      {{/read.steps}}
+    </ol>
+  </div>
+</section>

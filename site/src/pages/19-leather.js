@@ -13,7 +13,7 @@
    ============================================================ */
 'use strict';
 const { frame } = require('../lib/pic.js');
-const { crumbs, cards, prose, quote, pairs } = require('../lib/shared.js');
+const { stars, reviews, crumbs, cards, prose, quote, pairs } = require('../lib/shared.js');
 
 const SLUG = 'leather-restoration';
 
@@ -98,6 +98,7 @@ module.exports = site => {
           ['lr-worn', 'A worn cream seat back before colour restoration', 'lr-4', 'The same seat back after colour restoration']
         ].map(([b, ba, a, aa]) => ({ before: pairImg(b, ba), after: pairImg(a, aa), thumb: thumb(a) }))
       }) } },
+      '10-reviews',
       '12-book',
       '13-footer', '14-sticky'
     ],
@@ -120,11 +121,17 @@ module.exports = site => {
         facts: []
       },
 
+      stars, reviews,
+
+      revsBg: frame('bg-reviews', { alt: '', sizes: '100vw', ratio: false }),
+
       snav: [
         { id: 'overview', label: 'Overview' },
         { id: 'covered', label: 'What’s covered' },
         { id: 'areas', label: 'Areas' },
-        { id: 'before-after', label: 'Before & after' }
+        { id: 'before-after', label: 'Before & after' },
+
+        { id: 'reviews', label: 'Reviews' }
       ],
 
       bookTitle: 'Interior restored. <span class="gold">Detail complete.</span>',

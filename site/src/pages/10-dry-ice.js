@@ -17,7 +17,7 @@
    ============================================================ */
 'use strict';
 const { frame } = require('../lib/pic.js');
-const { crumbs, cards, prose } = require('../lib/shared.js');
+const { stars, reviews, crumbs, cards, prose } = require('../lib/shared.js');
 
 const SLUG = 'dry-ice-blasting-and-laser-cleaning';
 
@@ -88,6 +88,7 @@ module.exports = site => {
         ]
       }) } },
       '39-svc-price',
+      '10-reviews',
       '12-book',
       '13-footer', '14-sticky'
     ],
@@ -99,7 +100,7 @@ module.exports = site => {
       hero: {
         stats: true,
         /* phones: where the poster crop is held (08/10) */
-        mpos: '40% 50%',
+        mpos: '100% 50%',
         h1: 'Dry Ice Cleaning',
         line: 'No water. No chemicals. <span class="gold">No compromise.</span>',
         lede: 'Dry ice cleaning removes contamination that nothing else can touch, without a single drop of water, without chemicals, and without any risk to the surfaces being cleaned. Paul was the first detailer in the UK to offer it, in 2014.',
@@ -115,13 +116,19 @@ module.exports = site => {
         ]
       },
 
+      stars, reviews,
+
+      revsBg: frame('bg-reviews', { alt: '', sizes: '100vw', ratio: false }),
+
       snav: [
         { id: 'overview', label: 'Overview' },
         { id: 'science', label: 'The science' },
         { id: 'mechanisms', label: 'Why it works' },
         { id: 'experience', label: 'Experience' },
         { id: 'applications', label: 'Where it’s used' },
-        { id: 'price', label: 'Price' }
+        { id: 'price', label: 'Price' },
+
+        { id: 'reviews', label: 'Reviews' }
       ],
 
       statement: {

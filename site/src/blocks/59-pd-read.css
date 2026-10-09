@@ -1,0 +1,74 @@
+/* ============ 59 · PDR: THE FIVE STEPS ============ */
+.pdrd{padding-top:0}
+.pdrd__in{position:relative}
+.pdrd__list{position:relative;display:grid;gap:0;list-style:none;margin:0;padding:0}
+.pdrd__it{position:relative;display:grid;grid-template-columns:54px minmax(0,1fr);column-gap:22px;align-content:start;padding-bottom:34px}
+.pdrd__it>:not(.pdrd__n){grid-column:2}
+.pdrd__n{grid-row:1 / span 2;position:relative;z-index:1;display:flex}
+.pdrd__n span{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:var(--ink);box-shadow:inset 0 0 0 1px var(--gold);
+  font-family:var(--fd);font-style:italic;font-weight:500;font-size:1.2rem;color:var(--gold);transition:background .6s var(--ease),color .6s var(--ease)}
+.pdrd__it:not(:last-child)::before{content:"";position:absolute;left:27px;top:60px;bottom:6px;width:1px;background:var(--line-2)}
+.pdrd__h{margin:12px 0 0;font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.35rem,1.1rem + .6vw,1.65rem);line-height:1.15}
+.pdrd__t{margin:10px 0 0;font-size:.95rem;max-width:52ch}
+.pdrd.is-live .pdrd__it.is-on .pdrd__n span,.pdrd.is-live .pdrd__it.is-past .pdrd__n span{background:var(--gold);color:var(--ink)}
+
+/* the panel: one picture per step, the step's number and name low on the left */
+.pdrd__stage{display:none}
+.pdrd__panel{position:relative;overflow:hidden;border-radius:var(--r-lg);background:#0a0a0c;box-shadow:0 50px 90px -50px rgba(0,0,0,.9),inset 0 0 0 1px var(--line)}
+.pdrd__pic{position:absolute;inset:0;opacity:0;transform:scale(1.04);transition:opacity .9s var(--ease),transform 1.4s var(--ease)}
+.pdrd__pic.is-on{opacity:1;transform:none}
+.pdrd__pic .media{height:100%;aspect-ratio:auto!important}
+.pdrd__panel::after{content:"";position:absolute;inset:auto 0 0;height:46%;pointer-events:none;background:linear-gradient(180deg,rgba(10,10,12,0),rgba(10,10,12,.9))}
+.pdrd__read{position:absolute;left:0;bottom:0;z-index:1;display:flex;align-items:baseline;flex-wrap:wrap;column-gap:10px;margin:0;padding:0 26px 26px;text-shadow:0 2px 14px rgba(0,0,0,.8)}
+.pdrd__digits{position:relative;display:inline-block;overflow:hidden;height:1.02em;line-height:1;font-family:var(--fd);font-style:italic;font-weight:500;font-size:clamp(3.2rem,2rem + 3vw,5.2rem);color:var(--gold)}
+.pdrd__digits>span{display:block}
+.pdrd__of{font-size:.72rem;font-weight:500;letter-spacing:.24em;color:var(--muted)}
+.pdrd__name{flex-basis:100%;margin-top:6px;font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.3rem,1rem + .7vw,1.8rem);line-height:1.15;color:var(--white);transition:opacity .35s var(--ease)}
+.pdrd__name.is-out{opacity:0}
+.pdrd__bar{position:absolute;left:0;right:0;bottom:0;z-index:2;height:2px;background:rgba(255,255,255,.08)}
+.pdrd__bar i{position:absolute;inset:0;background:var(--gold);transform:scaleX(var(--dp,0));transform-origin:0 50%}
+/* the step's own picture under its name (phones, tablets, no JS) */
+.pdrd__n{grid-row:1 / span 3}
+.pdrd__ph{margin:12px 0 2px;border-radius:12px;overflow:hidden;aspect-ratio:16 / 10;max-width:560px;box-shadow:0 24px 44px -30px rgba(0,0,0,.8)}
+.pdrd__ph .media{height:100%;aspect-ratio:auto!important}
+
+/* desktop: the picture holds still on the left, the steps pass on the right */
+@media (min-width:1024px){
+  .pdrd__list{padding-block:2vh 8vh}
+  .pdrd__it{padding-block:clamp(40px,9vh,96px)}
+  .pdrd__it:not(:last-child)::before{top:calc(clamp(40px,9vh,96px) + 60px);bottom:calc(-1 * clamp(40px,9vh,96px) + 6px)}
+  .pdrd__h{font-size:clamp(1.6rem,1.2rem + .9vw,2.2rem)}
+  .pdrd__t{font-size:1.02rem}
+  .js .pdrd__ph{display:none}
+  .js .pdrd__in{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);column-gap:clamp(48px,7vw,130px);align-items:start}
+  .js .pdrd__stage{display:block;position:sticky;top:calc(50vh - min(37vh,290px) + 34px)}
+  .js .pdrd__panel{width:min(100%,460px,calc((74vh - 40px) * .8));aspect-ratio:4 / 5;margin-inline:auto}
+  .js .pdrd.is-live .pdrd__it>:not(.pdrd__n){opacity:.3;transition:opacity .7s var(--ease)}
+  .js .pdrd.is-live .pdrd__it.is-on>:not(.pdrd__n){opacity:1}
+}
+@media (max-width:767px){
+  .pdrd__it{column-gap:18px;padding-bottom:30px}
+}
+
+/* ---------- the same page: "PDR vs repair" and "Right for" ----------
+   Phones: the two lists of the comparison under one switch (a tap shows
+   the other method's line in the same place); "Right for" rows carry a
+   small photo of that kind of dent. */
+.vs-tog{display:none}
+@media (max-width:767px){
+  .js .vs-tog{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin:0 0 16px;padding:4px;border-radius:999px;background:rgba(20,20,22,.06);box-shadow:inset 0 0 0 1px var(--line-2)}
+  .vs-tog button{min-height:44px;padding:0 12px;border:0;border-radius:999px;background:none;color:var(--muted);font:inherit;font-size:.66rem;font-weight:600;letter-spacing:.1em;line-height:1.25;text-transform:uppercase;cursor:pointer;transition:background .4s var(--ease),color .4s var(--ease)}
+  .vs-tog button[aria-pressed=true]{background:var(--ink);color:var(--gold)}
+  .vs-tog button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .js .scards--versus[data-vs] .scards__grid{grid-template-columns:1fr}
+  .js .scards--versus[data-vs="0"] .card:nth-child(2),.js .scards--versus[data-vs="1"] .card:nth-child(1){display:none}
+}
+
+#right-for .card__media{position:relative;aspect-ratio:16 / 9;margin:0 0 18px;border-radius:10px;overflow:hidden;background:#0a0a0c;box-shadow:inset 0 0 0 1px var(--line)}
+#right-for .card__media .media{height:100%;aspect-ratio:auto!important}
+@media (max-width:767px){
+  #right-for.scards--brief .card{grid-template-columns:82px minmax(0,1fr) 34px}
+  #right-for.scards--brief .card__media{grid-column:1;grid-row:1;width:82px;margin:0;border-radius:8px}
+  #right-for.scards--brief .card .card__top{display:none}
+  #right-for.scards--brief .card__b{grid-column:1 / 4}
+}

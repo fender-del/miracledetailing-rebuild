@@ -35,7 +35,7 @@
    ============================================================ */
 'use strict';
 const { frame } = require('../lib/pic.js');
-const { crumbs } = require('../lib/shared.js');
+const { stars, reviews, crumbs } = require('../lib/shared.js');
 
 const SLUG = 'mobile-car-detailing';
 
@@ -110,6 +110,7 @@ module.exports = site => {
       '01-header',
       '20-svc-hero', '29-svc-nav',
       '70-mb-how', '77-mb-route', '71-mb-areas', '72-mb-why', '73-mb-menu', '74-mb-field', '75-mb-faq', '76-mb-addon',
+      '10-reviews',
       '12-book',
       '13-footer', '14-sticky'
     ],
@@ -133,6 +134,10 @@ module.exports = site => {
         facts: []
       },
 
+      stars, reviews,
+
+      revsBg: frame('bg-reviews', { alt: '', sizes: '100vw', ratio: false }),
+
       snav: [
         { id: 'how', label: 'How it works' },
         { id: 'caddy', label: 'The Caddy' },
@@ -140,7 +145,9 @@ module.exports = site => {
         { id: 'why-mobile', label: 'Why mobile' },
         { id: 'packages', label: 'Packages' },
         { id: 'field', label: 'In the field' },
-        { id: 'faq', label: 'Questions' }
+        { id: 'faq', label: 'Questions' },
+
+        { id: 'reviews', label: 'Reviews' }
       ],
 
       how: {

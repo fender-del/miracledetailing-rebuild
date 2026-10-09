@@ -16,7 +16,7 @@
    ============================================================ */
 'use strict';
 const { frame } = require('../lib/pic.js');
-const { crumbs, cards, prose, pairs } = require('../lib/shared.js');
+const { stars, reviews, crumbs, cards, prose, pairs } = require('../lib/shared.js');
 
 const SLUG = 'wheel-refurbishment';
 
@@ -101,6 +101,7 @@ module.exports = site => {
           ].map(([w, wa, c, ca]) => ({ before: pairImg(w, wa), after: pairImg(c, ca), thumb: thumb(w), bl: 'Finished', al: 'Up close' }))
         ]
       }) } },
+      '10-reviews',
       '12-book',
       '13-footer', '14-sticky'
     ],
@@ -123,11 +124,17 @@ module.exports = site => {
         facts: []
       },
 
+      stars, reviews,
+
+      revsBg: frame('bg-reviews', { alt: '', sizes: '100vw', ratio: false }),
+
       snav: [
         { id: 'overview', label: 'Overview' },
         { id: 'available', label: 'What’s available' },
         { id: 'why', label: 'Why it matters' },
-        { id: 'the-work', label: 'The work' }
+        { id: 'the-work', label: 'The work' },
+
+        { id: 'reviews', label: 'Reviews' }
       ],
 
       bookTitle: 'Wheels restored. <span class="gold">Detail complete.</span>',
