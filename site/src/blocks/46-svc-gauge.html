@@ -19,9 +19,6 @@
         <div class="sgauge__media" style="--d:{{gauge.dark}}" data-gauge-media>
           {{&gauge.img}}
           {{#gauge.zones}}<div class="sgauge__z sgauge__z--clear" style="clip-path:{{clip}}" aria-hidden="true"></div><div class="sgauge__z sgauge__z--dark" style="clip-path:{{clip}}" aria-hidden="true"></div>{{/gauge.zones}}
-          <svg class="sgauge__svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-            {{#gauge.zones}}<polygon class="sgauge__line{{^ok}} is-fail{{/ok}}" data-zl="{{id}}" points="{{points}}"/>{{/gauge.zones}}
-          </svg>
           {{#gauge.zones}}<span class="sgauge__pin{{^ok}} is-fail{{/ok}}" data-zp="{{id}}" style="left:{{cx}}%;top:{{cy}}%" aria-hidden="true"><i></i></span>{{/gauge.zones}}
         </div>
       </figure>

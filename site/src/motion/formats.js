@@ -97,7 +97,6 @@ export function gauges() {
     const pass = sec.dataset.pass || 'Pass', fail = sec.dataset.fail || 'Fail';
     const media = $('[data-gauge-media]', sec);
     const zones = JSON.parse(data.textContent).map(z => Object.assign(z, {
-      line: $(`[data-zl="${z.id}"]`, sec),
       pin: $(`[data-zp="${z.id}"]`, sec), row: $(`[data-zr="${z.id}"]`, sec)
     }));
     let touched = false;
@@ -107,7 +106,7 @@ export function gauges() {
       zones.forEach(z => {
         const ok = v >= z.min;
         const was = z.row && !z.row.classList.contains('is-fail');
-        [z.line, z.pin, z.row].forEach(e => e && e.classList.toggle('is-fail', !ok));
+        [z.pin, z.row].forEach(e => e && e.classList.toggle('is-fail', !ok));
         if (z.row && was !== ok) {
           $('[data-st]', z.row).textContent = ok ? pass : fail;
           z.row.classList.remove('is-flip'); void z.row.offsetWidth; z.row.classList.add('is-flip');
@@ -115,14 +114,6 @@ export function gauges() {
       });
     };
     input.addEventListener('input', () => { touched = true; upd(+input.value); });
-    /* a row or a pin points at its glass */
-    zones.forEach(z => {
-      if (!z.row || !z.line) return;
-      z.row.addEventListener('pointerenter', () => z.line.classList.add('is-hot'));
-      z.row.addEventListener('pointerleave', () => z.line.classList.remove('is-hot'));
-    });
-    input.addEventListener('focus', () => zones.forEach(z => z.line && z.line.classList.add('is-hot')));
-    input.addEventListener('blur', () => zones.forEach(z => z.line && z.line.classList.remove('is-hot')));
 
     /* on arrival the film darkens once and comes back, so the slider
        explains itself */

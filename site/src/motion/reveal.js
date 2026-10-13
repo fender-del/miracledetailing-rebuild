@@ -2,13 +2,13 @@
    reveal.js — entrances and scroll-linked motion: headings, eyebrows,
    text, cards and rows arriving, counters, parallax, image blur-up.
    ============================================================ */
-import { gsap, ScrollTrigger, SplitText, env, whenSeen, $, $$ } from './core.js';
+import { gsap, ScrollTrigger, env, whenSeen, $, $$ } from './core.js';
 
 const EASE = 'expo.out';
 
 /* Entrances (Fender 02/10: "make scrolling more fun"). Each kind of
    thing arrives its own way:
-     headings   words flip up out of their line, one after another
+     headings   fade up a few pixels, whole (13/10: no flip, no split)
      eyebrows   the diamond spins in, the words wipe in after it
      text       rises out of a soft blur
      cards      a curtain opens upwards while the photo settles
@@ -16,46 +16,25 @@ const EASE = 'expo.out';
    Everything is set up once, plays once, and leaves no inline styles
    behind that the CSS did not start with. */
 
-/* Headings: split into lines (masks) and words; each word turns up
-   from behind its line like a page being flipped. Split only when the
-   heading reaches the screen: splitting all of them at load cost a
-   phone ~1s of style and layout before the hero could paint. */
+/* Headings: the whole heading fades up, once, a few pixels. 13/10 (Ed:
+   the word-by-word flip read as "cheap"; Fender, after a softer line
+   rise: "still too much movement"): no splitting, no masks, no stagger. */
+const headIn = (el, delay = 0) => gsap.fromTo(el, { autoAlpha: 0, y: 10 }, {
+  autoAlpha: 1, y: 0, duration: 1.2, ease: 'power2.out', delay, clearProps: 'transform'
+});
 export function lines() {
   $$('[data-split]').forEach(el => {
     if (el.getAttribute('data-split') === 'hero') { heroLines(el); return; }
-    whenSeen(el, () => SplitText.create(el, {
-      type: 'lines,words', mask: 'lines', linesClass: 'ln', wordsClass: 'wd', autoSplit: true,
-      /* whole words stay in each line, so screen readers read it as is
-         (and a <p> may not carry the aria-label 'auto' would add) */
-      aria: 'none',
-      onSplit(self) {
-        gsap.set(el, { visibility: 'visible' });
-        return gsap.from(self.words, {
-          yPercent: 120, rotationX: -80, transformPerspective: 700, transformOrigin: '50% 100% -12px', opacity: 0,
-          duration: 1.15, ease: EASE, stagger: 0.035
-        });
-      }
-    }), 0.12);
+    whenSeen(el, () => headIn(el), 0.12);
   });
 }
 
-/* The hero slogan rises by lines: its "Perfection." is painted through
-   the text (background-clip), which transformed words inside it would
-   break. The CSS fallback fades it in at 1.5s; take over only if we are
-   early enough for the reveal to look intended. */
+/* The hero slogan: the same fade. The CSS fallback fades it in at 1.5s;
+   take over only if we are early enough for it to look intended. */
 function heroLines(el) {
   if (performance.now() > 1300) return;
   el.classList.add('is-split');
-  SplitText.create(el, {
-    type: 'lines', mask: 'lines', linesClass: 'ln', autoSplit: true, aria: 'none',
-    onSplit(self) {
-      gsap.set(el, { visibility: 'visible' });
-      return gsap.from(self.lines, {
-        yPercent: 118, rotation: 2.5, transformOrigin: '0% 100%',
-        duration: 1.3, ease: EASE, stagger: 0.1, delay: env.loader ? 0.85 : 0.3
-      });
-    }
-  });
+  headIn(el, env.loader ? 0.85 : 0.3);
 }
 
 const kinds = {

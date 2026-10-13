@@ -37,12 +37,6 @@ p{text-wrap:pretty}
 .h2{font-size:clamp(2.1rem,1.2rem + 3.2vw,4rem)}
 /* the gold words of a display line are set in italic */
 .disp .gold,.disp em{font-style:italic}
-/* SplitText wraps each heading line in a mask (overflow:clip). The line
-   box is only 1.04em tall, so Fraunces' descenders (g, y, p, q) and the
-   italic overhang were cut off: give the mask room on every side it can
-   spill, and take the same room back so the layout does not move. Lives
-   here, not in the homepage hero block, because every page splits. */
-[data-split] .ln-mask{padding:.06em .2em .3em .08em;margin:-.06em -.2em -.3em -.08em}
 .h3{font-weight:500;font-size:1.2rem;line-height:1.25}
 .gold{color:var(--gold)}
 .nw{white-space:nowrap}  /* keeps a short phrase together when a heading wraps */
