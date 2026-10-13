@@ -4,7 +4,7 @@
 .bapr__head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
 .bapr .h2{font-size:clamp(2.1rem,1.1rem + 2.4vw,3.4rem)}
 .bapr__n{display:none;margin:0;flex:none;font:500 .75rem/1 var(--f);letter-spacing:.18em;color:var(--muted)}
-.bapr__n b{margin-right:6px;font:italic 500 1.9rem/1 var(--fd);font-synthesis:none;letter-spacing:0;color:var(--gold)}
+.bapr__n b{margin-right:6px;font:500 1.9rem/1 var(--fd);font-synthesis:none;letter-spacing:0;color:var(--gold)}
 .js .bapr__n{display:block}
 
 /* the stage: one pair, side by side */

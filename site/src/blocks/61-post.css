@@ -4,7 +4,7 @@
 .post__crumbs{font-size:.8125rem}
 .post__meta{flex-wrap:wrap;gap:6px 12px}
 .post__h1{margin:0;font-size:clamp(2.6rem,1.4rem + 4.6vw,6rem);line-height:1;max-width:16ch}
-.post__sub{margin:0;max-width:34ch;font-family:var(--fd);font-weight:400;font-style:italic;font-size:clamp(1.3rem,1.05rem + 1vw,2rem);line-height:1.25;color:var(--gold-2)}
+.post__sub{margin:0;max-width:34ch;font-family:var(--fd);font-weight:400;font-style:normal;font-size:clamp(1.3rem,1.05rem + 1vw,2rem);line-height:1.25;color:var(--gold-2)}
 
 .post__lead{margin:clamp(36px,5vw,72px) auto 0}
 .post__frame{border-radius:var(--r-lg);overflow:hidden}
@@ -20,7 +20,7 @@
 .post__col h3+*{margin-top:.9em}
 
 /* the competition question */
-.post__ask{padding:22px 26px;border-radius:var(--r);background:var(--gold-a12);box-shadow:inset 3px 0 0 var(--gold);font-family:var(--fd);font-style:italic;font-size:clamp(1.25rem,1.1rem + .6vw,1.6rem);line-height:1.35;color:var(--white)}
+.post__ask{padding:22px 26px;border-radius:var(--r);background:var(--gold-a12);box-shadow:inset 3px 0 0 var(--gold);font-family:var(--fd);font-style:normal;font-size:clamp(1.25rem,1.1rem + .6vw,1.6rem);line-height:1.35;color:var(--white)}
 
 /* the bottle beside the opening (new product launch) */
 .post__intro{display:grid;grid-template-columns:minmax(0,1fr) clamp(150px,22vw,240px);gap:12px clamp(24px,4vw,48px);align-items:start}

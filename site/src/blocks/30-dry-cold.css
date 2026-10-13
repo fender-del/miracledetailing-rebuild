@@ -37,7 +37,7 @@
 .cold__beat{display:grid;gap:10px;padding:clamp(28px,3.4vw,48px) 0;max-width:46ch}
 .cold__beat:first-child{padding-top:0}
 .cold__beat+.cold__beat{box-shadow:inset 0 1px 0 var(--line)}
-.cold__n{font-family:var(--fd);font-style:italic;font-weight:500;font-size:1.1rem;color:var(--gold)}
+.cold__n{font-family:var(--fd);font-style:normal;font-weight:500;font-size:1.1rem;color:var(--gold)}
 .cold__name{font-size:clamp(2rem,1.3rem + 2vw,3.2rem)}
 .cold__sub{font-size:.75rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#BFD6F2}
 .cold__text{margin-top:6px}

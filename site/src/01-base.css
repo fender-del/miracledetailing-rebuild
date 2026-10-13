@@ -35,8 +35,9 @@ p{text-wrap:pretty}
   letter-spacing:-.01em;line-height:1.04;color:var(--white);
 }
 .h2{font-size:clamp(2.1rem,1.2rem + 3.2vw,4rem)}
-/* the gold words of a display line are set in italic */
-.disp .gold,.disp em{font-style:italic}
+/* no italic anywhere (Ed 13/10): gold words stay upright */
+.disp .gold,.disp em{font-style:normal}
+em,i,cite{font-style:normal}
 .h3{font-weight:500;font-size:1.2rem;line-height:1.25}
 .gold{color:var(--gold)}
 .nw{white-space:nowrap}  /* keeps a short phrase together when a heading wraps */

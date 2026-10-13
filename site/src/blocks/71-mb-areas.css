@@ -22,9 +22,9 @@
 .mba__halo{fill:none;stroke:rgba(139,110,34,.55);stroke-width:1.4}
 .mba__name{font-family:var(--fd);font-weight:500;font-size:34px;fill:#111;letter-spacing:-.005em}
 .mba__base{fill:#8B6E22}
-.mba__baseName{font-family:var(--fd);font-weight:500;font-style:italic;font-size:46px;fill:#8B6E22}
+.mba__baseName{font-family:var(--fd);font-weight:500;font-style:normal;font-size:46px;fill:#8B6E22}
 .mba__sub{font:500 15px var(--f);letter-spacing:.18em;fill:#5F5B53}
-.mba__far{font-family:var(--fd);font-weight:500;font-style:italic;font-size:32px;fill:#8B6E22}
+.mba__far{font-family:var(--fd);font-weight:500;font-style:normal;font-size:32px;fill:#8B6E22}
 .mba__arrow{fill:none;stroke:#8B6E22;stroke-width:2;stroke-dasharray:6 7}
 .mba__head{fill:#8B6E22}
 .mba__pulse{fill:none;stroke:#8B6E22;stroke-width:2;transform-box:fill-box;transform-origin:center;animation:mba-pulse 3.2s var(--ease) infinite}

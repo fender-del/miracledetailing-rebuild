@@ -23,7 +23,7 @@
 .book__who{display:flex;align-items:center;gap:14px}
 .book__face{flex:none;width:56px;height:56px;border-radius:50%;object-fit:cover;background:var(--raise);box-shadow:0 0 0 2px var(--ink),0 0 0 3px var(--gold)}
 .book__quick{font-size:.9375rem;font-weight:500;line-height:1.4;color:var(--text)}
-.book__quick span{display:block;font-family:var(--fd);font-weight:500;font-style:italic;font-synthesis:none;font-size:1.25rem;color:var(--white)}
+.book__quick span{display:block;font-family:var(--fd);font-weight:500;font-style:normal;font-synthesis:none;font-size:1.25rem;color:var(--white)}
 .book__phone{
   display:flex;align-items:center;gap:clamp(12px,1.2vw,18px);width:max-content;max-width:100%;
   font-family:var(--fd);font-weight:500;font-style:normal;text-transform:none;font-synthesis:none;

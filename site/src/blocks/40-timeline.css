@@ -37,7 +37,7 @@ html:has(.hd.is-hidden) .tl{--tl-top:56px}
    that is not a year (Concours) shows as a word instead */
 .odo{
   position:relative;display:flex;
-  font-family:var(--fd);font-weight:500;font-style:italic;font-synthesis:none;letter-spacing:-.02em;
+  font-family:var(--fd);font-weight:500;font-style:normal;font-synthesis:none;letter-spacing:-.02em;
   font-size:1.6rem;line-height:1;color:var(--gold);
 }
 .odo__d{position:relative;display:block;height:1em;width:.6em;clip-path:inset(0 -30% 0 -30%);transition:opacity .4s var(--ease)}
@@ -69,7 +69,7 @@ html:has(.hd.is-hidden) .tl{--tl-top:56px}
 .tl__it.is-past::before,.tl__it.is-on::before{background:var(--gold)}
 .tl__it.is-on::before{transform:rotate(45deg) scale(1.35);box-shadow:inset 0 0 0 1px var(--gold),0 0 0 5px var(--ink),0 0 18px 3px var(--gold-a30)}
 .tl__meta{display:flex;align-items:baseline;gap:12px;margin:0 0 10px}
-.tl__year{font-family:var(--fd);font-weight:500;font-style:italic;font-synthesis:none;letter-spacing:-.02em;font-size:clamp(1.9rem,1.5rem + 1.4vw,2.6rem);line-height:1;color:var(--gold)}
+.tl__year{font-family:var(--fd);font-weight:500;font-style:normal;font-synthesis:none;letter-spacing:-.02em;font-size:clamp(1.9rem,1.5rem + 1.4vw,2.6rem);line-height:1;color:var(--gold)}
 .tl__idx{font-size:.625rem;font-weight:500;letter-spacing:.22em;color:var(--muted)}
 .tl__body{display:grid;gap:14px;max-width:760px}
 .tl__title{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.35rem,1.15rem + .8vw,1.9rem);line-height:1.15}

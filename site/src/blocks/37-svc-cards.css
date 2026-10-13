@@ -36,7 +36,7 @@
 .card__media{margin:calc(-1 * clamp(24px,2.2vw,34px)) calc(-1 * clamp(24px,2.2vw,34px)) 8px;border-radius:var(--r-lg) var(--r-lg) 0 0;overflow:hidden}
 .card__media .media{aspect-ratio:4 / 3}
 .card__top{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:30px}
-.card__n{font-family:var(--fd);font-style:italic;font-weight:500;font-size:1.25rem;line-height:1;color:var(--gold)}
+.card__n{font-family:var(--fd);font-style:normal;font-weight:500;font-size:1.25rem;line-height:1;color:var(--gold)}
 .card__tag{padding:6px 12px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--gold-a30);font-size:.625rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
 .card__kicker{font-size:.6875rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .card__name{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.55rem,1.25rem + .8vw,2.05rem);line-height:1.08;letter-spacing:-.005em}
@@ -170,7 +170,7 @@
   .rchips::-webkit-scrollbar{display:none}
   .rchip{position:relative;display:inline-flex;align-items:baseline;gap:9px;min-height:44px;white-space:nowrap;
     font-weight:500;font-size:.6875rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);transition:color .4s var(--ease)}
-  .rchip__n{font-family:var(--fd);font-style:italic;font-weight:500;font-size:.95rem;letter-spacing:0;text-transform:none;color:var(--gold);opacity:.6;transition:opacity .4s}
+  .rchip__n{font-family:var(--fd);font-style:normal;font-weight:500;font-size:.95rem;letter-spacing:0;text-transform:none;color:var(--gold);opacity:.6;transition:opacity .4s}
   .rchip::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:0 50%;transition:transform .6s var(--ease)}
   .rchip:hover{color:var(--white)}
   .rchip.is-on{color:var(--white)}

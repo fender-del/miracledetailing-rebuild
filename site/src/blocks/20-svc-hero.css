@@ -180,7 +180,9 @@
   .shero.shero.shero--mfit .shero__media{height:auto;top:calc(var(--hd-h) + 8px);
     -webkit-mask-image:linear-gradient(180deg,#000 72%,transparent);mask-image:linear-gradient(180deg,#000 72%,transparent)}
   .shero--mfit .shero__media .media,.shero--mfit .shero__media picture{position:relative;inset:auto;height:auto}
-  .shero.shero.shero--mfit .shero__media img{position:relative;height:auto}
+  /* a tall photo on a wide, short screen (landscape tablet, 13/10) is held
+     inside the poster, never running down under Paul's paragraph */
+  .shero.shero.shero--mfit .shero__media img{position:relative;height:auto;max-height:calc(var(--ph) - var(--hd-h) - 8px);object-fit:contain}
 }
 @media (max-width:767px){
   /* the sticky bar books and calls on phones */

@@ -21,7 +21,7 @@
 
 .mq--press.is-running{-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
 .mq--press .mq__word{
-  font-family:var(--fd);font-weight:500;font-style:italic;text-transform:none;font-synthesis:none;
+  font-family:var(--fd);font-weight:500;font-style:normal;text-transform:none;font-synthesis:none;
   font-size:clamp(2rem,1rem + 4vw,5.2rem);line-height:1.1;color:var(--white);
   padding-right:.08em;
 }

@@ -13,7 +13,7 @@
   padding:clamp(16px,1.6vw,22px) 0;text-align:left;color:inherit;cursor:var(--arrow-on);-webkit-tap-highlight-color:transparent;
 }
 .sbench__btn:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:4px}
-.sbench__n{font-family:var(--fd);font-style:italic;font-weight:500;font-size:1.3rem;line-height:1;color:var(--gold)}
+.sbench__n{font-family:var(--fd);font-style:normal;font-weight:500;font-size:1.3rem;line-height:1;color:var(--gold)}
 .sbench__name{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.35rem,1.1rem + .6vw,1.75rem);line-height:1.15;color:var(--white);transition:color .4s var(--ease)}
 .sbench__ico{position:relative;align-self:center;width:14px;height:14px;justify-self:end}
 .sbench__ico::before,.sbench__ico::after{content:"";position:absolute;left:0;right:0;top:50%;height:1.5px;margin-top:-.75px;background:var(--gold);transition:transform .5s var(--ease)}
@@ -54,12 +54,12 @@
 .sbench__meter{
   position:absolute;left:50%;bottom:clamp(14px,1.6vw,22px);z-index:2;transform:translateX(-50%);
   padding:7px 14px;border-radius:999px;background:rgba(10,8,16,.6);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
-  font-family:var(--fd);font-style:italic;font-weight:500;font-size:1rem;line-height:1;color:var(--white);white-space:nowrap;
+  font-family:var(--fd);font-style:normal;font-weight:500;font-size:1rem;line-height:1;color:var(--white);white-space:nowrap;
   opacity:0;transition:opacity .5s var(--ease)
 }
 .sbench__meter.is-on{opacity:1}
 .sbench__cap{display:flex;align-items:baseline;gap:12px;font-size:.6875rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
-.sbench__cap-n{font-family:var(--fd);font-style:italic;font-size:1.15rem;letter-spacing:0;text-transform:none;color:var(--gold)}
+.sbench__cap-n{font-family:var(--fd);font-style:normal;font-size:1.15rem;letter-spacing:0;text-transform:none;color:var(--gold)}
 .sbench__cap [data-bench-cap]{transition:opacity .35s var(--ease)}
 .sbench__cap.is-out [data-bench-cap]{opacity:0}
 .sbench:not(.is-live) .sbench__cap{display:none}

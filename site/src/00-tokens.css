@@ -7,14 +7,12 @@
    Body: Jost 300–600 (Ed 07/10: "keep this font for all content"). */
 @font-face{font-family:"Fraunces";font-style:normal;font-weight:500;font-display:swap;
   src:url(/assets/fonts/fraunces.woff2) format("woff2")}
-@font-face{font-family:"Fraunces";font-style:italic;font-weight:500;font-display:swap;
-  src:url(/assets/fonts/fraunces-italic.woff2) format("woff2")}
 @font-face{font-family:"Jost";font-style:normal;font-weight:300 600;font-display:swap;
   src:url(/assets/fonts/jost.woff2) format("woff2")}
 
 /* ============================================================
    Tokens — v0.5 palette (black / gold / white).
-   Display: Fraunces, mixed case; gold words in italic.
+   Display: Fraunces, mixed case; gold words upright (no italic, Ed 13/10).
    Labels:  Jost 500, capitals, spaced. Body: Jost 400.
    ============================================================ */
 :root{

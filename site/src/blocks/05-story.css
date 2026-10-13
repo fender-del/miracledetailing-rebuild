@@ -30,7 +30,7 @@
 .beat{display:grid;gap:24px;justify-items:start;max-width:600px}
 .beat__big{font-size:clamp(2.4rem,1.2rem + 3.6vw,4.8rem)}
 .beat__text{font-size:clamp(1.15rem,1rem + .55vw,1.5rem);line-height:1.55;color:var(--white)}
-.num{font-family:var(--fd);font-weight:500;font-style:italic;text-transform:none;font-synthesis:none;color:var(--gold);font-variant-numeric:tabular-nums;white-space:nowrap}
+.num{font-family:var(--fd);font-weight:500;font-style:normal;text-transform:none;font-synthesis:none;color:var(--gold);font-variant-numeric:tabular-nums;white-space:nowrap}
 /* counted once: stays shown even if the sentence is split again (story.js) */
 .story.is-counted [data-count]{visibility:visible}
 

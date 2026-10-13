@@ -12,7 +12,7 @@
 .ackl__prog{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:end;column-gap:16px;row-gap:12px}
 .ackl__prog[hidden]{display:none}
 .ackl__count{display:flex;align-items:baseline;gap:8px;margin:0;font:500 .75rem/1 var(--f);letter-spacing:.18em;color:var(--muted)}
-.ackl__count b{font:italic 500 2.6rem/.8 var(--fd);font-synthesis:none;letter-spacing:0;color:var(--gold);font-variant-numeric:tabular-nums}
+.ackl__count b{font:500 2.6rem/.8 var(--fd);font-synthesis:none;letter-spacing:0;color:var(--gold);font-variant-numeric:tabular-nums}
 .ackl__state{margin:0 0 3px;font:500 .6875rem/1.3 var(--f);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .ackl.is-done .ackl__state{color:var(--gold)}
 .ackl__bar{grid-column:1 / -1;position:relative;display:block;height:2px;border-radius:2px;background:var(--line-2);overflow:hidden}
@@ -29,7 +29,7 @@
 .ackl__it:first-child{padding-top:0}
 .ackl__row{position:relative;display:grid;grid-template-columns:56px minmax(0,1fr);column-gap:clamp(18px,2vw,28px);align-items:center}
 .ackl__n,.ackl__tick{grid-column:1;grid-row:1;display:grid;place-items:center;width:56px;height:56px;border-radius:50%;
-  box-shadow:inset 0 0 0 1px var(--gold-a30);font:italic 500 1.35rem/1 var(--fd);font-synthesis:none;color:var(--gold)}
+  box-shadow:inset 0 0 0 1px var(--gold-a30);font:500 1.35rem/1 var(--fd);font-synthesis:none;color:var(--gold)}
 .ackl__tick{position:relative;padding:0;border:0;background:transparent;cursor:var(--arrow-on);-webkit-tap-highlight-color:transparent;
   transition:background .4s var(--ease),box-shadow .4s var(--ease),color .4s var(--ease)}
 .ackl__tick[hidden],.ackl__open{display:none}
