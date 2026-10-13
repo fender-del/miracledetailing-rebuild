@@ -1,7 +1,10 @@
 <!-- ============ 24 · SERVICE: FROM THE STUDIO ============
      Paul's own photos of this service (never stock), a wide and a narrow
      frame per row, each with a short caption. Before/after pairs belong
-     here as soon as Paul sends them (To confirm). -->
+     here as soon as Paul sends them (To confirm).
+     13/10 (Fender: the photos bounced on every device): no scroll drift;
+     on a mouse each card tilts, lifts and catches a lamp glint under the
+     pointer, like the homepage service cards (motion/pointer.js tilt). -->
 <section class="swork sec{{^workTitle}} swork--bare{{/workTitle}}" id="{{workId}}{{^workId}}work{{/workId}}" data-section="work">
   <div class="wrap">
     {{#workTitle}}<div class="sec-head swork__head">
@@ -14,7 +17,7 @@
     <ul class="swork__grid" role="list">
       {{#work}}
       <li class="swork__it{{#wide}} is-wide{{/wide}}{{#full}} is-full{{/full}}{{#half}} is-half{{/half}}{{#third}} is-third{{/third}}" data-reveal="card">
-        <figure><div class="swork__media" data-parallax>{{&img}}</div>{{#cap}}<figcaption>{{cap}}</figcaption>{{/cap}}</figure>
+        <figure><div class="swork__media" data-tilt>{{&img}}<span class="swork__shine" aria-hidden="true" data-tilt-shine></span></div>{{#cap}}<figcaption>{{cap}}</figcaption>{{/cap}}</figure>
       </li>
       {{/work}}
     </ul>

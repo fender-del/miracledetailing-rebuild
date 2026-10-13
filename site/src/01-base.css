@@ -15,7 +15,7 @@ body{
 img,svg,video,iframe{display:block;max-width:100%}
 img{height:auto}
 a{color:inherit;text-decoration:none}
-button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+button{font:inherit;color:inherit;background:none;border:0;padding:0}
 input,select,textarea{font:inherit;color:inherit}
 h1,h2,h3,h4,p,ul,ol,figure,blockquote,dl,dd{margin:0}
 ul[role=list],ol[role=list]{list-style:none;padding:0}
@@ -37,8 +37,15 @@ p{text-wrap:pretty}
 .h2{font-size:clamp(2.1rem,1.2rem + 3.2vw,4rem)}
 /* the gold words of a display line are set in italic */
 .disp .gold,.disp em{font-style:italic}
+/* SplitText wraps each heading line in a mask (overflow:clip). The line
+   box is only 1.04em tall, so Fraunces' descenders (g, y, p, q) and the
+   italic overhang were cut off: give the mask room on every side it can
+   spill, and take the same room back so the layout does not move. Lives
+   here, not in the homepage hero block, because every page splits. */
+[data-split] .ln-mask{padding:.06em .2em .3em .08em;margin:-.06em -.2em -.3em -.08em}
 .h3{font-weight:500;font-size:1.2rem;line-height:1.25}
 .gold{color:var(--gold)}
+.nw{white-space:nowrap}  /* keeps a short phrase together when a heading wraps */
 .eyebrow{
   display:flex;align-items:center;gap:14px;
   font-weight:500;font-size:.72rem;line-height:1.4;
@@ -101,6 +108,8 @@ p{text-wrap:pretty}
 .media::before{content:"";position:absolute;inset:-12px;background:inherit;filter:blur(14px);z-index:-1}
 .media picture,.media img{width:100%;height:100%}
 .media img{object-fit:cover}
+/* a photo of Paul held by the corner his face is in (13/10, Paul: "show my face") */
+.media.media--tl img{object-position:0 0}
 .js-motion .media img.lz{opacity:0;transition:opacity .9s var(--ease)}
 .js-motion .media.is-loaded img.lz{opacity:1}
 .credit{
@@ -153,7 +162,6 @@ p{text-wrap:pretty}
 [data-theme=light] .btn::before{background:#C9A84D}
 @media (hover:hover){[data-theme=light] .btn:hover{color:#111111}}
 @media (hover:none){[data-theme=light] .btn:active{color:#111111}}
-.on-light .cur__ring::before{box-shadow:inset 0 0 0 1px rgba(17,17,17,.38)}
 
 /* ---------- Lenis ---------- */
 html.lenis,html.lenis body{height:auto}
@@ -161,32 +169,12 @@ html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
 .lenis.lenis-stopped{overflow:clip}
 
-/* ---------- Cursor (fine pointers, motion on) ----------
-   A gold dot on the pointer and a hairline ring that trails it. Over a
-   link the ring opens out and fades. Nothing else (Fender 02/10; the
-   "Drag" disc over the project deck went with the drag, Ed 06/10). */
-.cur{display:none}
-.has-cursor .cur{display:block;position:fixed;left:0;top:0;z-index:300;pointer-events:none;transition:opacity .3s}
-.has-cursor,.has-cursor a,.has-cursor button,.has-cursor [data-cursor],.has-cursor label{cursor:none}
-.has-cursor input,.has-cursor textarea,.has-cursor select{cursor:auto}
-.cur__dot,.cur__ring{position:absolute;left:0;top:0;border-radius:50%;will-change:transform}
-.cur__dot{width:6px;height:6px;margin:-3px 0 0 -3px;background:var(--gold);transition:transform .35s var(--ease)}
-.cur__ring{width:34px;height:34px;margin:-17px 0 0 -17px;display:grid;place-items:center}
-.cur__ring::before{
-  content:"";position:absolute;inset:0;border-radius:50%;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.32);
-  transition:transform .6s var(--ease),opacity .45s var(--ease),background-color .45s var(--ease),box-shadow .45s var(--ease);
-}
-.cur__label{
-  position:relative;font-weight:600;font-size:.625rem;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--ink);opacity:0;transform:scale(.6);transition:opacity .3s,transform .45s var(--ease);
-}
-.cur.is-link .cur__ring::before{transform:scale(1.7);opacity:0}
-.cur.is-link .cur__dot{transform:scale(1.5)}
-.cur.is-label .cur__ring::before{transform:scale(2.3);background-color:var(--gold);box-shadow:none;opacity:1}
-.cur.is-label .cur__label{opacity:1;transform:none}
-.cur.is-label .cur__dot{transform:scale(0)}
-.cur.is-hidden{opacity:0}
+/* ---------- Pointer ----------
+   The system pointer as it is (Ed and Paul 13/10 found the gold dot and
+   trailing ring fussy); anything clickable shows a gold arrow (--arrow-on,
+   tokens). What reacts under the pointer stays. */
+a[href],button,summary,label,select,[role=tab],input[type=checkbox],input[type=radio]{cursor:var(--arrow-on)}
+button:disabled{cursor:var(--arrow)}
 
 /* ---------- Preloader (first view of the session only) ----------
    Pure CSS so it can never wait on the script bundle. Never blocks input. */

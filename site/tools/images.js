@@ -42,6 +42,8 @@ const IMAGES = [
   /* The story block: Paul, face in frame (4:5 desktop, square on phones). */
   { id: 'paul',        src: 'drive/18-paul-portrait.png', crop: { l: 0, t: .165, w: .9, h: .633 }, widths: [480, 760, 847] },
   { id: 'paul-sq',     src: 'drive/18-paul-portrait.png', crop: { l: 0, t: .17, w: .8, h: .45 }, widths: [480, 752] },
+  /* the book block's call card (13/10): Paul's face, a small round */
+  { id: 'paul-face',   src: 'drive/18-paul-portrait.png', crop: { l: .064, t: .221, w: .446, h: .251 }, widths: [96, 160], q: 60 },
   { id: 'mirror',      src: 'v05/download-3.jpg', widths: [600, 900] },
 
   /* Service cards, 4:5. Correction: Pexels 37809561, cropped to the
@@ -127,6 +129,12 @@ const IMAGES = [
   { id: 'fin-led-bare',  src: 'finishes/laf-led-bare.png',  widths: [700, 1024] },
   { id: 'fin-led-gloss', src: 'finishes/laf-led-gloss.png', widths: [700, 1024] },
   { id: 'fin-satin',   src: 'finishes/laf-matte.jpg',      widths: [700, 1100, 1600] },
+  /* Coverage (13/10, Fender: the drawn McLaren read badly): a white BMW
+     M3 Touring, front and rear three-quarter, GPT Image 2.5 on
+     Higgsfield. The film panels are keyed on these exact pixels
+     (tools/ppf-m3/), so the crop must match PPF_M3_CROP in 11-ppf.js. */
+  { id: 'ppfm3-front', src: 'ppf-m3/front-a.png', crop: { l: 64 / 2688, t: 150 / 1520, w: 2560 / 2688, h: 1180 / 1520 }, widths: [640, 960, 1280, 1700], q: 58 },
+  { id: 'ppfm3-rear',  src: 'ppf-m3/rear-a.png',  crop: { l: 64 / 2688, t: 150 / 1520, w: 2560 / 2688, h: 1180 / 1520 }, widths: [480, 760, 1280, 1700], q: 58 },
   { id: 'fin-colour',  src: 'finishes/458-colour.jpg', widths: [700, 1100, 1600] },
 
   /* Social card */

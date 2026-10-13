@@ -28,6 +28,25 @@ module.exports = [
   /* ---------- Dry ice ---------- */
   ...hero('dx-hero', V + 'dry-ice-cleaning/download-60.webp', { l: .12, t: 0, w: .55, h: 1 }),
   { id: 'dx-exp',  src: V + 'dry-ice-cleaning/download-62.webp', widths: [700, 1100, 1600] },
+  /* 13/10 (Paul, via Fender): the drawn −78.5°C demo is out; in its place
+     Paul's own before/after collages (Drive "Dry ice before n after").
+     Each is split at its divider and cut above its printed BEFORE /
+     AFTER tags; both halves get the same 3:4 window, so the two sides of
+     a job line up. Same day, round 2: all four jobs, turning over as the
+     page scrolls (block 30, motion/cold.js).
+       1 gearbox           1312×1199, divider x 649–660, tags from y 1091
+       2 transmission case 1536×1024, divider x 766–770, tags from y 925
+       3 steering rack     1536×1024, divider x 766–770, tags from y 880
+       4 rack + subframe   1448×1086, divider x 718–729, tags from y 937 */
+  ...[
+    ['AEB53B2D-FA85-4C6A-8F23-9909DADBA3D5', { l: 0, t: .06, w: .49, h: .715 }, .506],
+    ['F33F155B-DF47-4D9D-BF73-0C0AF9CD00A2', { l: .026, t: 0, w: .4447, h: .89 }, .5286],
+    ['5D81FCEB-0E6D-4CD7-A899-C7156E186DE6', { l: .0365, t: 0, w: .4245, h: .85 }, .539],
+    ['55013E62-A95B-43E7-9077-4E8F36BB94E6', { l: .008, t: 0, w: .478, h: .85 }, .5124]
+  ].flatMap(([f, c, al], i) => [
+    { id: `dx-b${i + 1}`, src: `drive-paul/dry-ice-before-n-after/${f}.png`, crop: c, widths: [400, 640], q: 58 },
+    { id: `dx-a${i + 1}`, src: `drive-paul/dry-ice-before-n-after/${f}.png`, crop: { ...c, l: al }, widths: [400, 640], q: 58 }
+  ]),
   { id: 'dx-64',   src: V + 'dry-ice-cleaning/download-64.webp', widths: [600, 960] },
   { id: 'dx-65',   src: V + 'dry-ice-cleaning/download-65.webp', widths: W },
   { id: 'dx-66',   src: V + 'dry-ice-cleaning/download-66.webp', widths: W },
@@ -60,7 +79,11 @@ module.exports = [
   { id: 'cc-wheel',   src: 'drive/20-gfw-458-speciale.jpg', crop: { l: 0, t: .4, w: .6, h: .5 }, widths: [600, 900, 1200] },
 
   /* ---------- Paint correction ---------- */
-  ...hero('pc-hero', V + 'paint-correction/download-72.webp', { l: .3, t: 0, w: .5, h: 1 }),
+  /* 13/10: the hero is the photo Ed sent (Paul polishing a grey E30 M3,
+     his face in it: "a photo Paul wants to show off"); v0.5's download-72
+     (Paul's face cut by its top edge) is out. A tall photo: one file for
+     both, held right on desktops (dpos) and shown whole on phones (mfit). */
+  { id: 'pc-ed', src: 'drive-paul/from-ed/paul-polishing-e30-m3.jpg', widths: [480, 720, 1086], q: 62 },
   { id: 'pc-split',  src: V + 'paint-correction/download-73.jpg', widths: [600, 900, 1280] },
   /* 08/10: Fender's photo of a paint depth gauge in use (was v0.5's small screenshot), 400 px source */
   { id: 'pc-gauge',  src: 'drive/paint-depth-gauge.avif', crop: { l: 0, t: .08, w: 1, h: .75 }, widths: [400] },
@@ -72,7 +95,10 @@ module.exports = [
   /* 08/10 rebuild: Paul's Drive set, his gloss & orange peel meter and
      him polishing an M3 under the hex lights */
   { id: 'pc-gloss',  src: 'drive-paul/gloss-meter-pic/37077F18-952E-4750-A70F-5F06A6457865.png', widths: [600, 900, 1200] },
-  { id: 'pc-polish', src: 'drive-paul/paul-polishing-bmw-m3-to/A22AB860-218C-4E49-AFA9-8ADFFF9B39DE.png', crop: { l: 0, t: .06, w: 1, h: .94 }, widths: [500, 800, 1080] },
+  /* 13/10: cut from the bottom, not the top, so Paul's face stays in (Fender: show his face) */
+  { id: 'pc-polish-f', src: 'drive-paul/paul-polishing-bmw-m3-to/A22AB860-218C-4E49-AFA9-8ADFFF9B39DE.png', crop: { l: 0, t: 0, w: 1, h: .94 }, widths: [500, 800, 1080] },
+  /* phones show the step in a 16:10 frame: the top of the photo, face and hands */
+  { id: 'pc-polish-fm', src: 'drive-paul/paul-polishing-bmw-m3-to/A22AB860-218C-4E49-AFA9-8ADFFF9B39DE.png', crop: { l: 0, t: 0, w: 1, h: .47 }, widths: [500, 800] },
   { id: 'pc-seat',   src: 'drive-paul/paul-polishing-bmw-m3-to/17E5B759-B2A0-41E1-9FB5-0317202D2108.png', widths: [500, 800, 1086] },
   /* 08/10 round 2: a picture per process step (Fender: "lựa ảnh phù hợp
      với các step"): swirls under a light (old gallery, Aston Vantage),
@@ -108,7 +134,13 @@ module.exports = [
   { id: 'wt-note',   src: 'stock/pexels-11877373.jpg', crop: { l: 0, t: .2, w: 1, h: .45 }, widths: [900, 1400, 2000], q: 46 },
 
   /* ---------- Mobile ---------- */
-  /* phone crop widened 07/10 so the whole van shows (Fender) */
+  /* 13/10 (Ed, Paul): the hero is Paul's own black Caddy on a country
+     house drive (Drive, mobile-van). Desktop: the left fifth (fountain)
+     trimmed so the held-right frame keeps the whole van clear of the
+     copy; phones (mfit, the photo shown whole): close round the van.
+     The Portugal Caddy (mb-hero, About) stays on disk, unused. */
+  { id: 'mb-van',   src: 'drive-paul/mobile-van/AFBAF5A8-1351-42C6-BC71-84008D54125E.png', crop: { l: .2, t: 0, w: .8, h: 1 }, widths: [960, 1440], q: 54 },
+  { id: 'mb-van-m', src: 'drive-paul/mobile-van/AFBAF5A8-1351-42C6-BC71-84008D54125E.png', crop: { l: .3, t: 0, w: .68, h: 1 }, widths: [480, 720, 1080], q: 54 },
   ...hero('mb-hero', V + 'about-paul/download-33-1.jpg', { l: .1, t: 0, w: .64, h: 1 }),
   { id: 'mb-pagani', src: O + '2023_11_Miracle-Detail-near-Kent-mobile-detailing-1024x576.jpg.webp', widths: [600, 1024] },
   { id: 'mb-spyker', src: O + '2023_11_Miracle-Detail-near-Sussex-mobile-auto-detailing-1024x576.jpg.webp', widths: [600, 1024] },

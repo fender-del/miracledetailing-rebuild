@@ -116,12 +116,17 @@ const fmtFor = el => {
 export function countUp(el, delay = 0.15) {
   const to = +el.dataset.count, from = +(el.dataset.from || 0), fmt = fmtFor(el);
   const o = { v: from };
+  /* Fraunces has no tabular figures, so hold the final width while the
+     digits roll; otherwise the words after an inline figure jitter. */
+  el.textContent = fmt(to);
+  if (getComputedStyle(el).display === 'inline') el.style.display = 'inline-block';
+  el.style.minWidth = el.getBoundingClientRect().width + 'px';
   el.textContent = fmt(from);
   el.style.visibility = 'visible';
   gsap.to(o, {
     v: to, duration: to - from > 500 ? 2.4 : 1.8, ease: 'power3.out', delay,
     onUpdate: () => { el.textContent = fmt(o.v); },
-    onComplete: () => { el.textContent = fmt(to); }
+    onComplete: () => { el.textContent = fmt(to); el.style.minWidth = ''; el.style.display = ''; }
   });
 }
 
@@ -133,16 +138,11 @@ export function counters() {
   });
 }
 
-/* Photos drift slower than their frame. Desktop only. */
+/* The hero photo drifts as the page leaves it. Desktop only.
+   (13/10: the photos in frames no longer drift with the scroll: Fender
+   saw them bounce on every device he tried; the work cards tilt under
+   the pointer instead, like the homepage service cards.) */
 export function parallax() {
-  $$('[data-parallax]').forEach(w => {
-    const img = $('img', w);
-    if (!img) return;
-    gsap.fromTo(img, { yPercent: -7, scale: 1.16 }, {
-      yPercent: 7, scale: 1.16, ease: 'none',
-      scrollTrigger: { trigger: w, start: 'top bottom', end: 'bottom top', scrub: true }
-    });
-  });
   const hero = $('[data-hero]');
   const media = hero && $('[data-hero-media]', hero);
   if (media) {

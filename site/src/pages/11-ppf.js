@@ -12,18 +12,19 @@
      hero (headline, intro, three figures) · since 2006 · peace of mind
      · coverage options · film finishes · the films · the process
      · installation in progress · Google reviews · book
-   Its own block: 34-ppf-coverage, the three packages beside a drawing
-   of a car that lights the panels each one covers.
+   Its own block: 34-ppf-coverage, the three packages beside photos of
+   an M3 Touring that light the panels each one covers (a drawing until
+   13/10).
    ============================================================ */
 'use strict';
 const { frame } = require('../lib/pic.js');
 const { stars, reviews, crumbs, mark } = require('../lib/shared.js');
-const car = require('../lib/ppf-car.js');
+const car = require('../lib/ppf-m3.js');
 
 const SLUG = 'paint-protection-film-ppf';
 
 /* ---------- Coverage: v0.5's three packages ----------
-   zs = the panels each line of the list lights on the drawing. */
+   zs = the panels each line of the list lights on the car. */
 const FRONT = ['bumperF', 'headlight', 'fog', 'bonnet', 'wingF', 'apillar', 'mirror', 'roofEdge'];
 const ALL = ['bumperF', 'headlight', 'fog', 'bonnet', 'wingF', 'apillar', 'mirror', 'roofEdge', 'sill', 'door', 'roof', 'rearQ', 'boot', 'bumperR', 'taillight'];
 const frontItems = [
@@ -69,7 +70,9 @@ module.exports = site => {
     order: ALL,
     packages: packages.map(p => ({ key: p.key, zones: p.zones })),
     anchors: car.anchors,
-    prefer: { bonnet: 'plan', roof: 'plan', roofEdge: 'plan', boot: 'plan' }
+    has: car.has,
+    /* the view that shows a panel best (13/10: the rest are on the front) */
+    prefer: { boot: 'rear', bumperR: 'rear', taillight: 'rear', roof: 'rear' }
   }).replace(/</g, '\\u003c');
 
   const workSizes = w => (w ? '(max-width: 767px) 92vw, 58vw' : '(max-width: 767px) 92vw, 34vw');
@@ -153,8 +156,8 @@ module.exports = site => {
       pcTitle: 'Coverage options. <span class="gold">Bespoke</span> to every car.',
       packages,
       pcNote: 'Every installation is assessed individually. Paul will advise on coverage based on how you use the car and what you want to protect.',
-      pcSide: car.side(FRONT),
-      pcPlan: car.plan(FRONT),
+      pcFront: car.view('front', FRONT, { main: true, sizes: '(max-width: 900px) 92vw, 54vw' }),
+      pcRear: car.view('rear', FRONT, { sizes: '(max-width: 900px) 46vw, 26vw' }),
       pcData,
 
       /* ---------- Film finishes ---------- */

@@ -1,12 +1,14 @@
 <!-- ============ 34 · PPF: COVERAGE ============
      The PPF page's own block (Fender 06/10). v0.5's three packages,
-     word for word, beside a technical drawing of a mid-engined car (side
-     + top view, src/lib/ppf-car.js). Picking a package lights its panels
-     in fitting order and sweeps a sheen over the film; pointing at a
-     line of the list lights that panel and draws a callout to it, and
-     pointing at a panel lights its line (motion/ppf.js).
-     Without JS: the three packages are listed one after another and the
-     drawing shows the first. -->
+     word for word, beside photos of a white M3 Touring (13/10: the
+     drawn McLaren read badly), front and rear, the film keyed on the
+     photos' own panel gaps (src/lib/ppf-m3.js). Picking a package
+     lights its panels in fitting order and sweeps a sheen over the
+     film; pointing at a line of the list lights that panel and pins a
+     label on it, pointing at a panel lights its line; the small rear
+     view swaps with the big one (motion/ppf.js).
+     Without JS: the three packages are listed one after another and
+     both photos show the first. -->
 <section class="pc sec" id="coverage" data-section="coverage" data-pc data-bg="graphite">
   <div class="wrap">
     <div class="sec-head">
@@ -40,9 +42,14 @@
       </div>
 
       <figure class="pc__sheet" data-pc-sheet>
-        <div class="pc__view"><span class="pc__cap" aria-hidden="true">Side</span>{{&pcSide}}</div>
-        <div class="pc__view"><span class="pc__cap" aria-hidden="true">Top</span>{{&pcPlan}}</div>
-        <figcaption class="pc__legend"><i aria-hidden="true"></i>Film coverage</figcaption>
+        <div class="pc__stage" data-pc-stage>
+          {{&pcFront}}
+          <span class="pc__tag" aria-hidden="true" data-pc-tag><i></i><b></b></span>
+        </div>
+        <div class="pc__bar">
+          <p class="pc__legend"><i aria-hidden="true"></i>Film coverage</p>
+          <div class="pc__slot" data-pc-slot>{{&pcRear}}</div>
+        </div>
       </figure>
     </div>
   </div>

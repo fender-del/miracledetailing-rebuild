@@ -128,7 +128,8 @@
   .shero--shift .shero__media{left:34vw;
     -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%),linear-gradient(180deg,#000 72%,transparent);
     -webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 14%),linear-gradient(180deg,#000 72%,transparent);mask-composite:intersect}
-  .shero--shift .shero__media img{object-position:0% 52%}
+  /* dpos (13/10, correction: a tall photo held by Paul's head) */
+  .shero--shift .shero__media img{object-position:var(--dpos,0% 52%)}
 }
 
 /* ---------- Phones + portrait tablets: the poster (08/10) ----------

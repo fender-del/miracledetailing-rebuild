@@ -4,10 +4,39 @@
 .book__aside .h2{max-width:12ch}
 
 .book__head{display:grid;gap:26px}
-.book__nap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 28px;padding:22px 24px;border-radius:var(--r-lg);background:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
-.book__quick{flex:1 1 100%;font-size:.8125rem;font-weight:600;letter-spacing:.06em;color:var(--muted)}
-.book__phone{font-family:var(--fd);font-weight:500;font-style:normal;text-transform:none;font-synthesis:none;font-size:clamp(1.7rem,1.2rem + 1.5vw,2.5rem);color:var(--white);transition:color .3s}
-.book__phone:hover{color:var(--gold)}
+/* the call card (Ed 13/10): the number is the loudest thing in the aside */
+.book__nap{
+  position:relative;isolation:isolate;overflow:hidden;display:grid;gap:clamp(16px,1.6vw,22px);
+  padding:clamp(22px,2.4vw,32px);border-radius:var(--r-lg);
+  background:radial-gradient(130% 150% at 0% 0%,rgba(201,168,77,.2),rgba(201,168,77,.05) 45%,transparent 70%),var(--ink);
+  box-shadow:inset 0 0 0 1px var(--gold-a30),0 30px 70px rgba(0,0,0,.4);
+}
+/* one light across the card when it comes into view (motion/ui.js call) */
+.book__nap::after{
+  content:"";position:absolute;inset:-20% auto -20% 0;z-index:-1;width:45%;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(230,204,133,.16) 45%,rgba(255,255,255,.1) 50%,rgba(230,204,133,.16) 55%,transparent);
+  transform:translateX(-120%) skewX(-12deg);opacity:0;
+}
+.book__nap.is-lit::after{animation:call-lit 1.6s var(--ease) .35s both}
+@keyframes call-lit{0%{transform:translateX(-120%) skewX(-12deg);opacity:1}100%{transform:translateX(330%) skewX(-12deg);opacity:1}}
+@media (prefers-reduced-motion:reduce){.book__nap.is-lit::after{animation:none}}
+.book__who{display:flex;align-items:center;gap:14px}
+.book__face{flex:none;width:56px;height:56px;border-radius:50%;object-fit:cover;background:var(--raise);box-shadow:0 0 0 2px var(--ink),0 0 0 3px var(--gold)}
+.book__quick{font-size:.9375rem;font-weight:500;line-height:1.4;color:var(--text)}
+.book__quick span{display:block;font-family:var(--fd);font-weight:500;font-style:italic;font-synthesis:none;font-size:1.25rem;color:var(--white)}
+.book__phone{
+  display:flex;align-items:center;gap:clamp(12px,1.2vw,18px);width:max-content;max-width:100%;
+  font-family:var(--fd);font-weight:500;font-style:normal;text-transform:none;font-synthesis:none;
+  font-size:clamp(1.9rem,1.25rem + 2vw,3rem);line-height:1;letter-spacing:-.01em;white-space:nowrap;color:var(--gold);transition:color .3s;
+}
+.book__ic{flex:none;display:grid;place-items:center;width:1.25em;height:1.25em;border-radius:50%;background:var(--gold);color:var(--ink);
+  box-shadow:0 0 0 6px var(--gold-a12);transition:background .3s,box-shadow .45s var(--ease)}
+.book__ic svg{width:46%;height:46%}
+@media (hover:hover){
+  .book__phone:hover{color:var(--gold-2)}
+  .book__phone:hover .book__ic{background:var(--gold-2);box-shadow:0 0 0 10px var(--gold-a12)}
+}
+.book__alt{display:flex;flex-wrap:wrap;gap:10px 28px;padding-top:clamp(14px,1.4vw,18px);box-shadow:inset 0 1px 0 var(--gold-a30)}
 
 /* ---- Form ---- */
 .qf{
@@ -40,7 +69,7 @@
 .qf [aria-invalid=true]{box-shadow:inset 0 0 0 1px #E0705E!important}
 .qf input[type=file]{font-size:.875rem;color:var(--muted)}
 .qf input[type=file]::file-selector-button{
-  margin-right:14px;min-height:44px;padding:0 18px;border:0;border-radius:999px;cursor:pointer;
+  margin-right:14px;min-height:44px;padding:0 18px;border:0;border-radius:999px;cursor:var(--arrow-on);
   background:transparent;box-shadow:inset 0 0 0 1px var(--line-2);color:var(--white);
   font:500 .75rem/1 var(--f);letter-spacing:.16em;text-transform:uppercase;
 }
@@ -48,7 +77,7 @@
 .qf__err{margin-top:8px;font-size:.875rem;color:#F0907F}
 
 .qf__picks{display:flex;flex-wrap:wrap;gap:8px}
-.pick{position:relative;cursor:pointer}
+.pick{position:relative;cursor:var(--arrow-on)}
 .pick input{position:absolute;opacity:0;width:1px;height:1px}
 .pick span{
   display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0 16px;border-radius:999px;
@@ -97,7 +126,8 @@
   .book__aside{display:contents}
   .book__head{order:1;gap:18px}
   .book__in>.qf{order:2}
-  .book__nap{order:3;padding:18px 20px}
+  .book__nap{order:3;padding:20px}
+  .book__phone{font-size:clamp(1.55rem,7.4vw,2.2rem)}
 }
 @media (max-width:767px){
   .qf__row{grid-template-columns:1fr;gap:0}

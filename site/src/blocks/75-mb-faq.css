@@ -5,7 +5,7 @@
 .mbq__more a{color:var(--white);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:4px}
 .mbq__list{display:grid;box-shadow:inset 0 1px 0 var(--line)}
 .mbq__it{box-shadow:inset 0 -1px 0 var(--line)}
-.mbq__sum{display:grid;grid-template-columns:34px minmax(0,1fr) 22px;column-gap:12px;align-items:baseline;padding:18px 0;cursor:pointer;list-style:none}
+.mbq__sum{display:grid;grid-template-columns:34px minmax(0,1fr) 22px;column-gap:12px;align-items:baseline;padding:18px 0;cursor:var(--arrow-on);list-style:none}
 .mbq__sum::-webkit-details-marker{display:none}
 .mbq__n{font-family:var(--fd);font-weight:500;font-style:italic;font-synthesis:none;font-size:1.15rem;line-height:1.2;color:var(--gold)}
 .mbq__q{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.12rem,1rem + .5vw,1.45rem);line-height:1.24;color:var(--white)}
@@ -20,7 +20,7 @@
   .mbq__head{position:sticky;top:calc(var(--hd-h) + 56px + 40px)}
   /* desktop: every answer printed, nothing to open */
   .mbq__it::details-content{content-visibility:visible;block-size:auto}
-  .mbq__sum{cursor:default;pointer-events:none;grid-template-columns:40px minmax(0,1fr);padding:clamp(22px,2.4vw,30px) 0 10px}
+  .mbq__sum{cursor:var(--arrow);pointer-events:none;grid-template-columns:40px minmax(0,1fr);padding:clamp(22px,2.4vw,30px) 0 10px}
   .mbq__plus{display:none}
   .mbq__a{padding-left:52px;padding-bottom:clamp(22px,2.4vw,30px)}
 }

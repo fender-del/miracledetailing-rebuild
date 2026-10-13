@@ -1,52 +1,11 @@
 /* ============================================================
-   pointer.js — everything that follows a real mouse: cursor,
-   tilt cards. (Magnetic buttons and the hero lamp were
-   dropped 02/10: calmer, Fender found them fussy.)
+   pointer.js — what follows a real mouse: tilt cards. (Magnetic
+   buttons and the hero lamp were dropped 02/10: calmer, Fender
+   found them fussy. The gold dot + trailing ring went 13/10, Ed
+   and Paul: the pointer is now the system's own, in gold, CSS.)
    None of it runs on touch or with reduced motion.
    ============================================================ */
-import { gsap, env, spring, $, $$ } from './core.js';
-
-/* Dot + a hairline ring that trails it. States: link (the ring opens
-   out and fades), label (from a data-cursor attribute, none at
-   present), hidden over form fields. */
-export function cursor() {
-  const c = $('.cur');
-  if (!c) return;
-  const dot = $('.cur__dot', c), ring = $('.cur__ring', c), label = $('.cur__label', c);
-  document.documentElement.classList.add('has-cursor', 'has-pointer');
-  c.classList.add('is-hidden');
-
-  const dx = gsap.quickTo(dot, 'x', { duration: 0.12, ease: 'power3' });
-  const dy = gsap.quickTo(dot, 'y', { duration: 0.12, ease: 'power3' });
-  const rx = gsap.quickTo(ring, 'x', { duration: 0.45, ease: 'power3' });
-  const ry = gsap.quickTo(ring, 'y', { duration: 0.45, ease: 'power3' });
-  let first = true;
-
-  window.addEventListener('pointermove', e => {
-    if (e.pointerType !== 'mouse') return;
-    if (first) { gsap.set([dot, ring], { x: e.clientX, y: e.clientY }); first = false; }
-    dx(e.clientX); dy(e.clientY); rx(e.clientX); ry(e.clientY);
-  }, { passive: true });
-
-  document.addEventListener('pointerover', e => {
-    if (e.pointerType !== 'mouse') return;
-    const t = e.target;
-    const field = t.closest('input,textarea,select,iframe');
-    const lab = t.closest('[data-cursor]');
-    const link = t.closest('a,button,[role=tab],label,summary');
-    c.classList.toggle('is-hidden', !!field);
-    /* a link inside a labelled area (Explore on a project card) wins */
-    if (lab && !field && !(link && link !== lab && lab.contains(link))) {
-      label.textContent = lab.getAttribute('data-cursor');
-      c.classList.add('is-label'); c.classList.remove('is-link');
-    } else {
-      c.classList.remove('is-label');
-      c.classList.toggle('is-link', !!link);
-    }
-  });
-  document.documentElement.addEventListener('mouseleave', () => c.classList.add('is-hidden'));
-  document.documentElement.addEventListener('mouseenter', () => c.classList.remove('is-hidden'));
-}
+import { gsap, spring, $, $$ } from './core.js';
 
 /* Cards tilt up to ±6° on a spring, lift a little, and an inspection-
    lamp glint tracks the pointer across the paint. */
@@ -81,7 +40,10 @@ export function tilt() {
       if (e.pointerType !== 'mouse') return;
       box = box || hit.getBoundingClientRect();
       const px = (e.clientX - box.left) / box.width, py = (e.clientY - box.top) / box.height;
-      rx((0.5 - py) * 12); ry((px - 0.5) * 12); ly(-8);
+      /* a wide card leans less (13/10: the work photos tilt too; at the
+         service card's ±6° a full-width photo swung far out at its edge) */
+      const k = Math.min(1, 420 / box.width);
+      rx((0.5 - py) * 12 * k); ry((px - 0.5) * 12 * k); ly(-8);
       if (img) { ix((0.5 - px) * 16); iy((0.5 - py) * 16); }
       if (shine) { sx(e.clientX - box.left); sy(e.clientY - box.top); }
     });

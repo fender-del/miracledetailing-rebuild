@@ -1,16 +1,17 @@
-<!-- ============ 30 · DRY ICE: −78.5°C ============
-     Dry ice's own block (Fender 06/10, picked over a car diagram and a
-     price estimator). v0.5's three mechanisms, played by the scroll on
-     one drawing: I pellets fly from the gun and strike the grime; II the
-     cold hits (frost, cracks, the readout falls to −78.5°C); III the
-     pellets turn to gas, the grime flakes away and the bare metal
-     shines. The drawing stays in view (CSS sticky, no pin) while the
-     three beats scroll past it; the beat on screen lights up.
-     07/10: redrawn on a canvas (motion/cold.js); without JS a still
-     rendered from it (assets/img/cold-still.webp, tools: render the
-     canvas with reduced motion), the beats as plain text. The drawing
-     is decorative (aria-hidden); the beats carry the words. -->
-<section class="cold sec" id="{{coldId}}{{^coldId}}science{{/coldId}}" data-section="cold" data-cold>
+<!-- ============ 30 · DRY ICE: THREE MECHANISMS ============
+     v0.5's three mechanisms (Kinetic Energy, Thermal Shock, Sublimation)
+     beside one of Paul's own before/after pairs.
+     13/10 (Paul, via Fender): the drawn demo (a canvas of a lance,
+     pellets and grime, motion/cold.js, 06–07/10) is gone: Paul wants
+     the real thing. In its place, Paul's own before/after collages from
+     his Drive ("Dry ice before n after"), cut at their dividers and
+     labelled here. Round 2 the same day (Fender): all four jobs, each
+     turning over to the next as the beats are read (motion/cold.js).
+     Desktop: the pair stays in view beside the beats; tablets and
+     phones: the pair held under the section bar, a fifth of the screen
+     high, while the beats pass beneath. Without JS: the first job.
+     coldJobs = [{ before, after, cap, on }] (frames + caption). -->
+<section class="cold sec" id="{{coldId}}{{^coldId}}science{{/coldId}}" data-section="cold">
   <div class="wrap">
     <div class="sec-head cold__head">
       <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&coldEyebrow}}</p>
@@ -18,18 +19,19 @@
     </div>
 
     <div class="cold__grid">
-      <div class="cold__stage" aria-hidden="true">
-        <div class="cold__read">
-          <p class="cold__deg"><span data-cold-deg>−78.5</span><span class="cold__unit">°C</span></p>
-          <p class="cold__phase" data-cold-phase>On contact</p>
-        </div>
-        <img class="cold__still" src="/assets/img/cold-still.webp" width="1400" height="875" alt="" loading="lazy" decoding="async">
-        <ol class="cold__dots"><li class="is-on"></li><li></li><li></li></ol>
-      </div>
+      <figure class="cold__pair" data-cold data-reveal>
+        <div class="cold__ph">{{#coldJobs}}<div class="cold__f{{#on}} is-on{{/on}}">{{&before}}</div>{{/coldJobs}}<span class="cold__tag">Before</span></div>
+        <div class="cold__ph">{{#coldJobs}}<div class="cold__f{{#on}} is-on{{/on}}">{{&after}}</div>{{/coldJobs}}<span class="cold__tag cold__tag--after">After</span></div>
+        <figcaption class="cold__cap">
+          <span class="cold__count" aria-hidden="true"><b data-cold-n>01</b> / {{coldCount}}</span>
+          <span class="cold__caps">{{#coldJobs}}<span class="cold__c{{#on}} is-on{{/on}}">{{&cap}}</span>{{/coldJobs}}</span>
+          <span class="cold__ticks" aria-hidden="true">{{#coldJobs}}<i{{#on}} class="is-on"{{/on}}></i>{{/coldJobs}}</span>
+        </figcaption>
+      </figure>
 
       <ol class="cold__beats" role="list">
         {{#beats}}
-        <li class="cold__beat" data-cold-beat>
+        <li class="cold__beat" data-reveal>
           <p class="cold__n">{{n}}</p>
           <h3 class="cold__name disp">{{name}}</h3>
           <p class="cold__sub">{{sub}}</p>

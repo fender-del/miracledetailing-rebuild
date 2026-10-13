@@ -23,7 +23,7 @@
 .schoose__kick{font-size:.625rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .schoose__name{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.2rem,1.05rem + .45vw,1.5rem);line-height:1.15;color:var(--white)}
 .schoose__price{margin-top:auto;padding-top:4px;font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.15rem,1.05rem + .3vw,1.35rem);line-height:1.2;color:var(--gold)}
-.schoose.is-live .schoose__opt{cursor:pointer}
+.schoose.is-live .schoose__opt{cursor:var(--arrow-on)}
 @media (hover:hover){.schoose.is-live .schoose__opt[aria-pressed=false]:hover{box-shadow:inset 0 0 0 1px var(--line-2)}}
 .schoose__opt[aria-pressed=true]{box-shadow:inset 0 0 0 1px var(--gold-a30);background:linear-gradient(180deg,var(--gold-a12),rgba(255,255,255,.015) 70%)}
 .schoose__opt[aria-pressed=true]::after{transform:none}

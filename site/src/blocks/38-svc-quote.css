@@ -72,20 +72,29 @@
 /* photo sunk in behind (08/10, correction: Paul at work behind his own
    words). Desktop: the photo fills the right of the section and fades
    into the page towards the words on the left. Phones: the photo fills
-   the section, the words sit low on a strong scrim. */
+   the section, the words sit low on a strong scrim.
+   13/10 (Paul, via Fender: "show his face"): the photo is held by its
+   top, so Paul's head is always in it, and the shade lifts off the
+   face: desktop, the photo narrower and further right, clear of the
+   words, the side and top fades shorter; phones, a shorter top fade. */
 .squote--side .squote__text,.squote--side .squote__cite{text-shadow:0 2px 18px rgba(0,0,0,.65)}
+.squote--side .squote__bg img{object-position:50% 0%}
 @media (min-width:900px){
-  .squote--side .squote__bg{left:auto;width:min(60%,900px)}
-  .squote--side .squote__bg::after{background:
-    linear-gradient(90deg,var(--ink) 0%,rgba(17,17,17,.78) 26%,rgba(17,17,17,.3) 62%,rgba(17,17,17,.42) 100%),
-    linear-gradient(180deg,var(--ink) 0%,rgba(17,17,17,0) 20%,rgba(17,17,17,0) 78%,var(--ink) 100%)}
-  .squote--side .squote__bg img{object-position:50% 30%}
-  .squote--side .squote__in{min-height:min(88svh,820px);align-content:center}
+  .squote--side .squote__bg{left:auto;width:min(54%,800px)}
+  /* the frame's edge falls mid-pixel: the shade reaches 2px past it (a hairline of photo showed) */
+  .squote--side .squote__bg::after{left:-2px;background:
+    linear-gradient(90deg,var(--ink) 0%,var(--ink) 1.5%,rgba(17,17,17,.6) 12%,rgba(17,17,17,.1) 30%,rgba(17,17,17,.22) 100%),
+    linear-gradient(180deg,var(--ink) 0%,rgba(17,17,17,0) 4%,rgba(17,17,17,0) 80%,var(--ink) 100%)}
+  /* one screen tall, so the whole photo (and Paul's face at its top)
+     is in view while the words are read */
+  .squote.squote--side{padding-block:0}
+  .squote--side .squote__bg{top:calc(var(--hd-h) - 20px)}
+  .squote--side .squote__in{min-height:max(100svh,640px);padding-block:clamp(96px,10vw,140px);align-content:center}
   .squote--side .squote__in>*{max-width:min(700px,56%)}
 }
 @media (max-width:899px){
-  .squote--side .squote__bg img{object-position:28% 20%}
-  .squote--side .squote__bg::after{background:linear-gradient(180deg,var(--ink) 0%,rgba(17,17,17,.2) 14%,rgba(17,17,17,.45) 34%,rgba(17,17,17,.88) 56%,var(--ink) 100%)}
+  .squote--side .squote__bg img{object-position:24% 0%}
+  .squote--side .squote__bg::after{background:linear-gradient(180deg,var(--ink) 0%,rgba(17,17,17,0) 6%,rgba(17,17,17,.3) 34%,rgba(17,17,17,.88) 56%,var(--ink) 100%)}
   /* the words start under the top ~third of the photo, not a screen below (Fender 08/10: "tách ra xa quá") */
   .squote--side .squote__in{min-height:min(78svh,620px);align-content:end}
 }

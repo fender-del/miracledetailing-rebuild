@@ -6,10 +6,10 @@
      snav()      the "on this page" bar lights the section on screen
      more()      phones: long text folds after a few lines + Read more
      tabs()      options as tabs ([data-tabs]: PPF's three finishes)
-     coverage()  the PPF drawing: packages, panels, callouts
+     coverage()  the PPF coverage photos: packages, panels, labels
    Motion only:
      lit()       the statement's words light up as it scrolls through
-     (coverage's line work drawing in and the sheen over the film)
+     (coverage's sheen over the film and the views' swap)
    ============================================================ */
 import { gsap, ScrollTrigger, env, whenSeen, $, $$ } from './core.js';
 
@@ -167,123 +167,162 @@ export function lit() {
   });
 }
 
-/* ---------- PPF coverage ---------- */
+/* ---------- PPF coverage ----------
+   Two photos of an M3 Touring (13/10), the film keyed on each as
+   paths (lib/ppf-m3.js): .z the film, .e its cut edges, one of each
+   per panel per view. The big view takes the labels; the small one
+   swaps in when tapped (and glows when the line pointed at is better
+   seen from its side). */
 export function coverage() {
   const sec = $('[data-pc]');
   if (!sec) return;
   const D = JSON.parse($('[data-pc-data]', sec).textContent);
-  const svgs = $$('.pc__svg', sec);
-  const byView = { side: $('[data-view=side]', sec), plan: $('[data-view=plan]', sec) };
-  const zones = svgs.flatMap(s => $$('.z', s));
-  zones.forEach(z => z.style.setProperty('--i', Math.max(0, D.order.indexOf(z.dataset.z))));
-  let pkg = null;
+  const stage = $('[data-pc-stage]', sec), slot = $('[data-pc-slot]', sec), tag = $('[data-pc-tag]', sec);
+  const views = $$('.pc__view', sec);
+  const main = () => $('.pc__view.is-main', sec);
+  const thumb = () => $('.pc__view.is-thumb', sec);
+  const prefer = z => D.prefer[z] || 'front';
+  const paths = views.flatMap(v => $$('.z, .e', v));
+  paths.forEach(p => p.style.setProperty('--i', Math.max(0, D.order.indexOf(p.dataset.z))));
+  let pkg = null, active = [];
 
-  /* the hatch and the sheen only fall on lit film: a mask per view made
-     of copies of the lit panels, clipped to the body like the panels */
-  const masks = active => svgs.forEach(svg => {
-    const m = $('mask', svg), g = $('.zones', svg);
-    m.replaceChildren();
-    const grp = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-    grp.setAttribute('clip-path', g.getAttribute('clip-path'));
-    $$('.z', g).forEach(z => {
-      if (!active.includes(z.dataset.z)) return;
+  /* the sheen only falls on lit film: a mask of copies of the lit panels */
+  const masks = () => views.forEach(v => {
+    const m = $('mask', v);
+    m.replaceChildren(...$$('.z', v).filter(z => active.includes(z.dataset.z)).map(z => {
       const c = z.cloneNode();
       c.removeAttribute('class'); c.removeAttribute('style'); c.setAttribute('fill', '#fff');
-      grp.appendChild(c);
-    });
-    m.appendChild(grp);
+      return c;
+    }));
   });
-
-  const sheen = $('#pc-sheen');
   let sweepId = 0;
   const sweep = () => {
-    if (!env.motion || !sheen) return;
-    const id = ++sweepId, t0 = performance.now(), dur = 1500;
+    if (!env.motion) return;
+    const id = ++sweepId, t0 = performance.now(), dur = 1600;
+    const runs = views.map(v => {
+      const vb = $('.pc__fx', v).viewBox.baseVal;
+      return { g: $('linearGradient', v), from: vb.x - 900, to: vb.x + vb.width + 400 };
+    });
     const tick = t => {
       if (id !== sweepId) return;
       const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
-      sheen.setAttribute('gradientTransform', `translate(${(-500 + e * 2100).toFixed(1)} 0) skewX(-18)`);
+      runs.forEach(r => r.g.setAttribute('gradientTransform', `translate(${(r.from + e * (r.to - r.from)).toFixed(1)} 0) skewX(-18)`));
       if (k < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
   };
 
-  /* ----- callouts ----- */
-  const co = view => $('.co', byView[view]);
-  const hideCallouts = () => svgs.forEach(s => $('.co', s).classList.remove('is-on'));
-  const callout = (label, zone) => {
-    hideCallouts();
-    const view = D.prefer[zone] || 'side';
-    const at = D.anchors[view][zone];
-    if (!at || !label) return;
-    const [x, y] = at;
-    const g = co(view);
-    const dir = x < 640 ? 1 : -1;
-    const ly = view === 'side' ? 50 : (y <= 250 ? -12 : 514);
-    $('.co__l', g).setAttribute('d', `M${x} ${y} V${ly} h${dir * 22}`);
-    $('.co__dot', g).setAttribute('cx', x); $('.co__dot', g).setAttribute('cy', y);
-    $('.co__ring', g).setAttribute('cx', x); $('.co__ring', g).setAttribute('cy', y);
-    const t = $('.co__t', g);
-    t.textContent = label;
-    t.setAttribute('x', x + dir * 30); t.setAttribute('y', ly + 5);
-    t.setAttribute('text-anchor', dir > 0 ? 'start' : 'end');
-    void g.getBoundingClientRect();
-    g.classList.add('is-on');
+  /* ----- the label on the big view ----- */
+  const label = $('b', tag);
+  const hideTag = () => { tag.classList.remove('is-on'); views.forEach(v => v.classList.remove('is-hint')); };
+  const showTag = (text, zs) => {
+    const mv = main().dataset.view, few = zs.length < 6;
+    const shown = zs.filter(z => D.has[mv].includes(z));
+    /* the small view glows when one of these panels is its side's */
+    thumb().classList.toggle('is-hint', few && zs.some(z => prefer(z) !== mv || !shown.includes(z)));
+    const z = shown.find(z => prefer(z) === mv) || shown[0];
+    if (!z || !text || !few) { tag.classList.remove('is-on'); return; }
+    const [x, y] = D.anchors[mv][z];
+    tag.style.setProperty('--x', x + '%');
+    tag.style.setProperty('--y', y + '%');
+    tag.classList.toggle('is-l', x > 58);
+    tag.classList.toggle('is-d', y < 24);
+    label.textContent = text;
+    tag.classList.remove('is-on');
+    void tag.offsetWidth;
+    tag.classList.add('is-on');
   };
 
   /* ----- highlight: some panels bright, the rest of the film dimmed ----- */
   const items = () => $$('.pc__panel:not([hidden]) .pc__item', sec);
+  const zsOf = li => li.dataset.zs.split(' ');
   const hl = (list, li) => {
-    svgs.forEach(s => s.classList.toggle('hl', !!list));
-    zones.forEach(z => z.classList.toggle('k', !!list && list.includes(z.dataset.z)));
-    $$('.pc__item', sec).forEach(x => x.classList.toggle('is-on', !!list && (li ? x === li : x.dataset.zs.split(' ').some(z => list.includes(z)) && x.dataset.zs.split(' ').length < 6)));
+    views.forEach(v => v.classList.toggle('hl', !!list));
+    paths.forEach(p => p.classList.toggle('k', !!list && list.includes(p.dataset.z)));
+    $$('.pc__item', sec).forEach(x => x.classList.toggle('is-on', !!list && (li ? x === li : zsOf(x).some(z => list.includes(z)) && zsOf(x).length < 6)));
   };
-  const clear = () => { hl(null); hideCallouts(); };
+  const clear = () => { hl(null); hideTag(); };
 
   /* ----- packages ----- */
-  const show = tablist(sec, '[data-pc-tab]', '[data-pc-panel]', i => {
+  tablist(sec, '[data-pc-tab]', '[data-pc-panel]', i => {
     const p = D.packages[i];
     if (p.key === pkg) return;
     pkg = p.key;
+    active = p.zones;
     clear();
-    zones.forEach(z => z.classList.toggle('a', p.zones.includes(z.dataset.z)));
-    svgs.forEach(s => { s.classList.remove('is-on'); void s.getBoundingClientRect(); s.classList.add('is-on'); });
-    masks(p.zones);
+    /* off, then on again: the panels light in fitting order every time */
+    paths.forEach(z => z.classList.remove('a'));
+    void sec.offsetWidth;
+    paths.forEach(z => z.classList.toggle('a', active.includes(z.dataset.z)));
+    masks();
     sweep();
-  });
-  show(0);
+  })(0);
 
   /* list -> car */
-  const fromItem = li => {
-    const zs = li.dataset.zs.split(' ');
-    hl(zs, li);
-    if (zs.length < 6) callout(li.textContent.trim(), zs.find(z => D.prefer[z] === 'plan' && zs.length === 1) || zs[0]);
-    else hideCallouts();
-  };
+  const fromItem = li => { hl(zsOf(li), li); showTag(li.textContent.trim(), zsOf(li)); };
   sec.addEventListener('pointerover', e => { const li = e.target.closest('.pc__item'); if (li) fromItem(li); });
   sec.addEventListener('focusin', e => { const li = e.target.closest('.pc__item'); if (li) fromItem(li); });
   $$('.pc__panel', sec).forEach(p => p.addEventListener('pointerleave', clear));
   sec.addEventListener('focusout', e => { if (!e.relatedTarget || !e.relatedTarget.closest('.pc__item')) clear(); });
 
-  /* car -> list */
-  svgs.forEach(svg => {
-    svg.addEventListener('pointerover', e => {
-      const z = e.target.closest('.z');
-      if (!z || !z.classList.contains('a')) return;
-      const zone = z.dataset.z;
-      const li = items().find(x => x.dataset.zs.split(' ').includes(zone) && x.dataset.zs.split(' ').length < 6);
-      hl([zone], li);
-      callout(li ? li.textContent.trim() : '', zone);
+  /* car -> list: the panels of the big view */
+  stage.addEventListener('pointerover', e => {
+    const z = e.target.closest('.z');
+    if (!z || !z.classList.contains('a')) return;
+    const zone = z.dataset.z;
+    const li = items().find(x => zsOf(x).includes(zone) && zsOf(x).length < 6);
+    hl([zone], li);
+    showTag(li ? li.textContent.trim() : '', [zone]);
+  });
+  stage.addEventListener('pointerleave', clear);
+
+  /* ----- swap the views ----- */
+  const sizes = { main: $('img', main()).sizes, thumb: $('img', thumb()).sizes };
+  const roles = () => {
+    const t = thumb(), m = main();
+    t.setAttribute('role', 'button');
+    t.tabIndex = 0;
+    t.setAttribute('aria-label', `Show the ${t.dataset.view} view`);
+    m.removeAttribute('role'); m.removeAttribute('tabindex'); m.removeAttribute('aria-label');
+    /* the photo that is now big asks for a bigger file */
+    [[m, sizes.main], [t, sizes.thumb]].forEach(([v, s]) => $$('source, img', v).forEach(el => { el.sizes = s; }));
+  };
+  const swap = () => {
+    const m = main(), t = thumb();
+    const was = [m.getBoundingClientRect(), t.getBoundingClientRect()];
+    clear();
+    stage.insertBefore(t, tag);
+    slot.appendChild(m);
+    m.classList.replace('is-main', 'is-thumb');
+    t.classList.replace('is-thumb', 'is-main');
+    roles();
+    if (!env.motion) return;
+    /* each photo grows or shrinks from where it was (same shape: one scale) */
+    [[m, was[0]], [t, was[1]]].forEach(([v, r]) => {
+      const n = v.getBoundingClientRect();
+      v.animate([
+        { transformOrigin: '0 0', transform: `translate(${r.left - n.left}px, ${r.top - n.top}px) scale(${r.width / n.width})` },
+        { transformOrigin: '0 0', transform: 'none' }
+      ], { duration: 650, easing: 'cubic-bezier(.22,1,.36,1)' });
     });
-    svg.addEventListener('pointerleave', clear);
+    setTimeout(sweep, 250);
+  };
+  roles();
+  slot.addEventListener('click', e => { if (e.target.closest('.is-thumb')) swap(); });
+  slot.addEventListener('keydown', e => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.closest('.is-thumb')) {
+      e.preventDefault();
+      swap();
+      thumb().focus();
+    }
   });
 
-  /* the line work draws itself once the sheet is seen, then the sheen */
-  const sheet = $('[data-pc-sheet]', sec);
-  const draw = () => { svgs.forEach(s => s.classList.add('is-drawn')); setTimeout(sweep, 900); };
-  if (!env.entrance || !('IntersectionObserver' in window)) { svgs.forEach(s => s.classList.add('is-drawn')); return; }
-  const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); draw(); } }, { threshold: 0.2 });
-  io.observe(sheet);
+  /* the sheen sweeps the first time the photos are seen */
+  if (!env.entrance || !('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver(es => {
+    if (es.some(e => e.isIntersecting)) { io.disconnect(); setTimeout(sweep, 300); }
+  }, { threshold: 0.3 });
+  io.observe($('[data-pc-sheet]', sec));
 }
 
 /* ---------- PPF hero: the film goes on ----------

@@ -52,8 +52,7 @@ module.exports = site => {
     title: 'Paint Correction in Surrey | Five Levels | Miracle Detail',
     description: 'Paint correction in Lingfield, Surrey, by Paul Dalton: five levels from enhancement polish to concours perfect, every car measured with a paint depth gauge, gloss meter and digital microscope first.',
     preload: [
-      { id: 'pc-hero-m', media: '(max-width: 900px)', sizes: '100vw' },
-      { id: 'pc-hero', media: '(min-width: 901px)', sizes: '100vw' }
+      { id: 'pc-ed', media: 'all', sizes: '(max-width: 900px) 100vw, 66vw' }
     ],
 
     blocks: [
@@ -119,7 +118,7 @@ module.exports = site => {
             text: 'Paint depth measured. Gloss and orange peel analysed. Surface examined under controlled lighting and digital microscope. The condition of the paint is understood before anything else happens.' },
           { name: 'Decontamination', pic: frame('pc-s2', { alt: '', sizes: '(max-width: 1023px) 1px, 34vw', ratio: false }), img: frame('pc-s2', { alt: 'A Mercedes C63 AMG on a jack in the studio, its wheels off', sizes: '(max-width: 1023px) 84vw, 1px', ratio: false }),
             text: 'The paint is fully decontaminated before correction begins: iron fallout, bonded contamination and surface debris removed. Correcting contaminated paint is correcting the wrong thing.' },
-          { name: 'Correction', pic: frame('pc-polish', { alt: '', sizes: '(max-width: 1023px) 1px, 34vw', ratio: false }), img: frame('pc-polish', { alt: 'Paul machine polishing the bonnet of a black BMW M3 under hexagon lights', sizes: '(max-width: 1023px) 84vw, 1px', ratio: false }),
+          { name: 'Correction', pic: frame('pc-polish-f', { alt: '', sizes: '(max-width: 1023px) 1px, 34vw', ratio: false }), img: frame('pc-polish-fm', { alt: 'Paul machine polishing the bonnet of a black BMW M3 under hexagon lights', sizes: '(max-width: 1023px) 84vw, 1px', ratio: false }),
             text: 'Machine polishing by hand, panel by panel, under specialist lighting throughout. The process is methodical, unhurried and done by one person: Paul. No apprentices, no rushing, no shortcuts.' },
           { name: 'Inspection', pic: frame('pc-s4', { alt: '', sizes: '(max-width: 1023px) 1px, 34vw', ratio: false }), img: frame('pc-s4', { alt: 'An inspection light held to a black panel, the polishing pads below it', sizes: '(max-width: 1023px) 84vw, 1px', ratio: false }),
             text: 'Every panel checked under multiple light sources before the job is considered complete. The standard is set by what the paint can achieve, not by what’s quick.' }
@@ -142,15 +141,15 @@ module.exports = site => {
 
       hero: {
         stats: true,
-        /* phones: where the poster crop is held (08/10) */
-        mpos: '38% 50%',
+        /* 13/10: Ed's photo of Paul and an E30 M3 (tall): held right with
+           Paul's head in frame on desktops, shown whole on phones */
+        shift: true, mfit: true, dpos: '50% 0%',
         h1: 'Paint Correction',
         line: 'The art of <span class="gold">reading paint.</span>',
         lede: 'Most people see a scratch. Paul sees a story: how deep it goes, what the paint can give, and exactly what it will take to make it right. Thirty-seven years of that instinct don’t lie.',
-        img: frame('pc-hero', {
-          priority: true, ratio: false, sizes: '100vw',
-          alt: 'Paul Dalton machine polishing the wing of a black car beside a carbon wheel',
-          art: [{ media: '(max-width: 900px)', id: 'pc-hero-m', sizes: '100vw' }]
+        img: frame('pc-ed', {
+          priority: true, ratio: false, sizes: '(max-width: 900px) 100vw, 66vw',
+          alt: 'Paul Dalton machine polishing the bonnet of a silver BMW E30 M3 in the studio'
         }),
         facts: [
           { k: 'Years correcting paint', v: '37', big: true },

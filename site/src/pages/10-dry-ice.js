@@ -4,8 +4,10 @@
    Same rule as PPF: Paul's v0.5 text word for word, the em dash the
    only edit (comma, colon or full stop). New words are UI labels only.
    The lean version's FAQ (written by Claude) and comparison table are
-   gone; the −78.5°C drawing (30) stays, now carrying v0.5's own three
-   mechanisms in full.
+   gone; block 30 carries v0.5's own three mechanisms in full. 13/10
+   (Paul, via Fender): its drawn −78.5°C demo is gone, replaced by
+   Paul's real before/after pairs (Drive), all four, turning over as the
+   page scrolls.
 
    v0.5 /dry-ice-cleaning/, in its order:
      hero (headline, intro, three figures) · first in the UK, 2014
@@ -64,7 +66,7 @@ module.exports = site => {
         id: 'experience', reverse: true, graphite: true,
         eyebrow: 'Experience that matters',
         title: 'Over a decade ahead <span class="gold">of the industry.</span>',
-        img: frame('dx-exp', { alt: 'Paul Dalton dry ice cleaning the engine bay of a red Ferrari, the vapour rolling off', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
+        img: frame('dx-exp', { alt: 'Paul Dalton dry ice cleaning the engine bay of a red Ferrari, the vapour rolling off', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10', frameCls: 'media--tl' }),
         cap: 'Paul Dalton, dry ice cleaning a Ferrari engine bay',
         paras: [
           'When Paul started using dry ice cleaning in 2014, it was virtually unknown in automotive detailing in the UK. There was no manual to follow, no training course to take. The learning came from doing, on some of the most valuable cars in private ownership.',
@@ -140,6 +142,22 @@ module.exports = site => {
       coldId: 'mechanisms',
       coldEyebrow: 'Why it works',
       coldTitle: 'Three mechanisms. <span class="gold">One result nothing else achieves.</span>',
+      /* Paul's four before/after jobs (Drive), in turn as the beats pass */
+      coldJobs: [
+        { k: 1, cap: 'A gearbox, under the car', what: 'a gearbox under a car',
+          before: 'its casing caked in brown grime and rust', after: 'the bare aluminium casing clean and bright' },
+        { k: 2, cap: 'A transmission casing, up close', what: 'a transmission casing',
+          before: 'coated in old oil and brown grime', after: 'the cast aluminium clean down to its texture' },
+        { k: 3, cap: 'A steering rack and its clamp', what: 'a steering rack and clamp',
+          before: 'crusted in rust and road dirt', after: 'the plated tube and black subframe clean' },
+        { k: 4, cap: 'Steering rack and subframe', what: 'the steering rack and subframe from further back',
+          before: 'brown with grime and corrosion', after: 'every bolt, pipe and panel clean' }
+      ].map((j, i) => ({
+        on: i === 0, cap: j.cap,
+        before: frame(`dx-b${j.k}`, { alt: `Before dry ice cleaning: ${j.what}, ${j.before}`, sizes: '(max-width: 1023px) 46vw, 24vw', ratio: false }),
+        after: frame(`dx-a${j.k}`, { alt: `After dry ice cleaning: the same ${j.what.replace(/^(a|the) /, '')}, ${j.after}`, sizes: '(max-width: 1023px) 46vw, 24vw', ratio: false })
+      })),
+      coldCount: '04',
       beats: [
         { n: 'I', name: 'Kinetic Energy', sub: 'Impact at high velocity',
           text: 'Dry ice pellets travelling at high speed physically dislodge contamination (grease, oil, road grime, underbody deposits), breaking its bond with the surface beneath without any abrasion or chemical action.' },

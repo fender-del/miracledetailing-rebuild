@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cursor Options</title>
+<style>
+  :root{--ink:#111;--gold:#C9A84D;--paper:#F5F3EE;--muted:#A7A39A}
+  *{box-sizing:border-box}
+  body{margin:0;background:#0b0b0b;color:#D9D6CF;font:400 15px/1.5 "Jost",Arial,sans-serif}
+  header{max-width:1200px;margin:0 auto;padding:40px 24px 8px}
+  h1{margin:0 0 6px;font:500 28px/1.2 Georgia,serif;color:#fff}
+  header p{margin:0;color:var(--muted)}
+  .grid{max-width:1200px;margin:0 auto;padding:24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:20px}
+  .opt{border-radius:14px;overflow:hidden;background:#161616;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+  .opt h2{margin:0;padding:16px 18px 2px;font:500 18px/1.3 Georgia,serif;color:#fff}
+  .opt h2 b{color:var(--gold);font-weight:500;margin-right:8px}
+  .opt p{margin:0;padding:0 18px 14px;font-size:13px;color:var(--muted)}
+  .zone{display:grid;grid-template-columns:1fr 1fr;height:200px}
+  .zone>div{display:grid;place-items:center;align-content:center;gap:14px;padding:16px}
+  .dark{background:#111}
+  .ivory{background:var(--paper);color:#222}
+  .btn{display:inline-flex;align-items:center;min-height:40px;padding:0 18px;border-radius:999px;background:var(--gold);color:#111;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none}
+  .lnk{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:inherit;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
+  .tag{display:inline-block;margin:0 18px 16px;padding:3px 10px;border-radius:999px;font-size:11px;letter-spacing:.08em;background:rgba(201,168,77,.14);color:var(--gold)}
+  /* option D: the dot drawn by script, placed on the pointer each move (no easing) */
+  .jsdot{position:fixed;left:0;top:0;z-index:99;pointer-events:none;width:0;height:0;display:none}
+  .jsdot i{position:absolute;left:-4px;top:-4px;width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 1px rgba(17,17,17,.55);transition:transform .35s cubic-bezier(.22,1,.36,1)}
+  .jsdot b{position:absolute;left:-17px;top:-17px;width:34px;height:34px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--gold);opacity:0;transform:scale(.4);transition:opacity .3s,transform .45s cubic-bezier(.22,1,.36,1)}
+  .jsdot.on i{transform:scale(.6)}
+  .jsdot.on b{opacity:1;transform:none}
+  [data-opt=D],[data-opt=D] *{cursor:none!important}
+</style>
+</head>
+<body>
+<header>
+  <h1>Con trỏ chuột: 6 phương án</h1>
+  <p>Rê chuột lên ô tối, ô ngà, nút vàng và link trong từng thẻ. A, B, C, E, F là con trỏ của hệ điều hành (không trễ). D vẽ bằng code nhưng bám đúng vị trí chuột, không có đuôi trễ như bản cũ.</p>
+</header>
+<main class="grid" id="grid"></main>
+<div class="jsdot" id="jsdot"><b></b><i></i></div>
+<script>
+const G = '#C9A84D', I = '#141414';
+const grad = `<defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#FFF3CF'/><stop offset='.35' stop-color='#E6CC85'/><stop offset='.62' stop-color='${G}'/><stop offset='1' stop-color='#8F7228'/></linearGradient></defs>`;
+const svg = (w, body) => `<svg xmlns='http://www.w3.org/2000/svg' width='${w}' height='${w}' viewBox='0 0 ${w} ${w}'>${body}</svg>`;
+const SLIM = 'M5 2.2V21.4l3.7-3.5 2.6 5.8 1.9-.85-2.55-5.75H14.6z';
+const CLASSIC = 'M4 2v16.6l4-3.7 2.8 6.3 2.6-1.1-2.8-6.2h5.6z';
+const TRI = 'M4 3l13 6.2-5.6 1.6-1.9 5.4z';
+const url = (s, x, y, fb) => `url("data:image/svg+xml,${encodeURIComponent(s)}") ${x} ${y}, ${fb}`;
+
+const OPTS = [
+  { k: 'A', name: 'Slim Champagne', note: 'Bản đang trên site: mũi tên thon, đen viền vàng 1px; trên link/nút thành vàng ánh kim.',
+    rest: url(svg(24, `<path d='${SLIM}' fill='${I}' stroke='${G}' stroke-miterlimit='8'/>`), 5, 2, 'auto'),
+    on: url(svg(24, grad + `<path d='${SLIM}' fill='url(#g)' stroke='${I}' stroke-width='.75' stroke-miterlimit='8'/><path d='M6.05 6.4V18.3l.9-.85V7.5z' fill='#fff' fill-opacity='.55'/>`), 5, 2, 'pointer') },
+  { k: 'B', name: 'Normal + chạm vàng', note: 'Giữ con trỏ mặc định của máy (quen thuộc nhất). Chỉ khi rê lên link/nút mới hiện mũi tên vàng.',
+    rest: 'auto',
+    on: url(svg(24, grad + `<path d='${CLASSIC}' fill='url(#g)' stroke='${I}' stroke-width='1' stroke-linejoin='round'/>`), 4, 2, 'pointer') },
+  { k: 'C', name: 'Gold Dot', note: 'Giống bản cũ (chấm vàng) nhưng là con trỏ hệ thống nên không trễ. Trên link/nút: chấm nhỏ lại, có vòng vàng mảnh quanh.',
+    rest: url(svg(24, `<circle cx='12' cy='12' r='4.2' fill='${G}' stroke='${I}' stroke-opacity='.6' stroke-width='1'/>`), 12, 12, 'auto'),
+    on: url(svg(36, `<circle cx='18' cy='18' r='14.5' fill='none' stroke='${G}' stroke-width='1.2'/><circle cx='18' cy='18' r='2.6' fill='${G}'/>`), 18, 18, 'pointer') },
+  { k: 'D', name: 'Gold Dot + vòng mở', note: 'Như C, nhưng vòng vàng mở ra mượt khi rê lên link/nút (có chuyển động). Chấm bám đúng chuột, không đuôi trễ.', js: true },
+  { k: 'E', name: 'Gold Point', note: 'Một mũi nhọn tam giác vàng nhỏ, không có đuôi, kiểu các web thời trang cao cấp. Trên link/nút: to hơn, ánh kim.',
+    rest: url(svg(24, `<path d='${TRI}' fill='${G}' stroke='${I}' stroke-opacity='.55' stroke-width='.9' stroke-linejoin='round'/>`), 4, 3, 'auto'),
+    on: url(svg(28, grad + `<path d='M4 3l16 7.6-6.9 2-2.3 6.6z' fill='url(#g)' stroke='${I}' stroke-width='.8' stroke-linejoin='round'/>`), 4, 3, 'pointer') },
+  { k: 'F', name: 'Ivory Classic', note: 'Mũi tên dáng chuẩn, màu ngà sáng viền vàng: gần con trỏ bình thường nhất, dễ thấy trên nền tối. Trên link/nút: vàng.',
+    rest: url(svg(24, `<path d='${CLASSIC}' fill='#F5F0E2' stroke='${G}' stroke-width='1.1' stroke-linejoin='round'/>`), 4, 2, 'auto'),
+    on: url(svg(24, grad + `<path d='${CLASSIC}' fill='url(#g)' stroke='${I}' stroke-width='1' stroke-linejoin='round'/>`), 4, 2, 'pointer') }
+];
+
+const grid = document.getElementById('grid');
+const css = [];
+for (const o of OPTS) {
+  const el = document.createElement('section');
+  el.className = 'opt'; el.dataset.opt = o.k;
+  el.innerHTML = `<h2><b>${o.k}</b>${o.name}</h2><p>${o.note}</p>
+    <div class="zone"><div class="dark"><a class="btn" href="#">Book</a><a class="lnk" href="#">Call Paul</a></div>
+    <div class="ivory"><a class="btn" href="#">Book</a><a class="lnk" href="#">See the work</a></div></div>
+    <span class="tag">${o.js ? 'Vẽ bằng code, không trễ' : 'Con trỏ hệ thống, không trễ'}</span>`;
+  grid.appendChild(el);
+  if (!o.js) css.push(`[data-opt=${o.k}]{cursor:${o.rest}}[data-opt=${o.k}] a{cursor:${o.on}}`);
+}
+const st = document.createElement('style'); st.textContent = css.join('\n'); document.head.appendChild(st);
+document.querySelectorAll('a').forEach(a => a.addEventListener('click', e => e.preventDefault()));
+
+/* D: the dot sits exactly on the pointer each move (no easing, no trail) */
+const dot = document.getElementById('jsdot'), D = document.querySelector('[data-opt=D]');
+addEventListener('pointermove', e => {
+  const inD = D.contains(e.target);
+  dot.style.display = inD ? 'block' : 'none';
+  if (!inD) return;
+  dot.style.transform = `translate(${e.clientX}px,${e.clientY}px)`;
+  dot.classList.toggle('on', !!e.target.closest('a'));
+}, { passive: true });
+</script>
+</body>
+</html>

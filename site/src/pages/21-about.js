@@ -293,7 +293,7 @@ module.exports = site => {
       work: [
         { img: frame('ab-51', { alt: 'Swirled paint before correction under an inspection light', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Before correction', third: true },
         { img: frame('ab-52', { alt: 'Swirl marks under an inspection light', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Swirls under inspection light', third: true },
-        { img: frame('ab-53', { alt: 'Paul machine polishing a carbon panel by hand', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Every panel, by hand', third: true }
+        { img: frame('ab-53', { alt: 'Paul machine polishing a carbon panel by hand', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3', frameCls: 'media--tl' }), cap: 'Every panel, by hand', third: true }
       ],
 
       stars, reviews,

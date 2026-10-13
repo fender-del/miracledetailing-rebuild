@@ -1,7 +1,8 @@
 /* ============================================================
    svc.js — the service pages' own motion (06/10).
 
-   (cold(), the dry ice drawing, moved to cold.js on 07/10)
+   (cold(), the dry ice drawing, moved to cold.js on 07/10; since 13/10
+   cold.js turns Paul's before/after photos over instead)
    steps()  the gold line along "How a job runs" draws with the scroll.
 
    ============================================================ */

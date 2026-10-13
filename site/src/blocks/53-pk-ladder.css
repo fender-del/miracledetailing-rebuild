@@ -89,7 +89,7 @@
 
 /* a step per level: the ladder itself */
 .pkl__steps{display:grid;grid-template-columns:repeat(var(--n,5),minmax(0,1fr));gap:6px;align-items:end;padding-inline:6px}
-.pkl__step{display:grid;gap:8px;padding:0;background:none;color:var(--muted);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.pkl__step{display:grid;gap:8px;padding:0;background:none;color:var(--muted);cursor:var(--arrow-on);-webkit-tap-highlight-color:transparent}
 .pkl__step i{display:block;height:calc(6px + var(--h) * 6px);border-radius:3px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.09);transition:background .6s var(--ease),box-shadow .6s var(--ease)}
 .pkl__step span{font-family:var(--fd);font-style:italic;font-weight:500;font-synthesis:none;font-size:.95rem;line-height:1;transition:color .4s var(--ease)}
 .pkl__step.is-done i{background:rgba(201,168,77,.32);box-shadow:none}
@@ -186,7 +186,7 @@
 .pkc__more{
   flex:1 1 auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 16px;border-radius:999px;
   font-weight:500;font-size:.6875rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:none;white-space:nowrap;
-  box-shadow:inset 0 0 0 1px var(--line-2);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:box-shadow .3s,background .3s;
+  box-shadow:inset 0 0 0 1px var(--line-2);cursor:var(--arrow-on);-webkit-tap-highlight-color:transparent;transition:box-shadow .3s,background .3s;
 }
 .pkc__more svg{width:14px;height:14px;color:var(--gold)}
 .pkc__more:active{background:rgba(255,255,255,.06)}
@@ -201,9 +201,9 @@
 .pkl__count b{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:1.15rem;letter-spacing:0;color:var(--white);margin-right:2px}
 .pkl__prog{flex:1;position:relative;height:1px;background:var(--line-2)}
 .pkl__prog i{position:absolute;left:0;top:-.5px;height:2px;width:calc(100% / var(--n,5));background:var(--gold);transform:translateX(calc(var(--p,0) * 100%));transition:transform .5s var(--ease)}
-.pkl__arr{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:none;color:var(--white);box-shadow:inset 0 0 0 1px var(--line-2);cursor:pointer;transition:opacity .3s,box-shadow .3s}
+.pkl__arr{flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:none;color:var(--white);box-shadow:inset 0 0 0 1px var(--line-2);cursor:var(--arrow-on);transition:opacity .3s,box-shadow .3s}
 .pkl__arr svg{width:17px;height:17px}
-.pkl__arr:disabled{opacity:.3;cursor:default}
+.pkl__arr:disabled{opacity:.3;cursor:var(--arrow)}
 @media (hover:hover){.pkl__arr:not(:disabled):hover{box-shadow:inset 0 0 0 1px var(--gold)}}
 
 /* ---------- the sheet: what a level includes ---------- */
@@ -221,7 +221,7 @@
 .pks__top::before{content:"";position:absolute;left:50%;top:9px;width:40px;height:4px;margin-left:-20px;border-radius:4px;background:rgba(17,17,17,.18)}
 .pks__kick{margin:0;font-size:.625rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
 .pks__name{margin:0;font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:1.6rem;line-height:1.1;color:var(--white)}
-.pks__x{position:absolute;right:14px;top:18px;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:none;color:var(--white);box-shadow:inset 0 0 0 1px var(--line-2);cursor:pointer}
+.pks__x{position:absolute;right:14px;top:18px;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:none;color:var(--white);box-shadow:inset 0 0 0 1px var(--line-2);cursor:var(--arrow-on)}
 .pks__x svg{width:16px;height:16px}
 .pks__body{overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:18px 22px calc(22px + env(safe-area-inset-bottom))}
 .pks__body .pkl__bi{padding-top:0}

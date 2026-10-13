@@ -104,7 +104,7 @@
 .menu__list a:active{color:var(--gold)}
 /* Services, opened in place (08/10): same size as its neighbours, a
    chevron that turns; the twelve pages in their three groups below */
-.menu__sub summary{display:flex;align-items:center;gap:14px;padding:6px 0;cursor:pointer;list-style:none;
+.menu__sub summary{display:flex;align-items:center;gap:14px;padding:6px 0;cursor:var(--arrow-on);list-style:none;
   font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(2.3rem,10vw,3.5rem);line-height:1.08;color:var(--white)}
 .menu__sub summary::-webkit-details-marker{display:none}
 .menu__sub summary svg{width:.5em;height:.5em;color:var(--gold);transition:transform .4s var(--ease)}

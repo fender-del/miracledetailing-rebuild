@@ -18,7 +18,7 @@ const root = document.documentElement;
 export const env = {
   /* motion allowed at all */
   motion: !mq('(prefers-reduced-motion: reduce)'),
-  /* a real mouse: cursor, tilt, magnetic, Lenis, drag strip */
+  /* a real mouse: tilt, Lenis, parallax */
   fine: mq('(hover: hover) and (pointer: fine)'),
   /* the head script armed the hidden pre-states and the watchdog has not
      disarmed them, so entrance animations may start from hidden */

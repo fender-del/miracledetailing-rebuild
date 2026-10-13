@@ -51,7 +51,6 @@
 .slens__body p{max-width:60ch;font-size:clamp(1rem,.96rem + .2vw,1.12rem);line-height:1.75}
 .slens__body p+p{margin-top:1.2em}
 .slens__body{--fold:7.4em}
-.has-cursor .slens__win{cursor:none}
 
 @media (max-width:767px){
   .slens{--lr:74px}

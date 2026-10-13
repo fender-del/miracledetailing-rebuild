@@ -2,7 +2,7 @@
    ui.js — behaviour that has to work with motion off too:
    phone menu and the three-step form.
    ============================================================ */
-import { gsap, env, $, $$ } from './core.js';
+import { gsap, env, $, $$, whenSeen } from './core.js';
 
 const root = document.documentElement;
 
@@ -181,4 +181,11 @@ export function form() {
 
   show(0, 0);
   status.textContent = '';
+}
+
+/* ---------- The call card (Ed 13/10) ----------
+   A light crosses the book block's call card once, the first time it
+   is well on screen. CSS draws it; reduced motion skips it. */
+export function call() {
+  whenSeen($$('[data-call]'), el => el.classList.add('is-lit'), 0.25);
 }

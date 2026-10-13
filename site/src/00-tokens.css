@@ -1,20 +1,20 @@
-/* Bodoni Moda + Jost (Paul via Ed 05/10: "a font that looks more
-   classy and luxury"; Fender picked direction 1 of 3), self-hosted:
-   Google's latin files cut to the glyphs this site uses (tools:
-   fonttools instancer + subset; originals in assets-src/fonts).
-   Bodoni Moda pinned at weight 500 with its optical-size axis kept, so
-   big headings get the fine display cut and small italics stay sturdy;
-   Jost 300–600. */
-@font-face{font-family:"Bodoni Moda";font-style:normal;font-weight:500;font-display:swap;
-  src:url(/assets/fonts/bodoni-moda.woff2) format("woff2")}
-@font-face{font-family:"Bodoni Moda";font-style:italic;font-weight:500;font-display:swap;
-  src:url(/assets/fonts/bodoni-moda-italic.woff2) format("woff2")}
+/* Fraunces + Jost, self-hosted: Google's latin files, originals in
+   assets-src/fonts (fonttools instancer + subset).
+   Display: Fraunces (Ed + Paul picked option 6 of the heading sheet,
+   13/10; Bodoni Moda's hairlines vanished on dark and over photos).
+   Pinned at opsz 48 / wght 400, the exact cut they approved, and
+   declared as weight 500 so every heading rule picks it up unchanged.
+   Body: Jost 300–600 (Ed 07/10: "keep this font for all content"). */
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:500;font-display:swap;
+  src:url(/assets/fonts/fraunces.woff2) format("woff2")}
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:500;font-display:swap;
+  src:url(/assets/fonts/fraunces-italic.woff2) format("woff2")}
 @font-face{font-family:"Jost";font-style:normal;font-weight:300 600;font-display:swap;
   src:url(/assets/fonts/jost.woff2) format("woff2")}
 
 /* ============================================================
    Tokens — v0.5 palette (black / gold / white).
-   Display: Bodoni Moda 500, mixed case; gold words in italic.
+   Display: Fraunces, mixed case; gold words in italic.
    Labels:  Jost 500, capitals, spaced. Body: Jost 400.
    ============================================================ */
 :root{
@@ -35,7 +35,7 @@
   --muted:#A7A39A;        /* 7.4:1 on --ink */
 
   --f:"Jost","Helvetica Neue",Arial,sans-serif;
-  --fd:"Bodoni Moda","Bodoni 72",Didot,Georgia,serif;
+  --fd:"Fraunces",Georgia,serif;
 
   --wrap:1320px;
   --gut:clamp(16px,4vw,48px);
@@ -46,6 +46,13 @@
   --ease:cubic-bezier(.22,1,.36,1);       /* expo-ish out */
   --ease-io:cubic-bezier(.76,0,.24,1);
   --hd-h:76px;
+  /* the pointer (13/10, Ed and Paul, option B picked by Fender from six):
+     the visitor's own system pointer everywhere; over anything clickable
+     the same classic arrow in champagne gold with an ink edge. System
+     pointers only, so nothing lags (the gold dot + trailing ring is gone) */
+  --arrow:default;
+  --arrow-on:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23FFF3CF'/%3E%3Cstop offset='.35' stop-color='%23E6CC85'/%3E%3Cstop offset='.62' stop-color='%23C9A84D'/%3E%3Cstop offset='1' stop-color='%238F7228'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M4 2v16.6l4-3.7 2.8 6.3 2.6-1.1-2.8-6.2h5.6z' fill='url(%23g)' stroke='%23141414' stroke-width='1' stroke-linejoin='round'/%3E%3C/svg%3E") 4 2,pointer;
   color-scheme:dark;
 }
+
 @media (max-width:767px){:root{--hd-h:64px}}

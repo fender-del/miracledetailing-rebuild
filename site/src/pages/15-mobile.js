@@ -7,7 +7,8 @@
      "Same standard. Different postcode.") · common questions (6)
      · wheel ceramic at your location · book
    v0.5's hero is an AI picture of the van; this page opens on Paul's
-   own photo of the Caddy in Portugal (About, 2020). "From £???" under
+   own photo of his black Caddy on a country house drive (13/10, Ed and
+   Paul; it was the Caddy in Portugal, About 2020). "From £???" under
    the quote kept as written (Fender 06/10).
 
    Rebuilt 07/10 (Fender: "audit build lại kĩ… quan trọng không kém
@@ -26,7 +27,7 @@
    hơi lê thê… QnA trên mobile cũng dài quá"): each section a different
    shape: how = a full-bleed photo with the heading on it; the Caddy = a
    road with three stops (77); areas = a chart round Lingfield, counties
-   on their true bearing; why = one photo behind three hollow numerals;
+   on their true bearing; why = one photo behind three gold numerals;
    packages = cards led by large prices, swiped on phones; Portugal =
    centred spread; questions fold on phones only.
    Round 3: hero photo held right (the van clear of the copy); how it
@@ -102,8 +103,8 @@ module.exports = site => {
     title: 'Mobile Car Detailing | Surrey, Kent, Sussex, London | Miracle Detail',
     description: 'Mobile detailing by Paul Dalton: the studio standard at your home, office or storage, across Surrey, Kent, Sussex, London and beyond. Packages from £200 + VAT.',
     preload: [
-      { id: 'mb-hero-m', media: '(max-width: 900px)', sizes: '100vw' },
-      { id: 'mb-hero', media: '(min-width: 901px)', sizes: '100vw' }
+      { id: 'mb-van-m', media: '(max-width: 900px)', sizes: '100vw' },
+      { id: 'mb-van', media: '(min-width: 901px)', sizes: '100vw' }
     ],
 
     blocks: [
@@ -126,10 +127,11 @@ module.exports = site => {
         h1: 'Mobile Detailing',
         line: 'The studio. <span class="gold">At your location.</span>',
         lede: 'The same standard Paul applies in the studio, delivered to your home, your office, or anywhere else you need it. Surrey, Kent, Sussex, London and beyond.',
-        img: frame('mb-hero', {
+        /* 13/10 (Ed, Paul): Paul's own black Caddy (was the Portugal Caddy) */
+        img: frame('mb-van', {
           priority: true, ratio: false, sizes: '100vw',
-          alt: 'The Miracle Detail VW Caddy, Paul’s purpose-built mobile studio, parked on a cobbled street in Portugal',
-          art: [{ media: '(max-width: 900px)', id: 'mb-hero-m', sizes: '100vw' }]
+          alt: 'Paul’s black VW Caddy, his purpose-built mobile studio, on the gravel drive of a country house',
+          art: [{ media: '(max-width: 900px)', id: 'mb-van-m', sizes: '100vw' }]
         }),
         facts: []
       },
@@ -145,7 +147,8 @@ module.exports = site => {
         { id: 'why-mobile', label: 'Why mobile' },
         { id: 'packages', label: 'Packages' },
         { id: 'field', label: 'In the field' },
-        { id: 'faq', label: 'Questions' },
+        { id: 'faq', label: 'Questions' }
+,
 
         { id: 'reviews', label: 'Reviews' }
       ],

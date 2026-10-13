@@ -17,11 +17,19 @@
         {{#bookMore}}<a class="link-arrow book__more" href="{{href}}" data-reveal><span>{{label}}</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></a>{{/bookMore}}
       </div>
 
-      <div class="book__nap" data-reveal>
-        <p class="book__quick">Prefer something quicker? Call Paul.</p>
-        <a class="book__phone" href="{{site.phoneHref}}">{{site.phone}}</a>
-        <a class="link-arrow" href="{{site.whatsapp}}" target="_blank" rel="noopener"><span>WhatsApp Paul</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7m0 0H8m9 0v9" stroke="currentColor" stroke-width="1.8"/></svg></a>
-        {{#bookEmail}}<a class="link-arrow" href="mailto:{{site.email}}"><span>{{site.email}}</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7m0 0H8m9 0v9" stroke="currentColor" stroke-width="1.8"/></svg></a>{{/bookEmail}}
+      <!-- the call card (Ed 13/10: make the number catch the eye): Paul's
+           face, the number large in gold behind a gold phone disc, a warm
+           gold ground; a light crosses it once when it comes into view -->
+      <div class="book__nap" data-reveal data-call>
+        <div class="book__who">
+          <img class="book__face" src="/assets/img/paul-face-160.webp" srcset="/assets/img/paul-face-96.webp 96w, /assets/img/paul-face-160.webp 160w" sizes="56px" width="56" height="56" alt="Paul Dalton" loading="lazy" decoding="async">
+          <p class="book__quick">Prefer something quicker? <span>Call Paul.</span></p>
+        </div>
+        <a class="book__phone" href="{{site.phoneHref}}"><span class="book__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6.6 3.5h2.6l1.5 4.2-2 1.5a12.5 12.5 0 0 0 6.1 6.1l1.5-2 4.2 1.5v2.6a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z" fill="currentColor"/></svg></span><span class="book__num">{{site.phone}}</span></a>
+        <div class="book__alt">
+          <a class="link-arrow" href="{{site.whatsapp}}" target="_blank" rel="noopener"><span>WhatsApp Paul</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7m0 0H8m9 0v9" stroke="currentColor" stroke-width="1.8"/></svg></a>
+          {{#bookEmail}}<a class="link-arrow" href="mailto:{{site.email}}"><span>{{site.email}}</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7m0 0H8m9 0v9" stroke="currentColor" stroke-width="1.8"/></svg></a>{{/bookEmail}}
+        </div>
       </div>
     </div>
 

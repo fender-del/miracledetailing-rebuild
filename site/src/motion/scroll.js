@@ -59,13 +59,22 @@ export function rehash() {
 export function header() {
   const hd = $('[data-hd]');
   if (!hd) return;
-  let last = window.scrollY;
+  /* Hysteresis (13/10, Fender: the bar flickered as the page shook): the
+     header hides after 48px scrolled down in one run and comes back after
+     48px up in one run; a few pixels back and forth (a settling scroll,
+     a layout nudge) never toggle it. Always shown in the top 200px. */
+  const RUN = 48;
+  let last = window.scrollY, run = 0;
   const update = y => {
     hd.classList.toggle('is-scrolled', y > 24);
     if (!env.motion) return;
-    if (y > last + 6 && y > 200 && !hd.contains(document.activeElement) && !hd.classList.contains('is-inviting')) hd.classList.add('is-hidden');
-    else if (y < last - 6 || y < 200) hd.classList.remove('is-hidden');
+    const d = y - last;
     last = y;
+    if (y < 200) { run = 0; hd.classList.remove('is-hidden'); return; }
+    if (!d) return;
+    run = Math.sign(d) === Math.sign(run) ? run + d : d;
+    if (run > RUN && !hd.contains(document.activeElement) && !hd.classList.contains('is-inviting')) hd.classList.add('is-hidden');
+    else if (run < -RUN) hd.classList.remove('is-hidden');
   };
   ScrollTrigger.create({ start: 0, end: 'max', onUpdate: self => update(self.scroll()) });
   hd.addEventListener('focusin', () => hd.classList.remove('is-hidden'));
@@ -99,21 +108,15 @@ export function bands() {
    The section paints its own paper colour, so text on it is always on
    the right ground; the motion is in its edges: it rises as a narrower
    panel with rounded top corners that opens out to the full width as
-   it takes the screen, and closes in again as it leaves. While it holds
-   the middle of the screen the page is "on light" (cursor ring). */
+   it takes the screen, and closes in again as it leaves. */
 export function lightBands() {
   if (!env.entrance) return;
-  const root = document.documentElement;
   /* the section a page arrives on with a light lays its paper down
      behind it instead (kit.js arrival); neighbouring ivory sections
      read as one */
   const arrive = (document.body.getAttribute('data-arrive') || '').split(':');
   const light = el => !!el && el.getAttribute('data-bg') === 'light';
   $$('[data-bg=light]').forEach(s => {
-    ScrollTrigger.create({
-      trigger: s, start: 'top 50%', end: 'bottom 50%',
-      onToggle: self => root.classList.toggle('on-light', self.isActive)
-    });
     if (s.id === arrive[0] && arrive[1] !== 'cut') return;
     if (!light(s.previousElementSibling)) gsap.fromTo(s, { '--cx': '5%', '--rt': '56px' }, {
       '--cx': '0%', '--rt': '0px', ease: 'none',

@@ -1,63 +1,74 @@
-/* ============ 30 · DRY ICE: −78.5°C ============ */
-.cold{overflow-x:clip}
+/* ============ 30 · DRY ICE: THREE MECHANISMS ============ */
 .cold__head .lede{max-width:56ch}
-.cold__grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,96px);align-items:start}
-/* the drawing on the right stays in view while the beats pass */
-.cold__stage{
-  order:2;position:sticky;top:calc(50svh - min(21vw,280px));
-  aspect-ratio:16 / 10;border-radius:var(--r-lg);overflow:hidden;isolation:isolate;
-  background:#0B0D10;box-shadow:inset 0 0 0 1px var(--line),0 50px 90px -50px rgba(0,0,0,.8);
+.cold__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,96px);align-items:start}
+
+/* Paul's before/after pairs (13/10): the two halves of one job side by
+   side, on the right, held in view while the beats pass. Four jobs
+   stacked in each half; the one on screen turns over to the next as the
+   beats are read (motion/cold.js). Without JS: the first job. */
+.cold__pair{order:2;position:sticky;top:calc(var(--hd-h) + 72px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(6px,.6vw,10px);margin:0}
+.cold__ph{position:relative;aspect-ratio:3 / 4;border-radius:var(--r-lg);overflow:hidden;box-shadow:inset 0 0 0 1px var(--line),0 40px 80px -46px rgba(0,0,0,.85);background:#1a1a1a}
+.cold__f{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .8s var(--ease),visibility 0s linear .8s}
+.cold__f.is-on{opacity:1;visibility:visible;transition:opacity .8s var(--ease)}
+.cold__ph+.cold__ph .cold__f{transition-delay:.12s,.92s}
+.cold__ph+.cold__ph .cold__f.is-on{transition-delay:.12s}
+.cold__f .media{height:100%}
+.cold__f img{transform:scale(1.06);transition:transform 1.4s var(--ease)}
+.cold__f.is-on img{transform:none}
+.cold__tag{
+  position:absolute;left:clamp(10px,1vw,16px);top:clamp(10px,1vw,16px);z-index:2;padding:7px 12px;border-radius:999px;
+  font:600 .625rem/1 var(--f);letter-spacing:.2em;text-transform:uppercase;color:var(--white);
+  background:rgba(17,17,17,.72);box-shadow:inset 0 0 0 1px var(--line-2);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
 }
-.cold__stage::before{ /* cold air: a blue cast low in the frame */
-  content:"";position:absolute;inset:0;z-index:-1;
-  background:radial-gradient(70% 60% at 55% 72%,rgba(120,160,215,.14),transparent 70%),radial-gradient(60% 50% at 15% 10%,rgba(201,168,77,.08),transparent 70%);
-}
-/* 07/10: the drawing is painted on a canvas (motion/cold.js) */
-.cold__cv{position:absolute;inset:0;z-index:0;width:100%;height:100%;display:block}
-.cold__still{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.cold.is-canvas .cold__still{display:none}
-.cold__read,.cold__dots{z-index:1}
-.cold__read{position:absolute;right:clamp(16px,2.4vw,30px);top:clamp(14px,2vw,26px);z-index:1;text-align:right}
-.cold__deg{font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(2.2rem,1.4rem + 2.6vw,4rem);line-height:1;color:#EAF3FF;font-variant-numeric:tabular-nums}
-.cold__unit{font-size:.5em;margin-left:.08em;vertical-align:.7em;color:var(--gold)}
-.cold__phase{margin-top:8px;font-size:.625rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
-.cold__dots{position:absolute;left:clamp(16px,2.4vw,30px);bottom:clamp(14px,2vw,24px);display:none;gap:8px;list-style:none;margin:0;padding:0}
-.cold.is-live .cold__dots{display:flex}
-.cold__dots li{width:22px;height:2px;background:rgba(255,255,255,.22);transition:background .4s,width .5s var(--ease)}
-.cold__dots li.is-on{width:40px;background:var(--gold)}
+.cold__tag--after{color:var(--ink);background:var(--gold);box-shadow:none}
+
+/* caption: which job (01 / 04), what it is, four ticks */
+.cold__cap{grid-column:1 / -1;display:flex;align-items:center;gap:14px;margin-top:8px;font-size:.8125rem;color:var(--muted)}
+.cold__count{flex:none;font-size:.6875rem;font-weight:500;letter-spacing:.2em;color:var(--muted)}
+.cold__count b{font-weight:600;color:var(--gold)}
+.cold__caps{position:relative;flex:1;min-width:0;display:grid}
+.cold__c{grid-area:1 / 1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;transform:translateY(6px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.cold__c.is-on{opacity:1;transform:none;transition-delay:.15s}
+.cold__ticks{flex:none;display:flex;gap:5px}
+.cold__ticks i{width:16px;height:2px;border-radius:2px;background:var(--line-2);transition:background .5s var(--ease),width .5s var(--ease)}
+.cold__ticks i.is-on{width:28px;background:var(--gold)}
 
 .cold__beats{order:1;display:grid;list-style:none;margin:0;padding:0}
-.cold__beat{display:grid;align-content:center;gap:10px;padding:clamp(28px,4vw,56px) 0;max-width:46ch}
+.cold__beat{display:grid;gap:10px;padding:clamp(28px,3.4vw,48px) 0;max-width:46ch}
+.cold__beat:first-child{padding-top:0}
 .cold__beat+.cold__beat{box-shadow:inset 0 1px 0 var(--line)}
 .cold__n{font-family:var(--fd);font-style:italic;font-weight:500;font-size:1.1rem;color:var(--gold)}
 .cold__name{font-size:clamp(2rem,1.3rem + 2vw,3.2rem)}
 .cold__sub{font-size:.75rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#BFD6F2}
 .cold__text{margin-top:6px}
-/* with the script: each beat is most of a screen tall and lights up in turn */
-.cold.is-live .cold__beat{min-height:min(54svh,480px);opacity:.28;transition:opacity .6s var(--ease)}
-.cold.is-live .cold__beat.is-on{opacity:1}
 
+/* tablets and phones: the pair holds under the section bar, about a
+   fifth of the screen high, and the beats run up beneath it (the way
+   the dry ice drawing held, 07/10: hold it, never cover the screen) */
 @media (max-width:1023px){
-  .cold__grid{grid-template-columns:1fr;gap:0}
-  /* tablets + phones: the drawing holds under the top of the screen and
-     the beats run up beneath it */
-  .cold__stage{order:0;top:calc(56px + 12px);z-index:2;max-width:640px;width:100%;margin-inline:auto}
-  html:has(.hd:not(.is-hidden)) .cold__stage{top:calc(var(--hd-h) + 56px + 12px)}
-  .cold.is-live .cold__beat{min-height:42svh;max-width:none}
+  .cold__grid{grid-template-columns:1fr;gap:clamp(20px,4vw,36px)}
+  .cold__pair{
+    order:0;z-index:2;max-width:640px;width:100%;margin-inline:auto;
+    top:calc(56px + 8px);transition:top .5s var(--ease);
+    padding-bottom:10px;background:var(--ink);box-shadow:0 0 0 8px var(--ink);
+  }
+  html:has(.hd:not(.is-hidden)) .cold__pair{top:calc(var(--hd-h) + 56px + 8px)}
+  /* the beats fade out under its lower edge rather than cut */
+  .cold__pair::after{content:"";position:absolute;left:-8px;right:-8px;top:100%;height:28px;background:linear-gradient(var(--ink),rgba(17,17,17,0));pointer-events:none}
+  .cold__ph{aspect-ratio:auto;height:clamp(110px,19svh,220px)}
+  .cold__cap{margin-top:6px}
   .cold__beats{max-width:640px;width:100%;margin-inline:auto}
+  .cold__beat{max-width:none}
 }
 @media (max-width:767px){
-  /* phones (07/10, Fender: hold it, but never cover the screen): a band
-     under the page bar, about a third of the screen; the beats pass
-     beneath it, the one under it lit */
-  .cold__stage{top:calc(50px + 8px);transition:top .5s var(--ease)}
-  html:has(.hd:not(.is-hidden)) .cold__stage{top:calc(var(--hd-h) + 50px + 8px)}
-  .cold__read{right:12px;top:10px}
-  .cold__deg{font-size:1.7rem}
-  .cold__phase{margin-top:4px;font-size:.5625rem}
-  .cold__dots{left:12px;bottom:10px}
-  .cold.is-live .cold__beat{min-height:56svh;padding:26px 0}
-  .cold.is-still .cold__beat{min-height:0;opacity:1}
+  .cold__pair{top:calc(50px + 6px)}
+  html:has(.hd:not(.is-hidden)) .cold__pair{top:calc(var(--hd-h) + 50px + 6px)}
+  .cold__tag{left:8px;top:8px;padding:6px 9px;font-size:.5625rem}
+  .cold__cap{gap:10px;font-size:.75rem}
+  .cold__ticks i{width:10px}
+  .cold__ticks i.is-on{width:18px}
+  .cold__beat{padding:24px 0}
 }
-
-.cold.is-still .cold__beat{opacity:1}
+@media (prefers-reduced-motion:reduce){
+  .cold__f,.cold__f img,.cold__c{transition:none!important;transform:none!important}
+}

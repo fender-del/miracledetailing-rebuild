@@ -57,7 +57,7 @@ module.exports = site => {
       { block: '37-svc-cards', with: { cards: cards({
         id: 'available', light: true, cols: 4, fx: 'rail', compact: true,
         eyebrow: 'What’s available',
-        title: 'Four services. <span class="gold">Every wheel covered.</span>',
+        title: 'Four services. <span class="gold"><span class="nw">Every wheel</span> covered.</span>',
         items: [
           { n: 'I', name: 'Diamond Cut', sub: 'Lathe-finished face, powder-coated barrel', img: cardImg('wr-face', 'A diamond cut alloy wheel face catching the light'),
             paras: 'The factory finish on many prestige wheels. The face of the wheel is machined on a CNC lathe to produce a precise, reflective cut surface, with the barrel and spokes powder-coated in the original or chosen colour. The most sought-after finish for OEM-specification restoration.',

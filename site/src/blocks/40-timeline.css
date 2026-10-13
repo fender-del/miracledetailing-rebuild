@@ -41,7 +41,7 @@ html:has(.hd.is-hidden) .tl{--tl-top:56px}
   font-size:1.6rem;line-height:1;color:var(--gold);
 }
 .odo__d{position:relative;display:block;height:1em;width:.6em;clip-path:inset(0 -30% 0 -30%);transition:opacity .4s var(--ease)}
-.odo__s{position:absolute;left:0;top:0;display:grid;transform:translateY(calc(var(--v,0) * -1em));transition:transform 1.1s cubic-bezier(.65,0,.2,1)}
+.odo__s{position:absolute;left:0;top:0;width:100%;display:grid;justify-items:center;transform:translateY(calc(var(--v,0) * -1em));transition:transform 1.1s cubic-bezier(.65,0,.2,1)}
 .odo__s span{display:block;height:1em}
 .odo__w{position:absolute;left:0;top:0;white-space:nowrap;opacity:0;transform:translateY(.3em);transition:opacity .4s var(--ease),transform .5s var(--ease)}
 .odo.is-word .odo__d{display:none}

@@ -7,13 +7,13 @@
      always        menu, form, sticky bar, header state, blur-up
      motion        hero video, entrances, story beats, project deck,
                    counters, marquees, reviews loop
-     motion+mouse  Lenis, cursor, tilt cards, parallax
+     motion+mouse  Lenis, tilt cards, parallax
    Sound (Web Audio) in every tier: off until the first click or tap.
    Reduced motion = the first tier only. No JS = every word still there.
    ============================================================ */
 import { env, ScrollTrigger } from './core.js';
 import { smooth, anchors, header, sticky, bands, lightBands, rehash } from './scroll.js';
-import { cursor, tilt } from './pointer.js';
+import { tilt } from './pointer.js';
 import { lines, fadeUps, counters, parallax, blurUp, shine, photoBgs } from './reveal.js';
 import { marquees, reviews } from './loops.js';
 import { story } from './story.js';
@@ -21,9 +21,8 @@ import { deck } from './deck.js';
 import { heroVideo } from './video.js';
 import { coverage } from './coverage.js';
 import { sound } from './sound.js';
-import { menu, form } from './ui.js';
+import { menu, form, call } from './ui.js';
 import { steps, tbcs } from './svc.js';
-import { cold } from './cold.js';
 import { snav, more, tabs, lit, filmHero, compare, coverage as ppfCoverage } from './ppf.js';
 import { gallery } from './gallery.js';
 import { arrival, heroFrame, heroTone, rails, stacks, samples, zooms, collages, stages, railMeta, accordions, progress } from './kit.js';
@@ -37,6 +36,7 @@ import { youtube } from './journal.js';
 import { pairs } from './pairs.js';
 import { dents } from './dent.js';
 import { checklists, copies } from './check.js';
+import { colds } from './cold.js';
 
 const root = document.documentElement;
 const safe = fn => { try { fn(); } catch (e) { if (window.console) console.warn('[motion]', fn.name, e); } };
@@ -80,6 +80,8 @@ function boot() {
   safe(pairs);
   /* block 58 (09/10, aftercare): the wash checklist; the code band's copy */
   safe(checklists); safe(copies);
+  /* block 30 (13/10, dry ice): Paul's four before/after jobs turn over with the scroll */
+  safe(colds);
   /* block 61 (07/10, journal posts): the film loads when pressed */
   safe(youtube);
   if (env.motion) {
@@ -94,7 +96,7 @@ function boot() {
     }
     safe(counters);
     safe(shine);
-    if (env.fine) { safe(cursor); safe(parallax); }
+    if (env.fine) safe(parallax);
   } else {
     safe(counters); /* shows the real figures, no count */
   }
@@ -103,6 +105,7 @@ function boot() {
      and responds first. Everything here sits at least a screen down. */
   idle(() => {
     safe(form);
+    safe(call);
     safe(sticky);
     if (env.motion) {
       safe(deck);
@@ -119,8 +122,6 @@ function boot() {
       if (env.fine) safe(tilt);
     }
     safe(stages); safe(progress);
-    /* dry ice: the canvas drawing, every tier (a still frame without motion) */
-    safe(cold);
     /* the pins above were made after the triggers below them: put the
        triggers back in page order before measuring */
     ScrollTrigger.sort();
