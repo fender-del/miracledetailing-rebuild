@@ -7,9 +7,8 @@
    on an earlier visit). The header switch turns it off and on; the
    choice is remembered. Silent while the tab is hidden.
 
-     bed      a slow pad whose chord changes with the section in the
-              middle of the screen, a soft bell now and then over it,
-              and air that rises with the speed of the scroll
+     air      rises with the speed of the scroll (the background pad
+              and its bells were dropped, Fender 13/10)
      touches  menu letters tick as they roll, buttons breathe, clicks
               tap; cards lift, rub, whoosh and land; the story's beats
               land low, the closing line swells, glass rings over a low
@@ -19,24 +18,13 @@ import { $, $$ } from './core.js';
 
 const KEY = 'md-sound';
 const AC = window.AudioContext || window.webkitAudioContext;
-let ctx = null, out, dry, wet, noise, padF, air, airF, rub, on = false;
-let chord = '', voices = [], section = 'hero', bellT = 0;
+let ctx = null, out, dry, wet, noise, air, airF, rub, on = false;
+let section = 'hero';
 
 const mtof = m => 440 * Math.pow(2, (m - 69) / 12);
 const pref = () => { try { return localStorage.getItem(KEY); } catch (e) { return null; } };
 const keep = v => { try { localStorage.setItem(KEY, v); } catch (e) { /* private mode */ } };
 
-/* One chord per section, voiced low and close; the bells pick from the
-   same notes two octaves up. */
-const CHORDS = {
-  hero:     [45, 52, 55, 59, 60],   // A minor 9
-  story:    [41, 48, 52, 57, 59],   // F major 7 #11
-  services: [48, 55, 59, 62, 64],   // C major 9
-  projects: [38, 50, 57, 60, 64],   // D minor 9
-  reviews:  [43, 50, 57, 59, 64],   // G 6/9
-  coverage: [40, 47, 50, 55, 57],   // E minor 7 add 11
-  book:     [45, 52, 55, 59, 60]
-};
 /* the counties' notes: E minor pentatonic, rising with the distance */
 const SCALE = [64, 67, 69, 71, 74, 76, 79];
 
@@ -54,14 +42,6 @@ function build() {
   noise = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate);
   const d = noise.getChannelData(0);
   for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
-
-  /* the pad: detuned saws through a lowpass that drifts slowly */
-  padF = ctx.createBiquadFilter(); padF.type = 'lowpass'; padF.frequency.value = 760; padF.Q.value = 0.5;
-  const lfo = ctx.createOscillator(), depth = ctx.createGain();
-  lfo.frequency.value = 0.05; depth.gain.value = 240;
-  lfo.connect(depth); depth.connect(padF.frequency); lfo.start();
-  const padOut = ctx.createGain(); padOut.gain.value = 0.35;
-  padF.connect(padOut); padOut.connect(dry); padOut.connect(wet);
 
   /* air: noise that opens with the scroll speed */
   air = ctx.createGain(); air.gain.value = 0;
@@ -252,46 +232,6 @@ export function rubbing(v) {
   rub.gain.setTargetAtTime(k * 0.06, t, 0.05);
 }
 
-/* ---------- the bed ---------- */
-function setChord(name) {
-  const notes = CHORDS[name] || CHORDS.hero, id = notes.join();
-  if (!ctx || id === chord) return;
-  chord = id;
-  const t = ctx.currentTime;
-  voices.forEach(v => {
-    v.g.gain.cancelScheduledValues(t);
-    v.g.gain.setTargetAtTime(0, t, 1.1);
-    v.o.forEach(o => o.stop(t + 7));
-  });
-  voices = notes.map((m, i) => {
-    const g = ctx.createGain();
-    g.gain.value = 0; g.connect(padF);
-    const o = [-7, 7].map(c => {
-      const x = ctx.createOscillator();
-      x.type = 'sawtooth'; x.frequency.value = mtof(m); x.detune.value = c + Math.random() * 4 - 2;
-      x.connect(g); x.start(t);
-      return x;
-    });
-    if (i === 0) {
-      const sub = ctx.createOscillator();
-      sub.type = 'sine'; sub.frequency.value = mtof(m - 12); sub.connect(g); sub.start(t);
-      o.push(sub);
-    }
-    g.gain.setTargetAtTime(i === 0 ? 0.05 : 0.03, t, 1.4);
-    return { g, o };
-  });
-}
-function bells() {
-  clearTimeout(bellT);
-  bellT = setTimeout(() => {
-    if (on && !document.hidden && ctx && ctx.state === 'running') {
-      const notes = CHORDS[section] || CHORDS.hero;
-      bell(notes[1 + Math.floor(Math.random() * (notes.length - 1))] + 24, now(), 0.022, 3.4);
-    }
-    bells();
-  }, 4200 + Math.random() * 5000);
-}
-
 /* ---------- switch, first touch, scroll, sections ---------- */
 export function sound() {
   const btn = $('[data-sound]');
@@ -309,9 +249,6 @@ export function sound() {
     const t = ctx.currentTime;
     out.gain.cancelScheduledValues(t);
     out.gain.setTargetAtTime(0.9, t, 0.7);
-    chord = '';
-    setChord(section);
-    bells();
   };
   const stop = () => {
     on = false; mark();
@@ -376,15 +313,13 @@ export function sound() {
     airF.frequency.setTargetAtTime(380 + k * 1100, c, 0.1);
   }, { passive: true });
 
-  /* the section crossing the middle of the screen sets the chord; the
-     services chime as they arrive from the story */
+  /* the services chime as they arrive from the story */
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(es => es.forEach(e => {
       if (!e.isIntersecting) return;
       const s = e.target.getAttribute('data-section');
       if (s === 'services' && section === 'story') sfx('bright');
-      section = CHORDS[s] ? s : section;
-      if (on) setChord(section);
+      section = s || section;
     }), { rootMargin: '-50% 0px -50% 0px' });
     $$('main [data-section], section[data-section]').forEach(s => io.observe(s));
   }
@@ -401,5 +336,5 @@ export function sound() {
   });
 
   /* debug: ?snd=meter exposes the parts for the level check (tools/) */
-  if (/[?&]snd=meter/.test(location.search)) window.__snd = { fx: FX, get ctx() { return ctx; }, get out() { return out; }, get padF() { return padF; }, start, setChord };
+  if (/[?&]snd=meter/.test(location.search)) window.__snd = { fx: FX, get ctx() { return ctx; }, get out() { return out; }, start };
 }

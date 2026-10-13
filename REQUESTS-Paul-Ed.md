@@ -52,16 +52,15 @@ Also:
 
 A yes, a no or one word is enough for each.
 
-1. **Feynlab names.** Packages says "Ultra **V3**" and "Self-Heal **Lite**"; the ceramic page says "Ultra **V2**" and "Heal Lite". Which are right?
-2. **The code MIRACLE.** We show it as a Feynlab discount code, entered at checkout on feynlab.co.uk (Aftercare guide and Ceramic page). Is that right? Is there a direct link to Ceramic by Paul Dalton on the Feynlab site?
-3. **Aftercare product links.** The "Buy from…" buttons go to each shop's home page (Feynlab, Garage Therapy, Clean and Shiny). Do you have links to the exact products? And where should Buckets, Grit Guards, Wheel Brush and Barrel Brush link to? They are named in the steps but have no product card.
-4. **Aftercare heading.** The eight steps are headed "Eight steps. Every wash." (our words; the staging site had no heading here). OK?
-5. **Gallery heading.** "From the archive." (our words; the staging site's Gallery page is empty). OK?
-6. **Dry ice before & after.** Your four collages are captioned "A gearbox, under the car", "A transmission casing, up close", "A steering rack and its clamp" and "Steering rack and subframe". Are those right, and which cars were they?
-7. **About Paul, 2025.** This entry says "The coating launches in 2024". Should it sit under 2024?
-8. **Homepage "Underside Coating" card.** There is no underbody page, so it opens the Industrial Coating card on the ceramic page. OK?
-9. **Contact.** There is no contact page, so "Contact" goes to the booking form. OK, or would you like a separate page?
-10. **Leather photos.** Who is the technician spraying the black seats of the Porsche 911 in the "leather before and after" folder? May we show him, and should he be named?
+1. **The code MIRACLE.** We show it as a Feynlab discount code, entered at checkout on feynlab.co.uk (Aftercare guide and Ceramic page). Is that right? Is there a direct link to Ceramic by Paul Dalton on the Feynlab site?
+2. **Aftercare product links.** The "Buy from…" buttons go to each shop's home page (Feynlab, Garage Therapy, Clean and Shiny). Do you have links to the exact products? And where should Buckets, Grit Guards, Wheel Brush and Barrel Brush link to? They are named in the steps but have no product card.
+3. **Aftercare heading.** The eight steps are headed "Eight steps. Every wash." (our words; the staging site had no heading here). OK?
+4. **Gallery heading.** "From the archive." (our words; the staging site's Gallery page is empty). OK?
+5. **Dry ice before & after.** Your four collages are captioned "A gearbox, under the car", "A transmission casing, up close", "A steering rack and its clamp" and "Steering rack and subframe". Are those right, and which cars were they?
+6. **About Paul, 2025.** This entry says "The coating launches in 2024". Should it sit under 2024?
+7. **Homepage "Underside Coating" card.** There is no underbody page, so it opens the Industrial Coating card on the ceramic page. OK?
+8. **Contact.** There is no contact page, so "Contact" goes to the booking form. OK, or would you like a separate page?
+9. **Leather photos.** Who is the technician spraying the black seats of the Porsche 911 in the "leather before and after" folder? May we show him, and should he be named?
 
 ---
 
@@ -71,8 +70,6 @@ A yes, a no or one word is enough for each.
 
 | Page | What we would like |
 |---|---|
-| Homepage, Ceramic card | The Ferrari SF90 Spider photo carries another detailer's "ESOTERIC" watermark. We need their permission, or a photo of your own to replace it. |
-| Credits | Please confirm we may use, with credit: GF Williams (LaFerrari, 458 Speciale, water beading) and Andreas Jansson (you with the Monza SP). |
 | Leather restoration | A photo of you on a leather job, for the top of the page. It still uses the old site's photo. |
 | Window tinting | Photos from your next tint job: the film squeegeed onto the inside of the glass, the edge being trimmed, a VLT meter on the glass, and the car before and after from the same spot. A chameleon windscreen if you have fitted one. Nothing of bulletproof film, which must stay confidential. |
 | Paintless dent removal | On your next PDR job, close up under the light board: the dent with the board's lines bending round it, and the tool working the dent as the lines straighten. Also a small ding, hail damage and a larger dent before repair. Some of these steps show realistic computer-made pictures until we have yours. |
