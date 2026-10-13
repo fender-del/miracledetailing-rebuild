@@ -10,6 +10,13 @@
    Photos: the old site's leather jobs (Paul's own).
    Before & after (08/10, Fender): the old site's five pairs, the same
    seat before and after, just before the booking form.
+   13/10 (Fender: "too few real photos"): Paul's own Drive set takes
+   over below the hero (the man spraying seats in that set is not Paul,
+   so the hero keeps the old site's photo). Overview: a Porsche 911's
+   seats finished; the cards: the 911's seat restored, a cracked bolster
+   repaired, the 911's dash masked for the full interior; the quote over
+   the finished seats. Four new pairs lead block 57, three
+   of the old site's stay.
    ============================================================ */
 'use strict';
 const { frame } = require('../lib/pic.js');
@@ -42,9 +49,9 @@ module.exports = site => {
       '01-header',
       '20-svc-hero', '29-svc-nav',
       { block: '33-svc-prose', with: { prose: prose({
-        id: 'overview', zoom: { focus: '48% 62%' },
+        id: 'overview', zoom: { focus: '50% 55%' },
         title: 'The interior is half the car. <span class="gold">It deserves the same attention.</span>',
-        img: frame('lr-fixed', { alt: 'A cream leather seat after colour restoration', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
+        img: frame('lr-911', { alt: 'The black leather seats of a Porsche 911 after colour restoration, in the studio', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
         paras: [
           'Paint correction and ceramic coating transform the exterior of a car. But if the leather is faded, scuffed or showing its age, the overall impression suffers, no matter how good the paintwork looks.',
           'Leather restoration is available through Miracle Detail as part of a full detail package. Colour restoration, scuff and scratch repair, and surface conditioning, delivered to the same standard as the rest of the work on your car.',
@@ -56,15 +63,15 @@ module.exports = site => {
         eyebrow: 'What’s covered',
         title: 'Colour. Repair. <span class="gold">Restoration.</span>',
         items: [
-          { n: 'I', name: 'Colour Restoration', sub: 'Faded and worn leather', img: cardImg('lr-worn', 'A worn cream leather seat before colour restoration'),
+          { n: 'I', name: 'Colour Restoration', sub: 'Faded and worn leather', img: cardImg('lr-colour', 'The black leather driver’s seat of a Porsche 911 after colour restoration'),
             paras: 'Leather colour fades over time, from UV exposure, body oils and general wear. Colour restoration brings the leather back to its original shade or any chosen colour, applied in thin, flexible layers that move and breathe with the leather rather than cracking and peeling.',
             list: ['Original colour matching or colour change', 'Thin, flexible colour application', 'UV-resistant finish', 'Seats, bolsters, door cards and dash'],
             price: 'Pricing confirmed at enquiry' },
-          { n: 'II', name: 'Scuff &amp; Scratch Repair', sub: 'Surface damage restored', img: cardImg('lr-red', 'A scuffed grey leather bolster with red piping during repair'),
+          { n: 'II', name: 'Scuff &amp; Scratch Repair', sub: 'Surface damage restored', img: cardImg('lr-5156', 'A cream leather bolster with red piping after its cracks were repaired'),
             paras: 'Scuffs, light scratches and surface abrasion (the kind that accumulates on bolsters, armrests and high-contact areas) are filled, smoothed and colour-matched to blend seamlessly with the surrounding leather. Results that are invisible under normal viewing conditions.',
             list: ['Surface abrasion and scuff treatment', 'Filler and colour blend', 'Seamless finish under normal light', 'High-contact areas prioritised'],
             price: 'Pricing confirmed at enquiry' },
-          { n: 'III', name: 'Full Interior Restoration', sub: 'Complete leather transformation', img: cardImg('lr-seat', 'A cream leather seat restored in full'),
+          { n: 'III', name: 'Full Interior Restoration', sub: 'Complete leather transformation', img: cardImg('lr-dash', 'A Porsche 911 interior masked for restoration, steering wheel and dash exposed'),
             paras: 'For interiors requiring comprehensive attention, combining colour restoration, repair work and conditioning into a full treatment of every leather surface in the car. Seats, door cards, dash, steering wheel, centre console. The complete interior, brought back to the same standard as the rest of the detail.',
             list: ['All leather surfaces treated', 'Colour restoration and repair combined', 'Deep conditioning post-treatment', 'Steering wheel and centre console included'],
             price: 'Pricing confirmed at enquiry' }
@@ -83,19 +90,21 @@ module.exports = site => {
       }) } },
       { block: '38-svc-quote', with: { quote: quote({
         id: 'story',
-        img: frame('lr-hero', { alt: '', sizes: '100vw', ratio: false }),
+        img: frame('lr-quote', { alt: '', sizes: '100vw', ratio: false }),
         text: 'A car detailed to perfection on the outside deserves an interior that <span class="gold">tells the same story.</span>'
       }) } },
       { block: '57-svc-pairs', with: { pairs: pairs({
         id: 'before-after', light: true,
         eyebrow: 'Before &amp; after',
-        title: 'Five interiors, <span class="gold">side by side.</span>',
+        title: 'Seven repairs, <span class="gold">side by side.</span>',
         items: [
+          ['lr-5155', 'A cream leather bolster with red piping, cracked and creased, before repair', 'lr-5156', 'The same bolster after repair'],
+          ['lr-7083', 'A worn, creased beige leather seat cushion before restoration', 'lr-7084', 'The same seat cushion after restoration'],
+          ['lr-5153', 'A creased cream seat bolster before restoration', 'lr-5154', 'The same bolster after restoration'],
+          ['lr-7085', 'A faded beige leather front seat before restoration', 'lr-7086', 'The same seat after restoration'],
           ['lr-9', 'A cracked cream driver’s seat with a burn mark, before restoration', 'lr-seat', 'The same cream seat after restoration'],
           ['lr-5', 'A worn, stained grey leather seat before restoration', 'lr-fixed', 'The same grey seat after restoration'],
-          ['lr-7', 'A cracked, marked cream seat cushion before restoration', 'lr-base', 'The same seat cushion after restoration'],
-          ['lr-bolster', 'A scuffed grey bolster with red piping before repair', 'lr-red', 'The same bolster after repair'],
-          ['lr-worn', 'A worn cream seat back before colour restoration', 'lr-4', 'The same seat back after colour restoration']
+          ['lr-bolster', 'A scuffed grey bolster with red piping before repair', 'lr-red', 'The same bolster after repair']
         ].map(([b, ba, a, aa]) => ({ before: pairImg(b, ba), after: pairImg(a, aa), thumb: thumb(a) }))
       }) } },
       '10-reviews',
@@ -106,18 +115,18 @@ module.exports = site => {
     data: {
       crumbs: nav.html,
 
-      hero: {
-        stats: true, fit: true,
-        /* phones: where the poster crop is held (08/10) */
-        mfit: true,
-        h1: 'Leather Restoration',
-        line: 'Leather that looks <span class="gold">the way it should.</span>',
-        lede: 'Faded, scuffed, cracked or discoloured leather doesn’t have to stay that way. Leather colour restoration and repair is available through Miracle Detail, so the interior of your car matches the standard of the exterior.',
-        img: frame('lr-hero', {
-          priority: true, ratio: false, sizes: '100vw',
-          alt: 'Tan leather seats being cleaned by hand with a microfibre cloth',
-          art: [{ media: '(max-width: 900px)', id: 'lr-hero-m', sizes: '100vw' }]
-        }),
+      hero: {
+        stats: true, fit: true,
+        /* phones: where the poster crop is held (08/10) */
+        mfit: true,
+        h1: 'Leather Restoration',
+        line: 'Leather that looks <span class="gold">the way it should.</span>',
+        lede: 'Faded, scuffed, cracked or discoloured leather doesn’t have to stay that way. Leather colour restoration and repair is available through Miracle Detail, so the interior of your car matches the standard of the exterior.',
+        img: frame('lr-hero', {
+          priority: true, ratio: false, sizes: '100vw',
+          alt: 'Tan leather seats being cleaned by hand with a microfibre cloth',
+          art: [{ media: '(max-width: 900px)', id: 'lr-hero-m', sizes: '100vw' }]
+        }),
         facts: []
       },
 
@@ -129,7 +138,8 @@ module.exports = site => {
         { id: 'overview', label: 'Overview' },
         { id: 'covered', label: 'What’s covered' },
         { id: 'areas', label: 'Areas' },
-        { id: 'before-after', label: 'Before & after' },
+        { id: 'before-after', label: 'Before & after' }
+,
 
         { id: 'reviews', label: 'Reviews' }
       ],

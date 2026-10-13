@@ -10,7 +10,8 @@
    M3 with the light board); the five steps beside a panel under a light
    board that tells them (block 59; first drawn in code, then, Fender
    the same day, one realistic close-up per step, AI renders until
-   Paul has his own); the comparison under one switch on phones; "Right for" with
+   Paul has his own; steps 2 and 4 cut from Paul's Audi photo 13/10);
+   the comparison under one switch on phones; "Right for" with
    a drawing of each kind of dent, one row each on phones.
    ============================================================ */
 'use strict';
@@ -27,12 +28,13 @@ module.exports = site => {
   ]);
 
   /* 09/10 (Fender): realistic close-ups (AI renders, assets-src/pdr/)
-     in place of the panel drawn in code: one per step, one per kind */
+     in place of the panel drawn in code: one per step, one per kind.
+     13/10: steps 2 and 4 are real now, cut from Paul's Audi photo */
   const ALT = {
     s1: 'A gloved hand holding an inspection light beside a door dent, the light board’s lines bending round it',
-    s2: 'A technician guiding a PDR rod down through the window slot of a black car door',
+    s2: 'A PDR rod guided down through the window seal of a black Audi’s rear door, in the studio',
     s3: 'A gloved hand on a black door as the dent is worked out from behind, the reflected lines almost straight',
-    s4: 'A handheld inspection lamp raking across a black door, the light board’s lines straight',
+    s4: 'The light board beside a black Audi, its reflection lying straight along the repaired rear quarter',
     s5: 'Paul polishing the bonnet of a black BMW M3, the studio lights mirrored in the paint'
   };
   const stepPics = k => ({
@@ -138,7 +140,8 @@ module.exports = site => {
         { id: 'overview', label: 'Overview' },
         { id: 'how', label: 'How it works' },
         { id: 'why-pdr', label: 'PDR vs repair' },
-        { id: 'right-for', label: 'Right for' },
+        { id: 'right-for', label: 'Right for' }
+,
 
         { id: 'reviews', label: 'Reviews' }
       ],

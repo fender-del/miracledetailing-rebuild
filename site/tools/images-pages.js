@@ -16,6 +16,7 @@
 const V = 'v05pages/';
 const O = 'old-site/';
 const B = 'drive-paul/bodyshop-pictures/';
+const LB = 'drive-paul/leather-before-and-after/jpg/';
 
 /* a hero = a wide crop for desktops and a taller one for phones */
 const hero = (id, src, m = { l: .2, t: 0, w: .6, h: 1 }, q = 54) => [
@@ -125,8 +126,15 @@ module.exports = [
   { id: 'wt-dyed',   src: 'stock/pexels-26691322.jpg', crop: { l: .05, t: .12, w: .9, h: .8 }, widths: [600, 900, 1300] },
   { id: 'wt-cham',   src: 'stock/pexels-1574846.jpg', widths: [600, 900, 1300] },
   { id: 'wt-screen', src: 'stock/pexels-39835378.jpg', widths: [600, 900, 1300] },
-  { id: 'wt-jag',    src: 'stock/pexels-4096380.jpg', widths: [800, 1200, 1700, 2400] },
-  { id: 'wt-merc',   src: 'stock/pexels-17233277.jpg', widths: [700, 1000, 1400, 1900] },
+  /* 13/10 (Fender: "too few real photos"): no tint job of Paul's exists
+     in any source (Drive, the 133 gallery jobs, the old site, v0.5), so
+     the blocks that draw on a car's glass use cars in Paul's own
+     Drive instead of Pexels ones; the captions never say they are tinted.
+     Chameleon: a Ferrari 599; UK law: the black RS6 Avant in the studio.
+     Bulletproof keeps the Pexels side glass (Fender preferred it to
+     Paul's Range Rover, 13/10). */
+  { id: 'wt-599',    src: 'drive-paul/608D7C7F-0F37-4DBE-9F0E-F97DF7F64847.PNG', widths: [800, 1200, 1536] },
+  { id: 'wt-rs6',    src: 'drive-paul/5934BCB5-3B9A-465C-8ADE-4F136C170B19.PNG', widths: [700, 1000, 1448] },
   { id: 'wt-side',   src: 'stock/pexels-20036216.jpg', crop: { l: 0, t: .14, w: 1, h: .643 }, widths: [900, 1400, 2000, 2600] },
   { id: 'wt-who-1',  src: 'stock/pexels-7594130.jpg', crop: { l: 0, t: .17, w: 1, h: .5 }, widths: [600, 900, 1200] },
   { id: 'wt-who-2',  src: 'stock/pexels-1467591.jpg', crop: { l: .05, t: .1, w: .9, h: .8 }, widths: [600, 900, 1200] },
@@ -178,10 +186,18 @@ module.exports = [
   /* 09/10: AI renders (GPT Image 2.5, Fender: "ảnh gen AI, close up
      ultra real") until Paul has his own: one per step, 4:5 for the
      desktop stage + a 16:10 band for phones; one per kind of dent */
-  ...[['s1', 'step1-assess', .3], ['s2', 'step2-access', .12], ['s3', 'step3-manip', .14], ['s4', 'step4-inspect', .32]].flatMap(([k, f, t]) => [
+  ...[['s1', 'step1-assess', .3], ['s3', 'step3-manip', .14]].flatMap(([k, f, t]) => [
     { id: `pd-${k}`, src: `pdr/${f}.png`, widths: [500, 800, 1100] },
     { id: `pd-${k}m`, src: `pdr/${f}.png`, crop: { l: 0, t, w: 1, h: .5 }, widths: [500, 800] }
   ]),
+  /* 13/10 (Fender: "too few real photos"): steps 2 and 4 are cut from
+     Paul's own Audi photo (the hero) instead: the rod going in through
+     the window seal; the light board's band lying straight along the
+     repaired quarter panel. Only 1086 px wide, so 600 px crops. */
+  { id: 'pd-s2',  src: 'drive-paul/hero-pdr-board.png', crop: { l: 0, t: .26, w: .552, h: .518 }, widths: [500, 600] },
+  { id: 'pd-s2m', src: 'drive-paul/hero-pdr-board.png', crop: { l: 0, t: .3, w: .6, h: .281 }, widths: [500, 652] },
+  { id: 'pd-s4',  src: 'drive-paul/hero-pdr-board.png', crop: { l: .5, t: .33, w: .5, h: .469 }, widths: [500, 543] },
+  { id: 'pd-s4m', src: 'drive-paul/hero-pdr-board.png', crop: { l: .45, t: .4, w: .55, h: .258 }, widths: [500, 597] },
   /* step 5 = Paul's own photo (Fender 09/10): his hands polishing the M3's bonnet */
   { id: 'pd-s5',  src: 'drive-paul/paul-polishing-bmw-m3-to/4A1EB473-4EE4-4446-8221-687CDC0B4FB2.png', crop: { l: 0, t: .03, w: 1, h: .937 }, widths: [500, 800, 1086] },
   { id: 'pd-s5m', src: 'drive-paul/paul-polishing-bmw-m3-to/4A1EB473-4EE4-4446-8221-687CDC0B4FB2.png', crop: { l: 0, t: .2, w: 1, h: .469 }, widths: [500, 800] },
@@ -210,16 +226,30 @@ module.exports = [
     .map(([id, n, l]) => ({ id, src: O + '2023_11_Wheel-Refurbishment-in-Lingfield-Surrey.-Miracle-Detail' + n + '.jpg', crop: { l, t: 0, w: .5625, h: 1 }, widths: [480, 675] })),
 
   /* ---------- Leather ---------- */
+  /* 13/10 (Fender: "too few real photos"): Paul's Drive folder "leather
+     before and after", unused until now (its HEICs converted to jpg/ by
+     pillow-heif). A Porsche 911's black seats: the dash masked (5135),
+     the seats finished (5148/5149/5150). The man spraying the seats in
+     5136-5138 is NOT Paul (Fender 13/10), so those are not used and the
+     hero stays the old site's photo. Four new pairs: a cream seat
+     with red piping (5153→5154 crease, 5155→5156 cracked bolster) and a
+     beige seat (7083→7084, 7085→7086). */
   ...hero('lr-hero', O + '2023_11_High-quality-Auto-Leather-Restoration-in-Lingfield-Surrey-miracle-detail.jpg', { l: .25, t: 0, w: .5, h: 1 }),
+  { id: 'lr-911',    src: LB + 'IMG_5148.jpg', crop: { l: 0, t: .3, w: 1, h: .47 }, widths: [600, 900, 1200] },
+  { id: 'lr-colour', src: LB + 'IMG_5149.jpg', crop: { l: .08, t: .08, w: .84, h: .84 }, widths: [480, 768] },
+  { id: 'lr-dash',   src: LB + 'IMG_5135.jpg', widths: [480, 768] },
+  { id: 'lr-quote',  src: LB + 'IMG_5150.jpg', crop: { l: 0, t: .15, w: 1, h: .56 }, widths: [960, 1440, 2048], q: 52 },
+  ...['5153', '5154', '5155', '7083', '7084', '7085', '7086'].map(n => ({ id: 'lr-' + n, src: LB + 'IMG_' + n + '.jpg', widths: [480, 768] })),
+  /* a phone screenshot: its top edge carries an app icon */
+  { id: 'lr-5156', src: LB + 'IMG_5156.jpg', crop: { l: 0, t: .05, w: 1, h: .95 }, widths: [480, 768] },
   { id: 'lr-seat',   src: O + '2023_12_Auto-Leather-Restoration-services-in-Lingfield-Surrey-10.jpeg', widths: [480, 768] },
   { id: 'lr-bolster', src: O + '2023_12_Auto-Leather-Restoration-services-in-Lingfield-Surrey-11.jpeg', widths: [480, 768] },
   { id: 'lr-red',    src: O + '2023_12_Auto-Leather-Restoration-services-in-Lingfield-Surrey-12.jpeg', widths: [480, 768] },
-  { id: 'lr-worn',   src: O + '2023_12_Auto-Leather-Restoration-services-in-Lingfield-Surrey-3.jpeg', widths: [480, 768] },
   { id: 'lr-fixed',  src: O + '2023_12_Auto-Leather-Restoration-services-in-Lingfield-Surrey-6.jpeg', widths: [480, 768] },
-  { id: 'lr-base',   src: O + '2023_12_Auto-Leather-Restoration-services-in-Lingfield-Surrey-8.jpeg', widths: [480, 768] },
   /* the before halves of the old site's pairs (08/10, block 57): 9→10,
-     5→6, 7→8, 11→12, 3→4 are the same seat before and after */
-  ...['4', '5', '7', '9'].map(n => ({ id: 'lr-' + n, src: O + '2023_12_Auto-Leather-Restoration-services-in-Lingfield-Surrey-' + n + '.jpeg', widths: [480, 768] })),
+     5→6, 11→12 are the same seat before and after (7→8 and 3→4 left
+     the page 13/10 for Paul's own pairs) */
+  ...['5', '9'].map(n => ({ id: 'lr-' + n, src: O + '2023_12_Auto-Leather-Restoration-services-in-Lingfield-Surrey-' + n + '.jpeg', widths: [480, 768] })),
 
   /* ---------- Packages ---------- */
   ...hero('pk-hero', V + 'packages/download-68.webp', { l: .3, t: 0, w: .45, h: 1 }),

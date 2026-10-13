@@ -13,10 +13,13 @@
    Rebuilt 07/10 (Fender: "thiếu visual … cách trình bày các block bị
    lặp lại"): Paul's words unchanged, each section a different shape
    from the new blocks 45–50 (lib/formats.js), stock photos from Pexels
-   (free licence, assets-src/stock/):
+   (free licence, assets-src/stock/). 13/10: the chameleon and UK law
+   blocks draw on Paul's own cars instead (599, RS6, from his Drive);
+   bulletproof keeps its Pexels glass (Fender preferred it); no tint
+   photo of Paul's exists yet (REQUESTS):
      overview      33 prose, the page's one zoom (Paul's own photo)
      film options  37 cards on the sideways rail, now with photos
-     chameleon     45 showcase: the film painted on a Jaguar windscreen,
+     chameleon     45 showcase: the film painted on a Ferrari 599's windscreen,
                    following the pointer; the four points take turns
      UK law        46 gauge: set how much light the glass lets through,
                    each window says Legal / Too dark against Paul's limits
@@ -35,24 +38,25 @@ const { show, gauge, lens, layers, index, note, inCrop } = require('../lib/forma
 
 const SLUG = 'window-tinting';
 
-/* Glass traced on the photos, in % of each image (whole source). */
-const JAG = {
-  glass: '31.8,10.4 40,10 49.8,9.9 60,10 67.3,10.4 70.2,15 71.9,21 73.4,29.6 62,29.3 50,29.1 38,29.3 26.5,29.6 28.1,21 29.8,15',
-  bonnet: '26.5,30.8 50,30.6 73.5,30.8 77.5,37 79.6,44 82.6,50 83.2,56 83.2,79 77,82 50,82.4 23,82 16.8,79 16.8,56 17.4,50 20.4,44 22.5,37'
+/* Glass traced on the photos, in % of each image (whole source).
+   13/10: the cars are Paul's own (Drive), in place of Pexels ones */
+const F599 = {
+  glass: '24.9,10.3 30.6,9 36.3,8.4 42,8.5 45.4,9.2 50.6,13.7 54.9,18.4 59.1,22.9 53.4,24.4 44.9,26.1 36.3,28.1 29.7,29.6 27.1,19.7',
+  bonnet: '29.7,29.8 36.3,28.3 44.9,26.3 53.4,24.6 59.1,23.1 65,24.4 74.9,29.3 84.8,35.6 86.3,42.5 89.8,49.5 95.8,54.5 93.8,63.5 84.6,68.4 81.4,70.3 71.6,59.6 64.5,52.7 55.3,45.9 45.6,39.1 36.5,33.2'
 };
-const MERC = {
-  screen: '41.1,22.2 43,21.5 46.6,20.9 52,20.3 60,20.1 66.5,20.1 68.4,20.3 68,23.5 67.5,28.6 66.8,31.2 65.9,33.5 64.9,33.9 55,33.9 45,33.9 36,34.2 29.6,35 30.8,34.1 34.4,30.1 38,25.4',
-  front: '70.2,22.4 71.5,21 74,20.8 75.6,21.3 78.3,34.6 77.4,34.7 77.4,32.2 76.8,31.4 71,31.4 70.3,32.2',
-  rear: '75.6,21.3 78,21.6 81,22.6 84,25 86.5,28.5 88.3,33.5 88.6,34.6 78.3,34.6'
+const RS6 = {
+  screen: '36,31.7 40,28 45,23.7 50,20.6 55,19.3 60,18.3 65,17.5 68.6,17.2 65,23.3 61,31.2 48.5,31.3 37.5,31.5',
+  front: '66.8,29.4 68.5,24 70.7,17.6 74,17.5 77.2,17.9 78.4,23.5 79.6,29.2 73,29.3',
+  rear: '79.1,17.9 82,18.8 85,20 89,21.2 91,23.8 93.8,28.5 81.5,29.2 80.3,23.5'
 };
-/* wt-side = Pexels 20036216 cropped (images-pages.js) */
-const SIDE_CROP = { l: 0, t: 0.14, w: 1, h: 0.643 };
-const SIDE = [
-  '0,30 8,27.6 16.3,25.6 20.8,84 0,88',
-  '21.5,24.5 30,23.2 38,23 43.5,24.5 45.8,27.5 52.2,64.5 30.5,79.5 26.8,80.5',
-  '47.5,28 52,30.5 58,40 64,53 64.5,58.5 53,64.5'
-];
-
+/* wt-side = Pexels 20036216 cropped (images-pages.js) */
+const SIDE_CROP = { l: 0, t: 0.14, w: 1, h: 0.643 };
+const SIDE = [
+  '0,30 8,27.6 16.3,25.6 20.8,84 0,88',
+  '21.5,24.5 30,23.2 38,23 43.5,24.5 45.8,27.5 52.2,64.5 30.5,79.5 26.8,80.5',
+  '47.5,28 52,30.5 58,40 64,53 64.5,58.5 53,64.5'
+];
+
 module.exports = site => {
   const nav = crumbs([
     { name: 'Home', href: '/' },
@@ -115,10 +119,10 @@ module.exports = site => {
           'On a windscreen it is particularly effective',
           'It is the choice of clients who want their car to look different: genuinely different, not just tinted.'
         ],
-        img: frame('wt-jag', { alt: 'A white Jaguar saloon head-on, its windscreen shown with a colour-shift film', sizes: '(max-width: 1320px) 94vw, 1240px' }),
+        img: frame('wt-599', { alt: 'A red Ferrari 599 from the front three-quarter, a colour-shift film drawn on its windscreen', sizes: '(max-width: 1320px) 94vw, 1240px' }),
         regions: [
-          { id: 'glass', fx: 'shift', poly: JAG.glass },
-          { id: 'bonnet', fx: 'hatch', poly: JAG.bonnet }
+          { id: 'glass', fx: 'shift', poly: F599.glass },
+          { id: 'bonnet', fx: 'hatch', poly: F599.bonnet }
         ],
         points: [
           { n: 'I', name: 'Colour shift in different light', look: 'shift', paras: 'The film moves through blue, green and purple tones depending on the angle and light conditions. No static appearance: the car looks different at every moment.' },
@@ -131,13 +135,13 @@ module.exports = site => {
         id: 'legal', light: true,
         eyebrow: 'UK legal requirements',
         title: 'Tinted legally. <span class="gold">Done properly.</span>',
-        img: frame('wt-merc', { alt: 'A white Mercedes saloon from the front three-quarter, its windscreen and side windows marked', sizes: '(max-width: 1023px) 94vw, 52vw' }),
+        img: frame('wt-rs6', { alt: 'A black Audi RS6 Avant in the Miracle Detail studio, its windscreen and side windows marked', sizes: '(max-width: 1023px) 94vw, 52vw' }),
         range: { label: 'Light let through', min: 5, max: 100, step: 1, value: 70, unit: '%' },
         pass: 'Legal', fail: 'Too dark',
         zones: [
-          { id: 'screen', name: 'Windscreen', min: 75, poly: MERC.screen },
-          { id: 'front', name: 'Front side windows', min: 70, poly: MERC.front },
-          { id: 'rear', name: 'Rear side windows', min: 0, minLabel: 'No legal minimum', poly: MERC.rear }
+          { id: 'screen', name: 'Windscreen', min: 75, poly: RS6.screen },
+          { id: 'front', name: 'Front side windows', min: 70, poly: RS6.front },
+          { id: 'rear', name: 'Rear side windows', min: 0, minLabel: 'No legal minimum', poly: RS6.rear }
         ],
         paras: [
           'Window tinting in the UK is governed by visible light transmission (VLT) regulations. The law specifies minimum light transmission levels for front side windows and windscreens: rear windows and rear side windows have no legal minimum for private vehicles.',
@@ -159,11 +163,11 @@ module.exports = site => {
         id: 'bulletproof',
         eyebrow: 'Also available through Miracle Detail · Bulletproof Film',
         title: 'Protection that <span class="gold">cannot be seen.</span>',
-        img: frame('wt-side', { alt: 'The dark side glass of a black saloon', sizes: '100vw', ratio: false }),
-        img2: frame('wt-side', { sizes: '100vw', ratio: false }),
-        ar: (images['wt-side'].w / images['wt-side'].h).toFixed(4),
-        regions: SIDE.map((poly, i) => ({ id: 'g' + i, poly: inCrop(poly, SIDE_CROP) })),
-        rest: [31, 60], focus: 34,
+        img: frame('wt-side', { alt: 'The dark side glass of a black saloon', sizes: '100vw', ratio: false }),
+        img2: frame('wt-side', { sizes: '100vw', ratio: false }),
+        ar: (images['wt-side'].w / images['wt-side'].h).toFixed(4),
+        regions: SIDE.map((poly, i) => ({ id: 'g' + i, poly: inCrop(poly, SIDE_CROP) })),
+        rest: [31, 60], focus: 34,
         hint: 'Look through the glass', tag: 'Multi-layer film',
         lead: 'Invisible protection. Absolute discretion.',
         paras: [
@@ -244,7 +248,8 @@ module.exports = site => {
         { id: 'chameleon', label: 'Chameleon' },
         { id: 'legal', label: 'UK law' },
         { id: 'bulletproof', label: 'Bulletproof film' },
-        { id: 'who', label: 'Who it’s for' },
+        { id: 'who', label: 'Who it’s for' }
+,
 
         { id: 'reviews', label: 'Reviews' }
       ],
