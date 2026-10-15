@@ -52,18 +52,18 @@ html:not(.js) .pc__pname{display:block;margin-top:34px;font-family:var(--fd);fon
 .pc__svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .pc__cap{position:absolute;top:8%;left:4%;font-size:.625rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);pointer-events:none}
 
-/* the film: gold multiplied into the paint, so white turns gold and
+/* the film: Lamborghini lime (Verde Mantis) multiplied into the paint, so white turns lime and
    the reflections and shadows of the photo stay where they are */
 .pc__film{mix-blend-mode:multiply}
-.pc__film .z{fill:#D8B35A;opacity:0;pointer-events:visiblePainted;transition:opacity .55s var(--ease)}
+.pc__film .z{fill:#7FD400;opacity:0;pointer-events:visiblePainted;transition:opacity .55s var(--ease)}
 .pc__film .z.a{opacity:.7;transition-delay:calc(var(--i,0) * 70ms)}
 /* over the dark parts (lights, mirrors) the film is laid on, faintly */
-.pc__fx .zd{fill:#E2C273;opacity:0;transition:opacity .55s var(--ease)}
+.pc__fx .zd{fill:#A6E83A;opacity:0;transition:opacity .55s var(--ease)}
 .pc__fx .zd.a{opacity:.42;transition-delay:calc(var(--i,0) * 70ms)}
 .pc__view.hl .zd.a{opacity:.12;transition-delay:0s}
 .pc__view.hl .zd.k{opacity:.62}
-/* its cut edges, a faint hairline of light gold (13/10: lighter) */
-.pc__fx .e{fill:none;stroke:#F3DC9C;stroke-width:.6;stroke-linejoin:round;vector-effect:non-scaling-stroke;opacity:0;transition:opacity .55s var(--ease)}
+/* its cut edges, a faint hairline of light lime (15/10: lime, was gold) */
+.pc__fx .e{fill:none;stroke:#D9F79A;stroke-width:.6;stroke-linejoin:round;vector-effect:non-scaling-stroke;opacity:0;transition:opacity .55s var(--ease)}
 .pc__fx .e.a{opacity:.45;transition-delay:calc(var(--i,0) * 70ms)}
 /* one panel picked: it stays bright, the rest of the film dims */
 .pc__view.hl .pc__film .z.a{opacity:.2;transition-delay:0s}
@@ -96,7 +96,7 @@ html:not(.js) .pc__pname{display:block;margin-top:34px;font-family:var(--fd);fon
 /* under the stage: the legend, and the other view to swap in */
 .pc__bar{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-top:4px}
 .pc__legend{display:flex;align-items:center;gap:10px;padding-bottom:6px;font-size:.625rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
-.pc__legend i{width:18px;height:10px;background:linear-gradient(180deg,rgba(230,204,133,.75),rgba(201,168,77,.45));box-shadow:inset 0 0 0 1px rgba(243,220,156,.9)}
+.pc__legend i{width:18px;height:10px;background:linear-gradient(180deg,rgba(150,225,40,.8),rgba(110,190,0,.5));box-shadow:inset 0 0 0 1px rgba(217,247,154,.9)}
 .pc__slot{flex:0 0 34%;max-width:300px}
 .pc__view.is-thumb{border-radius:4px;overflow:hidden;background:var(--graphite);box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .4s var(--ease)}
 .pc__view.is-thumb .pc__cap{top:auto;bottom:8%;left:6%;font-size:.5625rem;letter-spacing:.22em;color:var(--text)}
