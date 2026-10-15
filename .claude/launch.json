@@ -36,6 +36,15 @@
         "8768"
       ],
       "port": 8768
+    },
+    {
+      "name": "paul-board",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "review/paul-board/serve.js",
+        "8790"
+      ],
+      "port": 8790
     }
   ]
 }

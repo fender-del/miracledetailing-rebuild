@@ -1,0 +1,941 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<title>Miracle Detail · Website review</title>
+<style>
+@font-face{font-family:"Fraunces";font-weight:500;font-display:swap;src:url(/assets/fonts/fraunces.woff2) format("woff2")}
+@font-face{font-family:"Jost";font-weight:300 600;font-display:swap;src:url(/assets/fonts/jost.woff2) format("woff2")}
+/* Miracle Detail · website review board (for Paul) */
+:root{
+  --ink:#111111; --ink-2:#0A0A0A; --graphite:#1B1B1D; --raise:#232326; --raise-2:#2C2C30;
+  --line:rgba(255,255,255,.12); --line-2:rgba(255,255,255,.22);
+  --gold:#C9A84D; --gold-2:#E6CC85; --gold-deep:#9C7F2E; --gold-a15:rgba(201,168,77,.15);
+  --white:#fff; --paper:#F5F3EE; --text:#E4E1DA; --muted:#ADA99F; --red:#E07A6B;
+  --f:"Jost","Helvetica Neue",Arial,sans-serif; --fd:"Fraunces",Georgia,serif;
+  --bar:72px; --r:10px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--ink);color:var(--text);font:400 17px/1.5 var(--f);-webkit-font-smoothing:antialiased}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+h1,h2,h3{font-family:var(--fd);font-weight:500;color:var(--white);margin:0;line-height:1.15}
+.gold{color:var(--gold)}
+[hidden]{display:none!important}
+
+/* buttons */
+.btn{text-decoration:none;color:inherit;display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:48px;padding:0 22px;border-radius:999px;
+  border:1px solid var(--line-2);background:transparent;font-weight:500;font-size:16px;letter-spacing:.02em;white-space:nowrap;transition:background .2s,border-color .2s,color .2s}
+.btn:hover{border-color:var(--gold);color:var(--gold-2)}
+.btn--gold,.btn--gold:visited{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.btn--gold:hover{background:var(--gold-2);border-color:var(--gold-2);color:var(--ink)}
+.btn--big{min-height:60px;font-size:18px;padding:0 30px}
+.btn--quiet{border-color:transparent;color:var(--muted)}
+.btn--quiet:hover{border-color:transparent;color:var(--white);text-decoration:underline}
+.btn--danger:hover{border-color:var(--red);color:var(--red)}
+.btn:focus-visible,.seg button:focus-visible,.rail a:focus-visible,.card:focus-visible{outline:3px solid var(--gold-2);outline-offset:3px}
+
+/* segmented switch: Computer / Phone */
+.seg{display:inline-flex;border:1px solid var(--line-2);border-radius:999px;padding:4px;gap:4px;background:var(--ink-2)}
+.seg button{border:0;background:transparent;border-radius:999px;min-height:40px;padding:0 18px;font-weight:500;font-size:15px;color:var(--muted);display:inline-flex;align-items:center;gap:8px}
+.seg button[aria-pressed=true]{background:var(--gold);color:var(--ink)}
+.seg svg{width:18px;height:18px}
+
+/* top bar */
+.bar{position:fixed;inset:0 0 auto 0;height:var(--bar);z-index:30;display:flex;align-items:center;gap:18px;padding:0 20px;
+  background:rgba(10,10,10,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar__brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--white);min-width:0}
+.bar__brand img{height:40px;width:auto}
+.bar__brand span{font:500 13px/1.2 var(--f);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.bar__mid{flex:1;display:flex;justify-content:center;align-items:center;gap:16px;min-width:0}
+.bar__title{font:500 22px/1.1 var(--fd);color:var(--white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar__right{display:flex;align-items:center;gap:12px}
+.saved{font-size:14px;color:var(--muted);display:flex;align-items:center;gap:6px;white-space:nowrap}
+.saved i{width:8px;height:8px;border-radius:50%;background:#6FBF73;display:inline-block}
+.count{display:inline-grid;place-items:center;min-width:26px;height:26px;padding:0 7px;border-radius:999px;background:var(--gold);color:var(--ink);font-size:14px;font-weight:600}
+.count--dim{background:var(--raise-2);color:var(--muted)}
+
+main{padding-top:var(--bar)}
+
+/* welcome */
+.welcome{min-height:calc(100vh - var(--bar));display:grid;place-items:center;padding:40px 20px}
+.welcome__box{max-width:760px;width:100%}
+.welcome h1{font-size:clamp(36px,5vw,56px);margin:14px 0 18px}
+.eyebrow{font:500 13px/1 var(--f);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+.lead{font-size:20px;color:var(--text);max-width:640px}
+.steps{list-style:none;padding:0;margin:30px 0;display:grid;gap:14px}
+.steps li{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;background:var(--graphite);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px}
+.steps b{font:500 30px/1 var(--fd);color:var(--gold)}
+.steps strong{display:block;color:var(--white);font-weight:500;font-size:19px;margin-bottom:2px}
+.steps p{margin:0;color:var(--muted)}
+.field{display:grid;gap:8px;margin:0 0 22px}
+.field label{font-weight:500;color:var(--white)}
+.field input,.field textarea{width:100%;background:var(--ink-2);border:1px solid var(--line-2);border-radius:8px;padding:14px 16px;font-size:18px;line-height:1.45;color:var(--white)}
+.field textarea{resize:vertical;min-height:110px}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-a15)}
+.hint{font-size:15px;color:var(--muted)}
+
+/* overview */
+.over{padding:34px 28px 80px}
+.over__head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:20px;margin-bottom:26px}
+.over__head h1{font-size:clamp(32px,4vw,46px);margin-top:10px}
+.over__head p{margin:8px 0 0;color:var(--muted);max-width:720px}
+.over__tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.group{margin:34px 0 10px;font:500 14px/1 var(--f);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.grid--m{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
+.card{display:block;text-decoration:none;color:inherit;background:var(--graphite);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.card__win{position:relative;height:400px;overflow:hidden;background:var(--ink-2)}
+.grid--m .card__win{height:340px}
+.card__win .strip{position:absolute;inset:0 0 auto 0;transition:transform 1.2s ease}
+.card__win img{display:block;width:100%;height:auto}
+.card:hover .strip{transition-timing-function:linear}
+.card__meta{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px}
+.card__meta strong{font:500 19px/1.2 var(--fd);color:var(--white)}
+.card__go{font-size:14px;color:var(--gold);white-space:nowrap}
+.dot{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 2px var(--ink)}
+
+/* the whole site at once (a strip you can drag) */
+.wall{overflow:auto;cursor:grab;border:1px solid var(--line);border-radius:var(--r);background:var(--ink-2);height:calc(100vh - var(--bar) - 190px);min-height:420px;user-select:none}
+.wall.is-drag{cursor:grabbing}
+.wall__row{display:flex;gap:26px;padding:24px;align-items:flex-start;width:max-content}
+.wall__col{width:200px;flex:none}
+.wall--m .wall__col{width:120px}
+.wall__col h3{font:500 15px/1.25 var(--fd);margin:0 0 10px;min-height:38px}
+.wall__col h3 a{color:var(--white);text-decoration:none}
+.wall__col h3 a:hover{color:var(--gold)}
+.wall__pic{position:relative;border-radius:6px;overflow:hidden;outline:1px solid var(--line)}
+.wall__pic img{display:block;width:100%;height:auto;pointer-events:none}
+.wall__pic:hover{outline:2px solid var(--gold)}
+.wall__group{flex:none;align-self:stretch;width:2px;background:var(--line);margin:0 4px}
+
+/* page view */
+.pv{display:grid;grid-template-columns:210px 1fr 330px;height:calc(100vh - var(--bar))}
+.rail{border-right:1px solid var(--line);overflow:auto;padding:18px 10px 40px;background:var(--ink-2)}
+.rail h4{font:500 12px/1 var(--f);letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:18px 10px 8px}
+.rail a{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 10px;border-radius:8px;text-decoration:none;color:var(--text);font-size:16px;line-height:1.25}
+.rail a:hover{background:var(--raise)}
+.rail a[aria-current=page]{background:var(--gold-a15);color:var(--white);box-shadow:inset 3px 0 0 var(--gold)}
+.rail .back{color:var(--gold);margin-bottom:6px}
+
+.stage{overflow:auto;background:#060606;position:relative}
+.stage__tools{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 18px;background:rgba(6,6,6,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.stage__tools .tip{font-size:15px;color:var(--muted);flex:1;text-align:center}
+.stage__tools .grp{display:flex;gap:10px;align-items:center}
+.stage__tools .tip b{color:var(--gold-2);font-weight:500}
+/* the real page, in a phone or scaled to a computer screen */
+.stage{display:flex;flex-direction:column;overflow:hidden}
+.frame-wrap{flex:1;min-height:0;display:grid;place-items:start center;padding:18px;overflow:auto}
+.frame{position:relative;background:#000;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.frame iframe{display:block;border:0;background:#111;transform-origin:0 0}
+.frame--m{border-radius:34px;padding:12px;background:#1d1d1f;box-shadow:0 0 0 1px #333,0 20px 60px rgba(0,0,0,.6)}
+.frame--m iframe{border-radius:22px}
+.frame.is-noting{box-shadow:0 0 0 4px var(--gold),0 20px 60px rgba(0,0,0,.6)}
+.noting-tip{display:none;font-size:15px;color:var(--ink);background:var(--gold);border-radius:999px;padding:8px 16px;font-weight:500}
+.is-noting .noting-tip{display:inline-block}
+.btn--note[aria-pressed=true]{background:var(--white);border-color:var(--white);color:var(--ink)}
+.pin{width:34px;height:34px;border-radius:50% 50% 50% 4px;display:grid;place-items:center;
+  background:var(--gold);color:var(--ink);font:600 15px/1 var(--f);border:2px solid var(--ink);box-shadow:0 4px 14px rgba(0,0,0,.55)}
+.side{border-left:1px solid var(--line);display:flex;flex-direction:column;min-height:0;background:var(--graphite)}
+.side__head{padding:18px 16px 14px;border-bottom:1px solid var(--line)}
+.side__head h3{font-size:22px}
+.side__body{overflow:auto;padding:16px;flex:1}
+.side__foot{padding:14px 16px;border-top:1px solid var(--line);display:grid;gap:10px}
+.empty{color:var(--muted);font-size:16px;padding:6px 2px}
+.empty strong{color:var(--white);font-weight:500}
+.note{display:grid;grid-template-columns:34px 1fr;gap:12px;padding:14px;border:1px solid var(--line);border-radius:var(--r);background:var(--raise);margin-bottom:10px;cursor:pointer;text-align:left;width:100%}
+.note:hover,.note.is-on{border-color:var(--gold)}
+.note .pin{position:static;margin:0;width:30px;height:30px;font-size:14px}
+.note small{display:block;color:var(--muted);font-size:13px;letter-spacing:.04em;margin-bottom:3px}
+.note p{margin:0;font-size:15px;line-height:1.45;color:var(--text);overflow-wrap:anywhere}
+.note p+p{margin-top:4px}
+.note .chg{color:var(--gold-2)}
+.note .was{color:var(--muted);font-style:italic}
+.words h5{font:500 12px/1.3 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:20px 0 8px}
+.words h5:first-child{margin-top:4px}
+.word{display:block;width:100%;text-align:left;border:1px solid transparent;background:transparent;padding:8px 10px;border-radius:8px;font-size:15px;line-height:1.45;color:var(--text);white-space:pre-line}
+.word:hover{background:var(--raise);border-color:var(--line-2)}
+.word.has{border-color:var(--gold);background:var(--gold-a15)}
+.word em{display:block;font-style:normal;font-size:12px;letter-spacing:.06em;color:var(--muted);margin-top:2px}
+.word.h{font:500 17px/1.3 var(--fd);color:var(--white)}
+
+/* dialogs */
+.veil{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.72);display:grid;place-items:center;padding:20px;overflow:auto}
+.dlg{width:min(720px,100%);max-height:calc(100vh - 40px);overflow:auto;background:var(--graphite);border:1px solid var(--line-2);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.dlg__head{padding:22px 26px 6px}
+.dlg__head h2{font-size:30px}
+.dlg__head p{margin:6px 0 0;color:var(--muted);font-size:15px}
+.dlg__body{padding:14px 26px 6px}
+.dlg__foot{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding:16px 26px 24px}
+.dlg__foot .r{display:flex;gap:12px;margin-left:auto}
+.snip{display:block;max-width:100%;width:auto;height:auto;max-height:34vh;border-radius:8px;border:1px solid var(--line);margin:0 0 18px;background:#000}
+.now{background:var(--ink-2);border:1px solid var(--line);border-left:3px solid var(--muted);border-radius:6px;padding:12px 14px;white-space:pre-line;color:var(--text);font-size:16px;margin:0 0 18px;max-height:200px;overflow:auto}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 18px}
+.chip{border:1px solid var(--line-2);background:transparent;border-radius:999px;padding:10px 16px;font-size:15px}
+.chip[aria-pressed=true]{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.linkbtn{border:0;background:none;color:var(--gold);padding:0;text-decoration:underline;font-size:15px}
+
+.finish ol{padding-left:0;list-style:none;display:grid;gap:14px;margin:6px 0 10px}
+.finish li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;background:var(--raise);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.finish li b{font:500 30px/1 var(--fd);color:var(--gold)}
+.finish li p{margin:2px 0 0;color:var(--muted);font-size:15px}
+.finish .ok{color:#8FD694;font-size:15px;margin-left:8px}
+.sum{display:flex;gap:26px;flex-wrap:wrap;margin:4px 0 18px}
+.sum div{font-size:15px;color:var(--muted)}
+.sum strong{display:block;font:500 34px/1 var(--fd);color:var(--white)}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:60;background:var(--white);color:var(--ink);padding:12px 20px;border-radius:999px;font-weight:500;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+
+.note .gone{color:var(--muted);font-size:13px}
+.preview{display:block;max-width:100%;max-height:30vh;border-radius:8px;border:1px solid var(--line);margin:0 0 18px}
+.side__foot .btn{padding:0 16px}
+@media (max-width:1360px){.stage__tools .tip{display:none}}
+@media (max-width:1180px){
+  .pv{grid-template-columns:190px 1fr 290px}
+  .bar__brand span{display:none}
+}
+</style>
+</head>
+<body>
+<header class="bar" id="bar"></header>
+<main id="main"></main>
+<script>window.BOARD = {"made":"15 October 2026","logo":"/assets/img/logo-240.png","pages":[{"id":"home","name":"Homepage","group":"Main pages","path":"","d":{"thumb":"thumbs/home-d-thumb.jpg","w":1440,"h":9759},"m":{"thumb":"thumbs/home-m-thumb.jpg","w":390,"h":10360}},{"id":"services","name":"Services","group":"Main pages","path":"car-care-services/","d":{"thumb":"thumbs/services-d-thumb.jpg","w":1440,"h":4407},"m":{"thumb":"thumbs/services-m-thumb.jpg","w":390,"h":5529}},{"id":"packages","name":"Packages","group":"Main pages","path":"car-detailing-studio/","d":{"thumb":"thumbs/packages-d-thumb.jpg","w":1440,"h":9302},"m":{"thumb":"thumbs/packages-m-thumb.jpg","w":390,"h":7187}},{"id":"about","name":"About Paul","group":"Main pages","path":"about-paul-dalton-car-detailing/","d":{"thumb":"thumbs/about-d-thumb.jpg","w":1440,"h":25977},"m":{"thumb":"thumbs/about-m-thumb.jpg","w":390,"h":28996}},{"id":"gallery","name":"Gallery","group":"Main pages","path":"car-detail-gallery/","d":{"thumb":"thumbs/gallery-d-thumb.jpg","w":1440,"h":14494},"m":{"thumb":"thumbs/gallery-m-thumb.jpg","w":390,"h":20169}},{"id":"ppf","name":"Paint Protection Film","group":"Services","path":"paint-protection-film-ppf/","d":{"thumb":"thumbs/ppf-d-thumb.jpg","w":1440,"h":11008},"m":{"thumb":"thumbs/ppf-m-thumb.jpg","w":390,"h":12561}},{"id":"ceramic","name":"Ceramic Coating","group":"Services","path":"ceramic-coatings/","d":{"thumb":"thumbs/ceramic-d-thumb.jpg","w":1440,"h":11338},"m":{"thumb":"thumbs/ceramic-m-thumb.jpg","w":390,"h":11840}},{"id":"correction","name":"Paint Correction","group":"Services","path":"paint-correction-and-polishing/","d":{"thumb":"thumbs/correction-d-thumb.jpg","w":1440,"h":11271},"m":{"thumb":"thumbs/correction-m-thumb.jpg","w":390,"h":11450}},{"id":"tint","name":"Window Tinting","group":"Services","path":"window-tinting/","d":{"thumb":"thumbs/tint-d-thumb.jpg","w":1440,"h":13646},"m":{"thumb":"thumbs/tint-m-thumb.jpg","w":390,"h":14722}},{"id":"dry-ice","name":"Dry Ice Cleaning","group":"Services","path":"dry-ice-blasting-and-laser-cleaning/","d":{"thumb":"thumbs/dry-ice-d-thumb.jpg","w":1440,"h":9365},"m":{"thumb":"thumbs/dry-ice-m-thumb.jpg","w":390,"h":10394}},{"id":"mobile","name":"Mobile Detailing","group":"Services","path":"mobile-car-detailing/","d":{"thumb":"thumbs/mobile-d-thumb.jpg","w":1440,"h":12993},"m":{"thumb":"thumbs/mobile-m-thumb.jpg","w":390,"h":11642}},{"id":"bodyshop","name":"Bodyshop & Paint Repair","group":"Services","path":"bodyshop-repair/","d":{"thumb":"thumbs/bodyshop-d-thumb.jpg","w":1440,"h":11210},"m":{"thumb":"thumbs/bodyshop-m-thumb.jpg","w":390,"h":12460}},{"id":"pdr","name":"Paintless Dent Removal","group":"Services","path":"paintless-dent-removal/","d":{"thumb":"thumbs/pdr-d-thumb.jpg","w":1440,"h":9019},"m":{"thumb":"thumbs/pdr-m-thumb.jpg","w":390,"h":10594}},{"id":"wheels","name":"Wheel Refurbishment","group":"Services","path":"wheel-refurbishment/","d":{"thumb":"thumbs/wheels-d-thumb.jpg","w":1440,"h":7344},"m":{"thumb":"thumbs/wheels-m-thumb.jpg","w":390,"h":8458}},{"id":"leather","name":"Leather Restoration","group":"Services","path":"leather-restoration/","d":{"thumb":"thumbs/leather-d-thumb.jpg","w":1440,"h":7986},"m":{"thumb":"thumbs/leather-m-thumb.jpg","w":390,"h":8611}},{"id":"aftercare","name":"Aftercare Guide","group":"Services","path":"aftercare-washing-guide/","d":{"thumb":"thumbs/aftercare-d-thumb.jpg","w":1440,"h":9041},"m":{"thumb":"thumbs/aftercare-m-thumb.jpg","w":390,"h":9638}},{"id":"journal","name":"Journal","group":"Journal","path":"journal/","d":{"thumb":"thumbs/journal-d-thumb.jpg","w":1440,"h":3839},"m":{"thumb":"thumbs/journal-m-thumb.jpg","w":390,"h":4875}},{"id":"post-competition","name":"Facebook Competition (post)","group":"Journal","path":"facebook-competition/","d":{"thumb":"thumbs/post-competition-d-thumb.jpg","w":1440,"h":5300},"m":{"thumb":"thumbs/post-competition-m-thumb.jpg","w":390,"h":5510}},{"id":"post-launch","name":"New Product Launch (post)","group":"Journal","path":"new-product-launch/","d":{"thumb":"thumbs/post-launch-d-thumb.jpg","w":1440,"h":5578},"m":{"thumb":"thumbs/post-launch-m-thumb.jpg","w":390,"h":5737}}],"key":"live1","sendTo":"Ed","defaultName":"Paul"};</script>
+<script>/* ============================================================
+   Miracle Detail · website review board, live edition.
+   Each page is the real website inside a phone (or a computer
+   screen), working exactly as it does for a visitor: scroll, tabs,
+   before and after, pop-ups. "+ Add a note", then a click on the
+   page, opens a note box; the note is pinned to the words or photo
+   under the click and follows it as the page moves. Notes stay on
+   this computer (localStorage) until "Save my notes" saves one
+   Excel file; "open a notes file" puts its pins back.
+   Served from /review/ on the same site, so the board can look
+   inside the page.
+   ============================================================ */
+(() => {
+'use strict';
+const B = window.BOARD;
+const PAGES = B.pages;
+const byId = Object.fromEntries(PAGES.map(p => [p.id, p]));
+const byPath = Object.fromEntries(PAGES.map(p => ['/' + p.path, p]));
+const KEY = 'miracle-review-' + B.key;
+const VIEW_NAME = { d: 'Computer', m: 'Phone' };
+const PHONE = { w: 390, h: 844 };
+const DESK = 1440;
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const clip = (s, m) => { s = String(s || '').replace(/\s+/g, ' ').trim(); return s.length > m ? s.slice(0, m - 1) + '…' : s; };
+const norm = s => String(s || '').replace(/\s+/g, ' ').trim();
+const ICON = {
+  d: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg>',
+  m: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/></svg>'
+};
+
+/* ---------- saved state ---------- */
+let S = { name: '', notes: [], seq: 0, view: 'm', mode: 'cards' };
+try { const raw = localStorage.getItem(KEY); if (raw) S = Object.assign(S, JSON.parse(raw)); } catch (e) { /* private window */ }
+let storeOK = true;
+/* localStorage keeps plain data only (not the page elements a pin follows) */
+const replacer = (k, v) => (k === '_el' || k === '_doc' ? undefined : v);
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(S, replacer)); storeOK = true; } catch (e) { storeOK = false; }
+  paintBar();
+}
+const notesOf = id => S.notes.filter(n => n.page === id);
+const numOf = n => notesOf(n.page).indexOf(n) + 1;
+
+/* ---------- top bar ---------- */
+const bar = $('#bar');
+function paintBar(title) {
+  const n = S.notes.length;
+  if (title !== undefined) bar.dataset.title = title;
+  const t = bar.dataset.title || '';
+  bar.innerHTML = `
+    <a class="bar__brand" href="#/"><img src="${B.logo}" alt="Miracle Detail"><span>Website review</span></a>
+    <div class="bar__mid">${t ? `<div class="bar__title">${esc(t)}</div>` : ''}</div>
+    <div class="bar__right">
+      ${S.name ? `${n && storeOK ? '<span class="saved" title="Your notes are kept on this computer as you go"><i></i>Kept on this computer</span>' : ''}
+      <a class="btn" href="#/notes">My notes <span class="count ${n ? '' : 'count--dim'}">${n}</span></a>
+      <button class="btn btn--gold" data-act="finish">Save my notes</button>` : ''}
+    </div>`;
+}
+bar.addEventListener('click', e => { if (e.target.closest('[data-act=finish]')) openFinish(); });
+
+/* ---------- router ---------- */
+const main = $('#main');
+let quietHash = false; /* the page inside navigated by itself: no rebuild */
+function route() {
+  if (quietHash) { quietHash = false; return; }
+  stopPins();
+  window.scrollTo(0, 0);
+  const h = location.hash.replace(/^#\/?/, '');
+  if (!S.name) return renderWelcome();
+  const parts = h.split('/');
+  if (parts[0] === 'page' && byId[parts[1]]) return renderPage(parts[1], parts[2] === 'd' ? 'd' : parts[2] === 'm' ? 'm' : S.view, parts[3]);
+  if (parts[0] === 'notes') return renderAllNotes();
+  return renderHome();
+}
+window.addEventListener('hashchange', route);
+
+/* ---------- welcome ---------- */
+function renderWelcome() {
+  paintBar('');
+  main.innerHTML = `
+  <section class="welcome"><div class="welcome__box">
+    <div class="eyebrow">The new website</div>
+    <h1>Every page, in one place. <span class="gold">Tell us what you would like.</span></h1>
+    <p class="lead">This is the new Miracle Detail website, all ${PAGES.length} pages, working just as it will for your customers.</p>
+    <ol class="steps">
+      <li><b>1</b><div><strong>Open a page and use it as normal</strong><p>Scroll, click the tabs, try the before and after photos, open the pop-ups.</p></div></li>
+      <li><b>2</b><div><strong>Press “+ Add a note”, then click the spot</strong><p>A box opens: write what you would like there. A gold pin marks each note and stays on that spot.</p></div></li>
+      <li><b>3</b><div><strong>Press “Save my notes”</strong><p>It saves one file. Email it back to ${esc(B.sendTo)}.</p></div></li>
+    </ol>
+    <form class="field" id="who" style="max-width:420px">
+      <label for="nm">Your name</label>
+      <input id="nm" name="nm" autocomplete="name" value="${esc(B.defaultName)}" required>
+    </form>
+    <button class="btn btn--gold btn--big" form="who">Start</button>
+    <p class="hint" style="margin-top:18px">Your notes are kept on this computer as you go, so you can close this and carry on later. Please use the same browser each time.</p>
+  </div></section>`;
+  $('#who').addEventListener('submit', e => {
+    e.preventDefault();
+    S.name = $('#nm').value.trim() || B.defaultName;
+    save();
+    location.hash = '#/';
+    route();
+  });
+}
+
+/* ---------- overview (pictures of every page) ---------- */
+function viewSwitch(curV, attr) {
+  return `<div class="seg" role="group" aria-label="Phone or computer">${['m', 'd'].map(v =>
+    `<button ${attr}="${v}" aria-pressed="${v === curV}">${ICON[v]}${VIEW_NAME[v]}</button>`).join('')}</div>`;
+}
+function dotsFor(p, v) {
+  return notesOf(p.id).filter(n => n.view === v && n.kind !== 'page' && n.dh).map(n =>
+    `<i class="dot" style="left:${(n.dx / n.dw * 100).toFixed(2)}%;top:${(n.dy / n.dh * 100).toFixed(3)}%"></i>`).join('');
+}
+function renderHome() {
+  paintBar('');
+  const v = S.view;
+  const groups = [...new Set(PAGES.map(p => p.group))];
+  const total = S.notes.length;
+  main.innerHTML = `
+  <section class="over">
+    <div class="over__head">
+      <div>
+        <div class="eyebrow">Hello ${esc(S.name)}</div>
+        <h1>All ${PAGES.length} pages</h1>
+        <p>Click a page to open the real thing. Use it as normal; press <strong class="gold">+ Add a note</strong> whenever you want something changed. ${total ? `You have <strong class="gold">${total} note${total > 1 ? 's' : ''}</strong> so far.` : ''}</p>
+      </div>
+      <div class="over__tools">
+        ${viewSwitch(v, 'data-v')}
+        <div class="seg" role="group" aria-label="How to show the pages">
+          <button data-mode="cards" aria-pressed="${S.mode === 'cards'}">Page cards</button>
+          <button data-mode="wall" aria-pressed="${S.mode === 'wall'}">Whole site at once</button>
+        </div>
+        <button class="btn" data-act="general">Note about the whole website</button>
+      </div>
+    </div>
+    ${S.mode === 'wall' ? wallHTML(v, groups) : groups.map(g => `
+      <h2 class="group">${esc(g)}</h2>
+      <div class="grid ${v === 'm' ? 'grid--m' : ''}">
+        ${PAGES.filter(p => p.group === g).map(p => cardHTML(p, v)).join('')}
+      </div>`).join('')}
+    <p class="hint" style="margin-top:48px">For the Miracle team: <button class="linkbtn" data-act="open">open a notes file</button> to see its pins on the pages.</p>
+  </section>`;
+  main.querySelectorAll('[data-v]').forEach(b => b.onclick = () => { S.view = b.dataset.v; save(); renderHome(); });
+  main.querySelectorAll('[data-mode]').forEach(b => b.onclick = () => { S.mode = b.dataset.mode; save(); renderHome(); });
+  main.querySelector('[data-act=general]').onclick = () => openEditor({ page: '_site', view: v, kind: 'page' });
+  main.querySelector('[data-act=open]').onclick = openNotesFile;
+  main.querySelectorAll('.card').forEach(c => {
+    const strip = c.querySelector('.strip'), win = c.querySelector('.card__win');
+    c.addEventListener('mouseenter', () => {
+      const d = Math.max(0, strip.offsetHeight - win.offsetHeight);
+      strip.style.transitionDuration = Math.max(1.2, d / 320) + 's';
+      strip.style.transform = `translateY(${-d}px)`;
+    });
+    c.addEventListener('mouseleave', () => { strip.style.transitionDuration = '1s'; strip.style.transform = ''; });
+  });
+  const wall = main.querySelector('.wall');
+  if (wall) dragToPan(wall);
+}
+function cardHTML(p, v) {
+  const n = notesOf(p.id).length, T = p[v], w = v === 'm' ? 120 : 240;
+  return `<a class="card" href="#/page/${p.id}/${v}">
+    <div class="card__win"><div class="strip"><img src="${T.thumb}" alt="" width="${w}" height="${Math.round(T.h / T.w * w)}"><div style="position:absolute;inset:0">${dotsFor(p, v)}</div></div></div>
+    <div class="card__meta"><strong>${esc(p.name)}</strong>${n ? `<span class="count">${n}</span>` : '<span class="card__go">Open →</span>'}</div>
+  </a>`;
+}
+function wallHTML(v, groups) {
+  const W = v === 'm' ? 120 : 200;
+  return `<p class="hint" style="margin:0 0 12px">Every page, top to bottom, side by side. Drag to move around, click a page to open it.</p>
+  <div class="wall ${v === 'm' ? 'wall--m' : ''}"><div class="wall__row">
+  ${groups.map((g, gi) => (gi ? '<span class="wall__group"></span>' : '') + PAGES.filter(p => p.group === g).map(p => {
+    const T = p[v];
+    return `<div class="wall__col"><h3><a href="#/page/${p.id}/${v}">${esc(p.name)}</a></h3>
+      <a class="wall__pic" href="#/page/${p.id}/${v}" draggable="false"><img src="${T.thumb}" alt="" width="${W}" height="${Math.round(T.h / T.w * W)}">
+      <span style="position:absolute;inset:0">${dotsFor(p, v)}</span></a></div>`;
+  }).join('')).join('')}
+  </div></div>`;
+}
+function dragToPan(el) {
+  let sx, sy, sl, st, moved = false, down = false;
+  el.addEventListener('pointerdown', e => { down = true; moved = false; sx = e.clientX; sy = e.clientY; sl = el.scrollLeft; st = el.scrollTop; });
+  window.addEventListener('pointermove', e => {
+    if (!down) return;
+    const dx = e.clientX - sx, dy = e.clientY - sy;
+    if (Math.abs(dx) + Math.abs(dy) > 5) { moved = true; el.classList.add('is-drag'); }
+    if (moved) { el.scrollLeft = sl - dx; el.scrollTop = st - dy; }
+  });
+  window.addEventListener('pointerup', () => { down = false; el.classList.remove('is-drag'); });
+  el.addEventListener('click', e => { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
+}
+
+/* ---------- one page: the real thing ---------- */
+let cur = null; /* { p, v, frame, win, doc, noting } */
+function renderPage(id, v, focusNote) {
+  const p = byId[id];
+  if (S.view !== v) { S.view = v; save(); }
+  paintBar(p.name);
+  const groups = [...new Set(PAGES.map(q => q.group))];
+  main.innerHTML = `
+  <div class="pv">
+    <nav class="rail" aria-label="Pages">
+      <a class="back" href="#/">← All pages</a>
+      ${groups.map(g => `<h4>${esc(g)}</h4>` + PAGES.filter(q => q.group === g).map(q =>
+        `<a href="#/page/${q.id}/${v}" data-id="${q.id}"><span>${esc(q.name)}</span></a>`).join('')).join('')}
+    </nav>
+    <div class="stage" id="stage">
+      <div class="stage__tools">
+        <div class="grp">${viewSwitch(v, 'data-pv')}</div>
+        <button class="btn btn--gold btn--note" data-act="note" aria-pressed="false">+ Add a note</button>
+        <span class="noting-tip">Now click the spot you want to comment on · Esc to cancel</span>
+        <button class="btn" data-act="pagenote">Note about this whole page</button>
+      </div>
+      <div class="frame-wrap" id="fwrap"><div class="frame ${v === 'm' ? 'frame--m' : ''}" id="frame">
+        <iframe id="site" title="${esc(p.name)}" src="/${p.path}"></iframe>
+      </div></div>
+    </div>
+    <aside class="side">
+      <div class="side__head"><h3>Notes on this page</h3></div>
+      <div class="side__body" id="sidebody"></div>
+      <div class="side__foot" id="sidefoot"></div>
+    </aside>
+  </div>`;
+  const frame = $('#frame'), ifr = $('#site');
+  cur = { p, v, frame, ifr, win: null, doc: null, noting: false, focus: focusNote };
+  sizeFrame();
+  main.querySelectorAll('[data-pv]').forEach(b => b.onclick = () => { location.hash = `#/page/${cur.p.id}/${b.dataset.pv}`; });
+  main.querySelector('[data-act=note]').onclick = () => setNoting(!cur.noting);
+  main.querySelector('[data-act=pagenote]').onclick = () => openEditor({ page: cur.p.id, view: cur.v, kind: 'page' });
+  ifr.addEventListener('load', onFrameLoad);
+  paintRail(); paintSide();
+}
+function sizeFrame() {
+  if (!cur) return;
+  const wrap = $('#fwrap'), ifr = cur.ifr;
+  const availW = wrap.clientWidth - 36, availH = wrap.clientHeight - 36;
+  if (cur.v === 'm') {
+    const h = Math.max(560, Math.min(PHONE.h, availH - 24));
+    Object.assign(ifr.style, { width: PHONE.w + 'px', height: h + 'px', transform: '' });
+    Object.assign(cur.frame.style, { width: '', height: '' });
+  } else {
+    const k = Math.min(1, availW / DESK);
+    const h = Math.round(availH / k);
+    Object.assign(ifr.style, { width: DESK + 'px', height: h + 'px', transform: `scale(${k})` });
+    Object.assign(cur.frame.style, { width: Math.round(DESK * k) + 'px', height: Math.round(h * k) + 'px' });
+  }
+}
+window.addEventListener('resize', () => { if (cur && $('#site')) sizeFrame(); });
+function paintRail() {
+  main.querySelectorAll('.rail a[data-id]').forEach(a => {
+    const id = a.dataset.id, n = notesOf(id).length;
+    if (id === cur.p.id) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+    let c = a.querySelector('.count');
+    if (n) { if (!c) { c = document.createElement('span'); c.className = 'count'; a.appendChild(c); } c.textContent = n; }
+    else if (c) c.remove();
+  });
+  const i = PAGES.indexOf(cur.p), prev = PAGES[i - 1], next = PAGES[i + 1];
+  $('#sidefoot').innerHTML = `<div style="display:flex;gap:10px;justify-content:space-between">
+    ${prev ? `<a class="btn" href="#/page/${prev.id}/${cur.v}" title="${esc(prev.name)}">← Previous page</a>` : '<span></span>'}
+    ${next ? `<a class="btn btn--gold" href="#/page/${next.id}/${cur.v}" title="${esc(next.name)}">Next page →</a>` : '<button class="btn btn--gold" data-act="finish2">Save my notes</button>'}
+  </div>`;
+}
+document.addEventListener('click', e => { if (e.target.closest('[data-act=finish2]')) openFinish(); });
+
+/* the page inside has loaded (first time, or after a link inside it) */
+function onFrameLoad() {
+  let win, doc;
+  try { win = cur.ifr.contentWindow; doc = win.document; doc.body; } catch (e) { return; } /* another site: nothing to do */
+  cur.win = win; cur.doc = doc;
+  const p = byPath[win.location.pathname];
+  if (p && p !== cur.p) {
+    cur.p = p;
+    paintBar(p.name);
+    quietHash = true;
+    location.hash = `#/page/${p.id}/${cur.v}`;
+    paintRail(); paintSide();
+  }
+  const st = doc.createElement('style');
+  st.textContent = `
+    html{scrollbar-width:none}::-webkit-scrollbar{display:none}
+    #rv-layer{position:fixed;inset:0;z-index:2147483646;pointer-events:none}
+    #rv-catch{position:fixed;inset:0;z-index:2147483647;cursor:crosshair;display:none}
+    #rv-catch.on{display:block}
+    .rv-hl{position:fixed;pointer-events:none;border:2px solid #C9A84D;border-radius:4px;background:rgba(201,168,77,.14);box-shadow:0 0 0 2px rgba(0,0,0,.35);display:none;z-index:2147483646}
+    .rv-pin{position:fixed;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50% 50% 50% 4px;display:grid;place-items:center;background:#C9A84D;color:#111;
+      font:600 14px/1 Jost,Arial,sans-serif;border:2px solid #111;box-shadow:0 4px 14px rgba(0,0,0,.55);cursor:pointer;pointer-events:auto;padding:0}
+    .rv-pin:hover,.rv-pin.on{background:#fff;transform:scale(1.12)}
+    .rv-tip{position:fixed;pointer-events:none;background:#C9A84D;color:#111;font:500 13px/1.2 Jost,Arial,sans-serif;padding:6px 10px;border-radius:6px;white-space:nowrap;display:none;z-index:2147483647}`;
+  doc.head.appendChild(st);
+  const layer = doc.createElement('div'); layer.id = 'rv-layer';
+  layer.innerHTML = '<div class="rv-hl"></div>';
+  const catcher = doc.createElement('div'); catcher.id = 'rv-catch';
+  const tip = doc.createElement('div'); tip.className = 'rv-tip'; tip.textContent = 'Click to leave a note here';
+  doc.body.append(layer, catcher, tip);
+  catcher.addEventListener('mousemove', e => {
+    const t = pickAt(e.clientX, e.clientY);
+    showBox(t && t.el);
+    tip.style.display = 'block';
+    tip.style.left = Math.min(e.clientX + 14, win.innerWidth - tip.offsetWidth - 8) + 'px';
+    tip.style.top = (e.clientY + 16) + 'px';
+  });
+  catcher.addEventListener('mouseleave', () => { showBox(null); tip.style.display = 'none'; });
+  catcher.addEventListener('click', e => {
+    e.preventDefault(); e.stopPropagation();
+    const draft = draftAt(e.clientX, e.clientY);
+    setNoting(false);
+    if (draft) openEditor(draft);
+  });
+  layer.addEventListener('click', e => {
+    const b = e.target.closest('.rv-pin');
+    if (b) { const n = S.notes.find(x => x.id === b.dataset.id); if (n) openEditor(n); }
+  });
+  doc.addEventListener('keydown', e => { if (e.key === 'Escape' && cur && cur.noting) setNoting(false); });
+  setNoting(cur.noting);
+  startPins();
+  if (cur.focus) { const n = S.notes.find(x => x.id === cur.focus); cur.focus = null; if (n) setTimeout(() => goToNote(n), 600); }
+}
+function setNoting(on) {
+  if (!cur) return;
+  cur.noting = on;
+  const b = main.querySelector('[data-act=note]');
+  if (b) { b.setAttribute('aria-pressed', on); b.textContent = on ? 'Cancel' : '+ Add a note'; }
+  main.querySelector('.stage__tools') && main.querySelector('.stage__tools').classList.toggle('is-noting', on);
+  cur.frame.classList.toggle('is-noting', on);
+  if (cur.doc) {
+    const c = cur.doc.getElementById('rv-catch');
+    if (c) c.classList.toggle('on', on);
+    if (!on) { showBox(null); const t = cur.doc.querySelector('.rv-tip'); if (t) t.style.display = 'none'; }
+  }
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && cur && cur.noting && !$('.veil')) setNoting(false); });
+function showBox(el) {
+  const hl = cur.doc && cur.doc.querySelector('.rv-hl');
+  if (!hl) return;
+  if (!el) { hl.style.display = 'none'; return; }
+  const r = el.getBoundingClientRect();
+  Object.assign(hl.style, { display: 'block', left: (r.left - 4) + 'px', top: (r.top - 4) + 'px', width: (r.width + 8) + 'px', height: (r.height + 8) + 'px' });
+}
+
+/* what is under the click: a block of words, else a photo, else that spot */
+const WORDS = 'h1,h2,h3,h4,h5,h6,p,li,blockquote,figcaption,dt,dd,td,th,label,summary,button,a,cite,small';
+function pickAt(x, y) {
+  const doc = cur.doc;
+  const els = doc.elementsFromPoint(x, y).filter(e => !e.closest('#rv-layer,#rv-catch,.rv-tip') && e !== doc.documentElement && e !== doc.body);
+  if (!els.length) return null;
+  for (const e of els.slice(0, 3)) {
+    const w = e.closest(WORDS);
+    if (w && norm(w.textContent).length > 1 && w.getBoundingClientRect().height < doc.defaultView.innerHeight * 0.9) return { kind: 'text', el: w };
+  }
+  for (const e of els) {
+    if (/^(IMG|VIDEO|CANVAS|PICTURE)$/.test(e.tagName)) return { kind: 'photo', el: e.tagName === 'PICTURE' ? (e.querySelector('img') || e) : e };
+    const bg = doc.defaultView.getComputedStyle(e).backgroundImage;
+    if (bg && /url\(/.test(bg) && !/data:image\/svg/.test(bg)) return { kind: 'photo', el: e };
+    if (e.tagName === 'SECTION' || e.tagName === 'FOOTER' || e.tagName === 'HEADER') break;
+  }
+  return { kind: 'spot', el: els[0] };
+}
+/* a path to an element that survives a reload of the page */
+function pathOf(el) {
+  const parts = [];
+  for (let e = el; e && e.nodeType === 1 && e.tagName !== 'BODY'; e = e.parentElement) {
+    if (e.id && !/^rv-/.test(e.id)) { parts.unshift('#' + CSS.escape(e.id)); break; }
+    const sibs = Array.from(e.parentElement ? e.parentElement.children : []).filter(s => s.tagName === e.tagName);
+    parts.unshift(e.tagName.toLowerCase() + (sibs.length > 1 ? `:nth-of-type(${sibs.indexOf(e) + 1})` : ''));
+  }
+  return parts.join(' > ');
+}
+function sectionLabel(el) {
+  if (el.closest('header')) return 'Header (on every page)';
+  if (el.closest('footer')) return 'Footer (on every page)';
+  const s = el.closest('section,[role=dialog]');
+  if (!s) return '';
+  if (s.matches('[role=dialog]')) return 'Pop-up: ' + clip((s.querySelector('h2,h3') || s).textContent, 50);
+  const h = s.querySelector('h1,h2,h3');
+  return clip(h ? h.textContent : (s.dataset.section || ''), 70);
+}
+function mediaName(el) {
+  const u = el.tagName === 'IMG' ? (el.currentSrc || el.src) : el.tagName === 'VIDEO' ? (el.poster || el.currentSrc) :
+    ((cur.doc.defaultView.getComputedStyle(el).backgroundImage.match(/url\(["']?([^"')]+)/) || [])[1] || '');
+  const f = decodeURIComponent(String(u).split('?')[0].split('/').pop() || '');
+  return { src: u && !/^data:/.test(u) ? u : '', name: f.replace(/-(\d{2,4})w?(?=\.)/, '').replace(/\.(avif|webp|jpe?g|png|gif)$/i, '') };
+}
+function draftAt(x, y) {
+  const t = pickAt(x, y);
+  if (!t) return null;
+  const el = t.el, r = el.getBoundingClientRect(), win = cur.win, de = cur.doc.documentElement;
+  const n = {
+    page: cur.p.id, view: cur.v, kind: t.kind, sel: pathOf(el),
+    ox: r.width ? +((x - r.left) / r.width).toFixed(3) : 0, oy: r.height ? +((y - r.top) / r.height).toFixed(3) : 0,
+    dx: Math.round(x + win.scrollX), dy: Math.round(y + win.scrollY), dw: de.clientWidth, dh: de.scrollHeight,
+    sec: sectionLabel(el), check: clip(el.textContent, 80)
+  };
+  if (t.kind === 'text') n.orig = clip(el.textContent, 400);
+  if (t.kind === 'photo') { const m = mediaName(el); n.photo = m.name; n.photoURL = m.src; n.alt = (el.getAttribute('alt') || '').trim(); n.pkind = el.tagName === 'VIDEO' ? 'video' : el.tagName === 'CANVAS' ? 'drawing' : 'photo'; }
+  return n;
+}
+/* find a note's element again (by its path; by its words if the page changed) */
+function findEl(n) {
+  const doc = cur.doc;
+  if (!doc || !n.sel) return null;
+  let el = null;
+  try { el = doc.querySelector(n.sel); } catch (e) { el = null; }
+  const want = norm(n.check).replace(/…$/, '');
+  if (el && (!want || norm(el.textContent).startsWith(want.slice(0, 40)))) return el;
+  if (want.length > 8) {
+    const tag = (n.sel.split('>').pop().trim().match(/^[a-z0-9]+/) || ['*'])[0];
+    for (const c of doc.querySelectorAll(tag)) if (norm(c.textContent).startsWith(want.slice(0, 40))) return c;
+  }
+  return el && !want ? el : null;
+}
+const visible = el => {
+  if (!el || !el.isConnected) return false;
+  const r = el.getBoundingClientRect();
+  return r.width > 0 && r.height > 0 && el.checkVisibility({ opacityProperty: true, visibilityProperty: true });
+};
+
+/* pins follow their element every frame (tabs, slides and pop-ups move things) */
+let pinRAF = 0;
+function stopPins() { cancelAnimationFrame(pinRAF); pinRAF = 0; }
+function startPins() {
+  stopPins();
+  const tick = () => {
+    pinRAF = requestAnimationFrame(tick);
+    if (!cur || !cur.doc || !cur.doc.getElementById('rv-layer')) return;
+    const layer = cur.doc.getElementById('rv-layer');
+    const ns = notesOf(cur.p.id).filter(n => n.kind !== 'page' && n.view === cur.v);
+    const seen = new Set();
+    for (const n of ns) {
+      if (!n._el || !n._el.isConnected || n._doc !== cur.doc) { n._el = findEl(n); n._doc = cur.doc; }
+      let pin = layer.querySelector(`.rv-pin[data-id="${n.id}"]`);
+      const el = n._el;
+      if (!visible(el)) { if (pin) pin.style.display = 'none'; continue; }
+      const r = el.getBoundingClientRect();
+      if (!pin) { pin = cur.doc.createElement('button'); pin.className = 'rv-pin'; pin.dataset.id = n.id; layer.appendChild(pin); }
+      pin.textContent = numOf(n);
+      pin.style.display = 'grid';
+      pin.style.left = (r.left + n.ox * r.width) + 'px';
+      pin.style.top = (r.top + n.oy * r.height) + 'px';
+      seen.add(n.id);
+    }
+    layer.querySelectorAll('.rv-pin').forEach(p => { if (!ns.some(n => n.id === p.dataset.id)) p.remove(); });
+  };
+  tick();
+}
+function goToNote(n) {
+  if (n.view !== cur.v || n.page !== cur.p.id) { location.hash = `#/page/${n.page}/${n.view}/${n.id}`; return; }
+  if (n.kind === 'page') return openEditor(n);
+  const el = findEl(n);
+  if (!visible(el)) { toast('That spot is hidden right now: open the tab, slide or pop-up it is on'); return; }
+  el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  setTimeout(() => { showBox(el); setTimeout(() => showBox(null), 1600); }, 500);
+  cur.doc.querySelectorAll('.rv-pin').forEach(p => p.classList.toggle('on', p.dataset.id === n.id));
+}
+
+/* ---------- notes list ---------- */
+function aboutLine(n) {
+  if (n.kind === 'text') return '“' + clip(n.orig, 70) + '”';
+  if (n.kind === 'photo') return n.pkind === 'video' ? 'The video' : n.pkind === 'drawing' ? 'The picture' : 'The photo';
+  return '';
+}
+function noteCard(n, tag, attrs) {
+  const about = aboutLine(n);
+  return `<${tag} class="note" data-id="${n.id}" ${attrs || ''}><span class="pin">${numOf(n)}</span><span>
+    <small>${n.kind === 'page' ? 'Whole page' : VIEW_NAME[n.view] + (n.sec ? ' · ' + esc(clip(n.sec, 44)) : '')}</small>
+    ${about ? `<p class="was">${esc(about)}</p>` : ''}<p>${esc(clip(n.note, 220))}</p></span></${tag}>`;
+}
+function paintSide() {
+  const body = $('#sidebody');
+  if (!body) return;
+  const ns = notesOf(cur.p.id);
+  body.innerHTML = ns.length ? ns.map(n => noteCard(n, 'button')).join('')
+    : `<div class="empty"><strong>No notes on this page yet.</strong><br>Use the page as normal. When you want something changed, press <strong class="gold">+ Add a note</strong> and click the spot.</div>`;
+  body.querySelectorAll('.note').forEach(b => {
+    const n = S.notes.find(x => x.id === b.dataset.id);
+    b.onclick = () => goToNote(n);
+    b.ondblclick = () => openEditor(n);
+  });
+}
+
+/* ---------- the note box ---------- */
+function openEditor(n) {
+  const isNew = !n.id;
+  const pageName = n.page === '_site' ? 'The whole website' : byId[n.page].name;
+  const title = n.kind === 'page' ? (n.page === '_site' ? 'About the whole website' : 'About this whole page') : 'What would you like here?';
+  const veil = document.createElement('div');
+  veil.className = 'veil';
+  veil.innerHTML = `
+  <div class="dlg" role="dialog" aria-modal="true" aria-labelledby="dlgT">
+    <div class="dlg__head"><h2 id="dlgT">${title}</h2><p>${esc(pageName)}${n.kind !== 'page' ? ' · ' + VIEW_NAME[n.view] : ''}${n.sec ? ' · ' + esc(n.sec) : ''}</p></div>
+    <div class="dlg__body">
+      ${n.kind === 'text' ? `<div class="field"><label>You pointed at</label><div class="now">${esc(n.orig)}</div></div>` : ''}
+      ${n.kind === 'photo' && n.photoURL ? `<div class="field"><label>You pointed at this ${n.pkind === 'video' ? 'video' : 'photo'}</label><img class="preview" src="${esc(n.photoURL)}" alt=""></div>` : ''}
+      <div class="field"><label for="nt">Your note</label>
+        <textarea id="nt" rows="5" placeholder="For example: change this wording to…, use a different photo, add the price here, move this further up">${esc(n.note || '')}</textarea></div>
+    </div>
+    <div class="dlg__foot">
+      ${isNew ? '<span></span>' : '<button class="btn btn--quiet btn--danger" data-x="del">Delete this note</button>'}
+      <div class="r"><button class="btn" data-x="cancel">Cancel</button><button class="btn btn--gold" data-x="save">Save note</button></div>
+    </div>
+  </div>`;
+  document.body.appendChild(veil);
+  const close = () => { veil.remove(); document.removeEventListener('keydown', onKey); };
+  const onKey = e => { if (e.key === 'Escape') close(); };
+  document.addEventListener('keydown', onKey);
+  veil.addEventListener('mousedown', e => { if (e.target === veil) close(); });
+  const ta = $('#nt', veil);
+  setTimeout(() => { ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); }, 30);
+  veil.querySelector('[data-x=cancel]').onclick = close;
+  const del = veil.querySelector('[data-x=del]');
+  if (del) del.onclick = () => {
+    if (!confirm('Delete this note?')) return;
+    S.notes = S.notes.filter(x => x.id !== n.id);
+    save(); close(); toast('Note deleted'); refresh();
+  };
+  veil.querySelector('[data-x=save]').onclick = () => {
+    const note = ta.value.trim();
+    if (!note) { ta.focus(); ta.placeholder = 'Please write your note here first'; return; }
+    const out = Object.assign({}, n, { note, ts: new Date().toISOString() });
+    delete out._el; delete out._doc;
+    if (isNew) { out.id = 'n' + (++S.seq) + '-' + Date.now().toString(36); S.notes.push(out); }
+    else S.notes[S.notes.findIndex(x => x.id === n.id)] = out;
+    save(); close(); toast(isNew ? 'Note saved' : 'Note updated'); refresh();
+  };
+}
+function refresh() {
+  if (cur && $('#site')) { paintRail(); paintSide(); }
+  else route();
+}
+let toastT;
+function toast(t) {
+  let el = $('.toast'); if (!el) { el = document.createElement('div'); el.className = 'toast'; document.body.appendChild(el); }
+  el.textContent = t; clearTimeout(toastT); toastT = setTimeout(() => el.remove(), 2600);
+}
+
+/* ---------- every note ---------- */
+function renderAllNotes() {
+  cur = null;
+  paintBar('My notes');
+  const groups = [{ id: '_site', name: 'The whole website' }].concat(PAGES).map(p => ({ p, ns: notesOf(p.id) })).filter(g => g.ns.length);
+  main.innerHTML = `<section class="over" style="max-width:980px;margin:0 auto">
+    <div class="over__head"><div><div class="eyebrow">${esc(S.name)}</div><h1>My notes</h1>
+    <p>${S.notes.length ? `${S.notes.length} note${S.notes.length > 1 ? 's' : ''} on ${groups.length} page${groups.length > 1 ? 's' : ''}. Click one to see it on the page.` : 'No notes yet. Open a page and press “+ Add a note”.'}</p></div>
+    <div class="over__tools"><a class="btn" href="#/">← All pages</a>${S.notes.length ? '<button class="btn btn--gold" data-act="finish3">Save my notes</button>' : ''}</div></div>
+    ${groups.map(({ p, ns }) => `<h2 class="group">${esc(p.name)}</h2>${ns.map(n =>
+      noteCard(n, 'a', `href="${p.id === '_site' ? '#/notes' : `#/page/${p.id}/${n.view}/${n.id}`}" style="text-decoration:none"`)).join('')}`).join('')}
+  </section>`;
+  const f = main.querySelector('[data-act=finish3]');
+  if (f) f.onclick = openFinish;
+  main.querySelectorAll('a.note[href="#/notes"]').forEach(a => a.onclick = e => { e.preventDefault(); openEditor(S.notes.find(x => x.id === a.dataset.id)); });
+}
+
+/* ---------- save: one Excel file ---------- */
+function stamp() { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; }
+function fileName() { return `Miracle website notes - ${S.name.replace(/[^\w ]+/g, '').trim() || 'notes'} - ${stamp()}.xlsx`; }
+function openFinish() {
+  if (cur) setNoting(false);
+  const n = S.notes.length;
+  const pages = new Set(S.notes.map(x => x.page)).size;
+  const veil = document.createElement('div');
+  veil.className = 'veil';
+  veil.innerHTML = `<div class="dlg finish" role="dialog" aria-modal="true" aria-labelledby="fT">
+    <div class="dlg__head"><h2 id="fT">${n ? 'Save your notes' : 'No notes yet'}</h2>
+      <p>${n ? 'Save the file, then email it to ' + esc(B.sendTo) + '.' : 'Open a page, press “+ Add a note” and click the spot. Your notes will appear here.'}</p></div>
+    ${n ? `<div class="dlg__body">
+      <div class="sum"><div><strong>${n}</strong>note${n > 1 ? 's' : ''}</div><div><strong>${pages}</strong>page${pages > 1 ? 's' : ''}</div></div>
+      <ol>
+        <li><b>1</b><div><button class="btn btn--gold btn--big" data-x="save">Save my notes</button><span class="ok" data-ok></span><p>It goes to your <strong>Downloads</strong> folder as “${esc(fileName())}”.</p></div></li>
+        <li><b>2</b><div><strong style="color:#fff;font-weight:500">Email that file to ${esc(B.sendTo)}</strong><p>Attach it to an email, like a photo or a document.</p></div></li>
+      </ol>
+      <p class="hint">Your notes stay here too, so you can come back, add more and save again.</p>
+    </div>` : ''}
+    <div class="dlg__foot">${n ? '<button class="btn btn--quiet btn--danger" data-x="wipe">Clear all notes and start again</button>' : '<span></span>'}<div class="r"><button class="btn" data-x="close">${n ? 'Keep going' : 'OK'}</button></div></div>
+  </div>`;
+  document.body.appendChild(veil);
+  const close = () => veil.remove();
+  veil.addEventListener('mousedown', e => { if (e.target === veil) close(); });
+  veil.querySelector('[data-x=close]').onclick = close;
+  const wipe = veil.querySelector('[data-x=wipe]');
+  if (wipe) wipe.onclick = () => {
+    if (!confirm('This deletes all ' + n + ' notes from this computer. Have you already sent the file?\n\nPress OK to delete them.')) return;
+    S.notes = []; S.seq = 0; save(); close(); route();
+  };
+  const sb = veil.querySelector('[data-x=save]');
+  if (sb) sb.onclick = () => {
+    download(buildXLSX(), fileName(), 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    veil.querySelector('[data-ok]').textContent = '✓ Saved';
+  };
+}
+function download(bytes, name, type) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([bytes], { type }));
+  a.download = name;
+  document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 4000);
+}
+
+/* ---------- a small XLSX writer (stored zip, inline strings) ---------- */
+const enc = new TextEncoder();
+const CRC = (() => { const t = new Uint32Array(256); for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+function crc32(b) { let c = 0xFFFFFFFF; for (let i = 0; i < b.length; i++) c = CRC[(c ^ b[i]) & 0xFF] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+function concat(arr) { const n = arr.reduce((a, b) => a + b.length, 0); const o = new Uint8Array(n); let p = 0; for (const a of arr) { o.set(a, p); p += a.length; } return o; }
+function zip(files) {
+  const parts = [], central = []; let off = 0;
+  for (const [name, data] of files) {
+    const nb = enc.encode(name), d = enc.encode(data), c = crc32(d);
+    const h = new DataView(new ArrayBuffer(30));
+    h.setUint32(0, 0x04034b50, true); h.setUint16(4, 20, true); h.setUint16(6, 0x0800, true);
+    h.setUint16(12, 0x21, true); h.setUint32(14, c, true); h.setUint32(18, d.length, true); h.setUint32(22, d.length, true); h.setUint16(26, nb.length, true);
+    parts.push(new Uint8Array(h.buffer), nb, d);
+    const ch = new DataView(new ArrayBuffer(46));
+    ch.setUint32(0, 0x02014b50, true); ch.setUint16(4, 20, true); ch.setUint16(6, 20, true); ch.setUint16(8, 0x0800, true);
+    ch.setUint16(14, 0x21, true); ch.setUint32(16, c, true); ch.setUint32(20, d.length, true); ch.setUint32(24, d.length, true);
+    ch.setUint16(28, nb.length, true); ch.setUint32(42, off, true);
+    central.push(new Uint8Array(ch.buffer), nb);
+    off += 30 + nb.length + d.length;
+  }
+  const cs = central.reduce((a, b) => a + b.length, 0);
+  const e = new DataView(new ArrayBuffer(22));
+  e.setUint32(0, 0x06054b50, true); e.setUint16(8, files.length, true); e.setUint16(10, files.length, true); e.setUint32(12, cs, true); e.setUint32(16, off, true);
+  return concat(parts.concat(central, [new Uint8Array(e.buffer)]));
+}
+const xe = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '');
+const HEAD = ['No.', 'Page', 'Seen on', 'Part of the page', 'Pointing at', 'Note', 'Done?', 'Saved', 'Page address', 'Pin (for the board)'];
+function buildXLSX() {
+  const widths = [6, 24, 11, 32, 46, 64, 9, 17, 34, 30];
+  const order = ['_site'].concat(PAGES.map(p => p.id));
+  const R = [];
+  for (const id of order) for (const n of notesOf(id)) {
+    const p = byId[id];
+    const pin = n.kind === 'page' ? { page: id, kind: 'page' } : { page: id, view: n.view, kind: n.kind, sel: n.sel, ox: n.ox, oy: n.oy, check: n.check, dx: n.dx, dy: n.dy, dw: n.dw, dh: n.dh };
+    R.push([
+      '', id === '_site' ? 'The whole website' : p.name, n.kind === 'page' ? '' : VIEW_NAME[n.view], n.sec || '',
+      n.kind === 'text' ? 'Words: ' + n.orig : n.kind === 'photo' ? (n.pkind === 'video' ? 'Video' : n.pkind === 'drawing' ? 'Picture' : 'Photo') + (n.photo ? ': ' + n.photo : '') + (n.alt ? ' (' + n.alt + ')' : '') : n.kind === 'page' ? 'The whole page' : 'This spot',
+      n.note, '', n.ts ? new Date(n.ts).toLocaleString('en-GB', { dateStyle: 'short', timeStyle: 'short' }) : '', id === '_site' ? '' : '/' + p.path,
+      JSON.stringify(pin)
+    ]);
+  }
+  const col = i => String.fromCharCode(65 + i);
+  const cell = (r, c, v, s) => `<c r="${col(c)}${r}" t="inlineStr" s="${s}"><is><t xml:space="preserve">${xe(v)}</t></is></c>`;
+  let sheet = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
+<sheetViews><sheetView workbookViewId="0"><pane ySplit="3" topLeftCell="A4" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews>
+<cols>${widths.map((w, i) => `<col min="${i + 1}" max="${i + 1}" width="${w}" customWidth="1"/>`).join('')}</cols><sheetData>`;
+  sheet += `<row r="1" ht="26" customHeight="1">${cell(1, 0, 'Miracle Detail · website notes from ' + S.name, 3)}</row>`;
+  sheet += `<row r="2">${cell(2, 0, `${R.length} notes · saved ${new Date().toLocaleString('en-GB')} · review board of ${B.made}`, 4)}</row>`;
+  sheet += `<row r="3" ht="22" customHeight="1">${HEAD.map((h, i) => cell(3, i, h, 1)).join('')}</row>`;
+  R.forEach((vals, i) => {
+    vals[0] = String(i + 1);
+    sheet += `<row r="${i + 4}">${vals.map((v, c) => cell(i + 4, c, v, c === 5 ? 5 : c === 9 ? 4 : 2)).join('')}</row>`;
+  });
+  sheet += `</sheetData><autoFilter ref="A3:${col(HEAD.length - 1)}${R.length + 3}"/><pageSetup orientation="landscape"/></worksheet>`;
+  const styles = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
+<fonts count="4"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><color rgb="FFFFFFFF"/><name val="Calibri"/></font><font><b/><sz val="15"/><name val="Calibri"/></font><font><sz val="10"/><color rgb="FF8A857B"/><name val="Calibri"/></font></fonts>
+<fills count="4"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF111111"/></patternFill></fill><fill><patternFill patternType="solid"><fgColor rgb="FFFBF3DC"/></patternFill></fill></fills>
+<borders count="2"><border/><border><bottom style="thin"><color rgb="FFD9D6CF"/></bottom></border></borders>
+<cellStyleXfs count="1"><xf/></cellStyleXfs>
+<cellXfs count="6"><xf/>
+<xf fontId="1" fillId="2" applyFont="1" applyFill="1" applyAlignment="1"><alignment vertical="center" wrapText="1"/></xf>
+<xf borderId="1" applyBorder="1" applyAlignment="1"><alignment vertical="top" wrapText="1"/></xf>
+<xf fontId="2" applyFont="1"/>
+<xf fontId="3" applyFont="1"/>
+<xf fillId="3" borderId="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment vertical="top" wrapText="1"/></xf>
+</cellXfs></styleSheet>`;
+  return zip([
+    ['[Content_Types].xml', `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>`],
+    ['_rels/.rels', `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>`],
+    ['xl/workbook.xml', `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="Notes" sheetId="1" r:id="rId1"/></sheets><definedNames><definedName name="_xlnm._FilterDatabase" localSheetId="0" hidden="1">Notes!$A$3:$${col(HEAD.length - 1)}$${R.length + 3}</definedName></definedNames></workbook>`],
+    ['xl/_rels/workbook.xml.rels', `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`],
+    ['xl/worksheets/sheet1.xml', sheet],
+    ['xl/styles.xml', styles]
+  ]);
+}
+
+/* ---------- open a notes file (the team, to see Paul's pins) ---------- */
+async function unzip(buf) {
+  const dv = new DataView(buf.buffer, buf.byteOffset, buf.byteLength);
+  let e = buf.length - 22;
+  while (e >= 0 && dv.getUint32(e, true) !== 0x06054b50) e--;
+  if (e < 0) throw new Error('not a zip');
+  const count = dv.getUint16(e + 10, true);
+  let p = dv.getUint32(e + 16, true);
+  const out = {};
+  for (let i = 0; i < count; i++) {
+    const method = dv.getUint16(p + 10, true), size = dv.getUint32(p + 20, true);
+    const nl = dv.getUint16(p + 28, true), xl = dv.getUint16(p + 30, true), cl = dv.getUint16(p + 32, true), lo = dv.getUint32(p + 42, true);
+    const name = new TextDecoder().decode(buf.subarray(p + 46, p + 46 + nl));
+    const start = lo + 30 + dv.getUint16(lo + 26, true) + dv.getUint16(lo + 28, true);
+    const raw = buf.subarray(start, start + size);
+    out[name] = method === 0 ? raw : new Uint8Array(await new Response(new Blob([raw]).stream().pipeThrough(new DecompressionStream('deflate-raw'))).arrayBuffer());
+    p += 46 + nl + xl + cl;
+  }
+  return out;
+}
+function openNotesFile() {
+  const inp = document.createElement('input');
+  inp.type = 'file'; inp.accept = '.xlsx';
+  inp.onchange = async () => {
+    try {
+      const files = await unzip(new Uint8Array(await inp.files[0].arrayBuffer()));
+      const td = new TextDecoder();
+      const dom = s => new DOMParser().parseFromString(td.decode(s), 'application/xml');
+      const shared = files['xl/sharedStrings.xml'] ? [...dom(files['xl/sharedStrings.xml']).getElementsByTagName('si')].map(si => si.textContent) : [];
+      const sheetName = Object.keys(files).find(f => /^xl\/worksheets\/sheet\d+\.xml$/.test(f));
+      const rowsX = [...dom(files[sheetName]).getElementsByTagName('row')];
+      const val = c => (c.getAttribute('t') === 's' ? shared[+c.textContent] || '' : c.textContent);
+      const table = rowsX.map(r => { const o = {}; [...r.getElementsByTagName('c')].forEach(c => { o[c.getAttribute('r').replace(/\d+/g, '')] = val(c); }); return o; });
+      const hi = table.findIndex(r => r.A === 'No.');
+      const who = (table[0] && table[0].A || '').replace(/^.*notes from /, '') || 'notes file';
+      const notes = [];
+      for (const r of table.slice(hi + 1)) {
+        if (!r.F) continue;
+        let pin = {};
+        try { pin = JSON.parse(r.J || '{}'); } catch (e) { pin = {}; }
+        const base = { id: 'f' + notes.length + '-' + Date.now().toString(36), note: r.F, ts: '', sec: r.D || '' };
+        if (!pin.page || !byId[pin.page]) { notes.push(Object.assign(base, { page: '_site', view: 'm', kind: 'page' })); continue; }
+        const words = (r.E || '').replace(/^Words: /, '');
+        notes.push(Object.assign(base, pin, pin.kind === 'text' ? { orig: words } : {}, pin.kind === 'photo' ? { photo: (r.E || '').replace(/^\w+: /, '') } : {}));
+      }
+      if (S.notes.length && !confirm(`Show the ${notes.length} notes from ${who}?\n\nThe notes on this computer (${S.notes.length}) will be replaced. Save them first if you need them.`)) return;
+      S.notes = notes; S.name = S.name || who; save(); toast(`${notes.length} notes from ${who}`); location.hash = '#/notes'; route();
+    } catch (e) { console.error(e); alert('Sorry, that file could not be read. Please choose the Excel file saved from this board.'); }
+  };
+  inp.click();
+}
+
+/* go */
+paintBar('');
+route();
+})();
+</script>
+</body>
+</html>
