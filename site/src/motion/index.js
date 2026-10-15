@@ -8,7 +8,6 @@
      motion        hero video, entrances, story beats, project deck,
                    counters, marquees, reviews loop
      motion+mouse  Lenis, tilt cards, parallax
-   Sound (Web Audio) in every tier: off until the first click or tap.
    Reduced motion = the first tier only. No JS = every word still there.
    ============================================================ */
 import { env, ScrollTrigger } from './core.js';
@@ -20,7 +19,6 @@ import { story } from './story.js';
 import { deck } from './deck.js';
 import { heroVideo } from './video.js';
 import { coverage } from './coverage.js';
-import { sound } from './sound.js';
 import { menu, form, call } from './ui.js';
 import { steps, tbcs } from './svc.js';
 import { snav, more, tabs, lit, filmHero, compare, coverage as ppfCoverage } from './ppf.js';
@@ -54,7 +52,6 @@ function boot() {
   safe(header);
   safe(blurUp);
   safe(heroTone);
-  safe(sound);
   safe(tbcs);
   /* long service pages (PPF, 06/10): how the page works, every tier */
   safe(snav); safe(tabs); safe(more); safe(compare); safe(ppfCoverage);

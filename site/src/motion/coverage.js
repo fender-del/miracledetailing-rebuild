@@ -9,7 +9,6 @@
    Reduced motion / no JS: the names wrap as a list.
    ============================================================ */
 import { gsap, ScrollTrigger, env, $, $$ } from './core.js';
-import { sfx } from './sound.js';
 
 export function coverage() {
   const rail = $('[data-cov]');
@@ -45,7 +44,7 @@ export function coverage() {
       stops[i].style.setProperty('--a', a.toFixed(3));
       if (a > top) { top = a; best = i; }
     });
-    if (best !== cur) { cur = best; if (best > -1) sfx('note', best); }
+    if (best !== cur) cur = best;
   };
 
   pad();

@@ -18,7 +18,6 @@
    Base CSS (no JS, reduced motion) shows a swipeable row instead.
    ============================================================ */
 import { gsap, Draggable, env, whenSeen, $, $$ } from './core.js';
-import { sfx, rubbing } from './sound.js';
 
 const SHADOW = '0 30px 70px rgba(0,0,0,.45)';
 const LIFTED = '0 60px 110px rgba(0,0,0,.6)';
@@ -99,7 +98,6 @@ export function deck() {
     const cur = gsap.getProperty(top);
     const speed = Math.min(2.2, Math.abs(v.x));
     const back = slot(Math.min(cards.length - 1, 3));
-    sfx('whoosh', speed / 1.4 + 0.3);
     /* the new top card answers straight away (Fender 06/10: on a phone
        a swipe during the old card's flight was lost); the old one keeps
        flying to the back on its own */
@@ -117,21 +115,19 @@ export function deck() {
         })));
         done();
       })
-      .to(top, Object.assign({}, back, { boxShadow: SHADOW, duration: 0.72, ease: 'power3.inOut' }), '>-0.02')
-      .add(() => sfx('land'), '>-0.12');
+      .to(top, Object.assign({}, back, { boxShadow: SHADOW, duration: 0.72, ease: 'power3.inOut' }), '>-0.02');
   };
   /* Bring the back card to the front, from the right (where the cards
      go out). */
   const prev = () => {
     if (busy) { queued = prev; return; }
     busy = true;
-    sfx('whoosh', 0.4);
     const back = cards[cards.length - 1];
     cards.unshift(cards.pop());
     gsap.set(back, { zIndex: cards.length + 1, autoAlpha: 1 });
     gsap.fromTo(back, { x: back.offsetWidth * 0.7, y: -28, rotation: 10 }, {
       x: 0, y: 0, rotation: 0, scale: 1, duration: 0.75, ease: 'expo.out',
-      onComplete: () => { sfx('settle'); layout(true); done(); }
+      onComplete: () => { layout(true); done(); }
     });
     cards.slice(1).forEach((c, i) => gsap.to(c, Object.assign(slot(i + 1), { duration: 0.7, ease: 'expo.out' })));
   };
@@ -160,7 +156,6 @@ export function deck() {
         this.update();
         lastX = 0; lastY = 0; lastT = performance.now(); vx = 0; vy = 0; lean = 0;
         gsap.to(card, { scale: 1.035, boxShadow: LIFTED, duration: 0.35, ease: 'power3.out' });
-        sfx('lift');
       },
       onDrag() {
         if (busy) return;
@@ -175,10 +170,8 @@ export function deck() {
         set.r(x / w * 18 * (grab < 0 ? 1 : -1) * (0.35 + Math.abs(grab) * 1.3));
         set.ry(lean);
         peek(clamp(Math.abs(x) / (w * 0.6), 0, 1));
-        rubbing(Math.hypot(vx, vy));
       },
       onRelease() {
-        rubbing(0);
         if (busy) return;
         const x = this.x;
         if (Math.abs(x) > w * 0.26 || Math.abs(vx) > 0.55) {
@@ -188,7 +181,6 @@ export function deck() {
             x: 0, y: 0, rotation: 0, rotationY: 0, scale: 1, boxShadow: SHADOW,
             duration: 1.1, ease: 'elastic.out(1, 0.5)', overwrite: 'auto'
           });
-          sfx('settle');
           cards.slice(1, 5).forEach((c, i) => gsap.to(c, Object.assign(slot(i + 1), { duration: 0.8, ease: 'power3.out', overwrite: 'auto' })));
         }
       }
@@ -219,8 +211,7 @@ export function deck() {
     const tl = gsap.timeline({ onComplete: done });
     cards.slice().reverse().forEach((c, n) => {
       const i = cards.length - 1 - n;
-      tl.to(c, Object.assign(slot(i), { duration: 0.9, ease: 'expo.out' }), n * 0.07)
-        .call(() => sfx('deal', n), null, n * 0.07 + 0.12);
+      tl.to(c, Object.assign(slot(i), { duration: 0.9, ease: 'expo.out' }), n * 0.07);
     });
     if (!mobile()) {
       tl.to(cards[0], { x: -46, rotation: -2.5, duration: 0.45, ease: 'power2.out' }, '+=0.15')

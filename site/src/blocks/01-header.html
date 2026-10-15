@@ -2,8 +2,7 @@
      v0.5 menu order, old-site slugs. Hides on scroll down, returns on
      scroll up. The phone menu opens with :target when JS is off.
      Menu hover: each letter rolls up and a gold copy rolls in behind it
-     (Fender 02/10); the letters are aria-hidden, the .sr copy is read.
-     Sound switch: shown by the script (sound.js), bars move while on. -->
+     (Fender 02/10); the letters are aria-hidden, the .sr copy is read. -->
 <header class="hd" id="top" data-section="header" data-motion="header" data-hd>
   <div class="hd__in wrap">
     <a class="hd__brand" href="/" aria-label="Miracle Detail, home"><span class="logo" role="img" aria-label="Miracle Detail"></span></a>
@@ -31,7 +30,6 @@
       </ul>
     </nav>
 
-    <button class="hd__snd" type="button" aria-pressed="false" title="Sound on / off" data-sound hidden><span class="sr">Sound</span><i></i><i></i><i></i><i></i></button>
     <a class="btn hd__cta" href="{{site.cta.href}}"><span class="btn__in">{{site.cta.label}}</span></a>
     <a class="hd__burger" href="#menu" aria-controls="menu" aria-expanded="false" data-menu-open>
       <span class="sr">Open menu</span><i></i><i></i>

@@ -17,7 +17,6 @@
                 Also the Fifth Gear cutting (pressDrift).
    ============================================================ */
 import { gsap, ScrollTrigger, env, $, $$ } from './core.js';
-import { sfx } from './sound.js';
 
 const DESK = '(min-width: 1024px)';
 const pad = n => String(n).padStart(2, '0');
@@ -70,7 +69,7 @@ export function timeline() {
       else years.scrollTo({ left: a.offsetLeft - years.offsetLeft - 12, behavior: env.motion ? 'smooth' : 'auto' });
     }
     if (staged) sync(i);
-    if (!first && !quiet) sfx('tap');
+    
   };
 
   /* the entry crossing 45% of the screen */

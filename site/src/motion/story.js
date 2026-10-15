@@ -19,7 +19,6 @@
    the CSS shows everything.
    ============================================================ */
 import { gsap, SplitText, whenSeen, $, $$ } from './core.js';
-import { sfx } from './sound.js';
 import { countUp } from './reveal.js';
 
 export function story() {
@@ -83,14 +82,12 @@ export function story() {
         /* beat 1 leaves to the left as beat 2 comes in from the right */
         .to(beats[0], { autoAlpha: 0, x: -110, duration: 0.07, ease: 'power2.in' }, 0.33)
         .to(beats[1], { autoAlpha: 1, x: 0, duration: 0.08, ease: 'power2.out' }, 0.37)
-        .call(() => sfx('beat'), null, 0.37)
         .to(paper, { xPercent: 0, yPercent: 0, rotation: -4, autoAlpha: 1, duration: 0.11, ease: 'power3.out' }, 0.38)
         .fromTo(words[1], { opacity: 0.16 }, { opacity: 1, stagger: 0.0058, duration: 0.055 }, 0.43)
         .to(beats[1], { autoAlpha: 0, x: -110, duration: 0.055, ease: 'power2.in' }, 0.685)
         .to(fig, { autoAlpha: 0, scale: 0.9, x: -40, duration: 0.088, ease: 'power2.in' }, 0.685)
         .to('.story__dots', { autoAlpha: 0, duration: 0.04 }, 0.7)
         .to(line, { autoAlpha: 1, scale: 1, duration: 0.15, ease: 'power2.out' }, 0.71)
-        .call(() => sfx('swell'), null, 0.705)
         .to(line, { autoAlpha: 0, scale: 1.14, duration: 0.09, ease: 'power1.in' }, 1.15)
         .fromTo(photo, { scale: 1.1 }, { scale: 1, duration: 0.69 }, 0);
       dots[0] && dots[0].classList.add('is-on');
@@ -107,7 +104,7 @@ export function story() {
       });
     });
     const b2 = gsap.from(beats[1], { autoAlpha: 0, x: 80, duration: 1.1, ease: 'expo.out', paused: true });
-    whenSeen(beats[1], () => { b2.play(); sfx('beat'); }, 0.14);
+    whenSeen(beats[1], () => { b2.play(); }, 0.14);
     whenSeen(beats[0], count, 0.2);
     const pp = gsap.from(paper, { xPercent: 30, rotation: 12, autoAlpha: 0, duration: 1.2, ease: 'expo.out', paused: true });
     whenSeen(paper, () => pp.play(), 0.2);
@@ -117,7 +114,6 @@ export function story() {
       defaults: { ease: 'none' },
       scrollTrigger: { trigger: end, start: 'top bottom', end: 'bottom top', scrub: 0.5 }
     })
-      .call(() => sfx('swell'), null, 0.05)
       .fromTo(line, { autoAlpha: 0, scale: 0.28 }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: 'power2.out' }, 0)
       .to(line, { autoAlpha: 1, duration: 0.6 })
       .to(line, { autoAlpha: 0, scale: 1.12, duration: 0.4, ease: 'power1.in' });

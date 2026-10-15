@@ -29,7 +29,6 @@
    window that crosses the breakpoint gets the other layout cleanly.
    ============================================================ */
 import { gsap, ScrollTrigger, env, whenSeen, $, $$ } from './core.js';
-import { sfx } from './sound.js';
 
 const DESK = '(min-width: 1024px)';
 const PHONE = '(max-width: 767px)';
@@ -392,7 +391,6 @@ export function stages() {
         pics.forEach((p, j) => p.classList.toggle('is-on', j === i));
         const txt = pad(i + 1);
         if (first || !env.motion) { digits.innerHTML = `<span>${txt}</span>`; name.innerHTML = names[i]; return; }
-        sfx('beat');
         /* the number turns over: the old one leaves, the new one follows.
            A fast scroll can pass several steps at once: whatever is still
            leaving goes at once, so only one number is ever in flight. */
