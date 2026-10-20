@@ -95,14 +95,11 @@ module.exports = site => {
     ],
 
     data: {
-      /* Poster = the loop's first frame (5:4 up to 900px). */
-      heroPoster: frame('hero-v', {
-        priority: true, ratio: false, alt: 'Close-up of a red Ferrari’s grille and headlight in low evening sun',
-        sizes: 'max(100vw, 167vh)',
-        art: [
-          { media: '(max-width: 767px)', id: 'hero-vm', sizes: 'calc(80px + 100vw)' },
-          { media: '(max-width: 900px)', id: 'hero-vm', sizes: '100vw' }
-        ]
+      /* Hero photo (Fender 20/10): lime Huracán STO under a hex-light
+         ceiling, replaces the red Ferrari video. */
+      heroPoster: frame('hero-sto', {
+        priority: true, ratio: false, alt: 'Lime green Lamborghini Huracán STO under hexagonal studio lights',
+        sizes: 'max(100vw, 133vh)'
       }),
 
       /* v0.5 "Featured On", as a strip under the hero (Fender 02/10: the

@@ -38,6 +38,7 @@ const IMAGES = [
      photo the visitor sees first is exactly where the video starts. */
   { id: 'hero-v',      src: 'video/hero-1920-poster.png', widths: [960, 1440, 1920], q: 56 },
   { id: 'hero-vm',     src: 'video/hero-1080-poster.png', widths: [480, 720, 1080], q: 56 },
+  { id: 'hero-sto',    src: 'hero-sto.jpg', widths: [480, 720, 1080, 1440], q: 62 },
 
   /* The story block: Paul, face in frame (4:5 desktop, square on phones). */
   { id: 'paul',        src: 'drive/18-paul-portrait.png', crop: { l: 0, t: .165, w: .9, h: .633 }, widths: [480, 760, 847] },
