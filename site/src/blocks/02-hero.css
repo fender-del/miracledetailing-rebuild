@@ -17,7 +17,7 @@
   -webkit-mask-image:linear-gradient(180deg,#000 72%,transparent);mask-image:linear-gradient(180deg,#000 72%,transparent);
 }
 .hero__media .media,.hero__media picture,.hero__media img,.hero__video{position:absolute;inset:0;width:100%;height:100%}
-.hero__media img,.hero__video{object-fit:cover;object-position:50% 50%}
+.hero__media img,.hero__video{object-fit:cover;object-position:50% 86%}
 /* decorative: a click must not focus it (it is aria-hidden) */
 .hero__video{opacity:0;transition:opacity 1s var(--ease);pointer-events:none}
 .hero__video.is-playing{opacity:1}
@@ -27,6 +27,7 @@
 .hero__shade{
   position:absolute;inset:0;z-index:-2;pointer-events:none;
   background:
+    linear-gradient(90deg,rgba(10,10,10,.82) 0%,rgba(10,10,10,.62) 30%,rgba(10,10,10,.2) 50%,rgba(10,10,10,0) 62%),
     radial-gradient(95% 85% at 0% 100%,rgba(10,10,10,.85) 0%,rgba(10,10,10,.6) 42%,rgba(10,10,10,0) 76%),
     linear-gradient(180deg,rgba(10,10,10,.5) 0,transparent 18%,transparent 70%,var(--ink) 100%),
     /* Fender 06/10: the whole video a touch darker */
@@ -91,4 +92,11 @@
   .hero__in>*,.hero__in>.hero__slogan{max-width:none}
   .hero__slogan{font-size:clamp(2.05rem,8.6vw,2.6rem);margin-bottom:28px}
   .hero__ctas .btn{flex:1 1 100%}
+}
+/* Fender 20/10: the STO photo sits on the right so the whole car shows
+   beside the copy; its left edge fades into the dark. */
+@media (min-width:901px){
+  .hero__media img{left:auto;right:0;width:68%;object-position:50% 80%;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%);mask-image:linear-gradient(90deg,transparent 0,#000 22%)}
+  .hero__media{background:var(--ink)}
 }
