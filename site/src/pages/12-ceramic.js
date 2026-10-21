@@ -8,12 +8,14 @@
      · why Feynlab (4) · wheel ceramic (2) · Veyron + McLaren F1 · book
    07/10: why Feynlab plays each point on a test panel (block 51), the
    wheel coating is one choice between its two versions (block 52).
+   21/10 (Paul's notes 43, 51, 52, 48/50): the drawn tests are gone, block 51
+   plays four real photos; Heal Lite shows POA (no price from Paul).
    v0.5 slip, fixed: under "Ceramic by Paul Dalton" it shows the tint
    page's VLT paragraph, and the tint page shows this one. Each sits on
    its own page here (REQUESTS.md asks Paul to confirm).
    ============================================================ */
 'use strict';
-const { frame } = require('../lib/pic.js');
+const { frame, pic } = require('../lib/pic.js');
 const { stars, reviews, crumbs, cards, prose } = require('../lib/shared.js');
 const { bench, choose } = require('../lib/formats-b.js');
 
@@ -71,7 +73,7 @@ module.exports = site => {
           'Sold worldwide through the Feynlab website',
           'Used daily by professional detailers globally'
         ],
-        price: 'From £???'
+        price: 'POA'
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
         id: 'range', light: true, cols: 3, fx: 'rail', acc: true,
@@ -87,7 +89,7 @@ module.exports = site => {
           { tag: '5yr', name: 'Heal Lite', sub: 'Feynlab Heal Lite',
             paras: 'A professional-grade nano coating with self-healing capabilities. Minor surface scratches disappear with the application of gentle heat. UV resistant, highly hydrophobic and high-gloss, with up to 60% of the healing capability of the flagship coating.',
             list: ['Self-healing under gentle heat', 'UV resistance and deep gloss', 'Single-step ultra-durable formula'],
-            price: 'From £2,000 + VAT' },
+            price: 'POA' },
           { tag: '5yr', name: 'Ultra V2', sub: 'Feynlab Ceramic Ultra V2',
             paras: 'One of the most durable non-healing ceramic coatings available. Extreme gloss, outstanding UV resistance, robust chemical protection and formidable scratch resistance. Built for cars that need maximum durability without self-healing complexity.',
             list: ['Extreme gloss and scratch resistance', 'Chemical and UV protection', 'Flexible, durable formula'] },
@@ -103,15 +105,18 @@ module.exports = site => {
         id: 'why-feynlab',
         eyebrow: 'Why Feynlab',
         title: 'The coating Paul chose to put <span class="gold">his name on.</span>',
-        left: 'Unprotected', right: 'Feynlab',
-        items: [
-          { n: 'I', name: 'Self-Healing Technology', demo: 'heal', cap: 'Swirls, then gentle heat',
+                items: [
+          { n: 'I', name: 'Self-Healing Technology', cap: 'Clean paint beside swirled paint',
+            shot: pic('cc-heal', { alt: 'Black metallic paint split down the middle: clean on the left, fine swirls and scratches on the right', sizes: '(max-width: 1023px) 92vw, 50vw' }).html,
             paras: 'The flagship Feynlab coatings heal minor surface scratches with the application of gentle heat. No other coating brand has refined this technology further.' },
-          { n: 'II', name: 'Chemical Resistance', demo: 'chem', cap: 'Acid rain and fallout',
+          { n: 'II', name: 'Chemical Resistance', cap: 'Water beading on coated paint',
+            shot: pic('ac-bead', { alt: 'Beads of water standing on glossy blue paint', sizes: '(max-width: 1023px) 92vw, 50vw' }).html,
             paras: 'Bird lime, acid rain, industrial fallout, brake dust: Feynlab coatings are formulated to resist chemical attack that degrades unprotected or lesser-coated paint.' },
-          { n: 'III', name: 'UV Protection', demo: 'uv', cap: 'Five summers in the sun',
+          { n: 'III', name: 'UV Protection', cap: 'Colour that holds in the sun',
+            shot: pic('cc-w-sto', { alt: 'A green Lamborghini Huracán STO under a summer sky', sizes: '(max-width: 1023px) 92vw, 50vw' }).html,
             paras: 'Ultraviolet radiation fades paint over time. Every Feynlab coating in the range includes UV resistance, protecting the colour and clarity of your paintwork for years.' },
-          { n: 'IV', name: 'Depth of Gloss', demo: 'gloss', cap: 'One strip light across both halves',
+          { n: 'IV', name: 'Depth of Gloss', cap: 'Gloss, measured',
+            shot: pic('pc-gloss', { alt: 'A gloss meter reading on deep black paint', sizes: '(max-width: 1023px) 92vw, 50vw' }).html,
             paras: 'No wax or sealant delivers the depth of gloss a properly applied ceramic coating achieves. Applied over corrected paint, the result is paint that looks better than new.' }
         ]
       }) } },
@@ -123,7 +128,7 @@ module.exports = site => {
           'Wheels take more punishment than any other surface on the car: brake dust, road salt, stone chips and heat. A ceramic coating applied properly means they stay cleaner for longer, are far easier to maintain, and look significantly better.',
           'Paul removes the wheels from the car and applies the coating inside and out, the correct way. Painted calipers are included where the car has them.'
         ],
-        img: frame('cc-wheel', { alt: 'The wheel and yellow painted caliper of a Ferrari 458 Speciale', sizes: '(max-width: 1023px) 92vw, 38vw', ratio: '4 / 5' }),
+        img: frame('cc-wheel-bmw', { alt: 'A black and diamond-cut BMW M wheel on a Pirelli P Zero tyre, freshly coated', sizes: '(max-width: 1023px) 92vw, 38vw', ratio: '4 / 5' }),
         label: 'Wheel coating options',
         scale: { label: 'Durability', unit: 'Years', max: 5 },
         options: [
@@ -182,7 +187,7 @@ module.exports = site => {
       },
 
       work: [
-        { img: frame('cc-veyron', { alt: 'A black Bugatti Veyron outside the studio after its Feynlab ceramic coating', sizes: workSizes, ratio: '3 / 2' }), cap: 'Bugatti Veyron, Feynlab ceramic coating', wide: true },
+        { img: frame('cc-veyron', { alt: 'A black Bugatti Veyron outside the studio after its Feynlab ceramic coating', sizes: workSizes, ratio: '3 / 2' }), cap: 'Bugatti Veyron', wide: true },
         /* 08/10: the McLaren F1 is the hero again, so its photo leaves the
            grid; more of Paul's cars instead (Fender: "cho thêm vài chiếc") */
         { img: frame('cc-w-348', { alt: 'A red Ferrari 348 on the studio lift under the Feynlab banner', sizes: '(max-width: 767px) 92vw, 40vw', ratio: '4 / 3' }), cap: 'Ferrari 348' },

@@ -87,6 +87,8 @@ export function form() {
     cur = i;
   };
 
+  const MAX_BYTES = 8 * 1024 * 1024;
+  const mb = n => (n / 1048576).toFixed(1) + ' MB';
   const bad = (el, on) => { el.setAttribute('aria-invalid', on ? 'true' : 'false'); };
   const check = i => {
     const s = steps[i];
@@ -117,10 +119,10 @@ export function form() {
     const files = $('[data-qfiles]', s);
     if (files && files.files.length) {
       const total = Array.from(files.files).reduce((n, x) => n + x.size, 0);
-      const ok = files.files.length <= 4 && total <= 8 * 1024 * 1024;
+      const ok = files.files.length <= 4 && total <= MAX_BYTES;
       bad(files, !ok);
-      if (!ok) $('[data-qfiles-out]', s).textContent = 'Up to 4 photos and 8 MB in total, please. Larger sets are easiest on WhatsApp.';
-      if (!ok && !first) first = files;
+      if (!ok) $('[data-qfiles-out]', s).textContent = `Up to 4 photos and 8 MB in total, please (you have ${files.files.length}, ${mb(total)}). Remove some below, or send them on WhatsApp.`;
+      if (!ok && !first) first = $('[data-qfiles-list] button', s) || files;
     }
     if (first) { first.focus(); return false; }
     return true;
@@ -137,13 +139,46 @@ export function form() {
   }));
   $$('input[name=work]', f).forEach(p => p.addEventListener('change', () => { if (p.checked) err.hidden = true; }));
 
+  /* Photos: a list Paul can edit (Paul 19/10, note 18: a set that was too
+     big could not be undone). Each pick adds to the list; every photo has
+     a Remove button, and the input is kept in step through DataTransfer. */
   const files = $('[data-qfiles]', f);
-  if (files) files.addEventListener('change', () => {
-    const n = files.files.length;
+  const list = $('[data-qfiles-list]', f);
+  const hint = $('[data-qfiles-out]', f);
+  const idle = 'Photos help Paul see the paint before he calls. You can also send them on WhatsApp.';
+  let picked = [];
+  const sync = () => {
+    const dt = new DataTransfer();
+    picked.forEach(x => dt.items.add(x));
+    files.files = dt.files;
+    const total = picked.reduce((n, x) => n + x.size, 0);
+    const over = picked.length > 4 || total > MAX_BYTES;
     bad(files, false);
-    $('[data-qfiles-out]', f).textContent = n
-      ? `${n} photo${n === 1 ? '' : 's'} ready: ${Array.from(files.files).map(x => x.name).join(', ')}`
-      : 'Photos help Paul see the paint before he calls. You can also send them on WhatsApp.';
+    list.textContent = '';
+    picked.forEach(x => {
+      const li = document.createElement('li');
+      const nm = document.createElement('span'); nm.textContent = `${x.name} · ${mb(x.size)}`;
+      const rm = document.createElement('button'); rm.type = 'button'; rm.textContent = 'Remove';
+      rm.setAttribute('aria-label', `Remove ${x.name}`);
+      rm.addEventListener('click', () => { picked = picked.filter(y => y !== x); sync(); });
+      li.append(nm, rm); list.appendChild(li);
+    });
+    if (picked.length > 1) {
+      const li = document.createElement('li');
+      const rm = document.createElement('button'); rm.type = 'button'; rm.textContent = 'Remove all';
+      rm.addEventListener('click', () => { picked = []; sync(); });
+      li.appendChild(rm); list.appendChild(li);
+    }
+    list.hidden = !picked.length;
+    hint.textContent = !picked.length ? idle
+      : over ? `${picked.length} photo${picked.length === 1 ? '' : 's'}, ${mb(total)}: too much. Up to 4 photos and 8 MB in total, please. Remove some below, or send them on WhatsApp.`
+      : `${picked.length} photo${picked.length === 1 ? '' : 's'} ready, ${mb(total)} of 8 MB.`;
+  };
+  if (files) files.addEventListener('change', () => {
+    Array.from(files.files).forEach(x => {
+      if (!picked.some(y => y.name === x.name && y.size === x.size && y.lastModified === x.lastModified)) picked.push(x);
+    });
+    sync();
   });
 
   /* Enter in a text field moves to the next step instead of submitting early. */

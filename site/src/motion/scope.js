@@ -287,10 +287,15 @@ function micro(box) {
 function levels(sec) {
   const panel = $('[data-scope="levels"]', sec);
   const cv = panel && $('[data-scope-cv]', panel);
+  const after = panel && $('[data-scope-after]', panel);
   const cards = $$('[data-card]', sec);
   const stops = $$('[data-go]', sec);
-  if (!cv || !cards.length) return;
-  const paint = surface(panel, cv, { seed: 9, lx: 0.42, ly: 0.4 });
+  if ((!cv && !after) || !cards.length) return;
+  /* 21/10 (Paul: drawn panel "a little gimmicky"): with a real photo pair
+     the level fades the corrected photo over the swirled one */
+  const paint = after
+    ? { setF: f => { after.style.opacity = f ? Math.max(0, (f - 0.6) / 0.4) : 0; }, light() {}, release() {} }
+    : surface(panel, cv, { seed: 9, lx: 0.42, ly: 0.4 });
   if (!paint) return;
 
   const row = $('[data-scope-cards]', sec);
@@ -341,7 +346,7 @@ function levels(sec) {
     if (prog) prog.parentNode.style.setProperty('--p', ((i + 1) / N).toFixed(3));
     if (prev) prev.disabled = i === 0;
     if (next) next.disabled = i === N - 1;
-    if (from !== 'scroll' && from !== 'pin') { lock = Date.now() + 700; if (pinTo(i)) return; rowTo(i); }
+    if (from !== 'scroll' && from !== 'pin') { lock = Date.now() + 700; if (pinTo(i)) { if (changed) show(); return; } rowTo(i); }
     if (changed || from === 'init') show();
   };
 

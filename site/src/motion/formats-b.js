@@ -34,6 +34,7 @@ const TAN = Math.tan(ANG);
 function bench(sec) {
   const pts = $$('[data-pt]', sec);
   const panel = $('[data-bench-panel]', sec);
+  if ($('[data-bench-shot]', sec)) return photoBench(sec, pts, panel);
   const cv = $('[data-bench-cv]', sec);
   const g = cv && cv.getContext && cv.getContext('2d');
   if (!pts.length || !panel || !g) return;
@@ -509,6 +510,60 @@ function bench(sec) {
   }), { rootMargin: '-8% 0px' });
   if (io) io.observe(panel);
   else { inView = true; kick(); tick(); }
+}
+
+/* photos: the points take turns while the section is on screen; the same
+   hold rules as the drawn panel (pointer on the list or panel, a click) */
+function photoBench(sec, pts, panel) {
+  const shots = $$('[data-bench-shot]', sec);
+  const capBox = $('.sbench__cap', sec), cap = $('[data-bench-cap]', sec), capN = $('[data-bench-n]', sec);
+  const desk = window.matchMedia('(min-width: 1024px)');
+  const TURN = 6000;
+  sec.style.setProperty('--turn', TURN + 'ms');
+  sec.classList.add('is-live');
+  let cur = -1, inView = false, held = false, over = false, timer = 0, capT = 0;
+  const set = i => {
+    if (i === cur) return;
+    cur = i;
+    pts.forEach((p, j) => {
+      p.classList.toggle('is-on', j === i);
+      $('.sbench__btn', p).setAttribute('aria-expanded', String(j === i));
+    });
+    shots.forEach((s, j) => s.classList.toggle('is-on', j === i));
+    const p = pts[i];
+    capBox.classList.add('is-out');
+    clearTimeout(capT);
+    capT = setTimeout(() => {
+      cap.textContent = p.dataset.cap || '';
+      if (capN) capN.textContent = $('.sbench__n', p).textContent;
+      capBox.classList.remove('is-out');
+    }, env.motion ? 220 : 0);
+  };
+  const auto = () => env.motion && env.fine && desk.matches && !held && !over && inView;
+  const tick = () => {
+    clearTimeout(timer);
+    sec.classList.toggle('is-auto', auto());
+    if (!auto()) return;
+    timer = setTimeout(() => { set((cur + 1) % pts.length); tick(); }, TURN);
+  };
+  set(0);
+  pts.forEach((p, i) => $('.sbench__btn', p).addEventListener('click', () => {
+    if (desk.matches && env.fine) held = true;
+    set(i); tick();
+    ScrollTrigger.refresh();
+    if (!desk.matches) {
+      requestAnimationFrame(() => {
+        const top = panel.getBoundingClientRect().top;
+        if (top < 110) window.scrollBy({ top: top - 118, behavior: env.motion ? 'smooth' : 'auto' });
+      });
+    }
+  }));
+  if (env.fine) [$('.sbench__pts', sec), panel].forEach(el => {
+    el.addEventListener('pointerenter', () => { over = true; tick(); });
+    el.addEventListener('pointerleave', () => { over = false; tick(); });
+  });
+  const io = 'IntersectionObserver' in window && new IntersectionObserver(es => es.forEach(e => { inView = e.isIntersecting; tick(); }), { rootMargin: '-8% 0px' });
+  if (io) io.observe(panel); else { inView = true; tick(); }
 }
 
 /* ---------- 52 · choose one ---------- */

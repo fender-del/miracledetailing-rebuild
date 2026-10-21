@@ -49,14 +49,22 @@ const RS6 = {
   front: '66.8,29.4 68.5,24 70.7,17.6 74,17.5 77.2,17.9 78.4,23.5 79.6,29.2 73,29.3',
   rear: '79.1,17.9 82,18.8 85,20 89,21.2 91,23.8 93.8,28.5 81.5,29.2 80.3,23.5'
 };
-/* wt-side = Pexels 20036216 cropped (images-pages.js) */
-const SIDE_CROP = { l: 0, t: 0.14, w: 1, h: 0.643 };
-const SIDE = [
-  '0,30 8,27.6 16.3,25.6 20.8,84 0,88',
-  '21.5,24.5 30,23.2 38,23 43.5,24.5 45.8,27.5 52.2,64.5 30.5,79.5 26.8,80.5',
-  '47.5,28 52,30.5 58,40 64,53 64.5,58.5 53,64.5'
-];
-
+/* wt-side = Pexels 20036216 cropped (images-pages.js) */
+
+const SIDE_CROP = { l: 0, t: 0.14, w: 1, h: 0.643 };
+
+const SIDE = [
+
+  '0,30 8,27.6 16.3,25.6 20.8,84 0,88',
+
+  '21.5,24.5 30,23.2 38,23 43.5,24.5 45.8,27.5 52.2,64.5 30.5,79.5 26.8,80.5',
+
+  '47.5,28 52,30.5 58,40 64,53 64.5,58.5 53,64.5'
+
+];
+
+
+
 module.exports = site => {
   const nav = crumbs([
     { name: 'Home', href: '/' },
@@ -97,17 +105,17 @@ module.exports = site => {
             img: frame('wt-dyed', { alt: 'A dark Mercedes saloon from behind, its rear glass tinted', sizes: '(max-width: 900px) 88vw, 40vw', ratio: '4 / 3' }),
             paras: 'The classic window tint: a dyed film that reduces visible light transmission, blocks UV radiation and gives the car a clean, purposeful appearance from the outside. Available in various darkness levels from light privacy through to deep black, within UK legal limits.',
             list: ['Rear and side window tinting', 'Multiple darkness levels available', 'UV and heat reduction', 'Clean, uniform appearance', 'Compliant with UK VLT regulations'],
-            price: 'From £???' },
+            price: 'From £250 + VAT' },
           { n: 'II', tag: 'Most distinctive', hi: true, name: 'Chameleon Tint', sub: 'Colour-shift film, windows and windscreen',
             img: frame('wt-cham', { alt: 'A violet dusk sky seen through a car’s side window', sizes: '(max-width: 900px) 88vw, 40vw', ratio: '4 / 3' }),
             paras: 'Chameleon film shifts colour depending on viewing angle and light conditions, from blue to green to purple and beyond. Applied to side windows or the windscreen, it gives the car a dramatic, distinctive appearance unlike any other tint. The windscreen application is particularly striking: a subtle iridescent shimmer that changes with the light while remaining clear from inside.',
             list: ['Colour-shift effect, unique at every angle', 'Available for side windows and windscreen', 'Maintains excellent clarity from inside', 'UV and glare reduction', 'Legal for windscreen application in the UK'],
-            price: 'From £???' },
+            price: 'From £350 + VAT' },
           { n: 'III', name: 'Windscreen Tint', sub: 'Chameleon or light privacy film',
             img: frame('wt-screen', { alt: 'The road ahead at sunset through a car’s windscreen', sizes: '(max-width: 900px) 88vw, 40vw', ratio: '4 / 3' }),
             paras: 'Windscreen tinting using chameleon or light privacy film, reducing glare, cutting UV and adding a distinctive appearance to the front of the car. All windscreen film applied at Miracle Detail complies with UK legal requirements for visible light transmission.',
             list: ['Chameleon or light dyed film', 'Glare and UV reduction', 'Legal VLT compliance confirmed before application', 'Professionally fitted: no bubbles, no edges'],
-            price: 'From £???' }
+            price: 'From £300 + VAT' }
         ]
       }) } },
       { block: '45-svc-show', with: { show: show({
@@ -122,7 +130,7 @@ module.exports = site => {
         img: frame('wt-599', { alt: 'A red Ferrari 599 from the front three-quarter, a colour-shift film drawn on its windscreen', sizes: '(max-width: 1320px) 94vw, 1240px' }),
         regions: [
           { id: 'glass', fx: 'shift', poly: F599.glass },
-          { id: 'bonnet', fx: 'hatch', poly: F599.bonnet }
+          { id: 'bonnet', fx: 'film', poly: F599.bonnet }
         ],
         points: [
           { n: 'I', name: 'Colour shift in different light', look: 'shift', paras: 'The film moves through blue, green and purple tones depending on the angle and light conditions. No static appearance: the car looks different at every moment.' },
@@ -157,17 +165,22 @@ module.exports = site => {
           'Film darkness confirmed against your car’s existing glass before fitting',
           'Certificate of conformity provided on request'
         ],
-        price: 'From £???'
+        price: 'From £300 + VAT'
       }) } },
       { block: '47-svc-lens', with: { lens: lens({
         id: 'bulletproof',
         eyebrow: 'Also available through Miracle Detail · Bulletproof Film',
         title: 'Protection that <span class="gold">cannot be seen.</span>',
-        img: frame('wt-side', { alt: 'The dark side glass of a black saloon', sizes: '100vw', ratio: false }),
-        img2: frame('wt-side', { sizes: '100vw', ratio: false }),
-        ar: (images['wt-side'].w / images['wt-side'].h).toFixed(4),
-        regions: SIDE.map((poly, i) => ({ id: 'g' + i, poly: inCrop(poly, SIDE_CROP) })),
-        rest: [31, 60], focus: 34,
+        img: frame('wt-side', { alt: 'The dark side glass of a black saloon', sizes: '100vw', ratio: false }),
+
+        img2: frame('wt-side', { sizes: '100vw', ratio: false }),
+
+        ar: (images['wt-side'].w / images['wt-side'].h).toFixed(4),
+
+        regions: SIDE.map((poly, i) => ({ id: 'g' + i, poly: inCrop(poly, SIDE_CROP) })),
+
+        rest: [31, 60], focus: 34,
+
         hint: 'Look through the glass', tag: 'Multi-layer film',
         lead: 'Invisible protection. Absolute discretion.',
         paras: [

@@ -60,7 +60,20 @@ const CARS = [
   { id: 'car-porsche', name: 'Porsche 911 Carrera Clubsport', tag: 'From the gallery', sub: '1984 · White',
     story: 'An air-cooled 3.2 Clubsport from 1984. Paul’s work on it fills thirty-two photographs in the gallery.',
     work: ['Classic', '32 photographs'], href: '/car-detail-gallery/?job=1984-porsche-carrera-clubsport-white',
-    alt: 'White classic Porsche 911 Carrera with red script in the studio' }
+    alt: 'White classic Porsche 911 Carrera with red script in the studio' },
+  /* everyday cars (Paul 19/10, note 21): the section says "classics to daily drivers" */
+  { id: 'car-golf-r', name: 'VW Golf R', tag: 'From the gallery', sub: 'Daily driver',
+    story: 'A 25-hour detail on a new Golf R, finished with Modesta BC04 glass coating on the paint and BC06 on the wheels.',
+    work: ['25-hour detail', '12 photographs'], href: '/car-detail-gallery/?job=vw-golf-r-modesta-bc-04',
+    alt: 'Blue VW Golf R in the studio' },
+  { id: 'car-m135i', name: 'BMW M135i', tag: 'From the gallery', sub: 'Estoril Blue',
+    story: 'An M135i in Estoril Blue: the same care as the supercars, on the car that gets driven every day.',
+    work: ['Detailed by Paul', '12 photographs'], href: '/car-detail-gallery/?job=bmw-m135i-in-estoril-blue',
+    alt: 'Blue BMW M135i seen from the front three-quarter in the workshop' },
+  { id: 'car-focus-rs', name: 'Ford Focus RS', tag: 'From the gallery', sub: 'Ultimate Green',
+    story: 'A Focus RS in Ultimate Green, polished panel by panel.',
+    work: ['Detailed by Paul', '12 photographs'], href: '/car-detail-gallery/?job=ford-focus-rs-in-ultimate-green',
+    alt: 'Green Ford Focus RS in side view' }
 ];
 
 module.exports = site => {
@@ -140,13 +153,11 @@ module.exports = site => {
          town and its distance from Lingfield as the crow flies
          (51.177 N, 0.015 W; Tunbridge Wells 12.5, Charing Cross 23.4,
          Brighton 25.0, Winchester 56.6 miles). */
-      coverage: [
-        { name: 'Surrey', ref: 'Home · Lingfield', home: true },
-        { name: 'Kent', ref: 'Tunbridge Wells · 13 mi' },
-        { name: 'London', ref: 'Central London · 23 mi' },
-        { name: 'Sussex', ref: 'Brighton · 25 mi' },
-        { name: 'Hampshire', ref: 'Winchester · 57 mi' },
-        { name: '& beyond', ref: '' }
+      areas: [
+        { name: 'Surrey', towns: ['Lingfield', 'Reigate', 'Redhill', 'Oxted', 'Caterham', 'Guildford', 'Godalming', 'Dorking', 'Epsom', 'Leatherhead', 'Woking', 'Godstone', 'Banstead', 'Farnham'] },
+        { name: 'Kent', towns: ['Sevenoaks', 'Tunbridge Wells', 'Westerham', 'Edenbridge', 'Tonbridge', 'Maidstone', 'Biggin Hill', 'Swanley', 'Dartford', 'Gravesend', 'Rochester', 'Chatham', 'Ashford', 'Canterbury'] },
+        { name: 'Sussex & Hampshire', towns: ['East Grinstead', 'Horsham', 'Crawley', 'Haywards Heath', 'Burgess Hill', 'Brighton', 'Worthing', 'Chichester', 'Southampton', 'Winchester', 'Portsmouth', 'Basingstoke'] },
+        { name: 'London & beyond', towns: ['Central London', 'South London', 'Croydon', 'Bromley', 'Kingston', 'Richmond', 'Essex', 'Hertfordshire', 'Oxfordshire', 'Berkshire', 'Buckinghamshire', 'International on request'] }
       ],
 
       stars,

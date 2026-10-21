@@ -15,8 +15,8 @@
     <ul class="gal__grid" role="list">
       {{#gal.jobs}}
       <li class="gal__it" data-make="{{makeKey}}">
-        <a class="gal__card" href="/assets/gallery/{{slug}}/1-1400.webp" data-job="{{slug}}">
-          <div class="gal__media" style="--lq:url({{lqip}})"><img src="/assets/gallery/{{slug}}/1-480.webp" width="480" height="360" alt="{{title}}" loading="lazy" decoding="async"></div>
+        <a class="gal__card" href="/assets/gallery/{{slug}}/{{cover}}-1400.webp" data-job="{{slug}}">
+          <div class="gal__media" style="--lq:url({{lqip}})"><img src="/assets/gallery/{{slug}}/{{cover}}-480.webp" width="480" height="360" alt="{{title}}" loading="lazy" decoding="async"></div>
           <div class="gal__body">
             <p class="gal__meta">{{make}}{{#year}} · {{year}}{{/year}}</p>
             <h3 class="gal__name">{{title}}</h3>

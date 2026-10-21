@@ -36,7 +36,7 @@ const site = {
     postcode: 'RH7 6PN',
     country: 'GB'
   },
-  hours: 'Studio appointments only · Monday to Saturday',
+  hours: 'Open 7 days a week · strictly by appointment only',
 
   rating: '5.0',
   reviewCount: 139,                                  // Google Business Profile, 01/10/2026 (v0.5 said "140+")
@@ -88,22 +88,22 @@ const site = {
 
     /* v0.5 has no underbody page: Feynlab Industrial V2 is in the ceramic range */
     { key: 'underside', name: 'Underside Coating', href: '/ceramic-coatings/#industrial',
-      line: 'Feynlab Industrial V2 — 10 year protection', img: 'svc-underside' },
+      line: 'Feynlab Industrial V2 — 10 year protection', from: 1000, img: 'svc-underside' },
     { key: 'studio', name: 'Full Studio Detail', href: '/car-detailing-studio/#signature',
-      line: 'Every service. One detailer.', img: 'svc-studio' },
+      line: 'Every service. One detailer.', from: 175, img: 'svc-studio' },
     { key: 'packages', name: 'Detailing Packages', href: '/car-detailing-studio/',
       line: 'Maintenance to Signature — 5 levels', from: 175, img: 'svc-packages' },
     { key: 'bodyshop', name: 'Bodyshop & Paint Repair', href: '/bodyshop-repair/',
-      line: 'Panel repairs to full restorations', img: 'svc-bodyshop' },
+      line: 'Panel repairs to full restorations', poa: true, img: 'svc-bodyshop' },
     { key: 'pdr', name: 'Paintless Dent Removal', href: '/paintless-dent-removal/',
-      line: 'No filler. No paint. Original panel.', img: 'svc-pdr' },
+      line: 'No filler. No paint. Original panel.', from: 150, img: 'svc-pdr' },
     { key: 'wheels', name: 'Wheel Refurbishment', href: '/wheel-refurbishment/',
-      line: 'Diamond cut, powder coat, colour change', img: 'svc-wheels' },
+      line: 'Diamond cut, powder coat, colour change', from: 125, img: 'svc-wheels' },
     /* v0.5 bug: this row carried the tint line. Now the leather page's own. */
     { key: 'leather', name: 'Leather Restoration', href: '/leather-restoration/',
-      line: 'Colour restoration, scuff repair and conditioning', img: 'svc-leather' },
+      line: 'Colour restoration, scuff repair and conditioning', poa: true, img: 'svc-leather' },
     { key: 'tint', name: 'Window Tinting & Bulletproof Film', href: '/window-tinting/',
-      line: 'Chameleon, standard and security film', img: 'svc-tint' }
+      line: 'Chameleon, standard and security film', from: 250, img: 'svc-tint' }
   ],
 
   /* Menu groups (PLAN.md §5.2), shown in the Services mega menu and footer. */
@@ -160,6 +160,7 @@ site.mapDirections = `https://www.google.com/maps/dir/?api=1&destination=${encod
 
 const gbp = n => '£' + n.toLocaleString('en-GB');
 site.price = s => {
+  if (s.poa) return 'Price POA';
   if (!s.from) return '';
   const n = site.vatMode === 'inc' ? Math.round(s.from * 1.2) : s.from;
   const tail = site.vatMode === 'inc' ? ' inc. VAT' : ' + VAT';

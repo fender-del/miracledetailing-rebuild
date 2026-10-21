@@ -157,8 +157,9 @@ module.exports = site => {
         id: 'how',
         eyebrow: 'How it works',
         title: 'Studio results, <span class="gold">no studio required.</span>',
-        img: frame('ab-11-1', { alt: 'Paul washing a blue Koenigsegg CCX on the lawn at the London Concours, the Miracle Detail van open behind him', sizes: '(max-width: 899px) 92vw, 34vw', ratio: false }),
-        cap: 'Koenigsegg CCX · London Concours, The Burlington',
+        /* 21/10 (Paul, note 68): the back of the van with a supercar being washed beside it */
+        img: frame('mb-work', { alt: 'Paul washing a supercar on the gravel drive of a country house, the back of his black VW Caddy in front', sizes: '(max-width: 899px) 92vw, 34vw', ratio: false }),
+        cap: 'On location · the van and the wash cart',
         lead: 'Mobile detailing isn’t a compromise: it’s a different delivery method for the same standard of work. Paul built a purpose-engineered mobile setup specifically for on-location work, carrying every product, tool, and piece of equipment used in the studio.',
         paras: [
           'The only thing that changes is where the car sits. The attention, the process, and the result stay exactly the same.',
@@ -177,7 +178,7 @@ module.exports = site => {
           { place: 'Monaco', note: 'A private client',
             img: frame('ab-20-1', { alt: 'Paul giving a Ferrari F40 its final detail in a private garage in Monaco', sizes: '(max-width: 899px) 30vw, 28vw', ratio: false }) },
           { place: 'Portugal', note: 'Two Ferraris and a Porsche GT3 RS',
-            img: frame('mb-f12b', { alt: 'The blue Ferrari F12 TDF in an underground garage in Portugal', sizes: '(max-width: 899px) 30vw, 28vw', ratio: false }) }
+            img: frame('mb-f12', { alt: 'The rear of the blue Ferrari F12 TDF in Portugal', sizes: '(max-width: 899px) 30vw, 28vw', ratio: false }) }
         ]
       },
 
@@ -211,19 +212,19 @@ module.exports = site => {
         items: [
           { tag: 'Maintenance', name: 'Maintenance Detail', amt: amt(200), tail, hi: false,
             text: 'For regular clients who already have protection applied and want their car brought back to standard between visits. A full luxury wash and interior refresh.',
-            list: ['28-stage luxury wash process', 'Citrus degreaser, lower panels', 'Snow foam application', 'Hand wash with Feynlab Pure Wash', 'Dual grit-guard bucket system', 'Purified water, heated to 35°C', 'Wheels, arches and door shuts', 'Tyre dressing, satin finish', 'Quick detailer spray sealant', 'Interior vacuum and clean (POA)'],
+            list: ['28-stage luxury wash process', 'Citrus degreaser, lower panels', 'Snow foam application', 'Hand wash with Feynlab Pure Wash', 'Dual grit-guard bucket system', 'Wheels, arches and door shuts', 'Tyre dressing, satin finish', 'Quick detailer spray sealant', 'Interior vacuum and clean (POA)'],
             facts: [{ k: 'Time', v: '1–2 hours' }, { k: 'Protection', v: 'Up to 6 months' }] },
           { tag: 'Protection', name: 'Classic Protection Detail', amt: amt(550), tail, hi: false,
             text: 'A solid entry point into professional detailing: paint decontamination, clay bar treatment, and high-end carnauba wax protection. Wash process as per Maintenance Detail.',
-            list: ['Full 28-stage luxury wash', 'Clay bar paint decontamination', 'Iron fallout removal', 'High-end carnauba wax, all panels', 'Tyre dressing applied', 'Windows cleaned inside and out'],
+            list: ['28-stage luxury wash', 'Snow foam and Feynlab Pure Wash', 'Tar removal process', 'Clay bar paint decontamination', 'Iron fallout removal', 'High-end carnauba wax, all panels', 'Tyre dressing applied', 'Windows cleaned inside and out'],
             facts: [{ k: 'Time', v: 'Half day' }, { k: 'Protection', v: 'Up to 6 months' }] },
           { tag: 'Enhancement', name: 'Premier Enhancement Detail', amt: amt(750), tail, hi: true,
             text: 'For clients who want their car thoroughly detailed once or twice a year. Includes paint correction, Feynlab ceramic coating, and full glass treatment.',
-            list: ['32-stage luxury wash process', 'Snow foam and Feynlab Pure Wash', 'Purified water heated to 35°C', 'Tar removal process', '1-stage paint enhancement correction', 'Feynlab ceramic coating applied', 'Water-repellent exterior glass coating', 'Tyre dressing, satin finish', 'Interior detail at extra cost'],
+            list: ['32-stage luxury wash process', 'Snow foam and Feynlab Pure Wash', 'Tar removal process', '1-stage paint enhancement correction', 'Feynlab ceramic coating applied', 'Water-repellent exterior glass coating', 'Tyre dressing, satin finish', 'Interior detail at extra cost'],
             facts: [{ k: 'Time', v: '1–2 days' }, { k: 'Durability', v: '2, 4 or 6 years' }] },
           { tag: 'Correction', name: 'Connoisseur Detail', amt: amt(950), tail, hi: false,
             text: 'A deeper level of paint correction with multi-year Feynlab ceramic protection. The right choice when the paint needs serious work or when maximum durability is the priority.',
-            list: ['Full 32-stage luxury wash', 'Snow foam and Feynlab Pure Wash', 'Tar removal', '2-stage paint correction', 'Paint thickness measured, every panel', 'Feynlab ceramic coating applied', 'Water-repellent window coating'],
+            list: ['32-stage luxury wash', 'Snow foam and Feynlab Pure Wash', 'Tar removal', '2-stage paint correction', 'Paint thickness measured, every panel', 'Feynlab ceramic coating applied', 'Water-repellent window coating'],
             facts: [{ k: 'Time', v: '2–3 days' }, { k: 'Durability', v: '1–5 years +' }] }
         ]
       },
@@ -233,11 +234,13 @@ module.exports = site => {
         eyebrow: 'The van in the field',
         title: 'Portugal. <span class="gold">One week. Three cars.</span>',
         photos: [
-          { img: frame('mb-f12', { alt: 'A blue Ferrari F12 TDF detailed on location in Portugal', sizes: '(max-width: 899px) 46vw, 62vw', ratio: false }), cap: 'Ferrari F12 TDF · Portugal' },
+          /* 21/10 (Paul, note 74): the wider photo, the whole car */
+          { img: frame('mb-f12b', { alt: 'The whole of the blue Ferrari F12 TDF, detailed on location in Portugal', sizes: '(max-width: 899px) 46vw, 62vw', ratio: false }), cap: 'Ferrari F12 TDF · Portugal' },
           { img: frame('mb-599', { alt: 'A grey Ferrari 599 GTO detailed on location in Portugal', sizes: '(max-width: 899px) 46vw, 30vw', ratio: false }), cap: 'Ferrari 599 GTO · Portugal' },
-          /* stand-in until Paul sends the Portugal car: a 997 GT3 RS from
-             his gallery, captioned as such (REQUESTS) */
-          { img: frame('mb-gt3', { alt: 'A blue Porsche 997 GT3 RS from Paul’s gallery', sizes: '(max-width: 899px) 46vw, 30vw', ratio: false }), cap: 'Porsche GT3 RS · from the gallery' }
+          /* stand-in until the Portugal car reaches us (Paul 19/10: "the white
+             GT3 RS from the Portugal file", not in the Drive zip): the white
+             997 GT3 RS from his gallery, captioned as such (REQUESTS) */
+          { img: frame('mb-gt3w', { alt: 'A white Porsche 997 GT3 RS from Paul’s gallery', sizes: '(max-width: 899px) 46vw, 30vw', ratio: false }), cap: 'Porsche GT3 RS · from the gallery' }
         ],
         paras: [
           'In 2020 Paul drove the purpose-built Caddy to Portugal and spent a week detailing a Ferrari F12 TDF, a Ferrari 599 GTO, and a Porsche GT3 RS on location for a private client. The van has also been to Monaco. Closer to home, Paul visits regular clients on a monthly maintenance basis: the same care, on a schedule that suits them.',
@@ -247,7 +250,7 @@ module.exports = site => {
         quote: '“Same standard. <span class="gold">Different postcode.</span>”',
         cite: 'Paul Dalton · Miracle Detail',
         close: 'The mobile service covers the UK regularly, visiting monthly maintenance clients as well as one-off jobs. It has also reached Portugal and Monaco for private clients abroad.',
-        price: 'From £???'
+        price: 'From £250 + VAT'
       },
 
       qa: {
@@ -262,7 +265,8 @@ module.exports = site => {
         eyebrow: 'Available at your location',
         title: 'Wheel ceramic coating: <span class="gold">applied off the car, inside and out.</span>',
         text: 'Painted calipers included. Can be added to any mobile package.',
-        img: frame('cc-wheel', { alt: 'A Ferrari 458 Speciale wheel and caliper up close', sizes: '(max-width: 899px) 92vw, 50vw', ratio: false }),
+        /* 21/10 (Paul, note 77): his BMW diamond-cut wheel, as on the ceramic page */
+        img: frame('cc-wheel-bmw', { alt: 'A freshly finished black and diamond-cut BMW wheel', sizes: '(max-width: 899px) 92vw, 50vw', ratio: false }),
         prices: [
           { term: '1-year', amt: 'from £200+VAT' },
           { term: '3–5 year', amt: 'from £300+VAT' }

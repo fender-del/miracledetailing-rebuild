@@ -52,7 +52,7 @@ module.exports = site => {
       { block: '33-svc-prose', with: { prose: prose({
         id: 'overview',
         title: 'The complete picture. <span class="gold">Paint repair and detailing. Together.</span>',
-        img: frame('bs-over', { alt: 'A grey car masked up under plastic in the spray booth, ready for paint', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
+        img: frame('bs-over', { alt: 'Painted bumpers and panels on stands in the spray booth', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
         paras: [
           'No detail, however thorough, can correct paint that needs repairing at a bodywork level. Stone chips that have broken through to bare metal, accident damage, faded single panels, or a car requiring a full respray: these need proper paint repair before detailing work begins.',
           'Bodyshop work is available through Miracle Detail as part of your overall package. Paul coordinates the repair work alongside the detail, so the car receives the right treatment in the right order, and leaves in the condition it should be in. No managing multiple suppliers, no gaps between what the bodyshop does and what the detailer expects.',
@@ -72,11 +72,11 @@ module.exports = site => {
             paras: 'Where repair alone isn’t sufficient, a full panel respray delivers a factory-quality finish across the entire panel. Correct preparation, accurate colour matching and a finish that holds up to paint correction and protective coating once cured.',
             list: ['Full panel strip and preparation', 'Factory-accurate colour matching', 'High-quality primer, base and lacquer', 'Blend into adjacent panels', 'Ready for detailing and protection'],
             price: 'From £???' },
-          { n: 'III', name: 'Full Respray', sub: 'Complete paint refresh or colour change', img: cardImg('bs-c3', 'A white car in the booth, its glass and wheels masked for a full respray'),
+          { n: 'III', name: 'Full Respray', sub: 'Complete paint refresh or colour change', img: cardImg('bs-c3', 'A whole white car in the spray booth, its glass and wheels masked for a full respray'),
             paras: 'The entire car resprayed: original colour refreshed to concours standard, or a full colour change. For cars where the paint has aged beyond what correction can address, or where the owner wants a completely different finish. Coordinated with paint correction and protective coating once complete.',
             list: ['Full vehicle strip and preparation', 'Original colour or full colour change', 'All panels, shuts and edges', 'Primer, base, lacquer to factory standard', 'Followed by paint correction and protection'],
             price: 'From £???' },
-          { n: 'IV', name: 'Full Restoration', sub: 'Classic, historic and neglected cars', hi: true, img: cardImg('bs-c4', 'Blue bumpers and panels off the car on stands in the spray booth'),
+          { n: 'IV', name: 'Full Restoration', sub: 'Classic, historic and neglected cars', hi: true, img: cardImg('bs-c4', 'A whole grey car in the spray booth, masked up under plastic ready for paint'),
             paras: 'For cars requiring comprehensive bodywork restoration: rust removal, panel repair or replacement, bare metal preparation and full refinishing. Coordinated with Paul’s detailing work to deliver a car that is mechanically sound, structurally solid and finished to concours standard. Classic cars, investment vehicles and long-term restoration projects welcome.',
             list: ['Rust and corrosion removal', 'Panel repair and replacement', 'Bare metal preparation', 'Full refinishing to specification', 'Detailing and protection to complete the job'],
             price: 'Price on assessment' }
@@ -97,10 +97,10 @@ module.exports = site => {
       { block: '57-svc-pairs', with: { pairs: pairs({
         id: 'the-work', light: true, wide: true,
         eyebrow: 'The work',
-        title: 'From bare metal <span class="gold">to paint.</span>',
+        title: 'From primer <span class="gold">to paint.</span>',
         items: [
-          { before: wideImg('bs-600b', 'A Mercedes 600 stripped to bare metal, its chrome and bumpers off'),
-            after: wideImg('bs-600a', 'The same Mercedes 600 in fresh blue paint'), thumb: '', bl: 'Bare metal', al: 'Painted' }
+          { before: wideImg('bs-600b', 'A Mercedes 600 in primer, its chrome and bumpers off'),
+            after: wideImg('bs-600a', 'The same Mercedes 600 in fresh blue paint'), thumb: '', bl: 'Primed', al: 'Painted' }
         ]
       }) } },
       { block: '23-svc-steps', with: steps({

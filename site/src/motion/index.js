@@ -18,7 +18,6 @@ import { marquees, reviews } from './loops.js';
 import { story } from './story.js';
 import { deck } from './deck.js';
 import { heroVideo } from './video.js';
-import { coverage } from './coverage.js';
 import { menu, form, call } from './ui.js';
 import { steps, tbcs } from './svc.js';
 import { snav, more, tabs, lit, filmHero, compare, coverage as ppfCoverage } from './ppf.js';
@@ -106,7 +105,6 @@ function boot() {
     safe(sticky);
     if (env.motion) {
       safe(deck);
-      safe(coverage);
       safe(photoBgs);
       safe(marquees);
       safe(reviews);

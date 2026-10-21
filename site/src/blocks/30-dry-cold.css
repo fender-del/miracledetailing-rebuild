@@ -22,7 +22,7 @@
 }
 .cold__tag--after{color:var(--ink);background:var(--gold);box-shadow:none}
 
-/* caption: which job (01 / 04), what it is, four ticks */
+/* caption: which job (01 / 03), what it is, three ticks */
 .cold__cap{grid-column:1 / -1;display:flex;align-items:center;gap:14px;margin-top:8px;font-size:.8125rem;color:var(--muted)}
 .cold__count{flex:none;font-size:.6875rem;font-weight:500;letter-spacing:.2em;color:var(--muted)}
 .cold__count b{font-weight:600;color:var(--gold)}

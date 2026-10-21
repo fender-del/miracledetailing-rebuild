@@ -192,6 +192,10 @@ html:has(.hd.is-hidden) .tl{--tl-top:56px}
 .tl__panel .tl__photos[data-n="3"][data-shape=land]{grid-template-rows:1.3fr 1fr}
 .tl__panel .tl__photos[data-n="3"][data-shape=land] li:first-child{grid-column:1 / -1}
 .tl__panel .tl__photos[data-n="3"][data-shape=port],.tl__panel .tl__photos[data-n="6"][data-shape=port]{grid-template-columns:repeat(3,1fr)}
+.tl__ph.is-crop .media img{object-position:50% 25%}
+/* four landscape photos in the desktop stage: real 4:3 tiles, not the stage's tall halves (Paul 19/10, notes 31, 33) */
+.tl__panel .tl__photos[data-n="4"][data-shape=land]{grid-auto-rows:auto;align-content:center}
+.tl__panel .tl__photos[data-n="4"][data-shape=land] .tl__ph{aspect-ratio:4 / 3}
 .tl__panel .tl__ph:nth-child(2) img{transition-delay:.08s}
 .tl__panel .tl__ph:nth-child(3) img{transition-delay:.16s}
 .tl__panel .tl__ph:nth-child(4) img{transition-delay:.24s}

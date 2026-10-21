@@ -121,7 +121,7 @@ module.exports = site => {
       { block: '54-pk-addon', with: { addon: addon({
         id: 'wheels', light: true,
         title: 'Wheel ceramic <span class="gold">coating</span>',
-        img: frame('pk-wheel', { alt: 'The front wheel, yellow caliper and headlight of a Ferrari 458 Speciale', sizes: '(max-width: 1023px) 92vw, 52vw', ratio: '16 / 10' }),
+        img: frame('pk-wheel', { alt: 'A BMW diamond-cut wheel, close up in the studio', sizes: '(max-width: 1023px) 92vw, 52vw', ratio: '4 / 3' }),
         paras: 'Wheels removed from the car, ceramic coating applied inside and out. Painted calipers included. Available as a standalone service or added to any package.',
         links: [{ label: 'Book Now', href: '#book' }]
       }) } },

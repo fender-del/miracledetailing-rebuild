@@ -148,16 +148,14 @@ module.exports = site => {
           before: 'its casing caked in brown grime and rust', after: 'the bare aluminium casing clean and bright' },
         { k: 2, cap: 'A transmission casing, up close', what: 'a transmission casing',
           before: 'coated in old oil and brown grime', after: 'the cast aluminium clean down to its texture' },
-        { k: 3, cap: 'A steering rack and its clamp', what: 'a steering rack and clamp',
-          before: 'crusted in rust and road dirt', after: 'the plated tube and black subframe clean' },
-        { k: 4, cap: 'Steering rack and subframe', what: 'the steering rack and subframe from further back',
-          before: 'brown with grime and corrosion', after: 'every bolt, pipe and panel clean' }
+        { k: 3, cap: 'A BMW underbody panel', what: 'a BMW underbody panel',
+          before: 'slick with oil and road grime', after: 'the panel clean, with its bolts and exhaust shield visible' }
       ].map((j, i) => ({
         on: i === 0, cap: j.cap,
         before: frame(`dx-b${j.k}`, { alt: `Before dry ice cleaning: ${j.what}, ${j.before}`, sizes: '(max-width: 1023px) 46vw, 24vw', ratio: false }),
         after: frame(`dx-a${j.k}`, { alt: `After dry ice cleaning: the same ${j.what.replace(/^(a|the) /, '')}, ${j.after}`, sizes: '(max-width: 1023px) 46vw, 24vw', ratio: false })
       })),
-      coldCount: '04',
+      coldCount: '03',
       beats: [
         { n: 'I', name: 'Kinetic Energy', sub: 'Impact at high velocity',
           text: 'Dry ice pellets travelling at high speed physically dislodge contamination (grease, oil, road grime, underbody deposits), breaking its bond with the surface beneath without any abrasion or chemical action.' },

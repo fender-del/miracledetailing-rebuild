@@ -46,7 +46,7 @@ module.exports = site => {
         line: 'Everything available through <span class="gold">Miracle Detail</span>',
         img: frame('sv-hero', {
           priority: true, ratio: false, sizes: '100vw',
-          alt: 'A McLaren under the lights in the Miracle Detail studio',
+          alt: 'An orange Lamborghini Gallardo under the hex lights in the Miracle Detail studio',
           art: [{ media: '(max-width: 900px)', id: 'sv-hero-m', sizes: '100vw' }]
         }),
         facts: []

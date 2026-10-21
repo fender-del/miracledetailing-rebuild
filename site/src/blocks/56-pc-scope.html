@@ -33,7 +33,7 @@
     <div class="pscope__body">
       <div class="pscope__viz" data-reveal="card">
         <div class="pscope__panel" data-scope="levels">
-          <canvas data-scope-cv aria-hidden="true"></canvas>
+          {{#scope.before}}<div class="pscope__photos" data-scope-photo aria-hidden="true"><div class="pscope__ph pscope__ph--b">{{&scope.before}}</div><div class="pscope__ph pscope__ph--a" data-scope-after>{{&scope.after}}</div></div>{{/scope.before}}{{^scope.before}}<canvas data-scope-cv aria-hidden="true"></canvas>{{/scope.before}}
           <p class="pscope__lv" aria-hidden="true"><span data-scope-lv>{{scope.first.kicker}}</span></p>
           <p class="pscope__read" aria-hidden="true">
             <span class="pscope__rk" data-scope-rk>Defect removal</span>

@@ -32,19 +32,23 @@ module.exports = site => {
 
   const list = jobs.map(j => {
     const skip = SKIP[j.slug] || [];
-    const files = j.photos.map((p, i) => i + 1).filter(n => !skip.includes(n));
+    /* the main photo (src/lib/covers.json, tools/covers.js) goes first: the card shows it, the lightbox opens on it */
+    const cover = j.cover.n || 1;
+    const files = j.photos.map((p, i) => i + 1).filter(n => !skip.includes(n))
+      .sort((a, b) => (b === cover) - (a === cover) || a - b);
     return {
       slug: j.slug, title: j.title, make: j.make, makeKey: key(j.make), year: j.year || null,
-      text: j.text || '', count: files.length, lqip: j.cover.lqip,
+      text: j.text || '', count: files.length, cover: files[0], lqip: j.cover.lqip,
       files, sizes: files.map(n => [j.photos[n - 1].w, j.photos[n - 1].h])
     };
   });
 
-  /* makes, most cars first; "Other" last */
+  /* makes A to Z, "Other" last (Paul 21/10); the grid follows the same order */
+  list.sort((a, b) => (a.make === 'Other') - (b.make === 'Other') || a.make.localeCompare(b.make) || a.title.localeCompare(b.title));
   const counts = {};
   list.forEach(j => { counts[j.make] = (counts[j.make] || 0) + 1; });
   const makes = Object.keys(counts)
-    .sort((a, b) => (a === 'Other') - (b === 'Other') || counts[b] - counts[a] || a.localeCompare(b))
+    .sort((a, b) => (a === 'Other') - (b === 'Other') || a.localeCompare(b))
     .map(name => ({ name, key: key(name), count: counts[name] }));
 
   /* what the lightbox needs, keyed by job */
@@ -73,7 +77,7 @@ module.exports = site => {
         line: 'From the <span class="gold">archive.</span>',
         img: frame('gl-hero', {
           priority: true, ratio: false, sizes: '100vw',
-          alt: 'A Bugatti in the Miracle Detail studio',
+          alt: 'A Ferrari 599 GTO in the Miracle Detail studio',
           art: [{ media: '(max-width: 900px)', id: 'gl-hero-m', sizes: '100vw' }]
         }),
         facts: [

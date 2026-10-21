@@ -48,7 +48,7 @@
               <h3 class="tl__title" data-tlr>{{&title}}</h3>
               <div class="tl__text" data-tlr>{{#paras}}<p>{{&.}}</p>{{/paras}}</div>
               {{#hasPhotos}}<div class="tl__pics" data-pics>
-                <ul class="tl__photos" role="list" data-n="{{count}}" data-shape="{{shape}}">{{#photos}}<li class="tl__ph{{#portrait}} is-port{{/portrait}}" style="--ar:{{ar}}"><figure>{{&img}}<figcaption>{{&cap}}</figcaption></figure></li>{{/photos}}</ul>
+                <ul class="tl__photos" role="list" data-n="{{count}}" data-shape="{{shape}}">{{#photos}}<li class="tl__ph{{#portrait}} is-port{{/portrait}}{{#crop}} is-crop{{/crop}}" style="--ar:{{ar}}"><figure>{{&img}}<figcaption>{{&cap}}</figcaption></figure></li>{{/photos}}</ul>
                 {{#capLine}}<p class="tl__caps" aria-hidden="true">{{&.}}</p>{{/capLine}}
               </div>{{/hasPhotos}}
             </div>

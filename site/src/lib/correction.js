@@ -39,7 +39,7 @@ function tools(o) {
    panel takes away at that level (0–1). The readout shows "up to" small
    and the figures large. */
 function scope(o) {
-  const c = fill(o, ['eyebrow', 'title', 'light', 'fig', 'figCap', 'book']);
+  const c = fill(o, ['eyebrow', 'title', 'light', 'fig', 'figCap', 'book', 'before', 'after']);
   const lv = o.levels || [];
   c.levels = lv.map((l, i) => {
     const m = /^(up to\s+)?(.*)$/i.exec(l.removal || '');

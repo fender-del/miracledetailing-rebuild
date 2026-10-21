@@ -26,6 +26,12 @@ function bench(o) {
   c.left = o.left || 'Unprotected';
   c.right = o.right || 'Coated';
   c.items = (o.items || []).map(it => Object.assign({ n: null, cap: null, demo: null }, it, { paras: paras(it.paras) }));
+  /* 21/10 (Paul: the drawn tests "don't look real or natural"): a point can
+     carry a real photo instead (shot = rendered <picture>); with photos the
+     panel is a stack of them and nothing is drawn */
+  c.shots = c.items.map(it => ({ html: it.shot || '' }));
+  c.hasShots = c.items.some(it => it.shot);
+  c.noShots = !c.hasShots;
   c.firstN = (c.items[0] && c.items[0].n) || '';
   c.firstCap = (c.items[0] && c.items[0].cap) || '';
   return c;

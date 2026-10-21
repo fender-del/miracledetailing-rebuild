@@ -95,6 +95,9 @@ module.exports = site => {
         eyebrow: 'Before a pad is lifted',
         title: 'Five levels. <span class="gold">One standard.</span>',
         /* 08/10: the Rolls-Royce photo and its caption dropped (Fender) */
+        /* 21/10 (Paul: "clients want to see real pictures"): a real panel, swirled then corrected */
+        before: frame('pc-lv-b', { alt: 'A black panel under a bright light, covered in swirl marks', sizes: '(max-width: 1023px) 92vw, 52vw', ratio: false }),
+        after: frame('pc-lv-a', { alt: 'The same black panel after correction, clear and deep', sizes: '(max-width: 1023px) 92vw, 52vw', ratio: false }),
         book: { href: '#book', label: 'Book a consultation' },
         levels: [
           { n: 'I', kicker: 'Level One', name: 'Enhancement Polish', f: 0.7, removal: 'up to 65–75%', price: 'From £???',

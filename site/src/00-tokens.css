@@ -43,7 +43,7 @@
 
   --ease:cubic-bezier(.22,1,.36,1);       /* expo-ish out */
   --ease-io:cubic-bezier(.76,0,.24,1);
-  --hd-h:76px;
+  --hd-h:88px;
   /* the pointer (13/10, Ed and Paul, option B picked by Fender from six):
      the visitor's own system pointer everywhere; over anything clickable
      the same classic arrow in champagne gold with an ink edge. System
@@ -53,4 +53,4 @@
   color-scheme:dark;
 }
 
-@media (max-width:767px){:root{--hd-h:64px}}
+@media (max-width:767px){:root{--hd-h:72px}}

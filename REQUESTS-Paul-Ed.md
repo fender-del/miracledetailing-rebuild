@@ -73,10 +73,10 @@ A yes, a no or one word is enough for each.
 | Leather restoration | A photo of you on a leather job, for the top of the page. It still uses the old site's photo. |
 | Window tinting | Photos from your next tint job: the film squeegeed onto the inside of the glass, the edge being trimmed, a VLT meter on the glass, and the car before and after from the same spot. A chameleon windscreen if you have fitted one. Nothing of bulletproof film, which must stay confidential. |
 | Paintless dent removal | On your next PDR job, close up under the light board: the dent with the board's lines bending round it, and the tool working the dent as the lines straighten. Also a small ding, hail damage and a larger dent before repair. Some of these steps show realistic computer-made pictures until we have yours. |
-| Paint protection film | Your own gloss, matte and colour PPF jobs. The Gloss / Matte / Colour comparison is a computer-edited demonstration for now. |
-| Paint correction | A decontamination photo (iron fallout remover or clay). A larger photo of your own paint depth gauge. And which of the six cars shown under "The work" had paint correction? |
+| Paint protection film | Your own gloss and matte PPF jobs. The Gloss before / after is a computer-edited demonstration for now, and Matte has no photo until you send one. |
+| Paint correction | A photo of you claying or spraying iron remover (the Decontamination step uses a wet Ferrari 296 for now). A real before / after pair of the same panel for each of the five levels, ideally a short video under the light, to replace the single pair on "Five levels". A larger photo of your own paint depth gauge. And which of the six cars shown under "The work" had paint correction? |
 | Wheel refurbishment | Before and after photos of a few wheel jobs, the same wheel from the same angle, and the car each one came from. Only one real pair exists so far. |
-| Mobile detailing | The Porsche GT3 RS you detailed in Portugal in 2020. A GT3 RS from your old gallery stands in for now. |
+| Mobile detailing | The white Porsche GT3 RS you detailed in Portugal in 2020 (you mentioned a "Portugal file": it is not in the Drive folder we received). A white GT3 RS from your old gallery stands in for now. |
 
 **Nice to have**
 

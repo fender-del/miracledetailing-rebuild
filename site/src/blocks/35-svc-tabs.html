@@ -33,7 +33,7 @@
             <span class="ba__tag ba__tag--l">{{bl}}</span><span class="ba__tag ba__tag--r">{{al}}</span>
             <span class="ba__handle" aria-hidden="true"><i></i></span>
             <input class="ba__range" type="range" min="0" max="100" value="50" aria-label="Compare {{bl}} and {{al}}">
-          </div>{{/ba}}{{^ba}}<div class="sw sw--{{key}}" aria-hidden="true"><span class="sw__light"></span><span class="sw__edge"></span><span class="sw__name">{{name}}</span></div>{{/ba}}
+          </div>{{/ba}}{{^ba}}{{#still}}<div class="ba ba--still">{{&still}}</div>{{/still}}{{^still}}<div class="sw sw--{{key}}" aria-hidden="true"><span class="sw__light"></span><span class="sw__edge"></span><span class="sw__name">{{name}}</span></div>{{/still}}{{/ba}}
           <div class="stabs__copy">
             <h3 class="stabs__name">{{name}}</h3>
             <p class="stabs__sub">{{sub}}</p>

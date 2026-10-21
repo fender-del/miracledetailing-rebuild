@@ -28,6 +28,8 @@ const SRC = path.join(ROOT, '..', 'assets-src');
 const OUT = path.join(ROOT, 'assets', 'img');
 const MAP = path.join(ROOT, 'src', 'lib', 'images.json');
 const FORCE = process.argv.includes('--force');
+/* --only=id,id: build just those entries (their sources may be the only ones on this machine) */
+const ONLY = (process.argv.find(a => a.startsWith('--only=')) || '').slice(7).split(',').filter(Boolean);
 
 sharp.cache(false);
 sharp.concurrency(2);
@@ -59,13 +61,13 @@ const IMAGES = [
   { id: 'svc-studio',     src: 'drive/15-mclaren-studio.png',       crop: { l: .2, t: 0, w: .6, h: 1 }, widths: [360, 560, 720] },
   { id: 'svc-packages',   src: 'drive/04-gfw-red-detail.jpg',       crop: { l: .3, t: 0, w: .534, h: 1 }, widths: [360, 560, 720] },
   { id: 'svc-bodyshop',   src: 'drive/05-detail-gold-macro.png',    crop: { l: 0, t: .05, w: 1, h: .9 }, widths: [360, 560, 720] },
-  { id: 'svc-pdr',        src: 'drive/02-gfw-red-macro-dark.jpg',   crop: { l: .36, t: .3, w: .374, h: .7 }, widths: [360, 560, 720] },
-  { id: 'svc-wheels',     src: 'drive/20-gfw-458-speciale.jpg',     crop: { l: 0, t: .38, w: 1, h: .53 }, widths: [360, 560, 720] },
+  { id: 'svc-pdr',        src: 'drive/paul-dent-audi.png',    crop: { l: 0, t: .02, w: 1, h: .9375 }, widths: [360, 560, 720] },
+  { id: 'svc-wheels',     src: 'drive/paul-wheel-bmw.png',    crop: { l: 0, t: .03, w: 1, h: .9375 }, widths: [360, 560, 720] },
   /* Pexels (free licence): 37163499 Testarossa on a lift, 11968579 red
      quilted leather, 20036216 dark glass on a black saloon. */
-  { id: 'svc-underside',  src: 'stock/pexels-37163499.jpg',         crop: { l: .22, t: .08, w: .279, h: .62 }, widths: [360, 560, 720] },
+  { id: 'svc-underside',  src: 'drive/paul-underside.png',    crop: { l: 0, t: .03, w: 1, h: .9375 }, widths: [360, 560, 720] },
   { id: 'svc-leather',    src: 'stock/pexels-11968579.jpg',         crop: { l: .10, t: 0, w: .533, h: 1 }, widths: [360, 560, 720] },
-  { id: 'svc-tint',       src: 'stock/pexels-20036216.jpg',         crop: { l: .30, t: 0, w: .533, h: 1 }, widths: [360, 560, 720] },
+  { id: 'svc-tint',       src: 'drive/paul-tint-599.webp',    crop: { l: 0, t: .03, w: 1, h: .9375 }, widths: [360, 560, 720] },
 
   /* Project card stack, 4:3 */
   { id: 'car-laferrari', src: 'drive/01-hero-red-supercar-spray.jpg', crop: { l: .1, t: .1, w: .8, h: .9 }, widths: [600, 1120], q: 48 },
@@ -75,6 +77,10 @@ const IMAGES = [
   { id: 'car-f40',       src: 'drive/14-ferrari-f40.png',          crop: { l: .1, t: 0, w: .75, h: 1 }, widths: [600, 1120] },
   { id: 'car-458',       src: 'drive/20-gfw-458-speciale.jpg',     crop: { l: 0, t: .3, w: 1, h: .5 }, widths: [600, 1120] },
   { id: 'car-porsche',   src: 'drive/19-porsche-classic.png',      widths: [600, 1120] },
+  /* everyday cars from the gallery (Paul 19/10, note 21): photos from the old gallery, 4:3 */
+  { id: 'car-golf-r',    src: 'drive/car-golf-r.webp',     crop: { l: .12, t: 0, w: .75, h: 1 }, widths: [600, 1120] },
+  { id: 'car-m135i',     src: 'drive/car-m135i.webp',      crop: { l: .057, t: 0, w: .886, h: 1 }, widths: [600, 1120] },
+  { id: 'car-focus-rs',  src: 'drive/car-focus-rs.webp',   crop: { l: .057, t: 0, w: .886, h: 1 }, widths: [600, 1120] },
   { id: 'car-db11',      src: 'v05/766890108_939359575876836_3422640734629086612_n.jpeg', widths: [600, 1120] },
 
   /* Dry ice page (06/10). Paul's own photos: a Ferrari engine bay in
@@ -117,6 +123,15 @@ const IMAGES = [
   { id: 'ppf-beads',   src: 'drive-paul/5C4C0AE2-BDFF-4B50-9379-D4BE4FB7A3F1 2.PNG', crop: { l: .2, t: .24, w: .8, h: .375 }, widths: [700, 1100, 1600] },
   { id: 'ppf-door',    src: 'drive/07-ppf-squeegee.png', crop: { l: 0, t: .22, w: 1, h: .5 }, widths: [600, 900, 1086] },
   { id: 'ppf-stretch', src: 'ppf/Paint-Protection-Film-in-Lingfield-Surrey-Miracle-Detail-3.jpg', widths: [600, 900, 1200] },
+  /* replaces ppf-stretch in the work grid (Paul 19/10: "looks messy"): Paul's Drive photo of the film being laid over a Jaguar's bumper */
+  /* Matte tab still (no real matte job yet): film being fitted over a door mirror, Drive photo */
+  { id: 'ppf-mirror',  src: 'drive-paul/ppf-mirror-film.png', crop: { l: 0, t: .12, w: 1, h: .62 }, widths: [700, 1086], q: 56 },
+  /* Matte tab (Paul 19/10: the old satin was too different): the gloss bonnet with its glare turned to body colour, a little blur and grain; made in code from fin-film */
+  { id: 'fin-matte',   src: 'drive-paul/laf-matte-soft.jpg', widths: [700, 1100, 1600] },
+  /* Matte tab (Paul 19/10): Ed's pair, an Enzo in gloss and in matte, same frame */
+  { id: 'enzo-gloss',  src: 'drive-paul/enzo-gloss.webp', widths: [700, 1100, 1536], q: 56 },
+  { id: 'enzo-matte',  src: 'drive-paul/enzo-matte.webp', widths: [700, 1100, 1536], q: 56 },
+  { id: 'ppf-jag',     src: 'drive-paul/ppf-jaguar-bumper.png', crop: { l: 0, t: .1, w: 1, h: .75 }, widths: [600, 900, 1200] },
   { id: 'ppf-lamp',    src: 'ppf/Paint-Protection-Film-in-Lingfield-Surrey-Miracle-Detail.jpg', widths: [600, 900, 1200] },
   { id: 'ppf-edge',    src: 'ppf/PPF-Paint-Protection-Film-in-Lingfield-Surrey-Miracle-DetaiL-6.jpg', widths: [600, 900, 1200] },
   { id: 'fin-gloss',   src: 'finishes/458-gloss.jpg',  widths: [700, 1100, 1600] },
@@ -210,6 +225,7 @@ async function run() {
   let made = 0;
 
   for (const img of IMAGES) {
+    if (ONLY.length && !ONLY.includes(img.id)) continue;
     const file = path.join(SRC, img.src);
     const meta = await sharp(file).metadata();
     const box = cropBox(meta, img.crop) || { left: 0, top: 0, width: meta.width, height: meta.height };
@@ -244,7 +260,7 @@ async function run() {
     process.stdout.write('.');
   }
 
-  for (const lg of LOGOS) {
+  for (const lg of ONLY.length ? [] : LOGOS) {
     const file = path.join(SRC, 'logo-bold.png');
     const meta = await sharp(file).metadata();
     /* extract first, then trim in a second pass: sharp runs trim before
@@ -265,7 +281,7 @@ async function run() {
     map[lg.id] = { w: bm.width, h: bm.height, widths: lg.widths, alpha: true };
   }
 
-  for (const dir of LOGO_DIRS) {
+  for (const dir of ONLY.length ? [] : LOGO_DIRS) {
     const from = path.join(SRC, 'logos', dir);
     if (!fs.existsSync(from)) continue;
     for (const f of fs.readdirSync(from).filter(n => /\.(svg|png|jpe?g|webp)$/i.test(n))) {

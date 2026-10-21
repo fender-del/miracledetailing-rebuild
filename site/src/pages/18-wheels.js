@@ -10,6 +10,7 @@
    alone (the collage's seams showed on desktops), shifted right and fit
    to one phone screen; the four services compact on phones (photo,
    name, line, price, Read more); "Why it matters" brief on phones; the
+   10/21 (client notes): Diamond Cut = Paul's BMW M diamond-cut photo; Powder Coat = the satin black Cupra face (was the Audi valve cap).
    work before the booking form (block 57, square): Paul's one before &
    after (the VW from his Drive collage), then three finished wheels
    from the old site, each whole and up close.
@@ -59,11 +60,11 @@ module.exports = site => {
         eyebrow: 'What’s available',
         title: 'Four services. <span class="gold"><span class="nw">Every wheel</span> covered.</span>',
         items: [
-          { n: 'I', name: 'Diamond Cut', sub: 'Lathe-finished face, powder-coated barrel', img: cardImg('wr-face', 'A diamond cut alloy wheel face catching the light'),
+          { n: 'I', name: 'Diamond Cut', sub: 'Lathe-finished face, powder-coated barrel', img: cardImg('cc-wheel-bmw', 'A black and diamond-cut BMW M wheel, the machined face catching the light'),
             paras: 'The factory finish on many prestige wheels. The face of the wheel is machined on a CNC lathe to produce a precise, reflective cut surface, with the barrel and spokes powder-coated in the original or chosen colour. The most sought-after finish for OEM-specification restoration.',
             list: ['CNC lathe machining of wheel face', 'Powder-coated barrel and spokes', 'Lacquer sealed finish', 'Colour-matched or custom colour'],
             price: 'Pricing confirmed at enquiry' },
-          { n: 'II', name: 'Powder Coat', sub: 'Full wheel, any colour', img: cardImg('wr-audi', 'A refurbished Audi alloy wheel with an Audi Sport valve cap'),
+          { n: 'II', name: 'Powder Coat', sub: 'Full wheel, any colour', img: cardImg('wr-cupra', 'A satin black powder-coated Cupra wheel, whole face in view'),
             paras: 'Full powder coat refinishing of the entire wheel: the most durable and versatile wheel finish available. Suitable for any alloy and available in virtually any colour. Original colour restoration or complete colour change: the choice is yours.',
             list: ['Full strip and sandblast preparation', 'Powder coat in any colour', 'High-gloss, satin or matte finish', 'Significantly more durable than painted finishes'],
             price: 'Pricing confirmed at enquiry' },
@@ -132,7 +133,8 @@ module.exports = site => {
         { id: 'overview', label: 'Overview' },
         { id: 'available', label: 'What’s available' },
         { id: 'why', label: 'Why it matters' },
-        { id: 'the-work', label: 'The work' },
+        { id: 'the-work', label: 'The work' }
+,
 
         { id: 'reviews', label: 'Reviews' }
       ],

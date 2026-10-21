@@ -29,7 +29,9 @@ const SLUG = 'about-paul-dalton-car-detailing';
    (40-timeline.css: a phone grid, or the desktop stage), so no ratio
    here; sizes follow the tile each layout gives the photo. */
 const ph = (n, cap, alt) => ({ n, cap, alt });
-const isPort = n => { const im = images['ab-' + n]; return !!im && im.h > im.w; };
+/* Paul 19/10 (note 28): these two portrait shots are shown landscape, cropped from the top */
+const CROP_LAND = new Set(['3-1', '4-1']);
+const isPort = n => { const im = images['ab-' + n]; return !CROP_LAND.has(n) && !!im && im.h > im.w; };
 function photos(list, port) {
   const n = list.length;
   const size = i => {
@@ -39,7 +41,7 @@ function photos(list, port) {
     if (port) return '(max-width: 1023px) 31vw, 16vw';
     return '(max-width: 1023px) 46vw, 23vw';
   };
-  return list.map((p, i) => ({ img: frame('ab-' + p.n, { alt: p.alt || p.cap, sizes: size(i), ratio: false }), cap: p.cap, portrait: isPort(p.n), ar: `${images['ab-' + p.n].w} / ${images['ab-' + p.n].h}` }));
+  return list.map((p, i) => ({ img: frame('ab-' + p.n, { alt: p.alt || p.cap, sizes: size(i), ratio: false }), cap: p.cap, portrait: isPort(p.n), crop: CROP_LAND.has(p.n), ar: `${images['ab-' + p.n].w} / ${images['ab-' + p.n].h}` }));
 }
 /* block 43: a numbered list (credentials, new to detailing, on price) */
 const list = o => ({
@@ -99,14 +101,14 @@ module.exports = site => {
       [ph('18-1', 'Ferrari F40', 'A red Ferrari F40 in a Monaco garage'), ph('19-1', 'Monaco garage', 'The F40 in the private garage in Monaco'), ph('20-1', 'Final detail', 'Paul giving the F40 its final detail')]),
     entry('2018', 'Motorheads: back on television', 'Paul appears on Motorheads, talking detailing to a national audience over a decade on from Fifth Gear. Different show, same message: the work only counts if it’s done properly, camera or no camera.',
       [ph('22-1', 'On location', 'Paul with the Motorheads presenters on location'), ph('23-1', 'Motorheads studio', 'Paul on the Motorheads studio set')]),
-    entry('2019', 'Mercedes 600: £10,000 show car finish', 'A Mercedes 600 (600 EXY) arrives at the studio for a full paint wet-sand and correction, the goal a completely orange-peel-free finish worthy of the concours circuit. £10,000 of work later, the result speaks for itself. The car goes on to be displayed at Mercedes World in Woking, Surrey, and has won every concours show it has since entered.',
+    entry('2019', 'Mercedes 600: £10,000 show car finish', 'A Mercedes 600 arrives at the studio for a full paint wet-sand and correction, the goal a completely orange-peel-free finish worthy of the concours circuit. £10,000 of work later, the result speaks for itself. The car goes on to be displayed at Mercedes World in Woking, Surrey, and has won every concours show it has since entered.',
       [ph('24-1', 'Mercedes 600, before and after', 'The Mercedes 600 before and after its wet-sand and correction'), ph('27-1', 'Mercedes World, Woking', 'The blue Mercedes 600 on display at Mercedes World'), ph('26-1', 'Flawless finish', 'The light running cleanly along the Mercedes 600’s bodywork'),
-       ph('25-1', '600 EXY', 'The Mercedes 600 from the rear'), ph('28-1', 'Mercedes 600, Mercedes World', 'The Mercedes 600 from the front at Mercedes World'), ph('29-1', 'Show-ready', 'The Mercedes 600, show-ready')]),
+       ph('25-1', 'Mercedes 600, rear', 'The Mercedes 600 from the rear'), ph('28-1', 'Mercedes 600, Mercedes World', 'The Mercedes 600 from the front at Mercedes World'), ph('29-1', 'Show-ready', 'The Mercedes 600, show-ready')]),
     entry('2020', 'Portugal: a week on the road', 'Paul drives to Portugal in his purpose-built VW Caddy (engineered specifically for mobile detailing, carrying everything the studio carries) to detail two Ferraris and a Porsche GT3 RS over a week. A Ferrari 599 GTO and an F12 TDF, both brought to the same standard they’d receive in Surrey. The studio discipline taken on tour, this time south.',
       [ph('30-1', 'Ferrari F12 TDF, Portugal', 'A blue Ferrari F12 TDF in Portugal'), ph('31-1', 'Ferrari 599 GTO, Portugal', 'A grey Ferrari 599 GTO in Portugal'), ph('32-1', 'Ferrari F12 TDF, blue', 'The blue F12 TDF in a garage'), ph('33-1', 'Miracle Detail VW Caddy, purpose-built mobile studio', 'The Miracle Detail VW Caddy on a cobbled street in Portugal')]),
     entry('2021', 'Ferrari Monza SP2: Oslo Motor Show', 'Paul takes a Ferrari Monza SP2 to the Oslo Motor Show, a barchetta built in tiny numbers, with no windscreen and nowhere for a mistake to hide. The car gets the full studio treatment before going on display, and is finished again on the stand itself, in front of the crowds it was built to stop.',
-      [ph('34-1', 'Monza SP2', 'The Ferrari Monza SP2 in the studio'), ph('35-1', 'Studio detail', 'Paul detailing the Monza SP2 in the studio'), ph('36-1', 'Final polish', 'Paul polishing the Monza SP2'),
-       ph('37-1', 'Engine bay', 'Paul working in the Monza SP2’s engine bay'), ph('38-1', 'Engine bay', 'Paul detailing the Monza SP2’s engine bay'), ph('39-1', 'Oslo Motor Show', 'The Monza SP2 on its stand at the Oslo Motor Show')]),
+      [ph('34-1', 'Monza SP2', 'The Ferrari Monza SP2 in the studio'), ph('37-1', 'Engine bay', 'Paul working in the Monza SP2’s engine bay'), ph('36-1', 'Final polish', 'Paul polishing the Monza SP2'),
+       ph('35-1', 'Studio detail', 'Paul detailing the Monza SP2 in the studio'), ph('39-1', 'Oslo Motor Show', 'The Monza SP2 on its stand at the Oslo Motor Show'), ph('38-1', 'Engine bay', 'Paul detailing the Monza SP2’s engine bay')]),
     entry('Concours', 'Every concours car prepared by Paul has won its class', 'Over the years, Paul has prepared cars for UK concours events on multiple occasions. The record is straightforward: every car Paul has ever prepared for a concours event has won its category or won the show. Every single one.',
       [ph('40-1', 'Morgan Aero 8, concours', 'A silver Morgan Aero 8 at a concours')]),
     entry('2023', 'A talk at Glansz, the Netherlands', 'Paul is invited to Glansz detailing studio in the Netherlands to talk about his life as a detailer: 37 years of craft distilled into a room of people who understand exactly how much work sits behind every finish.',

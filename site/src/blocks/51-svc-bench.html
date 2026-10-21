@@ -38,11 +38,14 @@
     </div>
     <figure class="sbench__fig" data-reveal="card">
       <div class="sbench__panel" data-bench-panel>
+        {{#bench.noShots}}
         <canvas class="sbench__cv" data-bench-cv aria-hidden="true"></canvas>
         <span class="sbench__seam" aria-hidden="true"></span>
         <span class="sbench__side sbench__side--l">{{bench.left}}</span>
         <span class="sbench__side sbench__side--r">{{bench.right}}</span>
         <span class="sbench__meter" data-bench-meter aria-hidden="true"></span>
+        {{/bench.noShots}}
+        {{#bench.shots}}<div class="sbench__shot" data-bench-shot>{{&html}}</div>{{/bench.shots}}
       </div>
       <figcaption class="sbench__cap"><span class="sbench__cap-n" data-bench-n>{{bench.firstN}}</span><span data-bench-cap>{{bench.firstCap}}</span></figcaption>
     </figure>

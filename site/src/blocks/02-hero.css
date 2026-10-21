@@ -44,6 +44,8 @@
 }
 .hero__h1 .eyebrow__mark{color:var(--gold)}
 .hero__slogan{font-size:clamp(2.6rem,1rem + 3.8vw,5.2rem);margin-bottom:34px}
+.hero__copy{display:grid;gap:12px;margin:-8px 0 30px;font-size:clamp(.95rem,.9rem + .25vw,1.1rem);line-height:1.55;color:var(--text)}
+.hero__copy p{margin:0}
 .hero__perf{display:inline-block}
 .shine{
   display:inline-block;padding-right:.14em;margin-right:-.14em;

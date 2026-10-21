@@ -37,13 +37,6 @@
 /* The closing line. */
 .story__end{display:grid;place-items:center;padding:clamp(96px,14vw,200px) var(--gut);text-align:center}
 .story__line{margin:0;font-size:clamp(1.9rem,.4rem + 6.6vw,7.2rem);line-height:1.02;letter-spacing:-.005em}
-/* 110svh: the line holds the screen only briefly (Fender 02/10: 3/4 of
-   the scroll it had) */
-.js-motion .story__end{display:block;height:110svh;padding:0}
-/* phones/tablets: a longer stop on the line (Fender 09/10) */
-@media (max-width:1023px){.js-motion .story__end{height:190svh}}
-.js-motion .story__line{position:sticky;top:0;height:100svh;display:grid;place-content:center;padding:0 var(--gut)}
-
 .story__dots{display:none}
 
 /* ---- Pinned (desktop + motion) ---- */

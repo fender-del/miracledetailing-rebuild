@@ -37,13 +37,15 @@ module.exports = [
      page scrolls (block 30, motion/cold.js).
        1 gearbox           1312×1199, divider x 649–660, tags from y 1091
        2 transmission case 1536×1024, divider x 766–770, tags from y 925
-       3 steering rack     1536×1024, divider x 766–770, tags from y 880
-       4 rack + subframe   1448×1086, divider x 718–729, tags from y 937 */
+       3 BMW underbody     1536×1024, divider x 763–771, tags from y 918
+     21/10 (Paul's notes 65–67): the steering rack pair and the rack +
+     subframe pair were altered by an AI tool and drew complaints on
+     socials; both are out. His new real pair (a BMW underbody panel,
+     Drive "Dry ice page") takes their place, so the page shows 3 jobs. */
   ...[
     ['AEB53B2D-FA85-4C6A-8F23-9909DADBA3D5', { l: 0, t: .06, w: .49, h: .715 }, .506],
     ['F33F155B-DF47-4D9D-BF73-0C0AF9CD00A2', { l: .026, t: 0, w: .4447, h: .89 }, .5286],
-    ['5D81FCEB-0E6D-4CD7-A899-C7156E186DE6', { l: .0365, t: 0, w: .4245, h: .85 }, .539],
-    ['55013E62-A95B-43E7-9077-4E8F36BB94E6', { l: .008, t: 0, w: .478, h: .85 }, .5124]
+    ['5DEE381E-C84C-4DBA-B07A-D715235BBD52', { l: .004, t: 0, w: .488, h: .88 }, .505]
   ].flatMap(([f, c, al], i) => [
     { id: `dx-b${i + 1}`, src: `drive-paul/dry-ice-before-n-after/${f}.png`, crop: c, widths: [400, 640], q: 58 },
     { id: `dx-a${i + 1}`, src: `drive-paul/dry-ice-before-n-after/${f}.png`, crop: { ...c, l: al }, widths: [400, 640], q: 58 }
@@ -77,6 +79,7 @@ module.exports = [
   { id: 'cc-w-f50',    src: 'drive-paul/8BBD2C80-F2B6-4135-8BFA-DA13CA2CA434.PNG', widths: [500, 800] },
   { id: 'cc-w-sto',    src: 'drive-paul/1D9733C6-7379-413C-A370-F7D973DF1A4D 2.PNG', widths: [600, 900, 1200] },
   { id: 'cc-w-599',    src: 'drive-paul/38059B2A-8AC0-4D87-A082-3A08CDE2F9B7.PNG', widths: [600, 900, 1200] },
+  { id: 'cc-wheel-bmw', src: 'drive-paul/wheel-bmw.jpg', widths: [600, 900, 1086] },
   { id: 'cc-wheel',   src: 'drive/20-gfw-458-speciale.jpg', crop: { l: 0, t: .4, w: .6, h: .5 }, widths: [600, 900, 1200] },
 
   /* ---------- Paint correction ---------- */
@@ -95,6 +98,7 @@ module.exports = [
   { id: 'pc-f40',    src: V + 'paint-correction/download-77.jpg', widths: W },
   /* 08/10 rebuild: Paul's Drive set, his gloss & orange peel meter and
      him polishing an M3 under the hex lights */
+  { id: 'cc-heal',   src: 'drive-paul/heal-split.jpg', widths: [600, 900, 1200] },
   { id: 'pc-gloss',  src: 'drive-paul/gloss-meter-pic/37077F18-952E-4750-A70F-5F06A6457865.png', widths: [600, 900, 1200] },
   /* 13/10: cut from the bottom, not the top, so Paul's face stays in (Fender: show his face) */
   { id: 'pc-polish-f', src: 'drive-paul/paul-polishing-bmw-m3-to/A22AB860-218C-4E49-AFA9-8ADFFF9B39DE.png', crop: { l: 0, t: 0, w: 1, h: .94 }, widths: [500, 800, 1080] },
@@ -106,8 +110,20 @@ module.exports = [
      the C63 with its wheels off (old gallery), Paul's hands on the M3,
      an inspection light held to a black panel (Drive) */
   { id: 'pc-s1', src: 'gallery/aston-martin-vantage-v8/02-gal-571-IMG_2957.jpg', crop: { l: .2, t: 0, w: .6, h: 1 }, widths: [500, 760] },
-  { id: 'pc-s2', src: 'gallery/mercedes-c63-amg-brand-new-car-in-for-ultimate-detail/03-gal-614-DSC00004.jpg', crop: { l: .18, t: 0, w: .6, h: 1 }, widths: [500, 760] },
-  { id: 'pc-s4', src: 'drive/06-paint-correction-pad.png', crop: { l: .04, t: 0, w: .5, h: 1 }, widths: [500, 768] },
+  /* 21/10 (Paul: "02 decontamination picture - awful pic ! maybe a pic of
+     me claying?"; "this pic isn't relevant to inspection"): the C63 on a
+     jack and the pad photo are out. Decontamination: iron remover on a
+     .... Inspection: a
+     black panel half swirled, half corrected, one bright light on it
+     (Drive). No photo of Paul claying exists yet (REQUESTS). */
+  { id: 'pc-s2', src: 'drive-paul/pc-decon-wash.png', crop: { l: 0, t: 0, w: .66, h: 1 }, widths: [500, 760] },
+  { id: 'pc-s4', src: 'drive-paul/pc-swirl-split-a.png', crop: { l: .04, t: .1, w: .92, h: .8 }, widths: [500, 768] },
+  /* 21/10 (Paul: "a little gimmicky, clients want to see real pictures"):
+     the five levels' panel is a real black panel under a light, swirled
+     (before) and corrected (after), the two halves of one photo cut to
+     the same 4:3 window (Drive) */
+  { id: 'pc-lv-b', src: 'drive-paul/pc-swirl-split-b.png', crop: { l: .52, t: .2, w: .46, h: .53 }, widths: [600, 900, 1200] },
+  { id: 'pc-lv-a', src: 'drive-paul/pc-swirl-split-b.png', crop: { l: .02, t: .2, w: .46, h: .53 }, widths: [600, 900, 1200] },
   /* more cars for the work grid (Fender: "cho thêm nhiều xe"), Paul's Drive set */
   { id: 'pc-w-enzo',   src: 'drive-paul/053055E7-247C-4CD1-8359-3EDF9D99BACF.PNG', widths: [500, 800] },
   { id: 'pc-w-zonda',  src: 'drive-paul/0E5A99EA-6981-4FAD-8DCB-2CC4B41F5F3F.PNG', widths: [500, 800] },
@@ -117,8 +133,14 @@ module.exports = [
   { id: 'pc-w-458',    src: 'drive-paul/523DD8E4-EB72-430C-9722-AD6EFA69A824.PNG', widths: [500, 800] },
 
   /* ---------- Window tinting ---------- */
-  ...hero('wt-hero', O + '2023_11_The-Best-Quality-Window-Tinting-in-Lingfield-Surrey-Miracle-Detail.jpg', { l: .25, t: 0, w: .5, h: 1 }),
-  { id: 'wt-film',   src: O + '2023_11_window-tinting-on-cars-at-miracle-detail.png', widths: [600, 900, 1089] },
+  /* 21/10 (Paul: "change this picture so it's easier to see what's
+     happening"; "this pic needs to change, doesn't look great"): the
+     stock gloved-hands shots are out. Hero = Paul's black Range Rover,
+     the whole car with its dark glass; overview = the grey 599 GTO in
+     the studio, windscreen film on (Drive). Still no photo of a tint
+     job in progress (REQUESTS). */
+  ...hero('wt-hero', 'drive-paul/wt-range-rover.png', { l: .12, t: 0, w: .8, h: 1 }),
+  { id: 'wt-film',   src: 'drive-paul/wt-599-grey.png', crop: { l: 0, t: .08, w: 1, h: .83 }, widths: [600, 900, 1200] },
   { id: 'wt-glass',  src: 'stock/pexels-20036216.jpg', crop: { l: .1, t: .1, w: .8, h: .8 }, widths: [600, 900, 1200] },
   /* 07/10 rebuild (Fender: "thiếu visual, dùng stock được"): Pexels,
      free licence. Polygons drawn over these live in pages/14-tint.js,
@@ -159,6 +181,11 @@ module.exports = [
   /* NOT the Portugal car: a 997 GT3 RS from Paul's gallery, standing in
      until Paul sends the Portugal one (REQUESTS) */
   { id: 'mb-gt3',    src: 'gallery/porsche-997-gt3rs-in-blue/01-gal-603-DSC01853.jpg', widths: [600, 900, 1200] },
+  /* 21/10 (Paul, notes 68 + 75): the van's back with a supercar being
+     washed (Drive, mobile-van) for "How it works"; the white 997 GT3 RS
+     from the old gallery as the stand-in (the Portugal car is not in the Drive) */
+  { id: 'mb-work',   src: 'drive-paul/mobile-van/F31B0A19-582E-4020-9BAF-8C7B5BC51CBF.png', widths: [600, 900, 1200], q: 54 },
+  { id: 'mb-gt3w',   src: '../site/assets/gallery/porsche-997-gt3-rs/10-1400.webp', widths: [600, 900, 1200] },
 
   /* ---------- Bodyshop ---------- */
   ...hero('bs-hero', 'drive-paul/hero-bodyshop-masked.png', { l: .25, t: 0, w: .5, h: 1 }),  /* Paul's Drive set, 07/10 */
@@ -166,11 +193,11 @@ module.exports = [
      carry the page; the Roma at a show (a correction photo) is gone.
      The Mercedes 600 is v0.5's About collage cut at its seam (y 559/563)
      into its two halves, never shown as one split frame. */
-  { id: 'bs-over',   src: B + '0AB59D3B-8687-4370-9985-5CC0CCC0EBF8.png', crop: { l: 0, t: .3, w: 1, h: .469 }, widths: [600, 900, 1086] },
+  { id: 'bs-over',   src: B + 'F4DB53D4-9CF6-4E59-8599-10CBE3AC30BD.png', crop: { l: 0, t: .1, w: 1, h: .625 }, widths: [600, 900, 1086] },  /* 21/10: the booth with the painted parts on stands (the grey car moved to Full Restoration) */
   { id: 'bs-c1',     src: 'drive/d441c8df-8714-41a9-a8ff-a3d4c4d37c86.jpg', crop: { l: .06, t: 0, w: .84, h: 1 }, widths: [600, 860] },  /* Fender's pick 09/10; crop drops the corner sparkle mark */
   { id: 'bs-c2',     src: B + '81f4868c-0c84-4afd-a3d3-ea397dd4b461.jpg', crop: { l: .28, t: .16, w: .72, h: .405 }, widths: [600, 864] },
-  { id: 'bs-c3',     src: B + 'D5DCAF3C-561A-4462-81CA-01BD1E7DC136.png', crop: { l: 0, t: .26, w: 1, h: .5625 }, widths: [600, 900, 1086] },
-  { id: 'bs-c4',     src: B + '651B3AA4-D762-4EAE-8DB5-6768167E779E.png', widths: [600, 900, 1200] },
+  { id: 'bs-c3',     src: B + 'D5DCAF3C-561A-4462-81CA-01BD1E7DC136.png', widths: [600, 900, 1086] },  /* 21/10 (Paul): the whole car in the booth, no crop */
+  { id: 'bs-c4',     src: B + '0AB59D3B-8687-4370-9985-5CC0CCC0EBF8.png', widths: [600, 900, 1086] },  /* 21/10 (Paul): a whole car in the booth, no crop */
   { id: 'bs-s1',     src: 'stock/pexels-24960483.jpg', widths: [500, 760] },  /* 09/10 Fender: a scratched car; Pexels 24960483, Uiliam Nörnberg, free licence */
   { id: 'bs-s2',     src: B + '9554EF30-BE93-4D42-AD81-4152BD8348DF.png', widths: [500, 760] },
   { id: 'bs-s3',     src: 'drive-paul/paul-polishing-bmw-m3-to/117EEAB4-A76F-4EE7-AFE3-B85BE3EAF916.png', widths: [500, 760] },
@@ -262,7 +289,7 @@ module.exports = [
   { id: 'pk-l3', src: V + 'packages/download-69-scaled.webp', crop: { l: 0, t: .3, w: 1, h: .3 }, widths: [600, 1179] },
   { id: 'pk-l4', src: 'stock/pexels-37809561.jpg', crop: { l: .25, t: .42, w: .75, h: .3 }, widths: W },
   { id: 'pk-l5', src: V + 'packages/download-71.jpg', widths: W },
-  { id: 'pk-wheel', src: 'drive/20-gfw-458-speciale.jpg', crop: { l: .22, t: .43, w: .7, h: .292 }, widths: [700, 1100, 1500] },
+  { id: 'pk-wheel', src: 'drive/paul-wheel-bmw.png', crop: { l: 0, t: .2, w: 1, h: .555 }, widths: [700, 1100, 1480] },
   { id: 'pk-note', src: V + 'packages/download-70.jpg', crop: { l: 0, t: .22, w: 1, h: .5 }, widths: [700, 1000], q: 50 },
 
   /* ---------- About Paul ---------- */
@@ -282,9 +309,10 @@ module.exports = [
   { id: 'ac-revs', src: 'drive/02-gfw-red-macro-dark.jpg', widths: [800, 1400, 2200], q: 46 },
 
   /* ---------- Hubs ---------- */
-  ...hero('sv-hero', 'drive/15-mclaren-studio.png', { l: .25, t: 0, w: .5, h: 1 }),
-  /* the source is a phone screenshot: the phone crop keeps only the photo in it (08/10) */
-  ...hero('gl-hero', 'drive/12-bugatti-studio.png', { l: .15, t: .26, w: .85, h: .4 }),
+  ...hero('sv-hero', 'drive/paul-studio-gallardo.png', { l: .06, t: 0, w: .5, h: 1 }),
+  /* 21/10 (Paul): the Bugatti shot had a London bus behind it; now Paul's own
+     high-res Ferrari 599 GTO in the studio (Drive "High res pics for Ed") */
+  ...hero('gl-hero', 'drive-paul/gl-hero-599.jpg', { l: .24, t: .08, w: .62, h: .85 }),
   ...hero('jn-hero', 'drive/16-studio-interior.png', { l: .25, t: 0, w: .5, h: 1 }),
 
   /* ---------- Journal posts (07/10): the old blog's two posts, their own

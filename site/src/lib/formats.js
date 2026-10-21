@@ -54,7 +54,7 @@ function inCrop(poly, crop) {
 
 /* ---------- 45 · show ----------
    { id, eyebrow, title, intro, img, light, graphite,
-     regions: [{ id, poly, fx: 'shift'|'hatch'|null }],
+     regions: [{ id, poly, fx: 'shift'|'film'|null }],
      points:  [{ n, name, paras, region, look }] }
    look = what the photo does while the point is active: the block's
    CSS reads [data-look] (shift · clear · outline · pair, more can be

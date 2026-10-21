@@ -82,7 +82,7 @@ module.exports = site => {
     /* scroll kit (07/10, PLAN-interactions §3) */
     cluster: 'paint',
     title: 'Paint Protection Film (PPF) in Surrey | Miracle Detail',
-    description: 'Paint protection film fitted by Paul Dalton in Lingfield, Surrey, since 2006: XPEL, SunTek, Profilm and STEK in gloss, matte and colour. Full front end from £1,500 + VAT.',
+    description: 'Paint protection film fitted by Paul Dalton in Lingfield, Surrey, since 2006: XPEL, SunTek, Profilm and STEK in gloss and matte. Full front end from £1,500 + VAT.',
     preload: [
       { id: 'ppf-hero-m', media: '(max-width: 900px)', sizes: '100vw' },
       { id: 'ppf-hero', media: '(min-width: 901px)', sizes: '100vw' }
@@ -119,7 +119,7 @@ module.exports = site => {
         facts: [
           { k: 'Installing PPF since', v: '2006', big: true },
           { k: 'Premium film brands', v: '4' },
-          { k: 'Finishes available', v: '3' }
+          { k: 'Finishes available', v: '2' }
         ]
       },
 
@@ -164,26 +164,21 @@ module.exports = site => {
       tabs: {
         id: 'finishes',
         eyebrow: 'Film finishes',
-        title: 'Three finishes. <span class="gold">Every car catered for.</span>',
+        title: 'Two finishes. <span class="gold">Every car catered for.</span>',
         label: 'Film finishes',
         items: [
           { key: 'gloss', first: true, name: 'Gloss PPF', sub: 'Invisible protection',
-            ba: { bl: 'Bare paint', al: 'Gloss PPF', pre: frame('fin-led-bare', { alt: 'The red bonnet of a LaFerrari under studio strip lights, the reflections broken by orange peel', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }), post: frame('fin-led-gloss', { alt: 'The same bonnet under gloss film, the strip lights reflected straight and sharp', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }) },
+            ba: { bl: 'Bare paint', al: 'Gloss PPF', pre: frame('fin-bare', { alt: 'The red bonnet of a LaFerrari in gloss paint, the reflections a little flat', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }), post: frame('fin-film', { alt: 'The same bonnet under gloss film, deeper in gloss, the reflections sharper', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }) },
             
             paras: ['The standard choice. A virtually invisible film that enhances the depth and gloss of the paint beneath it while providing complete protection from stone chips, abrasion and environmental contamination. Self-healing under gentle heat.'] },
           { key: 'matte', name: 'Matte PPF', sub: 'Satin and matte finishes protected',
-            ba: { bl: 'Gloss', al: 'Matte PPF', pre: frame('fin-film', { alt: 'The red bonnet of a LaFerrari in gloss paint', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }), post: frame('fin-satin', { alt: 'The same bonnet in a satin matte finish, no mirror reflections', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }) },
-            
+            ba: { bl: 'Gloss', al: 'Matte PPF', pre: frame('enzo-gloss', { alt: 'A red Ferrari Enzo in gloss paint in the showroom', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }), post: frame('enzo-matte', { alt: 'The same Enzo in a matte finish, no mirror reflections', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }) },
             paras: [
               'For matte and satin-finish vehicles, or for clients who want to convert a gloss car to a matte appearance. Matte PPF delivers the same level of protection as gloss film while preserving or creating the flat finish that makes these cars so distinctive.',
               'Matte and satin paintwork is uniquely vulnerable. A single stone chip on a gloss car can often be touched in. On a matte or satin finish, it cannot: the entire panel needs repainting to match. If that panel is a wing, the colour spread means the full side of the car may need to be repainted to achieve a consistent finish.'
             ],
             pull: ['The cost of one chip can run to thousands.'],
-            after: ['PPF on a matte or satin car isn’t a luxury. It’s the only way to protect an investment that cannot be repaired, only replaced.'] },
-          { key: 'colour', name: 'Colour PPF', sub: 'Change the colour, protect the paint',
-            ba: { bl: 'Original', al: 'Colour PPF', pre: frame('fin-gloss', { alt: 'A yellow Ferrari 458 Speciale', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }), post: frame('fin-colour', { alt: 'The same 458 Speciale in gloss emerald green', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }) },
-            
-            paras: ['A colour change and a fully protected car in a single installation. Colour PPF films allow you to transform the appearance of your vehicle while the original paint beneath remains in perfect, protected condition, fully reversible at any time.'] }
+            after: ['PPF on a matte or satin car isn’t a luxury. It’s the only way to protect an investment that cannot be repaired, only replaced.'] }
         ]
       },
 
@@ -197,19 +192,21 @@ module.exports = site => {
           'Whether it’s computer-cut patterns for a perfect factory fit or hand-cut installation for complex curves and bespoke coverage, the method is chosen based on what gives the best result for that car, not what’s quickest.'
         ],
         items: [
-          { name: 'XPEL', mark: mark('xpel'), text: 'The world’s leading PPF brand. Self-healing, optically clear and available in gloss, matte and colour finishes. The benchmark for premium paint protection. XPEL film comes with a 10-year manufacturer’s warranty.' },
+          { name: 'XPEL', mark: mark('xpel'), text: 'The world’s leading PPF brand. Self-healing, optically clear and available in gloss and matte finishes. The benchmark for premium paint protection. XPEL film comes with a 10-year manufacturer’s warranty.' },
           { name: 'SunTek', mark: mark('suntek'), text: 'High-clarity film with excellent self-healing properties and strong chemical resistance. A trusted choice for full-car installations.' },
           { name: 'Profilm', mark: mark('profilm'), text: 'Premium European film with outstanding optical clarity and durability. Favoured for its performance on complex curves and challenging panel geometry.' },
-          { name: 'Stek', mark: mark('stek'), text: 'A strong range including gloss, matte and colour films. Known for deep gloss and excellent longevity across a wide range of applications.' }
+          { name: 'Stek', mark: mark('stek'), text: 'A strong range including gloss and matte films. Known for deep gloss and excellent longevity across a wide range of applications.' }
         ]
       },
 
       /* ---------- The process ---------- */
+      stepsN: 5,
       stepsEyebrow: 'How every PPF job is done',
       stepsTitle: 'The process behind a <span class="gold">perfect installation.</span>',
       steps: [
-        { name: 'Paint Assessment', text: 'The paint is assessed and corrected to the required standard before any film is applied. PPF locks in what’s underneath, so what goes under the film needs to be right.' },
+        { name: 'Paint Assessment', text: 'The paint is assessed before any film is applied. PPF locks in what’s underneath, so what goes under the film needs to be right.' },
         { name: 'Decontamination', text: 'Every surface is fully decontaminated. Any bonded contamination, iron fallout or residue is removed before the film goes near the paint.' },
+        { name: 'Paint Correction', text: 'Swirls and scratches are polished out before the film goes on. There is no point locking them in under the film, so the paint is corrected to the required standard first.' },
         { name: 'Pattern & Application', text: 'Computer-cut patterns or hand-cut installation, whichever gives the best result for this car. Each panel is fitted individually, by hand, with no rush and no compromise.' },
         { name: 'Inspection & Cure', text: 'Every panel inspected under specialist lighting before the job is signed off. The film is allowed to cure fully before the car leaves the studio.' }
       ],
@@ -221,7 +218,7 @@ module.exports = site => {
         { img: frame('ppf-door', { alt: 'Film being squeegeed onto the door of a red supercar', sizes: workSizes(true), ratio: '16 / 9' }), wide: true },
         { img: frame('ppf-lamp', { alt: 'Film being worked around the headlight of a black car', sizes: workSizes(false), ratio: '16 / 9' }) },
         { img: frame('ppf-edge', { alt: 'The edge of the film wrapped neatly around a panel gap on a blue car', sizes: workSizes(false), ratio: '16 / 9' }) },
-        { img: frame('ppf-stretch', { alt: 'A sheet of film stretched over the bonnet of a black car before it is laid down', sizes: workSizes(true), ratio: '16 / 9' }), wide: true }
+        { img: frame('ppf-jag', { alt: 'Film being laid over the front bumper of a red Jaguar, a hand smoothing it towards the grille', sizes: workSizes(true), ratio: '16 / 9' }), wide: true }
       ],
 
       /* ---------- Reviews (shared block) ---------- */

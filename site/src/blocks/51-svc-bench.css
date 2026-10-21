@@ -81,3 +81,11 @@
   .sbench__txt p{padding:0 0 18px 40px;font-size:.98rem}
   .sbench__fig{gap:10px}
 }
+
+/* 21/10: real photos instead of the drawn tests (Paul: "doesn't look real or natural") */
+.sbench__shot{position:absolute;inset:0;opacity:0;transition:opacity .7s var(--ease)}
+.sbench__shot picture,.sbench__shot img{display:block;width:100%;height:100%}
+.sbench__shot img{object-fit:cover}
+.sbench__shot:first-of-type{opacity:1}
+.sbench.is-live .sbench__shot{opacity:0}
+.sbench.is-live .sbench__shot.is-on{opacity:1}

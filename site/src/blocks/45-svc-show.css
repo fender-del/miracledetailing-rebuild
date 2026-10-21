@@ -27,11 +27,30 @@
 }
 /* a darker veil under the colour so the film reads as film */
 .sshow__fill--shift::before{content:"";position:absolute;inset:0;background:rgba(20,26,48,.22);mix-blend-mode:multiply}
-/* hatch: a part picked out in gold line work (as the PPF drawing) */
-.sshow__fill--hatch{
-  background:repeating-linear-gradient(135deg,rgba(156,118,34,.55) 0 1px,transparent 1px 8px),rgba(201,168,77,.14);
-  mix-blend-mode:multiply;opacity:0;transition:opacity .9s var(--ease)
+/* film: PPF going on (21/10, Paul: the grid of squares looked like a
+   fault, "can we have the animation of the PPF layering on the bonnet").
+   The clear film lays itself across the part from left to right: a bright
+   edge runs ahead of it, a glossy layer with a cool tint behind it, then a
+   glint keeps passing over the fresh film. Same idea as the PPF hero. */
+@property --fp{syntax:"<number>";inherits:true;initial-value:1.2}
+.sshow__fill--film{opacity:0;transition:opacity .5s var(--ease)}
+.sshow__fill--film::before,.sshow__fill--film::after{content:"";position:absolute;inset:0}
+.sshow__fill--film::before{
+  --m:calc(var(--fp) * 100%);
+  background:linear-gradient(118deg,rgba(210,232,255,.30) 0%,rgba(255,255,255,.08) 38%,rgba(255,255,255,.26) 62%,rgba(200,225,255,.12) 100%);
+  mix-blend-mode:screen;
+  -webkit-mask-image:linear-gradient(100deg,#000 calc(var(--m) - 2%),transparent var(--m));
+          mask-image:linear-gradient(100deg,#000 calc(var(--m) - 2%),transparent var(--m))
 }
+.sshow__fill--film::after{
+  --m:calc(var(--fp) * 100%);
+  background:linear-gradient(100deg,transparent calc(var(--m) - 7%),rgba(255,255,255,.85) calc(var(--m) - .6%),rgba(255,255,255,.95) var(--m),transparent calc(var(--m) + .6%));
+  mix-blend-mode:screen;opacity:0
+}
+.sshow__fill--film.is-lit{opacity:1;animation:sshow-film-on 3.2s cubic-bezier(.45,0,.25,1) both}
+.sshow__fill--film.is-lit::after{animation:sshow-film-edge 3.2s linear both}
+@keyframes sshow-film-on{from{--fp:-.1}to{--fp:1.2}}
+@keyframes sshow-film-edge{0%{opacity:1}85%{opacity:1}100%{opacity:0}}
 .sshow__line{fill:none;stroke:var(--gold-2,#E6CC85);stroke-width:1.6;vector-effect:non-scaling-stroke;stroke-linejoin:round;
   opacity:0;transition:opacity .9s var(--ease);filter:drop-shadow(0 0 6px rgba(201,168,77,.6))}
 .sshow__glint{background:radial-gradient(circle at calc(var(--hx) * 100%) calc(var(--hy) * 100%),rgba(255,255,255,.22),transparent 28%);mix-blend-mode:screen;opacity:0;transition:opacity .6s}
@@ -40,7 +59,6 @@
 /* looks */
 .sshow__fig[data-look=shift] .sshow__fill--shift{opacity:.82}
 .sshow__fig[data-look=clear] .sshow__fill--shift{opacity:.12}
-.sshow__fill--hatch.is-lit{opacity:1}
 .sshow__line.is-lit{opacity:1;animation:sshow-glow 2.4s ease-in-out infinite alternate}
 @keyframes sshow-glow{from{stroke-opacity:1}to{stroke-opacity:.55}}
 /* touch / idle: the colour drifts by itself */
