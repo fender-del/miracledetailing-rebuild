@@ -40,7 +40,9 @@ const IMAGES = [
      photo the visitor sees first is exactly where the video starts. */
   { id: 'hero-v',      src: 'video/hero-1920-poster.png', widths: [960, 1440, 1920], q: 56 },
   { id: 'hero-vm',     src: 'video/hero-1080-poster.png', widths: [480, 720, 1080], q: 56 },
-  { id: 'hero-sto',    src: 'hero-sto.jpg', widths: [480, 720, 1080, 1440], q: 62 },
+  /* Homepage hero (22/10, note 1): Paul's 8K export of the STO photo
+     (7680 px, Fender's Drive link), so large screens get a sharp car. */
+  { id: 'hero-sto',    src: 'drive-new/sto-8k.jpg', widths: [480, 720, 1080, 1440, 1920, 2560], q: 62 },
 
   /* The story block: Paul, face in frame (4:5 desktop, square on phones). */
   { id: 'paul',        src: 'drive/18-paul-portrait.png', crop: { l: 0, t: .165, w: .9, h: .633 }, widths: [480, 760, 847] },
@@ -61,11 +63,14 @@ const IMAGES = [
   { id: 'svc-studio',     src: 'drive/15-mclaren-studio.png',       crop: { l: .2, t: 0, w: .6, h: 1 }, widths: [360, 560, 720] },
   { id: 'svc-packages',   src: 'drive/04-gfw-red-detail.jpg',       crop: { l: .3, t: 0, w: .534, h: 1 }, widths: [360, 560, 720] },
   { id: 'svc-bodyshop',   src: 'drive/05-detail-gold-macro.png',    crop: { l: 0, t: .05, w: 1, h: .9 }, widths: [360, 560, 720] },
-  { id: 'svc-pdr',        src: 'drive/paul-dent-audi.png',    crop: { l: 0, t: .02, w: 1, h: .9375 }, widths: [360, 560, 720] },
+  /* PDR and Underside (22/10, notes 5–6: "can't see it"): the card's copy
+     covers its lower half, so the hands and rod, and the glossy coated
+     floor pan, are cropped tight into the top half. */
+  { id: 'svc-pdr',        src: 'drive-new/pdr-audi-A0EFB708.png', crop: { l: 0, t: .25, w: .6, h: .5625 }, widths: [360, 560, 720] },
   { id: 'svc-wheels',     src: 'drive/paul-wheel-bmw.png',    crop: { l: 0, t: .03, w: 1, h: .9375 }, widths: [360, 560, 720] },
   /* Pexels (free licence): 37163499 Testarossa on a lift, 11968579 red
      quilted leather, 20036216 dark glass on a black saloon. */
-  { id: 'svc-underside',  src: 'drive/paul-underside.png',    crop: { l: 0, t: .03, w: 1, h: .9375 }, widths: [360, 560, 720] },
+  { id: 'svc-underside',  src: 'drive-new/underside-5EBFF7A6.png', crop: { l: .05, t: 0, w: .82, h: .7688 }, mod: { brightness: 1.35, saturation: 1.1 }, widths: [360, 560, 720] },
   { id: 'svc-leather',    src: 'stock/pexels-11968579.jpg',         crop: { l: .10, t: 0, w: .533, h: 1 }, widths: [360, 560, 720] },
   { id: 'svc-tint',       src: 'drive/paul-tint-599.webp',    crop: { l: 0, t: .03, w: 1, h: .9375 }, widths: [360, 560, 720] },
 
@@ -76,7 +81,13 @@ const IMAGES = [
   { id: 'car-zonda',     src: 'drive/10-zonda-studio.png',         crop: { l: .06, t: 0, w: .889, h: 1 }, widths: [600, 1120] },
   { id: 'car-f40',       src: 'drive/14-ferrari-f40.png',          crop: { l: .1, t: 0, w: .75, h: 1 }, widths: [600, 1120] },
   { id: 'car-458',       src: 'drive/20-gfw-458-speciale.jpg',     crop: { l: 0, t: .3, w: 1, h: .5 }, widths: [600, 1120] },
-  { id: 'car-porsche',   src: 'drive/19-porsche-classic.png',      widths: [600, 1120] },
+  /* 22/10 (Paul note 22: the Clubsport card showed one car and opened
+     another): the classic is now the 993 RS, photo and job the same.
+     Notes 21: three more everyday cars, each its own gallery job. */
+  { id: 'car-993rs',     src: '../site/assets/gallery/1995-porsche-993-carrera-rs-riviera-blue/7-1400.webp', widths: [600, 1120] },
+  { id: 'car-996',       src: '../site/assets/gallery/porsche-996-in-lapis-blue-with-125000-on-the-clock/1-1400.webp', widths: [600, 1120] },
+  { id: 'car-mini-gp',   src: '../site/assets/gallery/mini-gp/5-1400.webp', widths: [600, 1120] },
+  { id: 'car-c63',       src: '../site/assets/gallery/mercedes-c63-amg-brand-new-car-in-for-ultimate-detail/1-1400.webp', widths: [600, 1120] },
   /* everyday cars from the gallery (Paul 19/10, note 21): photos from the old gallery, 4:3 */
   { id: 'car-golf-r',    src: 'drive/car-golf-r.webp',     crop: { l: .12, t: 0, w: .75, h: 1 }, widths: [600, 1120] },
   { id: 'car-m135i',     src: 'drive/car-m135i.webp',      crop: { l: .057, t: 0, w: .886, h: 1 }, widths: [600, 1120] },
@@ -232,7 +243,11 @@ async function run() {
     const file = path.join(SRC, img.src);
     const meta = await sharp(file).metadata();
     const box = cropBox(meta, img.crop) || { left: 0, top: 0, width: meta.width, height: meta.height };
-    const base = () => sharp(file).rotate().extract(box).removeAlpha();
+    /* mod: sharp modulate() for a source shot too dark to read at card size */
+    const base = () => {
+      const b = sharp(file).rotate().extract(box).removeAlpha();
+      return img.mod ? b.modulate(img.mod) : b;
+    };
 
     if (img.og) {
       const dest = path.join(OUT, 'og.jpg');

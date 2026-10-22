@@ -34,6 +34,10 @@
 .cov__map{position:absolute;inset:0}
 .cov__iframe{position:absolute;inset:0;width:100%;height:100%;border:0;
   filter:grayscale(1) invert(92%) contrast(.92) brightness(1.25)}
+/* Fender 22/10 (note 24, "the page judders over the map"): the map took
+   the wheel and the blurred card re-blurred it every frame. The map is a
+   picture of where the studio is; Get directions opens the real one. */
+.cov__iframe{pointer-events:none}
 .cov__pinmark{position:absolute;left:50%;top:50%;width:44px;height:60px;transform:translate(-50%,-100%);pointer-events:none;z-index:1;filter:drop-shadow(0 6px 10px rgba(0,0,0,.6))}
 .cov__pinmark::after{content:"";position:absolute;left:50%;bottom:-6px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--gold-a30);animation:covPulse 2.4s ease-out infinite;z-index:-1}
 @keyframes covPulse{0%{transform:scale(.6);opacity:.9}100%{transform:scale(4);opacity:0}}
@@ -41,7 +45,7 @@
 .cov__stage::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
   background:linear-gradient(90deg,rgba(14,14,15,.78) 0,rgba(14,14,15,.35) 38%,transparent 62%),radial-gradient(50% 70% at 50% 50%,rgba(201,168,77,.08),transparent 70%)}
 .cov__stage .cov__card{position:absolute;z-index:2;left:clamp(16px,2.4vw,36px);top:50%;transform:translateY(-50%);width:min(380px,calc(100% - 32px));max-width:none;margin:0;
-  gap:16px;background:rgba(20,20,22,.72);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);box-shadow:inset 0 0 0 1px var(--gold-a30),0 24px 60px rgba(0,0,0,.5)}
+  gap:16px;background:rgba(20,20,22,.92);box-shadow:inset 0 0 0 1px var(--gold-a30),0 24px 60px rgba(0,0,0,.5)}
 .cov__rate{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;font-family:var(--fd);font-size:2rem;line-height:1;color:var(--white)}
 .cov__star{font-size:.8rem;letter-spacing:.14em;color:var(--gold)}
 .cov__rate-n{font-family:inherit;font-size:.85rem;color:var(--muted)}
@@ -49,12 +53,13 @@
 .cov__rh{display:flex;align-items:center;gap:12px;margin:0 0 18px;font-size:.75rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
 .cov__rh::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold-a30),transparent)}
 .cov__towns{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.cov__towns{cursor:default;-webkit-user-select:none;user-select:none}
 .cov__towns li{padding:6px 13px;border-radius:999px;font-size:.875rem;line-height:1.3;color:var(--text);box-shadow:inset 0 0 0 1px var(--line-2);transition:color .2s,box-shadow .2s,background .2s}
 .cov__region:first-child .cov__towns li:first-child{color:var(--gold-2);background:var(--gold-a12);box-shadow:inset 0 0 0 1px var(--gold-a30)}
 .cov__towns li:hover{color:var(--white);box-shadow:inset 0 0 0 1px var(--gold)}
 .cov__foot{display:flex;align-items:center;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;margin-top:clamp(48px,6vw,88px);padding-top:clamp(28px,3vw,44px);border-top:1px solid var(--line)}
-.cov__close{margin:0;max-width:26ch;font-family:var(--fd);font-size:clamp(1.5rem,1rem + 2vw,2.6rem);line-height:1.15;color:var(--white)}
-.cov__close .muted{display:block}
+.cov__close{margin:0;max-width:22ch;font-family:var(--fd);font-size:clamp(1.85rem,1rem + 2.8vw,3.4rem);line-height:1.1;color:var(--white)}
+.cov__close .muted{display:block;margin-top:12px;font-family:var(--f);font-size:1rem;line-height:1.5}
 @media (max-width:1023px){.cov__areas{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:767px){
   .cov__stage{min-height:0;display:flex;flex-direction:column}

@@ -57,10 +57,12 @@ const CARS = [
     story: 'Prepared at Paul’s studio at Dunsfold Park, the home of Top Gear’s test track, and photographed by GF Williams.',
     work: ['Dunsfold studio', '4 photographs'], href: '/car-detail-gallery/?job=ferrari-458-speciale-in-yellow',
     alt: 'Yellow Ferrari 458 Speciale on wet tarmac', credit: 'GF Williams' },
-  { id: 'car-porsche', name: 'Porsche 911 Carrera Clubsport', tag: 'From the gallery', sub: '1984 · White',
-    story: 'An air-cooled 3.2 Clubsport from 1984. Paul’s work on it fills thirty-two photographs in the gallery.',
-    work: ['Classic', '32 photographs'], href: '/car-detail-gallery/?job=1984-porsche-carrera-clubsport-white',
-    alt: 'White classic Porsche 911 Carrera with red script in the studio' },
+  /* Paul 19/10, note 22: the Clubsport card opened an older car; the
+     classic slot is now a job whose photo and gallery page match. */
+  { id: 'car-993rs', name: 'Porsche 993 Carrera RS', tag: 'From the gallery', sub: '1995 · Riviera Blue',
+    story: 'A 993 Carrera RS in Riviera Blue, from the last generation of air-cooled 911s.',
+    work: ['Classic', '12 photographs'], href: '/car-detail-gallery/?job=1995-porsche-993-carrera-rs-riviera-blue',
+    alt: 'Riviera Blue Porsche 993 Carrera RS in the workshop' },
   /* everyday cars (Paul 19/10, note 21): the section says "classics to daily drivers" */
   { id: 'car-golf-r', name: 'VW Golf R', tag: 'From the gallery', sub: 'Daily driver',
     story: 'A 25-hour detail on a new Golf R, finished with Modesta BC04 glass coating on the paint and BC06 on the wheels.',
@@ -73,8 +75,23 @@ const CARS = [
   { id: 'car-focus-rs', name: 'Ford Focus RS', tag: 'From the gallery', sub: 'Ultimate Green',
     story: 'A Focus RS in Ultimate Green, polished panel by panel.',
     work: ['Detailed by Paul', '12 photographs'], href: '/car-detail-gallery/?job=ford-focus-rs-in-ultimate-green',
-    alt: 'Green Ford Focus RS in side view' }
+    alt: 'Green Ford Focus RS in side view' },
+  /* three more everyday cars (22/10, note 21) */
+  { id: 'car-996', name: 'Porsche 996', tag: 'From the gallery', sub: 'Lapis Blue · 125,000 miles',
+    story: 'A 996 in Lapis Blue, brought in with 125,000 miles on the clock.',
+    work: ['High mileage', '12 photographs'], href: '/car-detail-gallery/?job=porsche-996-in-lapis-blue-with-125000-on-the-clock',
+    alt: 'Lapis Blue Porsche 996 outside the Miracle Detail unit' },
+  { id: 'car-mini-gp', name: 'Mini GP', tag: 'From the gallery', sub: 'Daily driver',
+    story: 'The limited-run Mini GP, detailed in Paul’s workshop.',
+    work: ['Detailed by Paul', '12 photographs'], href: '/car-detail-gallery/?job=mini-gp',
+    alt: 'Grey Mini GP with red mirrors in the workshop' },
+  { id: 'car-c63', name: 'Mercedes C63 AMG', tag: 'From the gallery', sub: 'Brand new',
+    story: 'Booked in brand new for Paul’s Ultimate Detail.',
+    work: ['Ultimate Detail', '12 photographs'], href: '/car-detail-gallery/?job=mercedes-c63-amg-brand-new-car-in-for-ultimate-detail',
+    alt: 'Silver Mercedes C63 AMG on axle stands in the workshop' }
 ];
+
+const HERO_SIZES = '(max-width: 767px) calc(106vw + 90px), (max-width: 900px) 100vw, max(68vw, 132vh)';
 
 module.exports = site => {
   const svcImg = s => frame(s.img, {
@@ -90,14 +107,12 @@ module.exports = site => {
     slug: '',
     title: 'Car Detailing in Surrey | Paul Dalton’s Miracle Detail, Lingfield',
     description: 'Paint correction, ceramic coatings, PPF and dry ice cleaning in Lingfield, Surrey. Every car handled personally by Paul Dalton since 1994, from daily drivers to hypercars.',
-    /* `sizes` = the width the poster is really drawn at under object-fit:
-       cover (box height × 16:9 on desktop; the 5:4 loop is box height
-       × 1.25 on phones, screen wide on portrait tablets). Getting it
-       right keeps the poster, not the video's first frame, as the LCP. */
+    /* `sizes` = the width the STO photo is really drawn at under
+       object-fit: cover (02-hero.css): 68% of the screen or the hero's
+       height × 1.32 on desktop, about 80vw tall on phones. Preloading it
+       keeps the photo as the LCP (the old video posters were still here). */
     preload: [
-      { id: 'hero-vm', media: '(max-width: 767px)', sizes: 'calc(80px + 100vw)' },
-      { id: 'hero-vm', media: '(min-width: 768px) and (max-width: 900px)', sizes: '100vw' },
-      { id: 'hero-v', media: '(min-width: 901px)', sizes: 'max(100vw, 167vh)' }
+      { id: 'hero-sto', media: 'all', sizes: HERO_SIZES }
     ],
 
     blocks: [
@@ -112,7 +127,7 @@ module.exports = site => {
          ceiling, replaces the red Ferrari video. */
       heroPoster: frame('hero-sto', {
         priority: true, ratio: false, alt: 'Lime green Lamborghini Huracán STO under hexagonal studio lights',
-        sizes: 'max(100vw, 133vh)'
+        sizes: HERO_SIZES
       }),
 
       /* v0.5 "Featured On", as a strip under the hero (Fender 02/10: the

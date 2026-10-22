@@ -20,6 +20,7 @@ const ONLY = process.env.QA_ONLY ? process.env.QA_ONLY.split(',') : null;
 const SHOTS = process.env.QA_SHOTS !== '0';
 
 const RUNS = [
+  { name: '360', vp: { width: 360, height: 740, deviceScaleFactor: 2, isMobile: true, hasTouch: true } },
   { name: '390', vp: { width: 390, height: 844, deviceScaleFactor: 2, isMobile: true, hasTouch: true } },
   { name: '768', vp: { width: 768, height: 1024, deviceScaleFactor: 1, isMobile: true, hasTouch: true } },
   { name: '1440', vp: { width: 1440, height: 900, deviceScaleFactor: 1 } },
