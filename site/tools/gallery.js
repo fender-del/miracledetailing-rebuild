@@ -1,10 +1,10 @@
 /* ============================================================
    tools/gallery.js — builds the Gallery data + images from the old site.
 
-   1. reads crawl/old/gallery-inventory.csv, keeps jobs with >= 3 full-size
+   1. reads crawl/old/gallery-inventory.csv, keeps jobs with >= 1 full-size
       photos, fetches each old project page (max 6 at a time) and caches
       title / description / photo URLs in assets-src/gallery/_jobs.json
-   2. downloads the first 12 photos per job (all for FULL) to assets-src/gallery/<slug>/
+   2. downloads the first 24 photos per job (all for FULL) to assets-src/gallery/<slug>/
       as NN-<original name> (skips files already there, retries once)
    3. encodes site/assets/gallery/<slug>/<i>-480.webp (q60) and
       <i>-1400.webp (max 1400 wide, no upscale, q66), EXIF auto-rotated;
@@ -35,13 +35,17 @@ const REFETCH = argv.includes('--refetch');
 let BIG_W = +arg('--big', 1400);
 let BIG_Q = +arg('--q', 66);
 let FORCE_BIG = argv.includes('--force-big');
-const BUDGET_MB = 180;
-const MAX_PHOTOS = 12;
+const BUDGET_MB = 320;
+const MAX_PHOTOS = 24;
 /* the homepage project cards open these jobs: every photo, so the card's
    count is what the lightbox shows (Fender 07/10) */
 const FULL = new Set(['ferrari-enzo-rossa-corsa', 'koenigsegg-ccx-r-edition-clear-coated-carbon-fibre',
   'ferrari-f40', 'ferrari-458-speciale-in-yellow', '1984-porsche-carrera-clubsport-white']);
-const MIN_PHOTOS = 3;
+/* full-car photos further down an old page than MAX_PHOTOS, added after the
+   first 24 so the job can open on them: { slug: [photo number on the old page] }
+   (22/10, Paul: "a good full view picture as the main picture") */
+const EXTRA = JSON.parse(fs.readFileSync(path.join(ROOT, 'site/src/lib/gallery-extra.json'), 'utf8'));
+const MIN_PHOTOS = 1; // Paul 22/10: every job of the old gallery, even a single photo
 const UA = { 'User-Agent': 'Mozilla/5.0' };
 
 const log = { other: [], fail: [], notes: [] };
@@ -138,7 +142,7 @@ const MAKES = [
   ['Zenvo'], ['Hennessey'], ['Ruf'], ['Singer'], ['Brabus'], ['Mansory'], ['Cupra'], ['Genesis'], ['Alpine'],
   ['Ineos'], ['Lucid'], ['Rivian'], ['Kawasaki'], ['Yamaha'], ['Triumph'], ['BAC'], ['Radical'], ['Ultima'],
   ['Westfield'], ['Ginetta'], ['Marcos'], ['Reliant'], ['Sunbeam'], ['Wolseley'], ['Riley'], ['Hillman'],
-  ['Ascari'], ['Gumpert'], ['Saleen'], ['Wiesmann'], ['Donkervoort'], ['Vector'], ['SSC'], ['W Motors'],
+  ['Mosler'], ['MV Agusta'], ['Ascari'], ['Gumpert'], ['Saleen'], ['Wiesmann'], ['Donkervoort'], ['Vector'], ['SSC'], ['W Motors'],
 ].map(([make, re, keepWord]) => ({
   make, keepWord: !!keepWord,
   re: re || new RegExp('^' + make.replace(/[-]/g, '[- ]').replace(/ /g, '[- ]') + '\\b', 'i'),
@@ -236,7 +240,9 @@ function dirMB(d) {
     const dir = path.join(SRC, j.slug);
     fs.mkdirSync(dir, { recursive: true });
     j.files = [];
-    j.photos.slice(0, FULL.has(j.slug) ? Infinity : MAX_PHOTOS).forEach((u, i) => {
+    const take = j.photos.map((u, i) => i).filter(i => FULL.has(j.slug) || i < MAX_PHOTOS || (EXTRA[j.slug] || []).includes(i + 1));
+    take.forEach(i => {
+      const u = j.photos[i];
       const file = path.join(dir, String(i + 1).padStart(2, '0') + '-' + decodeURIComponent(u.split('/').pop()));
       j.files.push(file);
       if (!(fs.existsSync(file) && fs.statSync(file).size > 0)) tasks.push({ u, file });

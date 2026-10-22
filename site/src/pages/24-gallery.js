@@ -1,8 +1,8 @@
 /* ============================================================
    Gallery (06/10, Fender: "one Gallery page, filter + lightbox").
    v0.5's /gallery/ is an empty page; the jobs are the old site's
-   project pages (tools/gallery.js -> lib/gallery.json): 133 jobs with
-   three or more photos, the first twelve photos of each. Titles and
+   project pages (tools/gallery.js -> lib/gallery.json): every job with
+   a photo, the first 24 photos of each (22/10). Titles and
    the few descriptions are the old site's own words.
    Old-site slug /car-detail-gallery/ kept; nav label "Projects".
    ============================================================ */
@@ -22,6 +22,9 @@ const SKIP = {
   'vw-golf-r-modesta-bc-04': [8, 11],
   'ferrari-458-speciale-in-yellow': [5, 6]
 };
+/* single-photo jobs whose one photo shows no car (a garden, loose wheels):
+   hidden until Paul sends photos (22/10) */
+const HIDE = new Set(['bmw-3-series', '1992-porsche-964-turbo-midnight-blue']);
 const key = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 module.exports = site => {
@@ -30,7 +33,7 @@ module.exports = site => {
     { name: 'Gallery', href: `/${SLUG}/` }
   ]);
 
-  const list = jobs.map(j => {
+  const list = jobs.filter(j => !HIDE.has(j.slug)).map(j => {
     const skip = SKIP[j.slug] || [];
     /* the main photo (src/lib/covers.json, tools/covers.js) goes first: the card shows it, the lightbox opens on it */
     const cover = j.cover.n || 1;
@@ -39,6 +42,7 @@ module.exports = site => {
     return {
       slug: j.slug, title: j.title, make: j.make, makeKey: key(j.make), year: j.year || null,
       text: j.text || '', count: files.length, cover: files[0], lqip: j.cover.lqip,
+      countLabel: files.length === 1 ? '1 photo' : files.length + ' photos',
       files, sizes: files.map(n => [j.photos[n - 1].w, j.photos[n - 1].h])
     };
   });
@@ -58,8 +62,8 @@ module.exports = site => {
 
   return {
     slug: SLUG,
-    title: 'Gallery | 133 Cars Detailed by Paul Dalton | Miracle Detail',
-    description: 'The Miracle Detail archive: Ferrari, Porsche, Bugatti, Koenigsegg, Pagani and more, detailed by Paul Dalton in Surrey and beyond. 133 cars, filter by make.',
+    title: `Gallery | ${list.length} Cars Detailed by Paul Dalton | Miracle Detail`,
+    description: `The Miracle Detail archive: Ferrari, Porsche, Bugatti, Koenigsegg, Pagani and more, detailed by Paul Dalton in Surrey and beyond. ${list.length} cars, filter by make.`,
     preload: [
       { id: 'gl-hero-m', media: '(max-width: 900px)', sizes: '100vw' },
       { id: 'gl-hero', media: '(min-width: 901px)', sizes: '100vw' }

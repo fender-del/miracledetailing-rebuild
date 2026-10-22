@@ -1,6 +1,6 @@
 <!-- ============ 41 · GALLERY ============
      The old site's 153 project pages, as one page (Fender 06/10): every
-     job with three or more photos (133), up to twelve photos each.
+     job with a photo (150), up to 24 photos each (22/10).
      Filter by make (chips); a card opens the photos in a lightbox
      (arrows, keys, swipe). /gallery/<job>/ on the old site lands here as
      ?job=<job> and opens that job; /vehiclemake/<make>/ as ?make=<make>.
@@ -20,7 +20,7 @@
           <div class="gal__body">
             <p class="gal__meta">{{make}}{{#year}} · {{year}}{{/year}}</p>
             <h3 class="gal__name">{{title}}</h3>
-            <p class="gal__n">{{count}} photos</p>
+            <p class="gal__n">{{countLabel}}</p>
           </div>
         </a>
       </li>

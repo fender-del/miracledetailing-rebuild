@@ -53,6 +53,7 @@ html:has(.hd.is-hidden) .gal__bar{top:0}
 .lb__nav{position:absolute;top:50%;width:52px;height:52px;margin-top:-26px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px var(--line-2);color:var(--white);transition:background .3s}
 .lb__nav:hover{background:var(--gold);color:var(--ink)}
 .lb__nav svg{width:20px;height:20px}
+.lb[data-one] .lb__nav{display:none}
 .lb__nav--prev{left:clamp(8px,1.5vw,24px)}
 .lb__nav--next{right:clamp(8px,1.5vw,24px)}
 @media (max-width:767px){.lb__nav{top:auto;bottom:18px;margin:0}.lb__stage{padding-bottom:84px}}

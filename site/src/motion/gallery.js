@@ -67,6 +67,7 @@ export function gallery() {
     $('[data-lb-meta]', lb).textContent = d.m;
     $('[data-lb-title]', lb).textContent = d.t;
     $('[data-lb-text]', lb).textContent = d.x || '';
+    lb.toggleAttribute('data-one', d.f.length === 1); // single-photo jobs: no arrows
     show(0);
     lb.showModal();
     document.documentElement.classList.add('lb-open');
