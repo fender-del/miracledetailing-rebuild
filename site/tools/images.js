@@ -144,6 +144,9 @@ const IMAGES = [
   /* Gloss tab: strip-light reflections, bare (orange peel) vs film. GPT Image 2.5 on Higgsfield from laf-gloss, 08/10. */
   { id: 'fin-led-bare',  src: 'finishes/laf-led-bare.png',  widths: [700, 1024] },
   { id: 'fin-led-gloss', src: 'finishes/laf-led-gloss.png', widths: [700, 1024] },
+  /* Gloss tab, v5 (Paul 38: the bare paint looked too poor): GPT Image 2.5 on Higgsfield, 22/10. Gloss = the real LaFerrari photo (laf-close) under strip lights with deep film gloss; bare = that same frame a touch less glossy, mild orange peel; bare registered onto gloss (ECC affine) so the slider lines up. */
+  { id: 'fin-ppf-bare',  src: 'finishes/laf-ppf-bare.png',  widths: [700, 1100, 1600] },
+  { id: 'fin-ppf-gloss', src: 'finishes/laf-ppf-gloss.png', widths: [700, 1100, 1600] },
   { id: 'fin-satin',   src: 'finishes/laf-matte.jpg',      widths: [700, 1100, 1600] },
   /* Coverage (13/10, Fender: the drawn McLaren read badly): a white BMW
      M3 Touring, front and rear three-quarter, GPT Image 2.5 on

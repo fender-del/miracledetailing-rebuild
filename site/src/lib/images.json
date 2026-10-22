@@ -3216,5 +3216,27 @@
   "h": 120,
   "mark": true,
   "v": "793abbc4"
+ },
+ "fin-ppf-bare": {
+  "w": 2032,
+  "h": 1344,
+  "widths": [
+   700,
+   1100,
+   1600
+  ],
+  "v": "556b34d8",
+  "lqip": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JbACdMoGv/gOdulpCK80kMvFtn+4A/u8pb0jqrySsKBPq+z6VQnCb+hbhr6ZtqDHGqq9s3YTKDvnNVBEN+O6rNSaKV+6036vVyKUGTBg2XhCWXOcgc0qWADwp4bmJSdEDSLmeGVQzlmKoNb3Lfgqf+XzDWDfZO93PQ0vNMaJaazVaAAA="
+ },
+ "fin-ppf-gloss": {
+  "w": 2032,
+  "h": 1344,
+  "widths": [
+   700,
+   1100,
+   1600
+  ],
+  "v": "b6cbc34f",
+  "lqip": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAACQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JbACdMoMlsn/Ac6ZQ9k5HYeOMSgAA/u8pb0jrL0AD353JE+NLgc2FLpL/imo1nlLOWJKmpiw9gnsIR5yY4zuRXOi3xH8vhptcJOOh57oGFORSgymbRPetMXn8LQ2su+rtS5YfbFlPh6Z29b2wk512OY9crr8s/+rVKpkn56j8fYxWbwKQLb3ch2QAAA=="
  }
 }

@@ -168,7 +168,7 @@ module.exports = site => {
         label: 'Film finishes',
         items: [
           { key: 'gloss', first: true, name: 'Gloss PPF', sub: 'Invisible protection',
-            ba: { bl: 'Bare paint', al: 'Gloss PPF', pre: frame('fin-bare', { alt: 'The red bonnet of a LaFerrari in gloss paint, the reflections a little flat', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }), post: frame('fin-film', { alt: 'The same bonnet under gloss film, deeper in gloss, the reflections sharper', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }) },
+            ba: { bl: 'Bare paint', al: 'Gloss PPF', pre: frame('fin-ppf-bare', { alt: 'The red bonnet of a LaFerrari under studio strip lights, the paint a little less glossy, the reflections softer', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }), post: frame('fin-ppf-gloss', { alt: 'The same bonnet under gloss film, deeper in gloss, the strip lights reflected crisp and straight', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }) },
             
             paras: ['The standard choice. A virtually invisible film that enhances the depth and gloss of the paint beneath it while providing complete protection from stone chips, abrasion and environmental contamination. Self-healing under gentle heat.'] },
           { key: 'matte', name: 'Matte PPF', sub: 'Satin and matte finishes protected',
