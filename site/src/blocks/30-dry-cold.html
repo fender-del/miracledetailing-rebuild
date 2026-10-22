@@ -23,9 +23,9 @@
         <div class="cold__ph">{{#coldJobs}}<div class="cold__f{{#on}} is-on{{/on}}">{{&before}}</div>{{/coldJobs}}<span class="cold__tag">Before</span></div>
         <div class="cold__ph">{{#coldJobs}}<div class="cold__f{{#on}} is-on{{/on}}">{{&after}}</div>{{/coldJobs}}<span class="cold__tag cold__tag--after">After</span></div>
         <figcaption class="cold__cap">
-          <span class="cold__count" aria-hidden="true"><b data-cold-n>01</b> / {{coldCount}}</span>
+          {{#coldMulti}}<span class="cold__count" aria-hidden="true"><b data-cold-n>01</b> / {{coldCount}}</span>{{/coldMulti}}
           <span class="cold__caps">{{#coldJobs}}<span class="cold__c{{#on}} is-on{{/on}}">{{&cap}}</span>{{/coldJobs}}</span>
-          <span class="cold__ticks" aria-hidden="true">{{#coldJobs}}<i{{#on}} class="is-on"{{/on}}></i>{{/coldJobs}}</span>
+          {{#coldMulti}}<span class="cold__ticks" aria-hidden="true">{{#coldJobs}}<i{{#on}} class="is-on"{{/on}}></i>{{/coldJobs}}</span>{{/coldMulti}}
         </figcaption>
       </figure>
 

@@ -305,11 +305,16 @@ module.exports = [
   ...hero('ac-hero', 'drive/03-gfw-water-beading.jpg', { l: .35, t: 0, w: .45, h: 1 }),
   /* 09/10: the checklist's photo = Paul's own coated panel beading
      (Drive); the reviews behind it a different photo from the hero */
-  { id: 'ac-bead', src: 'drive-paul/hero-ceramic-beading.png', crop: { l: 0, t: .1, w: 1, h: .833 }, widths: [600, 900, 1200] },
+  /* 22/10 (Paul, note 85): the beading drop had nothing to do with
+     washing; now Paul's real snow-foamed GT3 RS (Drive IMG_2393, HEIC
+     5712×4284, the neighbour's number plate in the garage blurred) */
+  { id: 'ac-bead', src: 'drive-paul/IMG_2393.jpg', crop: { l: 0, t: .12, w: 1, h: .833 }, widths: [600, 900, 1200] },
   { id: 'ac-revs', src: 'drive/02-gfw-red-macro-dark.jpg', widths: [800, 1400, 2200], q: 46 },
 
   /* ---------- Hubs ---------- */
-  ...hero('sv-hero', 'drive/paul-studio-gallardo.png', { l: .06, t: 0, w: .5, h: 1 }),
+  /* 22/10 (Paul, note 25): a new car in the new studio, the blue DB11
+     (Drive F8613B6F, 1448×1086); phones close on the front wheel and nose */
+  ...hero('sv-hero', 'drive-paul/F8613B6F-2781-4BA9-A49A-0C90045E6DB0.png', { l: .36, t: 0, w: .56, h: 1 }),
   /* 21/10 (Paul): the Bugatti shot had a London bus behind it; now Paul's own
      high-res Ferrari 599 GTO in the studio (Drive "High res pics for Ed") */
   ...hero('gl-hero', 'drive-paul/gl-hero-599.jpg', { l: .24, t: .08, w: .62, h: .85 }),

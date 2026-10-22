@@ -157,9 +157,10 @@ module.exports = site => {
         id: 'how',
         eyebrow: 'How it works',
         title: 'Studio results, <span class="gold">no studio required.</span>',
-        /* 21/10 (Paul, note 68): the back of the van with a supercar being washed beside it */
-        img: frame('mb-work', { alt: 'Paul washing a supercar on the gravel drive of a country house, the back of his black VW Caddy in front', sizes: '(max-width: 899px) 92vw, 34vw', ratio: false }),
-        cap: 'On location · the van and the wash cart',
+        /* 22/10 (Fender, note 68): the Caddy shot looked AI-made; back to
+           Paul's own London Concours photo, the van open behind him */
+        img: frame('ab-11-1', { alt: 'Paul washing a blue Koenigsegg CCX on the lawn at the London Concours, the Miracle Detail van open behind him', sizes: '(max-width: 899px) 92vw, 34vw', ratio: false }),
+        cap: 'Koenigsegg CCX · London Concours, The Burlington',
         lead: 'Mobile detailing isn’t a compromise: it’s a different delivery method for the same standard of work. Paul built a purpose-engineered mobile setup specifically for on-location work, carrying every product, tool, and piece of equipment used in the studio.',
         paras: [
           'The only thing that changes is where the car sits. The attention, the process, and the result stay exactly the same.',
