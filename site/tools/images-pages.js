@@ -61,7 +61,10 @@ module.exports = [
   /* 08/10: a coating being applied, the suede applicator on blue paint
      (Fender's pick, assets-src/ceramic hero.png; the Drive beading photo
      was water on PPF, and Paul's set has no coating shot) */
-  ...hero('cc-hero', 'ceramic hero.png', { l: .22, t: 0, w: .66, h: 1 }),
+  /* 22/10 (Paul's note 46): the coating goes on in Paul's own studio (hex
+     lights, black car), a close-up generated on Higgsfield with no face,
+     until Paul sends a photo of his own; 16:9, the hand on the right */
+  ...hero('cc-hero', 'ceramic-hero-studio.png', { l: .36, t: 0, w: .527, h: 1 }),
   { id: 'cc-paul',    src: O + '2024_08_Feynlab-Ceramic-Paul-Dalton.jpg', crop: { l: .12, t: 0, w: .76, h: 1 }, widths: [600, 900, 1400] },
   { id: 'cc-laf',     src: O + '2023_11_Top-Quality-Ceramic-Coatings-in-Lingfield-Surrey-miracle-detail.jpg', widths: [600, 900, 1200] },
   { id: 'cc-laf2',    src: O + '2023_11_Top-Quality-Ceramic-Coatings-in-Lingfield-Surrey-miracle-detail-2.jpg', widths: [600, 900, 1200] },
@@ -80,6 +83,12 @@ module.exports = [
   { id: 'cc-w-sto',    src: 'drive-paul/1D9733C6-7379-413C-A370-F7D973DF1A4D 2.PNG', widths: [600, 900, 1200] },
   { id: 'cc-w-599',    src: 'drive-paul/38059B2A-8AC0-4D87-A082-3A08CDE2F9B7.PNG', widths: [600, 900, 1200] },
   { id: 'cc-wheel-bmw', src: 'drive-paul/wheel-bmw.jpg', widths: [600, 900, 1086] },
+  /* 22/10 (Paul's notes 51, 52): why Feynlab = Paul's own photos no other
+     page uses, cut to the panel's 5:4 (two at work, two in the Feynlab studio) */
+  { id: 'cf-m3',      src: 'drive-paul/paul-polishing-bmw-m3-to/DAA73F2D-1582-41DE-AE54-9D8779481703.png', crop: { l: 0, t: .02, w: 1, h: .425 }, widths: [600, 914] },
+  { id: 'cf-carbon',  src: 'drive-paul/D36AA8F0-6D5E-45F9-AF2D-B4A8F104598F.PNG', crop: { l: 0, t: 0, w: .833, h: 1 }, widths: [600, 900, 1280] },
+  { id: 'cf-gallardo', src: 'drive-paul/040E9CA7-5D3B-45EC-AE52-092EBC7288DE.PNG', crop: { l: .03, t: 0, w: .937, h: 1 }, widths: [600, 900, 1357] },
+  { id: 'cf-m5',      src: 'drive-paul/BFDE6ACF-5D55-4E9B-8F2C-57C9521C7967.PNG', crop: { l: .063, t: 0, w: .937, h: 1 }, widths: [600, 900, 1357] },
   { id: 'cc-wheel',   src: 'drive/20-gfw-458-speciale.jpg', crop: { l: 0, t: .4, w: .6, h: .5 }, widths: [600, 900, 1200] },
 
   /* ---------- Paint correction ---------- */
