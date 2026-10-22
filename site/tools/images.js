@@ -91,7 +91,8 @@ const IMAGES = [
   /* everyday cars from the gallery (Paul 19/10, note 21): photos from the old gallery, 4:3 */
   { id: 'car-golf-r',    src: 'drive/car-golf-r.webp',     crop: { l: .12, t: 0, w: .75, h: 1 }, widths: [600, 1120] },
   { id: 'car-m135i',     src: 'drive/car-m135i.webp',      crop: { l: .057, t: 0, w: .886, h: 1 }, widths: [600, 1120] },
-  { id: 'car-focus-rs',  src: 'drive/car-focus-rs.webp',   crop: { l: .057, t: 0, w: .886, h: 1 }, widths: [600, 1120] },
+  /* 22/10 (Fender): the old crop showed the engine bay; the whole car, side on */
+  { id: 'car-focus-rs',  src: '../site/assets/gallery/ford-focus-rs-in-ultimate-green/8-1400.webp', widths: [600, 1120] },
   { id: 'car-db11',      src: 'v05/766890108_939359575876836_3422640734629086612_n.jpeg', widths: [600, 1120] },
 
   /* Dry ice page (06/10). Paul's own photos: a Ferrari engine bay in
