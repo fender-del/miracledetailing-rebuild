@@ -85,10 +85,12 @@ module.exports = [
   { id: 'cc-wheel-bmw', src: 'drive-paul/wheel-bmw.jpg', widths: [600, 900, 1086] },
   /* 22/10 (Paul's notes 51, 52): why Feynlab = Paul's own photos no other
      page uses, cut to the panel's 5:4 (two at work, two in the Feynlab studio) */
-  { id: 'cf-m3',      src: 'drive-paul/paul-polishing-bmw-m3-to/DAA73F2D-1582-41DE-AE54-9D8779481703.png', crop: { l: 0, t: .02, w: 1, h: .425 }, widths: [600, 914] },
-  { id: 'cf-carbon',  src: 'drive-paul/D36AA8F0-6D5E-45F9-AF2D-B4A8F104598F.PNG', crop: { l: 0, t: 0, w: .833, h: 1 }, widths: [600, 900, 1280] },
-  { id: 'cf-gallardo', src: 'drive-paul/040E9CA7-5D3B-45EC-AE52-092EBC7288DE.PNG', crop: { l: .03, t: 0, w: .937, h: 1 }, widths: [600, 900, 1357] },
-  { id: 'cf-m5',      src: 'drive-paul/BFDE6ACF-5D55-4E9B-8F2C-57C9521C7967.PNG', crop: { l: .063, t: 0, w: .937, h: 1 }, widths: [600, 900, 1357] },
+  /* 22/10 (Fender): the coating and Feynlab's chemists instead, Feynlab's
+     own photos from feynlab.com (our-history, about-us), cut to 5:4 */
+  { id: 'cf-lab',     src: 'feynlab-site/lab-formulating.webp', crop: { l: .1, t: 0, w: .795, h: 1 }, widths: [600, 801] },
+  { id: 'cf-pour',    src: 'feynlab-site/lab-coat-pour.webp', crop: { l: 0, t: 0, w: .7705, h: 1 }, widths: [600, 648] },
+  { id: 'cf-bottles', src: 'feynlab-site/four-bottles.webp', crop: { l: .205, t: 0, w: .795, h: 1 }, widths: [600, 801] },
+  { id: 'cf-box',     src: 'feynlab-site/ultra-v2-box.webp', crop: { l: .06, t: 0, w: .7646, h: 1 }, widths: [600, 643] },
   { id: 'cc-wheel',   src: 'drive/20-gfw-458-speciale.jpg', crop: { l: 0, t: .4, w: .6, h: .5 }, widths: [600, 900, 1200] },
 
   /* ---------- Paint correction ---------- */

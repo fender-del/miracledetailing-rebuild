@@ -12,6 +12,8 @@
    plays four real photos; Heal Lite shows POA (no price from Paul).
    22/10 (notes 51, 52): those four photos were used elsewhere; Paul's own
    photos that no other page uses instead (M3, carbon, Gallardo, M5).
+   22/10 (Fender): the coating and Feynlab's chemists instead, two lab
+   shots and two of the products, from feynlab.com.
    v0.5 slip, fixed: under "Ceramic by Paul Dalton" it shows the tint
    page's VLT paragraph, and the tint page shows this one. Each sits on
    its own page here (REQUESTS.md asks Paul to confirm).
@@ -108,17 +110,17 @@ module.exports = site => {
         eyebrow: 'Why Feynlab',
         title: 'The coating Paul chose to put <span class="gold">his name on.</span>',
                 items: [
-          { n: 'I', name: 'Self-Healing Technology', cap: 'Paul at work on a BMW M3',
-            shot: pic('cf-m3', { alt: 'Paul Dalton machine-polishing the bonnet of a black BMW M3 under the studio’s hexagon lights', sizes: '(max-width: 1023px) 92vw, 50vw' }).html,
+          { n: 'I', name: 'Self-Healing Technology', cap: 'Feynlab Heal Lite, in the Feynlab lab',
+            shot: pic('cf-pour', { alt: 'A chemist in a lab coat and gloves pouring Feynlab Heal Lite onto a suede applicator', sizes: '(max-width: 1023px) 92vw, 50vw' }).html,
             paras: 'The flagship Feynlab coatings heal minor surface scratches with the application of gentle heat. No other coating brand has refined this technology further.' },
-          { n: 'II', name: 'Chemical Resistance', cap: 'Carbon bodywork polished by hand',
-            shot: pic('cf-carbon', { alt: 'A detailer machine-polishing the bare carbon bodywork of a supercar in a showroom', sizes: '(max-width: 1023px) 92vw, 50vw' }).html,
+          { n: 'II', name: 'Chemical Resistance', cap: 'Formulated by Feynlab’s chemists',
+            shot: pic('cf-lab', { alt: 'A gloved hand measuring a coating into a bottle on a lab scale, Feynlab bottles and applicators on the bench', sizes: '(max-width: 1023px) 92vw, 50vw' }).html,
             paras: 'Bird lime, acid rain, industrial fallout, brake dust: Feynlab coatings are formulated to resist chemical attack that degrades unprotected or lesser-coated paint.' },
-          { n: 'III', name: 'UV Protection', cap: 'A Gallardo in the Feynlab studio',
-            shot: pic('cf-gallardo', { alt: 'An orange Lamborghini Gallardo in the studio, the Feynlab sign on the wall behind', sizes: '(max-width: 1023px) 92vw, 50vw' }).html,
+          { n: 'III', name: 'UV Protection', cap: 'Four coatings from the Feynlab range',
+            shot: pic('cf-bottles', { alt: 'A gloved hand holding four Feynlab coatings, Ceramic Ultra V2, Wheel and Caliper, Overcoat V3 and The Original Ceramic', sizes: '(max-width: 1023px) 92vw, 50vw' }).html,
             paras: 'Ultraviolet radiation fades paint over time. Every Feynlab coating in the range includes UV resistance, protecting the colour and clarity of your paintwork for years.' },
-          { n: 'IV', name: 'Depth of Gloss', cap: 'Black paint under the studio lights',
-            shot: pic('cf-m5', { alt: 'A black BMW M5 on the studio ramps, the hexagon lights reflected in its paint and the Feynlab sign behind', sizes: '(max-width: 1023px) 92vw, 50vw' }).html,
+          { n: 'IV', name: 'Depth of Gloss', cap: 'Feynlab Ceramic Ultra V2',
+            shot: pic('cf-box', { alt: 'Gloved hands opening a box of Feynlab Ceramic Ultra V2 beside a gloss black car', sizes: '(max-width: 1023px) 92vw, 50vw' }).html,
             paras: 'No wax or sealant delivers the depth of gloss a properly applied ceramic coating achieves. Applied over corrected paint, the result is paint that looks better than new.' }
         ]
       }) } },
