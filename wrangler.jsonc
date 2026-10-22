@@ -7,6 +7,8 @@
     "directory": "./site",
     "html_handling": "auto-trailing-slash"
   },
+  // Branch builds run `npx wrangler preview`, which needs this block (it may stay empty).
+  "previews": {},
   "observability": {
     "logs": { "enabled": true, "head_sampling_rate": 1, "invocation_logs": true, "persist": true },
     "traces": { "enabled": false, "head_sampling_rate": 1, "persist": true }
