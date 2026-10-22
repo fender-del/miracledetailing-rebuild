@@ -226,7 +226,6 @@ fs.writeFileSync(path.join(ROOT, '_redirects'), [
   '/buckinghamshire-car-detailing/   /                               301',
   '/contact-us/                      /#book                          301',
   '/studio-car-valeting/             /car-detailing-studio/          301',
-  '/car-detail-faqs/                 /car-detailing-studio/          301',
   '/after-care-with-feynlab/         /aftercare-washing-guide/       301',
   '/videos/                          /car-detail-gallery/            301',
   '/blog/                            /journal/                       301',

@@ -1,0 +1,30 @@
+<!-- ============ 62 · FAQ PAGE ============
+     Paul's FAQ page (22/10): nine groups, native <details> like block 28,
+     so every answer is in the HTML (and the FAQPage schema) and opens
+     without JS. Desktop: the group list stays beside the questions.
+     Phones: the groups are one swipe row above them. On ivory. -->
+<section class="fq sec" id="faq" data-section="faq" data-bg="light" data-theme="light">
+  <div class="wrap fq__in">
+    <div class="fq__head">
+      <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{fq.eyebrow}}</p>
+      <h2 class="disp h2" data-split>{{&fq.title}}</h2>
+      <nav class="fq__jump" aria-label="Question groups">
+        <ul role="list">{{#fq.sections}}<li><a href="#{{id}}">{{title}}</a></li>{{/fq.sections}}</ul>
+      </nav>
+      <p class="fq__more" data-reveal>Something else? Call <a href="{{site.phoneHref}}">{{site.phone}}</a></p>
+    </div>
+    <div class="fq__groups">
+      {{#fq.sections}}
+      <div class="fq__group" id="{{id}}">
+        <h3 class="fq__gt">{{title}}</h3>
+        {{#items}}
+        <details class="fq__it">
+          <summary><span>{{q}}</span><i aria-hidden="true"></i></summary>
+          <div class="fq__a">{{&a}}</div>
+        </details>
+        {{/items}}
+      </div>
+      {{/fq.sections}}
+    </div>
+  </div>
+</section>

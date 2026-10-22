@@ -106,7 +106,7 @@ module.exports = site => {
 
   return {
     slug: '',
-    title: 'Car Detailing in Surrey | Paul Dalton’s Miracle Detail, Lingfield',
+    title: 'Professional Car Detailing in Surrey | Paul Dalton’s Miracle Detail, Lingfield',
     description: 'Paint correction, ceramic coatings, PPF and dry ice cleaning in Lingfield, Surrey. Every car handled personally by Paul Dalton since 1994, from daily drivers to hypercars.',
     /* `sizes` = the width the STO photo is really drawn at under
        object-fit: cover (02-hero.css): 68% of the screen or the hero's

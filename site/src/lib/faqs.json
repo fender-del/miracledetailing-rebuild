@@ -1,0 +1,212 @@
+[
+ {
+  "id": "booking",
+  "title": "Booking",
+  "items": [
+   {
+    "q": "How do I book?",
+    "a": "<p>Call or message Paul directly on <a href=\"tel:+447444869983\">+44 7444 869983</a>. Tell him about the car and what you're looking for and he'll check availability and discuss what the car needs. You can also fill in the enquiry form on the <a href=\"#book\">contact page</a> and Paul will get back to you personally.</p> <p>Bookings are confirmed once a deposit is received. By appointment only, no walk-ins.</p>"
+   },
+   {
+    "q": "What are your opening hours?",
+    "a": "<p>The studio operates by appointment only, seven days a week. Hours vary depending on the job, a full studio detail over several days runs differently to a single-service appointment. Paul will confirm timings when you book.</p>"
+   },
+   {
+    "q": "What payment methods do you accept?",
+    "a": "<p>Bank transfer, debit card, Google Pay and Apple Pay. Payment is required before collecting the vehicle or as set out in your invoice. A deposit is required to confirm your booking.</p>"
+   },
+   {
+    "q": "Can you collect and deliver my car?",
+    "a": "<p>Yes. Paul can arrange collection and delivery via a specialist covered automotive transporter at an additional cost. This is the same service used when coordinating bodyshop and PDR work, the car is transported safely and returned to you once complete. Paul handles all the logistics. You make one call.</p>"
+   },
+   {
+    "q": "What is your cancellation policy?",
+    "a": "<p>Cancellations require a minimum of 72 hours' notice prior to the confirmed booking date. Cancellations after this point incur a £500 + VAT cancellation fee. This reflects the time Paul has reserved exclusively for your car and the preparation involved.</p>"
+   },
+   {
+    "q": "How long will my car be with you?",
+    "a": "<p>It depends entirely on what the car needs. A maintenance detail may take a day. A full paint correction and ceramic coating typically takes two to four days. A full studio detail involving correction, PPF, dry ice and ceramic coating can take considerably longer. Paul will give you a realistic timeframe when the job is assessed, not a rushed estimate designed to fill a slot.</p>"
+   }
+  ]
+ },
+ {
+  "id": "services",
+  "title": "Services",
+  "items": [
+   {
+    "q": "Does Paul do every job himself?",
+    "a": "<p><strong>Yes. Every job, every car, every time.</strong> There are no apprentices, no assistants and no junior staff. When you book Miracle Detail, you are booking Paul Dalton to work on your car personally. This is not a selling point, it is the entire point.</p>"
+   },
+   {
+    "q": "Can you come to me, or do I need to bring the car to the studio?",
+    "a": "<p>Both. The new studio in Lingfield is purpose-built for the full range of services and is Paul's preferred environment for most work. However, Paul has travelled as far as Hong Kong, Monaco and the Middle East to detail cars, distance is not a barrier for the right job.</p> <p>Travel charges apply for mobile services beyond 100 miles from Lingfield, Surrey. Paul will advise on cost when you enquire.</p>"
+   },
+   {
+    "q": "Can you prepare my car for a concours event?",
+    "a": "<p>Yes, and it's work Paul takes particular pride in. Every car he has ever prepared for a UK concours event has won its category. Every single one. If you are entering a concours, call Paul as far in advance as possible to discuss the level of preparation required and to secure a booking date.</p>"
+   },
+   {
+    "q": "I need discretion. Do you work with high-profile clients?",
+    "a": "<p>Yes. Paul works with a number of clients, including celebrities and high-profile individuals, who require complete discretion. It goes without saying that client confidentiality is absolute. Nothing discussed at the studio leaves the studio.</p>"
+   },
+   {
+    "q": "My car has been in an accident. Can you help?",
+    "a": "<p>Yes. Bodyshop repair, paintless dent removal and full detailing can all be coordinated through Miracle Detail. Paul arranges covered transport to collect the car, manages the bodyshop process, and carries out the detailing and protection work once the repair is complete. You make one call, Paul handles everything else. The car comes back better than it was before the accident.</p>"
+   },
+   {
+    "q": "I have a new car. Should I get it detailed before I start using it?",
+    "a": "<p>Yes, new cars rarely leave the dealer in the condition they should be in. Transportation film residue, compound dust from the dealer's prep, contamination from outdoor storage near ports and rail depots, all of these affect the paint before it reaches you. A new car detail corrects the paint and applies protection from day one, before the car accumulates any driving history on its finish.</p>"
+   }
+  ]
+ },
+ {
+  "id": "paint-correction",
+  "title": "Paint Correction",
+  "items": [
+   {
+    "q": "What is paint correction?",
+    "a": "<p>Paint correction is the process of removing defects from the surface of the paint, swirl marks, fine scratches, water etching, oxidation and surface haze, by carefully levelling the clear coat using machine polishing. Done correctly, it restores the paint to a depth and clarity that makes the car look better than it did from the factory.</p> <p>At Miracle Detail, every correction job begins with a full assessment using a paint depth gauge, a £4,000 gloss and orange peel measurement instrument, and a digital microscope, so Paul understands exactly what the paint can give before a pad touches it.</p>"
+   },
+   {
+    "q": "My car has swirl marks. Can they all be removed?",
+    "a": "<p>In most cases, yes, or very close to it. The level of correction achievable depends on the thickness of the clear coat and how deep the defects go. Paul's five-level correction system ranges from enhancement polish (up to 65-75% defect removal) through to concours-level correction (100%). He will assess the paint and tell you honestly what's achievable before any work begins.</p>"
+   },
+   {
+    "q": "Why has my black car developed swirl marks after washing?",
+    "a": "<p>Almost always because incorrect washing technique or the wrong products were used, either by the owner, a previous owner or a valet. Dark colours, especially black, show swirl marks and fine scratches more dramatically than light colours because the marks reflect light at visible angles.</p> <p>Swirls that appear after a wash are often pre-existing, the polish or glaze that was masking them has been washed away, revealing what was underneath. Paint correction removes the defects permanently. The <a href=\"/aftercare-washing-guide/\">aftercare washing guide</a> explains how to prevent them recurring.</p>"
+   },
+   {
+    "q": "Does paint correction remove deep scratches?",
+    "a": "<p>It depends on the depth. Scratches in the clear coat, which represents the vast majority of surface damage, can be corrected by machine polishing. Scratches that have broken through the clear coat and into the base coat or primer cannot be corrected by polishing and require paint repair. Paul will assess and advise honestly on what's possible and, where repair is needed, can coordinate bodyshop work accordingly.</p>"
+   }
+  ]
+ },
+ {
+  "id": "ceramic",
+  "title": "Ceramic Coating",
+  "items": [
+   {
+    "q": "What does a ceramic coating actually do?",
+    "a": "<p>A ceramic coating is a semi-permanent protective layer that bonds to the paint's surface. It provides protection against UV damage, chemical contamination, bird lime, water etching and environmental fallout, while delivering a depth of gloss that no wax or sealant can match. It also makes the car significantly easier to wash, as contamination doesn't bond to the coated surface the way it does to bare paint.</p>"
+   },
+   {
+    "q": "Why does it matter who applies the coating?",
+    "a": "<p>A ceramic coating is only as good as the preparation beneath it. Applied over contaminated or uncorrected paint, the coating locks the problems in, permanently. Applied incorrectly, it underperforms from day one. Paul is Feynlab's only global ambassador and the detailer who co-developed Ceramic by Paul Dalton. He knows the chemistry as well as anyone applying it. The application matters just as much as the product.</p>"
+   },
+   {
+    "q": "Which Feynlab coating is right for my car?",
+    "a": "<p>It depends on how you use the car, how long you want the protection to last and whether self-healing is a priority. The Feynlab range runs from the 1-2 year Original Ceramic through to the 7-year Self-Heal Plus, Paul's own Ceramic by Paul Dalton sits at 3 years and is the most popular choice. Paul will recommend the right product for your car and your requirements, there's no pressure to go for the most expensive option if it isn't what the car needs.</p>"
+   },
+   {
+    "q": "Does a ceramic coating mean I never need to wash the car?",
+    "a": "<p>No, but it makes washing significantly easier and less frequent. The coating's hydrophobic properties mean water and contamination bead and release rather than bonding to the surface. Regular washing with the correct products is still required. See the <a href=\"/aftercare-washing-guide/\">aftercare guide</a> for Paul's full recommended procedure and product list.</p>"
+   },
+   {
+    "q": "What is the MIRACLE discount code?",
+    "a": "<p>Use the code <strong>MIRACLE</strong> at checkout on the Feynlab website (<a href=\"https://feynlab.co.uk\" target=\"_blank\" rel=\"noopener\">feynlab.co.uk</a>) for 10% off any Feynlab product. This applies to maintenance products, coatings purchased direct and Paul's own Ceramic by Paul Dalton.</p>"
+   }
+  ]
+ },
+ {
+  "id": "ppf",
+  "title": "Paint Protection Film",
+  "items": [
+   {
+    "q": "What is PPF and how is it different to ceramic coating?",
+    "a": "<p>Paint Protection Film is a physical urethane film applied directly to the painted surface. It absorbs stone chips, resists abrasion and protects against the kind of physical impact that ceramic coating cannot prevent. Ceramic coating is a chemical barrier, strong for chemical protection, UV resistance and gloss enhancement, but it won't stop a stone chip.</p> <p>The two are complementary. Many clients have PPF applied to the high-impact zones, bonnet, bumper, wings, with ceramic coating over the entire car. Paul will advise on the best approach for your car and how you use it.</p>"
+   },
+   {
+    "q": "How long has Paul been installing PPF?",
+    "a": "<p>Since 2006, longer than any other detailer in the UK. Nearly two decades of experience fitting film to everything from daily drivers to Bugattis and Koenigseggs.</p>"
+   },
+   {
+    "q": "Can PPF be removed?",
+    "a": "<p>Yes. PPF is designed to be removable, including colour change films, without damaging the original paint beneath, provided the paint was in good condition when the film was applied. This is one of the major advantages over a permanent colour respray.</p>"
+   },
+   {
+    "q": "Do you offer matte PPF?",
+    "a": "<p>Yes, gloss, matte and colour PPF are all available. Matte PPF protects existing matte or satin finishes, and can also be used to convert a gloss car to a matte appearance. Colour PPF allows a complete colour change while keeping the original paint beneath fully protected and reversible.</p>"
+   }
+  ]
+ },
+ {
+  "id": "dry-ice",
+  "title": "Dry Ice Cleaning",
+  "items": [
+   {
+    "q": "What is dry ice cleaning?",
+    "a": "<p>Dry ice cleaning uses solid CO2 pellets at -78.5°C, accelerated at high speed onto the surface being cleaned. Three things happen simultaneously, kinetic impact dislodges contamination, the extreme cold causes it to contract and fracture away, and the dry ice converts directly from solid to gas, leaving zero moisture and zero residue. No water, no chemicals, no risk to wiring or electronics.</p> <p>Paul was the first detailer in the UK to use dry ice cleaning, in 2014. He has been using the technology for over a decade while much of the industry is still catching up.</p>"
+   },
+   {
+    "q": "Is dry ice cleaning safe for engine bays and electronics?",
+    "a": "<p><strong>Yes, this is one of its biggest advantages over steam or pressure washing.</strong> Because the dry ice converts directly to gas with no liquid phase, there is no moisture introduced to the surface. Wiring, connectors, sensors and electronic components are completely safe. It can clean areas that steam or water cannot safely reach.</p>"
+   }
+  ]
+ },
+ {
+  "id": "pricing",
+  "title": "Pricing",
+  "items": [
+   {
+    "q": "Why does Miracle Detail cost more than other detailers?",
+    "a": "<p>Because Paul is the only one doing the work. Not a team member, not an apprentice, Paul. Every car receives 37 years of accumulated expertise, instruments that most detailers don't own, products Paul helped develop, and a standard set by concours-winning results. You are not paying for a service, you are paying for 37 years of personal attention, applied to your car specifically, by the person doing the work.</p>"
+   },
+   {
+    "q": "Are your prices available on the website?",
+    "a": "<p>Starting prices are shown on each service page. Final pricing is confirmed after Paul has assessed the car, because the same service on a Fiat 500 and a Rolls-Royce Phantom are different jobs, and honest pricing reflects that. There are no surprises once a job starts.</p>"
+   },
+   {
+    "q": "Do you charge VAT?",
+    "a": "<p>Yes. Miracle Detail Ltd is VAT registered. VAT number: GB 452960872. Prices quoted may be subject to VAT, Paul will confirm at the point of quotation.</p>"
+   },
+   {
+    "q": "Is there a minimum spend?",
+    "a": "<p>There is no formal minimum spend. Services start from a maintenance detail and scale up to full multi-day studio details. Paul is happy to discuss what's right for your car and your budget, the conversation is always honest.</p>"
+   }
+  ]
+ },
+ {
+  "id": "aftercare",
+  "title": "Aftercare",
+  "items": [
+   {
+    "q": "How do I wash my car after a ceramic coating?",
+    "a": "<p>Paul provides a full washing guide to every client after a coating is applied. The key points: always wash in shade, always use the two bucket method, always use Feynlab Pure Wash shampoo, always wash in straight lines top to bottom, and finish every wash with Feynlab Hybrid Ceramic Detailer to maintain the coating. See the full guide on the <a href=\"/aftercare-washing-guide/\">aftercare page</a>.</p>"
+   },
+   {
+    "q": "Where do I buy the recommended maintenance products?",
+    "a": "<p>Feynlab products direct from <a href=\"https://feynlab.co.uk\" target=\"_blank\" rel=\"noopener\">feynlab.co.uk</a>, use code <strong>MIRACLE</strong> for 10% off. Wash pads, drying towels, microfibre cloths, buckets and accessories from <a href=\"https://www.cleanandshiny.co.uk\" target=\"_blank\" rel=\"noopener\">cleanandshiny.co.uk</a>. The full product list with direct links is on the <a href=\"/aftercare-washing-guide/\">aftercare page</a>.</p>"
+   },
+   {
+    "q": "How often should a ceramic-coated car be professionally maintained?",
+    "a": "<p>An annual inspection and maintenance detail is recommended for ceramic-coated cars, this allows Paul to assess the coating's condition, carry out any decontamination, and top up protection where needed. Combined with correct home washing using the Hybrid Detailer after every wash, this keeps the coating performing at its best for its full rated lifespan.</p>"
+   }
+  ]
+ },
+ {
+  "id": "general",
+  "title": "General",
+  "items": [
+   {
+    "q": "What types of car do you work on?",
+    "a": "<p>Everything, from daily drivers to Bugatti Veyrons, Koenigseggs and concours-prepared classics. Paul has detailed over 10,000 cars in 37 years. The standard applied to every car is the same, regardless of make, model or value. If you care about your car, Paul cares about your car.</p>"
+   },
+   {
+    "q": "Where is the studio?",
+    "a": "<p>Lingfield, Surrey RH7. The new purpose-built studio opens in July 2026. Full address and directions are provided on booking confirmation. The studio is approximately 30 minutes from Central London and five minutes from junction 6 of the M25.</p>"
+   },
+   {
+    "q": "Can I stay and watch the work being done?",
+    "a": "<p>Paul is happy to show clients the studio and talk through the work at the start of a job. For longer multi-day details, clients are welcome to check in, just let Paul know in advance. The studio is a working environment and some processes require undisturbed focus, so visits are by arrangement.</p>"
+   },
+   {
+    "q": "Is Miracle Detail on social media?",
+    "a": "<p>Yes, Instagram is the most active channel. Follow <a href=\"https://instagram.com/miracledetailuk\" target=\"_blank\" rel=\"noopener\">@miracledetailuk</a> for current work, studio updates and behind-the-scenes content. Paul also has a YouTube channel and is active on Facebook.</p>"
+   },
+   {
+    "q": "My question isn't here. What should I do?",
+    "a": "<p>Call or message Paul directly on <a href=\"tel:+447444869983\">+44 7444 869983</a>, or email <a href=\"mailto:info@miracledetail.co.uk\">info@miracledetail.co.uk</a>. Every message is answered personally. There is no queue.</p>"
+   }
+  ]
+ }
+]
