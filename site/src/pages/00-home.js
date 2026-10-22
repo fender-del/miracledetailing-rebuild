@@ -9,6 +9,7 @@
 'use strict';
 const { frame, images } = require('../lib/pic.js');
 const { stars, reviews } = require('../lib/shared.js');
+const GALLERY = require('../lib/gallery.json');
 
 /* A logo from tools/images.js (white mark), or null so the template
    falls back to the name in type. `k` evens out how big the marks look:
@@ -158,6 +159,13 @@ module.exports = site => {
       totalPad: String(CARS.length).padStart(2, '0'),
       cars: CARS.map((c, i) => Object.assign({}, c, {
         gold: i % 2 === 1,
+        /* "N photographs" follows the job's photo count in the Gallery
+           (22/10: the re-download took most jobs from 12 to 24 photos) */
+        work: c.work.map(w => {
+          const job = /[?&]job=([^&#]+)/.exec(c.href);
+          const g = job && GALLERY.find(j => j.slug === job[1]);
+          return g && / photographs$/.test(w) ? `${g.photos.length} photographs` : w;
+        }),
         img: frame(c.id, { alt: c.alt, sizes: '(max-width: 767px) 88vw, 560px', ratio: false, credit: c.credit })
       })),
       total: CARS.length,
