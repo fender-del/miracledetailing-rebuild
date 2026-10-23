@@ -60,6 +60,12 @@ module.exports = [
      homepage card's photo; the source is 1086 wide, so no larger sizes */
   { id: 'us-hero',   src: 'drive-new/underside-5EBFF7A6.png', mod: { brightness: 1.2, saturation: 1.05 }, widths: [720, 1086], q: 56 },
   { id: 'us-hero-m', src: 'drive-new/underside-5EBFF7A6.png', crop: { l: .1, t: 0, w: .8, h: 1 }, mod: { brightness: 1.2, saturation: 1.05 }, widths: [480, 720, 868], q: 54 },
+  /* 23/10: Paul's underside page (miracledetail-underside.html): the
+     coated Toyota arch (his damper close-up is us-hero already) and one subframe, before above after, split
+     at the seam into a pair */
+  { id: 'us-spring', src: 'underside/paul-underside-2.jpg', widths: [600, 900], q: 62 },
+  { id: 'us-b', src: 'underside/paul-underside-3.jpg', crop: { l: 0, t: 0, w: 1, h: .5 }, widths: [600, 900], q: 62 },
+  { id: 'us-a', src: 'underside/paul-underside-3.jpg', crop: { l: 0, t: .5, w: 1, h: .5 }, widths: [600, 900], q: 62 },
 
   /* ---------- Ceramic ---------- */
   /* hero = the McLaren F1 v0.5 shows (Paul's job); Paul with his own
