@@ -55,6 +55,12 @@ module.exports = [
   { id: 'dx-66',   src: V + 'dry-ice-cleaning/download-66.webp', widths: W },
   { id: 'dx-67',   src: V + 'dry-ice-cleaning/download-67.webp', widths: W },
 
+  /* ---------- Underside coating (23/10, Paul's board note 1) ----------
+     Paul's coated Toyota underside on the studio lift (Drive, 21/10), the
+     homepage card's photo; the source is 1086 wide, so no larger sizes */
+  { id: 'us-hero',   src: 'drive-new/underside-5EBFF7A6.png', mod: { brightness: 1.2, saturation: 1.05 }, widths: [720, 1086], q: 56 },
+  { id: 'us-hero-m', src: 'drive-new/underside-5EBFF7A6.png', crop: { l: .1, t: 0, w: .8, h: 1 }, mod: { brightness: 1.2, saturation: 1.05 }, widths: [480, 720, 868], q: 54 },
+
   /* ---------- Ceramic ---------- */
   /* hero = the McLaren F1 v0.5 shows (Paul's job); Paul with his own
      coating carries "Ceramic by Paul Dalton" */
@@ -120,6 +126,9 @@ module.exports = [
      với các step"): swirls under a light (old gallery, Aston Vantage),
      the C63 with its wheels off (old gallery), Paul's hands on the M3,
      an inspection light held to a black panel (Drive) */
+  /* 23/10 (Paul's board note 7): Assessment = his gloss meter photo (Drive),
+     held tighter than the Instruments card so the two differ */
+  { id: 'pc-s1g', src: 'drive-paul/gloss-meter-pic/37077F18-952E-4750-A70F-5F06A6457865.png', crop: { l: .19, t: 0, w: .66, h: 1 }, widths: [500, 760, 955] },
   { id: 'pc-s1', src: 'gallery/aston-martin-vantage-v8/02-gal-571-IMG_2957.jpg', crop: { l: .2, t: 0, w: .6, h: 1 }, widths: [500, 760] },
   /* 21/10 (Paul: "02 decontamination picture - awful pic ! maybe a pic of
      me claying?"; "this pic isn't relevant to inspection"): the C63 on a
@@ -213,6 +222,10 @@ module.exports = [
   { id: 'bs-s2',     src: B + '9554EF30-BE93-4D42-AD81-4152BD8348DF.png', widths: [500, 760] },
   { id: 'bs-s3',     src: 'drive-paul/paul-polishing-bmw-m3-to/117EEAB4-A76F-4EE7-AFE3-B85BE3EAF916.png', widths: [500, 760] },
   { id: 'bs-s4',     src: 'drive-paul/17F632C3-19A3-4966-A277-403A63331A9C.PNG', widths: [500, 760] },
+  /* 23/10 (Paul's board note 12, Fender): the top half shows sanded blue paint,
+     not primer; the same photo with the body in grey primer, edited with
+     GPT Image 2.5 (Higgsfield). An illustration: Paul has been told */
+  { id: 'bs-600p',   src: 'bodyshop-primed/m600-primed-gpt25.png', widths: [600, 900, 1400] },
   { id: 'bs-600b',   src: V + 'about-paul/download-24-1.jpg', crop: { l: 0, t: 0, w: 1, h: .4995 }, widths: [600, 900, 1125] },
   { id: 'bs-600a',   src: V + 'about-paul/download-24-1.jpg', crop: { l: 0, t: .5045, w: 1, h: .4955 }, widths: [600, 900, 1125] },
 
@@ -254,6 +267,10 @@ module.exports = [
   { id: 'wr-face',   src: O + '2023_11_Wheel-Refurbishment-in-Lingfield-Surrey.-Miracle-Detail-4.jpg', widths: [600, 1200] },
   { id: 'wr-spoke',  src: O + '2023_11_Wheel-Refurbishment-in-Lingfield-Surrey.-Miracle-Detail-6.jpg', widths: [600, 1200] },
   { id: 'wr-porsche', src: O + '2023_11_Wheel-Refurbishment-in-Lingfield-Surrey.-Miracle-Detail.jpg', widths: [600, 1200] },
+  /* 23/10 (Paul's board notes 14, 15): Powder Coat = the gold Pagani wheel,
+     Colour Change = the bronze wheel, both cut 4:3 with the wheel centred */
+  { id: 'wr-pagani', src: O + '2023_11_Wheel-Refurbishment-in-Lingfield-SurreY-MIRACLE-DETAIL.jpg', crop: { l: .017, t: .157, w: .5, h: .667 }, widths: [480, 720] },
+  { id: 'wr-bronze-c', src: O + '2023_11_Wheel-Refurbishment-in-Lingfield-SurreY-MIRACLE-DETAIL-2.jpg', crop: { l: 0, t: .277, w: .444, h: .593 }, widths: [480, 640] },
   { id: 'wr-bronze', src: O + '2023_11_Wheel-Refurbishment-in-Lingfield-SurreY-MIRACLE-DETAIL-2.jpg', widths: [600, 1440] },
   /* 08/10 the work (block 57, square): the only real before & after is
      Paul's collage (VW); the old site's other wheel photos are finished
@@ -311,6 +328,12 @@ module.exports = [
     '34-1', '35-1', '36-1', '37-1', '38-1', '39-1', '40-1', '41-1', '42-1', '43-1', '44-1', '45-1',
     '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60', '']
     .map(n => ({ id: 'ab-' + (n || 'laf'), src: V + 'about-paul/download' + (n ? '-' + n : '') + '.jpg', widths: [480, 900, 1400] })),
+  /* 23/10 (Paul's board note 3): the 1988 entry's mountain bike photo from his
+     Drive ("It start age 13"); Fender: the rider is not Paul, a stand-in */
+  /* 23/10 (Paul's board note 6, Fender): "Before correction" over swirled
+     paint, not the 50/50 panel; the Vantage photo correction's Assessment step used */
+  { id: 'ab-swirl', src: 'gallery/aston-martin-vantage-v8/02-gal-571-IMG_2957.jpg', widths: [600, 900, 1263] },
+  { id: 'ab-bike', src: 'drive-paul/mountain-bike/DE642BB3-B6EB-43F3-A2EC-7425A78CE217.png', widths: [480, 900, 1086] },
 
   /* ---------- Aftercare ---------- */
   ...hero('ac-hero', 'drive/03-gfw-water-beading.jpg', { l: .35, t: 0, w: .45, h: 1 }),

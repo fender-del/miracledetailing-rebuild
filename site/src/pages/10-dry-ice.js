@@ -143,11 +143,15 @@ module.exports = site => {
       coldEyebrow: 'Why it works',
       coldTitle: 'Three mechanisms. <span class="gold">One result nothing else achieves.</span>',
       /* Paul's before/after jobs (Drive), in turn as the beats pass.
-         22/10 (Fender, notes 65–66): the gearbox and transmission pairs
-         show AI retouching too (a crackle texture over every surface,
-         after shots with different castings and bolts), so they are out;
-         only the real BMW pair stays until Paul sends more. */
+         22/10 the gearbox and transmission pairs were taken out as AI
+         retouched; 23/10 (Paul's board note 10, Fender): that was a
+         mistake, they are Paul's real jobs and are back. The pairs Paul
+         himself flagged as AI (steering rack, rack + subframe) stay out. */
       coldJobs: [
+        { k: 1, cap: 'A gearbox, under the car', what: 'a gearbox under a car',
+          before: 'its casing caked in brown grime and rust', after: 'the bare aluminium casing clean and bright' },
+        { k: 2, cap: 'A transmission casing, up close', what: 'a transmission casing',
+          before: 'coated in old oil and brown grime', after: 'the cast aluminium clean down to its texture' },
         { k: 3, cap: 'A BMW underbody panel', what: 'a BMW underbody panel',
           before: 'slick with oil and road grime', after: 'the panel clean, with its bolts and exhaust shield visible' }
       ].map((j, i) => ({
@@ -155,8 +159,8 @@ module.exports = site => {
         before: frame(`dx-b${j.k}`, { alt: `Before dry ice cleaning: ${j.what}, ${j.before}`, sizes: '(max-width: 1023px) 46vw, 24vw', ratio: false }),
         after: frame(`dx-a${j.k}`, { alt: `After dry ice cleaning: the same ${j.what.replace(/^(a|the) /, '')}, ${j.after}`, sizes: '(max-width: 1023px) 46vw, 24vw', ratio: false })
       })),
-      coldCount: '01',
-      coldMulti: false,
+      coldCount: '03',
+      coldMulti: true,
       beats: [
         { n: 'I', name: 'Kinetic Energy', sub: 'Impact at high velocity',
           text: 'Dry ice pellets travelling at high speed physically dislodge contamination (grease, oil, road grime, underbody deposits), breaking its bond with the surface beneath without any abrasion or chemical action.' },

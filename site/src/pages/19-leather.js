@@ -67,11 +67,11 @@ module.exports = site => {
             paras: 'Leather colour fades over time, from UV exposure, body oils and general wear. Colour restoration brings the leather back to its original shade or any chosen colour, applied in thin, flexible layers that move and breathe with the leather rather than cracking and peeling.',
             list: ['Original colour matching or colour change', 'Thin, flexible colour application', 'UV-resistant finish', 'Seats, bolsters, door cards and dash'],
             price: 'Pricing confirmed at enquiry' },
-          { n: 'II', name: 'Scuff &amp; Scratch Repair', sub: 'Surface damage restored', img: cardImg('lr-5156', 'A cream leather bolster with red piping after its cracks were repaired'),
+          { n: 'II', name: 'Scuff &amp; Scratch Repair', sub: 'Surface damage restored', /* Paul 22/10 (board note 17); Fender 23/10: a row of seats, unlike cards I and III */ img: cardImg('lr-fixed', 'The light grey leather seats of a BMW, front and rear, after their scuffs and stains were repaired'),
             paras: 'Scuffs, light scratches and surface abrasion (the kind that accumulates on bolsters, armrests and high-contact areas) are filled, smoothed and colour-matched to blend seamlessly with the surrounding leather. Results that are invisible under normal viewing conditions.',
             list: ['Surface abrasion and scuff treatment', 'Filler and colour blend', 'Seamless finish under normal light', 'High-contact areas prioritised'],
             price: 'Pricing confirmed at enquiry' },
-          { n: 'III', name: 'Full Interior Restoration', sub: 'Complete leather transformation', img: cardImg('lr-dash', 'A Porsche 911 interior masked for restoration, steering wheel and dash exposed'),
+          { n: 'III', name: 'Full Interior Restoration', sub: 'Complete leather transformation', /* Paul 22/10 (board note 16): a different photo */ img: cardImg('lr-7086', 'The cream leather front seats and door of a classic saloon after full restoration'),
             paras: 'For interiors requiring comprehensive attention, combining colour restoration, repair work and conditioning into a full treatment of every leather surface in the car. Seats, door cards, dash, steering wheel, centre console. The complete interior, brought back to the same standard as the rest of the detail.',
             list: ['All leather surfaces treated', 'Colour restoration and repair combined', 'Deep conditioning post-treatment', 'Steering wheel and centre console included'],
             price: 'Pricing confirmed at enquiry' }
@@ -115,18 +115,30 @@ module.exports = site => {
     data: {
       crumbs: nav.html,
 
-      hero: {
-        stats: true, fit: true,
-        /* phones: where the poster crop is held (08/10) */
-        mfit: true,
-        h1: 'Leather Restoration',
-        line: 'Leather that looks <span class="gold">the way it should.</span>',
-        lede: 'Faded, scuffed, cracked or discoloured leather doesn’t have to stay that way. Leather colour restoration and repair is available through Miracle Detail, so the interior of your car matches the standard of the exterior.',
-        img: frame('lr-hero', {
-          priority: true, ratio: false, sizes: '100vw',
-          alt: 'Tan leather seats being cleaned by hand with a microfibre cloth',
-          art: [{ media: '(max-width: 900px)', id: 'lr-hero-m', sizes: '100vw' }]
-        }),
+      hero: {
+
+        stats: true, fit: true,
+
+        /* phones: where the poster crop is held (08/10) */
+
+        mfit: true,
+
+        h1: 'Leather Restoration',
+
+        line: 'Leather that looks <span class="gold">the way it should.</span>',
+
+        lede: 'Faded, scuffed, cracked or discoloured leather doesn’t have to stay that way. Leather colour restoration and repair is available through Miracle Detail, so the interior of your car matches the standard of the exterior.',
+
+        img: frame('lr-hero', {
+
+          priority: true, ratio: false, sizes: '100vw',
+
+          alt: 'Tan leather seats being cleaned by hand with a microfibre cloth',
+
+          art: [{ media: '(max-width: 900px)', id: 'lr-hero-m', sizes: '100vw' }]
+
+        }),
+
         facts: []
       },
 

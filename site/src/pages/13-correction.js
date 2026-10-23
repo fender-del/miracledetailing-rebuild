@@ -117,7 +117,8 @@ module.exports = site => {
         /* 08/10: each step its own picture (Fender: "lựa ảnh phù hợp với các step") */
         stage: { pics: true },
         steps: [
-          { name: 'Assessment', pic: frame('pc-s1', { alt: '', sizes: '(max-width: 1023px) 1px, 34vw', ratio: false }), img: frame('pc-s1', { alt: 'Fine swirl marks in dark paint, picked out by an inspection light', sizes: '(max-width: 1023px) 84vw, 1px', ratio: false }),
+          /* Paul 22/10 (board note 7): his gloss meter, not swirled paint */
+          { name: 'Assessment', pic: frame('pc-s1g', { alt: '', sizes: '(max-width: 1023px) 1px, 34vw', ratio: false }), img: frame('pc-s1g', { alt: 'Paul’s gloss and orange peel meter on black paint, its screen showing the readings', sizes: '(max-width: 1023px) 84vw, 1px', ratio: false }),
             text: 'Paint depth measured. Gloss and orange peel analysed. Surface examined under controlled lighting and digital microscope. The condition of the paint is understood before anything else happens.' },
           { name: 'Decontamination', pic: frame('pc-s2', { alt: '', sizes: '(max-width: 1023px) 1px, 34vw', ratio: false }), img: frame('pc-s2', { alt: 'A Mercedes C63 AMG on a jack in the studio, its wheels off', sizes: '(max-width: 1023px) 84vw, 1px', ratio: false }),
             text: 'The paint is fully decontaminated before correction begins: iron fallout, bonded contamination and surface debris removed. Correcting contaminated paint is correcting the wrong thing.' },

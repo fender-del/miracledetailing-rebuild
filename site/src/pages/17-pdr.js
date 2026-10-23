@@ -95,7 +95,9 @@ module.exports = site => {
           { name: 'Paintless Dent Removal', sub: 'The preferred method', hi: true,
             list: ['Original factory paint preserved completely', 'No filler, ever', 'No colour matching required', 'No risk of respray mismatch with adjacent panels', 'Faster than traditional bodyshop repair', 'More cost effective in most cases', 'Residual value of the car protected', 'Result is invisible, not just improved'] },
           { name: 'Traditional Body Repair', sub: 'Where PDR isn’t possible', no: true,
-            list: ['Original paint disturbed or removed', 'Filler used to build back shape', 'Colour matching, never exact', 'Longer repair time', 'Higher cost in most cases', 'Repair history affects residual value', 'Result is improved, not invisible'] }
+            /* Paul 22/10 (board note 13): "Colour matching, never exact" and "Result is
+               improved, not invisible" removed, they contradict his own bodyshop work */
+            list: ['Original paint disturbed or removed', 'Filler used to build back shape', 'Longer repair time', 'Higher cost in most cases', 'Repair history affects residual value'] }
         ]
       }) } },
       { block: '37-svc-cards', with: { cards: cards({

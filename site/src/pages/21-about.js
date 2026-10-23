@@ -70,12 +70,16 @@ module.exports = site => {
   ]);
 
   const timeline = [
-    entry('1988', 'It starts: age 13', 'A sponsored teenage mountain biker starts washing cars for pocket money in Surrey. The first car he clearly remembers: an Astra mk2 GTE for an insurance man down the road. Nobody suspects this is the beginning of a 37-year obsession, least of all Paul. He discovers he cannot simply clean a car. He has to make it perfect.'),
+    entry('1988', 'It starts: age 13', 'A sponsored teenage mountain biker starts washing cars for pocket money in Surrey. The first car he clearly remembers: an Astra mk2 GTE for an insurance man down the road. Nobody suspects this is the beginning of a 37-year obsession, least of all Paul. He discovers he cannot simply clean a car. He has to make it perfect.',
+      /* Paul 22/10 (board note 3): a photo of him on his mountain bike. The
+         Drive photo is not Paul (Fender 23/10): a stand-in until Paul says */
+      [ph('bike', 'Mountain biking', 'A teenage mountain biker splashing through a muddy race course')]),
     entry('1994', 'Miracle Detail is established', 'What started as pocket money becomes a business. Miracle Detail is founded, operating mobile across London, detailing high profile clientele at their homes and premises. From the very first day, the approach is the same: Paul works alone, every car is treated as if it were his own, and there are no shortcuts.'),
-    entry('2005', 'Swissvax: the Crystal Rock Wax collaboration', 'Paul collaborates with Swissvax on Crystal Rock Wax, sold worldwide through Swissvax’s authorised reseller network. The partnership runs until 2022.'),
     entry('2006', 'Fifth Gear, and the £5,000 car wash', 'Paul appears on Fifth Gear to detail a Maserati MC12, one of only 50 ever made. 61 stages. 64 hours. £5,000. The segment is broadcast globally and covered by seven national newspapers. Phone calls come in from across the world for a week. A generation of detailers still cites it as the moment they understood what the craft could become. In the same year, Paul begins installing PPF, making him the UK’s longest-serving active PPF installer.',
       [ph('60', 'Maserati MC12', 'A white and blue Maserati MC12 outside the studio'), ph('1-1', 'Sunday Mirror, 2006', 'Sunday Mirror cutting: “The £5K carwash”')]),
     entry('2006', 'Autocar: the £5,000 car wash', 'Autocar magazine runs a feature on Paul and the £5,000 car wash, shot at Romans International supercar dealership in Fleet, Surrey. The piece asks whether the world’s most expensive car wash is worth it, and answers its own question.'),
+    /* Paul 22/10 (board note 4): 2007, not 2005 */
+    entry('2007', 'Swissvax: the Crystal Rock Wax collaboration', 'Paul collaborates with Swissvax on Crystal Rock Wax, sold worldwide through Swissvax’s authorised reseller network. The partnership runs until 2022.'),
     entry('2008', 'MPH: Top Gear Live, London', 'Paul attends MPH at Top Gear Live in London, putting the final polish on a Koenigsegg CCX on the show stand. Even surrounded by cameras and crowds rather than a quiet studio, the standard does not move: every car gets the same attention, wherever it is being prepared.',
       [ph('2-1', 'Koenigsegg CCX', 'A silver Koenigsegg CCX on the show stand'), ph('3-1', 'On the stand', 'Paul polishing the Koenigsegg on the stand'), ph('4-1', 'Final polish', 'Paul giving the Koenigsegg its final polish')]),
     entry('2008', 'The Middle East: a Bugatti and a Ferrari 599', 'Paul travels to the Middle East to detail a Bugatti Veyron and a Ferrari 599 GTB Fiorano, working alongside cars most detailers only ever see in photographs. The standard travels with him: the same studio discipline, a long way from Surrey.',
@@ -292,8 +296,11 @@ module.exports = site => {
 
       workEyebrow: 'The work itself',
       workTitle: 'What paint correction <span class="gold">actually does.</span>',
+      workCap2: true,
       work: [
-        { img: frame('ab-51', { alt: 'Swirled paint before correction under an inspection light', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Before correction', third: true },
+        /* Paul 22/10 (board note 6), Fender 23/10: the caption stays, the photo
+           is swirled paint (the 50/50 panel showed more than the caption said) */
+        { img: frame('ab-swirl', { alt: 'Swirl marks and fine scratches in black paint under an inspection light', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Before correction', third: true },
         { img: frame('ab-52', { alt: 'Swirl marks under an inspection light', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Swirls under inspection light', third: true },
         { img: frame('ab-53', { alt: 'Paul machine polishing a carbon panel by hand', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3', frameCls: 'media--tl' }), cap: 'Every panel, by hand', third: true }
       ],

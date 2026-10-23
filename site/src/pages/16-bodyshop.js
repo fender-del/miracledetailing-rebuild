@@ -99,7 +99,9 @@ module.exports = site => {
         eyebrow: 'The work',
         title: 'From primer <span class="gold">to paint.</span>',
         items: [
-          { before: wideImg('bs-600b', 'A Mercedes 600 in primer, its chrome and bumpers off'),
+          /* 23/10 (Paul's board note 12): primer shown in grey, an AI-edited copy of
+             Paul's photo (the original top half was sanded blue paint) */
+          { before: wideImg('bs-600p', 'A Mercedes 600 in grey primer, its chrome and bumpers off'),
             after: wideImg('bs-600a', 'The same Mercedes 600 in fresh blue paint'), thumb: '', bl: 'Primed', al: 'Painted' }
         ]
       }) } },

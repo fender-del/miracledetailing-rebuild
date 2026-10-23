@@ -38,7 +38,14 @@
    the wheel and the blurred card re-blurred it every frame. The map is a
    picture of where the studio is; Get directions opens the real one. */
 .cov__iframe{pointer-events:none}
-.cov__pinmark{position:absolute;left:50%;top:50%;width:44px;height:60px;transform:translate(-50%,-100%);pointer-events:none;z-index:1;filter:drop-shadow(0 6px 10px rgba(0,0,0,.6))}
+/* Paul 22/10 (board notes 2): Google's own address card (top left) and
+   its full-screen button (bottom right) are cut off. The frame runs past
+   the stage at the top and both sides; the bottom edge stays, so the
+   Google logo and "Map data" line remain. Google centres the studio in
+   the frame, so the pin sits half the top cut above the stage's middle. */
+.cov__map{--cut:180px;--side:92px;overflow:hidden}
+.cov__iframe{inset:auto;top:calc(var(--cut) * -1);left:calc(var(--side) * -1);width:calc(100% + var(--side) * 2);height:calc(100% + var(--cut));max-width:none;max-height:none}
+.cov__pinmark{position:absolute;left:50%;top:calc(50% - var(--cut) / 2);width:44px;height:60px;transform:translate(-50%,-100%);pointer-events:none;z-index:1;filter:drop-shadow(0 6px 10px rgba(0,0,0,.6))}
 .cov__pinmark::after{content:"";position:absolute;left:50%;bottom:-6px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--gold-a30);animation:covPulse 2.4s ease-out infinite;z-index:-1}
 @keyframes covPulse{0%{transform:scale(.6);opacity:.9}100%{transform:scale(4);opacity:0}}
 @media (prefers-reduced-motion:reduce){.cov__pinmark::after{animation:none}}
@@ -63,7 +70,7 @@
 @media (max-width:1023px){.cov__areas{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:767px){
   .cov__stage{min-height:0;display:flex;flex-direction:column}
-  .cov__map{position:relative;inset:auto;height:300px;order:1}
+  .cov__map{position:relative;inset:auto;height:360px;order:1}
   .cov__stage::after{display:none}
   .cov__stage .cov__card{position:static;transform:none;width:auto;order:2;border-radius:0;backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--raise)}
   .cov__areas{grid-template-columns:1fr}

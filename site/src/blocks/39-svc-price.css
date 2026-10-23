@@ -25,3 +25,5 @@
   .sband .btn{grid-column:auto;grid-row:auto;justify-self:start;margin-top:10px}
   .sband__copy{grid-column:auto;grid-row:auto;justify-self:start}
 }
+/* 23/10 underside: "From £1,000 + VAT" is wider than a 360 phone */
+@media (max-width:420px){.sband__amt{white-space:normal;text-wrap:balance}}

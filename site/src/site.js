@@ -86,8 +86,8 @@ const site = {
       from: 200, per: 'hour', fromNote: 'Minimum two hours',
       img: 'svc-dryice', alt: 'Dry ice blasting the engine bay of a red Ferrari' },
 
-    /* v0.5 has no underbody page: Feynlab Industrial V2 is in the ceramic range */
-    { key: 'underside', name: 'Underside Coating', href: '/ceramic-coatings/#industrial',
+    /* v0.5 has no underbody page; Paul 22/10 (board note 1) asked for one */
+    { key: 'underside', name: 'Underside Coating', href: '/underside-coating/',
       line: 'Feynlab Industrial V2 — 10 year protection', from: 1000, img: 'svc-underside' },
     { key: 'studio', name: 'Full Studio Detail', href: '/car-detailing-studio/#signature',
       line: 'Every service. One detailer.', from: 175, img: 'svc-studio' },
@@ -117,7 +117,8 @@ const site = {
     { name: 'Protect', links: [
       { name: 'Ceramic coatings', href: '/ceramic-coatings/' },
       { name: 'Paint protection film', href: '/paint-protection-film-ppf/' },
-      { name: 'Window tinting & bulletproof film', href: '/window-tinting/' } ] },
+      { name: 'Window tinting & bulletproof film', href: '/window-tinting/' },
+      { name: 'Underside coating', href: '/underside-coating/' } ] },
     { name: 'Clean & preserve', links: [
       { name: 'Dry ice cleaning', href: '/dry-ice-blasting-and-laser-cleaning/' },
       { name: 'Detailing packages', href: '/car-detailing-studio/' },

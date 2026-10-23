@@ -10,6 +10,8 @@
    alone (the collage's seams showed on desktops), shifted right and fit
    to one phone screen; the four services compact on phones (photo,
    name, line, price, Read more); "Why it matters" brief on phones; the
+   23/10 (Paul's board notes 14, 15): Powder Coat = the gold Pagani wheel,
+   Colour Change = the bronze wheel cut so it sits in the middle.
    10/21 (client notes): Diamond Cut = Paul's BMW M diamond-cut photo; Powder Coat = the satin black Cupra face (was the Audi valve cap).
    work before the booking form (block 57, square): Paul's one before &
    after (the VW from his Drive collage), then three finished wheels
@@ -64,11 +66,11 @@ module.exports = site => {
             paras: 'The factory finish on many prestige wheels. The face of the wheel is machined on a CNC lathe to produce a precise, reflective cut surface, with the barrel and spokes powder-coated in the original or chosen colour. The most sought-after finish for OEM-specification restoration.',
             list: ['CNC lathe machining of wheel face', 'Powder-coated barrel and spokes', 'Lacquer sealed finish', 'Colour-matched or custom colour'],
             price: 'Pricing confirmed at enquiry' },
-          { n: 'II', name: 'Powder Coat', sub: 'Full wheel, any colour', img: cardImg('wr-cupra', 'A satin black powder-coated Cupra wheel, whole face in view'),
+          { n: 'II', name: 'Powder Coat', sub: 'Full wheel, any colour', img: cardImg('wr-pagani', 'A gold wheel on a black Pagani in the studio, the whole wheel in view'),
             paras: 'Full powder coat refinishing of the entire wheel: the most durable and versatile wheel finish available. Suitable for any alloy and available in virtually any colour. Original colour restoration or complete colour change: the choice is yours.',
             list: ['Full strip and sandblast preparation', 'Powder coat in any colour', 'High-gloss, satin or matte finish', 'Significantly more durable than painted finishes'],
             price: 'Pricing confirmed at enquiry' },
-          { n: 'III', name: 'Colour Change', sub: 'Transform the look of the car', img: cardImg('wr-bronze', 'Bronze wheels on a black car in the studio'),
+          { n: 'III', name: 'Colour Change', sub: 'Transform the look of the car', img: cardImg('wr-bronze-c', 'A bronze wheel on a black car in the studio, the wheel in the middle of the frame'),
             paras: 'Change the colour of your wheels entirely, from standard silver to gloss black, gunmetal, bronze, gold or any custom specification. A wheel colour change is one of the most cost-effective ways to transform the appearance of a car without touching the bodywork.',
             list: ['Any colour, standard or custom', 'Powder coat or painted finish', 'Gloss, satin or matte available', 'Coordinated with overall detail specification'],
             price: 'Pricing confirmed at enquiry' },

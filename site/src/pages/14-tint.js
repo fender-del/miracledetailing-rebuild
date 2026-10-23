@@ -42,11 +42,14 @@ const SLUG = 'window-tinting';
    13/10: the cars are Paul's own (Drive), in place of Pexels ones */
 const F599 = {
   glass: '24.9,10.3 30.6,9 36.3,8.4 42,8.5 45.4,9.2 50.6,13.7 54.9,18.4 59.1,22.9 53.4,24.4 44.9,26.1 36.3,28.1 29.7,29.6 27.1,19.7',
-  /* 22/10 (Paul v5 #63): re-traced on the shut lines at 3× zoom: cowl,
-     far wing line past its vent, inside the far headlight, the nose
-     edge over the badge, along the top of the near headlight, then the
-     near wing line back to the A-pillar */
-  bonnet: '33.6,29.3 39.5,27.9 45.9,25.9 52,25.2 55.4,24.3 59.7,23.2 61.6,24.2 63.1,25.2 65.7,26.5 68.3,27.5 70.9,28.8 74,30 77.1,31.5 80,33.2 82.9,35.5 85.1,38.1 86.3,40.4 87.7,42.5 89.4,45 91.1,47.3 92.9,49.7 93.9,52 93.9,54.1 93.7,58 92.9,60.6 90.9,63.6 88.6,65.7 85.7,67.9 82.9,69.6 81.4,70.5 80,68.3 77.7,64 74.9,60.1 72,57.1 69.4,54.4 66.1,52.6 64.7,50.7 62.9,48.1 60,46.1 58.4,44.6 53.9,41.2 50.1,39 44.9,36.4 40.1,33.7 36.9,32'
+  /* 23/10 (Paul's board note 9, "the line on the bonnet isn't straight";
+     Fender: follow the black shut line): the sides and nose snapped to the
+     darkest pixel of the shut line every 2px, then smoothed and simplified
+     so the edge runs as one clean curve; cowl kept from 22/10. Round 2
+     (Fender's three circles): the far side on the lower, crisp shut line
+     (vent to headlight, not the dark band above it), the near headlight
+     corner taken down into the corner of the gap */
+  bonnet: '33.6,29.3 39.5,27.9 45.9,25.9 52,25.2 55.4,24.3 59.7,23.2 61.6,24.2 63.1,25.2 65.7,26.5 68.3,27.5 70.9,28.8 71.41,28.67 71.55,28.72 71.62,28.83 72.04,28.94 72.99,29.35 74.27,30.04 75.5,30.92 76.68,31.94 82.7,37.39 84.53,39.26 86.14,41.08 87.23,42.6 88.66,45.12 89.33,46.18 90.25,47.41 92.08,49.58 92.54,50.25 92.91,50.91 93.32,51.97 93.6,53.23 93.74,54.66 93.78,56.8 93.6,58.61 93.24,60.1 92.7,61.47 91.93,62.77 91.02,63.85 89.77,65 87.61,66.7 85.66,68.03 83.67,69.24 82.74,69.81 81.57,70.36 80.78,69.13 80,68.05 76.87,64.18 71.57,57.7 67.29,53.09 64.51,50.35 62.51,48.53 58,44.75 53.25,41.32 48.12,38.05 42.03,34.49 40.74,33.81 37.93,32.59 36.73,31.96 35.68,31.2'
 };
 const RS6 = {
   screen: '36,31.7 40,28 45,23.7 50,20.6 55,19.3 60,18.3 65,17.5 68.6,17.2 65,23.3 61,31.2 48.5,31.3 37.5,31.5',
