@@ -75,6 +75,10 @@
 .stage--img .stage__ring{display:none}
 .stage--img .stage__read{z-index:1;justify-items:start;text-align:left;padding:0 28px 30px;gap:6px}
 .stage--img .stage__digits{font-size:clamp(4rem,2.4rem + 4vw,6.4rem)}
+/* 27/10 (interior, on ivory): a light block flips --white to ink and
+   --gold to bronze, so on the dark photo the name sank. The words on a
+   photo keep the dark-ground colours whatever the block's theme */
+.stage--img{--white:#FFFFFF;--gold:#C9A84D;--muted:rgba(255,255,255,.72)}
 .stage--img::before{content:"";position:absolute;left:0;bottom:0;z-index:2;height:2px;width:100%;background:var(--gold);transform:scaleX(var(--sp,0));transform-origin:0 50%}
 
 /* ---------- reading progress (07/10, aftercare's eight steps) ---------- */

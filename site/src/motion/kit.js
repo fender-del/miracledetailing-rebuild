@@ -137,8 +137,25 @@ export function heroTone() {
         }
         return n ? t / n : .3;
       };
+      /* 27/10 (underside, Fender: "khó nhìn quá"): a long heading climbs
+         above the blurred lower part onto sharp, busy metal. The blur now
+         starts 56px above the eyebrow (never lower than 40% of the poster),
+         and a busy band behind the words (a high spread of light) is
+         dimmed harder, not only a bright one */
+      const ph = hero.querySelector('.shero__media').offsetHeight || innerHeight;
+      const h1 = $('.shero__h1', hero);
+      const st = h1 ? Math.max(0, Math.min(ph * .4, h1.getBoundingClientRect().top - hero.getBoundingClientRect().top - 56)) : ph * .4;
+      const a = st / ph, b = Math.min(1, a + .45);
+      const spread = (p, q) => {
+        let t = 0, t2 = 0, n = 0;
+        for (let y = Math.floor(p * H); y < Math.floor(q * H); y++) for (let i = 0; i < W; i++) {
+          const k = (y * W + i) * 4, l = (.2126 * d[k] + .7152 * d[k + 1] + .0722 * d[k + 2]) / 255; t += l; t2 += l * l; n++;
+        }
+        return n ? Math.sqrt(Math.max(0, t2 / n - (t / n) ** 2)) : 0;
+      };
+      hero.style.setProperty('--st', Math.round(st) + 'px');
       hero.style.setProperty('--ta', clamp(.2 + lum(0, .14) * .75, .3, .72).toFixed(2));
-      hero.style.setProperty('--da', clamp(.12 + lum(.45, .85) * .8, .24, .6).toFixed(2));
+      hero.style.setProperty('--da', clamp(.12 + lum(a, b) * .8 + spread(a, b) * 1.1, .24, .72).toFixed(2));
     } catch (e) { /* a tainted or undecoded image: the CSS defaults stand */ }
   };
   if (img.complete && img.naturalWidth) run();

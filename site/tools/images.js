@@ -71,6 +71,10 @@ const IMAGES = [
   /* Pexels (free licence): 37163499 Testarossa on a lift, 11968579 red
      quilted leather, 20036216 dark glass on a black saloon. */
   { id: 'svc-underside',  src: 'drive-new/underside-5EBFF7A6.png', crop: { l: .05, t: 0, w: .82, h: .7688 }, mod: { brightness: 1.35, saturation: 1.1 }, widths: [360, 560, 720] },
+  /* 27/10: Paul's interior page (miracledetail-interior-cleaning-protection-updated.html)
+     takes the Detailing Packages card; his Drive "interior pics x2": a brush
+     working foam into the MS-RT seat back */
+  { id: 'svc-interior',   src: 'drive-paul/interior-pics-x2/8DE86EA5-CC1B-475B-928D-9F62591DB379.png', crop: { l: 0, t: .03, w: 1, h: .9375 }, widths: [360, 560, 720] },
   { id: 'svc-leather',    src: 'stock/pexels-11968579.jpg',         crop: { l: .10, t: 0, w: .533, h: 1 }, widths: [360, 560, 720] },
   { id: 'svc-tint',       src: 'drive/paul-tint-599.webp',    crop: { l: 0, t: .03, w: 1, h: .9375 }, widths: [360, 560, 720] },
 

@@ -67,6 +67,29 @@ module.exports = [
   { id: 'us-b', src: 'underside/paul-underside-3.jpg', crop: { l: 0, t: 0, w: 1, h: .5 }, widths: [600, 900], q: 62 },
   { id: 'us-a', src: 'underside/paul-underside-3.jpg', crop: { l: 0, t: .5, w: 1, h: .5 }, widths: [600, 900], q: 62 },
 
+  /* ---------- Interior cleaning & protection (27/10, Paul's own page) ----------
+     Paul's Drive "interior pics x2" (1086 wide, no larger sizes): the
+     MS-RT seat back for the hero, the seat base and its bolster for the
+     approach */
+  { id: 'in-hero',   src: 'drive-paul/interior-pics-x2/8DE86EA5-CC1B-475B-928D-9F62591DB379.png', widths: [720, 1086], q: 58 },
+  { id: 'in-hero-m', src: 'drive-paul/interior-pics-x2/8DE86EA5-CC1B-475B-928D-9F62591DB379.png', crop: { l: .06, t: 0, w: .88, h: 1 }, widths: [480, 720, 956], q: 56 },
+  { id: 'in-bolster', src: 'drive-paul/interior-pics-x2/4251CBB4-5D24-4E36-B929-AFD88D704AF9.png', crop: { l: 0, t: .1, w: 1, h: .75 }, widths: [600, 900], q: 62 },
+  /* 27/10 (Fender: "thêm ảnh đi, ít ảnh quá"): interiors from Paul's own
+     gallery jobs, one per service card, step, quote and note */
+  { id: 'in-c-leather', src: 'gallery/porsche-997-c2s-cab/07-gal-600-DSC07020.jpg', widths: [480, 768] },
+  { id: 'in-c-fabric',  src: 'gallery/nissan-r35-gtr-dark-metallic-grey/04-gal-558-IMG_4912.jpg', widths: [480, 768] },
+  { id: 'in-c-dash',    src: 'gallery/mercedes-c63-amg-brand-new-car-in-for-ultimate-detail/15-gal-614-DSC00023.jpg', widths: [480, 768] },
+  { id: 'in-c-special', src: 'gallery/mercedes-c63-amg-brand-new-car-in-for-ultimate-detail/23-gal-614-DSC09966.jpg', widths: [480, 768] },
+  { id: 'in-c-glass',   src: 'gallery/bugatti-veyron-black-metallic-and-jet-black/10-gal-619-IMG_3952.jpg', widths: [480, 768] },
+  { id: 'in-c-protect', src: 'gallery/porsche-911-turbo/05-gal-660-IMG_9407.jpg', widths: [480, 768] },
+  { id: 'in-quote',     src: 'gallery/1952-morgan-white/03-gal-551-IMG_9840.jpg', widths: [960, 1500], q: 56 },
+  { id: 'in-612',       src: 'gallery/ferrari-612/14-gal-591-IMG_8740.jpg', widths: [600, 900, 1200] },
+  { id: 'in-note',      src: 'gallery/spyker-d12-peking-to-paris/05-gal-654-IMG_8764.jpg', widths: [960, 1440, 2000], q: 52 },
+  { id: 'in-s1', src: 'gallery/bmw-e39-m5/01-gal-661-IMG_3568.jpg', widths: [500, 760] },
+  { id: 'in-s2', src: 'gallery/porsche-997-c2s-cab/08-gal-600-DSC07021.jpg', widths: [500, 760] },
+  { id: 'in-s3', src: 'gallery/lamborghini-murcielago-lp-640-roadster-nero-pegaso/22-gal-641-IMG_9192.jpg', widths: [500, 760] },
+  { id: 'in-s4', src: 'gallery/porsche-boxster-s/18-gal-599-IMG_8842.jpg', widths: [500, 760] },
+
   /* ---------- Ceramic ---------- */
   /* hero = the McLaren F1 v0.5 shows (Paul's job); Paul with his own
      coating carries "Ceramic by Paul Dalton" */

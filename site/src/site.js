@@ -91,8 +91,11 @@ const site = {
       line: 'Feynlab Industrial V2 — 10 year protection', from: 850, img: 'svc-underside' },
     { key: 'studio', name: 'Full Studio Detail', href: '/car-detailing-studio/#signature',
       line: 'Every service. One detailer.', from: 175, img: 'svc-studio' },
-    { key: 'packages', name: 'Detailing Packages', href: '/car-detailing-studio/',
-      line: 'Maintenance to Signature — 5 levels', from: 175, img: 'svc-packages' },
+    /* 27/10 (Fender): Paul's interior page takes the Detailing Packages
+       card; Packages stays in the header and the Services menu. Paul's page
+       has no price ("contact us … for an informed quotation") */
+    { key: 'interior', name: 'Interior Cleaning & Protection', href: '/interior-detailing/',
+      line: 'Leather, fabrics, fine trim and protection', poa: true, img: 'svc-interior' },
     { key: 'bodyshop', name: 'Bodyshop & Paint Repair', href: '/bodyshop-repair/',
       line: 'Panel repairs to full restorations', poa: true, img: 'svc-bodyshop' },
     { key: 'pdr', name: 'Paintless Dent Removal', href: '/paintless-dent-removal/',
@@ -121,6 +124,7 @@ const site = {
       { name: 'Underside coating', href: '/underside-coating/' } ] },
     { name: 'Clean & preserve', links: [
       { name: 'Dry ice cleaning', href: '/dry-ice-blasting-and-laser-cleaning/' },
+      { name: 'Interior cleaning & protection', href: '/interior-detailing/' },
       { name: 'Detailing packages', href: '/car-detailing-studio/' },
       { name: 'Mobile detailing', href: '/mobile-car-detailing/' },
       { name: 'Aftercare & washing guide', href: '/aftercare-washing-guide/' } ] }
@@ -148,7 +152,7 @@ const site = {
 
   /* The form's "What would you like done?" picks. A page ticks its own
      service with `formPick` (the dry ice page ticks "Dry ice cleaning"). */
-  formServices: ['Paint correction', 'Ceramic coating', 'Paint protection film', 'Dry ice cleaning', 'Underside coating', 'Full studio detail', 'Detailing package', 'Mobile detailing', 'Window tinting or bulletproof film', 'Leather, wheels or bodywork', 'Not sure yet'],
+  formServices: ['Paint correction', 'Ceramic coating', 'Paint protection film', 'Dry ice cleaning', 'Underside coating', 'Full studio detail', 'Interior cleaning & protection', 'Detailing package', 'Mobile detailing', 'Window tinting or bulletproof film', 'Leather, wheels or bodywork', 'Not sure yet'],
   heardFrom: ['Instagram', 'Facebook', 'Google', 'YouTube', 'TikTok', 'Fifth Gear or the press', 'A friend or another client', 'Other']
 };
 

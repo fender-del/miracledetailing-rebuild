@@ -8,11 +8,13 @@
   background:radial-gradient(ellipse 60% 62% at 50% 50%,rgba(10,10,10,.84),rgba(10,10,10,.5) 100%),linear-gradient(180deg,var(--ink),rgba(17,17,17,0) 22%,rgba(17,17,17,0) 78%,var(--ink))}
 .snote__in{display:grid;justify-items:center;gap:26px;text-align:center;padding-block:clamp(20px,4vw,60px)}
 .snote__in .h2{max-width:16ch}
-.snote__lead{max-width:36ch;font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.25rem,1rem + .95vw,1.8rem);line-height:1.36;color:var(--white);text-wrap:pretty}
+.snote__lead{width:100%;max-width:36ch;font-family:var(--fd);font-weight:500;font-synthesis:none;font-size:clamp(1.25rem,1rem + .95vw,1.8rem);line-height:1.36;color:var(--white);text-wrap:pretty}
 .snote__lead .w{opacity:var(--o,1);transition:opacity .25s linear}
 .js-motion .snote__lead.is-split .w{--o:.2}
 .js-motion .snote__lead.is-split .w.is-lit{--o:1}
-.snote__body{display:grid;gap:1em;max-width:56ch}
+/* width:100% (27/10): a centred grid item sizes to its longest line, so
+   on phones the words ran past the right edge and were cut */
+.snote__body{display:grid;gap:1em;width:100%;max-width:56ch}
 .snote__body p{font-size:clamp(1rem,.96rem + .2vw,1.12rem);line-height:1.75;color:var(--text)}
 .snote__body a{white-space:nowrap}
 .snote__cta{margin-top:8px}
