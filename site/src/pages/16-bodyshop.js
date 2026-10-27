@@ -121,7 +121,7 @@ module.exports = site => {
         id: 'one-call', light: true,
         eyebrow: 'How it actually works',
         title: 'One call. <span class="gold it">No stress.</span>',
-        text: '<span class="it">“She crashed her car. She made one phone call. That was all she had to do.”</span>',
+        text: '<span class="gold it">“She crashed her car. She made one phone call. That was all she had to do.”</span>',
         paras: [
           'A recent client came to Paul after an accident left her car badly damaged. She didn’t know where to start: which bodyshop to trust, how to get the car there, whether it would come back looking right. She made one call to Paul.',
           'Paul arranged covered transportation to collect the car from her door. It went directly to the bodyshop. Once the repair was complete, it was transported back to the Miracle Detail studio for final paint correction, polishing and ceramic coating.',
