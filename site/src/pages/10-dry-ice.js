@@ -50,7 +50,7 @@ module.exports = site => {
       { block: '33-svc-prose', with: { prose: prose({
         id: 'science', light: true,
         eyebrow: 'What it actually is',
-        title: 'The science behind <span class="gold">dry ice cleaning.</span>',
+        title: 'The science behind <span class="gold it">dry ice cleaning.</span>',
         img: frame('di-pellets', { alt: 'A hopper full of dry ice pellets', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
         cap: 'Dry ice pellets, solid CO2 at -78.5°C',
         paras: [
@@ -65,7 +65,7 @@ module.exports = site => {
       { block: '33-svc-prose', with: { prose: prose({
         id: 'experience', reverse: true, graphite: true,
         eyebrow: 'Experience that matters',
-        title: 'Over a decade ahead <span class="gold">of the industry.</span>',
+        title: 'Over a decade ahead of the <span class="gold it">industry.</span>',
         img: frame('dx-exp', { alt: 'Paul Dalton dry ice cleaning the engine bay of a red Ferrari, the vapour rolling off', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10', frameCls: 'media--tl' }),
         cap: 'Paul Dalton, dry ice cleaning a Ferrari engine bay',
         paras: [
@@ -77,7 +77,7 @@ module.exports = site => {
       { block: '37-svc-cards', with: { cards: cards({
         id: 'applications', light: true, cols: 4, fx: 'rail',
         eyebrow: 'Where dry ice cleaning is used',
-        title: 'Every application <span class="gold">assessed individually.</span>',
+        title: 'Every application <span class="gold it">assessed individually.</span>',
         items: [
           { n: 'I', name: 'Engine Bays', img: frame('dx-65', { alt: 'Dry ice blasting into the engine bay of a red Ferrari', sizes: '(max-width: 767px) 86vw, (max-width: 1023px) 45vw, 24vw', ratio: '4 / 3' }),
             paras: 'The most common application. Decades of oil, grease and grime removed without water touching a single sensor or electrical connector. Results that pressure washing can never safely achieve.' },
@@ -104,7 +104,7 @@ module.exports = site => {
         /* phones: where the poster crop is held (08/10) */
         mpos: '100% 50%',
         h1: 'Dry Ice Cleaning',
-        line: 'No water. No chemicals. <span class="gold">No compromise.</span>',
+        line: 'No water. No chemicals. <span class="gold it">No compromise.</span>',
         lede: 'Dry ice cleaning removes contamination that nothing else can touch, without a single drop of water, without chemicals, and without any risk to the surfaces being cleaned. Paul was the first detailer in the UK to offer it, in 2014.',
         img: frame('dx-hero', {
           priority: true, ratio: false, sizes: '100vw',
@@ -141,7 +141,7 @@ module.exports = site => {
       /* ---------- Why it works: v0.5's three mechanisms, in full ---------- */
       coldId: 'mechanisms',
       coldEyebrow: 'Why it works',
-      coldTitle: 'Three mechanisms. <span class="gold">One result nothing else achieves.</span>',
+      coldTitle: 'Three mechanisms. <span class="gold it">One result nothing else achieves.</span>',
       /* Paul's before/after jobs (Drive), in turn as the beats pass.
          22/10 the gearbox and transmission pairs were taken out as AI
          retouched; 23/10 (Paul's board note 10, Fender): that was a
@@ -179,7 +179,7 @@ module.exports = site => {
       },
 
       /* ---------- Book ---------- */
-      bookTitle: 'Clean what <span class="gold">nothing else</span> can reach.',
+      bookTitle: 'Clean what nothing <span class="gold it">else can reach.</span>',
       bookLede: 'Every dry ice cleaning job is assessed individually. Paul will tell you what’s achievable, what the process involves and what the result will look like, before any work begins.',
       formServices: site.picks('Dry ice cleaning'),
       heardFrom: site.heardFrom

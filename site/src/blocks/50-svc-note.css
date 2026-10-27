@@ -17,4 +17,6 @@
 .snote__body{display:grid;gap:1em;width:100%;max-width:56ch}
 .snote__body p{font-size:clamp(1rem,.96rem + .2vw,1.12rem);line-height:1.75;color:var(--text)}
 .snote__body a{white-space:nowrap}
+/* Paul 23/10 (note 39): the italic paragraph at the size of the line above it */
+.snote__body p .snote__it{font-size:clamp(1.25rem,1rem + .95vw,1.8rem);line-height:1.36;display:inline-block}
 .snote__cta{margin-top:8px}

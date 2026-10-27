@@ -109,7 +109,7 @@ module.exports = site => {
         /* phones: where the poster crop is held (08/10) */
         mpos: '58% 50%',
         h1: 'Paint Protection Film',
-        line: 'The strongest <span class="gold">shield</span> paint has ever had.',
+        line: 'The strongest <span class="gold">shield</span> paint has ever <span class="gold it">had.</span>',
         lede: 'Paint Protection Film is an invisible armour: a self-healing urethane film that absorbs stone chips, abrasion and environmental damage so your paint never has to. Paul has been installing PPF since 2006. Longer than any other detailer in the UK.',
         img: frame('ppf-hero', {
           priority: true, ratio: false, sizes: '100vw',
@@ -142,7 +142,7 @@ module.exports = site => {
       /* ---------- Peace of mind ---------- */
       prose: {
         id: 'protection',
-        title: 'PPF isn’t just protection. <span class="gold">It’s peace of mind.</span>',
+        title: 'PPF isn’t just protection. <span class="gold">It’s <span class="it">peace of mind.</span></span>',
         img: frame('ppf-beads', { alt: 'Clear film being laid wet over the mirror of a red car, a pink squeegee in hand', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
         paras: [
           'Paint Protection Film is a virtually invisible urethane film applied directly to your car’s paintwork. It absorbs impacts, resists abrasion, deflects stone chips and shields against environmental contamination, all without altering the appearance of the paint beneath it.',
@@ -153,7 +153,7 @@ module.exports = site => {
 
       /* ---------- Coverage ---------- */
       pcEyebrow: 'What’s right for your car',
-      pcTitle: 'Coverage options. <span class="gold">Bespoke</span> to every car.',
+      pcTitle: 'Coverage options. <span class="gold it">bespoke to every car.</span>',
       packages,
       pcNote: 'Every installation is assessed individually. Paul will advise on coverage based on how you use the car and what you want to protect.',
       pcFront: car.view('front', FRONT, { main: true, sizes: '(max-width: 900px) 92vw, 54vw' }),
@@ -164,7 +164,7 @@ module.exports = site => {
       tabs: {
         id: 'finishes',
         eyebrow: 'Film finishes',
-        title: 'Two finishes. <span class="gold">Every car catered for.</span>',
+        title: 'Two finishes. <span class="gold it">Every car catered for.</span>',
         label: 'Film finishes',
         items: [
           { key: 'gloss', first: true, name: 'Gloss PPF', sub: 'Invisible protection',
@@ -186,7 +186,7 @@ module.exports = site => {
       brands: {
         id: 'films',
         eyebrow: 'The films Paul installs',
-        title: 'Four of the world’s best <span class="gold">PPF brands.</span>',
+        title: 'Four of the world’s best <span class="gold it">PPF brands.</span>',
         intro: [
           'Not every car is the same, and not every film is right for every application. Paul works with four of the leading PPF manufacturers, selecting the right product for each car, each client and each coverage requirement.',
           'Whether it’s computer-cut patterns for a perfect factory fit or hand-cut installation for complex curves and bespoke coverage, the method is chosen based on what gives the best result for that car, not what’s quickest.'
@@ -202,7 +202,7 @@ module.exports = site => {
       /* ---------- The process ---------- */
       stepsN: 5,
       stepsEyebrow: 'How every PPF job is done',
-      stepsTitle: 'The process behind a <span class="gold">perfect installation.</span>',
+      stepsTitle: 'The process behind a <span class="gold it">perfect installation.</span>',
       steps: [
         { name: 'Paint Assessment', text: 'The paint is assessed before any film is applied. PPF locks in what’s underneath, so what goes under the film needs to be right.' },
         { name: 'Decontamination', text: 'Every surface is fully decontaminated. Any bonded contamination, iron fallout or residue is removed before the film goes near the paint.' },
@@ -213,7 +213,7 @@ module.exports = site => {
 
       /* ---------- Installation, in progress (Paul's photos) ---------- */
       workEyebrow: 'Installation, in progress',
-      workTitle: 'Every panel. <span class="gold">Every car.</span>',
+      workTitle: 'Every panel. <span class="gold it">Every car.</span>',
       work: [
         { img: frame('ppf-door', { alt: 'Film being squeegeed onto the door of a red supercar', sizes: workSizes(true), ratio: '16 / 9' }), wide: true },
         { img: frame('ppf-lamp', { alt: 'Film being worked around the headlight of a black car', sizes: workSizes(false), ratio: '16 / 9' }) },
@@ -226,7 +226,7 @@ module.exports = site => {
       revsBg: frame('bg-reviews', { alt: '', sizes: '100vw', ratio: false }),
 
       /* ---------- Book (shared block, PPF ticked) ---------- */
-      bookTitle: 'The best time to protect your paint was <span class="gold">the day you bought the car.</span>',
+      bookTitle: 'The best time to protect your paint was the day you <span class="gold it">bought the car.</span>',
       bookLede: 'The second best time is now. Every consultation is honest: Paul will tell you what coverage he recommends and exactly why.',
       formServices: site.picks('Paint protection film'),
       heardFrom: site.heardFrom

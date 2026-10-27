@@ -51,7 +51,7 @@ module.exports = site => {
       { block: '33-svc-prose', with: { prose: prose({
         id: 'why', light: true,
         eyebrow: 'The beginning',
-        title: 'Why ceramic coating matters, and why who applies it <span class="gold">matters more.</span>',
+        title: 'Why ceramic coating matters, and why <span class="gold it">who applies it</span> matters more.',
         img: frame('cc-bottle', { alt: 'A bottle of Ceramic by Paul Dalton, the Feynlab coating, on a dark studio floor', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
         paras: [
           'A ceramic coating is a semi-permanent protective layer bonded to your paintwork. Applied correctly, it provides years of protection against UV damage, chemical contamination, bird lime, water etching and environmental fallout, while delivering a depth of gloss that no wax or sealant can match.',
@@ -62,7 +62,7 @@ module.exports = site => {
       { block: '33-svc-prose', with: { prose: prose({
         id: 'paul-dalton', reverse: true, graphite: true,
         eyebrow: 'A product with Paul’s name on it',
-        title: 'Ceramic by <span class="gold">Paul Dalton</span>',
+        title: 'Ceramic by <span class="gold it">Paul Dalton</span>',
         img: frame('cc-paul', { alt: 'Paul Dalton holding a box of Ceramic by Paul Dalton, the coating he developed with Feynlab', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '4 / 3' }),
         paras: [
           'Developed in collaboration with Feynlab’s chemists, Ceramic by Paul Dalton is a professional-grade coating designed to bring professional performance to both detailers and enthusiasts. Easy to apply, with strong slickness, water beading and three years of durability.',
@@ -82,7 +82,7 @@ module.exports = site => {
       { block: '37-svc-cards', with: { cards: cards({
         id: 'range', light: true, cols: 3, fx: 'rail', acc: true,
         eyebrow: 'The full Feynlab range',
-        title: 'Six coatings. <span class="gold">One standard of application.</span>',
+        title: 'Six coatings. <span class="gold it">One standard of application.</span>',
         items: [
           { tag: '1–2yr', name: 'Original Ceramic', sub: 'Feynlab Original',
             paras: 'The proven entry point into Feynlab protection. Outstanding hydrophobicity, impressive gloss and significantly better durability than any traditional wax or sealant. A record of over 60,000 vehicle installations worldwide.',
@@ -108,7 +108,7 @@ module.exports = site => {
       { block: '51-svc-bench', with: { bench: bench({
         id: 'why-feynlab',
         eyebrow: 'Why Feynlab',
-        title: 'The coating Paul chose to put <span class="gold">his name on.</span>',
+        title: 'The coating Paul chose to put <span class="gold it">his name on.</span>',
                 items: [
           { n: 'I', name: 'Self-Healing Technology', cap: 'Feynlab Heal Lite, in the Feynlab lab',
             shot: pic('cf-pour', { alt: 'A chemist in a lab coat and gloves pouring Feynlab Heal Lite onto a suede applicator', sizes: '(max-width: 1023px) 92vw, 50vw' }).html,
@@ -127,7 +127,7 @@ module.exports = site => {
       { block: '52-svc-choose', with: { choose: choose({
         id: 'wheels', graphite: true,
         eyebrow: 'Additional service',
-        title: 'Wheel ceramic <span class="gold">coating.</span>',
+        title: 'Wheel ceramic <span class="gold it">coating.</span>',
         intro: [
           'Wheels take more punishment than any other surface on the car: brake dust, road salt, stone chips and heat. A ceramic coating applied properly means they stay cleaner for longer, are far easier to maintain, and look significantly better.',
           'Paul removes the wheels from the car and applies the coating inside and out, the correct way. Painted calipers are included where the car has them.'
@@ -156,7 +156,7 @@ module.exports = site => {
         /* phones: where the poster crop is held (08/10) */
         mfit: true,
         h1: 'Ceramic Coatings',
-        line: 'Protection applied by the man who <span class="gold">helped create it.</span>',
+        line: 'Protection applied by the man who <span class="gold it">helped create it.</span>',
         lede: 'Paul Dalton is Feynlab’s only global ambassador, and the detailer behind Ceramic by Paul Dalton, a coating developed with Feynlab and sold to professionals worldwide. When your car receives a Feynlab coating at Miracle Detail, it’s applied by the person who knows it better than almost anyone on earth.',
         img: frame('cc-hero', {
           priority: true, ratio: false, sizes: '100vw',
@@ -187,7 +187,7 @@ module.exports = site => {
 
       statement: {
         id: 'overview',
-        text: 'Paul doesn’t just apply Feynlab coatings. <span class="gold">He collaborated with Feynlab to create one.</span> Ceramic by Paul Dalton is a professional-grade coating developed alongside Feynlab’s chemists, sold through the Feynlab website and used daily by detailers around the world.'
+        text: '<span class="it">Paul doesn’t just apply Feynlab coatings.</span> <span class="gold">He collaborated with Feynlab to create one.</span> <span class="it">Ceramic by Paul Dalton is a professional-grade coating developed alongside Feynlab’s chemists, sold through the Feynlab website and used daily by detailers around the world.</span>'
       },
 
       work: [
@@ -202,7 +202,7 @@ module.exports = site => {
         { img: frame('cc-w-599', { alt: 'A white Ferrari 599 GTB in the studio, a Bugatti Veyron behind it', sizes: '(max-width: 767px) 46vw, 46vw', ratio: '4 / 3' }), cap: 'Ferrari 599 GTB', half: true }
       ],
 
-      bookTitle: 'Protect your paint with the <span class="gold">person who knows it best.</span>',
+      bookTitle: 'Protect your paint with the <span class="gold it">person who knows it best.</span>',
       bookLede: 'Every coating consultation starts with an honest conversation about your car, how you use it, and which product is genuinely right for it.',
       formServices: site.picks('Ceramic coating'),
       heardFrom: site.heardFrom

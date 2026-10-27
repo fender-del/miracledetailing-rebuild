@@ -95,7 +95,7 @@ module.exports = site => {
       '20-svc-hero', '29-svc-nav',
       { block: '33-svc-prose', with: { prose: prose({
         id: 'overview', zoom: { focus: '30% 42%' },
-        title: 'More than privacy. <span class="gold">A complete transformation.</span>',
+        title: 'More than privacy. A complete <span class="gold it">transformation.</span>',
         img: frame('wt-film', { alt: 'Tint film being laid onto a car’s side window with a squeegee', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
         paras: [
           'Window tinting is one of the most effective ways to change the appearance of a car, adding presence, privacy and a sense of intent that no other modification delivers as cleanly. Done properly, the film is invisible from the inside while transforming the car’s character from the outside.',
@@ -106,7 +106,7 @@ module.exports = site => {
       { block: '37-svc-cards', with: { cards: cards({
         id: 'films', light: true, cols: 3, fx: 'rail', compact: true,
         eyebrow: 'Film options',
-        title: 'Two films. <span class="gold">Every application covered.</span>',
+        title: 'Two films. <span class="gold it">Every application covered.</span>',
         items: [
           { n: 'I', name: 'Standard Dyed Tint', sub: 'Privacy and UV protection',
             img: frame('wt-dyed', { alt: 'A dark Mercedes saloon from behind, its rear glass tinted', sizes: '(max-width: 900px) 88vw, 40vw', ratio: '4 / 3' }),
@@ -128,7 +128,7 @@ module.exports = site => {
       { block: '45-svc-show', with: { show: show({
         id: 'chameleon',
         eyebrow: 'The chameleon effect',
-        title: 'A film that changes <span class="gold">with the light.</span>',
+        title: 'A film that changes with the <span class="gold it">light.</span>',
         intro: [
           'Chameleon tint is named for exactly what it does: the film shifts colour depending on the angle of light hitting it. In bright sunshine it shimmers with blue and green. In overcast conditions it settles into a more subtle purple or silver. No two moments look quite the same.',
           'On a windscreen it is particularly effective',
@@ -149,7 +149,7 @@ module.exports = site => {
       { block: '46-svc-gauge', with: { gauge: gauge({
         id: 'legal', light: true,
         eyebrow: 'UK legal requirements',
-        title: 'Tinted legally. <span class="gold">Done properly.</span>',
+        title: 'Tinted legally. <span class="gold it">Done properly.</span>',
         img: frame('wt-rs6', { alt: 'A black Audi RS6 Avant in the Miracle Detail studio, its windscreen and side windows marked', sizes: '(max-width: 1023px) 94vw, 52vw' }),
         range: { label: 'Light let through', min: 5, max: 100, step: 1, value: 70, unit: '%' },
         pass: 'Legal', fail: 'Too dark',
@@ -177,7 +177,8 @@ module.exports = site => {
       { block: '47-svc-lens', with: { lens: lens({
         id: 'bulletproof',
         eyebrow: 'Also available through Miracle Detail · Bulletproof Film',
-        title: 'Protection that <span class="gold">cannot be seen.</span>',
+        /* Paul 23/10 (board note 124): "Bulletproof Film" in white, the old line under it; the italic waits for Ed */
+        title: 'Bulletproof Film <span class="slens__sub gold it">Protection that cannot be seen.</span>',
         img: frame('wt-side', { alt: 'The dark side glass of a black saloon', sizes: '100vw', ratio: false }),
 
         img2: frame('wt-side', { sizes: '100vw', ratio: false }),
@@ -189,7 +190,7 @@ module.exports = site => {
         rest: [31, 60], focus: 34,
 
         hint: 'Look through the glass', tag: 'Multi-layer film',
-        lead: 'Invisible protection. Absolute discretion.',
+        lead: 'Invisible protection. <span class="gold it">Absolute discretion.</span>',
         paras: [
           'Ballistic protection film is a multi-layer security film applied to vehicle glass. In appearance it is indistinguishable from standard window glass: there is no visible difference, no tint, no indication of what lies beneath. The protection is entirely invisible.',
           'In the event of an impact (from a projectile, an attempted forced entry or a collision) the film holds the glass together, preventing shattering and maintaining the integrity of the vehicle. The glass breaks. The film holds. The occupants are protected.',
@@ -199,7 +200,7 @@ module.exports = site => {
       { block: '48-svc-layers', with: { lay: layers({
         id: 'ballistic', graphite: true,
         eyebrow: 'How it works',
-        title: 'Three properties. <span class="gold">One purpose.</span>',
+        title: 'Three properties. <span class="gold it">One purpose.</span>',
         label: 'Drawing: a pane of vehicle glass with layers of film bonded to its inside, parting and closing as each property is read.',
         glass: 'Glass', film: 'Multi-layer film',
         items: [
@@ -211,7 +212,7 @@ module.exports = site => {
       { block: '49-svc-index', with: { idx: index({
         id: 'who', light: true,
         eyebrow: 'Who it’s for',
-        title: 'For those who carry <span class="gold">more than passengers.</span>',
+        title: 'For those who carry <span class="gold it">more than passengers.</span>',
         items: [
           { n: 'I', name: 'Private Clients', sub: 'High-net-worth individuals',
             img: frame('wt-who-1', { alt: 'A man in a dark coat walks to a black saloon', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
@@ -226,7 +227,8 @@ module.exports = site => {
       }) } },
       { block: '50-svc-note', with: { note: note({
         id: 'discretion',
-        title: 'Complete discretion. <span class="gold">At every stage.</span>',
+        /* Paul 23/10 (board note 128): "At every stage." out, "Inside and out." in, gold; the italic waits for Ed */
+        title: 'Complete discretion. <span class="gold it">Inside and out.</span>',
         img: frame('wt-note', { sizes: '100vw', ratio: false }),
         lead: 'Paul has worked with clients who require absolute confidentiality throughout his career. The nature of this service means that enquiries, installation appointments and any discussion of the vehicles or their owners are handled with complete discretion, before, during and after the work.',
         paras: [
@@ -248,7 +250,7 @@ module.exports = site => {
         /* phones: where the poster crop is held (08/10) */
         mfit: true,
         h1: 'Window Tinting & Protection',
-        line: 'Privacy, protection, presence, <span class="gold">and security.</span>',
+        line: 'Privacy, protection, presence, and <span class="gold it">security.</span>',
         lede: 'Window tinting and ballistic protection film, both available through Miracle Detail. From chameleon windscreen film to invisible security glazing for private clients and chauffeur vehicles. Coordinated alongside your detail.',
         img: frame('wt-hero', {
           priority: true, ratio: false, sizes: '100vw',

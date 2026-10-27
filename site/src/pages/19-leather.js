@@ -50,7 +50,7 @@ module.exports = site => {
       '20-svc-hero', '29-svc-nav',
       { block: '33-svc-prose', with: { prose: prose({
         id: 'overview', zoom: { focus: '50% 55%' },
-        title: 'The interior is half the car. <span class="gold">It deserves the same attention.</span>',
+        title: 'The interior is half the car. It deserves <span class="gold it">the same attention.</span>',
         img: frame('lr-911', { alt: 'The black leather seats of a Porsche 911 after colour restoration, in the studio', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
         paras: [
           'Paint correction and ceramic coating transform the exterior of a car. But if the leather is faded, scuffed or showing its age, the overall impression suffers, no matter how good the paintwork looks.',
@@ -61,7 +61,7 @@ module.exports = site => {
       { block: '37-svc-cards', with: { cards: cards({
         id: 'covered', light: true, cols: 3, fx: 'rail', compact: true,
         eyebrow: 'What’s covered',
-        title: 'Colour. Repair. <span class="gold">Restoration.</span>',
+        title: 'Colour. Repair. <span class="gold it">Restoration.</span>',
         items: [
           { n: 'I', name: 'Colour Restoration', sub: 'Faded and worn leather', img: cardImg('lr-colour', 'The black leather driver’s seat of a Porsche 911 after colour restoration'),
             paras: 'Leather colour fades over time, from UV exposure, body oils and general wear. Colour restoration brings the leather back to its original shade or any chosen colour, applied in thin, flexible layers that move and breathe with the leather rather than cracking and peeling.',
@@ -78,25 +78,26 @@ module.exports = site => {
         ]
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
+        /* Paul 23/10 (board notes 184-186): his texts under the last three, his words as written (the long dash in 184 becomes a colon) */
         id: 'areas', variant: 'points', cols: 4, rail: false,
         eyebrow: 'Areas covered',
         title: 'Every leather surface <span class="gold">in the car.</span>',
         items: [
           { n: 'I', name: 'Seats &amp; Bolsters', paras: 'The highest-wear surfaces in any interior. Bolsters fade and scuff first: colour restoration and repair returns them to the condition of the rest of the seat.' },
-          { n: 'II', name: 'Door Cards' },
-          { n: 'III', name: 'Dashboard &amp; Steering Wheel' },
-          { n: 'IV', name: 'Centre Console &amp; Armrests' }
+          { n: 'II', name: 'Door Cards', paras: 'Door cards take constant contact and wear at armrest level. Colour fading and surface scuffing are common and very visible: restoration makes an immediate difference.' },
+          { n: 'III', name: 'Dashboard &amp; Steering Wheel', paras: 'UV fading on dashboards and wear on steering wheel leather are among the most ageing details in a prestige interior. Both can be restored to original or better.' },
+          { n: 'IV', name: 'Centre Console &amp; Armrests', paras: 'High-contact surfaces that show wear quickly. Scuffs, colour wear and surface damage on the console and armrests are addressed as part of a full interior treatment.' }
         ]
       }) } },
       { block: '38-svc-quote', with: { quote: quote({
         id: 'story',
         img: frame('lr-quote', { alt: '', sizes: '100vw', ratio: false }),
-        text: 'A car detailed to perfection on the outside deserves an interior that <span class="gold">tells the same story.</span>'
+        text: '<span class="it">A car detailed to perfection on the outside deserves an interior that tells the</span> <span class="gold">same story.</span>'
       }) } },
       { block: '57-svc-pairs', with: { pairs: pairs({
         id: 'before-after', light: true,
         eyebrow: 'Before &amp; after',
-        title: 'Seven repairs, <span class="gold">side by side.</span>',
+        title: 'Seven repairs, <span class="gold it">side by side.</span>',
         items: [
           ['lr-5155', 'A cream leather bolster with red piping, cracked and creased, before repair', 'lr-5156', 'The same bolster after repair'],
           ['lr-7083', 'A worn, creased beige leather seat cushion before restoration', 'lr-7084', 'The same seat cushion after restoration'],
@@ -125,7 +126,7 @@ module.exports = site => {
 
         h1: 'Leather Restoration',
 
-        line: 'Leather that looks <span class="gold">the way it should.</span>',
+        line: 'Leather that looks <span class="gold it">the way it should.</span>',
 
         lede: 'Faded, scuffed, cracked or discoloured leather doesn’t have to stay that way. Leather colour restoration and repair is available through Miracle Detail, so the interior of your car matches the standard of the exterior.',
 
@@ -156,7 +157,7 @@ module.exports = site => {
         { id: 'reviews', label: 'Reviews' }
       ],
 
-      bookTitle: 'Interior restored. <span class="gold">Detail complete.</span>',
+      bookTitle: 'Interior restored. <span class="gold it">Detail complete.</span>',
       bookLede: 'Mention leather restoration when you get in touch and Paul will include it in the assessment and quote for your detail.',
       formServices: site.picks('Leather, wheels or bodywork'),
       heardFrom: site.heardFrom

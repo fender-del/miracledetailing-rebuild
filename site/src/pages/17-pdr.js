@@ -60,7 +60,7 @@ module.exports = site => {
       { block: '33-svc-prose', with: { prose: prose({
         id: 'overview', light: true,
         img: frame('pd-e30', { alt: 'A PDR rod in at the tail light of a silver BMW E30 M3, the light board standing beside the rear quarter', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
-        title: 'Original paint. No dent. <span class="gold">No compromise.</span>',
+        title: 'Original paint. No dent. <span class="gold it">No compromise.</span>',
         paras: [
           'A dent in a panel used to mean one thing: filler, primer and a respray. The original paint disturbed, the factory finish lost, and a repair that, however good, will never be quite the same as what came before it.',
           'Paintless dent removal changes that entirely. The paint is never touched. The dent is removed from behind the panel using specialist tools (massaged, not forced) until the metal returns to exactly where it started. No filler. No primer. No paint. The original factory finish, intact.',
@@ -70,7 +70,7 @@ module.exports = site => {
       { block: '33-svc-prose', with: { prose: prose({
         id: 'how', graphite: true,
         eyebrow: 'How it works',
-        title: 'The art of <span class="gold">reading metal.</span>',
+        title: 'The art of <span class="gold it">reading metal.</span>',
         paras: [
           'Paintless dent removal is as much a craft as paint correction. The technician uses specialist rods, picks and lighting to assess the dent from behind the panel, understanding the shape, depth and tension of the metal before a tool is moved.',
           'Working from the inside out, the dent is gradually and precisely pushed back to its original position. The process is methodical and unhurried. Rush it and the metal moves wrong. Take the time and it disappears completely.',
@@ -90,7 +90,7 @@ module.exports = site => {
       { block: '37-svc-cards', with: { cards: cards({
         id: 'why-pdr', light: true, variant: 'versus',
         eyebrow: 'Why PDR over traditional repair',
-        title: 'The original finish is always <span class="gold">the best finish.</span>',
+        title: 'The original finish <span class="gold it">is always the best finish.</span>',
         items: [
           { name: 'Paintless Dent Removal', sub: 'The preferred method', hi: true,
             list: ['Original factory paint preserved completely', 'No filler, ever', 'No colour matching required', 'No risk of respray mismatch with adjacent panels', 'Faster than traditional bodyshop repair', 'More cost effective in most cases', 'Residual value of the car protected', 'Result is invisible, not just improved'] },
@@ -103,7 +103,7 @@ module.exports = site => {
       { block: '37-svc-cards', with: { cards: cards({
         id: 'right-for', variant: 'points', cols: 3, graphite: true, brief: true,
         eyebrow: 'What PDR is right for',
-        title: 'Most dents. <span class="gold">One solution.</span>',
+        title: 'Most dents. <span class="gold it">One solution.</span>',
         items: [
           { n: 'I', img: kindImg('pd-ding', 'A small car park ding under a door handle, shown up by the light board’s lines'), name: 'Car Park Dents', paras: 'The most common PDR job. Door dings and car park impacts (typically small, sharp dents with unbroken paint) are exactly what PDR is designed for. Often removed in hours.' },
           { n: 'II', img: kindImg('pd-hail', 'Hail dents across a dark blue bonnet, each one a wobble in the reflected lines'), name: 'Hail Damage', paras: 'Multiple small dents across panels from hail storms. PDR is the only method that can address hail damage without respraying multiple panels, preserving the original finish across the whole car.' },
@@ -124,7 +124,7 @@ module.exports = site => {
         /* phones: where the poster crop is held (08/10) */
         mpos: '28% 50%',
         h1: 'Paintless Dent Removal',
-        line: 'The dent is gone. <span class="gold">The paint stays.</span>',
+        line: 'The dent is gone. <span class="gold it">The paint stays.</span>',
         lede: 'Paintless dent removal is the only method that removes a dent without disturbing the original paint. No filler, no respray, no risk to the original finish. Available through Miracle Detail, carried out by a technician Paul trusts completely.',
         img: frame('pd-hero', {
           priority: true, ratio: false, sizes: '100vw',
@@ -148,7 +148,7 @@ module.exports = site => {
         { id: 'reviews', label: 'Reviews' }
       ],
 
-      bookTitle: 'The dent removed. <span class="gold">The paint untouched.</span>',
+      bookTitle: 'The dent removed. <span class="gold it">The paint untouched.</span>',
       bookMore: { href: '/bodyshop-repair/', label: 'Bodyshop & Paint Repair' },
       bookLede: 'Tell Paul about the dent: size, location, whether the paint is broken. He’ll tell you whether PDR is the right solution and what the process involves.',
       formServices: site.picks('Leather, wheels or bodywork'),

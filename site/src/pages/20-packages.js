@@ -57,7 +57,7 @@ module.exports = site => {
       { block: '53-pk-ladder', with: { ladder: ladder({
         id: 'levels', light: true,
         eyebrow: 'The beginning',
-        title: 'Choose your level. <span class="gold">Paul does the rest.</span>',
+        title: 'Choose your level. <span class="gold it">Paul does the rest.</span>',
         intro: [
           'The right package depends on your car, its condition and what you want to achieve. Paul will always advise honestly on which level he recommends for your car, and if a lower level will achieve the result you’re after, that’s what he’ll tell you.',
           'Every package includes Paul’s full attention, from first wash to final inspection. No apprentices, no assistants, no shortcuts, regardless of which level you book.'
@@ -92,7 +92,10 @@ module.exports = site => {
             stages: { text: 'Two stage', n: 2 },
             price: 'From £650–£850+VAT' },
           { kicker: 'Level 4', name: 'Ultimate Detail', sub: 'As far as the clear coat will allow',
-            img: pic('pk-l4', 'Hands working a dual action polisher over red paint'),
+            /* Paul 22–23/10 (board notes 37, 40): the Pexels stock photo was not one
+               of his: Paul polishing the bonnet of an E30 M3, held by its top so his
+               face stays in the frame */
+            img: frame('pc-ed', { alt: 'Paul Dalton machine polishing the bonnet of a silver BMW E30 M3 in the studio', sizes: '(max-width: 1023px) 92vw, 40vw', ratio: '16 / 10', frameCls: 'media--top' }),
             paras: 'Three stages of paint correction take the paint as close to perfection as the clear coat allows: every defect addressed, every panel brought to the same standard. The wheels come off. The engine bay is detailed. The interior is deep cleaned and steam cleaned. Feynlab Self-Heal Lite or Feynlab Ultra V3 coating applied for maximum long-term protection.',
             list: ['Full luxury wash and full decontamination', 'Iron fallout, tar and fallout removal', 'Paint depth, gloss and orange peel measured', 'Digital microscope inspection', '+Three stage paint correction', '+Engine bay cleaned and detailed', '+Wheels removed, cleaned inside and out', '+Wheel arches deep cleaned and protected', '+Brake calipers protected with ceramic coating', 'Exterior glass polished and water repellent treatment applied', '+Exhaust tips cleaned and polished', '+Feynlab Self-Heal Lite or Feynlab Ultra V3 coating applied', '+Interior deep cleaned and steam cleaned', '+Carpets and mats cleaned', 'Tyre dressing'],
             time: { text: '3–5 days', from: T(24), to: T(40) },
@@ -114,15 +117,20 @@ module.exports = site => {
       { block: '50-svc-note', with: { note: note({
         id: 'ask',
         img: frame('pk-note', { alt: '', sizes: '100vw', ratio: false }),
-        lead: 'Not sure which level is right for your car? Just ask Paul.',
-        paras: 'He’ll tell you honestly what the car needs, and if a lower level achieves the result you’re after, that’s what he’ll recommend.',
+        lead: '<span class="it">Not sure which level is right for your car?</span> Just ask Paul.',
+        paras: '<span class="it snote__it">He’ll tell you honestly what the car needs, and if a lower level achieves the result you’re after, that’s what he’ll recommend.</span>',
         cta: { href: site.phoneHref, label: 'Call Paul' }
       }) } },
       { block: '54-pk-addon', with: { addon: addon({
         id: 'wheels', light: true,
         title: 'Wheel ceramic <span class="gold">coating</span>',
         img: frame('pk-wheel', { alt: 'A BMW diamond-cut wheel, close up in the studio', sizes: '(max-width: 1023px) 92vw, 52vw', ratio: '4 / 3' }),
-        paras: 'Wheels removed from the car, ceramic coating applied inside and out. Painted calipers included. Available as a standalone service or added to any package.',
+        /* Paul 23/10 (board note 41): his three paragraphs, word for word */
+        paras: [
+          'Wheels are carefully removed from the vehicle, thoroughly deep cleaned and professionally ceramic coated inside and out, including the wheel barrels. Brake calipers are also cleaned and ceramic coated for additional protection.',
+          'Our advanced ceramic coating creates a durable, hydrophobic protective layer that significantly reduces the ability of brake dust, road grime and dirt to bond to the surfaces.',
+          'This helps keep your wheels cleaner for longer, makes routine washing considerably easier and provides lasting protection against environmental contamination, while enhancing their appearance.'
+        ],
         links: [{ label: 'Book Now', href: '#book' }]
       }) } },
       '10-reviews',
@@ -138,7 +146,7 @@ module.exports = site => {
         /* phones: where the poster crop is held (08/10) */
         mpos: '72% 50%',
         h1: 'Detailing Packages',
-        line: 'Five levels. <span class="gold">One standard.</span>',
+        line: 'Five levels. <span class="gold it">One standard.</span>',
         lede: 'From a maintenance detail between full jobs to the complete Paul Dalton Signature: every package is carried out personally by Paul, to a standard that doesn’t change regardless of which level you choose.',
         img: frame('pk-hero', {
           priority: true, ratio: false, sizes: '100vw',

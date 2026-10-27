@@ -51,7 +51,7 @@ module.exports = site => {
       '20-svc-hero', '29-svc-nav',
       { block: '33-svc-prose', with: { prose: prose({
         id: 'overview',
-        title: 'The complete picture. <span class="gold">Paint repair and detailing. Together.</span>',
+        title: 'The complete picture. Paint repair and <span class="gold it">detailing. Together.</span>',
         img: frame('bs-over', { alt: 'Painted bumpers and panels on stands in the spray booth', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
         paras: [
           'No detail, however thorough, can correct paint that needs repairing at a bodywork level. Stone chips that have broken through to bare metal, accident damage, faded single panels, or a car requiring a full respray: these need proper paint repair before detailing work begins.',
@@ -62,7 +62,7 @@ module.exports = site => {
       { block: '37-svc-cards', with: { cards: cards({
         id: 'available', light: true, cols: 4, fx: 'rail', compact: true,
         eyebrow: 'What’s available',
-        title: 'From single panels to <span class="gold">full restorations.</span>',
+        title: 'From single panels <span class="gold it">to full restorations.</span>',
         items: [
           { n: 'I', name: 'Panel Repair', sub: 'Localised damage, one panel', img: cardImg('bs-c1', 'A silver door with a small repair primed and feathered, the wheel arch masked off'),
             paras: 'For stone chips, scuffs, minor accident damage or corrosion on a single panel. The affected area is repaired and refinished to match the surrounding paintwork: blended, colour-matched and lacquered to an invisible finish.',
@@ -85,7 +85,7 @@ module.exports = site => {
       { block: '37-svc-cards', with: { cards: cards({
         id: 'why', variant: 'points', cols: 3, brief: true,
         eyebrow: 'Why through Miracle Detail',
-        title: 'One point of contact. <span class="gold">The right result.</span>',
+        title: 'One point of contact. <span class="gold it">The right result.</span>',
         items: [
           { n: 'I', name: 'Repair Before Detail', paras: 'Detailing work must follow bodywork repair, not precede it. By coordinating both through Miracle Detail, the sequence is correct from the start. The paint goes on right. The correction follows. The protection goes on last. Nothing is wasted, nothing is done twice.' },
           { n: 'II', name: 'One Relationship', paras: 'Managing a bodyshop and a detailer separately means two sets of communications, two collection schedules and two different standards to reconcile. Through Miracle Detail, Paul manages the coordination: you deal with one person and receive one result.' },
@@ -97,7 +97,7 @@ module.exports = site => {
       { block: '57-svc-pairs', with: { pairs: pairs({
         id: 'the-work', light: true, wide: true,
         eyebrow: 'The work',
-        title: 'From primer <span class="gold">to paint.</span>',
+        title: 'From primer <span class="gold it">to paint.</span>',
         items: [
           /* 23/10 (Paul's board note 12): primer shown in grey, an AI-edited copy of
              Paul's photo (the original top half was sanded blue paint) */
@@ -109,7 +109,7 @@ module.exports = site => {
         id: 'process', graphite: true,
         stage: { pics: true },
         eyebrow: 'How it works',
-        title: 'The right order. <span class="gold">Every time.</span>',
+        title: 'The right order. <span class="gold it">Every time.</span>',
         steps: [
           { name: 'Assessment', ...stepPic('bs-s1', 'Deep scratches scraped along the front wing of a dark car'), text: 'Paul assesses the car in full: bodywork condition, paint condition and what the client wants to achieve. A clear plan is agreed before anything starts.' },
           { name: 'Bodywork &amp; Repair', ...stepPic('bs-s2', 'A black car in the spray booth, its bonnet freshly painted and the rest masked'), text: 'Panel repair, respray or restoration, completed first, to the correct standard, cured and ready for detailing work to follow.' },
@@ -120,8 +120,8 @@ module.exports = site => {
       { block: '38-svc-quote', with: { quote: quote({
         id: 'one-call', light: true,
         eyebrow: 'How it actually works',
-        title: 'One call. <span class="gold">No stress.</span>',
-        text: '“She crashed her car. She made one phone call. <span class="gold">That was all she had to do.</span>”',
+        title: 'One call. <span class="gold it">No stress.</span>',
+        text: '<span class="it">“She crashed her car. She made one phone call. That was all she had to do.”</span>',
         paras: [
           'A recent client came to Paul after an accident left her car badly damaged. She didn’t know where to start: which bodyshop to trust, how to get the car there, whether it would come back looking right. She made one call to Paul.',
           'Paul arranged covered transportation to collect the car from her door. It went directly to the bodyshop. Once the repair was complete, it was transported back to the Miracle Detail studio for final paint correction, polishing and ceramic coating.',
@@ -150,7 +150,7 @@ module.exports = site => {
         /* phones: where the poster crop is held (08/10) */
         mpos: '42% 50%',
         h1: 'Bodyshop & Paint Repair',
-        line: 'When the damage goes deeper <span class="gold">than the surface.</span>',
+        line: 'When the damage goes deeper than <span class="gold it">the surface.</span>',
         lede: 'From a single scuffed panel to a full restoration, bodyshop and paint repair is available through Miracle Detail. One point of contact, coordinated around your detail, finished to the same standard as the detailing work that follows it.',
         img: frame('bs-hero', {
           priority: true, ratio: false, sizes: '100vw',
@@ -175,7 +175,7 @@ module.exports = site => {
         { id: 'reviews', label: 'Reviews' }
       ],
 
-      bookTitle: 'Start with an <span class="gold">honest conversation.</span>',
+      bookTitle: 'Start with an honest <span class="gold it">conversation.</span>',
       bookLede: 'Tell Paul about the car and what it needs. He’ll advise on the repair, the detail and what the full job involves, before any commitment is made.',
       formServices: site.picks('Leather, wheels or bodywork'),
       heardFrom: site.heardFrom

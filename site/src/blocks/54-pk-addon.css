@@ -6,6 +6,7 @@
 .pka__copy{display:grid;gap:22px;justify-items:start}
 .pka .h2{font-size:clamp(2.1rem,1.1rem + 2.4vw,3.4rem)}
 .pka__text p{max-width:46ch;font-size:clamp(1.05rem,.98rem + .3vw,1.2rem);line-height:1.7;color:var(--text)}
+.pka__text p+p{margin-top:1em}
 .pka__links{display:flex;flex-wrap:wrap;gap:8px 28px;margin:4px 0 0}
 @media (max-width:1023px){
   .pka__in{grid-template-columns:1fr;gap:clamp(26px,5vw,40px)}

@@ -78,19 +78,23 @@ module.exports = site => {
         /* phones: where the poster crop is held (08/10) */
         mfit: true,
         h1: 'Gallery',
-        line: 'From the <span class="gold">archive.</span>',
+        /* Paul 22/10 (board note 68); the italic waits for Ed */
+        line: '<span class="it">The Work <span class="gold">Speaks</span></span>',
+        lede: '<span class="it">Three decades of exceptional cars. Every job photographed. Every car better than it arrived.</span>',
         img: frame('gl-hero', {
           priority: true, ratio: false, sizes: '100vw',
           alt: 'A Ferrari 599 GTO in the Miracle Detail studio',
           art: [{ media: '(max-width: 900px)', id: 'gl-hero-m', sizes: '100vw' }]
         }),
+        /* Paul 22/10 (board note 69): three figures in place of the Cars / Makes / Photos counts, his words as written */
         facts: [
-          { k: 'Cars', v: String(list.length), big: true },
-          { k: 'Makes', v: String(makes.filter(m => m.name !== 'Other').length) },
-          { k: 'Photos', v: String(list.reduce((n, j) => n + j.count, 0)) }
+          { k: 'Years of documented work', v: '30+' },
+          { k: 'Concours wins by cars Paul prepared', v: '100%' },
+          { k: 'Standard. Perfection.', v: '1' }
         ]
       },
       gal: { total: list.length, makes, jobs: list, json },
+      bookTitle: 'The studio is ready.<br> <span class="gold it">Is your car?</span>',
       formServices: site.picks(),
       heardFrom: site.heardFrom
     },

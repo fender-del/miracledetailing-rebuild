@@ -52,6 +52,8 @@
   background:linear-gradient(100deg,var(--gold) 38%,var(--gold-2) 46%,#fff 50%,var(--gold-2) 54%,var(--gold) 62%) 100% 0/260% 100% no-repeat;
   -webkit-background-clip:text;background-clip:text;color:var(--gold);-webkit-text-fill-color:transparent;
 }
+/* Baskerville italic (27/10): the f's tail and the swash need room under the gradient clip */
+.shine.it{padding-bottom:.18em;margin-bottom:-.18em}
 @media (prefers-reduced-motion:no-preference){
   .js-motion .shine.is-on{animation:shine 1.8s var(--ease) both}
 }

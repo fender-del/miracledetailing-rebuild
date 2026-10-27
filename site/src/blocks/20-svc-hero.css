@@ -93,7 +93,7 @@
 .film__glint{position:absolute;top:-20%;bottom:-20%;left:0;width:34%;pointer-events:none;mix-blend-mode:screen;will-change:transform;
   background:linear-gradient(90deg,transparent,rgba(255,246,222,.08) 35%,rgba(255,246,222,.28) 50%,rgba(255,246,222,.08) 65%,transparent)}
 
-@media (max-width:767px){:is(.shero--panel,.shero--stats) .shero__card{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}:is(.shero--panel,.shero--stats) .shero__fact dd{font-size:1.9rem}:is(.shero--panel,.shero--stats) .shero__fact dt{font-size:.5625rem;line-height:1.5}}
+@media (max-width:767px){:is(.shero--panel,.shero--stats) .shero__card{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}:is(.shero--panel,.shero--stats) .shero__fact{justify-content:flex-end}:is(.shero--panel,.shero--stats) .shero__fact dd{font-size:1.9rem}:is(.shero--panel,.shero--stats) .shero__fact dt{font-size:.5625rem;line-height:1.5}}
 /* ---------- Panel (PPF, round 3; Fender's ref) ----------
    The photo holds the right half and fades into the dark on its left;
    the copy stands on clean black; the three figures sit in one row
@@ -188,6 +188,8 @@
   /* the sticky bar books and calls on phones */
   .shero__ctas{display:none}
   .shero{--gap:92px}
+  /* mfit (13/10 poster, 27/10 Brian: too long, too much empty space): a shorter poster, so Paul's paragraph clears the sticky bar on the first screen; on tall phones it stops growing at 1.85 x the width, so the words stay near the photo */
+  .shero--mfit{--ph:min(max(calc(100svh - 120px),560px),calc(100vw * 1.85));--gap:56px;padding-bottom:36px}
   /* the three figures always on one line */
   .shero.shero .shero__card{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
   .shero.shero .shero__fact dd{font-size:clamp(1.6rem,8vw,2rem);white-space:nowrap}

@@ -8,7 +8,7 @@
 <article class="post" data-section="post">
   <header class="wrap post__head">
     <div class="post__crumbs">{{&crumbs}}</div>
-    <p class="eyebrow post__meta"><span class="eyebrow__mark" aria-hidden="true"></span><span>Journal</span><span aria-hidden="true">·</span><time datetime="{{post.date}}">{{post.dateText}}</time><span aria-hidden="true">·</span><span>{{post.author}}</span></p>
+    <p class="eyebrow post__meta"><span class="eyebrow__mark" aria-hidden="true"></span><span>Journal</span><span aria-hidden="true">·</span><time datetime="{{post.date}}">{{post.dateText}}</time><span aria-hidden="true">·</span><span>{{post.author}}</span>{{#post.read}}<span aria-hidden="true">·</span><span>{{.}}</span>{{/post.read}}</p>
     <h1 class="disp post__h1">{{&post.h1}}</h1>
     {{#post.sub}}<h2 class="post__sub">{{&.}}</h2>{{/post.sub}}
   </header>
@@ -18,6 +18,17 @@
   <div class="wrap post__body">
     <div class="post__col">{{&post.body}}</div>
   </div>
+
+  {{#post.cta}}<aside class="wrap post__cta" data-reveal="card">
+    <h2 class="disp post__ctah">{{&title}}</h2>
+    <p>{{&text}}</p>
+    <a class="btn" href="{{href}}"><span class="btn__in">{{label}}</span></a>
+  </aside>{{/post.cta}}
+
+  {{#post.related}}<nav class="wrap post__related" aria-label="Related services">
+    <p class="eyebrow" data-reveal><span class="eyebrow__mark" aria-hidden="true"></span>Related services</p>
+    <ul role="list">{{#links}}<li><a href="{{href}}"><span>{{name}}</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7m0 0H8m9 0v9" stroke="currentColor" stroke-width="1.8"/></svg></a></li>{{/links}}</ul>
+  </nav>{{/post.related}}
 
   <footer class="wrap post__foot">
     <p class="eyebrow" data-reveal><span class="eyebrow__mark" aria-hidden="true"></span>More from the Journal</p>

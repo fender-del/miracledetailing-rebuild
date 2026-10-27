@@ -198,6 +198,12 @@ module.exports = site => {
       ].map(([id, name]) => ({ id, name, mark: mark(id) })),
 
 
+      /* Paul 22/10 (board notes 28, 29): the booking lede, and the studio
+         line under it. The Baskerville italic on the lede waits for Ed. */
+      bookLedeIt: true,
+      bookLede: 'Miracle Detail operates by appointment only. Every car gets the same attention, whether it’s a daily driver or something far rarer.',
+      bookStudio: 'Studio appointments only · 7 days per week',
+
       formServices: site.picks(),
       heardFrom: site.heardFrom
     },

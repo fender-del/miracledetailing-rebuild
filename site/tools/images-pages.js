@@ -389,5 +389,10 @@ module.exports = [
   { id: 'jn-fb',     src: 'journal/fb-competition.jpg', widths: [600, 900, 1400, 1920] },
   { id: 'jn-npl',    src: 'journal/feynlab-ceramic-paul-dalton.jpg', widths: [600, 900, 1400, 1920] },
   { id: 'jn-bottle', src: 'journal/feynlab-ceramic-paul-dalton-bottle.jpg', widths: [300, 600] },
-  { id: 'jn-yt',     src: 'journal/yt-sddefault.jpg', crop: { l: 0, t: .125, w: 1, h: .75 }, widths: [640] }
+  { id: 'jn-yt',     src: 'journal/yt-sddefault.jpg', crop: { l: 0, t: .125, w: 1, h: .75 }, widths: [640] },
+  /* 27/10: the matte PPF post (miracledetail-blog-matte-ppf.html). Paul's own Drive photos of the Jaguar in the studio, no AI */
+  { id: 'jn-matte',        src: 'drive-paul/matte-ppf/jaguar-bumper-film.png',  crop: { l: 0, t: .14, w: 1, h: .75 }, widths: [600, 900, 1448] },
+  { id: 'jn-matte-wing',   src: 'drive-paul/matte-ppf/jaguar-wing-squeegee.png', widths: [480, 720, 1086] },
+  { id: 'jn-matte-mirror', src: 'drive-paul/matte-ppf/jaguar-mirror-film.png',   widths: [480, 720, 1086] },
+  { id: 'jn-matte-done',   src: 'drive-paul/matte-ppf/jaguar-finished.png',      widths: [600, 900, 1448] }
 ];

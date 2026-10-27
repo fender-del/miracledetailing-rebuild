@@ -75,3 +75,33 @@
   .post__ask{padding:18px 20px}
   .yt__play{width:64px;height:64px}
 }
+
+/* photo posts (27/10, matte PPF): opening line, headings, figures, call to action, related services */
+.post__col .post__lede{font-size:clamp(1.2rem,1.05rem + .6vw,1.5rem);line-height:1.6;color:var(--white)}
+.post__col h2{margin-top:2.4em;font-family:var(--fd);font-weight:400;font-size:clamp(1.8rem,1.3rem + 1.8vw,2.7rem);line-height:1.12;color:var(--white)}
+.post__col h2 .gold{font-style:normal}
+.post__col h2+*{margin-top:.8em}
+.post__fig{margin:2.2em 0 0}
+.post__col .post__fig{margin-top:2.2em}
+.post__fig .media{border-radius:var(--r-lg);overflow:hidden}
+.post__fig picture{display:block}
+.post__fig img{transition:transform 1.2s var(--ease)}
+@media (hover:hover){.post__fig:hover img{transform:scale(1.025)}}
+.post__fig figcaption{margin-top:12px;font-size:.8125rem;letter-spacing:.04em;color:var(--muted)}
+.post__duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,24px);margin-top:2.2em}
+.post__duo .post__fig{margin:0}
+.post__col .post__duo{margin-top:2.2em}
+.post__quote--pull{margin-top:2.4em}
+.post__quote--pull p{font-size:clamp(1.3rem,1.1rem + .8vw,1.75rem);line-height:1.45}
+
+.post__cta{margin-top:clamp(56px,7vw,104px);padding:clamp(36px,5vw,72px) clamp(24px,5vw,72px);border-radius:var(--r-lg);background:var(--graphite);box-shadow:inset 0 0 0 1px var(--line-2);display:grid;gap:18px;justify-items:center;text-align:center}
+.post__ctah{margin:0;font-size:clamp(2rem,1.3rem + 2.6vw,3.6rem);line-height:1.05;max-width:18ch}
+.post__cta p{margin:0;max-width:52ch;color:var(--text)}
+.post__cta .btn{margin-top:8px}
+
+.post__related{margin-top:clamp(48px,6vw,88px);display:grid;gap:18px;justify-items:start}
+.post__related ul{list-style:none;padding:0;width:100%;display:flex;flex-wrap:wrap;gap:12px}
+.post__related a{display:inline-flex;align-items:center;gap:12px;min-height:48px;padding:10px 20px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line-2);color:var(--white);transition:color .3s,box-shadow .3s,background .3s}
+.post__related svg{width:16px;height:16px;color:var(--gold);transition:transform .5s var(--ease)}
+@media (hover:hover){.post__related a:hover{color:var(--gold-2);box-shadow:inset 0 0 0 1px var(--gold)}.post__related a:hover svg{transform:translate(2px,-2px)}}
+@media (max-width:767px){.post__duo{grid-template-columns:1fr}.post__related a{width:100%;justify-content:space-between}}

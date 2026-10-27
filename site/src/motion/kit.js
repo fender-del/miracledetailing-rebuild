@@ -144,8 +144,10 @@ export function heroTone() {
          dimmed harder, not only a bright one */
       const ph = hero.querySelector('.shero__media').offsetHeight || innerHeight;
       const h1 = $('.shero__h1', hero);
-      const st = h1 ? Math.max(0, Math.min(ph * .4, h1.getBoundingClientRect().top - hero.getBoundingClientRect().top - 56)) : ph * .4;
-      const a = st / ph, b = Math.min(1, a + .45);
+      /* mfit (27/10, Brian: the blur ate the photo): the photo is shown whole at the top, so the blur starts just above the words with no 40% cap; fractions are of the canvas, which is the screen */
+      const den = fit ? Math.max(innerHeight, 580) : ph;
+      const st = h1 ? Math.max(0, Math.min(fit ? Infinity : ph * .4, h1.getBoundingClientRect().top - hero.getBoundingClientRect().top - (fit ? 100 : 56))) : ph * .4;
+      const a = Math.min(.9, st / den), b = Math.min(1, a + .45);
       const spread = (p, q) => {
         let t = 0, t2 = 0, n = 0;
         for (let y = Math.floor(p * H); y < Math.floor(q * H); y++) for (let i = 0; i < W; i++) {

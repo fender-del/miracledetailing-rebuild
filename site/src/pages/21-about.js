@@ -144,7 +144,7 @@ module.exports = site => {
       { block: '33-svc-prose', with: { prose: prose({
         id: 'beginning',
         eyebrow: 'The beginning',
-        title: 'It started with an Astra mk2 GTE and <span class="gold">a need for pocket money.</span>',
+        title: 'It started with an Astra mk2 GTE and <span class="gold it">a need for pocket money.</span>',
         img: frame('ab-monza', { alt: 'Paul Dalton beside a Ferrari Monza SP', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '4 / 5' }),
         cap: 'Paul Dalton, Ferrari Monza SP · Andreas Jansson Photography',
         paras: [
@@ -169,14 +169,14 @@ module.exports = site => {
           'In 2006, Paul appeared on Fifth Gear to detail a Maserati MC12, one of only 50 ever built, properly. 61 stages. 64 hours. £5,000. It gave a television audience their first real look at what obsessive paint correction actually involves: not a wash and wax, but full inspection, correction and protection carried out to a standard most viewers didn’t know existed. The segment was broadcast globally and picked up by seven national newspapers.',
           'The response was immediate and international. Phone calls came in from around the world for a week. Requests from Hong Kong, Monaco, Portugal and the Middle East followed. A generation of detailers, many of whom are now prominent in the industry, point to that segment as the moment they understood what detailing could actually be.'
         ],
-        quote: '“A generation of detailers cites this as the moment they understood <span class="gold">what the craft could become.</span>”',
+        quote: '<span class="it">“A generation of detailers cites this as the moment they understood <span class="gold">what the craft could become.</span>”</span>',
         cite: 'Fifth Gear · 2006 · Broadcast globally'
       } } },
       '24-svc-work',
       { block: '43-ab-list', with: { list: list({
         id: 'credentials',
         eyebrow: 'Background',
-        title: 'A few credentials, <span class="gold">for context.</span>',
+        title: 'A few credentials, <span class="gold it">for context.</span>',
         items: [
           { n: 'I', name: 'Feynlab’s Only Global Ambassador', sub: 'Worldwide, not just UK', paras: 'Paul is the only detailer in the world to hold Feynlab’s global ambassador status. He collaborated with Feynlab’s chemists to co-develop Ceramic by Paul Dalton, a coating sold worldwide and used daily by professionals across the industry.' },
           { n: 'II', name: 'PPF Since 2006', sub: 'Longest-serving UK PPF installer', paras: 'Paul has been installing Paint Protection Film since 2006, longer than any other active detailer in the United Kingdom. Nearly two decades of experience on everything from daily drivers to Bugattis and Koenigseggs.' },
@@ -189,14 +189,14 @@ module.exports = site => {
         id: 'quotes',
         img: frame('ab-54', { alt: '', sizes: '100vw', ratio: false }),
         items: [
-          { text: '“One detailer. Every car. <span class="gold">No exceptions.</span>”', cite: 'Paul Dalton · Ferrari Monza SP · Photography: Andreas Jansson' },
-          { text: '“My LaFerrari looks better than cars prepared for the prestigious <span class="gold">Pebble Beach Concours d’Elegance.</span>”', cite: 'Private Client · Monaco' }
+          { text: '<span class="it">“One detailer. Every car. <span class="gold">No exceptions.</span>”</span>', cite: 'Paul Dalton · Ferrari Monza SP · Photography: Andreas Jansson' },
+          { text: '<span class="it">“My LaFerrari looks better than cars prepared for the prestigious <span class="gold">Pebble Beach Concours d’Elegance.</span>”</span>', cite: 'Private Client · Monaco' }
         ]
       } } },
       { block: '43-ab-list', with: { list: list({
         id: 'new', light: true, cards: true,
         eyebrow: 'New to detailing?',
-        title: 'Not sure what your car <span class="gold">actually needs?</span>',
+        title: 'Not sure what your car <span class="gold it">actually needs?</span>',
         intro: [
           'Most people who contact Paul don’t know exactly what they want: they just know they want their car to look better and be protected. That’s enough. Paul will tell you honestly what the car needs, what he recommends, and what it will cost before any commitment is made.',
           'There’s no pressure, no upselling and no jargon. Just an honest conversation about your car.'
@@ -212,7 +212,7 @@ module.exports = site => {
       { block: '43-ab-list', with: { list: list({
         id: 'price',
         eyebrow: 'On price',
-        title: 'Yes, Paul costs more. <span class="gold">Here is exactly why.</span>',
+        title: 'Yes, Paul costs more. <span class="gold it">Here is exactly why.</span>',
         intro: [
           'Paul doesn’t apologise for his pricing and he doesn’t discount. The work is done to one standard, by one person, with the same instruments and products every time. There are no packages designed to maximise revenue. There is a fair price for work done properly.',
           'Clients who have been with Paul since 1994 have never gone elsewhere. That is the only endorsement that matters.'
@@ -247,7 +247,7 @@ module.exports = site => {
         /* phones: where the poster crop is held (08/10) */
         mpos: '96% 40%',
         h1: 'About Paul Dalton',
-        line: '37 years. Not one <span class="gold">shortcut.</span>',
+        line: '37 years. Not one <span class="gold it">shortcut.</span>',
         lede: 'How a teenage mountain biker washing cars for pocket money in Surrey ended up detailing Bugattis, Koenigseggs, and a LaFerrari that out-shone Pebble Beach.',
         img: frame('ab-hero', {
           priority: true, ratio: false, sizes: '100vw',
@@ -257,11 +257,12 @@ module.exports = site => {
         facts: []
       },
 
-      proofN: 5,
+      proofN: 4,
+      /* Paul 23/10 (board note 49): 10,000+ cars detailed by hand in, the Bugatti
+         and Koenigsegg counts out */
       proof: [
         { n: '37', l: 'Years in the craft' },
-        { n: '5', l: 'Bugatti Veyrons' },
-        { n: '6', l: 'Koenigseggs' },
+        { n: '10,000+', l: 'Cars detailed by hand' },
         { n: '7', l: 'National newspapers' },
         { n: '4', l: 'TV appearances' }
       ].map(p => Object.assign({ rating: null, tbc: null }, p)),
@@ -278,7 +279,7 @@ module.exports = site => {
       tl: {
         id: 'story',
         eyebrow: 'The full story',
-        title: 'From a Surrey driveway to <span class="gold">Monaco and beyond.</span>',
+        title: 'From a Surrey driveway to <span class="gold it">Monaco and beyond.</span>',
         items: timeline,
         total: String(timeline.length).padStart(2, '0'),
         /* runs of entries with photos (they share a stage on desktop)
@@ -295,20 +296,21 @@ module.exports = site => {
       },
 
       workEyebrow: 'The work itself',
-      workTitle: 'What paint correction <span class="gold">actually does.</span>',
+      workTitle: 'What paint correction <span class="gold it">actually does.</span>',
       workCap2: true,
       work: [
-        /* Paul 22/10 (board note 6), Fender 23/10: the caption stays, the photo
-           is swirled paint (the 50/50 panel showed more than the caption said) */
-        { img: frame('ab-swirl', { alt: 'Swirl marks and fine scratches in black paint under an inspection light', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Before correction', third: true },
-        { img: frame('ab-52', { alt: 'Swirl marks under an inspection light', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Swirls under inspection light', third: true },
+        /* Paul 22/10 (board notes 6, 56, 57): the 23/10 swirl photo is out. Paul wants
+           the two 50/50 photos (swirled on the left, corrected on the right), with
+           captions that say so */
+        { img: frame('ab-51', { alt: 'Black paint under an inspection light: swirled on the left, corrected on the right', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Before and after correction', third: true },
+        { img: frame('ab-52', { alt: 'A 50/50 panel under an inspection light: swirl marks on the left, corrected paint on the right', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Before and after, under inspection light', third: true },
         { img: frame('ab-53', { alt: 'Paul machine polishing a carbon panel by hand', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3', frameCls: 'media--tl' }), cap: 'Every panel, by hand', third: true }
       ],
 
       stars, reviews,
       revsBg: frame('bg-reviews', { alt: '', sizes: '100vw', ratio: false }),
 
-      bookTitle: 'Ready to talk <span class="gold">about your car?</span>',
+      bookTitle: 'Ready to talk <span class="gold it">about your car?</span>',
       bookLede: 'Every conversation starts honestly. Paul will tell you what the car needs and what he recommends, before any commitment is made.',
       formServices: site.picks(),
       heardFrom: site.heardFrom

@@ -125,7 +125,7 @@ module.exports = site => {
         /* phones: where the poster crop is held (08/10) */
         mfit: true,
         h1: 'Mobile Detailing',
-        line: 'The studio. <span class="gold">At your location.</span>',
+        line: 'The studio. At your <span class="gold it">location.</span>',
         lede: 'The same standard Paul applies in the studio, delivered to your home, your office, or anywhere else you need it. Surrey, Kent, Sussex, London and beyond.',
         /* 13/10 (Ed, Paul): Paul's own black Caddy (was the Portugal Caddy) */
         img: frame('mb-van', {
@@ -156,7 +156,7 @@ module.exports = site => {
       how: {
         id: 'how',
         eyebrow: 'How it works',
-        title: 'Studio results, <span class="gold">no studio required.</span>',
+        title: 'Studio results, <span class="gold it">no studio required.</span>',
         /* 22/10 (Fender, note 68): the Caddy shot looked AI-made; back to
            Paul's own London Concours photo, the van open behind him */
         img: frame('ab-11-1', { alt: 'Paul washing a blue Koenigsegg CCX on the lawn at the London Concours, the Miracle Detail van open behind him', sizes: '(max-width: 899px) 92vw, 34vw', ratio: false }),
@@ -195,7 +195,8 @@ module.exports = site => {
       why: {
         id: 'why-mobile',
         eyebrow: 'Why choose mobile',
-        title: 'Nothing <span class="gold">compromised.</span>',
+        /* Paul 23/10 (board note 151): "Everything in." in white, "Nothing compromised." in gold; the italic waits for Ed */
+        title: 'Everything in.<br> <span class="gold it">Nothing compromised.</span>',
         img: frame('ab-12-1', { alt: '', sizes: '100vw', ratio: false }),
         items: [
           { n: '01', name: 'No transport risk', text: 'For rare, valuable, or low cars that aren’t suitable for everyday driving, mobile detailing removes the risk of transporting the vehicle entirely. Paul comes to where the car lives.' },
@@ -207,7 +208,7 @@ module.exports = site => {
       menu: {
         id: 'packages',
         eyebrow: 'Mobile packages',
-        title: 'What’s <span class="gold">included.</span>',
+        title: 'What’s <span class="gold it">included.</span>',
         count: 4,
         intro: ['All packages use the same Feynlab products and multi-stage wash process Paul uses in the studio. Prices are indicative: every car is assessed individually.'],
         items: [
@@ -233,7 +234,7 @@ module.exports = site => {
       field: {
         id: 'field',
         eyebrow: 'The van in the field',
-        title: 'Portugal. <span class="gold">One week. Three cars.</span>',
+        title: 'Portugal. <span class="gold it">One week. Three cars.</span>',
         photos: [
           /* 21/10 (Paul, note 74): the wider photo, the whole car */
           { img: frame('mb-f12b', { alt: 'The whole of the blue Ferrari F12 TDF, detailed on location in Portugal', sizes: '(max-width: 899px) 46vw, 62vw', ratio: false }), cap: 'Ferrari F12 TDF · Portugal' },
@@ -248,7 +249,7 @@ module.exports = site => {
           'The same Feynlab products, the same process, the same result, wherever the car happens to be.',
           'For international mobile work, get in touch directly to discuss logistics and pricing.'
         ],
-        quote: '“Same standard. <span class="gold">Different postcode.</span>”',
+        quote: '<span class="it">“Same standard. Different postcode.”</span>',
         cite: 'Paul Dalton · Miracle Detail',
         close: 'The mobile service covers the UK regularly, visiting monthly maintenance clients as well as one-off jobs. It has also reached Portugal and Monaco for private clients abroad.',
         price: 'From £250 + VAT'
@@ -257,7 +258,7 @@ module.exports = site => {
       qa: {
         id: 'faq',
         eyebrow: 'Common questions',
-        title: 'Things people <span class="gold">ask.</span>',
+        title: 'Things people <span class="gold it">ask.</span>',
         items: faqs
       },
 
@@ -274,7 +275,7 @@ module.exports = site => {
         ]
       },
 
-      bookTitle: 'Ready to <span class="gold">book?</span>',
+      bookTitle: 'Ready to <span class="gold it">book?</span>',
       bookLede: 'Tell Paul where the car is, what it needs, and when suits you. He’ll come to you.',
       formServices: site.picks('Mobile detailing'),
       heardFrom: site.heardFrom

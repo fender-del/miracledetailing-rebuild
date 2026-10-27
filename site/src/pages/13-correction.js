@@ -61,7 +61,7 @@ module.exports = site => {
       { block: '33-svc-prose', with: { prose: prose({
         id: 'diagnosis',
         eyebrow: 'The beginning',
-        title: 'Paint correction isn’t a service. <span class="gold">It’s a diagnosis.</span>',
+        title: 'Paint correction isn’t a service. <span class="gold it">It’s a diagnosis.</span>',
         img: frame('pc-split', { alt: 'A dark metallic panel half corrected: clear and deep on the left, swirled on the right', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '3 / 2' }),
         tagL: 'After correction', tagR: 'Before correction',
         paras: [
@@ -73,7 +73,7 @@ module.exports = site => {
       { block: '55-pc-tools', with: { tools: tools({
         id: 'instruments', light: true,
         eyebrow: 'Before a pad is lifted',
-        title: 'The instruments <span class="gold">most detailers don’t own.</span>',
+        title: 'The instruments most detailers <span class="gold it">don’t own.</span>',
         intro: [
           'Paint correction at this level begins with information. Paul uses a set of instruments that, collectively, very few detailers in the world possess, giving him an understanding of the paint’s condition that makes every decision more precise and every result more predictable.',
           'This isn’t about equipment for its own sake. It’s about not guessing with someone else’s paintwork.'
@@ -93,7 +93,7 @@ module.exports = site => {
       { block: '56-pc-scope', with: { scope: scope({
         id: 'levels', light: true,
         eyebrow: 'Before a pad is lifted',
-        title: 'Five levels. <span class="gold">One standard.</span>',
+        title: 'Five levels. <span class="gold it">One standard.</span>',
         /* 08/10: the Rolls-Royce photo and its caption dropped (Fender) */
         /* 21/10 (Paul: "clients want to see real pictures"): a real panel, swirled then corrected */
         before: frame('pc-lv-b', { alt: 'A black panel under a bright light, covered in swirl marks', sizes: '(max-width: 1023px) 92vw, 52vw', ratio: false }),
@@ -124,14 +124,14 @@ module.exports = site => {
             text: 'The paint is fully decontaminated before correction begins: iron fallout, bonded contamination and surface debris removed. Correcting contaminated paint is correcting the wrong thing.' },
           { name: 'Correction', pic: frame('pc-polish-f', { alt: '', sizes: '(max-width: 1023px) 1px, 34vw', ratio: false }), img: frame('pc-polish-fm', { alt: 'Paul machine polishing the bonnet of a black BMW M3 under hexagon lights', sizes: '(max-width: 1023px) 84vw, 1px', ratio: false }),
             text: 'Machine polishing by hand, panel by panel, under specialist lighting throughout. The process is methodical, unhurried and done by one person: Paul. No apprentices, no rushing, no shortcuts.' },
-          { name: 'Inspection', pic: frame('pc-s4', { alt: '', sizes: '(max-width: 1023px) 1px, 34vw', ratio: false }), img: frame('pc-s4', { alt: 'An inspection light held to a black panel, the polishing pads below it', sizes: '(max-width: 1023px) 84vw, 1px', ratio: false }),
+          { name: 'Inspection', /* Paul 23/10 (board note 102): perfect paintwork under lighting, not the swirled panel */ pic: frame('cc-laf', { alt: '', sizes: '(max-width: 1023px) 1px, 34vw', ratio: false, frameCls: 'media--bonnet' }), img: frame('cc-laf', { alt: 'The bonnet and wing of a red Ferrari under studio lights, the paint flawless', sizes: '(max-width: 1023px) 84vw, 1px', ratio: false, frameCls: 'media--bonnet' }),
             text: 'Every panel checked under multiple light sources before the job is considered complete. The standard is set by what the paint can achieve, not by what’s quick.' }
         ]
       }) },
       { block: '38-svc-quote', with: { quote: quote({
         id: 'concours', side: true,
         img: frame('pc-seat', { alt: '', sizes: '(max-width: 899px) 100vw, 60vw', ratio: false }),
-        text: '“Every car I have ever prepared for a concours event has won its category. <span class="gold">The paint doesn’t lie, and neither does the process.</span>”',
+        text: '<span class="it">“Every car I have ever prepared for a concours event has won its category. The paint doesn’t lie, and neither does the process.”</span>',
         cite: 'Paul Dalton · Miracle Detail, Est. 1994'
       }) } },
       '24-svc-work',
@@ -149,7 +149,7 @@ module.exports = site => {
            Paul's head in frame on desktops, shown whole on phones */
         shift: true, mfit: true, dpos: '50% 0%',
         h1: 'Paint Correction',
-        line: 'The art of <span class="gold">reading paint.</span>',
+        line: 'The art of <span class="gold it">reading paint.</span>',
         lede: 'Most people see a scratch. Paul sees a story: how deep it goes, what the paint can give, and exactly what it will take to make it right. Thirty-seven years of that instinct don’t lie.',
         img: frame('pc-ed', {
           priority: true, ratio: false, sizes: '(max-width: 900px) 100vw, 66vw',

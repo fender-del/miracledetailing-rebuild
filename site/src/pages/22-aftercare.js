@@ -62,7 +62,8 @@ module.exports = site => {
       { block: '37-svc-cards', with: { cards: cards({
         id: 'rules', variant: 'points', cols: 3, brief: true,
         eyebrow: 'Why it matters',
-        title: 'Never break <span class="gold">these rules for a swirl free wash.</span>',
+        /* Paul 23/10 (board note 201, which replaces 190); the italic waits for Ed */
+        title: 'The golden rules.<br> <span class="gold it">Never break them.</span>',
         intro: [
           'Feynlab coatings are built to last years, but they’re not maintenance-free. The biggest threat to a ceramic coating isn’t road grime or weather: it’s incorrect washing. Wrong products, wrong technique or washing in direct sunlight can degrade the coating faster than anything the road throws at it.',
           'The guide below is exactly what Paul sends every client after their coating is applied. The products are specifically chosen for Feynlab-coated cars. Use them, follow the procedure, and the coating will continue to perform and look the way it did when it left the studio.'
@@ -79,7 +80,7 @@ module.exports = site => {
       { block: '58-ac-check', with: { check: check({
         id: 'procedure', key: 'aftercare-wash',
         eyebrow: 'The procedure',
-        title: 'Eight steps. <span class="gold">Every wash.</span>',
+        title: 'Eight steps. <span class="gold it">Every wash.</span>',
         lede: 'Tick each step off as you go. Your progress stays on this device until you start again.',
         img: frame('ac-bead', { alt: 'Water beading on a coated blue panel', sizes: '(max-width: 767px) 1px, (max-width: 1023px) 44vw, 34vw', ratio: '16 / 10' }),
         steps: [
@@ -102,7 +103,7 @@ module.exports = site => {
       { block: '37-svc-cards', with: { cards: cards({
         id: 'products', light: true, cols: 4, acc: true,
         eyebrow: 'Products at a glance',
-        title: 'Everything you need. <span class="gold">Nothing you don’t.</span>',
+        title: 'Everything you need. <span class="gold it">Nothing you don’t.</span>',
         items: [
           { kicker: 'Shampoo', anchor: 'ac-pure-wash', name: 'Feynlab Pure Wash', paras: 'pH neutral shampoo formulated specifically for ceramic-coated vehicles. The only shampoo Paul recommends on a Feynlab-coated car.', links: buy('Buy from Feynlab', 'https://www.feynlab.co.uk/product/feynlab-pure-wash/') },
           { kicker: 'Maintenance Detailer', anchor: 'ac-hybrid', name: 'Feynlab Hybrid Ceramic Detailer', paras: 'Tops up the coating with every wash. Shake for one minute before use: this is not optional. One to two sprays per panel, buff with a quality microfibre.', links: buy('Buy from Feynlab', 'https://www.feynlab.co.uk/product/feynlab-hybrid-ceramic-detailer/') },
@@ -128,7 +129,7 @@ module.exports = site => {
         /* phones: where the poster crop is held (08/10) */
         mpos: '40% 50%',
         h1: 'Aftercare & Washing Guide',
-        line: 'Look after your <span class="gold">coating properly.</span>',
+        line: 'Look after your <span class="gold it">coating properly.</span>',
         lede: 'Your Feynlab coating is designed to last years, but how you wash the car matters. This is the exact procedure and the exact products Paul recommends to every client after a ceramic coating. Follow it and the coating will perform the way it should.',
         img: frame('ac-hero', {
           priority: true, ratio: false, sizes: '100vw',

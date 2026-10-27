@@ -35,9 +35,11 @@ p{text-wrap:pretty}
   letter-spacing:-.01em;line-height:1.04;color:var(--white);
 }
 .h2{font-size:clamp(2.1rem,1.2rem + 3.2vw,4rem)}
-/* no italic anywhere (Ed 13/10): gold words stay upright */
+/* no italic anywhere (Ed 13/10) except the Baskerville accents below (.it, Paul's notes 27/10): gold words stay upright otherwise */
 .disp .gold,.disp em{font-style:normal}
 em,i,cite{font-style:normal}
+/* Baskerville italic accents (27/10): the words Paul asks for in italic, set as <span class="it"> (add "gold" for gold) */
+.it,.disp .it,.disp em.it{font-family:var(--fi);font-style:italic;font-weight:400;font-synthesis:none;letter-spacing:0}
 .h3{font-weight:500;font-size:1.2rem;line-height:1.25}
 .gold{color:var(--gold)}
 .nw{white-space:nowrap}  /* keeps a short phrase together when a heading wraps */
@@ -105,6 +107,8 @@ em,i,cite{font-style:normal}
 .media img{object-fit:cover}
 /* a photo of Paul held by the corner his face is in (13/10, Paul: "show my face") */
 .media.media--tl img{object-position:0 0}
+.media.media--top img{object-position:50% 6%}
+.media.media--bonnet img{object-position:34% 50%}
 .js-motion .media img.lz{opacity:0;transition:opacity .9s var(--ease)}
 .js-motion .media.is-loaded img.lz{opacity:1}
 .credit{
