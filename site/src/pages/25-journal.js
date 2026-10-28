@@ -16,6 +16,9 @@
 'use strict';
 const { frame } = require('../lib/pic.js');
 const { crumbs } = require('../lib/shared.js');
+const images = require('../lib/images.json');
+/* the largest webp an image id was built at (the matte post's photos stop at 1448) */
+const big = id => `/assets/img/${id}-${Math.max(...images[id].widths)}.webp`;
 
 const SLUG = 'journal';
 const ARROW = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7m0 0H8m9 0v9" stroke="currentColor" stroke-width="1.8"/></svg>';
@@ -233,7 +236,7 @@ module.exports = site => {
       schema: [pnav.schema, {
         '@context': 'https://schema.org', '@type': 'BlogPosting',
         headline: p.name || p.h1, description: p.description, datePublished: p.date,
-        image: site.origin + `/assets/img/${p.img}-1920.webp`,
+        image: site.origin + big(p.img),
         author: { '@type': 'Person', name: 'Paul Dalton' },
         publisher: { '@type': 'Organization', name: site.name },
         mainEntityOfPage: site.origin + `/${p.slug}/`
