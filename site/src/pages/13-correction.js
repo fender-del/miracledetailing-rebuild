@@ -187,8 +187,8 @@ module.exports = site => {
       stars, reviews,
       revsBg: frame('bg-reviews', { alt: '', sizes: '100vw', ratio: false }),
 
-      /* Paul 23/10 (board note 110): "What car paint" white, "actually achieve" gold italic. His sentence has no verb between the two parts; his words are used as written. */
-      bookTitle: 'What car paint <span class="gold it">actually achieve</span>',
+      /* Paul 23/10 (board note 110): "What car paint" white, "actually achieve" gold italic; "can" added between them (Fender 28/10), his sentence had no verb */
+      bookTitle: 'What car paint can <span class="gold it">actually achieve</span>',
       bookLede: 'Every conversation starts honestly. Paul will tell you what the car needs and what he recommends, before any commitment is made.',
       bookMore: { href: '/car-detailing-studio/', label: 'View Packages' },
       formServices: site.picks('Paint correction'),
