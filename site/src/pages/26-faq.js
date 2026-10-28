@@ -32,7 +32,7 @@ module.exports = site => {
         stats: true,
         mpos: '50% 40%',
         h1: 'Frequently Asked Questions',
-        line: 'Questions. <span class="gold">Answered honestly.</span>',
+        line: 'Questions. <span class="gold it">Answered honestly.</span>',
         lede: 'If something isn\'t covered here, call or message Paul directly. Every enquiry is answered personally: there\'s no queue, no chatbot, no contact form that disappears into a void.',
         img: frame('jn-hero', {
           priority: true, ratio: false, sizes: '100vw',

@@ -56,7 +56,7 @@ module.exports = site => {
       { block: '38-svc-quote', with: { quote: quote({
         id: 'quote', side: true,
         img: frame('in-quote', { alt: '', sizes: '(max-width: 899px) 100vw, 60vw', ratio: false }),
-        text: '“True detailing is not simply about how a car looks. <span class="gold">It is about how it feels to step inside.</span>”'
+        text: '<span class="it">“True detailing is not simply about how a car looks. <span class="gold">It is about how it feels to step inside.</span>”</span>'
       }) } },
       { block: '33-svc-prose', with: { prose: prose({
         id: 'approach', light: true,
@@ -160,7 +160,8 @@ module.exports = site => {
         { id: 'reviews', label: 'Reviews' }
       ],
 
-      bookTitle: 'Rediscover the pleasure of <span class="gold">a beautiful interior.</span>',
+      bookTitle: 'Rediscover the pleasure of <span class="gold it">a beautiful interior.</span>',
+      bookLedeIt: true,
       bookLede: 'From careful interior deep cleaning to specialist leather care and long-term surface protection, every vehicle receives an individually considered approach.',
       formServices: site.picks('Interior cleaning & protection'),
       heardFrom: site.heardFrom

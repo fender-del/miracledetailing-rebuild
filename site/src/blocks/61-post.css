@@ -79,7 +79,6 @@
 /* photo posts (27/10, matte PPF): opening line, headings, figures, call to action, related services */
 .post__col .post__lede{font-size:clamp(1.2rem,1.05rem + .6vw,1.5rem);line-height:1.6;color:var(--white)}
 .post__col h2{margin-top:2.4em;font-family:var(--fd);font-weight:400;font-size:clamp(1.8rem,1.3rem + 1.8vw,2.7rem);line-height:1.12;color:var(--white)}
-.post__col h2 .gold{font-style:normal}
 .post__col h2+*{margin-top:.8em}
 .post__fig{margin:2.2em 0 0}
 .post__col .post__fig{margin-top:2.2em}

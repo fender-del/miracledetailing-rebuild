@@ -15,7 +15,7 @@
   margin:0;font-family:var(--fd);font-weight:500;font-synthesis:none;letter-spacing:-.01em;
   font-size:clamp(2rem,1.2rem + 3.4vw,4.4rem);line-height:1.1;color:var(--white);text-wrap:balance;
 }
-.mbf__qt .gold{font-style:normal}
+.mbf__qt .gold:not(.it){font-style:normal}
 .mbf__qt .w{opacity:var(--o,1);transition:opacity .25s linear}
 .js-motion .mbf__qt.is-split .w{--o:.18}
 .js-motion .mbf__qt.is-split .w.is-lit{--o:1}

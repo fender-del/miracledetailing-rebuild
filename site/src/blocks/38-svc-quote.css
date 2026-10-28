@@ -12,7 +12,7 @@
   margin:0;font-family:var(--fd);font-weight:500;font-synthesis:none;letter-spacing:-.01em;
   font-size:clamp(1.9rem,1.2rem + 2.4vw,3.4rem);line-height:1.16;color:var(--white);text-wrap:balance;
 }
-.squote__text .gold{font-style:normal}
+.squote__text .gold:not(.it){font-style:normal}
 .squote__text .w{opacity:var(--o,1);transition:opacity .25s linear}
 .js-motion .squote__text.is-split .w{--o:.18}
 .js-motion .squote__text.is-split .w.is-lit{--o:1}

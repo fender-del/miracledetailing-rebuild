@@ -46,7 +46,7 @@ const SZ2 = '(max-width: 767px) 92vw, 34ch';
 const POSTS = [
   {
     slug: 'why-matte-and-satin-paint-needs-ppf',
-    h1: 'Why matte and satin paint <span class="gold">absolutely needs PPF.</span>',
+    h1: 'Why matte and satin paint <span class="gold it">absolutely needs PPF.</span>',
     name: 'Why matte and satin paint absolutely needs PPF',
     title: 'Why Matte and Satin Paint Absolutely Needs PPF | Journal | Miracle Detail',
     description: 'One stone chip on a matte or satin finish car can mean a full panel repaint, or worse, the entire side of the car. Paul Dalton explains why PPF isn’t optional on these finishes.',
@@ -56,7 +56,7 @@ const POSTS = [
     alt: 'Paint protection film being fitted over the front bumper of a Jaguar in the Miracle Detail studio',
     sub: null,
     cta: {
-      title: 'Protect your matte finish <span class="gold">before it’s too late.</span>',
+      title: 'Protect your matte finish <span class="gold it">before it’s too late.</span>',
       text: 'Paul has been installing PPF since 2006, longer than any other active UK detailer. Every installation is done personally, to a standard that doesn’t change regardless of the car.',
       href: '#book', label: 'Book a PPF Consultation'
     },
@@ -69,14 +69,14 @@ const POSTS = [
     body: () => [
       '<p class="post__lede">One stone chip on a gloss car is an inconvenience. One stone chip on a matte or satin finish is a potential four-figure repair bill, and it can happen on the way home from the dealer. Here’s why PPF on these finishes isn’t a luxury. It’s the only sensible choice.</p>',
 
-      '<h2 data-reveal>The problem with <span class="gold">matte and satin paint.</span></h2>',
+      '<h2 data-reveal>The problem with <span class="gold it">matte and satin paint.</span></h2>',
       '<p>Matte and satin finishes have become increasingly popular over the last decade, and for good reason. The depth and character of a flat or semi-flat finish on the right car is genuinely stunning. Manufacturers have responded, factory matte options are now available across everything from BMW M cars to Rolls-Royces, and bespoke satin wraps have never been more common.</p>',
       '<p>But there’s a fundamental problem with these finishes that most owners don’t fully understand until it’s too late: <strong>they cannot be repaired in the conventional sense.</strong></p>',
       '<p>On a standard gloss car, a stone chip or light scratch can often be addressed with a careful touch-in and polish. It’s not always invisible, but in most cases it’s manageable. The clear coat on a gloss finish allows for localised correction (blending, polishing, cutting) that makes small damage far less catastrophic than it would otherwise be.</p>',
       '<p>On a matte or satin finish, none of that is possible. The flat sheen that makes these cars so visually distinctive comes from a microscopic surface texture in the clear coat, and that texture cannot be replicated with touch-in paint or localised repair. The moment you try, the repaired area reflects light differently to the surrounding finish. It’s immediately visible.</p>',
-      '<blockquote class="post__quote post__quote--pull" data-reveal><p>“One stone chip on a matte finish isn’t just a chip. It’s a panel respray. And if that panel is a wing, the colour and sheen spread means you’re often looking at the entire side of the car.”</p></blockquote>',
+      '<blockquote class="post__quote post__quote--pull" data-reveal><p><span class="it">“One stone chip on a matte finish isn’t just a chip. It’s a panel respray. And if that panel is a wing, the colour and sheen spread means you’re often looking at the entire side of the car.”</span></p></blockquote>',
 
-      '<h2 data-reveal>What actually happens <span class="gold">when a chip occurs.</span></h2>',
+      '<h2 data-reveal>What actually happens <span class="gold it">when a chip occurs.</span></h2>',
       '<p>Paul has seen this scenario play out many times. A client takes delivery of a new car in a beautiful factory satin finish. Within weeks, sometimes days, a stone chip appears on the bonnet or a wing. They call the dealer, expecting a straightforward repair. The dealer confirms what Paul already knows: the panel needs repainting.</p>',
       '<p>But repainting a single panel on a matte or satin car is rarely the end of it. Matching a flat finish across panel gaps is extraordinarily difficult. The adjacent panels, sprayed at the factory under controlled conditions with the same batch of paint, will almost certainly not match a freshly sprayed repair panel exactly. The light catches them differently. The texture differs slightly.</p>',
       '<p>This means that what started as a single stone chip on a wing can result in the entire side of the car (front wing, front door, rear door, rear quarter) needing to be resprayed to achieve a consistent finish. On a prestige or performance car, that repair bill can easily reach £5,000 to £10,000 or more.</p>',
@@ -85,17 +85,17 @@ const POSTS = [
         + fig('jn-matte-mirror', 'Clear paint protection film wrapped around the door mirror of a Jaguar before it is trimmed', SZ2, '1086 / 1448', 'Around the door mirror')
         + '</div>',
 
-      '<h2 data-reveal>PPF is the <span class="gold">only answer.</span></h2>',
+      '<h2 data-reveal>PPF is the <span class="gold it">only answer.</span></h2>',
       '<p>Paint Protection Film applied to a matte or satin finish car does two things simultaneously. First, it absorbs stone chips, road debris, abrasion and environmental contamination before any of it reaches the paint beneath. Second, and this is what most people don’t realise, modern matte PPF films are virtually indistinguishable from the factory finish beneath them.</p>',
       '<p>XPEL Stealth, for example, the film Paul uses on matte and satin cars, is specifically engineered to replicate the optical properties of a flat finish. Applied correctly, by someone with the experience to handle it properly, you would not know it was there. The protection is invisible. The finish is preserved.</p>',
       '<p>And if the film itself is ever damaged, by a stone chip or a scrape, you replace the film, not the paint. That panel section of film costs a fraction of a respray. The paint beneath is untouched.</p>',
 
-      '<h2 data-reveal>The importance of <span class="gold">correct installation.</span></h2>',
+      '<h2 data-reveal>The importance of <span class="gold it">correct installation.</span></h2>',
       '<p>Matte PPF is significantly more demanding to install than gloss film. The surface tension of the film, the stretching required around complex curves, and the precision needed at panel edges is all more critical, because any imperfection is more visible on a flat finish than it would be on a gloss car where reflections mask minor flaws.</p>',
       '<p>Paul has been installing PPF since 2006, longer than any other active detailer in the United Kingdom. The Jaguar F-Type currently in the studio is a case in point: a full-car matte installation that requires every panel to be handled with the same level of precision as a concours preparation. There is no margin for error on a finish this unforgiving.</p>',
       fig('jn-matte-done', 'A red Jaguar coupé in the Miracle Detail studio under the hexagon lights, side on', SZ, '1448 / 1086', 'In the studio'),
 
-      '<h2 data-reveal>If you own a matte or satin car, <span class="gold">act before it happens.</span></h2>',
+      '<h2 data-reveal>If you own a matte or satin car, <span class="gold it">act before it happens.</span></h2>',
       '<p>The conversation Paul has most often with matte car owners is the one that happens after the first chip. By that point, the options are limited and expensive. The conversation worth having is the one before delivery, or as early as possible after it.</p>',
       '<p>A full-front PPF installation on a matte car starts from £1,500 + VAT. A full-car installation starts from £4,000 + VAT. Neither figure is insignificant, but set against the cost of a single side respray on a prestige car, it is not a difficult calculation to make.</p>',
       '<p>If you’re considering PPF on a matte or satin vehicle, or want an honest conversation about what the right level of coverage is for the way you use the car, get in touch. Paul will tell you exactly what he’d recommend, and if a lower level of coverage achieves what you need, that’s what he’ll say.</p>'

@@ -41,7 +41,7 @@ module.exports = site => {
       '20-svc-hero', '29-svc-nav',
       { block: '33-svc-prose', with: { prose: prose({
         id: 'overview', light: true,
-        title: 'Most detailers stop at the paint. <span class="gold">Paul doesn’t.</span>',
+        title: 'Most detailers stop at the paint. <span class="gold it">Paul doesn’t.</span>',
         /* Paul's damper close-up is the hero photo already, so
            the arch and spring here */
         img: frame('us-spring', { alt: 'A coated wheel arch: coil spring, damper and arch metal in gloss black above the studio floor', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '4 / 3' }),
@@ -55,7 +55,7 @@ module.exports = site => {
       { block: '37-svc-cards', with: { cards: cards({
         id: 'product', variant: 'points', cols: 5, brief: true, graphite: true,
         eyebrow: 'The product',
-        title: 'Feynlab <span class="gold">Industrial V2</span>',
+        title: 'Feynlab <span class="gold it">Industrial V2</span>',
         intro: [
           'Feynlab Industrial V2 is a multi-purpose, UV-resistant coating designed for maximum protection across hard surfaces: vehicle underbody, chassis, suspension components, arches, metals and plastics.',
           'As a <strong>high-solids, single-component coating</strong>, it provides superior resistance to chemicals, abrasion and sun exposure. Extremely hydrophobic, with excellent release properties that prevent contamination from bonding to treated surfaces.',
@@ -72,7 +72,7 @@ module.exports = site => {
       { block: '57-svc-pairs', with: { pairs: pairs({
         id: 'result', light: true, wide: true,
         eyebrow: 'The result',
-        title: 'What the coating <span class="gold">actually looks like.</span>',
+        title: 'What the coating <span class="gold it">actually looks like.</span>',
         /* Paul's one photo, before above after, split at the seam */
         items: [
           { before: wide('us-b', 'Before: a front subframe and sump, dull, grimy and spotted with surface rust'),
@@ -83,7 +83,7 @@ module.exports = site => {
       { block: '37-svc-cards', with: { cards: cards({
         id: 'coverage', cols: 4,
         eyebrow: 'What gets protected',
-        title: 'Bespoke to every car and every <span class="gold">requirement.</span>',
+        title: 'Bespoke to every car and every <span class="gold it">requirement.</span>',
         items: [
           { n: 'I', name: 'Full Underbody', paras: 'Complete coverage of the entire underside: chassis rails, floor pan, crossmembers and all structural components. Nothing underneath is left untreated.' },
           { n: 'II', name: 'Wheel Arches', paras: 'The arches take more direct stone chip and abrasion impact than any other part of the car. Coating the inner arches and arch liners dramatically reduces the damage that accumulates over time.' },
@@ -94,7 +94,7 @@ module.exports = site => {
       { block: '37-svc-cards', with: { cards: cards({
         id: 'why', variant: 'points', cols: 3, brief: true, light: true,
         eyebrow: 'Why it matters',
-        title: 'The case for protecting <span class="gold">what you can’t see.</span>',
+        title: 'The case for protecting <span class="gold it">what you can’t see.</span>',
         items: [
           { n: 'I', name: 'Corrosion Prevention', paras: 'Bare metal exposed to road salt, moisture and oxygen corrodes. Once it starts, it spreads. Underbody coating seals metal surfaces from the conditions that cause corrosion before it has a chance to begin.' },
           { n: 'II', name: 'Residual Value', paras: 'A clean, protected underbody is increasingly scrutinised at point of sale, especially on prestige and classic vehicles. A car with a coated, corrosion-free underbody commands higher values and shorter sales periods.' },
@@ -115,7 +115,7 @@ module.exports = site => {
       hero: {
         stats: true, shift: true, dpos: '50% 30%',
         h1: 'Underside & Underbody Coating',
-        line: 'The part of your car nobody sees. <span class="gold">Protected like they do.</span>',
+        line: 'The part of your car nobody sees. <span class="gold it">Protected like they do.</span>',
         lede: 'Your underbody faces more punishment than any other part of your car. Stone chips, road salt, chemical contamination, moisture and abrasion: relentlessly, every single mile. Feynlab Industrial V2 puts a stop to it.',
         img: frame('us-hero', {
           priority: true, ratio: false, sizes: '(max-width: 900px) 100vw, 66vw',
@@ -147,13 +147,13 @@ module.exports = site => {
 
       band: {
         id: 'price',
-        k: 'Underside Coating, <span class="gold">from</span>',
+        k: 'Underside Coating, <span class="gold it">from</span>',
         amount: svc.price.replace(/^From /, ''),
         /* one paragraph: the band's grid holds a single note */
         note: 'Price depends on vehicle size, condition and coverage required. Every job is assessed individually. Paul will advise on preparation required and what coverage he recommends.'
       },
 
-      bookTitle: 'Protect the parts <span class="gold">that matter most.</span>',
+      bookTitle: 'Protect the parts <span class="gold it">that matter most.</span>',
       bookLede: 'Most people never think about their underbody until something goes wrong. The best time to protect it is before it does.',
       formServices: site.picks('Underside coating'),
       heardFrom: site.heardFrom

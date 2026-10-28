@@ -38,7 +38,7 @@
   margin:0;font-family:var(--fd);font-weight:500;font-synthesis:none;letter-spacing:-.01em;
   line-height:1.14;color:var(--white);text-wrap:balance;
 }
-.abqt .gold{font-style:normal}
+.abqt .gold:not(.it){font-style:normal}
 .abqt .w{opacity:var(--o,1);transition:opacity .25s linear}
 .js-motion .abqt.is-split .w{--o:.18}
 .js-motion .abqt.is-split .w.is-lit{--o:1}

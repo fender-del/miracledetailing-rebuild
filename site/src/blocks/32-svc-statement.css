@@ -4,7 +4,7 @@
   font-family:var(--fd);font-weight:500;font-synthesis:none;letter-spacing:-.01em;
   font-size:clamp(1.7rem,1.05rem + 2.1vw,3.05rem);line-height:1.22;color:var(--white);text-wrap:pretty;
 }
-.sstate__text .gold{font-style:normal}
+.sstate__text .gold:not(.it){font-style:normal}
 /* lit word by word (motion/ppf.js wraps the words) */
 .sstate__text .w{opacity:var(--o,1);transition:opacity .25s linear}
 .js-motion .sstate__text.is-split .w{--o:.18}
