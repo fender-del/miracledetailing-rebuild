@@ -124,9 +124,9 @@ module.exports = site => {
         }),
         facts: [
           { k: 'Coating durability', v: '10yr', big: true },
-          /* Paul's "£850+VAT / From"; + VAT moves to the key, so the
+          /* Paul 28/10 (requests #23): "from £1000+ VAT" everywhere; + VAT moves to the key, so the
              figure fits beside the other two on a phone */
-          { k: 'From + VAT', v: '£850' },
+          { k: 'From + VAT', v: '£1,000' },
           { k: 'Detailer. Every job.', v: '1' }
         ]
       },

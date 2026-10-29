@@ -9,7 +9,7 @@
    is lifted / Five levels. One standard." and the Rolls-Royce caption
    on a photo of a Pagani): a paste slip. The process carries no
    heading of its own here, only its bar label (REQUESTS.md).
-   Prices: v0.5 says "From £???" for every level; kept as written
+   Prices: none on the levels (Paul 28/10, requests #24: "we dont want prices here"); was "From £???" as v0.5 wrote it
    (Fender 06/10).
 
    Rebuilt 08/10 (Fender: QC the page, rebuild it from what the other
@@ -80,7 +80,7 @@ module.exports = site => {
         ],
         items: [
           { n: 'I', name: 'Paint Depth Gauge',
-            img: frame('pc-gauge', { alt: 'A paint depth gauge held to a blue bonnet, its screen showing a reading', sizes: '(max-width: 767px) 116px, 30vw', ratio: false }),
+            img: frame('pc-gauge2', { alt: 'Paul’s PosiTector paint depth gauge reading 104 microns on black paint', sizes: '(max-width: 767px) 116px, 30vw', ratio: false }),
             cap: 'Paint depth gauge: assessing clear coat before correction',
             paras: 'Measures the thickness of paint and clear coat across the panel. Tells Paul exactly how much correction is safe, and where the limits are.' },
           { n: 'II', name: 'Gloss &amp; Orange Peel Instrument',
@@ -100,15 +100,15 @@ module.exports = site => {
         after: frame('pc-lv-a', { alt: 'The same black panel after correction, clear and deep', sizes: '(max-width: 1023px) 92vw, 52vw', ratio: false }),
         book: { href: '#book', label: 'Book a consultation' },
         levels: [
-          { n: 'I', kicker: 'Level One', name: 'Enhancement Polish', f: 0.7, removal: 'up to 65–75%', price: 'From £???',
+          { n: 'I', kicker: 'Level One', name: 'Enhancement Polish', f: 0.7, removal: 'up to 65–75%',
             paras: 'For paint in good overall condition that has lost its clarity. Light surface haze, minor wash marks and superficial swirling are refined. An excellent preparation step before protective coatings are applied.' },
-          { n: 'II', kicker: 'Level Two', name: 'Light Correction', f: 0.8, removal: 'up to 75–85%', price: 'From £???',
+          { n: 'II', kicker: 'Level Two', name: 'Light Correction', f: 0.8, removal: 'up to 75–85%',
             paras: 'For paint showing visible swirl marks, light scratches and minor water etching. A single corrective stage removes the majority of surface defects and restores genuine depth and gloss to the finish.' },
-          { n: 'III', kicker: 'Level Three', name: 'Full Correction', f: 0.875, removal: 'up to 85–90%', price: 'From £???',
+          { n: 'III', kicker: 'Level Three', name: 'Full Correction', f: 0.875, removal: 'up to 85–90%',
             paras: 'For paint carrying moderate to heavy defects: swirl marks, scratches, oxidation and water etching. A multi-stage process that cuts and refines the surface to deliver results that turn heads under any light.' },
-          { n: 'IV', kicker: 'Level Four', name: 'Advanced Correction', f: 0.95, removal: 'up to 95%', price: 'From £???',
+          { n: 'IV', kicker: 'Level Four', name: 'Advanced Correction', f: 0.95, removal: 'up to 95%',
             paras: 'For heavily neglected or damaged paint requiring maximum intervention. Every available stage of correction is applied to take the paint as close to its original manufactured state as the clear coat will safely allow.' },
-          { n: 'V', kicker: 'Level Five', name: 'Concours Perfect', hi: true, f: 0.995, removal: '99–100%', price: 'From £???',
+          { n: 'V', kicker: 'Level Five', name: 'Concours Perfect', hi: true, f: 0.995, removal: '99–100%',
             paras: 'The ultimate standard. Paint corrected to concours specification: every panel taken to absolute perfection under multiple light sources. The level Paul prepares cars to for concours events. Every car he has entered has won its class.' }
         ]
       }) } },
@@ -120,7 +120,8 @@ module.exports = site => {
           /* Paul 22/10 (board note 7): his gloss meter, not swirled paint */
           { name: 'Assessment', pic: frame('pc-s1g', { alt: '', sizes: '(max-width: 1023px) 1px, 34vw', ratio: false }), img: frame('pc-s1g', { alt: 'Paul’s gloss and orange peel meter on black paint, its screen showing the readings', sizes: '(max-width: 1023px) 84vw, 1px', ratio: false }),
             text: 'Paint depth measured. Gloss and orange peel analysed. Surface examined under controlled lighting and digital microscope. The condition of the paint is understood before anything else happens.' },
-          { name: 'Decontamination', pic: frame('pc-s2', { alt: '', sizes: '(max-width: 1023px) 1px, 34vw', ratio: false }), img: frame('pc-s2', { alt: 'A Mercedes C63 AMG on a jack in the studio, its wheels off', sizes: '(max-width: 1023px) 84vw, 1px', ratio: false }),
+          /* Paul 28/10 (requests #7): his own drawing of what sticks to paint, in place of the stand-in */
+          { name: 'Decontamination', pic: frame('pc-s2c', { alt: '', sizes: '(max-width: 1023px) 1px, 34vw', ratio: false, frameCls: 'media--whole' }), img: frame('pc-s2c', { alt: 'Paul’s drawing of common contaminants on car paint (tree sap, road tar, brake dust, water spots, bird droppings, industrial fallout) above the clear coat, base coat, primer, e-coat and metal', sizes: '(max-width: 1023px) 84vw, 1px', ratio: false, frameCls: 'media--whole' }),
             text: 'The paint is fully decontaminated before correction begins: iron fallout, bonded contamination and surface debris removed. Correcting contaminated paint is correcting the wrong thing.' },
           { name: 'Correction', pic: frame('pc-polish-f', { alt: '', sizes: '(max-width: 1023px) 1px, 34vw', ratio: false }), img: frame('pc-polish-fm', { alt: 'Paul machine polishing the bonnet of a black BMW M3 under hexagon lights', sizes: '(max-width: 1023px) 84vw, 1px', ratio: false }),
             text: 'Machine polishing by hand, panel by panel, under specialist lighting throughout. The process is methodical, unhurried and done by one person: Paul. No apprentices, no rushing, no shortcuts.' },
@@ -187,10 +188,11 @@ module.exports = site => {
       stars, reviews,
       revsBg: frame('bg-reviews', { alt: '', sizes: '100vw', ratio: false }),
 
-      /* Paul 23/10 (board note 110): "What car paint" white, "actually achieve" gold italic; "can" added between them (Fender 28/10), his sentence had no verb */
-      bookTitle: 'What car paint can <span class="gold it">actually achieve</span>',
-      bookLede: 'Every conversation starts honestly. Paul will tell you what the car needs and what he recommends, before any commitment is made.',
-      bookMore: { href: '/car-detailing-studio/', label: 'View Packages' },
+      /* Paul 28/10 (requests #31): his heading and text, word for word (the em dash a comma);
+         "View Packages" becomes "Book Your Consultation", to the form beside it */
+      bookTitle: 'Discover what your paintwork <span class="gold it">can truly achieve.</span>',
+      bookLede: 'Every vehicle is different. With over 30 years of detailing experience, Paul will personally assess your paintwork, explain what’s realistically achievable and recommend the most appropriate treatment, without unnecessary work or unrealistic promises.',
+      bookMore: { href: '#book-form', label: 'Book Your Consultation' },
       formServices: site.picks('Paint correction'),
       heardFrom: site.heardFrom
     },

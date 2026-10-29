@@ -109,6 +109,8 @@ em,i,cite{font-style:normal}
 .media.media--tl img{object-position:0 0}
 .media.media--top img{object-position:50% 6%}
 .media.media--bonnet img{object-position:34% 50%}
+/* a labelled drawing shown whole in a frame of another shape (28/10, Paul's contamination drawing on the correction stage) */
+.media.media--whole img{object-fit:contain;object-position:50% 24%}
 .js-motion .media img.lz{opacity:0;transition:opacity .9s var(--ease)}
 .js-motion .media.is-loaded img.lz{opacity:1}
 .credit{

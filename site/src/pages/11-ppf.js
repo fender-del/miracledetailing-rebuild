@@ -153,7 +153,7 @@ module.exports = site => {
 
       /* ---------- Coverage ---------- */
       pcEyebrow: 'What’s right for your car',
-      pcTitle: 'Coverage options. <span class="gold it">bespoke to every car.</span>',
+      pcTitle: 'Coverage options. <span class="gold it">Bespoke to every car.</span>',
       packages,
       pcNote: 'Every installation is assessed individually. Paul will advise on coverage based on how you use the car and what you want to protect.',
       pcFront: car.view('front', FRONT, { main: true, sizes: '(max-width: 900px) 92vw, 54vw' }),

@@ -41,8 +41,8 @@ module.exports = site => {
     title: 'Leather Restoration in Surrey | Miracle Detail',
     description: 'Car leather restoration through Miracle Detail, Lingfield, Surrey: colour restoration, scuff and scratch repair and full interior restoration, to the same standard as the paintwork.',
     preload: [
-      { id: 'lr-hero-m', media: '(max-width: 900px)', sizes: '100vw' },
-      { id: 'lr-hero', media: '(min-width: 901px)', sizes: '100vw' }
+      { id: 'lr-hero3-m', media: '(max-width: 900px)', sizes: '100vw' },
+      { id: 'lr-hero3', media: '(min-width: 901px)', sizes: '66vw' }
     ],
 
     blocks: [
@@ -118,7 +118,8 @@ module.exports = site => {
 
       hero: {
 
-        stats: true, fit: true,
+        /* 28/10: the technician photo is tall; held on the right like correction's hero, so he is not under the copy */
+        stats: true, shift: true, right: true, dpos: '0% 40%',
 
         /* phones: where the poster crop is held (08/10) */
 
@@ -130,13 +131,13 @@ module.exports = site => {
 
         lede: 'Faded, scuffed, cracked or discoloured leather doesn’t have to stay that way. Leather colour restoration and repair is available through Miracle Detail, so the interior of your car matches the standard of the exterior.',
 
-        img: frame('lr-hero', {
+        img: frame('lr-hero3', {
 
-          priority: true, ratio: false, sizes: '100vw',
+          priority: true, ratio: false, sizes: '(max-width: 900px) 100vw, 66vw',
 
-          alt: 'Tan leather seats being cleaned by hand with a microfibre cloth',
+          alt: 'A leather technician spraying colour onto a Porsche 911’s black seats, the cabin masked off',
 
-          art: [{ media: '(max-width: 900px)', id: 'lr-hero-m', sizes: '100vw' }]
+          art: [{ media: '(max-width: 900px)', id: 'lr-hero3-m', sizes: '100vw' }]
 
         }),
 

@@ -166,6 +166,10 @@ module.exports = [
      black panel half swirled, half corrected, one bright light on it
      (Drive). No photo of Paul claying exists yet (REQUESTS). */
   { id: 'pc-s2', src: 'drive-paul/pc-decon-wash.png', crop: { l: 0, t: 0, w: .66, h: 1 }, widths: [500, 760] },
+  /* 28/10 (Paul, requests #6 and #7, Drive 28/10): his own PosiTector paint depth gauge on
+     black paint, and the contamination drawing he made ("just made one awesome pic") */
+  { id: 'pc-gauge2', src: 'drive-paul/2810/paint-depth-gauge-positector.png', widths: [400, 700, 1100] },
+  { id: 'pc-s2c', src: 'drive-paul/2810/contamination-layers.png', widths: [500, 760, 1100, 1536] },
   { id: 'pc-s4', src: 'drive-paul/pc-swirl-split-a.png', crop: { l: .04, t: .1, w: .92, h: .8 }, widths: [500, 768] },
   /* 21/10 (Paul: "a little gimmicky, clients want to see real pictures"):
      the five levels' panel is a real black panel under a light, swirled
@@ -318,6 +322,10 @@ module.exports = [
      hero stays the old site's photo. Four new pairs: a cream seat
      with red piping (5153→5154 crease, 5155→5156 cracked bolster) and a
      beige seat (7083→7084, 7085→7086). */
+  /* 28/10 (Paul, requests #15 and #41): the hero is the leather technician spraying the
+     911's black seats (Drive IMG_5136, turned upright; Brian 29/10 picked it over IMG_5138); Paul is happy to show him */
+  { id: 'lr-hero3', src: 'drive-paul/2810/leather-tech-spraying-911-seats-5136.jpg', crop: { l: 0, t: 0, w: 1, h: .8 }, widths: [960, 1440, 2048], q: 54 },
+  { id: 'lr-hero3-m', src: 'drive-paul/2810/leather-tech-spraying-911-seats-5136.jpg', crop: { l: 0, t: 0, w: 1, h: .8 }, widths: [480, 720, 1080], q: 54 },
   ...hero('lr-hero', O + '2023_11_High-quality-Auto-Leather-Restoration-in-Lingfield-Surrey-miracle-detail.jpg', { l: .25, t: 0, w: .5, h: 1 }),
   { id: 'lr-911',    src: LB + 'IMG_5148.jpg', crop: { l: 0, t: .3, w: 1, h: .47 }, widths: [600, 900, 1200] },
   { id: 'lr-colour', src: LB + 'IMG_5149.jpg', crop: { l: .08, t: .08, w: .84, h: .84 }, widths: [480, 768] },
@@ -362,6 +370,14 @@ module.exports = [
   /* 23/10 (Paul's board note 6, Fender): "Before correction" over swirled
      paint, not the 50/50 panel; the Vantage photo correction's Assessment step used */
   { id: 'ab-swirl', src: 'gallery/aston-martin-vantage-v8/02-gal-571-IMG_2957.jpg', widths: [600, 900, 1263] },
+  /* 28/10 (Paul, requests #11, #13, #14, #40, Drive 28/10): the larger Sunday Mirror scan,
+     the Autocar spread, the Swissvax Crystal Rock pot, Paul polishing the 599 and the
+     Veyron in the Middle East */
+  { id: 'ab-mirror2', src: 'drive-paul/2810/sunday-mirror-2006.png', widths: [480, 900, 1410] },
+  { id: 'ab-autocar', src: 'drive-paul/2810/autocar-soap-operator.png', widths: [480, 900, 1536] },
+  { id: 'ab-crystal', src: 'drive-paul/2810/swissvax-crystal-rock-pot.png', widths: [480, 900, 1254] },
+  { id: 'ab-599pol', src: 'drive-paul/2810/paul-polishing-599.png', widths: [480, 900, 1024] },
+  { id: 'ab-veypol', src: 'drive-paul/2810/paul-polishing-veyron.png', widths: [480, 900, 1536] },
   { id: 'ab-bike', src: 'drive-paul/mountain-bike/DE642BB3-B6EB-43F3-A2EC-7425A78CE217.png', widths: [480, 900, 1086] },
 
   /* ---------- Aftercare ---------- */

@@ -128,11 +128,14 @@ module.exports = site => {
       { block: '45-svc-show', with: { show: show({
         id: 'chameleon',
         eyebrow: 'The chameleon effect',
-        title: 'A film that changes with the <span class="gold it">light.</span>',
+        /* Paul 28/10 (requests #29): his Chameleon Window Tinting text in place of the
+           three lines (the second stopped mid-sentence), heading and words as he wrote them */
+        title: 'Chameleon <span class="gold it">Window Tinting</span>',
         intro: [
-          'Chameleon tint is named for exactly what it does: the film shifts colour depending on the angle of light hitting it. In bright sunshine it shimmers with blue and green. In overcast conditions it settles into a more subtle purple or silver. No two moments look quite the same.',
-          'On a windscreen it is particularly effective',
-          'It is the choice of clients who want their car to look different: genuinely different, not just tinted.'
+          'Chameleon window film creates a distinctive, colour-shifting appearance that changes with the light and viewing angle. Depending on the film selected, the glass can reveal striking shades of blue, green, purple and silver, producing a finish that is constantly changing.',
+          'The effect is particularly dramatic across a vehicle’s windscreen, creating a unique, premium appearance without relying on conventional dark tinting.',
+          'For clients seeking something truly individual, chameleon film offers a sophisticated way to transform their vehicle’s appearance.',
+          '<strong>Important:</strong> Windscreen applications are subject to UK road-legal light transmission requirements. Suitability must be assessed before installation.'
         ],
         img: frame('wt-599', { alt: 'A red Ferrari 599 from the front three-quarter, a colour-shift film drawn on its windscreen', sizes: '(max-width: 1320px) 94vw, 1240px' }),
         regions: [
