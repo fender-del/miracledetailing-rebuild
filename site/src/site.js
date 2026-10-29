@@ -88,7 +88,7 @@ const site = {
 
     /* v0.5 has no underbody page; Paul 22/10 (board note 1) asked for one */
     { key: 'underside', name: 'Underside Coating', href: '/underside-coating/',
-      line: 'Feynlab Industrial V2 — 10 year protection', from: 850, img: 'svc-underside' },
+      line: 'Feynlab Industrial V2 — 10 year protection', from: 1000, img: 'svc-underside' },
     { key: 'studio', name: 'Full Studio Detail', href: '/car-detailing-studio/#signature',
       line: 'Every service. One detailer.', from: 175, img: 'svc-studio' },
     /* 27/10 (Fender): Paul's interior page takes the Detailing Packages

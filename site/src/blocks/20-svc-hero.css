@@ -130,6 +130,8 @@
     -webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 14%),linear-gradient(180deg,#000 72%,transparent);mask-composite:intersect}
   /* dpos (13/10, correction: a tall photo held by Paul's head) */
   .shero--shift .shero__media img{object-position:var(--dpos,0% 52%)}
+  /* right (28/10, Leather, Brian: "kéo ảnh sang phải để thấy rõ người nhân viên"): the photo starts further right, so the person at its left edge clears the copy and the fade */
+  .shero--shift.shero--right .shero__media{left:44vw}
 }
 
 /* ---------- Phones + portrait tablets: the poster (08/10) ----------

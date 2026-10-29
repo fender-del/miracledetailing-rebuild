@@ -292,9 +292,13 @@ function levels(sec) {
   const stops = $$('[data-go]', sec);
   if ((!cv && !after) || !cards.length) return;
   /* 21/10 (Paul: drawn panel "a little gimmicky"): with a real photo pair
-     the level fades the corrected photo over the swirled one */
+     the level fades the corrected photo over the swirled one.
+     28/10 (Paul, requests #28: "looks like full correction doesnt remove the
+     scratches and swirls"): (f - .6) / .4 left Full Correction at 69%, a
+     third of the swirls still showing. Now I 60% · II 82% · III 93% ·
+     IV 99% · V 100%: from Full Correction up the panel reads as corrected */
   const paint = after
-    ? { setF: f => { after.style.opacity = f ? Math.max(0, (f - 0.6) / 0.4) : 0; }, light() {}, release() {} }
+    ? { setF: f => { const r = (1 - f) / 0.3; after.style.opacity = f ? Math.min(1, Math.max(0, 1 - 0.4 * r * r)) : 0; }, light() {}, release() {} }
     : surface(panel, cv, { seed: 9, lx: 0.42, ly: 0.4 });
   if (!paint) return;
 

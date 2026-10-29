@@ -78,9 +78,9 @@ module.exports = site => {
         /* phones: where the poster crop is held (08/10) */
         mfit: true,
         h1: 'Gallery',
-        /* Paul 22/10 (board note 68); the italic waits for Ed */
-        line: '<span class="it">The Work <span class="gold">Speaks</span></span>',
-        lede: '<span class="it">Three decades of exceptional cars. Every job photographed. Every car better than it arrived.</span>',
+        /* Paul 22/10 (board note 68); 28/10 (requests #35): only "Speaks" in italic, and his new lede */
+        line: 'The Work <span class="gold it">Speaks</span>',
+        lede: 'Three decades of exceptional cars, meticulous craftsmanship and results that speak for themselves. Explore a selection of vehicles personally prepared by Paul Dalton.',
         img: frame('gl-hero', {
           priority: true, ratio: false, sizes: '100vw',
           alt: 'A Ferrari 599 GTO in the Miracle Detail studio',

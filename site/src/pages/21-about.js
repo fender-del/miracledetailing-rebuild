@@ -76,14 +76,19 @@ module.exports = site => {
       [ph('bike', 'Mountain biking', 'A teenage mountain biker splashing through a muddy race course')]),
     entry('1994', 'Miracle Detail is established', 'What started as pocket money becomes a business. Miracle Detail is founded, operating mobile across London, detailing high profile clientele at their homes and premises. From the very first day, the approach is the same: Paul works alone, every car is treated as if it were his own, and there are no shortcuts.'),
     entry('2006', 'Fifth Gear, and the £5,000 car wash', 'Paul appears on Fifth Gear to detail a Maserati MC12, one of only 50 ever made. 61 stages. 64 hours. £5,000. The segment is broadcast globally and covered by seven national newspapers. Phone calls come in from across the world for a week. A generation of detailers still cites it as the moment they understood what the craft could become. In the same year, Paul begins installing PPF, making him the UK’s longest-serving active PPF installer.',
-      [ph('60', 'Maserati MC12', 'A white and blue Maserati MC12 outside the studio'), ph('1-1', 'Sunday Mirror, 2006', 'Sunday Mirror cutting: “The £5K carwash”')]),
-    entry('2006', 'Autocar: the £5,000 car wash', 'Autocar magazine runs a feature on Paul and the £5,000 car wash, shot at Romans International supercar dealership in Fleet, Surrey. The piece asks whether the world’s most expensive car wash is worth it, and answers its own question.'),
+      [ph('60', 'Maserati MC12', 'A white and blue Maserati MC12 outside the studio'), ph('mirror2', 'Sunday Mirror, 2006', 'Sunday Mirror cutting: “The £5K carwash”')]),
+    entry('2006', 'Autocar: the £5,000 car wash', 'Autocar magazine runs a feature on Paul and the £5,000 car wash, shot at Romans International supercar dealership in Fleet, Surrey. The piece asks whether the world’s most expensive car wash is worth it, and answers its own question.',
+      /* Paul 28/10 (requests #13): the Autocar pages, from his Drive */
+      [ph('autocar', 'Autocar, 2006', 'Autocar’s “Soap operator” feature: Paul and his kit beside a red Ferrari')]),
     /* Paul 22/10 (board note 4): 2007, not 2005 */
-    entry('2007', 'Swissvax: the Crystal Rock Wax collaboration', 'Paul collaborates with Swissvax on Crystal Rock Wax, sold worldwide through Swissvax’s authorised reseller network. The partnership runs until 2022.'),
+    entry('2007', 'Swissvax: the Crystal Rock Wax collaboration', 'Paul collaborates with Swissvax on Crystal Rock Wax, sold worldwide through Swissvax’s authorised reseller network. The partnership runs until 2022.',
+      /* Paul 28/10 (requests #40): "jus need crystal rock image included" */
+      [ph('crystal', 'Swissvax Crystal Rock', 'A pot of Swissvax Crystal Rock wax, its lid lifted')]),
     entry('2008', 'MPH: Top Gear Live, London', 'Paul attends MPH at Top Gear Live in London, putting the final polish on a Koenigsegg CCX on the show stand. Even surrounded by cameras and crowds rather than a quiet studio, the standard does not move: every car gets the same attention, wherever it is being prepared.',
       [ph('2-1', 'Koenigsegg CCX', 'A silver Koenigsegg CCX on the show stand'), ph('3-1', 'On the stand', 'Paul polishing the Koenigsegg on the stand'), ph('4-1', 'Final polish', 'Paul giving the Koenigsegg its final polish')]),
     entry('2008', 'The Middle East: a Bugatti and a Ferrari 599', 'Paul travels to the Middle East to detail a Bugatti Veyron and a Ferrari 599 GTB Fiorano, working alongside cars most detailers only ever see in photographs. The standard travels with him: the same studio discipline, a long way from Surrey.',
-      [ph('5-1', 'Ferrari 599, Middle East', 'A white Ferrari 599 GTB Fiorano')]),
+      /* Paul 28/10 (requests #11): him polishing the 599 and the Veyron, from his Drive */
+      [ph('5-1', 'Ferrari 599, Middle East', 'A white Ferrari 599 GTB Fiorano'), ph('599pol', 'Polishing the 599', 'Paul machine polishing the door of the white Ferrari 599'), ph('veypol', 'Polishing the Veyron', 'Paul machine polishing the front wing of a white and gold Bugatti Veyron')]),
     entry('2008', 'RTL: German television', 'Paul appears on RTL in Germany, taking the same detailing message to a European audience two years after Fifth Gear.',
       [ph('6-1', 'RTL Germany, 2008', 'Paul being interviewed for RTL in a car park')]),
     entry('2008', 'Japanese television: Broughtons, Pangbourne', 'Paul appears on Japanese television, filmed at Broughtons, the Koenigsegg and Spyker dealer in Pangbourne, near Reading. The detailing message travelling from Surrey to two different continents within months of each other.',
@@ -119,7 +124,8 @@ module.exports = site => {
       [ph('41-1', 'Glansz, Netherlands', 'Paul speaking at Glansz in the Netherlands')]),
     entry('2024', 'The Japanese Detailers World Detailing Tour visits HQ', 'A group of Japan’s leading detailers stop at Miracle Detail as part of their World Detailing Tour of the UK: proof that the studio in Lingfield is a destination on a map that stretches a lot further than Surrey.',
       [ph('42-1', 'Japanese Detailers World Tour', 'The Japanese Detailers World Detailing Tour group with Paul at the studio')]),
-    entry('2025', 'Global ambassador, and a coating with Paul’s name on it', 'Paul becomes Feynlab’s only global ambassador: not UK ambassador, global. He collaborates with Feynlab’s chemists to develop Ceramic by Paul Dalton, a professional-grade coating sold worldwide through the Feynlab website and used daily by professional detailers across the industry. His name is on the bottle. The coating launches in 2024.',
+    /* Paul 28/10 (requests #39): moved to 2024, the year the coating launched */
+    entry('2024', 'Global ambassador, and a coating with Paul’s name on it', 'Paul becomes Feynlab’s only global ambassador: not UK ambassador, global. He collaborates with Feynlab’s chemists to develop Ceramic by Paul Dalton, a professional-grade coating sold worldwide through the Feynlab website and used daily by professional detailers across the industry. His name is on the bottle. The coating launches in 2024.',
       [ph('43-1', 'Launch, 2024', 'Paul holding Ceramic by Paul Dalton at its launch'), ph('44-1', 'Ceramic by Paul Dalton', 'A bottle of Ceramic by Paul Dalton')]),
     entry('2026', 'A new studio: 32 years in the making', 'In July 2026, Miracle Detail opens its new purpose-built studio in Lingfield, Surrey. Climate controlled, with a specialist light tunnel, dedicated correction and PPF bays, a dedicated dry ice and industrial underside coating bay, and smart lighting throughout. This is what 32 years of craft looks like when it has the space it deserves.',
       [ph('45-1', 'The new studio, Lingfield', 'A green Lamborghini under the light tunnel in the new studio')])
@@ -161,7 +167,7 @@ module.exports = site => {
         title: 'The £5,000 car wash: <span class="gold">61 stages, 64 hours.</span>',
         img: frame('ab-50', { alt: 'The white and blue Maserati MC12 detailed on Fifth Gear', sizes: '(max-width: 899px) 92vw, 54vw', ratio: '4 / 3' }),
         /* the Sunday Mirror cutting laid over the MC12 (Fender 07/10) */
-        press: frame('ab-1-1', { alt: 'Sunday Mirror cutting: “The £5K carwash”', sizes: '(max-width: 899px) 64vw, 26vw' }),
+        press: frame('ab-mirror2', { alt: 'Sunday Mirror cutting: “The £5K carwash”', sizes: '(max-width: 899px) 64vw, 26vw' }),
         pressCap: 'Sunday Mirror, 2006',
         cap: 'Maserati MC12 · Fifth Gear · 2006 · One of only 50 ever made',
         figs: [{ n: '61', l: 'Stages' }, { n: '64', l: 'Hours' }, { n: '7', l: 'National newspapers' }],
@@ -202,7 +208,8 @@ module.exports = site => {
           'There’s no pressure, no upselling and no jargon. Just an honest conversation about your car.'
         ],
         items: [
-          { n: 'I', name: 'Paint looks dull or hazy' },
+          /* Paul 28/10 (requests #27): his own line under it */
+          { n: 'I', name: 'Paint looks dull or hazy', paras: 'Over time, improper washing, fine scratches, swirl marks and environmental contamination can rob your paintwork of its depth, clarity and gloss. Paul carefully assesses the condition before using specialist paint correction techniques to restore a deep, mirror-like finish while preserving as much original paint as possible.' },
           { n: 'II', name: 'Scratches and chips', paras: 'Paul checks with a paint depth gauge before touching the car. Surface scratches polish out. Anything down to bare metal needs repair first, not polish.' },
           { n: 'III', name: 'Want long-term protection', paras: 'Paul’s view: correct the paint properly first, then protect it. A ceramic coating on top of bad paint just seals in whatever was already there.' },
           { n: 'IV', name: 'New car: want to protect it from day one', paras: 'Paul rarely sees a new car arrive in perfect condition: dealer prep and transport leave their mark. He corrects it once, properly, before it’s driven anywhere in anger.' },

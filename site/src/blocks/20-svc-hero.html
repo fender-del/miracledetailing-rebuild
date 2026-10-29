@@ -20,7 +20,7 @@
      heroTone measures the photo and sets how much. mpos = where the
      phone crop is held; mfit = a wide photo shown whole, over a blurred
      copy of itself, rather than cropped to the subject's edge. -->
-<section class="shero{{#hero.split}} shero--split{{/hero.split}}{{#hero.film}} shero--film{{/hero.film}}{{#hero.panel}} shero--panel{{/hero.panel}}{{#hero.stats}} shero--stats{{/hero.stats}}{{#hero.shift}} shero--shift{{/hero.shift}}{{#hero.fit}} shero--fit{{/hero.fit}}{{#hero.mfit}} shero--mfit{{/hero.mfit}}" data-section="hero" data-hero{{#hero.mpos}} style="--mpos:{{hero.mpos}}"{{/hero.mpos}}{{^hero.mpos}}{{#hero.dpos}} style="--dpos:{{hero.dpos}}"{{/hero.dpos}}{{/hero.mpos}}>
+<section class="shero{{#hero.split}} shero--split{{/hero.split}}{{#hero.film}} shero--film{{/hero.film}}{{#hero.panel}} shero--panel{{/hero.panel}}{{#hero.stats}} shero--stats{{/hero.stats}}{{#hero.shift}} shero--shift{{/hero.shift}}{{#hero.right}} shero--right{{/hero.right}}{{#hero.fit}} shero--fit{{/hero.fit}}{{#hero.mfit}} shero--mfit{{/hero.mfit}}" data-section="hero" data-hero{{#hero.mpos}} style="--mpos:{{hero.mpos}}"{{/hero.mpos}}{{^hero.mpos}}{{#hero.dpos}} style="--dpos:{{hero.dpos}}"{{/hero.dpos}}{{/hero.mpos}}>
   {{#hero.mfit}}<div class="shero__bg" aria-hidden="true">{{&hero.img}}</div>{{/hero.mfit}}
   <div class="shero__media" data-hero-media>{{&hero.img}}{{#hero.video}}
     <video class="hero__video shero__video" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" data-start="0.5"
