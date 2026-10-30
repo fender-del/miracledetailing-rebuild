@@ -20,7 +20,7 @@ const SHOTS = path.resolve(DIR, '../out/shots');
 const DATA = path.resolve(DIR, '../out/data');
 const OUT = path.join(SITE, 'review');
 const SETTINGS = {
-  key: 'live1',              /* keep: a new key starts Paul's notes afresh */
+  key: 'live2',              /* a new key starts Paul's notes afresh (30/10: round 1 is done) */
   sendTo: 'Ed',
   defaultName: 'Paul'
 };

@@ -16,8 +16,13 @@ module.exports = [
   { id: 'pdr', path: 'paintless-dent-removal/', name: 'Paintless Dent Removal', group: 'Services' },
   { id: 'wheels', path: 'wheel-refurbishment/', name: 'Wheel Refurbishment', group: 'Services' },
   { id: 'leather', path: 'leather-restoration/', name: 'Leather Restoration', group: 'Services' },
+  { id: 'interior', path: 'interior-detailing/', name: 'Interior Cleaning & Protection', group: 'Services' },
+  { id: 'underside', path: 'underside-coating/', name: 'Underside Coating', group: 'Services' },
   { id: 'aftercare', path: 'aftercare-washing-guide/', name: 'Aftercare Guide', group: 'Services' },
   { id: 'journal', path: 'journal/', name: 'Journal', group: 'Journal' },
   { id: 'post-competition', path: 'facebook-competition/', name: 'Facebook Competition (post)', group: 'Journal' },
-  { id: 'post-launch', path: 'new-product-launch/', name: 'New Product Launch (post)', group: 'Journal' }
+  { id: 'post-launch', path: 'new-product-launch/', name: 'New Product Launch (post)', group: 'Journal' },
+  { id: 'post-matte', path: 'why-matte-and-satin-paint-needs-ppf/', name: 'Matte & Satin PPF (post)', group: 'Journal' },
+  { id: 'faq', path: 'car-detail-faqs/', name: 'FAQs', group: 'More' },
+  { id: 'terms', path: 'terms-and-privacy/', name: 'Terms & Privacy', group: 'More' }
 ];
