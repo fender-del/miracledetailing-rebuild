@@ -41,7 +41,7 @@ module.exports = site => {
   const nav = crumbs([
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/car-care-services/' },
-    { name: 'Paint correction', href: `/${SLUG}/` }
+    { name: 'Paint Correction', href: `/${SLUG}/` }
   ]);
   const workSizes = () => '(max-width: 767px) 46vw, 46vw';
 
@@ -98,7 +98,7 @@ module.exports = site => {
         /* 21/10 (Paul: "clients want to see real pictures"): a real panel, swirled then corrected */
         before: frame('pc-lv-b', { alt: 'A black panel under a bright light, covered in swirl marks', sizes: '(max-width: 1023px) 92vw, 52vw', ratio: false }),
         after: frame('pc-lv-a', { alt: 'The same black panel after correction, clear and deep', sizes: '(max-width: 1023px) 92vw, 52vw', ratio: false }),
-        book: { href: '#book', label: 'Book a consultation' },
+        book: { href: '#book', label: 'Book a Consultation' },
         levels: [
           { n: 'I', kicker: 'Level One', name: 'Enhancement Polish', f: 0.7, removal: 'up to 65–75%',
             paras: 'For paint in good overall condition that has lost its clarity. Light surface haze, minor wash marks and superficial swirling are refined. An excellent preparation step before protective coatings are applied.' },
@@ -193,7 +193,7 @@ module.exports = site => {
       bookTitle: 'Discover what your paintwork <span class="gold it">can truly achieve.</span>',
       bookLede: 'Every vehicle is different. With over 30 years of detailing experience, Paul will personally assess your paintwork, explain what’s realistically achievable and recommend the most appropriate treatment, without unnecessary work or unrealistic promises.',
       bookMore: { href: '#book-form', label: 'Book Your Consultation' },
-      formServices: site.picks('Paint correction'),
+      formServices: site.picks('Paint Correction'),
       heardFrom: site.heardFrom
     },
 
@@ -201,7 +201,7 @@ module.exports = site => {
       nav.schema,
       {
         '@context': 'https://schema.org', '@type': 'Service',
-        name: 'Paint correction', serviceType: 'Paint correction',
+        name: 'Paint Correction', serviceType: 'Paint Correction',
         description: 'Five levels of machine paint correction, from enhancement polish to concours perfect, after measuring paint depth, gloss and orange peel.',
         provider: { '@id': site.origin + '/#business' },
         areaServed: ['Surrey', 'Kent', 'Sussex', 'Hampshire', 'London']

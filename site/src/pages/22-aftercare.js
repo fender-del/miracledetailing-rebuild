@@ -33,7 +33,7 @@ const CS = 'https://www.cleanandshiny.co.uk/';
 module.exports = site => {
   const nav = crumbs([
     { name: 'Home', href: '/' },
-    { name: 'Aftercare & washing guide', href: `/${SLUG}/` }
+    { name: 'Aftercare & Washing Guide', href: `/${SLUG}/` }
   ]);
   /* a tag points at its product's card, or is a plain label */
   const tag = (label, card) => ({ label, href: card ? '#ac-' + card : null });

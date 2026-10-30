@@ -25,7 +25,7 @@ module.exports = site => {
   const nav = crumbs([
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/car-care-services/' },
-    { name: 'Bodyshop & paint repair', href: `/${SLUG}/` }
+    { name: 'Bodyshop & Paint Repair', href: `/${SLUG}/` }
   ]);
   const cardImg = (id, alt) => frame(id, { alt, sizes: '(max-width: 767px) 86vw, (max-width: 1023px) 45vw, 24vw', ratio: '4 / 3' });
   /* a step's picture: pic = the stage's (desktop), img = under its name */
@@ -177,7 +177,7 @@ module.exports = site => {
 
       bookTitle: 'Start with an honest <span class="gold it">conversation.</span>',
       bookLede: 'Tell Paul about the car and what it needs. He’ll advise on the repair, the detail and what the full job involves, before any commitment is made.',
-      formServices: site.picks('Leather, wheels or bodywork'),
+      formServices: site.picks('Leather, Wheels or Bodywork'),
       heardFrom: site.heardFrom
     },
 

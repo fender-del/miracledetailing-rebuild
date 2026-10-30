@@ -76,7 +76,7 @@ module.exports = site => {
   const nav = crumbs([
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/car-care-services/' },
-    { name: 'Window tinting', href: `/${SLUG}/` }
+    { name: 'Window Tinting', href: `/${SLUG}/` }
   ]);
 
   return {
@@ -281,7 +281,7 @@ module.exports = site => {
 
       bookTitle: 'Complete your car. <span class="gold">Inside and out.</span>',
       bookLede: 'Window tinting and ballistic film are both available through Miracle Detail, coordinated alongside your detail. Get in touch to discuss what’s right for your car.',
-      formServices: site.picks('Window tinting or bulletproof film'),
+      formServices: site.picks('Window Tinting or Bulletproof Film'),
       heardFrom: site.heardFrom
     },
 
@@ -289,7 +289,7 @@ module.exports = site => {
       nav.schema,
       {
         '@context': 'https://schema.org', '@type': 'Service',
-        name: 'Window tinting', serviceType: 'Window tinting and ballistic protection film',
+        name: 'Window Tinting', serviceType: 'Window tinting and ballistic protection film',
         description: 'Standard dyed, chameleon and windscreen tint within UK VLT law, and invisible ballistic protection film, coordinated through Miracle Detail.',
         provider: { '@id': site.origin + '/#business' },
         areaServed: ['Surrey', 'Kent', 'Sussex', 'Hampshire', 'London']

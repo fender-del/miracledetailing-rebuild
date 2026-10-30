@@ -46,7 +46,7 @@ const SECTIONS = [
 ];
 
 module.exports = site => {
-  const nav = crumbs([{ name: 'Home', href: '/' }, { name: 'Terms & privacy', href: `/${SLUG}/` }]);
+  const nav = crumbs([{ name: 'Home', href: '/' }, { name: 'Terms & Privacy', href: `/${SLUG}/` }]);
   return {
     slug: SLUG,
     title: 'Terms & Conditions and Privacy | Miracle Detail Ltd',

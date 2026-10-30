@@ -24,7 +24,7 @@ module.exports = site => {
   const nav = crumbs([
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/car-care-services/' },
-    { name: 'Paintless dent removal', href: `/${SLUG}/` }
+    { name: 'Paintless Dent Removal', href: `/${SLUG}/` }
   ]);
 
   /* 09/10 (Fender): realistic close-ups (AI renders, assets-src/pdr/)
@@ -153,7 +153,7 @@ module.exports = site => {
       bookTitle: 'The dent removed. <span class="gold it">The paint untouched.</span>',
       bookMore: { href: '/bodyshop-repair/', label: 'Bodyshop & Paint Repair' },
       bookLede: 'Tell Paul about the dent: size, location, whether the paint is broken. He’ll tell you whether PDR is the right solution and what the process involves.',
-      formServices: site.picks('Leather, wheels or bodywork'),
+      formServices: site.picks('Leather, Wheels or Bodywork'),
       heardFrom: site.heardFrom
     },
 
@@ -161,7 +161,7 @@ module.exports = site => {
       nav.schema,
       {
         '@context': 'https://schema.org', '@type': 'Service',
-        name: 'Paintless dent removal', serviceType: 'Paintless dent removal (PDR)',
+        name: 'Paintless Dent Removal', serviceType: 'Paintless dent removal (PDR)',
         description: 'Dents removed from behind the panel with no filler and no respray, coordinated through Miracle Detail.',
         provider: { '@id': site.origin + '/#business' },
         areaServed: ['Surrey', 'Kent', 'Sussex', 'Hampshire', 'London']

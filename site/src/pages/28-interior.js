@@ -32,7 +32,7 @@ module.exports = site => {
   const nav = crumbs([
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/car-care-services/' },
-    { name: 'Interior cleaning & protection', href: `/${SLUG}/` }
+    { name: 'Interior Cleaning & Protection', href: `/${SLUG}/` }
   ]);
   const cardImg = (id, alt) => frame(id, { alt, sizes: '(max-width: 767px) 86vw, (max-width: 1023px) 45vw, 30vw', ratio: '4 / 3' });
   const stepPic = (id, alt) => ({
@@ -163,7 +163,7 @@ module.exports = site => {
       bookTitle: 'Rediscover the pleasure of <span class="gold it">a beautiful interior.</span>',
       bookLedeIt: true,
       bookLede: 'From careful interior deep cleaning to specialist leather care and long-term surface protection, every vehicle receives an individually considered approach.',
-      formServices: site.picks('Interior cleaning & protection'),
+      formServices: site.picks('Interior Cleaning & Protection'),
       heardFrom: site.heardFrom
     },
 
@@ -171,7 +171,7 @@ module.exports = site => {
       nav.schema,
       {
         '@context': 'https://schema.org', '@type': 'Service',
-        name: 'Interior cleaning & protection', serviceType: 'Interior car detailing',
+        name: 'Interior Cleaning & Protection', serviceType: 'Interior car detailing',
         description: 'Interior car detailing: leather cleaning and care, fabric and carpet cleaning, dashboards and trim, specialist materials, interior glass and interior surface protection.',
         provider: { '@id': site.origin + '/#business' },
         areaServed: ['Surrey', 'Kent', 'Sussex', 'Hampshire', 'London']

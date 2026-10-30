@@ -37,7 +37,7 @@ const pic = (id, alt) => frame(id, { alt, sizes: '(max-width: 1023px) 92vw, 40vw
 module.exports = site => {
   const nav = crumbs([
     { name: 'Home', href: '/' },
-    { name: 'Detailing packages', href: `/${SLUG}/` }
+    { name: 'Detailing Packages', href: `/${SLUG}/` }
   ]);
 
   return {
@@ -164,7 +164,7 @@ module.exports = site => {
       snav: [
         { id: 'levels', label: 'The five levels' },
         { id: 'ask', label: 'Ask Paul' },
-        { id: 'wheels', label: 'Wheel ceramic' },
+        { id: 'wheels', label: 'Wheel Ceramic' },
         { id: 'reviews', label: 'Reviews' }
       ],
 
@@ -173,7 +173,7 @@ module.exports = site => {
 
       bookTitle: 'Every job. <span class="gold">Every car. Paul.</span>',
       bookLede: 'Get in touch to discuss which package is right for your car, and to check availability.',
-      formServices: site.picks('Detailing package'),
+      formServices: site.picks('Detailing Package'),
       heardFrom: site.heardFrom
     },
 
@@ -181,7 +181,7 @@ module.exports = site => {
       nav.schema,
       {
         '@context': 'https://schema.org', '@type': 'OfferCatalog',
-        name: 'Detailing packages',
+        name: 'Detailing Packages',
         itemListElement: [
           ['Maintenance Detail', 175], ['Protection Detail', 450], ['Correction Detail', 650], ['Ultimate Detail', 1000]
         ].map(([name, p]) => ({ '@type': 'Offer', name, priceCurrency: 'GBP', priceSpecification: { '@type': 'PriceSpecification', minPrice: p, priceCurrency: 'GBP', valueAddedTaxIncluded: false } }))

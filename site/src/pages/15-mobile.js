@@ -44,7 +44,7 @@ module.exports = site => {
   const nav = crumbs([
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/car-care-services/' },
-    { name: 'Mobile detailing', href: `/${SLUG}/` }
+    { name: 'Mobile Detailing', href: `/${SLUG}/` }
   ]);
   /* the VAT switch in site.js (vatMode) reaches these prices too */
   const inc = site.vatMode === 'inc';
@@ -277,7 +277,7 @@ module.exports = site => {
 
       bookTitle: 'Ready to <span class="gold it">book?</span>',
       bookLede: 'Tell Paul where the car is, what it needs, and when suits you. He’ll come to you.',
-      formServices: site.picks('Mobile detailing'),
+      formServices: site.picks('Mobile Detailing'),
       heardFrom: site.heardFrom
     },
 
@@ -285,7 +285,7 @@ module.exports = site => {
       nav.schema,
       {
         '@context': 'https://schema.org', '@type': 'Service',
-        name: 'Mobile detailing', serviceType: 'Mobile car detailing',
+        name: 'Mobile Detailing', serviceType: 'Mobile car detailing',
         description: 'The studio standard at the client’s location: maintenance, protection, enhancement and correction details from Paul’s purpose-built VW Caddy.',
         provider: { '@id': site.origin + '/#business' },
         areaServed: ['Surrey', 'Kent', 'Sussex', 'London', 'Hampshire', 'Essex', 'Hertfordshire', 'Oxfordshire', 'Buckinghamshire']

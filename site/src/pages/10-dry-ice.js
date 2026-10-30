@@ -27,7 +27,7 @@ module.exports = site => {
   const nav = crumbs([
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/car-care-services/' },
-    { name: 'Dry ice cleaning', href: `/${SLUG}/` }
+    { name: 'Dry Ice Cleaning', href: `/${SLUG}/` }
   ]);
   const price = site.vatMode === 'inc' ? '£240 inc. VAT' : '£200+VAT';
   const workSizes = w => (w ? '(max-width: 767px) 92vw, 58vw' : '(max-width: 767px) 92vw, 34vw');
@@ -181,7 +181,7 @@ module.exports = site => {
       /* ---------- Book ---------- */
       bookTitle: 'Clean what nothing <span class="gold it">else can reach.</span>',
       bookLede: 'Every dry ice cleaning job is assessed individually. Paul will tell you what’s achievable, what the process involves and what the result will look like, before any work begins.',
-      formServices: site.picks('Dry ice cleaning'),
+      formServices: site.picks('Dry Ice Cleaning'),
       heardFrom: site.heardFrom
     },
 
@@ -189,7 +189,7 @@ module.exports = site => {
       nav.schema,
       {
         '@context': 'https://schema.org', '@type': 'Service',
-        name: 'Dry ice cleaning', serviceType: 'Dry ice cleaning',
+        name: 'Dry Ice Cleaning', serviceType: 'Dry Ice Cleaning',
         description: 'Dry ice cleaning of engine bays, underbodies, interiors and restoration work. No water, no chemicals, no residue.',
         provider: { '@id': site.origin + '/#business' },
         areaServed: ['Surrey', 'Kent', 'Sussex', 'Hampshire', 'London'],

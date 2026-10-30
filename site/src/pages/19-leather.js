@@ -28,7 +28,7 @@ module.exports = site => {
   const nav = crumbs([
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/car-care-services/' },
-    { name: 'Leather restoration', href: `/${SLUG}/` }
+    { name: 'Leather Restoration', href: `/${SLUG}/` }
   ]);
   const pairImg = (id, alt) => frame(id, { alt, sizes: '(max-width: 767px) 46vw, (max-width: 1023px) 45vw, 360px', ratio: '3 / 4' });
   const thumb = id => frame(id, { alt: '', sizes: '72px', ratio: '1' });
@@ -160,7 +160,7 @@ module.exports = site => {
 
       bookTitle: 'Interior restored. <span class="gold it">Detail complete.</span>',
       bookLede: 'Mention leather restoration when you get in touch and Paul will include it in the assessment and quote for your detail.',
-      formServices: site.picks('Leather, wheels or bodywork'),
+      formServices: site.picks('Leather, Wheels or Bodywork'),
       heardFrom: site.heardFrom
     },
 
@@ -168,7 +168,7 @@ module.exports = site => {
       nav.schema,
       {
         '@context': 'https://schema.org', '@type': 'Service',
-        name: 'Leather restoration', serviceType: 'Car leather restoration',
+        name: 'Leather Restoration', serviceType: 'Car leather restoration',
         description: 'Leather colour restoration, scuff and scratch repair and full interior restoration, coordinated through Miracle Detail.',
         provider: { '@id': site.origin + '/#business' },
         areaServed: ['Surrey', 'Kent', 'Sussex', 'Hampshire', 'London']

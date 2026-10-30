@@ -111,23 +111,23 @@ const site = {
 
   /* Menu groups (PLAN.md §5.2), shown in the Services mega menu and footer. */
   serviceGroups: [
-    { name: 'Correct & restore', links: [
-      { name: 'Paint correction', href: '/paint-correction-and-polishing/' },
-      { name: 'Leather restoration', href: '/leather-restoration/' },
-      { name: 'Wheel refurbishment', href: '/wheel-refurbishment/' },
-      { name: 'Bodyshop & paint repair', href: '/bodyshop-repair/' },
-      { name: 'Paintless dent removal', href: '/paintless-dent-removal/' } ] },
+    { name: 'Correct & Restore', links: [
+      { name: 'Paint Correction', href: '/paint-correction-and-polishing/' },
+      { name: 'Leather Restoration', href: '/leather-restoration/' },
+      { name: 'Wheel Refurbishment', href: '/wheel-refurbishment/' },
+      { name: 'Bodyshop & Paint Repair', href: '/bodyshop-repair/' },
+      { name: 'Paintless Dent Removal', href: '/paintless-dent-removal/' } ] },
     { name: 'Protect', links: [
-      { name: 'Ceramic coatings', href: '/ceramic-coatings/' },
-      { name: 'Paint protection film', href: '/paint-protection-film-ppf/' },
-      { name: 'Window tinting & bulletproof film', href: '/window-tinting/' },
-      { name: 'Underside coating', href: '/underside-coating/' } ] },
-    { name: 'Clean & preserve', links: [
-      { name: 'Dry ice cleaning', href: '/dry-ice-blasting-and-laser-cleaning/' },
-      { name: 'Interior cleaning & protection', href: '/interior-detailing/' },
-      { name: 'Detailing packages', href: '/car-detailing-studio/' },
-      { name: 'Mobile detailing', href: '/mobile-car-detailing/' },
-      { name: 'Aftercare & washing guide', href: '/aftercare-washing-guide/' } ] }
+      { name: 'Ceramic Coatings', href: '/ceramic-coatings/' },
+      { name: 'Paint Protection Film', href: '/paint-protection-film-ppf/' },
+      { name: 'Window Tinting & Bulletproof Film', href: '/window-tinting/' },
+      { name: 'Underside Coating', href: '/underside-coating/' } ] },
+    { name: 'Clean & Preserve', links: [
+      { name: 'Dry Ice Cleaning', href: '/dry-ice-blasting-and-laser-cleaning/' },
+      { name: 'Interior Cleaning & Protection', href: '/interior-detailing/' },
+      { name: 'Detailing Packages', href: '/car-detailing-studio/' },
+      { name: 'Mobile Detailing', href: '/mobile-car-detailing/' },
+      { name: 'Aftercare & Washing Guide', href: '/aftercare-washing-guide/' } ] }
   ],
 
   /* v0.5 header order, old-site slugs. */
@@ -141,9 +141,9 @@ const site = {
   ],
 
   /* Paul's terms & privacy page (30/10, REQUESTS #30), in the footer */
-  legal: [{ name: 'Terms & privacy', href: '/terms-and-privacy/' }],
+  legal: [{ name: 'Terms & Privacy', href: '/terms-and-privacy/' }],
 
-  cta: { label: 'Book a consultation', href: '#book' },
+  cta: { label: 'Book a Consultation', href: '#book' },
 
   /* "To confirm" (Fender 06/10): every price or claim still waiting on
      Paul carries a small gold label on the page, so Paul and Ed can see
@@ -151,8 +151,8 @@ const site = {
   tbc: false,
 
   /* The form's "What would you like done?" picks. A page ticks its own
-     service with `formPick` (the dry ice page ticks "Dry ice cleaning"). */
-  formServices: ['Paint correction', 'Ceramic coating', 'Paint protection film', 'Dry ice cleaning', 'Underside coating', 'Full studio detail', 'Interior cleaning & protection', 'Detailing package', 'Mobile detailing', 'Window tinting or bulletproof film', 'Leather, wheels or bodywork', 'Not sure yet'],
+     service with `formPick` (the dry ice page ticks "Dry Ice Cleaning"). */
+  formServices: ['Paint Correction', 'Ceramic Coating', 'Paint Protection Film', 'Dry Ice Cleaning', 'Underside Coating', 'Full Studio Detail', 'Interior Cleaning & Protection', 'Detailing Package', 'Mobile Detailing', 'Window Tinting or Bulletproof Film', 'Leather, Wheels or Bodywork', 'Not sure yet'],
   heardFrom: ['Instagram', 'Facebook', 'Google', 'YouTube', 'TikTok', 'Fifth Gear or the press', 'A friend or another client', 'Other']
 };
 

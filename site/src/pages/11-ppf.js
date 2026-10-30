@@ -40,7 +40,7 @@ module.exports = site => {
   const nav = crumbs([
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/car-care-services/' },
-    { name: 'Paint protection film', href: `/${SLUG}/` }
+    { name: 'Paint Protection Film', href: `/${SLUG}/` }
   ]);
   const from = n => site.price({ from: n });
   const short = n => '£' + (site.vatMode === 'inc' ? Math.round(n * 1.2) : n).toLocaleString('en-GB');
@@ -228,7 +228,7 @@ module.exports = site => {
       /* ---------- Book (shared block, PPF ticked) ---------- */
       bookTitle: 'The best time to protect your paint was the day you <span class="gold it">bought the car.</span>',
       bookLede: 'The second best time is now. Every consultation is honest: Paul will tell you what coverage he recommends and exactly why.',
-      formServices: site.picks('Paint protection film'),
+      formServices: site.picks('Paint Protection Film'),
       heardFrom: site.heardFrom
     },
 
@@ -236,7 +236,7 @@ module.exports = site => {
       nav.schema,
       {
         '@context': 'https://schema.org', '@type': 'Service',
-        name: 'Paint protection film', serviceType: 'Paint protection film (PPF)',
+        name: 'Paint Protection Film', serviceType: 'Paint protection film (PPF)',
         description: 'Self-healing paint protection film fitted in the studio in Lingfield, Surrey: full front end, track pack or full car, in gloss, matte or colour.',
         provider: { '@id': site.origin + '/#business' },
         areaServed: ['Surrey', 'Kent', 'Sussex', 'Hampshire', 'London'],

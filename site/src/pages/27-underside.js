@@ -21,7 +21,7 @@ module.exports = site => {
   const nav = crumbs([
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/car-care-services/' },
-    { name: 'Underside coating', href: `/${SLUG}/` }
+    { name: 'Underside Coating', href: `/${SLUG}/` }
   ]);
   const svc = site.services.find(s => s.key === 'underside');
   const wide = (id, alt) => frame(id, { alt, sizes: '(max-width: 767px) 92vw, 560px', ratio: '2 / 1' });
@@ -155,7 +155,7 @@ module.exports = site => {
 
       bookTitle: 'Protect the parts <span class="gold it">that matter most.</span>',
       bookLede: 'Most people never think about their underbody until something goes wrong. The best time to protect it is before it does.',
-      formServices: site.picks('Underside coating'),
+      formServices: site.picks('Underside Coating'),
       heardFrom: site.heardFrom
     },
 
@@ -163,7 +163,7 @@ module.exports = site => {
       nav.schema,
       {
         '@context': 'https://schema.org', '@type': 'Service',
-        name: 'Underside coating', serviceType: 'Underbody protection coating',
+        name: 'Underside Coating', serviceType: 'Underbody protection coating',
         description: 'Feynlab Industrial V2 coating of the underbody, chassis, suspension, wheel arches, sills and shut lines. 10 years of protection.',
         provider: { '@id': site.origin + '/#business' },
         areaServed: ['Surrey', 'Kent', 'Sussex', 'Hampshire', 'London'],

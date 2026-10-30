@@ -27,7 +27,7 @@ module.exports = site => {
   const nav = crumbs([
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/car-care-services/' },
-    { name: 'Wheel refurbishment', href: `/${SLUG}/` }
+    { name: 'Wheel Refurbishment', href: `/${SLUG}/` }
   ]);
   const cardImg = (id, alt) => frame(id, { alt, sizes: '(max-width: 767px) 86vw, (max-width: 1023px) 45vw, 24vw', ratio: '4 / 3' });
   const pairImg = (id, alt) => frame(id, { alt, sizes: '(max-width: 767px) 46vw, (max-width: 1023px) 45vw, 370px', ratio: '1' });
@@ -143,7 +143,7 @@ module.exports = site => {
 
       bookTitle: 'Wheels restored. <span class="gold it">Detail complete.</span>',
       bookLede: 'Mention wheel refurbishment when you get in touch and Paul will include it in the assessment and quote for your detail.',
-      formServices: site.picks('Leather, wheels or bodywork'),
+      formServices: site.picks('Leather, Wheels or Bodywork'),
       heardFrom: site.heardFrom
     },
 
@@ -151,7 +151,7 @@ module.exports = site => {
       nav.schema,
       {
         '@context': 'https://schema.org', '@type': 'Service',
-        name: 'Wheel refurbishment', serviceType: 'Alloy wheel refurbishment',
+        name: 'Wheel Refurbishment', serviceType: 'Alloy wheel refurbishment',
         description: 'Diamond cut, powder coat, colour change and crack and buckle repair, coordinated through Miracle Detail.',
         provider: { '@id': site.origin + '/#business' },
         areaServed: ['Surrey', 'Kent', 'Sussex', 'Hampshire', 'London']

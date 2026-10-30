@@ -29,7 +29,7 @@ module.exports = site => {
   const nav = crumbs([
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/car-care-services/' },
-    { name: 'Ceramic coatings', href: `/${SLUG}/` }
+    { name: 'Ceramic Coatings', href: `/${SLUG}/` }
   ]);
   const workSizes = '(max-width: 767px) 92vw, 46vw';
 
@@ -204,7 +204,7 @@ module.exports = site => {
 
       bookTitle: 'Protect your paint with the <span class="gold it">person who knows it best.</span>',
       bookLede: 'Every coating consultation starts with an honest conversation about your car, how you use it, and which product is genuinely right for it.',
-      formServices: site.picks('Ceramic coating'),
+      formServices: site.picks('Ceramic Coating'),
       heardFrom: site.heardFrom
     },
 
@@ -212,7 +212,7 @@ module.exports = site => {
       nav.schema,
       {
         '@context': 'https://schema.org', '@type': 'Service',
-        name: 'Ceramic coating', serviceType: 'Ceramic coating',
+        name: 'Ceramic Coating', serviceType: 'Ceramic Coating',
         description: 'Feynlab ceramic coatings applied by Paul Dalton, Feynlab’s only global ambassador: from Original Ceramic to Self-Heal Plus and Industrial V2.',
         provider: { '@id': site.origin + '/#business' },
         areaServed: ['Surrey', 'Kent', 'Sussex', 'Hampshire', 'London']
