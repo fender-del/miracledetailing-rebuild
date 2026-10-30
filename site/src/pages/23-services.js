@@ -43,7 +43,8 @@ module.exports = site => {
         /* phones: where the poster crop is held (08/10) */
         mpos: '50% 50%',
         h1: 'Services',
-        line: 'Everything available through <span class="gold">Miracle Detail</span>',
+        /* Paul 29/10 (email): his three lines, the second in italic, the third gold */
+        line: 'Exceptional care.<br><span class="it">Without compromise.</span><br><span class="gold">Miracle Detail.</span>',
         img: frame('sv-hero', {
           priority: true, ratio: false, sizes: '100vw',
           alt: 'A blue Aston Martin DB11 under the light bars in the new Miracle Detail studio',

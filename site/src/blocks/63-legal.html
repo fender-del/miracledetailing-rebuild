@@ -1,0 +1,36 @@
+<!-- ============ 63 · TERMS & PRIVACY ============
+     Paul's own legal page (30/10, miracledetail-terms.html), words as he
+     wrote them. Head on black (crumbs, title, his line about the company),
+     then the clauses on ivory, one measure wide: number, title, text.
+     Desktop: the two sections stay listed beside the clauses. -->
+<article class="lg" data-section="legal">
+  <header class="wrap lg__head">
+    <div class="lg__crumbs">{{&crumbs}}</div>
+    <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>{{lg.eyebrow}}</p>
+    <h1 class="disp lg__h1">{{&lg.h1}}</h1>
+    <p class="lg__lede">{{&lg.lede}}</p>
+  </header>
+  <div class="lg__sheet sec" data-bg="light" data-theme="light">
+    <div class="wrap lg__in">
+      <nav class="lg__jump" aria-label="Sections">
+        <ul role="list">{{#lg.sections}}<li><a href="#{{id}}"><small class="lg__jl">{{label}}</small><span>{{&title}}</span></a></li>{{/lg.sections}}</ul>
+      </nav>
+      <div class="lg__body">
+        {{#lg.sections}}
+        <section class="lg__sec" id="{{id}}">
+          <p class="lg__label">{{label}}</p>
+          <h2 class="disp lg__h2">{{&title}}</h2>
+          {{#clauses}}
+          <div class="lg__cl">
+            <p class="lg__num">{{n}}</p>
+            <h3 class="lg__h3">{{t}}</h3>
+            <div class="lg__txt">{{&html}}</div>
+          </div>
+          {{/clauses}}
+        </section>
+        {{/lg.sections}}
+        <p class="lg__updated">{{&lg.updated}}</p>
+      </div>
+    </div>
+  </div>
+</article>

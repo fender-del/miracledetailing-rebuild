@@ -140,8 +140,8 @@ const site = {
     { name: 'Journal', href: '/journal/' }
   ],
 
-  /* Privacy and terms pages: not on v0.5, waiting on Paul (REQUESTS) */
-  legal: [],
+  /* Paul's terms & privacy page (30/10, REQUESTS #30), in the footer */
+  legal: [{ name: 'Terms & privacy', href: '/terms-and-privacy/' }],
 
   cta: { label: 'Book a consultation', href: '#book' },
 

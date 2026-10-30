@@ -21,6 +21,9 @@
 .shero__h1{display:inline-flex;margin-bottom:20px;font-size:clamp(.8rem,.74rem + .28vw,.98rem);letter-spacing:.22em;color:var(--white)}
 .shero__h1 .eyebrow__mark{color:var(--gold)}
 .shero__line{font-size:clamp(2.5rem,1rem + 3.6vw,5rem);max-width:13ch;margin-bottom:34px}
+/* a line broken by hand (Services, Paul 29/10) keeps its own breaks */
+.shero .shero__line:has(br){max-width:none}
+@media (min-width:901px){.shero .shero__line:has(br) span{white-space:nowrap}}
 .shero__lede{max-width:48ch;margin-bottom:34px}
 .shero__ctas{display:flex;flex-wrap:wrap;align-items:center;gap:14px 30px}
 
