@@ -44,3 +44,6 @@
   .swork__it figcaption{font-size:.625rem;letter-spacing:.12em}
 }
 .swork--bare{padding-block:clamp(32px,4vw,64px)}
+/* 03/11 (Fender): a bare grid carrying on the light section above it sits
+   just under that section's photos, not a block away (Underside) */
+[data-bg=light]:has(+.swork--bare[data-bg=light]){padding-bottom:calc(var(--sec) * .2)}
