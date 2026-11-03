@@ -147,7 +147,8 @@ module.exports = site => {
         mpos: '72% 50%',
         h1: 'Detailing Packages',
         line: 'Five levels. <span class="gold it">One standard.</span>',
-        lede: 'From a maintenance detail between full jobs to the complete Paul Dalton Signature: every package is carried out personally by Paul, to a standard that doesn’t change regardless of which level you choose.',
+        /* Paul 02/11 (note 2): his new lede, word for word */
+        lede: 'From a maintenance detail between comprehensive treatments to the complete Paul Dalton Signature experience, every package is carried out personally by Paul, with the same uncompromising attention to detail, regardless of the level you choose.',
         img: frame('pk-hero', {
           priority: true, ratio: false, sizes: '100vw',
           alt: 'The Ferrari badge on the deep red bonnet of a car in the dark studio',
@@ -171,7 +172,7 @@ module.exports = site => {
       stars, reviews,
       revsBg: frame('bg-reviews', { alt: '', sizes: '100vw', ratio: false }),
 
-      bookTitle: 'Every job. <span class="gold">Every car. Paul.</span>',
+      bookTitle: 'Every job. <span class="gold it">Every car. Paul.</span>',
       bookLede: 'Get in touch to discuss which package is right for your car, and to check availability.',
       formServices: site.picks('Detailing Package'),
       heardFrom: site.heardFrom

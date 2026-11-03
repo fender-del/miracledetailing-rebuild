@@ -46,6 +46,8 @@ module.exports = site => {
         title: 'Things people <span class="gold">ask Paul.</span>',
         sections: SECTIONS
       },
+      /* Paul 02/11 (note 26): "Is your car?" gold and italic */
+      bookTitle: 'The studio is ready.<br> <span class="gold it">Is your car?</span>',
       formServices: site.picks(),
       heardFrom: site.heardFrom
     },

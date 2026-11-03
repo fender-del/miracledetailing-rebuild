@@ -51,7 +51,8 @@ module.exports = site => {
       { block: '33-svc-prose', with: { prose: prose({
         id: 'overview', zoom: { focus: '50% 55%' },
         title: 'The interior is half the car. It deserves <span class="gold it">the same attention.</span>',
-        img: frame('lr-911', { alt: 'The black leather seats of a Porsche 911 after colour restoration, in the studio', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
+        /* Paul 02/11 (note 18): "should change this pic" (the 911 seats again) */
+        img: frame('lr-bentley', { alt: 'The white quilted leather front seats of a Bentley in the Miracle Detail studio', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
         paras: [
           'Paint correction and ceramic coating transform the exterior of a car. But if the leather is faded, scuffed or showing its age, the overall impression suffers, no matter how good the paintwork looks.',
           'Leather restoration is available through Miracle Detail as part of a full detail package. Colour restoration, scuff and scratch repair, and surface conditioning, delivered to the same standard as the rest of the work on your car.',

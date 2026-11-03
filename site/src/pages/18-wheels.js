@@ -50,7 +50,8 @@ module.exports = site => {
       { block: '33-svc-prose', with: { prose: prose({
         id: 'overview', zoom: { focus: '37% 30%', rot: 14 },
         title: 'The finishing touch that ties a detail <span class="gold it">together.</span>',
-        img: frame('wr-stands', { alt: 'Refurbished alloy wheels on stands in the workshop', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
+        /* Paul 02/11 (note 16): the wheels on stands out, a refurbished Audi wheel in (photo from Brian, 03/11) */
+        img: frame('wr-audi-rf', { alt: 'A refurbished grey and diamond-cut Audi wheel on a Michelin Pilot Sport 4S, lying on the studio floor', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '16 / 10' }),
         paras: [
           'A car that has received paint correction, ceramic coating and PPF deserves wheels that match. Corroded, kerbed or faded wheels undermine a detail no matter how good the paintwork looks, and they’re often the first thing people notice.',
           'Wheel refurbishment is available through Miracle Detail as part of your detail. Whether it’s a light refresh or full structural repair and colour change, the work is coordinated alongside your detail so the car leaves the studio complete, not almost complete.',

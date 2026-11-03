@@ -133,7 +133,7 @@ module.exports = site => {
       hero: {
         stats: true, shift: true, dpos: '50% 40%',
         h1: 'Interior Cleaning & Protection',
-        line: 'Exceptional interiors deserve <span class="gold">more than a quick clean.</span>',
+        line: 'Exceptional interiors deserve <span class="gold it">more than a quick clean.</span>',
         lede: 'From delicate leather and fine upholstery to the smallest, often-overlooked details, we restore cleanliness, refine presentation and protect the surfaces you experience every time you drive.',
         img: frame('in-hero', {
           priority: true, ratio: false, sizes: '(max-width: 900px) 100vw, 66vw',

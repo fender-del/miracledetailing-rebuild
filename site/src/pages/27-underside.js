@@ -80,6 +80,8 @@ module.exports = site => {
             thumb: '', bl: 'Before', al: 'After, same subframe' }
         ]
       }) } },
+      /* Paul 02/11 (note 22): "more industrial pictures here", his coated arch under the result */
+      '24-svc-work',
       { block: '37-svc-cards', with: { cards: cards({
         id: 'coverage', cols: 4,
         eyebrow: 'What gets protected',
@@ -133,6 +135,12 @@ module.exports = site => {
 
       stars, reviews,
 
+      workId: 'industrial', workLight: true,
+      work: [
+        { img: frame('us-arch1', { alt: 'A freshly coated wheel arch in gloss black, the bodywork masked off, the brake disc in front', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '3 / 4' }), third: true, mfull: true },
+        { img: frame('us-arch2', { alt: 'Close-up of a coated arch, damper and subframe in gloss black behind the brake disc', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '3 / 4' }), third: true },
+        { img: frame('us-arch3', { alt: 'The whole coated wheel arch of a red car, masked in plastic sheet, in the studio', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '3 / 4' }), third: true }
+      ],
       revsBg: frame('bg-reviews', { alt: '', sizes: '100vw', ratio: false }),
 
       snav: [

@@ -63,6 +63,11 @@ module.exports = [
   /* 23/10: Paul's underside page (miracledetail-underside.html): the
      coated Toyota arch (his damper close-up is us-hero already) and one subframe, before above after, split
      at the seam into a pair */
+  /* 03/11 (note 22: "more industrial pictures here"): Paul's freshly coated wheel arch,
+     masked up in the studio (Drive IMG_6033, 6034 28/10 and 30/10, 6040), HEIC → jpg */
+  { id: 'us-arch1', src: 'drive-paul/0311/industrial-arch-6033.jpg', widths: [480, 760, 1000], q: 60 },
+  { id: 'us-arch2', src: 'drive-paul/0311/industrial-arch-6034.jpg', crop: { l: 0, t: .2, w: 1, h: .614 }, widths: [480, 760, 1000], q: 60 },
+  { id: 'us-arch3', src: 'drive-paul/0311/industrial-arch-6040.jpg', widths: [480, 760, 1000], q: 60 },
   { id: 'us-spring', src: 'underside/paul-underside-2.jpg', widths: [600, 900], q: 62 },
   { id: 'us-b', src: 'underside/paul-underside-3.jpg', crop: { l: 0, t: 0, w: 1, h: .5 }, widths: [600, 900], q: 62 },
   { id: 'us-a', src: 'underside/paul-underside-3.jpg', crop: { l: 0, t: .5, w: 1, h: .5 }, widths: [600, 900], q: 62 },
@@ -115,6 +120,11 @@ module.exports = [
   { id: 'cc-w-m3',     src: 'drive-paul/43A66CCD-792F-466A-9B58-9CD493AA852C.PNG', widths: [500, 800] },
   { id: 'cc-w-laf',    src: 'drive-paul/7F092959-7052-463A-BCD6-D79366144417.PNG', crop: { l: 0, t: .2, w: 1, h: .563 }, widths: [500, 800] },
   { id: 'cc-w-f50',    src: 'drive-paul/8BBD2C80-F2B6-4135-8BFA-DA13CA2CA434.PNG', widths: [500, 800] },
+  /* 03/11 (Paul's notes 02/11, note 6: "more pictures of iconic cars ive done, green koenigsegg etc"):
+     three more of his jobs from the old gallery */
+  { id: 'cc-w-ccr', src: '../site/assets/gallery/koenigsegg-ccr-ninja-green/1-1400.webp', widths: [500, 800, 1200] },
+  { id: 'cc-w-tdf', src: '../site/assets/gallery/ferrari-tdf/3-1400.webp', widths: [500, 800, 1200] },
+  { id: 'cc-w-slr', src: '../site/assets/gallery/mercedes-slr-mclaren-silver/6-1400.webp', widths: [500, 800, 1200] },
   { id: 'cc-w-sto',    src: 'drive-paul/1D9733C6-7379-413C-A370-F7D973DF1A4D 2.PNG', widths: [600, 900, 1200] },
   { id: 'cc-w-599',    src: 'drive-paul/38059B2A-8AC0-4D87-A082-3A08CDE2F9B7.PNG', widths: [600, 900, 1200] },
   { id: 'cc-wheel-bmw', src: 'drive-paul/wheel-bmw.jpg', widths: [600, 900, 1086] },
@@ -183,6 +193,10 @@ module.exports = [
   { id: 'pc-w-monza',  src: 'drive-paul/3952C70D-2C9F-4808-8EC0-225C03BC209B.PNG', crop: { l: .06, t: 0, w: .94, h: 1 }, widths: [500, 800] },
   { id: 'pc-w-f1',     src: 'drive-paul/538CBFA0-75B8-417F-AC36-54F812D4D390.PNG', widths: [500, 800] },
   { id: 'pc-w-911',    src: 'drive-paul/3CE10B77-8075-49E1-B6CE-EC3922ED8BB8.PNG', widths: [500, 800] },
+  /* 03/11 (note 8: "some more cars here too!"): three more from his old gallery, Paul at work on two */
+  { id: 'pc-w-ccx',   src: '../site/assets/gallery/koenigsegg-ccx-cobalt-blue/5-1400.webp', widths: [500, 800, 1200] },
+  { id: 'pc-w-murci', src: '../site/assets/gallery/lamborghini-murcielago-lp-640-versace-edition-1-of-20/4-1400.webp', widths: [500, 800, 1200] },
+  { id: 'pc-w-cgt',   src: '../site/assets/gallery/porsche-carrera-gt-gt-silver/1-1400.webp', widths: [500, 800, 1200] },
   { id: 'pc-w-458',    src: 'drive-paul/523DD8E4-EB72-430C-9722-AD6EFA69A824.PNG', widths: [500, 800] },
 
   /* ---------- Window tinting ---------- */
@@ -248,6 +262,9 @@ module.exports = [
      into its two halves, never shown as one split frame. */
   { id: 'bs-over',   src: B + 'F4DB53D4-9CF6-4E59-8599-10CBE3AC30BD.png', crop: { l: 0, t: .1, w: 1, h: .625 }, widths: [600, 900, 1086] },  /* 21/10: the booth with the painted parts on stands (the grey car moved to Full Restoration) */
   { id: 'bs-c1',     src: 'drive/d441c8df-8714-41a9-a8ff-a3d4c4d37c86.jpg', crop: { l: .06, t: 0, w: .84, h: 1 }, widths: [600, 860] },  /* Fender's pick 09/10; crop drops the corner sparkle mark */
+  /* 03/11 (Paul's note 15: "bit of a boring pic lol need a different one"): his own booth
+     photo of one rear quarter panel freshly painted, the rest masked (Drive "bodyshop pictures", unused till now) */
+  { id: 'bs-c1r',    src: B + '64C7A47E-7467-4B3A-BC75-6B6C45BF104B.png', widths: [600, 900, 1200] },
   { id: 'bs-c2',     src: B + '81f4868c-0c84-4afd-a3d3-ea397dd4b461.jpg', crop: { l: .28, t: .16, w: .72, h: .405 }, widths: [600, 864] },
   { id: 'bs-c3',     src: B + 'D5DCAF3C-561A-4462-81CA-01BD1E7DC136.png', widths: [600, 900, 1086] },  /* 21/10 (Paul): the whole car in the booth, no crop */
   { id: 'bs-c4',     src: B + '0AB59D3B-8687-4370-9985-5CC0CCC0EBF8.png', widths: [600, 900, 1086] },  /* 21/10 (Paul): a whole car in the booth, no crop */
@@ -295,6 +312,9 @@ module.exports = [
      = that half of Paul's collage, its "AFTER" label covered with the
      blurred workshop just below it, composed in code, nothing redrawn. */
   ...hero('wr-hero', 'drive-paul/wheel-after-clean.png', { l: 0, t: 0, w: 1, h: 1 }),  /* Paul's Drive set, 07/10 */
+  /* 03/11 (Paul's note 16: "this pic needs to change"): a refurbished Audi wheel (grey and
+     diamond-cut, Michelin Pilot Sport 4S) on the studio floor, photo sent by Brian 03/11; cut to 16:10 round the hub */
+  { id: 'wr-audi-rf', src: 'drive-paul/0311/wheel-audi-refurb.jpg', crop: { l: 0, t: .03, w: 1, h: .833 }, widths: [600, 900, 1400] },
   { id: 'wr-stands', src: O + '2023_11_Excellent-Wheel-Refurbishment-in-Lingfield-Surrey.-Miracle-Detail.jpg', widths: [600, 1200] },
   { id: 'wr-audi',   src: O + '2023_11_Wheel-Refurbishment-in-Lingfield-Surrey.-Miracle-Detail-2.jpg', widths: [600, 1200] },
   { id: 'wr-face',   src: O + '2023_11_Wheel-Refurbishment-in-Lingfield-Surrey.-Miracle-Detail-4.jpg', widths: [600, 1200] },
@@ -327,6 +347,9 @@ module.exports = [
   { id: 'lr-hero3', src: 'drive-paul/2810/leather-tech-spraying-911-seats-5136.jpg', crop: { l: 0, t: 0, w: 1, h: .8 }, widths: [960, 1440, 2048], q: 54 },
   { id: 'lr-hero3-m', src: 'drive-paul/2810/leather-tech-spraying-911-seats-5136.jpg', crop: { l: 0, t: 0, w: 1, h: .8 }, widths: [480, 720, 1080], q: 54 },
   ...hero('lr-hero', O + '2023_11_High-quality-Auto-Leather-Restoration-in-Lingfield-Surrey-miracle-detail.jpg', { l: .25, t: 0, w: .5, h: 1 }),
+  /* 03/11 (note 18: "should change this pic"): a Bentley's white quilted leather seats in the studio,
+     photo sent by Brian 03/11 (not the Porsche again); cut to 16:10 */
+  { id: 'lr-bentley', src: 'drive-paul/0311/leather-bentley-white.jpg', crop: { l: 0, t: .1, w: 1, h: .833 }, widths: [600, 900, 1400] },
   { id: 'lr-911',    src: LB + 'IMG_5148.jpg', crop: { l: 0, t: .3, w: 1, h: .47 }, widths: [600, 900, 1200] },
   { id: 'lr-colour', src: LB + 'IMG_5149.jpg', crop: { l: .08, t: .08, w: .84, h: .84 }, widths: [480, 768] },
   { id: 'lr-dash',   src: LB + 'IMG_5135.jpg', widths: [480, 768] },

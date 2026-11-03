@@ -64,7 +64,7 @@ module.exports = site => {
         eyebrow: 'What’s available',
         title: 'From single panels <span class="gold it">to full restorations.</span>',
         items: [
-          { n: 'I', name: 'Panel Repair', sub: 'Localised damage, one panel', img: cardImg('bs-c1', 'A silver door with a small repair primed and feathered, the wheel arch masked off'),
+          { n: 'I', name: 'Panel Repair', sub: 'Localised damage, one panel', img: cardImg('bs-c1r', 'A red car in the spray booth, one rear quarter panel freshly painted and the rest masked off'), /* Paul 02/11 (note 15) */
             paras: 'For stone chips, scuffs, minor accident damage or corrosion on a single panel. The affected area is repaired and refinished to match the surrounding paintwork: blended, colour-matched and lacquered to an invisible finish.',
             list: ['Stone chip and scratch repair', 'Scuff and impact damage', 'Corrosion and rust treatment', 'Colour-matched refinish', 'Blend into surrounding panels where required'],
             price: 'POA' },

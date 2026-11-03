@@ -10,6 +10,7 @@
    wheel coating is one choice between its two versions (block 52).
    21/10 (Paul's notes 43, 51, 52, 48/50): the drawn tests are gone, block 51
    plays four real photos; Heal Lite shows POA (no price from Paul).
+   02/11 (Paul, note 4): Heal Lite's POA taken out; wheel 3–5 year from £350 (note 5).
    22/10 (notes 51, 52): those four photos were used elsewhere; Paul's own
    photos that no other page uses instead (M3, carbon, Gallardo, M5).
    22/10 (Fender): the coating and Feynlab's chemists instead, two lab
@@ -92,8 +93,7 @@ module.exports = site => {
             list: ['Co-developed by Paul Dalton and Feynlab', 'Professional grade, enthusiast friendly', 'Strong slickness from day one', 'Sold worldwide through Feynlab'] },
           { tag: '5yr', name: 'Heal Lite', sub: 'Feynlab Heal Lite',
             paras: 'A professional-grade nano coating with self-healing capabilities. Minor surface scratches disappear with the application of gentle heat. UV resistant, highly hydrophobic and high-gloss, with up to 60% of the healing capability of the flagship coating.',
-            list: ['Self-healing under gentle heat', 'UV resistance and deep gloss', 'Single-step ultra-durable formula'],
-            price: 'POA' },
+            list: ['Self-healing under gentle heat', 'UV resistance and deep gloss', 'Single-step ultra-durable formula'] },
           { tag: '5yr', name: 'Ultra V2', sub: 'Feynlab Ceramic Ultra V2',
             paras: 'One of the most durable non-healing ceramic coatings available. Extreme gloss, outstanding UV resistance, robust chemical protection and formidable scratch resistance. Built for cars that need maximum durability without self-healing complexity.',
             list: ['Extreme gloss and scratch resistance', 'Chemical and UV protection', 'Flexible, durable formula'] },
@@ -138,7 +138,7 @@ module.exports = site => {
         options: [
           { kicker: '1-Year Protection', name: 'Wheel Ceramic Coating', price: 'From £200 + VAT', to: 1,
             list: ['Wheels removed from the car', 'Ceramic coating applied inside and out', 'Painted calipers included', '1-year durability'] },
-          { kicker: '3–5 Year Protection', name: 'Durable Wheel Ceramic Coating', price: 'From £300 + VAT', from: 3, to: 5,
+          { kicker: '3–5 Year Protection', name: 'Durable Wheel Ceramic Coating', price: 'From £350 + VAT', from: 3, to: 5,
             list: ['Wheels removed from the car', 'Durable ceramic applied inside and out', 'Painted calipers included', '3–5 year durability'] }
         ]
       }) } },
@@ -199,7 +199,11 @@ module.exports = site => {
         { img: frame('cc-w-laf', { alt: 'The front of a red Ferrari LaFerrari in the studio', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'Ferrari LaFerrari', third: true },
         { img: frame('cc-w-f50', { alt: 'A red Ferrari F50 outside the Miracle Detail studio', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'Ferrari F50', third: true },
         { img: frame('cc-w-sto', { alt: 'A green Lamborghini Huracán STO under a summer sky', sizes: '(max-width: 767px) 46vw, 46vw', ratio: '4 / 3' }), cap: 'Lamborghini Huracán STO', half: true },
-        { img: frame('cc-w-599', { alt: 'A white Ferrari 599 GTB in the studio, a Bugatti Veyron behind it', sizes: '(max-width: 767px) 46vw, 46vw', ratio: '4 / 3' }), cap: 'Ferrari 599 GTB', half: true }
+        { img: frame('cc-w-599', { alt: 'A white Ferrari 599 GTB in the studio, a Bugatti Veyron behind it', sizes: '(max-width: 767px) 46vw, 46vw', ratio: '4 / 3' }), cap: 'Ferrari 599 GTB', half: true },
+        /* Paul 02/11 (note 6): more of the iconic cars he has done, the green Koenigsegg first */
+        { img: frame('cc-w-ccr', { alt: 'A Ninja Green Koenigsegg CCR outside a showroom', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'Koenigsegg CCR', third: true },
+        { img: frame('cc-w-tdf', { alt: 'A blue Ferrari F12tdf in a garage beside the Miracle Detail van', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'Ferrari F12tdf', third: true },
+        { img: frame('cc-w-slr', { alt: 'A silver Mercedes SLR McLaren in a showroom', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Mercedes SLR McLaren', third: true, mfull: true }
       ],
 
       bookTitle: 'Protect your paint with the <span class="gold it">person who knows it best.</span>',

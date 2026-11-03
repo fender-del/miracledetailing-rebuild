@@ -153,6 +153,8 @@ em,i,cite{font-style:normal}
   background:linear-gradient(90deg,#E9E5DB 0%,var(--paper) 18%,var(--paper) 82%,#E9E5DB 100%);
 }
 [data-bg=light]+[data-bg=light]{padding-top:calc(var(--sec) * .4)}
+/* 03/11: the lower paper reaches 1px up, over the hairline of page ground a fractional section height can leave */
+[data-bg=light]+[data-bg=light]::before{top:-1px}
 [data-theme=light]{
   --white:#111111;--text:#36332D;--muted:#5F5B53;--raise:#FFFFFF;
   --line:rgba(17,17,17,.12);--line-2:rgba(17,17,17,.22);

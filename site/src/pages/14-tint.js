@@ -106,7 +106,8 @@ module.exports = site => {
       { block: '37-svc-cards', with: { cards: cards({
         id: 'films', light: true, cols: 3, fx: 'rail', compact: true,
         eyebrow: 'Film options',
-        title: 'Two films. <span class="gold it">Every application covered.</span>',
+        /* Paul 02/11 (note 9): "Shouldn't this be three films? Chameleon, tint, and bullet proof film?" */
+        title: 'Three films. <span class="gold it">Every application covered.</span>',
         items: [
           { n: 'I', name: 'Standard Dyed Tint', sub: 'Privacy and UV protection',
             img: frame('wt-dyed', { alt: 'A dark Mercedes saloon from behind, its rear glass tinted', sizes: '(max-width: 900px) 88vw, 40vw', ratio: '4 / 3' }),
@@ -279,7 +280,7 @@ module.exports = site => {
         { id: 'reviews', label: 'Reviews' }
       ],
 
-      bookTitle: 'Complete your car. <span class="gold">Inside and out.</span>',
+      bookTitle: 'Complete your car. <span class="gold it">Inside and out.</span>',
       bookLede: 'Window tinting and ballistic film are both available through Miracle Detail, coordinated alongside your detail. Get in touch to discuss what’s right for your car.',
       formServices: site.picks('Window Tinting or Bulletproof Film'),
       heardFrom: site.heardFrom

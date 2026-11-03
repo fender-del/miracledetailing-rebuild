@@ -182,7 +182,11 @@ module.exports = site => {
         { img: frame('pc-w-monza', { alt: 'A grey Ferrari Monza SP in a dark studio', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'Ferrari Monza SP', third: true },
         { img: frame('pc-w-f1', { alt: 'A purple McLaren F1 in the studio', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'McLaren F1', third: true },
         { img: frame('pc-w-911', { alt: 'A white classic Porsche 911 Carrera in the studio', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'Porsche 911 Carrera', third: true },
-        { img: frame('pc-w-458', { alt: 'A yellow Ferrari 458 Speciale beside the Miracle Detail van', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'Ferrari 458 Speciale', third: true }
+        { img: frame('pc-w-458', { alt: 'A yellow Ferrari 458 Speciale beside the Miracle Detail van', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'Ferrari 458 Speciale', third: true },
+        /* Paul 02/11 (note 8): "some more cars here too!", from his old gallery */
+        { img: frame('pc-w-ccx', { alt: 'Paul machine polishing the bonnet of a Cobalt Blue Koenigsegg CCX on a lawn', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'Koenigsegg CCX', third: true },
+        { img: frame('pc-w-murci', { alt: 'Paul working on the side of a white Lamborghini Murciélago LP 640 Versace in a showroom', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'Lamborghini Murciélago LP 640 Versace', third: true },
+        { img: frame('pc-w-cgt', { alt: 'A silver Porsche Carrera GT on a lawn, its rear wing raised', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Porsche Carrera GT', third: true, mfull: true }
       ],
 
       stars, reviews,

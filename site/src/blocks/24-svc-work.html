@@ -4,8 +4,11 @@
      here as soon as Paul sends them (To confirm).
      13/10 (Fender: the photos bounced on every device): no scroll drift;
      on a mouse each card tilts, lifts and catches a lamp glint under the
-     pointer, like the homepage service cards (motion/pointer.js tilt). -->
-<section class="swork sec{{^workTitle}} swork--bare{{/workTitle}}" id="{{workId}}{{^workId}}work{{/workId}}" data-section="work">
+     pointer, like the homepage service cards (motion/pointer.js tilt).
+     03/11: workLight paints it on paper, so it carries on a light section
+     above it (Underside, Paul's note 22); mfull = the row to itself on
+     phones (a photo left on its own after the two-up rows). -->
+<section class="swork sec{{^workTitle}} swork--bare{{/workTitle}}" id="{{workId}}{{^workId}}work{{/workId}}" data-section="work"{{#workLight}} data-bg="light" data-theme="light"{{/workLight}}>
   <div class="wrap">
     {{#workTitle}}<div class="sec-head swork__head">
       <div>
@@ -16,7 +19,7 @@
     </div>{{/workTitle}}
     <ul class="swork__grid" role="list">
       {{#work}}
-      <li class="swork__it{{#wide}} is-wide{{/wide}}{{#full}} is-full{{/full}}{{#half}} is-half{{/half}}{{#third}} is-third{{/third}}" data-reveal="card">
+      <li class="swork__it{{#wide}} is-wide{{/wide}}{{#full}} is-full{{/full}}{{#half}} is-half{{/half}}{{#third}} is-third{{/third}}{{#mfull}} is-mfull{{/mfull}}" data-reveal="card">
         <figure><div class="swork__media" data-tilt>{{&img}}<span class="swork__shine" aria-hidden="true" data-tilt-shine></span></div>{{#cap}}<figcaption>{{cap}}</figcaption>{{/cap}}</figure>
       </li>
       {{/work}}

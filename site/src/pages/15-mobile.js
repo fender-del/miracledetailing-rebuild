@@ -271,7 +271,7 @@ module.exports = site => {
         img: frame('cc-wheel-bmw', { alt: 'A freshly finished black and diamond-cut BMW wheel', sizes: '(max-width: 899px) 92vw, 50vw', ratio: false }),
         prices: [
           { term: '1-year', amt: 'from £200+VAT' },
-          { term: '3–5 year', amt: 'from £300+VAT' }
+          { term: '3–5 year', amt: 'from £350+VAT' }
         ]
       },
 

@@ -156,7 +156,7 @@ module.exports = site => {
       stars, reviews,
       revsBg: frame('ac-revs', { alt: '', sizes: '100vw', ratio: false }),
 
-      bookTitle: 'Any questions? <span class="gold">Just ask Paul.</span>',
+      bookTitle: 'Any questions? <span class="gold it">Just ask Paul.</span>',
       bookLede: 'If you’re unsure about anything (the procedure, the products, or how your coating is performing) get in touch directly. Paul is happy to advise.',
       bookEmail: true,
       formServices: site.picks(),
