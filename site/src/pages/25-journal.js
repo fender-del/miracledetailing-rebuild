@@ -92,6 +92,8 @@ const POSTS = [
       '<p>Paint Protection Film applied to a matte or satin finish car does two things simultaneously. First, it absorbs stone chips, road debris, abrasion and environmental contamination before any of it reaches the paint beneath. Second, and this is what most people don’t realise, modern matte PPF films are virtually indistinguishable from the factory finish beneath them.</p>',
       '<p>XPEL Stealth, for example, the film Paul uses on matte and satin cars, is specifically engineered to replicate the optical properties of a flat finish. Applied correctly, by someone with the experience to handle it properly, you would not know it was there. The protection is invisible. The finish is preserved.</p>',
       '<p>And if the film itself is ever damaged, by a stone chip or a scrape, you replace the film, not the paint. That panel section of film costs a fraction of a respray. The paint beneath is untouched.</p>',
+      /* 04/11 (requests 03/11 #7): Paul's own matte blue Ioniq 5 N */
+      fig('jn-matte-ioniq', 'A matte blue Hyundai Ioniq 5 N in the Miracle Detail studio under the hexagon lights', SZ, '1320 / 950', 'Paul’s matte blue Ioniq 5 N'),
 
       '<h2 data-reveal>The importance of <span class="gold it">correct installation.</span></h2>',
       '<p>Matte PPF is significantly more demanding to install than gloss film. The surface tension of the film, the stretching required around complex curves, and the precision needed at panel edges is all more critical, because any imperfection is more visible on a flat finish than it would be on a gloss car where reflections mask minor flaws.</p>',

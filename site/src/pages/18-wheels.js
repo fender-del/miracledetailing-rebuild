@@ -63,7 +63,7 @@ module.exports = site => {
         eyebrow: 'What’s available',
         title: 'Four services. <span class="gold it"><span class="nw">Every wheel</span> covered.</span>',
         items: [
-          { n: 'I', name: 'Diamond Cut', sub: 'Lathe-finished face, powder-coated barrel', img: cardImg('cc-wheel-bmw', 'A black and diamond-cut BMW M wheel, the machined face catching the light'),
+          { n: 'I', name: 'Diamond Cut', sub: 'Lathe-finished face, powder-coated barrel', img: cardImg('wr-bmw-c', 'A black and diamond-cut BMW M wheel close up over a red caliper, the machined spokes catching the light'),
             paras: 'The factory finish on many prestige wheels. The face of the wheel is machined on a CNC lathe to produce a precise, reflective cut surface, with the barrel and spokes powder-coated in the original or chosen colour. The most sought-after finish for OEM-specification restoration.',
             list: ['CNC lathe machining of wheel face', 'Powder-coated barrel and spokes', 'Lacquer sealed finish', 'Colour-matched or custom colour'],
             price: 'Pricing confirmed at enquiry' },

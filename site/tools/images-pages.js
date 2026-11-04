@@ -69,8 +69,21 @@ module.exports = [
   { id: 'us-arch2', src: 'drive-paul/0311/industrial-arch-6034.jpg', crop: { l: 0, t: .2, w: 1, h: .614 }, widths: [480, 760, 1000], q: 60 },
   { id: 'us-arch3', src: 'drive-paul/0311/industrial-arch-6040.jpg', widths: [480, 760, 1000], q: 60 },
   { id: 'us-spring', src: 'underside/paul-underside-2.jpg', widths: [600, 900], q: 62 },
-  { id: 'us-b', src: 'underside/paul-underside-3.jpg', crop: { l: 0, t: 0, w: 1, h: .5 }, widths: [600, 900], q: 62 },
-  { id: 'us-a', src: 'underside/paul-underside-3.jpg', crop: { l: 0, t: .5, w: 1, h: .5 }, widths: [600, 900], q: 62 },
+  /* 04/11 (Paul 03/11: "industrial pics before and after", Drive "New photos 3/11/26"):
+     the subframe pair from his 2048 px original (IMG_1637), plus five more jobs. Each
+     collage is before above after inside a yellow frame; the crops sit inside it
+     (frame 26 px on the 1638 wide ones, 20 px on the 1230 wide ones, measured) */
+  { id: 'us-b', src: 'drive-paul/0411/underside-subframe-1637.jpg', crop: { l: 0, t: 0, w: 1, h: .5 }, widths: [600, 900, 1200], q: 62 },
+  { id: 'us-a', src: 'drive-paul/0411/underside-subframe-1637.jpg', crop: { l: 0, t: .5, w: 1, h: .5 }, widths: [600, 900, 1200], q: 62 },
+  ...[['2', 'industrial-lift-2974', 1230], ['3', 'industrial-arch-e292', 1638], ['4', 'industrial-knuckle-ad5f', 1230],
+      ['5', 'industrial-rear-d2ed', 1638], ['6', 'industrial-spring-3549', 1638]].flatMap(([n, f, w]) => {
+    const src = 'drive-paul/0411/' + f + '.jpg';
+    const x = w === 1230 ? { l: .018, w: .962, h: .477 } : { l: .018, w: .964, h: .478 };
+    return [
+      { id: 'us-b' + n, src, crop: { l: x.l, t: .014, w: x.w, h: x.h }, widths: [600, 900, 1180], q: 62 },
+      { id: 'us-a' + n, src, crop: { l: x.l, t: .508, w: x.w, h: x.h }, widths: [600, 900, 1180], q: 62 }
+    ];
+  }),
 
   /* ---------- Interior cleaning & protection (27/10, Paul's own page) ----------
      Paul's Drive "interior pics x2" (1086 wide, no larger sizes): the
@@ -315,6 +328,10 @@ module.exports = [
   /* 03/11 (Paul's note 16: "this pic needs to change"): a refurbished Audi wheel (grey and
      diamond-cut, Michelin Pilot Sport 4S) on the studio floor, photo sent by Brian 03/11; cut to 16:10 round the hub */
   { id: 'wr-audi-rf', src: 'drive-paul/0311/wheel-audi-refurb.jpg', crop: { l: 0, t: .03, w: 1, h: .833 }, widths: [600, 900, 1400] },
+  /* 04/11: Diamond Cut card, Paul's close-up of a diamond-cut BMW M wheel over a red
+     caliper (Drive "New photos 3/11/26" IMG_0535), so the whole-wheel BMW photo
+     (cc-wheel-bmw) is not on this page as well as Ceramic, Mobile and Packages */
+  { id: 'wr-bmw-c', src: 'drive-paul/0411/wheel-bmw-0535.jpg', crop: { l: 0, t: .15, w: 1, h: .5625 }, widths: [600, 900, 1400] },
   { id: 'wr-stands', src: O + '2023_11_Excellent-Wheel-Refurbishment-in-Lingfield-Surrey.-Miracle-Detail.jpg', widths: [600, 1200] },
   { id: 'wr-audi',   src: O + '2023_11_Wheel-Refurbishment-in-Lingfield-Surrey.-Miracle-Detail-2.jpg', widths: [600, 1200] },
   { id: 'wr-face',   src: O + '2023_11_Wheel-Refurbishment-in-Lingfield-Surrey.-Miracle-Detail-4.jpg', widths: [600, 1200] },
@@ -352,6 +369,9 @@ module.exports = [
   { id: 'lr-bentley', src: 'drive-paul/0311/leather-bentley-white.jpg', crop: { l: 0, t: .1, w: 1, h: .833 }, widths: [600, 900, 1400] },
   { id: 'lr-911',    src: LB + 'IMG_5148.jpg', crop: { l: 0, t: .3, w: 1, h: .47 }, widths: [600, 900, 1200] },
   { id: 'lr-colour', src: LB + 'IMG_5149.jpg', crop: { l: .08, t: .08, w: .84, h: .84 }, widths: [480, 768] },
+  /* 04/11 (requests 03/11 #5: card I, not the black 911 again): the black AMG seats of
+     a Mercedes SL55 in the studio, Drive "New photos 3/11/26" IMG_2553 (HEIC → jpg) */
+  { id: 'lr-sl55', src: 'drive-paul/0411/leather-sl55-2553.jpg', crop: { l: .12, t: .1, w: .88, h: .8 }, widths: [480, 768, 1200] },
   { id: 'lr-dash',   src: LB + 'IMG_5135.jpg', widths: [480, 768] },
   { id: 'lr-quote',  src: LB + 'IMG_5150.jpg', crop: { l: 0, t: .15, w: 1, h: .56 }, widths: [960, 1440, 2048], q: 52 },
   ...['5153', '5154', '5155', '7083', '7084', '7085', '7086'].map(n => ({ id: 'lr-' + n, src: LB + 'IMG_' + n + '.jpg', widths: [480, 768] })),
@@ -399,7 +419,8 @@ module.exports = [
   { id: 'ab-mirror2', src: 'drive-paul/2810/sunday-mirror-2006.png', widths: [480, 900, 1410] },
   { id: 'ab-autocar', src: 'drive-paul/2810/autocar-soap-operator.png', widths: [480, 900, 1536] },
   { id: 'ab-crystal', src: 'drive-paul/2810/swissvax-crystal-rock-pot.png', widths: [480, 900, 1254] },
-  { id: 'ab-599pol', src: 'drive-paul/2810/paul-polishing-599.png', widths: [480, 900, 1024] },
+  /* 04/11: the same photo, sharper (Paul's Drive "New photos 3/11/26") */
+  { id: 'ab-599pol', src: 'drive-paul/0411/paul-polishing-599-hd.png', widths: [480, 900, 1024] },
   { id: 'ab-veypol', src: 'drive-paul/2810/paul-polishing-veyron.png', widths: [480, 900, 1536] },
   { id: 'ab-bike', src: 'drive-paul/mountain-bike/DE642BB3-B6EB-43F3-A2EC-7425A78CE217.png', widths: [480, 900, 1086] },
 
@@ -433,5 +454,7 @@ module.exports = [
   { id: 'jn-matte',        src: 'drive-paul/matte-ppf/jaguar-bumper-film.png',  crop: { l: 0, t: .14, w: 1, h: .75 }, widths: [600, 900, 1448] },
   { id: 'jn-matte-wing',   src: 'drive-paul/matte-ppf/jaguar-wing-squeegee.png', widths: [480, 720, 1086] },
   { id: 'jn-matte-mirror', src: 'drive-paul/matte-ppf/jaguar-mirror-film.png',   widths: [480, 720, 1086] },
-  { id: 'jn-matte-done',   src: 'drive-paul/matte-ppf/jaguar-finished.png',      widths: [600, 900, 1448] }
+  { id: 'jn-matte-done',   src: 'drive-paul/matte-ppf/jaguar-finished.png',      widths: [600, 900, 1448] },
+  /* 04/11 (requests 03/11 #7): Paul's matte blue Ioniq 5 N, Drive "New photos 3/11/26" IMG_2592 */
+  { id: 'jn-matte-ioniq',  src: 'drive-paul/0411/ioniq5n-matte-2592.jpg',        widths: [600, 900, 1320] }
 ];

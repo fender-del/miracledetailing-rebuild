@@ -64,7 +64,7 @@ module.exports = site => {
         eyebrow: 'What’s covered',
         title: 'Colour. Repair. <span class="gold it">Restoration.</span>',
         items: [
-          { n: 'I', name: 'Colour Restoration', sub: 'Faded and worn leather', img: cardImg('lr-colour', 'The black leather driver’s seat of a Porsche 911 after colour restoration'),
+          { n: 'I', name: 'Colour Restoration', sub: 'Faded and worn leather', /* 04/11 (requests 03/11 #5): Paul's Mercedes SL55, not the 911 again */ img: cardImg('lr-sl55', 'The black AMG leather seats of a Mercedes SL55 in the studio after colour restoration'),
             paras: 'Leather colour fades over time, from UV exposure, body oils and general wear. Colour restoration brings the leather back to its original shade or any chosen colour, applied in thin, flexible layers that move and breathe with the leather rather than cracking and peeling.',
             list: ['Original colour matching or colour change', 'Thin, flexible colour application', 'UV-resistant finish', 'Seats, bolsters, door cards and dash'],
             price: 'Pricing confirmed at enquiry' },

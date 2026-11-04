@@ -73,12 +73,17 @@ module.exports = site => {
         id: 'result', light: true, wide: true,
         eyebrow: 'The result',
         title: 'What the coating <span class="gold it">actually looks like.</span>',
-        /* Paul's one photo, before above after, split at the seam */
+        /* Paul's collages, before above after, split at the seam; 04/11 (Paul 03/11:
+           "industrial pics before and after") five more jobs from his Drive */
         items: [
-          { before: wide('us-b', 'Before: a front subframe and sump, dull, grimy and spotted with surface rust'),
-            after: wide('us-a', 'After Feynlab Industrial V2: the same subframe and sump, clean and coated in gloss black'),
-            thumb: '', bl: 'Before', al: 'After, same subframe' }
-        ]
+          ['us-b', 'Before: a front subframe and sump, dull, grimy and spotted with surface rust', 'us-a', 'After Feynlab Industrial V2: the same subframe and sump, clean and coated in gloss black', 'subframe'],
+          ['us-b2', 'Before: the whole underbody of a car on the studio lift, grey with road dirt', 'us-a2', 'After Feynlab Industrial V2: the same underbody, subframes and arms coated in gloss black', 'underbody'],
+          ['us-b3', 'Before: a wheel arch, coil spring and damper caked in brown road grime', 'us-a3', 'After Feynlab Industrial V2: the same wheel arch clean and coated, the spring and damper black again', 'arch'],
+          ['us-b4', 'Before: a front hub and suspension arm, dull grey with dirt and surface rust', 'us-a4', 'After Feynlab Industrial V2: the same hub and arm coated in gloss black', 'hub and arm'],
+          ['us-b5', 'Before: a rear subframe and trailing arm, dusty grey metal', 'us-a5', 'After Feynlab Industrial V2: the same subframe and arm coated in gloss black', 'subframe'],
+          ['us-b6', 'Before: a coil spring and lower arm, rusted and grimy', 'us-a6', 'After Feynlab Industrial V2: the same spring and arm clean and coated black', 'spring and arm']
+        ].map(([b, ba, a, aa, part]) => ({ before: wide(b, ba), after: wide(a, aa),
+          thumb: frame(a, { alt: '', sizes: '72px', ratio: '1' }), bl: 'Before', al: 'After, same ' + part }))
       }) } },
       /* Paul 02/11 (note 22): "more industrial pictures here", his coated arch under the result */
       '24-svc-work',
