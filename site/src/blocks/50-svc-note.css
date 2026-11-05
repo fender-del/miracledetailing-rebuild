@@ -19,4 +19,12 @@
 .snote__body a{white-space:nowrap}
 /* Paul 23/10 (note 39): the italic paragraph at the size of the line above it */
 .snote__body p .snote__it{font-size:clamp(1.25rem,1rem + .95vw,1.8rem);line-height:1.36;display:inline-block}
-.snote__cta{margin-top:8px}
+.snote__cta{margin-top:8px;max-width:100%}
+/* 05/11 new car: a long button label ("Enquire About New Car Protection")
+   is wider than a phone; nowrap made the grid track grow past the screen
+   and cut every line of the note. The track stays at the screen width and
+   the label wraps instead. */
+.snote__in{grid-template-columns:minmax(0,1fr)}
+@media (max-width:767px){
+  .snote__cta .btn{max-width:100%;white-space:normal;text-align:center;line-height:1.5;padding-block:12px}
+}

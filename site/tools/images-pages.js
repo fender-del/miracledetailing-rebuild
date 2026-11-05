@@ -456,5 +456,33 @@ module.exports = [
   { id: 'jn-matte-mirror', src: 'drive-paul/matte-ppf/jaguar-mirror-film.png',   widths: [480, 720, 1086] },
   { id: 'jn-matte-done',   src: 'drive-paul/matte-ppf/jaguar-finished.png',      widths: [600, 900, 1448] },
   /* 04/11 (requests 03/11 #7): Paul's matte blue Ioniq 5 N, Drive "New photos 3/11/26" IMG_2592 */
-  { id: 'jn-matte-ioniq',  src: 'drive-paul/0411/ioniq5n-matte-2592.jpg',        widths: [600, 900, 1320] }
+  { id: 'jn-matte-ioniq',  src: 'drive-paul/0411/ioniq5n-matte-2592.jpg',        widths: [600, 900, 1320] },
+
+  /* ---------- New car detail & protection (05/11, Paul's mail 04-05/11) ----------
+     Hero = his new matte blue Ioniq 5 N ("my new car being centre stage
+     at the top"); the matte section = the matte grey Cupra in the new
+     PPF bay, the photo attached to his mail (not on the Drive) */
+  { id: 'nc-hero',   src: 'drive-paul/0411/ioniq5n-matte-2592.jpg', widths: [960, 1320], q: 60 },
+  /* phones (05/11 mobile check): the whole car, shown whole over its blurred self (hero.mfit) */
+  { id: 'nc-hero-m', src: 'drive-paul/0411/ioniq5n-matte-2592.jpg', crop: { l: .08, t: .22, w: .9, h: .7 }, widths: [480, 720, 1188], q: 60 },
+  { id: 'nc-matte', src: 'drive-paul/0511/cupra-matte-mail-0511.png', widths: [600, 900, 1254] },
+  /* 05/11 (Brian: "chọn ảnh phù hợp trong drive"): Drive photos no page
+     used yet, checked against every image on the site (ORB + colour match) */
+  { id: 'nc-prep',    src: 'drive-paul/0511/portofino-foam-0299.jpg',        crop: { l: 0, t: .2, w: 1, h: .5625 }, widths: [600, 900, 1400] },
+  { id: 'nc-refine',  src: 'drive-paul/0511/black-m6-reflections-f0d9.png',  crop: { l: 0, t: .06, w: 1, h: .422 }, widths: [600, 900, 1086] },
+  { id: 'nc-ceramic', src: 'drive-paul/0511/range-rover-black-studio-fac5.png', crop: { l: 0, t: .14, w: 1, h: .75 }, widths: [600, 900, 1448] },
+  { id: 'nc-ppf',     src: 'drive-paul/0511/ppf-hands-black-72a8.png',       crop: { l: 0, t: .42, w: 1, h: .422 }, widths: [600, 900, 1086] },
+  { id: 'nc-package', src: 'drive-paul/0511/r8-spyder-white-studio-f418.png', widths: [600, 900, 1448] },
+  { id: 'nc-studio',  src: 'drive-paul/0511/studio-hex-row-a02b.png',        crop: { l: 0, t: .03, w: 1, h: .937 }, widths: [600, 900, 1086] },
+  { id: 'nc-dayone',  src: 'drive-paul/0511/f12-blue-carpark-a8c7.png',      widths: [960, 1448], q: 54 },
+  /* 05/11 round 3 (Brian: fill every place a photo fits, for Paul to see;
+     his own photos replace these later): the intro and one per card */
+  { id: 'nc-intro',   src: 'drive-paul/0511/porsche-992-grey-lift-f9f0.png', widths: [600, 900, 1448] },
+  { id: 'nc-c-single', src: 'drive-paul/0511/m2-blue-studio-4741.png',       widths: [480, 768, 1100] },
+  { id: 'nc-c-two',   src: 'drive-paul/0511/m3-touring-red-356a.png',        widths: [480, 768, 1100] },
+  { id: 'nc-c-3yr',   src: 'drive-paul/0511/tesla-roadster-red-24ab.png',    widths: [480, 768, 1100] },
+  { id: 'nc-c-5yr',   src: 'drive-paul/0511/emira-blue-f63a.png',            widths: [480, 768, 1100] },
+  { id: 'nc-c-front', src: 'drive-paul/0511/ppf-edge-red-4dc7.png', crop: { l: 0, t: .08, w: 1, h: .5625 }, widths: [480, 768, 1086] },
+  { id: 'nc-c-track', src: 'drive-paul/0511/huracan-performante-4570.jpg', widths: [480, 768, 1100] },
+  { id: 'nc-c-full',  src: 'drive-paul/0511/centodieci-silver-e944.png',     widths: [480, 768, 1100] }
 ];

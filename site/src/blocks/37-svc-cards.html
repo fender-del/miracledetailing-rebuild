@@ -52,6 +52,7 @@
         {{#hasBody}}<div class="card__b"{{#cards.compact}} id="{{cards.id}}-b{{_n}}"{{/cards.compact}}>{{#cards.compact}}<div class="card__bi">{{/cards.compact}}
         {{#hasText}}<div class="card__text{{^cards.compact}} more{{/cards.compact}}"{{^cards.compact}} data-more{{/cards.compact}}><div class="more__body">{{#paras}}<p>{{&.}}</p>{{/paras}}</div></div>{{/hasText}}
         {{#hasList}}<ul class="card__list" role="list">{{#list}}<li>{{&.}}</li>{{/list}}</ul>{{/hasList}}
+        {{#hasAfter}}<div class="card__text card__after">{{#after}}<p>{{&.}}</p>{{/after}}</div>{{/hasAfter}}
         {{#cards.compact}}</div>{{/cards.compact}}</div>
         {{#cards.compact}}<button class="card__mbtn" type="button" aria-expanded="false" aria-controls="{{cards.id}}-b{{_n}}" data-cmore hidden><span>Read more</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.8"/></svg></button>{{/cards.compact}}{{/hasBody}}
         {{#hasEnd}}<div class="card__f">

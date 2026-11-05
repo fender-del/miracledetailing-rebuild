@@ -45,6 +45,7 @@
 .card__text p{font-size:.98rem;line-height:1.7}
 .card__text p+p{margin-top:.9em}
 .card__list{display:grid;gap:9px;margin:6px 0 0;padding:16px 0 0;box-shadow:inset 0 1px 0 var(--line);list-style:none}
+.card__after{margin-top:14px}
 .card__list li{position:relative;padding-left:26px;font-size:.92rem;line-height:1.5}
 .card__list li::before{
   content:"";position:absolute;left:2px;top:.42em;width:12px;height:7px;

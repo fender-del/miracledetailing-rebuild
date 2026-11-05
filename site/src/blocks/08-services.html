@@ -7,7 +7,8 @@
      read as kitsch). Every service is a photo card (Ed 06/10: the text
      list went; "keep all services in the format" of the four cards):
      four across on desktop, three on tablets, two on phones (Fender:
-     a long list scrolls forever on a phone). -->
+     a long list scrolls forever on a phone). 05/11: the last two cards
+     (Packages, New car) are "wide", half a row each at every width. -->
 <section class="svcs sec" id="services" data-section="services" data-motion="tilt" data-bg="light" data-theme="light">
   <span class="logo svcs__mark" aria-hidden="true" data-drift></span>
   <div class="wrap">
@@ -18,7 +19,7 @@
 
     <ul class="svcs__grid" role="list" data-reveal-group>
       {{#services}}
-      <li data-reveal="card">
+      <li data-reveal="card"{{#wide}} class="is-wide"{{/wide}}>
         <a class="svc" href="{{href}}" data-tilt>
           <div class="svc__media" data-tilt-img>{{&img}}</div>
           <span class="svc__shine" aria-hidden="true" data-tilt-shine></span>

@@ -96,7 +96,8 @@ const HERO_SIZES = '(max-width: 767px) calc(106vw + 90px), (max-width: 900px) 10
 
 module.exports = site => {
   const svcImg = s => frame(s.img, {
-    alt: s.alt || '', sizes: '(max-width: 767px) 46vw, (max-width: 1100px) 31vw, 25vw', ratio: false, credit: s.credit
+    alt: s.alt || '', ratio: false, credit: s.credit,
+    sizes: s.wide ? '(max-width: 767px) 46vw, 50vw' : '(max-width: 767px) 46vw, (max-width: 1100px) 31vw, 25vw'
   });
   const groupOf = s => {
     const path = s.href.split('#')[0];
@@ -147,7 +148,8 @@ module.exports = site => {
       }),
       mirrorImg: frame('mirror', { alt: 'Sunday Mirror cutting, 2006: “The £5K carwash”', sizes: '(max-width: 767px) 54vw, 24vw' }),
 
-      /* All twelve as cards (Ed 06/10). The eight without a v0.5 badge
+      /* All twelve as cards (Ed 06/10), and since 05/11 Packages and the
+         new car page as the half-row last two. The eight without a v0.5 badge
          carry their menu group instead (Correct & restore, Protect...). */
       services: site.services.map(s => Object.assign({}, s, {
         badge: s.badge || groupOf(s), img: svcImg(s)

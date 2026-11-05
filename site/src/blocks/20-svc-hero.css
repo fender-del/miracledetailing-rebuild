@@ -195,6 +195,10 @@
   .shero{--gap:92px}
   /* mfit (13/10 poster, 27/10 Brian: too long, too much empty space): a shorter poster, so Paul's paragraph clears the sticky bar on the first screen; on tall phones it stops growing at 1.85 x the width, so the words stay near the photo */
   .shero--mfit{--ph:min(max(calc(100svh - 120px),560px),calc(100vw * 1.85));--gap:56px;padding-bottom:36px}
+  /* mshort (05/11 new car): no lede under the heading, so the poster ends
+     just below the wide photo and the heading sits under the car, not a
+     blurred gap away (photo 1.74:1 + eyebrow, heading and line) */
+  .shero--mfit.shero--mshort{--ph:calc(var(--hd-h) + 8px + 100vw / 1.74 + 255px)}
   /* the three figures always on one line */
   .shero.shero .shero__card{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
   .shero.shero .shero__fact dd{font-size:clamp(1.6rem,8vw,2rem);white-space:nowrap}

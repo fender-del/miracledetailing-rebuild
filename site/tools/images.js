@@ -61,7 +61,10 @@ const IMAGES = [
 
   /* The other eight service cards, 4:5 (a hover list until 06/10) */
   { id: 'svc-studio',     src: 'drive/15-mclaren-studio.png',       crop: { l: .2, t: 0, w: .6, h: 1 }, widths: [360, 560, 720] },
-  { id: 'svc-packages',   src: 'drive/04-gfw-red-detail.jpg',       crop: { l: .3, t: 0, w: .534, h: 1 }, widths: [360, 560, 720] },
+  /* 05/11: back on the grid as a half-row card; a Drive photo no page uses
+     (the GF Williams LaFerrari it had is the PPF hero) */
+  { id: 'svc-packages',   src: 'drive-paul/0511/laferrari-detailing-ed46.png', widths: [480, 720, 1100, 1535] },
+  { id: 'svc-newcar',     src: 'drive-paul/0411/ioniq5n-matte-2592.jpg', widths: [480, 720, 1100, 1320] },
   { id: 'svc-bodyshop',   src: 'drive/05-detail-gold-macro.png',    crop: { l: 0, t: .05, w: 1, h: .9 }, widths: [360, 560, 720] },
   /* PDR and Underside (22/10, notes 5–6: "can't see it"): the card's copy
      covers its lower half, so the hands and rod, and the glossy coated

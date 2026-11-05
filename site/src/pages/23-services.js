@@ -1,6 +1,6 @@
 /* ============================================================
    Services hub (06/10). v0.5's /services/ is an empty page with one
-   heading, so this one carries no new copy: the homepage's twelve
+   heading, so this one carries no new copy: the homepage's fourteen
    service cards and their v0.5 heading ("Everything available through
    Miracle Detail / Find what your car needs."), then the booking form.
    Old-site slug /car-care-services/ kept.
@@ -17,7 +17,8 @@ module.exports = site => {
     { name: 'Services', href: `/${SLUG}/` }
   ]);
   const svcImg = s => frame(s.img, {
-    alt: s.alt || '', sizes: '(max-width: 767px) 46vw, (max-width: 1100px) 31vw, 25vw', ratio: false, credit: s.credit
+    alt: s.alt || '', ratio: false, credit: s.credit,
+    sizes: s.wide ? '(max-width: 767px) 46vw, 50vw' : '(max-width: 767px) 46vw, (max-width: 1100px) 31vw, 25vw'
   });
   const groupOf = s => {
     const path = s.href.split('#')[0];

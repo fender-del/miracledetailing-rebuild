@@ -49,19 +49,22 @@ const mark = id => {
 /* Data for block 37 (cards). Every key an item could carry is set, even
    when empty: the template engine looks a missing key up in the outer
    context, so an unset `price` would borrow the page's. */
-const ITEM_KEYS = ['n', 'tag', 'kicker', 'name', 'sub', 'paras', 'list', 'facts', 'price', 'links', 'img', 'anchor', 'hi', 'no'];
+const ITEM_KEYS = ['n', 'tag', 'kicker', 'name', 'sub', 'paras', 'list', 'after', 'facts', 'price', 'links', 'img', 'anchor', 'hi', 'no'];
 const has = a => Array.isArray(a) ? a.length > 0 : !!a;
 function cards(o) {
   const items = (o.items || []).map(it => {
     const c = {};
     ITEM_KEYS.forEach(k => { c[k] = it[k] == null ? null : it[k]; });
     if (typeof c.paras === 'string') c.paras = [c.paras];
+    /* 05/11 new car: a line of Paul's that follows the list */
+    if (typeof c.after === 'string') c.after = [c.after];
     c.hasTop = has(c.n) || has(c.tag);
     c.hasText = has(c.paras);
     c.hasList = has(c.list);
     c.hasFacts = has(c.facts);
     c.hasFoot = has(c.price) || has(c.links);
-    c.hasBody = c.hasText || c.hasList;
+    c.hasAfter = has(c.after);
+    c.hasBody = c.hasText || c.hasList || c.hasAfter;
     c.hasEnd = c.hasFacts || c.hasFoot;
     return c;
   });

@@ -106,7 +106,20 @@ const site = {
     { key: 'leather', name: 'Leather Restoration', href: '/leather-restoration/',
       line: 'Colour restoration, scuff repair and conditioning', poa: true, img: 'svc-leather' },
     { key: 'tint', name: 'Window Tinting & Bulletproof Film', href: '/window-tinting/',
-      line: 'Chameleon, standard and security film', from: 250, img: 'svc-tint' }
+      line: 'Chameleon, standard and security film', from: 250, img: 'svc-tint' },
+
+    /* 05/11 (Brian): Packages back on the grid and Paul's new car page,
+       side by side as the last row (wide = half a row), so the twelve
+       above stay whole rows at 4, 3 and 2 across. Packages keeps its card
+       of 02/10; the new car card is Paul's own words, with his
+       "Enquire for a Bespoke Quotation" in place of a price. Packages is
+       in the footer's Studio column already (foot: false). */
+    { key: 'packages', name: 'Detailing Packages', href: '/car-detailing-studio/', wide: true, foot: false,
+      line: 'Maintenance to Signature — 5 levels', from: 175, img: 'svc-packages',
+      alt: 'A black LaFerrari, doors up, being detailed under work lamps' },
+    { key: 'newcar', name: 'New Car Detail & Protection', href: '/new-car-detail-protection/', wide: true,
+      line: 'The perfect finish starts before the first mile.', quote: true, img: 'svc-newcar',
+      alt: 'Paul’s new matte blue Hyundai Ioniq 5 N in the studio under the hexagon lights' }
   ],
 
   /* Menu groups (PLAN.md §5.2), shown in the Services mega menu and footer. */
@@ -118,6 +131,8 @@ const site = {
       { name: 'Bodyshop & Paint Repair', href: '/bodyshop-repair/' },
       { name: 'Paintless Dent Removal', href: '/paintless-dent-removal/' } ] },
     { name: 'Protect', links: [
+      /* 05/11: Paul's new car page */
+      { name: 'New Car Detail & Protection', href: '/new-car-detail-protection/' },
       { name: 'Ceramic Coatings', href: '/ceramic-coatings/' },
       { name: 'Paint Protection Film', href: '/paint-protection-film-ppf/' },
       { name: 'Window Tinting & Bulletproof Film', href: '/window-tinting/' },
@@ -152,7 +167,7 @@ const site = {
 
   /* The form's "What would you like done?" picks. A page ticks its own
      service with `formPick` (the dry ice page ticks "Dry Ice Cleaning"). */
-  formServices: ['Paint Correction', 'Ceramic Coating', 'Paint Protection Film', 'Dry Ice Cleaning', 'Underside Coating', 'Full Studio Detail', 'Interior Cleaning & Protection', 'Detailing Package', 'Mobile Detailing', 'Window Tinting or Bulletproof Film', 'Leather, Wheels or Bodywork', 'Not sure yet'],
+  formServices: ['Paint Correction', 'Ceramic Coating', 'Paint Protection Film', 'New Car Detail & Protection', 'Dry Ice Cleaning', 'Underside Coating', 'Full Studio Detail', 'Interior Cleaning & Protection', 'Detailing Package', 'Mobile Detailing', 'Window Tinting or Bulletproof Film', 'Leather, Wheels or Bodywork', 'Not sure yet'],
   heardFrom: ['Instagram', 'Facebook', 'Google', 'YouTube', 'TikTok', 'Fifth Gear or the press', 'A friend or another client', 'Other']
 };
 
@@ -165,6 +180,7 @@ site.mapDirections = `https://www.google.com/maps/dir/?api=1&destination=${encod
 
 const gbp = n => '£' + n.toLocaleString('en-GB');
 site.price = s => {
+  if (s.quote) return 'Enquire for a Bespoke Quotation';
   if (s.poa) return 'Price POA';
   if (!s.from) return '';
   const n = site.vatMode === 'inc' ? Math.round(s.from * 1.2) : s.from;
@@ -175,6 +191,7 @@ site.services.forEach(s => { s.price = site.price(s); });
 site.picks = on => site.formServices.map(v => ({ v, on: v === on }));
 site.mainServices = site.services.filter(s => s.main);
 site.moreServices = site.services.filter(s => !s.main);
+site.footServices = site.services.filter(s => s.foot !== false);
 /* Menu labels letter by letter, for the rolling hover (01-header). */
 site.nav.forEach(n => { n.chars = [...n.name].map((c, i) => ({ c, i })); });
 
