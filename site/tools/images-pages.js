@@ -470,7 +470,8 @@ module.exports = [
      used yet, checked against every image on the site (ORB + colour match) */
   { id: 'nc-prep',    src: 'drive-paul/0511/portofino-foam-0299.jpg',        crop: { l: 0, t: .2, w: 1, h: .5625 }, widths: [600, 900, 1400] },
   { id: 'nc-refine',  src: 'drive-paul/0511/black-m6-reflections-f0d9.png',  crop: { l: 0, t: .06, w: 1, h: .422 }, widths: [600, 900, 1086] },
-  { id: 'nc-ceramic', src: 'drive-paul/0511/range-rover-black-studio-fac5.png', crop: { l: 0, t: .14, w: 1, h: .75 }, widths: [600, 900, 1448] },
+  /* 05/11 (Brian): the whole Range Rover, roof to splitter; a 16:9 cut lost both */
+  { id: 'nc-ceramic', src: 'drive-paul/0511/range-rover-black-studio-fac5.png', widths: [600, 900, 1448] },
   { id: 'nc-ppf',     src: 'drive-paul/0511/ppf-hands-black-72a8.png',       crop: { l: 0, t: .42, w: 1, h: .422 }, widths: [600, 900, 1086] },
   { id: 'nc-package', src: 'drive-paul/0511/r8-spyder-white-studio-f418.png', widths: [600, 900, 1448] },
   { id: 'nc-studio',  src: 'drive-paul/0511/studio-hex-row-a02b.png',        crop: { l: 0, t: .03, w: 1, h: .937 }, widths: [600, 900, 1086] },

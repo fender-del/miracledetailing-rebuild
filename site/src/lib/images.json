@@ -4128,14 +4128,14 @@
  },
  "nc-ceramic": {
   "w": 1448,
-  "h": 815,
+  "h": 1086,
   "widths": [
    600,
    900,
    1448
   ],
-  "v": "a2362409",
-  "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAAAwBACdASoYAA4APu1iqU2ppaOiMAgBMB2JZQDE2Yv+rJWr0QIwvahgbwAA/ZUuweDOAEV9nwgUjxibt5GpODKWmIeUMHsdLxowaBwkRIzBb3Uw882J5KsudZN2GvL0gtbPXq7knOUZfVYfiWlRQsvpdU0f1oM3nvk2inY7AEsJWGAZxWzsD9eh5bY/Z5peEX/LWOAAAAA="
+  "v": "de2f7817",
+  "lqip": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAACQBACdASoYABIAPu1sq1EppaOiqAqpMB2JZwDG9AqdxMG2ckv1neuTSR1JffAA/mbUXfKY6zSyYYv9bDJbwcIqNkwTnq/6El+tun2iqwB90/PdU5XwDnIroge0hFxkCcNwkTxx1GZTn3ySDoCIpimo23uzsvOAYCjaq9WJvgELHar/ZCpE3fb8q/z1oPCeD1W3cQ96kwba6T5UYYAVoUidyGpiAeZijQSZ7IAA"
  },
  "nc-ppf": {
   "w": 1086,

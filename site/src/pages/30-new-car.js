@@ -94,7 +94,7 @@ module.exports = site => {
         eyebrow: 'Ceramic Coating Protection',
         title: 'Exceptional gloss. <span class="gold">Long-lasting protection.</span>',
         intro: ['Once the paintwork has been meticulously prepared and refined, we offer a choice of professional ceramic coating systems designed to protect and preserve its appearance.'],
-        fig: frame('nc-ceramic', { alt: 'A black Range Rover in the studio, the hexagon lights mirrored in its bonnet and windscreen', sizes: '(max-width: 1023px) 92vw, 44vw', ratio: false }),
+        fig: frame('nc-ceramic', { alt: 'A black Range Rover in the studio, the hexagon lights mirrored in its bonnet and windscreen', sizes: '(max-width: 1023px) 92vw, 44vw', ratio: '4 / 3' }),
         items: [
           { n: '01', name: '3-Year Ceramic Coating', img: cardImg('nc-c-3yr', 'A red Tesla Roadster in the studio, its paint mirroring the lights', true),
             paras: [
