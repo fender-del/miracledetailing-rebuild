@@ -483,7 +483,8 @@ module.exports = [
   { id: 'nc-c-two',   src: 'drive-paul/0511/m3-touring-red-356a.png',        widths: [480, 768, 1100] },
   { id: 'nc-c-3yr',   src: 'drive-paul/0511/tesla-roadster-red-24ab.png',    widths: [480, 768, 1100] },
   { id: 'nc-c-5yr',   src: 'drive-paul/0511/emira-blue-f63a.png',            widths: [480, 768, 1100] },
-  { id: 'nc-c-front', src: 'drive-paul/0511/ppf-edge-red-4dc7.png', crop: { l: 0, t: .08, w: 1, h: .5625 }, widths: [480, 768, 1086] },
+  /* 05/11 (Brian): the whole front end of a car, not a close-up of a film edge */
+  { id: 'nc-c-front', src: 'drive-paul/0511/lotus-exige-white-845d.png', widths: [480, 768, 1100] },
   { id: 'nc-c-track', src: 'drive-paul/0511/huracan-performante-4570.jpg', widths: [480, 768, 1100] },
   { id: 'nc-c-full',  src: 'drive-paul/0511/centodieci-silver-e944.png',     widths: [480, 768, 1100] }
 ];

@@ -123,7 +123,7 @@ module.exports = site => {
         ],
         fig: frame('nc-ppf', { alt: 'Hands working clear paint protection film around the headlight of a black car', sizes: '(max-width: 1023px) 92vw, 44vw', ratio: false }),
         items: [
-          { n: '01', name: 'Full Front End PPF', img: cardImg('nc-c-front', 'Close-up of a paint protection film edge on red paintwork'), sub: 'Essential protection where it matters most.',
+          { n: '01', name: 'Full Front End PPF', img: cardImg('nc-c-front', 'A white Lotus Exige in the studio, seen from the front'), sub: 'Essential protection where it matters most.',
             paras: ['Designed to protect the areas most vulnerable to stone chips and road debris during everyday driving.', 'Typical coverage includes:'],
             list: ['Front bumper', 'Full bonnet', 'Front wings', 'Exterior mirror housings'],
             after: 'An excellent choice for owners seeking discreet, effective protection for the most exposed areas of their new vehicle.' },
