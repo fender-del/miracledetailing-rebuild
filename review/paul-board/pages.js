@@ -18,6 +18,7 @@ module.exports = [
   { id: 'leather', path: 'leather-restoration/', name: 'Leather Restoration', group: 'Services' },
   { id: 'interior', path: 'interior-detailing/', name: 'Interior Cleaning & Protection', group: 'Services' },
   { id: 'underside', path: 'underside-coating/', name: 'Underside Coating', group: 'Services' },
+  { id: 'new-car', path: 'new-car-detail-protection/', name: 'New Car Detail & Protection', group: 'Services' },
   { id: 'aftercare', path: 'aftercare-washing-guide/', name: 'Aftercare Guide', group: 'Services' },
   { id: 'journal', path: 'journal/', name: 'Journal', group: 'Journal' },
   { id: 'post-competition', path: 'facebook-competition/', name: 'Facebook Competition (post)', group: 'Journal' },
