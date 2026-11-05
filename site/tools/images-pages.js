@@ -485,7 +485,7 @@ module.exports = [
   { id: 'nc-c-5yr',   src: 'drive-paul/0511/emira-blue-f63a.png',            widths: [480, 768, 1100] },
   /* 05/11 (Brian): the whole front end of a car, not a close-up of a film edge */
   { id: 'nc-c-front', src: 'drive-paul/0511/lotus-exige-white-845d.png', widths: [480, 768, 1100] },
-  /* 05/11 (Brian): the car's nose, a Huracán STO (was the Performante side-on) */
-  { id: 'nc-c-track', src: 'drive-paul/0511/huracan-sto-front-868f.png', widths: [480, 768, 1100] },
+  /* 05/11 (Brian): the red Performante again, cut in to its nose */
+  { id: 'nc-c-track', src: 'drive-paul/0511/huracan-performante-4570.jpg', crop: { l: .42, t: .24, w: .56, h: .56 }, widths: [480, 768, 1100] },
   { id: 'nc-c-full',  src: 'drive-paul/0511/centodieci-silver-e944.png',     widths: [480, 768, 1100] }
 ];

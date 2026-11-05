@@ -127,7 +127,7 @@ module.exports = site => {
             paras: ['Designed to protect the areas most vulnerable to stone chips and road debris during everyday driving.', 'Typical coverage includes:'],
             list: ['Front bumper', 'Full bonnet', 'Front wings', 'Exterior mirror housings'],
             after: 'An excellent choice for owners seeking discreet, effective protection for the most exposed areas of their new vehicle.' },
-          { n: '02', name: 'Track Pack PPF', img: cardImg('nc-c-track', 'The front of a lime green Lamborghini Huracán STO'), sub: 'Enhanced protection for the driving enthusiast.',
+          { n: '02', name: 'Track Pack PPF', img: cardImg('nc-c-track', 'The front of a red Lamborghini Huracán Performante in the studio'), sub: 'Enhanced protection for the driving enthusiast.',
             paras: ['Our Track Pack extends protection beyond the front end to additional areas exposed to road debris and abrasion.', 'Coverage includes:'],
             list: ['Full front end', 'A-pillars', 'Side sills'],
             after: 'Particularly suited to performance vehicles, enthusiastic drivers and owners who want additional protection in vulnerable areas.' },
