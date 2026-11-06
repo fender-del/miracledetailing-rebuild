@@ -39,7 +39,7 @@ module.exports = site => {
     /* scroll kit (07/10, PLAN-interactions §3) */
     cluster: 'paint', arrive: 'why:ripple',
     title: 'Ceramic Coating in Surrey | Feynlab, by Paul Dalton | Miracle Detail',
-    description: 'Feynlab ceramic coatings applied in Lingfield, Surrey, by Paul Dalton, Feynlab’s only global ambassador and co-developer of Ceramic by Paul Dalton. Six coatings, 1 to 10 years.',
+    description: 'Feynlab ceramic coatings applied in Lingfield, Surrey, by Paul Dalton, certified Feynlab installer and co-developer of Ceramic by Paul Dalton. Six coatings, 1 to 10 years.',
     preload: [
       { id: 'cc-hero-m', media: '(max-width: 900px)', sizes: '100vw' },
       { id: 'cc-hero', media: '(min-width: 901px)', sizes: '100vw' }
@@ -157,14 +157,14 @@ module.exports = site => {
         mfit: true,
         h1: 'Ceramic Coatings',
         line: 'Protection applied by the man who <span class="gold it">helped create it.</span>',
-        lede: 'Paul Dalton is Feynlab’s only global ambassador, and the detailer behind Ceramic by Paul Dalton, a coating developed with Feynlab and sold to professionals worldwide. When your car receives a Feynlab coating at Miracle Detail, it’s applied by the person who knows it better than almost anyone on earth.',
+        lede: 'Paul Dalton is a certified Feynlab installer and the detailer behind Ceramic by Paul Dalton, a coating developed with Feynlab and sold to professionals worldwide. When your car receives a Feynlab coating at Miracle Detail, it’s applied by the person who knows it better than almost anyone on earth.',
         img: frame('cc-hero', {
           priority: true, ratio: false, sizes: '100vw',
           alt: 'A gloved hand laying a ceramic coating onto blue paint with a suede applicator',
           art: [{ media: '(max-width: 900px)', id: 'cc-hero-m', sizes: '100vw' }]
         }),
         facts: [
-          { k: 'Global Feynlab ambassador', v: '1', big: true },
+          { k: 'Years detailing', v: '37', big: true },
           { k: 'Maximum protection', v: '10 yr' },
           { k: 'Coatings in the range', v: '6' }
         ]
@@ -203,7 +203,11 @@ module.exports = site => {
         /* Paul 02/11 (note 6): more of the iconic cars he has done, the green Koenigsegg first */
         { img: frame('cc-w-ccr', { alt: 'A Ninja Green Koenigsegg CCR outside a showroom', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'Koenigsegg CCR', third: true },
         { img: frame('cc-w-tdf', { alt: 'A blue Ferrari F12tdf in a garage beside the Miracle Detail van', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'Ferrari F12tdf', third: true },
-        { img: frame('cc-w-slr', { alt: 'A silver Mercedes SLR McLaren in a showroom', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Mercedes SLR McLaren', third: true, mfull: true }
+        { img: frame('cc-w-slr', { alt: 'A silver Mercedes SLR McLaren in a showroom', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Mercedes SLR McLaren', third: true },
+        /* Paul 01/11 (board note 12): more of his cars */
+        { img: frame('cc-w-m4', { alt: 'A yellow BMW M4 Convertible in the studio', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'BMW M4 Convertible', third: true },
+        { img: frame('cc-w-x3m', { alt: 'A lime green BMW X3 M in the studio under the hexagon lights', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'BMW X3 M', third: true },
+        { img: frame('cc-w-r8', { alt: 'A white Audi R8 Spyder in the studio', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'Audi R8 Spyder', third: true, mfull: true }
       ],
 
       bookTitle: 'Protect your paint with the <span class="gold it">person who knows it best.</span>',
@@ -217,7 +221,7 @@ module.exports = site => {
       {
         '@context': 'https://schema.org', '@type': 'Service',
         name: 'Ceramic Coating', serviceType: 'Ceramic Coating',
-        description: 'Feynlab ceramic coatings applied by Paul Dalton, Feynlab’s only global ambassador: from Original Ceramic to Self-Heal Plus and Industrial V2.',
+        description: 'Feynlab ceramic coatings applied by Paul Dalton, a certified Feynlab installer: from Original Ceramic to Self-Heal Plus and Industrial V2.',
         provider: { '@id': site.origin + '/#business' },
         areaServed: ['Surrey', 'Kent', 'Sussex', 'Hampshire', 'London']
       }

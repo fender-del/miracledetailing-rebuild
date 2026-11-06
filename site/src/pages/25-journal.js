@@ -56,7 +56,7 @@ const POSTS = [
     date: '2026-06-01', dateText: 'June 2026', author: 'Paul Dalton', read: '5 min read',
     excerpt: 'One stone chip on a gloss car is an inconvenience. One stone chip on a matte or satin finish is a potential four-figure repair bill. Here’s why PPF on these finishes isn’t a luxury…',
     img: 'jn-matte',
-    alt: 'Paint protection film being fitted over the front bumper of a Jaguar in the Miracle Detail studio',
+    alt: 'A matte grey Jaguar I-Pace in the Miracle Detail studio',
     sub: null,
     cta: {
       title: 'Protect your matte finish <span class="gold it">before it’s too late.</span>',
@@ -98,7 +98,7 @@ const POSTS = [
       '<h2 data-reveal>The importance of <span class="gold it">correct installation.</span></h2>',
       '<p>Matte PPF is significantly more demanding to install than gloss film. The surface tension of the film, the stretching required around complex curves, and the precision needed at panel edges is all more critical, because any imperfection is more visible on a flat finish than it would be on a gloss car where reflections mask minor flaws.</p>',
       '<p>Paul has been installing PPF since 2006, longer than any other active detailer in the United Kingdom. The Jaguar F-Type currently in the studio is a case in point: a full-car matte installation that requires every panel to be handled with the same level of precision as a concours preparation. There is no margin for error on a finish this unforgiving.</p>',
-      fig('jn-matte-done', 'A red Jaguar coupé in the Miracle Detail studio under the hexagon lights, side on', SZ, '1448 / 1086', 'In the studio'),
+      fig('jn-matte-done', 'A matte Cupra head-on in the Miracle Detail studio under the hexagon lights', SZ, '1254 / 940', 'In the studio'),
 
       '<h2 data-reveal>If you own a matte or satin car, <span class="gold it">act before it happens.</span></h2>',
       '<p>The conversation Paul has most often with matte car owners is the one that happens after the first chip. By that point, the options are limited and expensive. The conversation worth having is the one before delivery, or as early as possible after it.</p>',

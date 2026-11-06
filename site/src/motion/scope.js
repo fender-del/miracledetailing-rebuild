@@ -288,16 +288,20 @@ function levels(sec) {
   const panel = $('[data-scope="levels"]', sec);
   const cv = panel && $('[data-scope-cv]', panel);
   const after = panel && $('[data-scope-after]', panel);
+  /* 06/11: real 50/50 photos, one per stop, crossfaded (no figure, no hold) */
+  const ff = panel && panel.hasAttribute('data-scope-ff') ? $$('[data-ff]', panel) : null;
   const cards = $$('[data-card]', sec);
   const stops = $$('[data-go]', sec);
-  if ((!cv && !after) || !cards.length) return;
+  if ((!cv && !after && !(ff && ff.length)) || !cards.length) return;
   /* 21/10 (Paul: drawn panel "a little gimmicky"): with a real photo pair
      the level fades the corrected photo over the swirled one.
      28/10 (Paul, requests #28: "looks like full correction doesnt remove the
      scratches and swirls"): (f - .6) / .4 left Full Correction at 69%, a
      third of the swirls still showing. Now I 60% · II 82% · III 93% ·
      IV 99% · V 100%: from Full Correction up the panel reads as corrected */
-  const paint = after
+  const paint = ff
+    ? { setF() {}, light() {}, release() {} }
+    : after
     ? { setF: f => { const r = (1 - f) / 0.3; after.style.opacity = f ? Math.min(1, Math.max(0, 1 - 0.4 * r * r)) : 0; }, light() {}, release() {} }
     : surface(panel, cv, { seed: 9, lx: 0.42, ly: 0.4 });
   if (!paint) return;
@@ -314,7 +318,7 @@ function levels(sec) {
   let cur = 0, held = false, started = false;
 
   group.hidden = false;
-  before.hidden = false;
+  if (before) before.hidden = false;
   sec.classList.add('is-live');
 
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -326,6 +330,7 @@ function levels(sec) {
   };
   const show = () => {
     const c = cards[cur];
+    if (ff) { ff.forEach((f, k) => f.classList.toggle('is-on', k === cur % ff.length)); return; }
     if (held || !started) { readout(c.dataset.kick, '', 'Before correction'); paint.setF(0); return; }
     const up = c.dataset.up;
     readout(c.dataset.kick, 'Defect removal', (up ? `<small>${esc(up)}</small> ` : '') + esc(c.dataset.fig));
@@ -382,6 +387,7 @@ function levels(sec) {
   }
 
   /* hold to see before */
+  if (before) {
   const down = e => { if (e) e.preventDefault(); if (held) return; held = true; before.classList.add('is-down'); show(); };
   const up = () => { if (!held) return; held = false; before.classList.remove('is-down'); show(); };
   before.addEventListener('pointerdown', e => { down(e); try { before.setPointerCapture(e.pointerId); } catch (_) {} });
@@ -390,6 +396,7 @@ function levels(sec) {
   before.addEventListener('keyup', e => { if (e.key === ' ' || e.key === 'Enter') up(); });
   before.addEventListener('blur', up);
   before.addEventListener('contextmenu', e => e.preventDefault());
+  }
 
   /* the light: the mouse carries it; a finger can drag it sideways */
   let dragging = false;

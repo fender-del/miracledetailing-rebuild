@@ -125,7 +125,7 @@ module.exports = site => {
     entry('2024', 'The Japanese Detailers World Detailing Tour visits HQ', 'A group of Japan’s leading detailers stop at Miracle Detail as part of their World Detailing Tour of the UK: proof that the studio in Lingfield is a destination on a map that stretches a lot further than Surrey.',
       [ph('42-1', 'Japanese Detailers World Tour', 'The Japanese Detailers World Detailing Tour group with Paul at the studio')]),
     /* Paul 28/10 (requests #39): moved to 2024, the year the coating launched */
-    entry('2024', 'Global ambassador, and a coating with Paul’s name on it', 'Paul becomes Feynlab’s only global ambassador: not UK ambassador, global. He collaborates with Feynlab’s chemists to develop Ceramic by Paul Dalton, a professional-grade coating sold worldwide through the Feynlab website and used daily by professional detailers across the industry. His name is on the bottle. The coating launches in 2024.',
+    entry('2024', 'A coating with Paul’s name on it', 'Paul collaborates with Feynlab’s chemists to develop Ceramic by Paul Dalton, a professional-grade coating sold worldwide through the Feynlab website and used daily by professional detailers across the industry. His name is on the bottle. The coating launches in 2024.',
       [ph('43-1', 'Launch, 2024', 'Paul holding Ceramic by Paul Dalton at its launch'), ph('44-1', 'Ceramic by Paul Dalton', 'A bottle of Ceramic by Paul Dalton')]),
     entry('2026', 'A new studio: 32 years in the making', 'In July 2026, Miracle Detail opens its new purpose-built studio in Lingfield, Surrey. Climate controlled, with a specialist light tunnel, dedicated correction and PPF bays, a dedicated dry ice and industrial underside coating bay, and smart lighting throughout. This is what 32 years of craft looks like when it has the space it deserves.',
       [ph('45-1', 'The new studio, Lingfield', 'A green Lamborghini under the light tunnel in the new studio')])
@@ -136,7 +136,7 @@ module.exports = site => {
     /* scroll kit (07/10, PLAN-interactions §3) */
     cluster: 'story',
     title: 'About Paul Dalton | 37 Years of Car Detailing | Miracle Detail',
-    description: 'Paul Dalton, founder of Miracle Detail in Lingfield, Surrey: from washing cars at 13 to Fifth Gear, Koenigsegg, Monaco and Feynlab’s only global ambassador. 37 years, more than 10,000 cars.',
+    description: 'Paul Dalton, founder of Miracle Detail in Lingfield, Surrey: from washing cars at 13 to Fifth Gear, Koenigsegg, Monaco and Ceramic by Paul Dalton. 37 years, more than 10,000 cars.',
     preload: [
       { id: 'ab-hero-m', media: '(max-width: 900px)', sizes: '100vw' },
       { id: 'ab-hero', media: '(min-width: 901px)', sizes: '100vw' }
@@ -184,7 +184,7 @@ module.exports = site => {
         eyebrow: 'Background',
         title: 'A few credentials, <span class="gold it">for context.</span>',
         items: [
-          { n: 'I', name: 'Feynlab’s Only Global Ambassador', sub: 'Worldwide, not just UK', paras: 'Paul is the only detailer in the world to hold Feynlab’s global ambassador status. He collaborated with Feynlab’s chemists to co-develop Ceramic by Paul Dalton, a coating sold worldwide and used daily by professionals across the industry.' },
+          { n: 'I', name: 'Certified Feynlab Installer', sub: '5 &amp; 7 year self-healing coatings', paras: 'Paul is a certified Feynlab installer, including the 5 and 7 year self-healing coatings and the 10-year industrial coating. He collaborated with Feynlab’s chemists to co-develop Ceramic by Paul Dalton, a coating sold worldwide and used daily by professionals across the industry.' },
           { n: 'II', name: 'PPF Since 2006', sub: 'Longest-serving UK PPF installer', paras: 'Paul has been installing Paint Protection Film since 2006, longer than any other active detailer in the United Kingdom. Nearly two decades of experience on everything from daily drivers to Bugattis and Koenigseggs.' },
           { n: 'III', name: 'First UK Dry Ice Detailer', sub: 'Since 2014', paras: 'Paul was the first detailer in the United Kingdom to use dry ice cleaning, in 2014. While the industry was still catching up, Paul had already been using the technology on some of the rarest cars in private ownership for years.' },
           { n: 'IV', name: 'Concours Record', sub: '100% win rate', paras: 'Every car Paul has ever prepared for a UK concours event has won its category. Every single one. Including Bugatti Veyrons and Koenigseggs among the most extraordinary machinery that competes.' },
@@ -238,7 +238,11 @@ module.exports = site => {
           { img: frame('ab-56', { alt: 'A white Ferrari 599 with a Bugatti Veyron behind it', sizes: '(max-width: 767px) 92vw, 34vw', ratio: '4 / 3' }), cap: 'Ferrari 599 · Bugatti Veyron', wide: null, half: null, third: null, full: null },
           { img: frame('ab-57', { alt: 'A red Ferrari F50 in the studio', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Ferrari F50', third: true, wide: null, half: null, full: null },
           { img: frame('ab-58', { alt: 'A yellow Ferrari 458 Speciale outside the studio', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Ferrari 458 Speciale', third: true, wide: null, half: null, full: null },
-          { img: frame('ab-59', { alt: 'A red Ferrari F40 with polishing kit around it', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Ferrari F40', third: true, wide: null, half: null, full: null }
+          { img: frame('ab-59', { alt: 'A red Ferrari F40 with polishing kit around it', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Ferrari F40', third: true, wide: null, half: null, full: null },
+          /* Paul 03/11 (board note 7): more cars */
+          { img: frame('ab-w-ccx', { alt: 'A white Koenigsegg CCX in a workshop', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Koenigsegg CCX', third: true, wide: null, half: null, full: null },
+          { img: frame('ab-w-993', { alt: 'A black Porsche 993 with a fixed rear wing on a cobbled drive', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Porsche 993', third: true, wide: null, half: null, full: null },
+          { img: frame('ab-w-e30', { alt: 'A grey BMW E30 M3 in the Miracle Detail studio under the hexagon lights', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'BMW E30 M3', third: true, wide: null, half: null, full: null }
         ]
       } },
       '10-reviews',

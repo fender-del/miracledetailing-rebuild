@@ -203,3 +203,6 @@
   .shero.shero .shero__card{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
   .shero.shero .shero__fact dd{font-size:clamp(1.6rem,8vw,2rem);white-space:nowrap}
 }
+
+/* 06/11: a desktop anchor for any hero that sets dpos (PPF: the fitter's hand sits at the right edge) */
+@media (min-width:901px){.shero[style*="--dpos"]:not(.shero--shift) .shero__media img{object-position:var(--dpos)}}

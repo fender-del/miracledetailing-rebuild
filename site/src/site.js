@@ -71,7 +71,7 @@ const site = {
       from: 650, fromNote: 'Two-stage Correction Detail',   // VERIFY: v0.5 correction levels are "From £???"; this is Packages Level 3
       img: 'svc-correction', alt: 'A dual-action polisher working red paintwork' },
     { key: 'ceramic', main: true, name: 'Ceramic Coating', href: '/ceramic-coatings/',
-      badge: 'Feynlab global ambassador',
+      badge: 'Certified Feynlab installer',
       line: 'Applied by the man who helped create it.',
       from: 450, fromNote: 'Protection Detail with Feynlab coating',
       img: 'svc-ceramic', alt: 'A gloved hand levelling ceramic coating beside the Ferrari badge of a red SF90 Spider' },

@@ -26,12 +26,17 @@
       <div class="pscope__titles">
         {{#scope.eyebrow}}<p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>{{&scope.eyebrow}}</p>{{/scope.eyebrow}}
         <h2 class="disp h2" data-split>{{&scope.title}}</h2>
+        {{#scope.lede}}<p class="pscope__lede" data-reveal>{{&.}}</p>{{/scope.lede}}
       </div>
       {{#scope.fig}}<figure class="pscope__ref" data-reveal="card"><div class="pscope__refm">{{&scope.fig}}</div>{{#scope.figCap}}<figcaption>{{&scope.figCap}}</figcaption>{{/scope.figCap}}</figure>{{/scope.fig}}
     </div>
 
     <div class="pscope__body">
       <div class="pscope__viz" data-reveal="card">
+        {{#scope.ff}}<div class="pscope__panel pscope__panel--ff" data-scope="levels" data-scope-ff>
+          {{#scope.fifty}}<figure class="pscope__ff{{#on}} is-on{{/on}}" data-ff>{{&img}}{{#tags}}<span class="pscope__ffline" style="--x:{{x}}" aria-hidden="true"></span><span class="pscope__fft pscope__fft--l" style="--x:{{x}}">{{l}}</span><span class="pscope__fft pscope__fft--r" style="--x:{{x}}">{{r}}</span>{{/tags}}</figure>{{/scope.fifty}}
+          <p class="pscope__lv pscope__fflabel">A real 50/50 from Paul’s studio</p>
+        </div>{{/scope.ff}}{{^scope.ff}}
         <div class="pscope__panel" data-scope="levels">
           {{#scope.before}}<div class="pscope__photos" data-scope-photo aria-hidden="true"><div class="pscope__ph pscope__ph--b">{{&scope.before}}</div><div class="pscope__ph pscope__ph--a" data-scope-after>{{&scope.after}}</div></div>{{/scope.before}}{{^scope.before}}<canvas data-scope-cv aria-hidden="true"></canvas>{{/scope.before}}
           <p class="pscope__lv" aria-hidden="true"><span data-scope-lv>{{scope.first.kicker}}</span></p>
@@ -40,7 +45,7 @@
             <span class="pscope__rv" data-scope-val>{{#scope.first.upTo}}<small>{{.}}</small> {{/scope.first.upTo}}{{scope.first.figure}}</span>
           </p>
           <button class="pscope__before" type="button" data-scope-before hidden><i aria-hidden="true"></i><span>Hold here to see before</span></button>
-        </div>
+        </div>{{/scope.ff}}
         <div class="pscope__stops" role="group" aria-label="Five levels" data-scope-stops hidden>
           <span class="pscope__track" aria-hidden="true"><i data-scope-fill></i></span>
           {{#scope.levels}}<button class="pscope__stop{{#on}} is-on{{/on}}{{#hi}} is-hi{{/hi}}" type="button" data-go="{{_i}}" aria-pressed="{{#on}}true{{/on}}{{^on}}false{{/on}}" aria-controls="{{scope.id}}-l{{_n}}"><span class="pscope__sn">{{n}}</span><span class="pscope__sname">{{&name}}</span></button>{{/scope.levels}}

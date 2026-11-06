@@ -137,8 +137,11 @@ const IMAGES = [
   { id: 'ppf-hero-v',  src: 'video/ppf-hero-comp-poster.png', widths: [700] },
   /* Hero, round 5 (Fender 06/10: back to the LaFerrari film sweep, with
      the round-3/4 copy layout): GF Williams' LaFerrari, full width. */
-  { id: 'ppf-hero',    src: 'drive/04-gfw-red-detail.jpg', widths: [960, 1440, 2048, 2560], q: 54 },
-  { id: 'ppf-hero-m',  src: 'drive/04-gfw-red-detail.jpg', crop: { l: .2, t: 0, w: .52, h: 1 }, widths: [480, 720, 1080], q: 54 },
+  /* 06/11 (Paul board note 8: "we need a PPF related pic here"): film going onto a red Jaguar F-Type,
+     Paul's Drive 05/11. Desktop (Fender pick 06/11): Higgsfield outpaint of the real photo to 16:9, cut
+     at the wrist so the fitter's face (drawn by the outpaint) never shows. Phones: the real photo only. */
+  { id: 'ppf-hero',    src: 'drive-paul/0511/ppf-hero-wide-v2.png', widths: [960, 1440, 2070], q: 54 },
+  { id: 'ppf-hero-m',  src: 'drive-paul/0511/ppf-squeegee-red.png', widths: [480, 720, 1086], q: 54 },
   { id: 'ppf-beads',   src: 'drive-paul/5C4C0AE2-BDFF-4B50-9379-D4BE4FB7A3F1 2.PNG', crop: { l: .2, t: .24, w: .8, h: .375 }, widths: [700, 1100, 1600] },
   { id: 'ppf-door',    src: 'drive/07-ppf-squeegee.png', crop: { l: 0, t: .22, w: 1, h: .5 }, widths: [600, 900, 1086] },
   { id: 'ppf-stretch', src: 'ppf/Paint-Protection-Film-in-Lingfield-Surrey-Miracle-Detail-3.jpg', widths: [600, 900, 1200] },
@@ -164,7 +167,8 @@ const IMAGES = [
   { id: 'fin-led-bare',  src: 'finishes/laf-led-bare.png',  widths: [700, 1024] },
   { id: 'fin-led-gloss', src: 'finishes/laf-led-gloss.png', widths: [700, 1024] },
   /* Gloss tab, v5 (Paul 38: the bare paint looked too poor): GPT Image 2.5 on Higgsfield, 22/10. Gloss = the real LaFerrari photo (laf-close) under strip lights with deep film gloss; bare = that same frame a touch less glossy, mild orange peel; bare registered onto gloss (ECC affine) so the slider lines up. */
-  { id: 'fin-ppf-bare',  src: 'finishes/laf-ppf-bare.png',  widths: [700, 1100, 1600] },
+  /* 06/11 (Paul board note 9: "not sure about the difference"): the Bare side regenerated with GPT Image 2.6 from the gloss photo (haze + swirls), resized to it; the Gloss side stays the original (Fender) */
+  { id: 'fin-ppf-bare',  src: 'finishes/laf-ppf-bare-v3.png',  widths: [700, 1100, 1600] },
   { id: 'fin-ppf-gloss', src: 'finishes/laf-ppf-gloss.png', widths: [700, 1100, 1600] },
   { id: 'fin-satin',   src: 'finishes/laf-matte.jpg',      widths: [700, 1100, 1600] },
   /* Coverage (13/10, Fender: the drawn McLaren read badly): a white BMW

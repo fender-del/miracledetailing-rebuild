@@ -48,7 +48,7 @@ module.exports = site => {
       '20-svc-hero', '29-svc-nav',
       { block: '33-svc-prose', with: { prose: prose({
         id: 'new-car', light: true,
-        title: 'Your new car deserves <span class="gold">more than a showroom finish</span>',
+        title: 'Your new car deserves <span class="gold it">more than a showroom finish</span>',
         img: frame('nc-intro', { alt: 'A grey Porsche 911 on the lift in the Miracle Detail studio', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '4 / 3' }),
         paras: [
           'Taking delivery of a new vehicle should be an exciting experience. However, even brand-new cars can arrive with paintwork imperfections, including fine scratches, swirl marks, light marring and defects introduced during manufacturing, transportation or dealership preparation.',
@@ -60,7 +60,7 @@ module.exports = site => {
       { block: '33-svc-prose', with: { prose: prose({
         id: 'preparation',
         eyebrow: 'The Preparation',
-        title: 'Exceptional results begin with <span class="gold">meticulous preparation.</span>',
+        title: 'Exceptional results begin with <span class="gold it">meticulous preparation.</span>',
         img: frame('nc-prep', { alt: 'A white Ferrari Portofino under a layer of snow foam on a block-paved drive', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '4 / 3' }),
         paras: [
           'Every new car detail begins with a comprehensive, carefully controlled wash and decontamination process.',
@@ -72,12 +72,12 @@ module.exports = site => {
       { block: '37-svc-cards', with: { cards: cards({
         id: 'refinement', light: true, cols: 2,
         eyebrow: 'Paintwork Refinement',
-        title: 'Because new doesn’t always <span class="gold">mean perfect.</span>',
+        title: 'Because new doesn’t always <span class="gold it">mean perfect.</span>',
         intro: [
           'Even the most prestigious new vehicles can arrive with paintwork imperfections.',
           'Our professional paint correction treatments are designed to address these defects, enhancing gloss, depth and clarity while preserving the integrity of the original finish.'
         ],
-        fig: frame('nc-refine', { alt: 'The hexagon studio lights reflected sharp and unbroken in the black paint of a BMW', sizes: '(max-width: 1023px) 92vw, 44vw', ratio: false }),
+        fig: frame('nc-refine', { alt: 'A blue Lotus Emira in the studio, its paint reflecting the lights', sizes: '(max-width: 1023px) 92vw, 44vw', ratio: false }),
         items: [
           { n: '01', name: 'Single-Stage Paintwork Correction', img: cardImg('nc-c-single', 'A blue BMW M2 in the studio, its paint reflecting the lights', true), sub: 'Ideal for new vehicles displaying minor imperfections, light swirl marks and fine surface marring.',
             paras: 'Using carefully selected polishing compounds and techniques, this treatment refines the paintwork, enhancing gloss and clarity while addressing lighter defects.' },
@@ -92,7 +92,7 @@ module.exports = site => {
       { block: '37-svc-cards', with: { cards: cards({
         id: 'ceramic', cols: 2,
         eyebrow: 'Ceramic Coating Protection',
-        title: 'Exceptional gloss. <span class="gold">Long-lasting protection.</span>',
+        title: 'Exceptional gloss. <span class="gold it">Long-lasting protection.</span>',
         intro: ['Once the paintwork has been meticulously prepared and refined, we offer a choice of professional ceramic coating systems designed to protect and preserve its appearance.'],
         fig: frame('nc-ceramic', { alt: 'A black Range Rover in the studio, the hexagon lights mirrored in its bonnet and windscreen', sizes: '(max-width: 1023px) 92vw, 44vw', ratio: '4 / 3' }),
         items: [
@@ -115,7 +115,7 @@ module.exports = site => {
       { block: '37-svc-cards', with: { cards: cards({
         id: 'ppf', light: true, cols: 3,
         eyebrow: 'Paint Protection Film (PPF)',
-        title: 'Invisible protection. <span class="gold">Exceptional peace of mind.</span>',
+        title: 'Invisible protection. <span class="gold it">Exceptional peace of mind.</span>',
         intro: [
           'For owners seeking physical protection against stone chips, road debris and everyday driving damage, Miracle Detail offers professionally installed Paint Protection Film.',
           'Our premium PPF solutions provide a protective barrier over vulnerable painted surfaces while maintaining the vehicle’s original appearance.',
@@ -144,7 +144,7 @@ module.exports = site => {
       { block: '33-svc-prose', with: { prose: prose({
         id: 'matte',
         eyebrow: 'Matte & Satin Paint Protection',
-        title: 'Preserve the finish. <span class="gold">Protect the investment.</span>',
+        title: 'Preserve the finish. <span class="gold it">Protect the investment.</span>',
         img: frame('nc-matte', { alt: 'A matte grey Cupra in the Miracle Detail PPF bay, under the hexagon lights', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '1 / 1' }),
         paras: [
           'Matte and satin paint finishes offer a distinctive, understated appearance increasingly found on luxury, performance and prestige vehicles.',
@@ -174,7 +174,7 @@ module.exports = site => {
       { block: '33-svc-prose', with: { prose: prose({
         id: 'package', light: true,
         eyebrow: 'The Complete New Car Protection Package',
-        title: 'Refinement and protection, <span class="gold">without compromise.</span>',
+        title: 'Refinement and protection, <span class="gold it">without compromise.</span>',
         img: frame('nc-package', { alt: 'A white Audi R8 Spyder in the Miracle Detail studio', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '4 / 3' }),
         paras: [
           'For owners seeking a comprehensive approach, we can combine our specialist treatments into one bespoke new car protection package.',
@@ -187,7 +187,7 @@ module.exports = site => {
       { block: '33-svc-prose', with: { prose: prose({
         id: 'why', graphite: true,
         eyebrow: 'Why Choose Miracle Detail?',
-        title: 'Experience. Precision. <span class="gold">An uncompromising approach.</span>',
+        title: 'Experience. Precision. <span class="gold it">An uncompromising approach.</span>',
         img: frame('nc-studio', { alt: 'Cars lined up under the hexagon lights of the Miracle Detail studio, a white Porsche in front', sizes: '(max-width: 900px) 92vw, 40vw', ratio: '4 / 5' }),
         paras: [
           'With more than three decades of professional detailing experience and over 20 years working with Paint Protection Film, Paul Dalton has established a reputation for exceptional attention to detail and an uncompromising approach to vehicle preparation.',
@@ -199,7 +199,7 @@ module.exports = site => {
       }) } },
       { block: '50-svc-note', with: { note: note({
         id: 'day-one',
-        title: 'Protect your new car <span class="gold">from day one</span>',
+        title: 'Protect your new car <span class="gold it">from day one</span>',
         img: frame('nc-dayone', { sizes: '100vw', ratio: false }),
         lead: 'Your vehicle. Your requirements. Our expertise.',
         paras: [
@@ -232,7 +232,7 @@ module.exports = site => {
 
       statement: {
         id: 'experience',
-        text: 'With over 30 years of professional detailing experience, <span class="gold">Paul Dalton</span> brings an exceptional level of knowledge, precision and attention to detail <span class="gold">to every vehicle.</span>'
+        text: 'With over 30 years of professional detailing experience, <span class="gold">Paul Dalton</span> brings an exceptional level of knowledge, precision and attention to detail <span class="gold it">to every vehicle.</span>'
       },
 
       stars, reviews,

@@ -242,7 +242,7 @@ module.exports = site => {
           /* stand-in until the Portugal car reaches us (Paul 19/10: "the white
              GT3 RS from the Portugal file", not in the Drive zip): the white
              997 GT3 RS from his gallery, captioned as such (REQUESTS) */
-          { img: frame('mb-gt3w', { alt: 'A white Porsche 997 GT3 RS from Paul’s gallery', sizes: '(max-width: 899px) 46vw, 30vw', ratio: false }), cap: 'Porsche GT3 RS · from the gallery' }
+          { img: frame('mb-gt3w', { alt: 'A white Porsche 911 GT3 RS 4.0 in a workshop', sizes: '(max-width: 899px) 46vw, 30vw', ratio: false }), cap: 'Porsche GT3 RS · Portugal' }
         ],
         paras: [
           'In 2020 Paul drove the purpose-built Caddy to Portugal and spent a week detailing a Ferrari F12 TDF, a Ferrari 599 GTO, and a Porsche GT3 RS on location for a private client. The van has also been to Monaco. Closer to home, Paul visits regular clients on a monthly maintenance basis: the same care, on a schedule that suits them.',

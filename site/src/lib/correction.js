@@ -39,7 +39,19 @@ function tools(o) {
    panel takes away at that level (0–1). The readout shows "up to" small
    and the figures large. */
 function scope(o) {
-  const c = fill(o, ['eyebrow', 'title', 'light', 'fig', 'figCap', 'book', 'before', 'after']);
+  const c = fill(o, ['eyebrow', 'title', 'lede', 'light', 'fig', 'figCap', 'book', 'before', 'after']);
+  /* fifty (06/11, Paul note 15 + Ed's plan): real 50/50 photos in place of
+     the panel that cleared a share of its swirls per level. A photo is a
+     job, not a level, so the panel carries no level name and no figure.
+     fifty: [{ img, label, split, left }] split = where the line falls
+     (0–1, for photos without the words baked in), left = 'Before'|'After' */
+  c.ff = !!(o.fifty && o.fifty.length);
+  if (o.fifty) {
+    c.fifty = o.fifty.map((p, i) => ({
+      img: p.img, label: p.label || null, on: i === 0, _n: i + 1,
+      tags: p.split ? { x: (p.split * 100).toFixed(1) + '%', l: p.left, r: p.left === 'Before' ? 'After' : 'Before' } : null
+    }));
+  }
   const lv = o.levels || [];
   c.levels = lv.map((l, i) => {
     const m = /^(up to\s+)?(.*)$/i.exec(l.removal || '');

@@ -200,6 +200,22 @@ module.exports = [
      the same 4:3 window (Drive) */
   { id: 'pc-lv-b', src: 'drive-paul/pc-swirl-split-b.png', crop: { l: .52, t: .2, w: .46, h: .53 }, widths: [600, 900, 1200] },
   { id: 'pc-lv-a', src: 'drive-paul/pc-swirl-split-b.png', crop: { l: .02, t: .2, w: .46, h: .53 }, widths: [600, 900, 1200] },
+  /* 06/11 (Paul 31/10 note 15 + Ed's plan, mail 03/11): real 50/50s from Paul's jobs (Drive "New photos 3/11/26", uploaded 05/11), 4:3 */
+  /* 06/11 (Paul board notes 7, 12, 16, 35: more of his cars): Drive "New photos 3/11/26", 05/11 upload, none used before */
+  { id: 'ab-w-ccx',   src: 'drive-paul/0511/A5A52C0C-3876-4502-81B7-8C4C092442F2.png', crop: { l: .055, t: 0, w: .889, h: 1 }, widths: [500, 800, 1200] },
+  { id: 'ab-w-993',   src: 'drive-paul/0511/FB2B0385-B548-4122-A2EC-79FC088D13D0.png', crop: { l: .111, t: 0, w: .889, h: 1 }, widths: [500, 800, 1200] },
+  { id: 'ab-w-e30',   src: 'drive-paul/0511/235E6732-8ECD-4645-B01E-A7845B887D60.png', widths: [500, 800, 1200] },
+  { id: 'cc-w-m4',    src: 'drive-paul/0511/4B224F9B-9C17-4FB6-9764-24A5B04D2F1E.png', widths: [500, 800, 1200] },
+  { id: 'cc-w-x3m',   src: 'drive-paul/0511/03073688-73F6-40EE-B848-E86570B044B6.png', widths: [500, 800, 1200] },
+  { id: 'cc-w-r8',    src: 'drive-paul/0511/F41864AB-2F5E-41B6-B10B-01D69C912100.png', widths: [500, 800, 1200] },
+  { id: 'pc-w-veyron',src: 'drive-paul/0511/4298B13A-6C40-4F4C-A1C2-D8531C1D414F.png', crop: { l: 0, t: 0, w: .889, h: 1 }, widths: [500, 800, 1200] },
+  { id: 'pc-w-m3t',   src: 'drive-paul/0511/7C90298A-314E-458B-A346-FDA6DAF4CCE9.png', widths: [500, 800, 1200] },
+  { id: 'pc-w-delta', src: 'drive-paul/0511/E984253E-587E-47DB-A5AC-E8168BE4244B.png', crop: { l: .055, t: 0, w: .889, h: 1 }, widths: [500, 800, 1200] },
+  { id: 'pc-ff-sparkle', src: 'drive-paul/0511/pc5050-sparkle.png', crop: { l: 0, t: .199, w: 1, h: .5625 }, widths: [600, 900, 1086] },
+  { id: 'pc-ff-rolls', src: 'drive-paul/0511/pc5050-rolls.png', crop: { l: .055, t: 0, w: .889, h: 1 }, widths: [600, 900, 1200] },
+  { id: 'pc-ff-bmw', src: 'drive-paul/0511/pc5050-bmw.png', crop: { l: 0, t: .179, w: 1, h: .821 }, widths: [600, 900, 1200] },
+  { id: 'pc-ff-tape', src: 'drive-paul/0511/pc5050-tape.png', crop: { l: 0, t: .156, w: 1, h: .844 }, widths: [600, 900, 1200] },
+  { id: 'pc-ff-grid', src: 'drive-paul/0511/pc5050-grid.png', widths: [600, 900, 1200] },
   /* more cars for the work grid (Fender: "cho thêm nhiều xe"), Paul's Drive set */
   { id: 'pc-w-enzo',   src: 'drive-paul/053055E7-247C-4CD1-8359-3EDF9D99BACF.PNG', widths: [500, 800] },
   { id: 'pc-w-zonda',  src: 'drive-paul/0E5A99EA-6981-4FAD-8DCB-2CC4B41F5F3F.PNG', widths: [500, 800] },
@@ -265,7 +281,8 @@ module.exports = [
      washed (Drive, mobile-van) for "How it works"; the white 997 GT3 RS
      from the old gallery as the stand-in (the Portugal car is not in the Drive) */
   { id: 'mb-work',   src: 'drive-paul/mobile-van/F31B0A19-582E-4020-9BAF-8C7B5BC51CBF.png', widths: [600, 900, 1200], q: 54 },
-  { id: 'mb-gt3w',   src: '../site/assets/gallery/porsche-997-gt3-rs/10-1400.webp', widths: [600, 900, 1200] },
+  /* 06/11 (Paul board note 19): the white GT3 RS 4.0 from his Drive (05/11) in place of the gallery stand-in */
+  { id: 'mb-gt3w',   src: 'drive-paul/0511/porsche-gt3rs40-white.png', widths: [600, 900, 1448] },
 
   /* ---------- Bodyshop ---------- */
   ...hero('bs-hero', 'drive-paul/hero-bodyshop-masked.png', { l: .25, t: 0, w: .5, h: 1 }),  /* Paul's Drive set, 07/10 */
@@ -451,10 +468,11 @@ module.exports = [
   { id: 'jn-bottle', src: 'journal/feynlab-ceramic-paul-dalton-bottle.jpg', widths: [300, 600] },
   { id: 'jn-yt',     src: 'journal/yt-sddefault.jpg', crop: { l: 0, t: .125, w: 1, h: .75 }, widths: [640] },
   /* 27/10: the matte PPF post (miracledetail-blog-matte-ppf.html). Paul's own Drive photos of the Jaguar in the studio, no AI */
-  { id: 'jn-matte',        src: 'drive-paul/matte-ppf/jaguar-bumper-film.png',  crop: { l: 0, t: .14, w: 1, h: .75 }, widths: [600, 900, 1448] },
+  /* 06/11 (Paul board notes 44-46: matte cars only; "matt jag is uploaded" 05/11): the matte grey Jaguar I-Pace and the matte Cupra */
+  { id: 'jn-matte',        src: 'drive-paul/0511/jaguar-ipace-matte.png',  crop: { l: 0, t: .0, w: 1, h: .8 }, widths: [600, 900, 1448] },
   { id: 'jn-matte-wing',   src: 'drive-paul/matte-ppf/jaguar-wing-squeegee.png', widths: [480, 720, 1086] },
   { id: 'jn-matte-mirror', src: 'drive-paul/matte-ppf/jaguar-mirror-film.png',   widths: [480, 720, 1086] },
-  { id: 'jn-matte-done',   src: 'drive-paul/matte-ppf/jaguar-finished.png',      widths: [600, 900, 1448] },
+  { id: 'jn-matte-done',   src: 'drive-paul/0511/cupra-matte-studio.png', crop: { l: 0, t: .125, w: 1, h: .75 }, widths: [600, 900, 1254] },
   /* 04/11 (requests 03/11 #7): Paul's matte blue Ioniq 5 N, Drive "New photos 3/11/26" IMG_2592 */
   { id: 'jn-matte-ioniq',  src: 'drive-paul/0411/ioniq5n-matte-2592.jpg',        widths: [600, 900, 1320] },
 
@@ -469,7 +487,8 @@ module.exports = [
   /* 05/11 (Brian: "chọn ảnh phù hợp trong drive"): Drive photos no page
      used yet, checked against every image on the site (ORB + colour match) */
   { id: 'nc-prep',    src: 'drive-paul/0511/portofino-foam-0299.jpg',        crop: { l: 0, t: .2, w: 1, h: .5625 }, widths: [600, 900, 1400] },
-  { id: 'nc-refine',  src: 'drive-paul/0511/black-m6-reflections-f0d9.png',  crop: { l: 0, t: .06, w: 1, h: .422 }, widths: [600, 900, 1086] },
+  /* 06/11 (Paul board note 35: a full car, not a close-up): his blue Lotus Emira */
+  { id: 'nc-refine',  src: 'drive-paul/0511/B8425F3A-1854-42EA-8AAD-2C1C94D34093.png', crop: { l: 0, t: .14, w: 1, h: .75 }, widths: [600, 900, 1448] },
   /* 05/11 (Brian): the whole Range Rover, roof to splitter; a 16:9 cut lost both */
   { id: 'nc-ceramic', src: 'drive-paul/0511/range-rover-black-studio-fac5.png', widths: [600, 900, 1448] },
   { id: 'nc-ppf',     src: 'drive-paul/0511/ppf-hands-black-72a8.png',       crop: { l: 0, t: .42, w: 1, h: .422 }, widths: [600, 900, 1086] },

@@ -50,7 +50,7 @@ module.exports = site => {
     /* scroll kit (07/10, PLAN-interactions §3) */
     cluster: 'utility',
     title: 'Ceramic Coating Aftercare & Washing Guide | Miracle Detail',
-    description: 'How to wash a Feynlab ceramic-coated car: Paul Dalton’s six rules, eight-step procedure and the exact products he recommends to every client, with a 10% Feynlab discount code.',
+    description: 'How to wash a Feynlab ceramic-coated car: Paul Dalton’s six rules, eight-step procedure and the exact products he recommends to every client.',
     preload: [
       { id: 'ac-hero-m', media: '(max-width: 900px)', sizes: '100vw' },
       { id: 'ac-hero', media: '(min-width: 901px)', sizes: '100vw' }
@@ -115,7 +115,6 @@ module.exports = site => {
           { kicker: 'Microfibre', anchor: 'ac-edgeless', name: 'Rag Company Edgeless 365', paras: 'The microfibre Paul uses to apply and buff the Hybrid Detailer. Premium edgeless construction: no risk of scratching from hard edges. One side to apply, one side to buff.', links: buy('Buy from Clean & Shiny', 'https://www.cleanandshiny.co.uk/products/the-rag-company-edgeless-365-premium-16-x-16-microfiber-terry-towel-gold') }
         ]
       }) } },
-      '39-svc-price',
       '10-reviews',
       '12-book',
       '13-footer', '14-sticky'
@@ -142,8 +141,7 @@ module.exports = site => {
       snav: [
         { id: 'rules', label: 'The six rules' },
         { id: 'procedure', label: 'The procedure' },
-        { id: 'products', label: 'Products' },
-        { id: 'code', label: 'Discount code' }
+        { id: 'products', label: 'Products' }
       ],
 
       band: {

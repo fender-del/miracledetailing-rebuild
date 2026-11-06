@@ -175,6 +175,22 @@
   .pscope__before{top:12px;bottom:auto;right:12px;padding:9px 13px;font-size:.625rem}
 }
 
+/* ---- 06/11: real 50/50 photos (Paul note 15, Ed's plan) ---- */
+.pscope__lede{max-width:46ch;margin:0;color:var(--muted);font-size:1.0625rem;line-height:1.6}
+.pscope__panel--ff{aspect-ratio:4 / 3;background:#08090B}
+.pscope__ff{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .8s var(--ease)}
+.pscope__ff.is-on{opacity:1}
+.pscope__ff:first-child{opacity:1}
+.pscope.is-live .pscope__ff:first-child:not(.is-on){opacity:0}
+.pscope__ff .media,.pscope__ff picture,.pscope__ff img{display:block;width:100%;height:100%;aspect-ratio:auto!important;object-fit:cover}
+.pscope__ffline{position:absolute;top:0;bottom:0;left:var(--x);width:0}
+.pscope__fft{position:absolute;bottom:clamp(12px,1.6vw,20px);z-index:2;padding:6px 10px;border-radius:4px;background:rgba(8,9,11,.72);
+  font-size:.6875rem;font-weight:500;letter-spacing:.06em;color:#fff}
+.pscope__fft--l{right:calc(100% - var(--x) + 12px)}
+.pscope__fft--r{left:calc(var(--x) + 12px)}
+.pscope__fflabel{background:rgba(8,9,11,.55);padding:6px 10px;border-radius:4px}
+@media (max-width:767px){.pscope__panel--ff{aspect-ratio:4 / 3}}
+
 /* ---------- the sheet (motion/sheet.js), the same look as blocks 53 and 73 ---------- */
 .pks{position:fixed;inset:0;z-index:300;display:flex;align-items:flex-end;justify-content:center}
 .pks[hidden]{display:none!important}

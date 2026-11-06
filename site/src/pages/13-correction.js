@@ -96,8 +96,20 @@ module.exports = site => {
         title: 'Five levels. <span class="gold it">One standard.</span>',
         /* 08/10: the Rolls-Royce photo and its caption dropped (Fender) */
         /* 21/10 (Paul: "clients want to see real pictures"): a real panel, swirled then corrected */
-        before: frame('pc-lv-b', { alt: 'A black panel under a bright light, covered in swirl marks', sizes: '(max-width: 1023px) 92vw, 52vw', ratio: false }),
-        after: frame('pc-lv-a', { alt: 'The same black panel after correction, clear and deep', sizes: '(max-width: 1023px) 92vw, 52vw', ratio: false }),
+        /* 06/11 (Paul 31/10, board note 15: "between the third and fifth one, it
+           doesn't change"; Ed's plan, mail 03/11): the panel that cleared a share
+           of its swirls per level is gone. Five real 50/50s from Paul's jobs
+           (Drive, 05/11) instead, one per stop; a photo is a job, not a level.
+           One line under the title says the level depends on the paint and the
+           client (Ed's line, Paul's own reasoning). */
+        lede: 'Every car is different. Paul can carry out every stage of correction; the right level depends on the defects in the paint and the finish you want.',
+        fifty: [
+          { img: frame('pc-ff-grid', { alt: 'A grey door panel before and after correction, wide and close up', sizes: '(max-width: 1023px) 92vw, 52vw', ratio: false }) },
+          { img: frame('pc-ff-tape', { alt: 'A taped section of black paint before and after correction', sizes: '(max-width: 1023px) 92vw, 52vw', ratio: false }) },
+          { img: frame('pc-ff-bmw', { alt: 'The bonnet of a grey BMW before and after correction', sizes: '(max-width: 1023px) 92vw, 52vw', ratio: false }) },
+          { img: frame('pc-ff-rolls', { alt: 'A 50/50 on the rear wing of a black saloon: corrected on the left, swirled on the right', sizes: '(max-width: 1023px) 92vw, 52vw', ratio: false }), split: .47, left: 'After' },
+          { img: frame('pc-ff-sparkle', { alt: 'A 50/50 on black metallic paint under a light: heavy swirls on the left, a clear deep finish on the right', sizes: '(max-width: 1023px) 92vw, 52vw', ratio: false }), split: .55, left: 'Before' }
+        ],
         book: { href: '#book', label: 'Book a Consultation' },
         levels: [
           { n: 'I', kicker: 'Level One', name: 'Enhancement Polish', f: 0.7, removal: 'up to 65–75%',
@@ -186,7 +198,11 @@ module.exports = site => {
         /* Paul 02/11 (note 8): "some more cars here too!", from his old gallery */
         { img: frame('pc-w-ccx', { alt: 'Paul machine polishing the bonnet of a Cobalt Blue Koenigsegg CCX on a lawn', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'Koenigsegg CCX', third: true },
         { img: frame('pc-w-murci', { alt: 'Paul working on the side of a white Lamborghini Murciélago LP 640 Versace in a showroom', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'Lamborghini Murciélago LP 640 Versace', third: true },
-        { img: frame('pc-w-cgt', { alt: 'A silver Porsche Carrera GT on a lawn, its rear wing raised', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Porsche Carrera GT', third: true, mfull: true }
+        { img: frame('pc-w-cgt', { alt: 'A silver Porsche Carrera GT on a lawn, its rear wing raised', sizes: '(max-width: 767px) 92vw, 30vw', ratio: '4 / 3' }), cap: 'Porsche Carrera GT', third: true },
+        /* Paul 01/11 (board note 16): more cars */
+        { img: frame('pc-w-veyron', { alt: 'A white Bugatti Veyron being machine polished', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'Bugatti Veyron', third: true },
+        { img: frame('pc-w-m3t', { alt: 'A black BMW M3 Touring in the studio under the hexagon lights', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'BMW M3 Touring', third: true },
+        { img: frame('pc-w-delta', { alt: 'A yellow Lancia Delta Integrale in a showroom', sizes: '(max-width: 767px) 46vw, 30vw', ratio: '4 / 3' }), cap: 'Lancia Delta Integrale', third: true, mfull: true }
       ],
 
       stars, reviews,

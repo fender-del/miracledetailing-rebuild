@@ -104,16 +104,17 @@ module.exports = site => {
       hero: {
         /* round 5 (Fender 06/10): back to the LaFerrari film sweep, the
            figures kept as the gold row under the buttons */
-        film: true,
+        /* 06/11: the film sweep off; the photo now shows real film going on (Paul note 8) */
         stats: true,
         /* phones: where the poster crop is held (08/10) */
-        mpos: '58% 50%',
+        mpos: '62% 45%',
+        dpos: '100% 50%',
         h1: 'Paint Protection Film',
         line: 'The strongest <span class="gold">shield</span> paint has ever <span class="gold it">had.</span>',
         lede: 'Paint Protection Film is an invisible armour: a self-healing urethane film that absorbs stone chips, abrasion and environmental damage so your paint never has to. Paul has been installing PPF since 2006. Longer than any other detailer in the UK.',
         img: frame('ppf-hero', {
           priority: true, ratio: false, sizes: '100vw',
-          alt: 'A red LaFerrari in the studio, the strip lights reflected in its bonnet and wings',
+          alt: 'Clear paint protection film being squeegeed onto the wet front wing of a red Jaguar F-Type in the studio',
           art: [{ media: '(max-width: 900px)', id: 'ppf-hero-m', sizes: '100vw' }]
         }),
         facts: [
@@ -168,7 +169,7 @@ module.exports = site => {
         label: 'Film finishes',
         items: [
           { key: 'gloss', first: true, name: 'Gloss PPF', sub: 'Invisible protection',
-            ba: { bl: 'Bare paint', al: 'Gloss PPF', pre: frame('fin-ppf-bare', { alt: 'The red bonnet of a LaFerrari under studio strip lights, the paint a little less glossy, the reflections softer', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }), post: frame('fin-ppf-gloss', { alt: 'The same bonnet under gloss film, deeper in gloss, the strip lights reflected crisp and straight', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }) },
+            ba: { bl: 'Bare paint', al: 'Gloss PPF', pre: frame('fin-ppf-bare', { alt: 'The red bonnet of a LaFerrari under studio strip lights, bare paint with a faint haze and fine swirls, the reflections soft', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }), post: frame('fin-ppf-gloss', { alt: 'The same bonnet under gloss film, deeper in gloss, the strip lights reflected crisp and straight', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }) },
             
             paras: ['The standard choice. A virtually invisible film that enhances the depth and gloss of the paint beneath it while providing complete protection from stone chips, abrasion and environmental contamination. Self-healing under gentle heat.'] },
           { key: 'matte', name: 'Matte PPF', sub: 'Satin and matte finishes protected',
