@@ -1,7 +1,29 @@
-<!-- ============ 14 · STICKY BAR (phones) ============
-     Call · WhatsApp · Book. Steps aside while the form is on screen. -->
+<!-- ============ 14 · STICKY BAR (phones) + WHATSAPP CHAT (every page) ============
+     Call · WhatsApp · Book. Steps aside while the form is on screen.
+     The chat (Paul 09/11, Fender 10/11: the same steps as Paul's Elfsight
+     bubble on the old site): press the bubble, the chat opens, Paul is
+     "typing" for a moment, then "Hi there / How can we help you?" lands
+     with "Start chat" under it, which opens WhatsApp. Computers: a bubble
+     bottom right. Phones: the bar's WhatsApp button opens it. Without JS
+     both are plain links to WhatsApp. -->
 <nav class="stick" aria-label="Quick contact" data-sticky>
   <a class="stick__a" href="{{site.phoneHref}}"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Call</a>
-  <a class="stick__a" href="{{site.whatsapp}}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3.5 20.5 5 16a8.5 8.5 0 1 1 3.2 3.2L3.5 20.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8.6c0 3.2 2.6 6.4 6 6.4l1-1.4-1.9-.9-.8.8c-1.2-.5-2-1.4-2.5-2.5l.8-.8-.9-1.9L9 8.6Z" fill="currentColor"/></svg>WhatsApp</a>
+  <a class="stick__a" href="{{site.whatsapp}}" target="_blank" rel="noopener" data-wa-open aria-controls="wa-panel"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3.5 20.5 5 16a8.5 8.5 0 1 1 3.2 3.2L3.5 20.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8.6c0 3.2 2.6 6.4 6 6.4l1-1.4-1.9-.9-.8.8c-1.2-.5-2-1.4-2.5-2.5l.8-.8-.9-1.9L9 8.6Z" fill="currentColor"/></svg>WhatsApp</a>
   <a class="stick__a stick__a--book" href="{{site.cta.href}}">Book<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></a>
 </nav>
+
+<div class="wa" data-wa>
+  <div class="wa__panel" id="wa-panel" role="dialog" aria-modal="false" aria-labelledby="wa-name" hidden>
+    <div class="wa__top">
+      <img class="wa__face" src="/assets/img/paul-face-96.webp" width="44" height="44" alt="" loading="lazy" decoding="async">
+      <div class="wa__who"><b id="wa-name">{{site.waChat.name}}</b><span>{{site.waChat.caption}}</span></div>
+      <button class="wa__x" type="button" aria-label="Close the chat" data-wa-close><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.7"/></svg></button>
+    </div>
+    <div class="wa__body" aria-live="polite">
+      <div class="wa__typing" aria-label="Paul is typing"><i></i><i></i><i></i></div>
+      <div class="wa__msg"><b>{{site.waChat.name}}</b><p>{{site.waChat.hello}}</p><p>{{site.waChat.ask}}</p><time data-wa-time></time></div>
+    </div>
+    <a class="wa__go" href="{{site.whatsapp}}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3.5 20.5 5 16a8.5 8.5 0 1 1 3.2 3.2L3.5 20.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8.6c0 3.2 2.6 6.4 6 6.4l1-1.4-1.9-.9-.8.8c-1.2-.5-2-1.4-2.5-2.5l.8-.8-.9-1.9L9 8.6Z" fill="currentColor"/></svg><span>Start Chat</span></a>
+  </div>
+  <a class="wa__bubble" href="{{site.whatsapp}}" target="_blank" rel="noopener" data-wa-open aria-controls="wa-panel" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3.5 20.5 5 16a8.5 8.5 0 1 1 3.2 3.2L3.5 20.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8.6c0 3.2 2.6 6.4 6 6.4l1-1.4-1.9-.9-.8.8c-1.2-.5-2-1.4-2.5-2.5l.8-.8-.9-1.9L9 8.6Z" fill="currentColor"/></svg><span>WhatsApp Paul</span><i class="wa__dot" aria-hidden="true"></i></a>
+</div>

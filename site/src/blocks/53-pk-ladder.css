@@ -38,8 +38,9 @@
 .pkl__legend i{position:relative;width:14px;height:14px}
 .pkl__legend i::before,.pkl__ul li::before{content:"";position:absolute;left:2px;top:.42em;width:12px;height:7px;border-left:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);transform:rotate(-45deg)}
 .pkl__legend i::before{top:1px}
-.pkl__ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 28px;margin:0;padding:18px 0 0;box-shadow:inset 0 1px 0 var(--line);list-style:none}
-.pkl__ul li{position:relative;padding-left:26px;font-size:.95rem;line-height:1.5;color:var(--muted)}
+/* Paul 05/11 + 09/11 ("why is there a gap here, on the left between the treatments"): two columns that flow, not grid rows, so a two-line item on one side leaves no hole on the other */
+.pkl__ul{columns:2;column-gap:28px;margin:0;padding:18px 0 0;box-shadow:inset 0 1px 0 var(--line);list-style:none}
+.pkl__ul li{break-inside:avoid;margin-bottom:10px;position:relative;padding-left:26px;font-size:.95rem;line-height:1.5;color:var(--muted)}
 .pkl__ul li::before{border-color:var(--line-2)}
 .pkl__ul li.is-new{color:var(--white)}
 .pkl__ul li.is-new::before{border-color:var(--gold)}
@@ -228,7 +229,7 @@
 .pks__body>.pkl__sub{margin:0 0 12px}
 .pks__body :is(.pkl__photo,.pkl__facts){display:none}
 .pks__body .pkl__text p{font-size:1rem;line-height:1.72}
-.pks__body .pkl__ul{grid-template-columns:1fr;gap:9px}
+.pks__body .pkl__ul{columns:1}.pks__body .pkl__ul li{margin-bottom:9px}
 .pks__body .pkl__foot .link-arrow{margin-left:auto}
 html.pks-lock,html.pks-lock body{overflow:hidden}
 
@@ -236,7 +237,7 @@ html.pks-lock,html.pks-lock body{overflow:hidden}
   .pkl__head{grid-template-columns:1fr;gap:20px}
   .pkl__facts{grid-template-columns:repeat(2,minmax(0,1fr))}
   .pkl__facts>div:nth-child(3){grid-column:1 / -1}
-  .pkl__ul{grid-template-columns:1fr;gap:9px}
+  .pkl__ul{columns:1}.pkl__ul li{margin-bottom:9px}
 }
 
 @media (prefers-reduced-motion:reduce){

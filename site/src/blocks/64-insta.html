@@ -1,0 +1,21 @@
+<!-- ============ 64 · INSTAGRAM FEED ============
+     Paul 09/11 ("needs insta on the pages like my current website"):
+     his own Elfsight Instagram Feed widget from the old site, already
+     connected to @miracledetailuk, inside our heading. Its account bar is
+     hidden (the heading and the link say it); the script loads only when
+     the block comes near (motion/social.js). Without JS: the link only.
+     On ivory, between dark blocks. Homepage, Gallery and Journal. -->
+<section class="ig sec" id="instagram" data-section="instagram" data-bg="light" data-theme="light">
+  <div class="wrap">
+    <div class="ig__head">
+      <div>
+        <p class="eyebrow" data-reveal><span class="eyebrow__mark"></span>Instagram</p>
+        <h2 class="disp h2" data-split>Latest from <span class="gold it">the studio.</span></h2>
+      </div>
+      <a class="link-arrow ig__link" href="{{site.instagram.href}}" target="_blank" rel="noopener" data-reveal><span>Follow {{site.instagram.handle}}</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7m0 0H8m9 0v9" stroke="currentColor" stroke-width="1.8"/></svg></a>
+    </div>
+    <div class="ig__feed" data-ig>
+      <div class="elfsight-app-{{site.instagram.elfsight}}" data-elfsight-app-lazy></div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+/* ============ 64 · INSTAGRAM FEED ============ */
+.ig__head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:clamp(28px,4vw,48px)}
+.ig__head .h2{margin:0}
+.ig__link{flex:none}
+/* room for the 4 x 2 grid before the widget arrives, so nothing jumps */
+.ig__feed{min-height:calc((min(1224px,100vw - 32px)) / 4)}
+/* Paul's Elfsight widget, toned to the page: no account bar (our heading
+   and link say it), no white ground, rounded tiles */
+.ig .eapps-instagram-feed-header-container,.ig .eapps-instagram-feed-title-container{display:none!important}
+.ig .eapps-instagram-feed,.ig .eapps-instagram-feed-container,.ig .eapps-instagram-feed-content{background:transparent!important}
+.ig .eapps-instagram-feed-posts-item{border-radius:10px;overflow:hidden}
+.ig a[href*="elfsight.com"]{display:none!important}
+/* one row, so the block stays within a screen: the widget lays out 4 x 2
+   per slide; the second row goes and the slider takes its own height */
+.ig .eapps-instagram-feed-posts-view>.eapps-instagram-feed-posts-item:nth-child(n+5){display:none!important}
+.ig .eapps-instagram-feed-posts-slider,.ig .eapps-instagram-feed-posts-slider-inner,.ig .eapps-instagram-feed-posts-view{height:auto!important}
+/* its pink "liked" hover bar and caption overlay go; a press still opens the post */
+.ig .eapps-instagram-feed-posts-item-overlay,.ig .eapps-instagram-feed-posts-item-red-like-container{display:none!important}
+.ig .eapps-instagram-feed-posts-item-image-wrapper img{transition:transform .8s var(--ease)}
+.ig .eapps-instagram-feed-posts-item-link:hover img{transform:scale(1.03)}
+@media (max-width:767px){
+  .ig__head{display:block}
+  .ig__link{margin-top:20px}
+  .ig__feed{min-height:calc(100vw - 32px)}
+  /* phones: the widget stacks one post per row, so one post per slide; the arrow turns them */
+  .ig .eapps-instagram-feed-posts-view>.eapps-instagram-feed-posts-item:nth-child(n+2){display:none!important}
+}

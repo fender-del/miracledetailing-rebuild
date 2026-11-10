@@ -120,7 +120,7 @@ module.exports = site => {
     blocks: [
       '01-header',
       '02-hero', '04-press', '05-story',
-      '08-services', '11-projects', '10-reviews', '09-coverage', '12-book',
+      '08-services', '11-projects', '64-insta', '10-reviews', '09-coverage', '12-book',
       '13-footer', '14-sticky'
     ],
 

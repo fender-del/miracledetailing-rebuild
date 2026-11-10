@@ -69,7 +69,7 @@ module.exports = site => {
       { id: 'gl-hero', media: '(min-width: 901px)', sizes: '100vw' }
     ],
 
-    blocks: ['01-header', '20-svc-hero', '41-gallery', '12-book', '13-footer', '14-sticky'],
+    blocks: ['01-header', '20-svc-hero', '41-gallery', '64-insta', '12-book', '13-footer', '14-sticky'],
 
     data: {
       crumbs: nav.html,
@@ -89,7 +89,7 @@ module.exports = site => {
         /* Paul 22/10 (board note 69): three figures in place of the Cars / Makes / Photos counts, his words as written */
         facts: [
           { k: 'Years of documented work', v: '30+' },
-          { k: 'Concours wins by cars Paul prepared', v: '100%' },
+          { k: 'Concours winning record', v: '100%' },
           { k: 'Standard. Perfection.', v: '1' }
         ]
       },

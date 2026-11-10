@@ -43,7 +43,7 @@ module.exports = site => {
       },
       fq: {
         eyebrow: 'Nine topics',
-        title: 'Things people <span class="gold">ask Paul.</span>',
+        title: 'Things people <span class="gold it">ask Paul.</span>',
         sections: SECTIONS
       },
       /* Paul 02/11 (note 26): "Is your car?" gold and italic */

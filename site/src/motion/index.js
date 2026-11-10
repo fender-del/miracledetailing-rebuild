@@ -34,6 +34,7 @@ import { pairs } from './pairs.js';
 import { dents } from './dent.js';
 import { checklists, copies } from './check.js';
 import { colds } from './cold.js';
+import { waChat, instagram } from './social.js';
 
 const root = document.documentElement;
 const safe = fn => { try { fn(); } catch (e) { if (window.console) console.warn('[motion]', fn.name, e); } };
@@ -103,6 +104,8 @@ function boot() {
     safe(form);
     safe(call);
     safe(sticky);
+    /* Paul 09/11: the WhatsApp chat on every page; his Instagram feed loads when near */
+    safe(waChat); safe(instagram);
     if (env.motion) {
       safe(deck);
       safe(photoBgs);

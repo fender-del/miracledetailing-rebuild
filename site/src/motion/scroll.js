@@ -9,7 +9,11 @@ import { gsap, ScrollTrigger, env, $, $$ } from './core.js';
    which already behaves like the real thing. */
 export function smooth() {
   if (!env.fine || !env.motion) return null;
-  const lenis = new Lenis({ lerp: 0.09, smoothWheel: true, wheelMultiplier: 1 });
+  /* prevent: Lenis leaves the wheel alone inside overlays that scroll on
+     their own: Paul's Instagram post viewer (Elfsight popup, Fender 10/11:
+     it would not scroll from one post to the next) and the WhatsApp chat */
+  const lenis = new Lenis({ lerp: 0.09, smoothWheel: true, wheelMultiplier: 1,
+    prevent: node => !!(node.classList && (node.classList.contains('eapps-instagram-feed-popup') || node.classList.contains('wa__panel'))) });
   lenis.on('scroll', ScrollTrigger.update);
   gsap.ticker.add(t => lenis.raf(t * 1000));
   gsap.ticker.lagSmoothing(0);

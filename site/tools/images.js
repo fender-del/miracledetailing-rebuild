@@ -170,6 +170,8 @@ const IMAGES = [
   /* 06/11 (Paul board note 9: "not sure about the difference"): the Bare side regenerated with GPT Image 2.6 from the gloss photo (haze + swirls), resized to it; the Gloss side stays the original (Fender) */
   { id: 'fin-ppf-bare',  src: 'finishes/laf-ppf-bare-v3.png',  widths: [700, 1100, 1600] },
   { id: 'fin-ppf-gloss', src: 'finishes/laf-ppf-gloss.png', widths: [700, 1100, 1600] },
+  /* 10/11 (Paul 09/11: "we all know a car without ppf wouldn't look so dull ... perhaps we need a pic of a gloss ppf car"): the Gloss tab drops the bare/gloss slider for one real photo, Paul's own red LaFerrari head-on in the studio (Drive 05/11, #22), cut 4:3 from bonnet to splitter */
+  { id: 'fin-ppf-car', src: 'drive-paul/0511/7F092959-7052-463A-BCD6-D79366144417.png', crop: { l: 0, t: .33, w: 1, h: .563 }, widths: [700, 1087], q: 56 },
   { id: 'fin-satin',   src: 'finishes/laf-matte.jpg',      widths: [700, 1100, 1600] },
   /* Coverage (13/10, Fender: the drawn McLaren read badly): a white BMW
      M3 Touring, front and rear three-quarter, GPT Image 2.5 on

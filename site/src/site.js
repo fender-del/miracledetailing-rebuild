@@ -21,7 +21,14 @@ const site = {
   phone: '+44 7444 869983',
   phoneHref: 'tel:+447444869983',
   whatsapp: 'https://wa.me/447444869983',            // v0.5 aftercare page links WhatsApp to this number
-  email: 'info@miracledetail.co.uk',                 // v0.5 aftercare page
+  email: 'info@miracledetail.co.uk',
+  /* WhatsApp chat bubble (Paul 09/11: "whats app widget for clients to contact me"). Our own copy of his Elfsight one on the old
+     site: the same name, reply time and greeting as he set there; "Start chat" opens WhatsApp. */
+  waChat: { name: 'Miracle Detail', caption: 'Typically replies within an hour', hello: 'Hi there 👋', ask: 'How can we help you?' },
+  /* Instagram feed (Paul 09/11: "needs insta on the pages like my current website"): his own Elfsight Instagram Feed widget
+     from the old site, already connected to @miracledetailuk and paid for, so it needs nothing from Paul. */
+  instagram: { handle: '@miracledetailuk', href: 'https://www.instagram.com/miracledetailuk/', elfsight: '82824589-e7ad-4280-9a99-c6392d43a93a' },
+                 // v0.5 aftercare page
   since: '1994',
   vatNo: '452960872',
 

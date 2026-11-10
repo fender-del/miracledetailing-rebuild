@@ -171,7 +171,7 @@ module.exports = site => {
       { id: 'jn-hero', media: '(min-width: 901px)', sizes: '100vw' }
     ],
 
-    blocks: ['01-header', '20-svc-hero', '60-jn-list', '12-book', '13-footer', '14-sticky'],
+    blocks: ['01-header', '20-svc-hero', '60-jn-list', '64-insta', '12-book', '13-footer', '14-sticky'],
 
     data: {
       crumbs: nav.html,

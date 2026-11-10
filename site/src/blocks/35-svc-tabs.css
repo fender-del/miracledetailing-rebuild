@@ -92,6 +92,7 @@ html:not(.js) .stabs__panel+.stabs__panel{margin-top:72px}
   box-shadow:0 40px 70px -40px rgba(17,17,17,.75);touch-action:pan-y;user-select:none;-webkit-user-select:none}
 .ba__img,.ba__img .media{position:absolute;inset:0}
 .ba__img .media{aspect-ratio:auto!important}
+.ba--still .media{position:absolute;inset:0;aspect-ratio:auto!important}
 .ba__before{clip-path:inset(0 calc(100% - var(--p)) 0 0)}
 .ba__tag{position:absolute;top:16px;z-index:3;padding:7px 12px;border-radius:999px;background:rgba(10,10,10,.55);
   -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;

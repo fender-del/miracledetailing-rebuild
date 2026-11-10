@@ -169,8 +169,8 @@ module.exports = site => {
         label: 'Film finishes',
         items: [
           { key: 'gloss', first: true, name: 'Gloss PPF', sub: 'Invisible protection',
-            ba: { bl: 'Bare paint', al: 'Gloss PPF', pre: frame('fin-ppf-bare', { alt: 'The red bonnet of a LaFerrari under studio strip lights, bare paint with a faint haze and fine swirls, the reflections soft', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }), post: frame('fin-ppf-gloss', { alt: 'The same bonnet under gloss film, deeper in gloss, the strip lights reflected crisp and straight', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }) },
-            
+            /* Paul 09/11: no bare/gloss slider, one real car in gloss film */
+            still: frame('fin-ppf-car', { alt: 'A red LaFerrari head-on in the studio, the strip lights reflected crisp in the bonnet and wings', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }),
             paras: ['The standard choice. A virtually invisible film that enhances the depth and gloss of the paint beneath it while providing complete protection from stone chips, abrasion and environmental contamination. Self-healing under gentle heat.'] },
           { key: 'matte', name: 'Matte PPF', sub: 'Satin and matte finishes protected',
             ba: { bl: 'Gloss', al: 'Matte PPF', pre: frame('enzo-gloss', { alt: 'A red Ferrari Enzo in gloss paint in the showroom', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }), post: frame('enzo-matte', { alt: 'The same Enzo in a matte finish, no mirror reflections', sizes: '(max-width: 900px) 92vw, 52vw', ratio: false }) },
