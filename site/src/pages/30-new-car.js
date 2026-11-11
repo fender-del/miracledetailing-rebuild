@@ -145,7 +145,9 @@ module.exports = site => {
         id: 'matte',
         eyebrow: 'Matte & Satin Paint Protection',
         title: 'Preserve the finish. <span class="gold it">Protect the investment.</span>',
-        img: frame('nc-matte', { alt: 'A matte grey Cupra in the Miracle Detail PPF bay, under the hexagon lights', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '1 / 1' }),
+        /* 10/11 (Paul, REQUESTS #15 = B): his matte Ioniq 5 N here too,
+           the same photo as the hero (Cupra out) */
+        img: frame('jn-matte-ioniq', { alt: 'Paul’s matte blue Hyundai Ioniq 5 N in the Miracle Detail studio under the hexagon lights', sizes: '(max-width: 900px) 92vw, 44vw', ratio: '1320 / 950' }),
         paras: [
           'Matte and satin paint finishes offer a distinctive, understated appearance increasingly found on luxury, performance and prestige vehicles.',
           'However, these specialist finishes require a very different approach to conventional gloss paintwork.',

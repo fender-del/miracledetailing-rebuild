@@ -19,7 +19,7 @@ const SECTIONS = [
       { n: '1.2', t: 'Deposits', html: p('A deposit may be required to secure a booking, the amount of which will be confirmed at the time of booking. Deposits are non-refundable in the event of a late cancellation as set out in clause 1.3.') },
       { n: '1.3', t: 'Cancellations', html: p('If you need to cancel or reschedule, a minimum of 72 hours\' notice prior to the confirmed booking date is required. Cancellations made with less than 72 hours\' notice will incur a cancellation fee of £500 + VAT. This reflects the loss of revenue from the reserved time slot which cannot be reallocated at short notice.') },
       { n: '1.4', t: 'Payment', html: p('Payment in full is due before the vehicle is collected or as set out in the terms of the invoice. The following payment methods are accepted:')
-          + ul(['Bank transfer', 'Debit card', 'Cash', 'Google Pay and Apple Pay'])
+          + ul(['Bank transfer', 'Credit card', 'Debit card', 'Cash', 'Apple Pay'])
           + p('All prices are quoted exclusive of VAT unless stated otherwise. VAT is charged at the prevailing rate. Miracle Detail Ltd VAT registration number: 452960872.') },
       { n: '1.5', t: 'Vehicle collection and delivery', html: p('Paul is able to personally collect or deliver a vehicle within a reasonable distance of Lingfield, Surrey. Where a vehicle needs to be collected, detailed and then delivered, specialist automotive transportation can be arranged at an additional cost. Travel charges apply for any mobile service beyond 100 miles from Lingfield, Surrey. Paul will advise on the additional cost at the time of booking.') },
       { n: '1.6', t: 'Vehicle condition', html: p('Paul will inspect every vehicle on arrival and note any pre-existing damage, defects or areas of concern. A condition report may be provided prior to work commencing. Miracle Detail Ltd accepts no liability for pre-existing damage that was present before the vehicle was received.')
@@ -33,7 +33,7 @@ const SECTIONS = [
   {
     id: 'privacy', label: 'Section 2', title: 'Privacy <span class="gold it">Policy</span>',
     clauses: [
-      { n: '2.1', t: 'Who we are', html: p('Miracle Detail Ltd is the data controller for the personal data collected through this website and through the booking process. Registered address: Unit 8-9 Jesmor Farm, St Piers Lane, Lingfield, Surrey RH7 6PN. Company number: available on request. VAT number: 452960872.') },
+      { n: '2.1', t: 'Who we are', html: p('Miracle Detail Ltd is the data controller for the personal data collected through this website and through the booking process. Registered address: Unit 10, Jesmor Trading Estate, St Piers Lane, Lingfield, Surrey RH7 6PN. Company number: available on request. VAT number: 452960872.') },
       { n: '2.2', t: 'What data is collected', html: p('Paul collects only the personal data necessary to provide the service. This may include:')
           + ul(['Name and contact details (phone number, email address)', 'Vehicle details (make, model, registration, VIN where relevant)', 'Booking and payment information', 'Photographs of your vehicle taken before, during and after work', 'Any correspondence relating to your booking']) },
       { n: '2.3', t: 'How data is used', html: p('Personal data is used solely for the purpose of providing the detailing service, managing bookings and communicating with clients. It is not sold to third parties. It is not used for unsolicited marketing without explicit consent.') },

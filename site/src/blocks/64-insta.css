@@ -3,16 +3,16 @@
 .ig__head .h2{margin:0}
 .ig__link{flex:none}
 /* room for the 4 x 2 grid before the widget arrives, so nothing jumps */
-.ig__feed{min-height:calc((min(1224px,100vw - 32px)) / 4)}
+.ig__feed{min-height:calc((min(1224px,100vw - 32px)) / 2)}
 /* Paul's Elfsight widget, toned to the page: no account bar (our heading
    and link say it), no white ground, rounded tiles */
 .ig .eapps-instagram-feed-header-container,.ig .eapps-instagram-feed-title-container{display:none!important}
 .ig .eapps-instagram-feed,.ig .eapps-instagram-feed-container,.ig .eapps-instagram-feed-content{background:transparent!important}
 .ig .eapps-instagram-feed-posts-item{border-radius:10px;overflow:hidden}
 .ig a[href*="elfsight.com"]{display:none!important}
-/* one row, so the block stays within a screen: the widget lays out 4 x 2
-   per slide; the second row goes and the slider takes its own height */
-.ig .eapps-instagram-feed-posts-view>.eapps-instagram-feed-posts-item:nth-child(n+5){display:none!important}
+/* the widget lays out 4 x 2 per slide, as on Paul's current site (Paul
+   10/11, REQUESTS #26: "like it is on my current site, show more than
+   one car"; the one-row cut is gone); the slider takes its own height */
 .ig .eapps-instagram-feed-posts-slider,.ig .eapps-instagram-feed-posts-slider-inner,.ig .eapps-instagram-feed-posts-view{height:auto!important}
 /* its pink "liked" hover bar and caption overlay go; a press still opens the post */
 .ig .eapps-instagram-feed-posts-item-overlay,.ig .eapps-instagram-feed-posts-item-red-like-container{display:none!important}
@@ -21,7 +21,9 @@
 @media (max-width:767px){
   .ig__head{display:block}
   .ig__link{margin-top:20px}
-  .ig__feed{min-height:calc(100vw - 32px)}
-  /* phones: the widget stacks one post per row, so one post per slide; the arrow turns them */
-  .ig .eapps-instagram-feed-posts-view>.eapps-instagram-feed-posts-item:nth-child(n+2){display:none!important}
+  .ig__feed{min-height:calc(50vw - 16px)}
+  /* phones: the widget gives two posts per slide, one under the other;
+     side by side here, so two cars show and the block stays within a
+     screen (Paul 10/11 #26); the arrow turns to the next two */
+  .ig .eapps-instagram-feed-posts-view>.eapps-instagram-feed-posts-item{width:calc(50% - 20px)!important}
 }

@@ -240,6 +240,18 @@ export function rails() {
         if (chipsEl) chipsEl.appendChild(li);
         return b;
       });
+      /* 10/11 (eight coatings): a row of names longer than the bar fades
+         at whichever edge still has more, instead of a word cut short */
+      if (chipsEl) {
+        const edges = () => {
+          const more = chipsEl.scrollWidth - chipsEl.clientWidth;
+          chipsEl.classList.toggle('is-more-r', more > 2 && chipsEl.scrollLeft < more - 2);
+          chipsEl.classList.toggle('is-more-l', more > 2 && chipsEl.scrollLeft > 2);
+        };
+        chipsEl.addEventListener('scroll', edges, { passive: true });
+        window.addEventListener('resize', edges);
+        edges();
+      }
 
       const n = meta && $('[data-rail-n]', meta), bar = meta && $('.rmeta__bar', meta);
       const pad0 = parseFloat(getComputedStyle(grid).paddingLeft) || 0;

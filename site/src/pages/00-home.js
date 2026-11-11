@@ -136,10 +136,16 @@ module.exports = site => {
          place names read as "not based in the UK"; real logos, not names).
          The four TV names are the "4 TV appearances"; the seven papers
          have no single mark, so they stay in type. */
+      /* 10/11 (Paul, REQUESTS #23 = B): + the titles in his email
+         signature, Autocar, The Sun, Daily Mail, Daily Star and The
+         Independent (Wikimedia marks, assets-src/logos/SOURCES.md) */
       press: [
-        { id: 'fifth-gear', name: 'Fifth Gear' }, { id: 'sunday-mirror', name: 'Sunday Mirror' },
-        { id: 'motorheads', name: 'Motorheads' }, { id: 'rtl', name: 'RTL' },
-        { id: 'nippon-tv', name: 'Nippon TV' }, { name: 'Seven national newspapers' }
+        { id: 'fifth-gear', name: 'Fifth Gear' }, { id: 'autocar', name: 'Autocar' },
+        { id: 'sunday-mirror', name: 'Sunday Mirror' }, { id: 'the-sun', name: 'The Sun' },
+        { id: 'motorheads', name: 'Motorheads' }, { id: 'daily-mail', name: 'Daily Mail' },
+        { id: 'rtl', name: 'RTL' }, { id: 'the-independent', name: 'The Independent' },
+        { id: 'nippon-tv', name: 'Nippon TV' }, { id: 'daily-star', name: 'Daily Star' },
+        { name: 'Seven national newspapers' }
       ].map(p => Object.assign(p, { mark: p.id ? mark(p.id) : null })),
 
       paulImg: frame('paul', {

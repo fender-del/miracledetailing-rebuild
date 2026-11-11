@@ -127,6 +127,8 @@ module.exports = site => {
     /* Paul 28/10 (requests #39): moved to 2024, the year the coating launched */
     entry('2024', 'A coating with Paul’s name on it', 'Paul collaborates with Feynlab’s chemists to develop Ceramic by Paul Dalton, a professional-grade coating sold worldwide through the Feynlab website and used daily by professional detailers across the industry. His name is on the bottle. The coating launches in 2024.',
       [ph('43-1', 'Launch, 2024', 'Paul holding Ceramic by Paul Dalton at its launch'), ph('44-1', 'Ceramic by Paul Dalton', 'A bottle of Ceramic by Paul Dalton')]),
+    /* 10/11 (Paul, REQUESTS #22 = B): the award from his email signature */
+    entry('2025', 'Top Feynlab Ambassador 2025', 'Feynlab names Paul its Top Feynlab Ambassador 2025, for excellence in detailing and innovation.'),
     entry('2026', 'A new studio: 32 years in the making', 'In July 2026, Miracle Detail opens its new purpose-built studio in Lingfield, Surrey. Climate controlled, with a specialist light tunnel, dedicated correction and PPF bays, a dedicated dry ice and industrial underside coating bay, and smart lighting throughout. This is what 32 years of craft looks like when it has the space it deserves.',
       [ph('45-1', 'The new studio, Lingfield', 'A green Lamborghini under the light tunnel in the new studio')])
   ];

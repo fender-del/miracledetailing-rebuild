@@ -97,7 +97,7 @@ const POSTS = [
 
       '<h2 data-reveal>The importance of <span class="gold it">correct installation.</span></h2>',
       '<p>Matte PPF is significantly more demanding to install than gloss film. The surface tension of the film, the stretching required around complex curves, and the precision needed at panel edges is all more critical, because any imperfection is more visible on a flat finish than it would be on a gloss car where reflections mask minor flaws.</p>',
-      '<p>Paul has been installing PPF since 2006, longer than any other active detailer in the United Kingdom. The Jaguar F-Type currently in the studio is a case in point: a full-car matte installation that requires every panel to be handled with the same level of precision as a concours preparation. There is no margin for error on a finish this unforgiving.</p>',
+      '<p>Paul has been installing PPF since 2006, longer than any other active detailer in the United Kingdom. The Jaguar I-Pace currently in the studio is a case in point: a full-car matte installation that requires every panel to be handled with the same level of precision as a concours preparation. There is no margin for error on a finish this unforgiving.</p>',
       fig('jn-matte-done', 'A matte Cupra head-on in the Miracle Detail studio under the hexagon lights', SZ, '1254 / 940', 'In the studio'),
 
       '<h2 data-reveal>If you own a matte or satin car, <span class="gold it">act before it happens.</span></h2>',

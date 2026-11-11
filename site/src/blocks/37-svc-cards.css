@@ -169,6 +169,9 @@
   .is-pinrail .rbar{display:flex;align-items:center;justify-content:space-between;gap:32px;margin:clamp(16px,2.6vh,30px) 0 clamp(14px,2.2vh,26px);box-shadow:inset 0 -1px 0 var(--line)}
   .rchips{display:flex;gap:clamp(18px,2.2vw,34px);margin:0;padding:0;list-style:none;overflow-x:auto;scrollbar-width:none;min-width:0}
   .rchips::-webkit-scrollbar{display:none}
+  .rchips.is-more-r{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 64px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 64px),transparent)}
+  .rchips.is-more-l{-webkit-mask-image:linear-gradient(90deg,transparent,#000 64px);mask-image:linear-gradient(90deg,transparent,#000 64px)}
+  .rchips.is-more-l.is-more-r{-webkit-mask-image:linear-gradient(90deg,transparent,#000 64px,#000 calc(100% - 64px),transparent);mask-image:linear-gradient(90deg,transparent,#000 64px,#000 calc(100% - 64px),transparent)}
   .rchip{position:relative;display:inline-flex;align-items:baseline;gap:9px;min-height:44px;white-space:nowrap;
     font-weight:500;font-size:.6875rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);transition:color .4s var(--ease)}
   .rchip__n{font-family:var(--fd);font-style:normal;font-weight:500;font-size:.95rem;letter-spacing:0;text-transform:none;color:var(--gold);opacity:.6;transition:opacity .4s}

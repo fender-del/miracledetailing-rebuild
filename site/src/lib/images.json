@@ -4441,5 +4441,35 @@
   ],
   "v": "44c7edc6",
   "lqip": "data:image/webp;base64,UklGRvYAAABXRUJQVlA4IOoAAACwBQCdASoYABIAPu1qr1CppaQiqAqpMB2JbACdMt7CphYgEj0CsQ3RTi6OD90kN9Dj3ghQZPgA8//YYe3WyW26f1ELBCta9nsMyjKST+rVWRCt+GtQGjy/JnvpgDiW6wgNspspPTPZv5W1yL4U2dBl6XqhnGtaZj6J6/1OTeLqj8A9+n75wKSOfP1cH0RUI25d/RzHhbpMRg1Gr7eewOvwYd8e/zbq6pVBbPKs+f9rZatLEgVk/T2EZ05nur6pg4ZvTyQblbcCTHZr//YxWwiscI9vcreUyIj8mVO4setVLNr5COzm09xpAAA="
+ },
+ "mark-autocar": {
+  "w": 734,
+  "h": 120,
+  "mark": true,
+  "v": "fa14d0db"
+ },
+ "mark-daily-mail": {
+  "w": 759,
+  "h": 120,
+  "mark": true,
+  "v": "5cab2d28"
+ },
+ "mark-daily-star": {
+  "w": 178,
+  "h": 120,
+  "mark": true,
+  "v": "206b17d7"
+ },
+ "mark-the-independent": {
+  "w": 1701,
+  "h": 120,
+  "mark": true,
+  "v": "984e3b35"
+ },
+ "mark-the-sun": {
+  "w": 277,
+  "h": 120,
+  "mark": true,
+  "v": "33211541"
  }
 }

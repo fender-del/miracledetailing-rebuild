@@ -30,6 +30,9 @@ const MAP = path.join(ROOT, 'src', 'lib', 'images.json');
 const FORCE = process.argv.includes('--force');
 /* --only=id,id: build just those entries (their sources may be the only ones on this machine) */
 const ONLY = (process.argv.find(a => a.startsWith('--only=')) || '').slice(7).split(',').filter(Boolean);
+/* 10/11: --marks rebuilds only the white logo marks (press, makes, films),
+   without touching the photos (some photo sources are not on this machine) */
+const MARKS = process.argv.includes('--marks');
 
 sharp.cache(false);
 sharp.concurrency(2);
@@ -252,7 +255,7 @@ async function run() {
   const map = fs.existsSync(MAP) && !FORCE ? JSON.parse(fs.readFileSync(MAP, 'utf8')) : {};
   let made = 0;
 
-  for (const img of IMAGES) {
+  for (const img of MARKS ? [] : IMAGES) {
     if (ONLY.length && !ONLY.includes(img.id)) continue;
     const file = path.join(SRC, img.src);
     const meta = await sharp(file).metadata();
@@ -292,7 +295,7 @@ async function run() {
     process.stdout.write('.');
   }
 
-  for (const lg of ONLY.length ? [] : LOGOS) {
+  for (const lg of ONLY.length || MARKS ? [] : LOGOS) {
     const file = path.join(SRC, 'logo-bold.png');
     const meta = await sharp(file).metadata();
     /* extract first, then trim in a second pass: sharp runs trim before

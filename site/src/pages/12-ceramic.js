@@ -39,7 +39,7 @@ module.exports = site => {
     /* scroll kit (07/10, PLAN-interactions §3) */
     cluster: 'paint', arrive: 'why:ripple',
     title: 'Ceramic Coating in Surrey | Feynlab, by Paul Dalton | Miracle Detail',
-    description: 'Feynlab ceramic coatings applied in Lingfield, Surrey, by Paul Dalton, certified Feynlab installer and co-developer of Ceramic by Paul Dalton. Six coatings, 1 to 10 years.',
+    description: 'Feynlab ceramic coatings applied in Lingfield, Surrey, by Paul Dalton, certified Feynlab installer and co-developer of Ceramic by Paul Dalton. Eight coatings, 1 to 10 years.',
     preload: [
       { id: 'cc-hero-m', media: '(max-width: 900px)', sizes: '100vw' },
       { id: 'cc-hero', media: '(min-width: 901px)', sizes: '100vw' }
@@ -77,13 +77,12 @@ module.exports = site => {
           'Co-developed by Paul Dalton and Feynlab chemists',
           'Sold worldwide through the Feynlab website',
           'Used daily by professional detailers globally'
-        ],
-        price: 'POA'
+        ]
       }) } },
       { block: '37-svc-cards', with: { cards: cards({
         id: 'range', light: true, cols: 3, fx: 'rail', acc: true,
         eyebrow: 'The full Feynlab range',
-        title: 'Six coatings. <span class="gold it">One standard of application.</span>',
+        title: 'Eight coatings. <span class="gold it">One standard of application.</span>',
         items: [
           { tag: '1–2yr', name: 'Original Ceramic', sub: 'Feynlab Original',
             paras: 'The proven entry point into Feynlab protection. Outstanding hydrophobicity, impressive gloss and significantly better durability than any traditional wax or sealant. A record of over 60,000 vehicle installations worldwide.',
@@ -100,6 +99,15 @@ module.exports = site => {
           { tag: '7yr', name: 'Self-Heal Plus', sub: 'Feynlab Self-Heal Plus',
             paras: 'Feynlab’s most advanced nano-coating. The thickest coating in the range, combining a revolutionary self-healing mechanism with a highly durable ceramic backbone. Super gloss, extreme slickness and the best healing capability in the range. The thickest coating Feynlab makes.',
             list: ['Most advanced nano-coating available', 'Full self-healing mechanism', 'Extreme slickness and super gloss', 'Thickest coating in the Feynlab range'] },
+          /* 10/11 (Paul, REQUESTS #9: "8 coatings"): his words for both;
+             durability from Feynlab's own pages (PPF & Vinyl "well over one
+             year", Matte "expected durability of 3 years") */
+          { tag: '1yr+', name: 'PPF & Vinyl Ceramic V3', sub: 'Feynlab PPF & Vinyl Ceramic V3', anchor: 'ppf-vinyl',
+            paras: 'Elevate the quality of your vinyl wraps and paint protection films (PPF) with Feynlab PPF and Vinyl V3, our latest innovation. Crafted with our advanced V3 ceramic backbone, this coating is designed to enhance durability while offering robust defence against harmful UV rays and simplifying maintenance with its hydrophobic and self-cleaning properties. This coating perfectly complements PPF films without compromising their self-healing properties.',
+            list: ['For vinyl wraps and paint protection film', 'V3 ceramic backbone', 'UV protection, hydrophobic and self-cleaning', 'Keeps the film’s self-healing intact'] },
+          { tag: '3yr', name: 'Matte Ceramic', sub: 'Feynlab Matte Ceramic', anchor: 'matte',
+            paras: 'Feynlab Matte Ceramic is a protective ceramic nano coating engineered for extreme durability and protection for matte painted, vinyl and PPF automotive surfaces. As an ultra-high solids coating, Matte Ceramic adds intense UV and heat protection, chemical resistance, and increased protection from the light ‘love marks’ of proper washing.',
+            list: ['For matte paint, vinyl and PPF', 'Ultra-high solids formula', 'UV, heat and chemical protection', 'Guards against light washing marks'] },
           { tag: '10yr', name: 'Industrial Coating', sub: 'Feynlab Industrial V2', anchor: 'industrial',
             paras: 'Not for paint: for the parts nobody else protects. Underbody, suspension components, arches, metals and plastics. UV-resistant, chemical-resistant, highly hydrophobic. Reduces cleaning intervals and eliminates the need to repaint. Applied to the underside of trains in Norway. On your car, it means the areas most exposed to damage get the best protection available.',
             list: ['Underbody, arches and suspension', 'Chemical and abrasion resistance', 'Extreme hydrophobicity', 'Reduces repainting and cleaning costs'] }
@@ -166,7 +174,7 @@ module.exports = site => {
         facts: [
           { k: 'Years detailing', v: '37', big: true },
           { k: 'Maximum protection', v: '10 yr' },
-          { k: 'Coatings in the range', v: '6' }
+          { k: 'Coatings in the range', v: '8' }
         ]
       },
 

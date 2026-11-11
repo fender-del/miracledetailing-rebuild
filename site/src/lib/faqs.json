@@ -13,7 +13,7 @@
    },
    {
     "q": "What payment methods do you accept?",
-    "a": "<p>Bank transfer, debit card, Google Pay and Apple Pay. Payment is required before collecting the vehicle or as set out in your invoice. A deposit is required to confirm your booking.</p>"
+    "a": "<p>Bank transfer, credit card, debit card and Apple Pay. Payment is required before collecting the vehicle or as set out in your invoice. A deposit is required to confirm your booking.</p>"
    },
    {
     "q": "Can you collect and deliver my car?",
@@ -100,10 +100,6 @@
    {
     "q": "Does a ceramic coating mean I never need to wash the car?",
     "a": "<p>No, but it makes washing significantly easier and less frequent. The coating's hydrophobic properties mean water and contamination bead and release rather than bonding to the surface. Regular washing with the correct products is still required. See the <a href=\"/aftercare-washing-guide/\">aftercare guide</a> for Paul's full recommended procedure and product list.</p>"
-   },
-   {
-    "q": "What is the MIRACLE discount code?",
-    "a": "<p>Use the code <strong>MIRACLE</strong> at checkout on the Feynlab website (<a href=\"https://feynlab.co.uk\" target=\"_blank\" rel=\"noopener\">feynlab.co.uk</a>) for 10% off any Feynlab product. This applies to maintenance products, coatings purchased direct and Paul's own Ceramic by Paul Dalton.</p>"
    }
   ]
  },
@@ -175,7 +171,7 @@
    },
    {
     "q": "Where do I buy the recommended maintenance products?",
-    "a": "<p>Feynlab products direct from <a href=\"https://feynlab.co.uk\" target=\"_blank\" rel=\"noopener\">feynlab.co.uk</a>, use code <strong>MIRACLE</strong> for 10% off. Wash pads, drying towels, microfibre cloths, buckets and accessories from <a href=\"https://www.cleanandshiny.co.uk\" target=\"_blank\" rel=\"noopener\">cleanandshiny.co.uk</a>. The full product list with direct links is on the <a href=\"/aftercare-washing-guide/\">aftercare page</a>.</p>"
+    "a": "<p>Feynlab products direct from <a href=\"https://feynlab.co.uk\" target=\"_blank\" rel=\"noopener\">feynlab.co.uk</a>. Wash pads, drying towels, microfibre cloths, buckets and accessories from <a href=\"https://www.cleanandshiny.co.uk\" target=\"_blank\" rel=\"noopener\">cleanandshiny.co.uk</a>. The full product list with direct links is on the <a href=\"/aftercare-washing-guide/\">aftercare page</a>.</p>"
    },
    {
     "q": "How often should a ceramic-coated car be professionally maintained?",
