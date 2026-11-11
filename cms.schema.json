@@ -1,0 +1,743 @@
+{
+  "version": 1,
+  "docs": [
+    {
+      "key": "site",
+      "label": "Business info",
+      "file": "site.json",
+      "group": "General",
+      "help": "Shown in the header, footer, contact form, map and Google listing on every page.",
+      "fields": [
+        {
+          "name": "name",
+          "type": "text",
+          "label": "Business name",
+          "required": true,
+          "max": 60
+        },
+        {
+          "name": "phone",
+          "type": "phone",
+          "label": "Phone",
+          "required": true,
+          "help": "International format, e.g. +44 7444 869983. The call and WhatsApp buttons follow this number."
+        },
+        {
+          "name": "email",
+          "type": "email",
+          "label": "Email",
+          "required": true
+        },
+        {
+          "name": "hours",
+          "type": "text",
+          "label": "Opening hours",
+          "max": 80
+        },
+        {
+          "name": "address",
+          "type": "group",
+          "label": "Address",
+          "fields": [
+            {
+              "name": "unit",
+              "type": "text",
+              "label": "Unit / building",
+              "required": true
+            },
+            {
+              "name": "street",
+              "type": "text",
+              "label": "Street",
+              "required": true
+            },
+            {
+              "name": "town",
+              "type": "text",
+              "label": "Town",
+              "required": true
+            },
+            {
+              "name": "county",
+              "type": "text",
+              "label": "County"
+            },
+            {
+              "name": "postcode",
+              "type": "text",
+              "label": "Postcode",
+              "required": true,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "name": "rating",
+          "type": "text",
+          "label": "Google rating",
+          "max": 3,
+          "help": "From your Google Business Profile, e.g. 5.0"
+        },
+        {
+          "name": "reviewCount",
+          "type": "number",
+          "label": "Number of Google reviews",
+          "min": 0
+        },
+        {
+          "name": "reviewsUrl",
+          "type": "url",
+          "label": "Link to your Google reviews"
+        },
+        {
+          "name": "vatMode",
+          "type": "select",
+          "label": "Show prices",
+          "options": [
+            {
+              "value": "ex",
+              "label": "Excluding VAT (+ VAT)"
+            },
+            {
+              "value": "inc",
+              "label": "Including VAT"
+            }
+          ]
+        },
+        {
+          "name": "instagram",
+          "type": "group",
+          "label": "Instagram",
+          "fields": [
+            {
+              "name": "handle",
+              "type": "text",
+              "label": "Handle"
+            },
+            {
+              "name": "href",
+              "type": "url",
+              "label": "Profile link"
+            }
+          ]
+        },
+        {
+          "name": "waChat",
+          "type": "group",
+          "label": "WhatsApp chat bubble",
+          "fields": [
+            {
+              "name": "caption",
+              "type": "text",
+              "label": "Reply time",
+              "max": 50
+            },
+            {
+              "name": "hello",
+              "type": "text",
+              "label": "Greeting",
+              "max": 40
+            },
+            {
+              "name": "ask",
+              "type": "text",
+              "label": "Question",
+              "max": 60
+            }
+          ]
+        },
+        {
+          "name": "origin",
+          "type": "url",
+          "label": "Live web address",
+          "agencyOnly": true,
+          "help": "Used for canonical links, the sitemap and Google listings."
+        },
+        {
+          "name": "preview",
+          "type": "boolean",
+          "label": "Pre-launch: hide the whole site from Google",
+          "agencyOnly": true
+        }
+      ]
+    },
+    {
+      "key": "services",
+      "label": "Services & prices",
+      "file": "services.json",
+      "group": "General",
+      "help": "The service cards on the home page and the Services page. Prices are plain numbers; the site adds £ and VAT.",
+      "path": "/car-care-services/",
+      "fields": [
+        {
+          "name": "services",
+          "type": "list",
+          "label": "Service cards",
+          "itemLabel": "name",
+          "itemName": "service",
+          "fields": [
+            {
+              "name": "name",
+              "type": "text",
+              "label": "Name",
+              "required": true,
+              "max": 40
+            },
+            {
+              "name": "line",
+              "type": "text",
+              "label": "One-line description",
+              "max": 70
+            },
+            {
+              "name": "badge",
+              "type": "text",
+              "label": "Small label",
+              "max": 40
+            },
+            {
+              "name": "from",
+              "type": "price",
+              "label": "From price (ex. VAT)",
+              "min": 0
+            },
+            {
+              "name": "per",
+              "type": "select",
+              "label": "Price is per",
+              "options": [
+                {
+                  "value": "hour",
+                  "label": "Hour"
+                }
+              ]
+            },
+            {
+              "name": "fromNote",
+              "type": "text",
+              "label": "What the price covers",
+              "max": 60
+            },
+            {
+              "name": "poa",
+              "type": "boolean",
+              "label": "Show \"Price POA\" instead of a price"
+            },
+            {
+              "name": "quote",
+              "type": "boolean",
+              "label": "Show \"Enquire for a Bespoke Quotation\""
+            },
+            {
+              "name": "alt",
+              "type": "text",
+              "label": "Photo description (alt text)",
+              "max": 125
+            }
+          ]
+        },
+        {
+          "name": "serviceGroups",
+          "type": "list",
+          "label": "Services menu",
+          "itemLabel": "name",
+          "itemName": "menu group",
+          "help": "The Services menu and footer. Renaming a service card does not rename it here: menu names can differ on purpose (e.g. \"Ceramic Coatings\").",
+          "fields": [
+            {
+              "name": "name",
+              "type": "text",
+              "label": "Group name",
+              "required": true,
+              "max": 30
+            },
+            {
+              "name": "links",
+              "type": "list",
+              "label": "Links",
+              "itemLabel": "name",
+              "itemName": "link",
+              "fields": [
+                {
+                  "name": "name",
+                  "type": "text",
+                  "label": "Name",
+                  "required": true,
+                  "max": 40
+                },
+                {
+                  "name": "href",
+                  "type": "url",
+                  "label": "Page",
+                  "required": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "reviews",
+      "label": "Reviews",
+      "file": "reviews.json",
+      "group": "General",
+      "help": "The Google reviews shown above the booking form.",
+      "fields": [
+        {
+          "name": "reviews",
+          "type": "list",
+          "label": "Reviews",
+          "itemLabel": "name",
+          "itemName": "review",
+          "fields": [
+            {
+              "name": "text",
+              "type": "textarea",
+              "label": "Review",
+              "required": true,
+              "max": 400
+            },
+            {
+              "name": "name",
+              "type": "text",
+              "label": "Name",
+              "required": true,
+              "max": 40
+            },
+            {
+              "name": "car",
+              "type": "text",
+              "label": "Car or source",
+              "max": 40
+            },
+            {
+              "name": "initials",
+              "type": "text",
+              "label": "Initials (avatar)",
+              "max": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "faqs",
+      "label": "FAQs",
+      "file": "faqs.json",
+      "root": "list",
+      "group": "General",
+      "path": "/car-detail-faqs/",
+      "fields": [
+        {
+          "name": "sections",
+          "type": "list",
+          "label": "Sections",
+          "itemLabel": "title",
+          "itemName": "section",
+          "fields": [
+            {
+              "name": "title",
+              "type": "text",
+              "label": "Section title",
+              "required": true,
+              "max": 40
+            },
+            {
+              "name": "items",
+              "type": "list",
+              "label": "Questions",
+              "itemLabel": "q",
+              "itemName": "question",
+              "fields": [
+                {
+                  "name": "q",
+                  "type": "text",
+                  "label": "Question",
+                  "required": true,
+                  "max": 120
+                },
+                {
+                  "name": "a",
+                  "type": "richtext",
+                  "label": "Answer",
+                  "required": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "form",
+      "label": "Booking form choices",
+      "file": "form.json",
+      "group": "General",
+      "fields": [
+        {
+          "name": "formServices",
+          "type": "list",
+          "of": "text",
+          "label": "\"What would you like done?\" choices"
+        },
+        {
+          "name": "heardFrom",
+          "type": "list",
+          "of": "text",
+          "label": "\"How did you hear about us?\" choices"
+        }
+      ]
+    },
+    {
+      "key": "page-home",
+      "label": "Home page",
+      "file": "pages/home.json",
+      "group": "Pages",
+      "path": "/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-dry-ice-blasting-and-laser-cleaning",
+      "label": "Dry Ice Cleaning",
+      "file": "pages/dry-ice-blasting-and-laser-cleaning.json",
+      "group": "Pages",
+      "path": "/dry-ice-blasting-and-laser-cleaning/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-paint-protection-film-ppf",
+      "label": "Paint Protection Film (PPF)",
+      "file": "pages/paint-protection-film-ppf.json",
+      "group": "Pages",
+      "path": "/paint-protection-film-ppf/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-ceramic-coatings",
+      "label": "Ceramic Coating",
+      "file": "pages/ceramic-coatings.json",
+      "group": "Pages",
+      "path": "/ceramic-coatings/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-paint-correction-and-polishing",
+      "label": "Paint Correction",
+      "file": "pages/paint-correction-and-polishing.json",
+      "group": "Pages",
+      "path": "/paint-correction-and-polishing/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-window-tinting",
+      "label": "Window Tinting & Bulletproof Film",
+      "file": "pages/window-tinting.json",
+      "group": "Pages",
+      "path": "/window-tinting/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-mobile-car-detailing",
+      "label": "Mobile Car Detailing",
+      "file": "pages/mobile-car-detailing.json",
+      "group": "Pages",
+      "path": "/mobile-car-detailing/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-bodyshop-repair",
+      "label": "Bodyshop & Paint Repair",
+      "file": "pages/bodyshop-repair.json",
+      "group": "Pages",
+      "path": "/bodyshop-repair/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-paintless-dent-removal",
+      "label": "Paintless Dent Removal (PDR)",
+      "file": "pages/paintless-dent-removal.json",
+      "group": "Pages",
+      "path": "/paintless-dent-removal/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-wheel-refurbishment",
+      "label": "Wheel Refurbishment",
+      "file": "pages/wheel-refurbishment.json",
+      "group": "Pages",
+      "path": "/wheel-refurbishment/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-leather-restoration",
+      "label": "Leather Restoration",
+      "file": "pages/leather-restoration.json",
+      "group": "Pages",
+      "path": "/leather-restoration/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-car-detailing-studio",
+      "label": "Car Detailing Packages",
+      "file": "pages/car-detailing-studio.json",
+      "group": "Pages",
+      "path": "/car-detailing-studio/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-about-paul-dalton-car-detailing",
+      "label": "About Paul Dalton",
+      "file": "pages/about-paul-dalton-car-detailing.json",
+      "group": "Pages",
+      "path": "/about-paul-dalton-car-detailing/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-aftercare-washing-guide",
+      "label": "Ceramic Coating Aftercare & Washing Guide",
+      "file": "pages/aftercare-washing-guide.json",
+      "group": "Pages",
+      "path": "/aftercare-washing-guide/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-car-care-services",
+      "label": "Car Care Services",
+      "file": "pages/car-care-services.json",
+      "group": "Pages",
+      "path": "/car-care-services/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-car-detail-gallery",
+      "label": "Gallery",
+      "file": "pages/car-detail-gallery.json",
+      "group": "Pages",
+      "path": "/car-detail-gallery/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-journal",
+      "label": "Journal",
+      "file": "pages/journal.json",
+      "group": "Pages",
+      "path": "/journal/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-why-matte-and-satin-paint-needs-ppf",
+      "label": "Why Matte and Satin Paint Absolutely Needs PPF",
+      "file": "pages/why-matte-and-satin-paint-needs-ppf.json",
+      "group": "Pages",
+      "path": "/why-matte-and-satin-paint-needs-ppf/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-facebook-competition",
+      "label": "Facebook Competition!",
+      "file": "pages/facebook-competition.json",
+      "group": "Pages",
+      "path": "/facebook-competition/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-new-product-launch",
+      "label": "New Product Launch! Feynlab Ceramic by Paul Dalton",
+      "file": "pages/new-product-launch.json",
+      "group": "Pages",
+      "path": "/new-product-launch/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-car-detail-faqs",
+      "label": "Car Detailing FAQs",
+      "file": "pages/car-detail-faqs.json",
+      "group": "Pages",
+      "path": "/car-detail-faqs/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-underside-coating",
+      "label": "Underside & Underbody Coating",
+      "file": "pages/underside-coating.json",
+      "group": "Pages",
+      "path": "/underside-coating/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-interior-detailing",
+      "label": "Interior Car Detailing, Leather Cleaning & Protection",
+      "file": "pages/interior-detailing.json",
+      "group": "Pages",
+      "path": "/interior-detailing/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-terms-and-privacy",
+      "label": "Terms & Conditions and Privacy",
+      "file": "pages/terms-and-privacy.json",
+      "group": "Pages",
+      "path": "/terms-and-privacy/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    },
+    {
+      "key": "page-new-car-detail-protection",
+      "label": "New Car Detailing, Ceramic Coatings & PPF",
+      "file": "pages/new-car-detail-protection.json",
+      "group": "Pages",
+      "path": "/new-car-detail-protection/",
+      "fields": [
+        {
+          "name": "seo",
+          "type": "seo",
+          "help": "Leave the title or description empty to use the one written in the page."
+        }
+      ]
+    }
+  ]
+}

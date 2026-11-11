@@ -5,176 +5,30 @@
    footer, sticky bar, form, map and schema all read from this file,
    so a phone number or an address can never drift between blocks.
 
-   ⚠️ VERIFY = still waiting on Paul / Ed (PLAN.md §12).
+   11/11 (DMI CMS): the values themselves now live in site/content/*.json,
+   which the CMS edits (Paul) and commits. This file only joins them and
+   works out what is derived (call/WhatsApp links, address lines, prices,
+   menu groups). Edit the JSON, not this file, for content changes.
+     content/site.json      NAP, hours, rating, socials, nav, launch switch (preview)
+     content/services.json  service cards + Services menu groups
+     content/form.json      booking form choices
+   The notes that used to sit beside each value (VERIFY, who asked for
+   what and when) are kept in content/README.md.
    ============================================================ */
 'use strict';
 
-const site = {
-  name: 'Miracle Detail',
-  legalName: 'Miracle Detail Ltd',
-  person: 'Paul Dalton',
-  origin: 'https://miracledetail.co.uk',
-  /* Demo build: every page carries noindex until launch (netlify.toml adds
-     the header too). Flip to false on the real domain. */
-  preview: true,
+const site = Object.assign(
+  {},
+  require('../content/site.json'),
+  require('../content/services.json'),
+  require('../content/form.json')
+);
 
-  phone: '+44 7444 869983',
-  phoneHref: 'tel:+447444869983',
-  whatsapp: 'https://wa.me/447444869983',            // v0.5 aftercare page links WhatsApp to this number
-  email: 'info@miracledetail.co.uk',
-  /* WhatsApp chat bubble (Paul 09/11: "whats app widget for clients to contact me"). Our own copy of his Elfsight one on the old
-     site: the same name, reply time and greeting as he set there; "Start chat" opens WhatsApp. */
-  waChat: { name: 'Miracle Detail', caption: 'Typically replies within an hour', hello: 'Hi there 👋', ask: 'How can we help you?' },
-  /* Instagram feed (Paul 09/11: "needs insta on the pages like my current website"): his own Elfsight Instagram Feed widget
-     from the old site, already connected to @miracledetailuk and paid for, so it needs nothing from Paul. */
-  instagram: { handle: '@miracledetailuk', href: 'https://www.instagram.com/miracledetailuk/', elfsight: '82824589-e7ad-4280-9a99-c6392d43a93a' },
-                 // v0.5 aftercare page
-  since: '1994',
-  vatNo: '452960872',
-
-  /* VERIFY — the old site and v1 say "Unit 8–9 Jesmor Farm", v0.5 and
-     Google say "Unit 10, Jesmor Trading Estate". This is the one place
-     it is written; every block reads it from here. */
-  address: {
-    unit: 'Unit 10, Jesmor Trading Estate',
-    street: "St Piers Lane",
-    town: 'Lingfield',
-    county: 'Surrey',
-    postcode: 'RH7 6PN',
-    country: 'GB'
-  },
-  hours: 'Open 7 days a week · strictly by appointment only',
-
-  rating: '5.0',
-  reviewCount: 139,                                  // Google Business Profile, 01/10/2026 (v0.5 said "140+")
-  reviewsUrl: 'https://www.google.com/maps/search/?api=1&query=Miracle+Detail+Lingfield',
-
-  /* Prices. Fender's call (01/10): ex-VAT with "+ VAT". Switching to
-     VAT-inclusive (ASA CAP 3.18 / DMCC) is one line: vatMode = 'inc'. */
-  vatMode: 'ex',
-
-  social: [
-    { label: 'Instagram', href: 'https://www.instagram.com/miracledetailuk/',
-      icon: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.8" stroke="currentColor" stroke-width="1.6"/><circle cx="16.9" cy="7.1" r="1.1" fill="currentColor"/></svg>' },
-    { label: 'Facebook', href: 'https://www.facebook.com/pauldaltonsmiracledetail',
-      icon: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.6A21 21 0 0 0 14.3 3.5c-2.4 0-4 1.45-4 4.12V9.9H7.6V13h2.7v8h3.2Z"/></svg>' },
-    { label: 'YouTube', href: 'https://www.youtube.com/user/MiracleDetail',
-      icon: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.3 5 12 5 12 5s-6.3 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.76 1.77C5.7 19 12 19 12 19s6.3 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15V9l5.2 3L10 15Z"/></svg>' },
-    { label: 'TikTok', href: 'https://www.tiktok.com/@miracledetail',
-      icon: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3c.3 2.1 1.6 3.6 3.9 3.8v3a7.3 7.3 0 0 1-3.9-1.2v6.1a5.8 5.8 0 1 1-5.8-5.8c.3 0 .6 0 .9.07v3.1a2.8 2.8 0 1 0 1.9 2.63V3h3Z"/></svg>' }
-  ],
-
-  /* ---------- Services ----------
-     Old-site slugs (PLAN.md §5.1). `main` = the four v0.5 cards with a
-     photo; the rest are the v0.5 list. `from` is a number (ex-VAT);
-     `per` qualifies it. No `from` = no price shown (v0.5 had none, or
-     it was "From £???"). */
-  services: [
-    { key: 'correction', main: true, name: 'Paint Correction', href: '/paint-correction-and-polishing/',
-      badge: '5 levels · Enhancement to concours',
-      line: 'Every job assessed with instruments most detailers don’t own.',
-      from: 650, fromNote: 'Two-stage Correction Detail',   // VERIFY: v0.5 correction levels are "From £???"; this is Packages Level 3
-      img: 'svc-correction', alt: 'A dual-action polisher working red paintwork' },
-    { key: 'ceramic', main: true, name: 'Ceramic Coating', href: '/ceramic-coatings/',
-      badge: 'Certified Feynlab installer',
-      line: 'Applied by the man who helped create it.',
-      from: 450, fromNote: 'Protection Detail with Feynlab coating',
-      img: 'svc-ceramic', alt: 'A gloved hand levelling ceramic coating beside the Ferrari badge of a red SF90 Spider' },
-    { key: 'ppf', main: true, name: 'Paint Protection Film', href: '/paint-protection-film-ppf/',
-      badge: 'Installing since 2006',
-      line: 'Longer than any other UK detailer.',
-      from: 1500, fromNote: 'Maximum front protection',
-      img: 'svc-ppf', alt: 'Paint protection film being squeegeed onto a red door' },
-    { key: 'dryice', main: true, name: 'Dry Ice Cleaning', href: '/dry-ice-blasting-and-laser-cleaning/',
-      badge: 'First in the UK, 2014',
-      line: 'No water. No chemicals. No residue.',
-      from: 200, per: 'hour', fromNote: 'Minimum two hours',
-      img: 'svc-dryice', alt: 'Dry ice blasting the engine bay of a red Ferrari' },
-
-    /* v0.5 has no underbody page; Paul 22/10 (board note 1) asked for one */
-    { key: 'underside', name: 'Underside Coating', href: '/underside-coating/',
-      line: 'Feynlab Industrial V2 — 10 year protection', from: 1000, img: 'svc-underside' },
-    { key: 'studio', name: 'Full Studio Detail', href: '/car-detailing-studio/#signature',
-      line: 'Every service. One detailer.', from: 175, img: 'svc-studio' },
-    /* 27/10 (Fender): Paul's interior page takes the Detailing Packages
-       card; Packages stays in the header and the Services menu. Paul's page
-       has no price ("contact us … for an informed quotation") */
-    { key: 'interior', name: 'Interior Cleaning & Protection', href: '/interior-detailing/',
-      line: 'Leather, fabrics, fine trim and protection', poa: true, img: 'svc-interior' },
-    { key: 'bodyshop', name: 'Bodyshop & Paint Repair', href: '/bodyshop-repair/',
-      line: 'Panel repairs to full restorations', poa: true, img: 'svc-bodyshop' },
-    { key: 'pdr', name: 'Paintless Dent Removal', href: '/paintless-dent-removal/',
-      line: 'No filler. No paint. Original panel.', from: 150, img: 'svc-pdr' },
-    { key: 'wheels', name: 'Wheel Refurbishment', href: '/wheel-refurbishment/',
-      line: 'Diamond cut, powder coat, colour change', from: 125, img: 'svc-wheels' },
-    /* v0.5 bug: this row carried the tint line. Now the leather page's own. */
-    { key: 'leather', name: 'Leather Restoration', href: '/leather-restoration/',
-      line: 'Colour restoration, scuff repair and conditioning', poa: true, img: 'svc-leather' },
-    { key: 'tint', name: 'Window Tinting & Bulletproof Film', href: '/window-tinting/',
-      line: 'Chameleon, standard and security film', from: 250, img: 'svc-tint' },
-
-    /* 05/11 (Brian): Packages back on the grid and Paul's new car page,
-       side by side as the last row (wide = half a row), so the twelve
-       above stay whole rows at 4, 3 and 2 across. Packages keeps its card
-       of 02/10; the new car card is Paul's own words, with his
-       "Enquire for a Bespoke Quotation" in place of a price. Packages is
-       in the footer's Studio column already (foot: false). */
-    { key: 'packages', name: 'Detailing Packages', href: '/car-detailing-studio/', wide: true, foot: false,
-      line: 'Maintenance to Signature — 5 levels', from: 175, img: 'svc-packages',
-      alt: 'A black LaFerrari, doors up, being detailed under work lamps' },
-    { key: 'newcar', name: 'New Car Detail & Protection', href: '/new-car-detail-protection/', wide: true,
-      line: 'The perfect finish starts before the first mile.', quote: true, img: 'svc-newcar',
-      alt: 'Paul’s new matte blue Hyundai Ioniq 5 N in the studio under the hexagon lights' }
-  ],
-
-  /* Menu groups (PLAN.md §5.2), shown in the Services mega menu and footer. */
-  serviceGroups: [
-    { name: 'Correct & Restore', links: [
-      { name: 'Paint Correction', href: '/paint-correction-and-polishing/' },
-      { name: 'Leather Restoration', href: '/leather-restoration/' },
-      { name: 'Wheel Refurbishment', href: '/wheel-refurbishment/' },
-      { name: 'Bodyshop & Paint Repair', href: '/bodyshop-repair/' },
-      { name: 'Paintless Dent Removal', href: '/paintless-dent-removal/' } ] },
-    { name: 'Protect', links: [
-      /* 05/11: Paul's new car page */
-      { name: 'New Car Detail & Protection', href: '/new-car-detail-protection/' },
-      { name: 'Ceramic Coatings', href: '/ceramic-coatings/' },
-      { name: 'Paint Protection Film', href: '/paint-protection-film-ppf/' },
-      { name: 'Window Tinting & Bulletproof Film', href: '/window-tinting/' },
-      { name: 'Underside Coating', href: '/underside-coating/' } ] },
-    { name: 'Clean & Preserve', links: [
-      { name: 'Dry Ice Cleaning', href: '/dry-ice-blasting-and-laser-cleaning/' },
-      { name: 'Interior Cleaning & Protection', href: '/interior-detailing/' },
-      { name: 'Detailing Packages', href: '/car-detailing-studio/' },
-      { name: 'Mobile Detailing', href: '/mobile-car-detailing/' },
-      { name: 'Aftercare & Washing Guide', href: '/aftercare-washing-guide/' } ] }
-  ],
-
-  /* v0.5 header order, old-site slugs. */
-  nav: [
-    { name: 'About Paul', href: '/about-paul-dalton-car-detailing/' },
-    { name: 'Services', href: '/car-care-services/', mega: true },
-    { name: 'Mobile Detailing', href: '/mobile-car-detailing/' },
-    { name: 'Projects', href: '/car-detail-gallery/' },
-    { name: 'Packages', href: '/car-detailing-studio/' },
-    { name: 'Journal', href: '/journal/' }
-  ],
-
-  /* Paul's terms & privacy page (30/10, REQUESTS #30), in the footer */
-  legal: [{ name: 'Terms & Privacy', href: '/terms-and-privacy/' }],
-
-  cta: { label: 'Book a Consultation', href: '#book' },
-
-  /* "To confirm" (Fender 06/10): every price or claim still waiting on
-     Paul carries a small gold label on the page, so Paul and Ed can see
-     what to check. false = the labels disappear (the copy stays). */
-  tbc: false,
-
-  /* The form's "What would you like done?" picks. A page ticks its own
-     service with `formPick` (the dry ice page ticks "Dry Ice Cleaning"). */
-  formServices: ['Paint Correction', 'Ceramic Coating', 'Paint Protection Film', 'New Car Detail & Protection', 'Dry Ice Cleaning', 'Underside Coating', 'Full Studio Detail', 'Interior Cleaning & Protection', 'Detailing Package', 'Mobile Detailing', 'Window Tinting or Bulletproof Film', 'Leather, Wheels or Bodywork', 'Not sure yet'],
-  heardFrom: ['Instagram', 'Facebook', 'Google', 'YouTube', 'TikTok', 'Fifth Gear or the press', 'A friend or another client', 'Other']
-};
+/* Call and WhatsApp links follow the phone number, so changing the
+   number in the CMS changes every button (11/11: were typed by hand). */
+const digits = site.phone.replace(/\D/g, '');
+site.phoneHref = 'tel:+' + digits;
+site.whatsapp = 'https://wa.me/' + digits;
 
 /* ---------- Derived ---------- */
 const a = site.address;

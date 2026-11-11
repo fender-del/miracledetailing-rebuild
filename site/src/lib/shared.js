@@ -10,15 +10,10 @@ const { images } = require('./pic.js');
 const STAR = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8L12 2.8Z"/></svg>';
 const color = ['#5E35B1', '#00796B', '#AD1457', '#3949AB', '#6D4C41', '#455A64'];
 
-/* v0.5's six Google reviews, as published there. */
-const reviews = [
-  { text: 'I was thunderstruck by the effect Paul achieved. I am certain the car never looked, or felt, this good, not even the day it came out of the showroom. The depth of the shine has to be seen to be believed. I consider myself very fortunate to have discovered Paul.', name: 'Verified customer', car: 'Google review', initials: 'G' },
-  { text: 'Paul did an awesome job on my TT and my Q7. The Q7 needed a lot of work and now looks like new. Really worthwhile investment in upgrading and protecting both cars.', name: 'Duncan Walker', car: 'Audi TT & Q7', initials: 'DW' },
-  { text: 'I had my Mercedes paint corrected and ceramic coated and was blown away with how good the work is. The car looks better than brand new. I’ve seen other detailers’ work and they don’t come anywhere close.', name: 'Anjela Hitchcock', car: 'Mercedes', initials: 'AH' },
-  { text: 'Completely blown away by the level of detail and care put into bringing my car back to better than new finish. Paul communicated with video and photos during the whole process. This guy is at the top of his game: he truly knows his craft and has made it an art form.', name: 'Verified customer', car: 'Google review', initials: 'G' },
-  { text: 'I brought my 12 year old Audi TT to Paul in a sorry state. A week later the transformation was truly miraculous. A deep shine has been restored and the paintwork has a mirror-like finish. He makes the impossible seem possible.', name: 'William Sandeford', car: 'Audi TT', initials: 'WS' },
-  { text: 'Paul Dalton has been the best known car detailer in this country for many, many years. I was somewhat honoured to partner with him on so many cars of all shapes, sizes and prices. Great guy and still the first call for detailing expertise.', name: 'Steve', car: 'Industry professional', initials: 'S' }
-].map((r, i) => Object.assign(r, { color: color[i % color.length] }));
+/* v0.5's six Google reviews, as published there. 11/11: the text lives in
+   content/reviews.json (the CMS edits it); the avatar colour follows the order. */
+const reviews = require('../../content/reviews.json').reviews
+  .map((r, i) => Object.assign({}, r, { color: color[i % color.length] }));
 
 /* The gold "To confirm" label; `note` says what Paul has to check. */
 const tbc = note => (site.tbc

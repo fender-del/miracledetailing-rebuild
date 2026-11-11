@@ -61,6 +61,27 @@ for (const p of pages) {
   }
 }
 
+/* ---------- Per-page SEO from the CMS (11/11) ----------
+   content/pages/<slug or home>.json = { seo: { title, description,
+   ogImage: { src, alt }, noindex } }, edited in the DMI CMS by Paul or
+   the SEO person. A value set there wins over the page file's own
+   title/description; an empty one keeps the page file's. A new page
+   with no content file still builds, but the CMS can't edit it yet:
+   `node tools/cms-pages.js` adds the file and the CMS schema entry. */
+const CONTENT = path.join(ROOT, 'content');
+const pageKey = p => (p.slug ? p.slug.replace(/\/+$/, '') : 'home');
+const noSeo = [];
+for (const p of pages) {
+  const f = path.join(CONTENT, 'pages', pageKey(p) + '.json');
+  if (!fs.existsSync(f)) { noSeo.push('/' + p.slug); continue; }
+  const seo = JSON.parse(read(f)).seo || {};
+  if (seo.title && seo.title.trim()) p.title = seo.title.trim();
+  if (seo.description && seo.description.trim()) p.description = seo.description.trim();
+  if (seo.ogImage && seo.ogImage.src && seo.ogImage.src.trim()) p.ogImage = seo.ogImage.src.trim();
+  if (typeof seo.noindex === 'boolean') p.noindex = seo.noindex;
+}
+if (noSeo.length) console.log(`no CMS content file for ${noSeo.join(', ')} (run node tools/cms-pages.js)`);
+
 /* ---------- CSS ----------
    Each page inlines tokens + base + only the blocks it uses (06/10: the
    service pages brought their own blocks; the homepage should not carry
@@ -120,7 +141,8 @@ fs.writeFileSync(path.join(ROOT, 'assets/img/favicon.svg'),
 
 /* ---------- Pages ---------- */
 const shell = read(path.join(SRC, 'shell.html'));
-const version = Date.now().toString(36);
+/* BUILD_VERSION: fixed cache-buster for reproducible builds (CMS byte checks); default = build time */
+const version = process.env.BUILD_VERSION || Date.now().toString(36);
 const jsonld = o => JSON.stringify(o).replace(/</g, '\\u003c');
 const abs = href => site.origin + (href.startsWith('/') ? href : '/' + href);
 const written = [];
@@ -169,7 +191,7 @@ for (const page of pages) {
     description: page.description,
     canonical: abs(url),
     robots: site.preview || page.noindex ? 'noindex,nofollow' : null,
-    ogImage: abs('/assets/img/og.jpg'),
+    ogImage: abs(page.ogImage || '/assets/img/og.jpg'),
     preload: preloadTags(page.preload),
     /* Inline the page's own CSS (one round trip saved). Flip to the
        <link> once returning visitors matter more than first paint. */

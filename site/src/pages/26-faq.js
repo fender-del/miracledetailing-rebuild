@@ -3,12 +3,12 @@
    (miracledetail-faqs.html), words as he wrote them; only the long
    dashes are gone and links point at this site (contact = the booking
    form, aftercare = the guide). Old slug /car-detail-faqs/ (it was a
-   301 to Packages until now). Data: lib/faqs.json, block 62.
+   301 to Packages until now). Data: content/faqs.json (CMS), block 62.
    ============================================================ */
 'use strict';
 const { frame } = require('../lib/pic.js');
 const { crumbs } = require('../lib/shared.js');
-const SECTIONS = require('../lib/faqs.json');
+const SECTIONS = require('../../content/faqs.json');
 
 const SLUG = 'car-detail-faqs';
 const strip = s => s.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();

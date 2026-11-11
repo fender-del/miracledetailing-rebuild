@@ -1,0 +1,40 @@
+{
+  "reviews": [
+    {
+      "text": "I was thunderstruck by the effect Paul achieved. I am certain the car never looked, or felt, this good, not even the day it came out of the showroom. The depth of the shine has to be seen to be believed. I consider myself very fortunate to have discovered Paul.",
+      "name": "Verified customer",
+      "car": "Google review",
+      "initials": "G"
+    },
+    {
+      "text": "Paul did an awesome job on my TT and my Q7. The Q7 needed a lot of work and now looks like new. Really worthwhile investment in upgrading and protecting both cars.",
+      "name": "Duncan Walker",
+      "car": "Audi TT & Q7",
+      "initials": "DW"
+    },
+    {
+      "text": "I had my Mercedes paint corrected and ceramic coated and was blown away with how good the work is. The car looks better than brand new. I’ve seen other detailers’ work and they don’t come anywhere close.",
+      "name": "Anjela Hitchcock",
+      "car": "Mercedes",
+      "initials": "AH"
+    },
+    {
+      "text": "Completely blown away by the level of detail and care put into bringing my car back to better than new finish. Paul communicated with video and photos during the whole process. This guy is at the top of his game: he truly knows his craft and has made it an art form.",
+      "name": "Verified customer",
+      "car": "Google review",
+      "initials": "G"
+    },
+    {
+      "text": "I brought my 12 year old Audi TT to Paul in a sorry state. A week later the transformation was truly miraculous. A deep shine has been restored and the paintwork has a mirror-like finish. He makes the impossible seem possible.",
+      "name": "William Sandeford",
+      "car": "Audi TT",
+      "initials": "WS"
+    },
+    {
+      "text": "Paul Dalton has been the best known car detailer in this country for many, many years. I was somewhat honoured to partner with him on so many cars of all shapes, sizes and prices. Great guy and still the first call for detailing expertise.",
+      "name": "Steve",
+      "car": "Industry professional",
+      "initials": "S"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "name": "Miracle Detail",
+  "legalName": "Miracle Detail Ltd",
+  "person": "Paul Dalton",
+  "origin": "https://miracledetail.co.uk",
+  "preview": true,
+  "phone": "+44 7444 869983",
+  "email": "info@miracledetail.co.uk",
+  "waChat": {
+    "name": "Miracle Detail",
+    "caption": "Typically replies within an hour",
+    "hello": "Hi there 👋",
+    "ask": "How can we help you?"
+  },
+  "instagram": {
+    "handle": "@miracledetailuk",
+    "href": "https://www.instagram.com/miracledetailuk/",
+    "elfsight": "82824589-e7ad-4280-9a99-c6392d43a93a"
+  },
+  "since": "1994",
+  "vatNo": "452960872",
+  "address": {
+    "unit": "Unit 10, Jesmor Trading Estate",
+    "street": "St Piers Lane",
+    "town": "Lingfield",
+    "county": "Surrey",
+    "postcode": "RH7 6PN",
+    "country": "GB"
+  },
+  "hours": "Open 7 days a week · strictly by appointment only",
+  "rating": "5.0",
+  "reviewCount": 139,
+  "reviewsUrl": "https://www.google.com/maps/search/?api=1&query=Miracle+Detail+Lingfield",
+  "vatMode": "ex",
+  "social": [
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/miracledetailuk/",
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><rect x=\"3.5\" y=\"3.5\" width=\"17\" height=\"17\" rx=\"5\" stroke=\"currentColor\" stroke-width=\"1.6\"/><circle cx=\"12\" cy=\"12\" r=\"3.8\" stroke=\"currentColor\" stroke-width=\"1.6\"/><circle cx=\"16.9\" cy=\"7.1\" r=\"1.1\" fill=\"currentColor\"/></svg>"
+    },
+    {
+      "label": "Facebook",
+      "href": "https://www.facebook.com/pauldaltonsmiracledetail",
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.6A21 21 0 0 0 14.3 3.5c-2.4 0-4 1.45-4 4.12V9.9H7.6V13h2.7v8h3.2Z\"/></svg>"
+    },
+    {
+      "label": "YouTube",
+      "href": "https://www.youtube.com/user/MiracleDetail",
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.3 5 12 5 12 5s-6.3 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.76 1.77C5.7 19 12 19 12 19s6.3 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15V9l5.2 3L10 15Z\"/></svg>"
+    },
+    {
+      "label": "TikTok",
+      "href": "https://www.tiktok.com/@miracledetail",
+      "icon": "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M16.6 3c.3 2.1 1.6 3.6 3.9 3.8v3a7.3 7.3 0 0 1-3.9-1.2v6.1a5.8 5.8 0 1 1-5.8-5.8c.3 0 .6 0 .9.07v3.1a2.8 2.8 0 1 0 1.9 2.63V3h3Z\"/></svg>"
+    }
+  ],
+  "nav": [
+    {
+      "name": "About Paul",
+      "href": "/about-paul-dalton-car-detailing/"
+    },
+    {
+      "name": "Services",
+      "href": "/car-care-services/",
+      "mega": true
+    },
+    {
+      "name": "Mobile Detailing",
+      "href": "/mobile-car-detailing/"
+    },
+    {
+      "name": "Projects",
+      "href": "/car-detail-gallery/"
+    },
+    {
+      "name": "Packages",
+      "href": "/car-detailing-studio/"
+    },
+    {
+      "name": "Journal",
+      "href": "/journal/"
+    }
+  ],
+  "legal": [
+    {
+      "name": "Terms & Privacy",
+      "href": "/terms-and-privacy/"
+    }
+  ],
+  "cta": {
+    "label": "Book a Consultation",
+    "href": "#book"
+  },
+  "tbc": false
+}
