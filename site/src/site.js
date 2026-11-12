@@ -30,6 +30,12 @@ const digits = site.phone.replace(/\D/g, '');
 site.phoneHref = 'tel:+' + digits;
 site.whatsapp = 'https://wa.me/' + digits;
 
+/* Cloudflare Turnstile site key for the booking form (public; the secret
+   is the Worker secret TURNSTILE_SECRET). 1x00000000000000000000AA is
+   Cloudflare's always-pass test key: replace it with the widget's real
+   key from the Cloudflare dashboard (Turnstile -> miracledetail.co.uk). */
+site.turnstileKey = '1x00000000000000000000AA';
+
 /* ---------- Derived ---------- */
 const a = site.address;
 site.addressLine = `${a.unit}, ${a.street}, ${a.town}, ${a.county} ${a.postcode}`;

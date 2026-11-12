@@ -87,7 +87,8 @@ export function form() {
     cur = i;
   };
 
-  const MAX_BYTES = 8 * 1024 * 1024;
+  /* 10 MB of photos in all: the same limit /api/book holds (worker/index.js) */
+  const MAX_BYTES = 10 * 1024 * 1024;
   const mb = n => (n / 1048576).toFixed(1) + ' MB';
   const bad = (el, on) => { el.setAttribute('aria-invalid', on ? 'true' : 'false'); };
   const check = i => {
@@ -121,7 +122,7 @@ export function form() {
       const total = Array.from(files.files).reduce((n, x) => n + x.size, 0);
       const ok = files.files.length <= 4 && total <= MAX_BYTES;
       bad(files, !ok);
-      if (!ok) $('[data-qfiles-out]', s).textContent = `Up to 4 photos and 8 MB in total, please (you have ${files.files.length}, ${mb(total)}). Remove some below, or send them on WhatsApp.`;
+      if (!ok) $('[data-qfiles-out]', s).textContent = `Up to 4 photos and 10 MB in total, please (you have ${files.files.length}, ${mb(total)}). Remove some below, or send them on WhatsApp.`;
       if (!ok && !first) first = $('[data-qfiles-list] button', s) || files;
     }
     if (first) { first.focus(); return false; }
@@ -171,8 +172,8 @@ export function form() {
     }
     list.hidden = !picked.length;
     hint.textContent = !picked.length ? idle
-      : over ? `${picked.length} photo${picked.length === 1 ? '' : 's'}, ${mb(total)}: too much. Up to 4 photos and 8 MB in total, please. Remove some below, or send them on WhatsApp.`
-      : `${picked.length} photo${picked.length === 1 ? '' : 's'} ready, ${mb(total)} of 8 MB.`;
+      : over ? `${picked.length} photo${picked.length === 1 ? '' : 's'}, ${mb(total)}: too much. Up to 4 photos and 10 MB in total, please. Remove some below, or send them on WhatsApp.`
+      : `${picked.length} photo${picked.length === 1 ? '' : 's'} ready, ${mb(total)} of 10 MB.`;
   };
   if (files) files.addEventListener('change', () => {
     Array.from(files.files).forEach(x => {
@@ -189,14 +190,64 @@ export function form() {
     }
   });
 
-  f.addEventListener('submit', e => {
+  /* Cloudflare Turnstile (12/11): loaded once the form is near or touched,
+     not with the page. Invisible unless Cloudflare wants a click. */
+  const tsEl = $('[data-turnstile]', f);
+  let ts = null;
+  const settle = t => { ts.waiters.splice(0).forEach(r => r(t)); };
+  const loadTs = () => {
+    if (ts || !tsEl) return;
+    ts = { id: null, token: '', failed: false, waiters: [] };
+    window.mdTurnstile = () => {
+      ts.id = window.turnstile.render(tsEl, {
+        sitekey: tsEl.dataset.sitekey, appearance: 'interaction-only', theme: 'dark', size: 'flexible',
+        callback: t => { ts.token = t; settle(t); },
+        'expired-callback': () => { ts.token = ''; },
+        'error-callback': () => { ts.failed = true; settle(''); }
+      });
+    };
+    const s = document.createElement('script');
+    s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=mdTurnstile';
+    s.async = true;
+    s.onerror = () => { ts.failed = true; settle(''); };
+    document.head.appendChild(s);
+  };
+  const token = () => new Promise(res => {
+    loadTs();
+    if (!ts) return res('');
+    if (ts.token) return res(ts.token);
+    if (ts.failed) return res('');
+    ts.waiters.push(res);
+    setTimeout(() => res(''), 20000);
+  });
+  const resetTs = () => { if (ts && ts.id !== null && window.turnstile) { ts.token = ''; window.turnstile.reset(ts.id); } };
+  if (tsEl) { f.addEventListener('focusin', loadTs, { once: true }); whenSeen([f], loadTs, 0); }
+
+  f.addEventListener('submit', async e => {
     e.preventDefault();
     if (!check(cur)) return;
     const btn = $('button[type=submit]', f);
     btn.disabled = true;
-    fetch('/', { method: 'POST', body: new FormData(f) })
-      .then(r => { if (!r.ok) throw new Error(r.status); done(true); })
-      .catch(() => done(false));
+    try {
+      const fd = new FormData(f);
+      fd.set('cf-turnstile-response', await token());
+      const r = await fetch('/api/book', { method: 'POST', body: fd, headers: { Accept: 'application/json' } });
+      const j = await r.json().catch(() => ({}));
+      if (r.ok && j.ok) return done(true);
+      resetTs();
+      /* photos over the limit: back to step 2 with the reason, nothing lost */
+      if (j.error === 'too_big' && files) {
+        btn.disabled = false;
+        show(1, -1);
+        hint.textContent = j.message;
+        bad(files, true);
+        ($('[data-qfiles-list] button', f) || files).focus();
+        return;
+      }
+      done(false);
+    } catch (err) {
+      done(false);
+    }
   });
 
   const done = ok => {
@@ -205,7 +256,7 @@ export function form() {
       /* the phone link already in the box comes from site.js */
       const p = $('p:last-child', box), tel = $('a[href^="tel:"]', box);
       $('.qf__done-h', box).textContent = 'That did not send.';
-      p.textContent = 'This preview is not connected to the inbox yet. Please call or WhatsApp Paul on ';
+      p.textContent = 'Please call or WhatsApp Paul on ';
       p.appendChild(tel); p.append('.');
     }
     f.classList.add('is-sent');

@@ -140,3 +140,6 @@
   .qf__prog li{font-size:.625rem;letter-spacing:.06em}
 }
 .book__more{justify-self:start}
+/* Turnstile (12/11): takes no room unless Cloudflare asks for a click */
+.qf__ts:empty{display:none}
+.qf__ts{margin-top:8px}

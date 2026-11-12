@@ -5,9 +5,11 @@ assets-src/
 # Old Netlify deploy zips
 *.zip
 .claude/settings.local.json
+.dev.vars
 
 # Review board for Paul: rebuilt by review/paul-board/capture.js + build.js
 review/paul-board/out/
 review/paul-board/index.html
 review/paul-board/Miracle-Website-Review.html
 review/paul-board/capture.log
+.wrangler/

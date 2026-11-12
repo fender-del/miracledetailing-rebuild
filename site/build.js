@@ -233,40 +233,136 @@ fs.writeFileSync(path.join(ROOT, '_headers'), [
   ''
 ].join('\n'));
 
+/* Old-site 301s. Cloudflare reads _redirects top down and takes the first
+   match, so every fixed line sits above the :param lines. Each fixed rule
+   is written twice, with and without the closing slash, so an old link
+   typed without it still lands in one hop. Check them all with
+   tools/check-old-urls.js (list: tools/old-urls.txt). */
+const GAL = '/car-detail-gallery/';
+const R = (title, rules) => ({ title, rules });
+const redirectGroups = [
+  R('Old site (miracledetail.co.uk): pages that merge into another (PLAN.md §5.3).\n' +
+    '# 12/11: the nine area pages land on the homepage Coverage block (#visit).', [
+    ['/surrey-car-detailing/', '/#visit'],
+    ['/sussex-car-detailing/', '/#visit'],
+    ['/kent-car-detailing/', '/#visit'],
+    ['/london-car-detailing/', '/#visit'],
+    ['/essex-car-detailing/', '/#visit'],
+    ['/hampshire-car-detailing/', '/#visit'],
+    ['/hertfordshire-car-detailing/', '/#visit'],
+    ['/oxfordshire-car-detailing/', '/#visit'],
+    ['/buckinghamshire-car-detailing/', '/#visit'],
+    ['/contact-us/', '/#book'],
+    ['/studio-car-valeting/', '/car-detailing-studio/'],
+    ['/after-care-with-feynlab/', '/aftercare-washing-guide/'],
+    ['/videos/', GAL],
+    ['/blog/', '/journal/'],
+    ['/category/uncategorized/', '/journal/'],
+    ['/car-audio-installation-fabrication-pssound/', '/car-care-services/']
+  ]),
+  R('Older URLs (Google site: search, Wayback Machine): the nearest page', [
+    ['/car-detailer-surrey/', '/#visit'],
+    ['/car-detailer-sussex/', '/#visit'],
+    ['/car-detailer-services-in-petworth/', '/#visit'],
+    ['/car-detailing-services-goodwood/', '/#visit'],
+    ['/car-detailing-services-chelsea-london-hastings-kent/', '/#visit'],
+    ['/contact/', '/#book'],
+    ['/about/', '/about-paul-dalton-car-detailing/'],
+    ['/paul-dalton/', '/about-paul-dalton-car-detailing/'],
+    ['/events/', '/about-paul-dalton-car-detailing/'],
+    ['/car-show-appearances/', '/about-paul-dalton-car-detailing/'],
+    ['/car-show-appearances-detail/', '/about-paul-dalton-car-detailing/'],
+    ['/miracle-presents-a-trip-through-time/', '/about-paul-dalton-car-detailing/'],
+    ['/faq/', '/car-detail-faqs/'],
+    ['/car-detailing-gallery/', GAL],
+    ['/car-detail-studio/', '/car-detailing-studio/'],
+    ['/car-detailing-studio-old/', '/car-detailing-studio/'],
+    ['/car-detailing/', '/car-care-services/'],
+    ['/car-detailing-services/', '/car-care-services/'],
+    ['/car-detail-treatments/', '/car-care-services/'],
+    ['/premium-car-detailing/', '/car-care-services/'],
+    ['/car-detail-training/', '/car-care-services/'],
+    ['/collect-detail-service/', '/car-care-services/'],
+    ['/car-paintwork-restoration/', '/paint-correction-and-polishing/'],
+    ['/glass-ceramic-nano-coatings/', '/ceramic-coatings/'],
+    ['/interior-valeting/', '/interior-detailing/'],
+    ['/interior-other/', '/interior-detailing/'],
+    ['/mobile-vehicle-detailing/', '/mobile-car-detailing/'],
+    ['/mobile-car-detailing-blog/', '/mobile-car-detailing/'],
+    ['/new-car-detail/', '/new-car-detail-protection/'],
+    ['/wrap-it-up-the-ultimate-guide-to-choosing-the-perfect-car-wrap/', '/paint-protection-film-ppf/'],
+    ['/after-care-with-labocosmetica/', '/aftercare-washing-guide/'],
+    ['/washing-procedures-for-modesta-coatings/', '/aftercare-washing-guide/'],
+    ['/pd-shampoo-the-worlds-best-car-shampoo/', '/aftercare-washing-guide/'],
+    ['/swissvax-episode-1-washing-how-to-series-car-detailing-with-paul-dalton-from-miracle-detail-uk/', '/aftercare-washing-guide/'],
+    ['/swissvax-episode-4-quick-detailing-with-paul-dalton-miracle-detail-uk/', '/aftercare-washing-guide/'],
+    ['/qs-tuning-cost-me-40k/', '/journal/'],
+    ['/qs-tuning-picking-up-my-destroyed-vehicle/', '/journal/'],
+    // old blog posts about one car: that make in the gallery
+    ['/1965-mk-1-austin-cooper-s-miracle-detail-featuring-frank-the-french-bulldog/', GAL + '?make=mini'],
+    ['/mini-restoration-and-miracle-detail-finishes-it-off/', GAL + '?make=mini'],
+    ['/3000-mile-road-trip-uk-to-portugal-to-detail-a-ferrari-tdf-porsche-gtrs4-0-and-ferrari-599gto/', GAL + '?make=ferrari'],
+    ['/aston-martin-vantage-4-day-detailing-results/', GAL + '?make=aston-martin'],
+    ['/audi-r8-v10-spyder/', GAL + '?make=audi'],
+    ['/bmw-m4-in-porsche-speed-yellow-with-modesta-bc08-coating-applied/', GAL + '?make=bmw'],
+    ['/bmw-z4-gets-modesta-coating/', GAL + '?make=bmw'],
+    ['/ford-mustang-coated-with-modesta/', GAL + '?make=ford'],
+    ['/jaguar-xkr-convertible-full-detail-repaint/', GAL + '?make=jaguar'],
+    ['/maserati-coated-with-modesta-now-onto-interior-detail-and-windows/', GAL + '?make=maserati'],
+    ['/mercedes-s600-100-hour-resto-wet-sand-detail/', GAL + '?make=mercedes-benz'],
+    ['/mercedes-s600-paint-job-and-detail/', GAL + '?make=mercedes-benz'],
+    ['/miracle-detail-mercedes-s600-wins-every-competition/', GAL + '?make=mercedes-benz'],
+    // the old shop and form pages
+    ['/basket/', '/'],
+    ['/my-account/', '/'],
+    ['/products/', '/'],
+    ['/thank-you/', '/']
+  ]),
+  R('Gallery: 150 of the 153 old jobs are in the new gallery; the three missing\n' +
+    '# (one photo or none on the old site) go to their make. Then the old make\n' +
+    '# slugs that differ from the new filter keys.', [
+    ['/gallery/ford-focus-rs/', GAL + '?make=ford'],
+    ['/gallery/bmw-3-series/', GAL + '?make=bmw'],
+    ['/gallery/1992-porsche-964-turbo-midnight-blue/', GAL + '?make=porsche'],
+    ['/vehiclemake/mercedes/', GAL + '?make=mercedes-benz'],
+    ['/vehiclemake/vw/', GAL + '?make=volkswagen'],
+    ['/gallery/', GAL],
+    ['/vehiclemake/', GAL],
+    ['/vehiclecolour/', GAL]
+  ]),
+  R('v0.5 staging slugs (WordPress) -> the kept old-site slugs', [
+    ['/paint-correction/', '/paint-correction-and-polishing/'],
+    ['/paint-protection-film/', '/paint-protection-film-ppf/'],
+    ['/dry-ice-cleaning/', '/dry-ice-blasting-and-laser-cleaning/'],
+    ['/window-tinting-protection/', '/window-tinting/'],
+    ['/bodyshop-paint-repair/', '/bodyshop-repair/'],
+    ['/mobile-detailing/', '/mobile-car-detailing/'],
+    ['/packages/', '/car-detailing-studio/'],
+    ['/about-paul/', '/about-paul-dalton-car-detailing/'],
+    ['/services/', '/car-care-services/']
+  ])
+];
+/* :param rules last (a fixed line above always wins) */
+const paramRules = [
+  ['/gallery/:job/', GAL + '?job=:job'],
+  ['/vehiclemake/:make/', GAL + '?make=:make'],
+  ['/vehiclecolour/:colour/', GAL]
+];
+/* Pages that exist: their no-slash form, in one 301 (not the asset
+   server's 307). Read off the built pages. */
+const keptPages = written.map(w => w.url).filter(u => u !== '/' && u.endsWith('/'));
+const line = (from, to) => `${from.padEnd(50)} ${to.padEnd(46)} 301`;
+const both = ([from, to]) => from.endsWith('/') && from !== '/'
+  ? [line(from, to), line(from.slice(0, -1), to)] : [line(from, to)];
 fs.writeFileSync(path.join(ROOT, '_redirects'), [
-  '# Old site (miracledetail.co.uk): pages that merge into another (PLAN.md §5.3).',
-  '# 06/10: only the v0.5 pages are rebuilt, so the area pages land on the',
-  '# homepage (coverage + booking) and the 153 project pages on the gallery.',
-  '/surrey-car-detailing/            /                               301',
-  '/sussex-car-detailing/            /                               301',
-  '/kent-car-detailing/              /                               301',
-  '/london-car-detailing/            /                               301',
-  '/essex-car-detailing/             /                               301',
-  '/hampshire-car-detailing/         /                               301',
-  '/hertfordshire-car-detailing/     /                               301',
-  '/oxfordshire-car-detailing/       /                               301',
-  '/buckinghamshire-car-detailing/   /                               301',
-  '/contact-us/                      /#book                          301',
-  '/studio-car-valeting/             /car-detailing-studio/          301',
-  '/after-care-with-feynlab/         /aftercare-washing-guide/       301',
-  '/videos/                          /car-detail-gallery/            301',
-  '/blog/                            /journal/                       301',
-  '/category/uncategorized/          /journal/                       301',
-  '# 07/10: the two blog posts are rebuilt under their old slugs',
-  '/gallery/:job/                    /car-detail-gallery/?job=:job   301',
-  '/gallery/                         /car-detail-gallery/            301',
-  '/vehiclemake/:make/               /car-detail-gallery/?make=:make 301',
+  '# Generated by build.js. Edit the lists there, not this file.',
+  ...redirectGroups.flatMap(g => ['', '# ' + g.title, ...g.rules.flatMap(both)]),
   '',
-  '# v0.5 staging slugs (WordPress) -> the kept old-site slugs',
-  '/paint-correction/                /paint-correction-and-polishing/       301',
-  '/paint-protection-film/           /paint-protection-film-ppf/            301',
-  '/dry-ice-cleaning/                /dry-ice-blasting-and-laser-cleaning/  301',
-  '/window-tinting-protection/       /window-tinting/                       301',
-  '/bodyshop-paint-repair/           /bodyshop-repair/                      301',
-  '/mobile-detailing/                /mobile-car-detailing/                 301',
-  '/packages/                        /car-detailing-studio/                 301',
-  '/about-paul/                      /about-paul-dalton-car-detailing/      301',
-  '/services/                        /car-care-services/                    301',
+  '# Pages that exist, typed without the closing slash',
+  ...keptPages.map(u => line(u.slice(0, -1), u)),
+  '',
+  '# :param rules last',
+  ...paramRules.flatMap(both),
   ''
 ].join('\n'));
 

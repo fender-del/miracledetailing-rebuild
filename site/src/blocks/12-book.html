@@ -1,7 +1,8 @@
 <!-- ============ 12 · BOOK A CONSULTATION ============
      v0.5 close ("The studio is ready. Is your car?"), lorem ipsum
      replaced. Three steps: the car, the work (+ photos), how to reach
-     you. JS off = one ordinary form. Netlify Forms receives it.
+     you. JS off = one ordinary form. worker/index.js (/api/book) mails it
+     to Paul through Resend, after a Turnstile check (12/11).
      Fender 02/10: no "what happens next" list, no repeated address; a
      short nudge to call sits over the phone number for anyone who would
      rather talk. On phones the form comes straight after the heading.
@@ -34,8 +35,8 @@
       </div>
     </div>
 
-    <form class="qf" id="book-form" name="consultation" method="POST" action="/?sent=1#book" enctype="multipart/form-data"
-          data-netlify="true" netlify-honeypot="bot-field" novalidate data-qform data-reveal="card">
+    <form class="qf" id="book-form" name="consultation" method="POST" action="/api/book" enctype="multipart/form-data"
+          novalidate data-qform data-reveal="card">
       <input type="hidden" name="form-name" value="consultation">
       <p class="sr"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 
@@ -125,6 +126,7 @@
             {{#heardFrom}}<option>{{.}}</option>{{/heardFrom}}
           </select>
         </p>
+        <div class="qf__ts" data-turnstile data-sitekey="{{site.turnstileKey}}"></div>
         <div class="qf__nav">
           <button class="btn btn--ghost qf__back" type="button" data-qback><span class="btn__in">Back</span></button>
           <button class="btn qf__send" type="submit"><span class="btn__in">Send to Paul<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></span></button>
