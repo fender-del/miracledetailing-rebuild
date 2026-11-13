@@ -31,10 +31,11 @@ site.phoneHref = 'tel:+' + digits;
 site.whatsapp = 'https://wa.me/' + digits;
 
 /* Cloudflare Turnstile site key for the booking form (public; the secret
-   is the Worker secret TURNSTILE_SECRET). 1x00000000000000000000AA is
-   Cloudflare's always-pass test key: replace it with the widget's real
-   key from the Cloudflare dashboard (Turnstile -> miracledetail.co.uk). */
-site.turnstileKey = '1x00000000000000000000AA';
+   is the Worker secret TURNSTILE_SECRET). Widget "Miracle Detail booking"
+   in the DMI Cloudflare account, hostnames miracledetail.co.uk and
+   gsc-dd5.workers.dev (staging + previews). Local tests: Cloudflare's
+   always-pass test key 1x00000000000000000000AA. */
+site.turnstileKey = '0x4AAAAAAF-_tPyEVG4aIIj-';
 
 /* ---------- Derived ---------- */
 const a = site.address;
