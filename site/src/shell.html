@@ -39,6 +39,8 @@
   try{
     var d=document.documentElement;
     d.classList.add("js");
+    /* F5 opens the page at the top, not where the visitor left it (Ed 18/11) */
+    if("scrollRestoration" in history)history.scrollRestoration="manual";
     if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
     d.classList.add("js-motion");
     try{if(!sessionStorage.getItem("md-ld")){d.classList.add("show-ld");sessionStorage.setItem("md-ld","1")}}catch(e){}

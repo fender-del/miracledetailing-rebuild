@@ -355,7 +355,9 @@ function levels(sec) {
     if (prog) prog.parentNode.style.setProperty('--p', ((i + 1) / N).toFixed(3));
     if (prev) prev.disabled = i === 0;
     if (next) next.disabled = i === N - 1;
-    if (from !== 'scroll' && from !== 'pin') { lock = Date.now() + 700; if (pinTo(i)) { if (changed) show(); return; } rowTo(i); }
+    /* 'init' only picks level one: it must not move the page (Paul 18/11: the page
+       opened halfway down on desktop, where the pin turned it into a scroll) */
+    if (from !== 'scroll' && from !== 'pin' && from !== 'init') { lock = Date.now() + 700; if (pinTo(i)) { if (changed) show(); return; } rowTo(i); }
     if (changed || from === 'init') show();
   };
 
