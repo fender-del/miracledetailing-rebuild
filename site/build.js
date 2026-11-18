@@ -72,6 +72,7 @@ const CONTENT = path.join(ROOT, 'content');
 const pageKey = p => (p.slug ? p.slug.replace(/\/+$/, '') : 'home');
 const noSeo = [];
 for (const p of pages) {
+  if (p.cmsPost) continue; /* 18/11: a Journal post written in the CMS carries its own SEO (content/posts.json) */
   const f = path.join(CONTENT, 'pages', pageKey(p) + '.json');
   if (!fs.existsSync(f)) { noSeo.push('/' + p.slug); continue; }
   const seo = JSON.parse(read(f)).seo || {};

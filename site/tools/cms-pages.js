@@ -22,7 +22,9 @@ const pages = fs.readdirSync(PAGES).filter(f => f.endsWith('.js')).sort()
   .flatMap(f => {
     const mod = require(path.join(PAGES, f));
     return (Array.isArray(mod) ? mod : [mod]).flatMap(p => (typeof p === 'function' ? p(site) : p));
-  });
+  })
+  /* 18/11: Journal posts written in the CMS keep their SEO in content/posts.json */
+  .filter(p => !p.cmsPost);
 
 const key = p => (p.slug ? p.slug.replace(/\/+$/, '') : 'home');
 const label = p => (p.slug ? p.title.split(' | ')[0].replace(/ in Surrey$/, '').trim().slice(0, 60) : 'Home page');

@@ -155,7 +155,74 @@ const POSTS = [
   }
 ];
 
-const cardImg = (p, sizes) => frame(p.img, { alt: p.alt, sizes, ratio: '16 / 9' });
+/* ---------- Posts written in the DMI CMS (18/11) ----------
+   content/posts.json is a list: { title, slug, date (YYYY-MM-DD), author,
+   excerpt, cover: { src, alt }, body, hidden, seo: { title, description,
+   ogImage, noindex } }. Paul writes them in the CMS; the three posts above
+   stay in code (their bodies carry hand-built photos, film and shop links).
+   A CMS post lives at /journal/<slug>/, so it can never take a page's
+   address. body is the CMS's small Markdown (lib/rich.js): its ## headings
+   get the house reveal, and *italic* in a heading becomes the gold italic.
+   cover.src: an image id from images.json (sharp sizes, blur-up) or a
+   path/URL used as it is (until uploads land in R2). No cover: the
+   journal's own studio photo. Hidden posts and posts with a bad slug or
+   date are left out with a warning, so one slip can't stop the build. */
+const fs = require('fs');
+const path = require('path');
+const { esc } = require('../lib/render.js');
+const { renderRich } = require('../lib/rich.js');
+const CMS_POSTS = path.join(__dirname, '../../content/posts.json');
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const longDate = d => { const [y, m, day] = d.split('-').map(Number); return `${day} ${MONTHS[m - 1]} ${y}`; };
+const realDate = d => /^\d{4}-\d{2}-\d{2}$/.test(d) && !Number.isNaN(Date.parse(d + 'T00:00:00Z')) && new Date(d + 'T00:00:00Z').toISOString().slice(0, 10) === d;
+const postBody = md => renderRich(md || '')
+  .replace(/<h2>(.*?)<\/h2>/g, (_, h) => `<h2 data-reveal>${h.replace(/<em>(.*?)<\/em>/g, '<span class="gold it">$1</span>')}</h2>`)
+  .replace(/<blockquote>/g, '<blockquote class="post__quote" data-reveal>');
+
+function cmsPosts() {
+  if (!fs.existsSync(CMS_POSTS)) return [];
+  const taken = new Set(POSTS.map(p => p.slug));
+  const out = [];
+  for (const p of JSON.parse(fs.readFileSync(CMS_POSTS, 'utf8'))) {
+    if (!p || p.hidden) continue;
+    const slug = typeof p.slug === 'string' ? p.slug.trim() : '';
+    const why = !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(slug) ? `bad slug '${slug}'`
+      : !String(p.title || '').trim() ? 'no title'
+      : !realDate(p.date) ? `bad date '${p.date}'`
+      : taken.has(`journal/${slug}`) ? `slug '${slug}' used twice` : '';
+    if (why) { console.warn(`journal: CMS post left out (${why})`); continue; }
+    taken.add(`journal/${slug}`);
+    const seo = p.seo || {};
+    const title = String(p.title).trim();
+    const cover = p.cover && String(p.cover.src || '').trim();
+    out.push({
+      slug: `journal/${slug}`, cms: true,
+      h1: esc(title), name: esc(title), plain: title,
+      title: (seo.title || '').trim() || `${title} | Journal | Miracle Detail`,
+      description: (seo.description || '').trim() || String(p.excerpt || '').trim() || `${title}, from the Miracle Detail journal by Paul Dalton.`,
+      noindex: seo.noindex === true,
+      ogImage: seo.ogImage && String(seo.ogImage.src || '').trim() || null,
+      date: p.date, dateText: longDate(p.date), author: String(p.author || '').trim() || 'Paul Dalton',
+      excerpt: esc(String(p.excerpt || '').trim()),
+      img: cover || 'jn-hero',
+      alt: String(p.cover && p.cover.alt || '').trim() || title,
+      sub: null,
+      body: () => postBody(p.body)
+    });
+  }
+  return out;
+}
+
+/* every post, newest first (the order the code posts were already in) */
+const ALL = [...POSTS, ...cmsPosts()].sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
+
+/* a post's photo: a built image id, or a CMS path/URL shown as it is */
+const media = (p, o) => (images[p.img]
+  ? frame(p.img, o)
+  : `<div class="media" style="aspect-ratio:${o.ratio || '16 / 9'}"><img src="${esc(p.img)}" alt="${esc(o.alt || '')}"${o.priority ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}></div>`);
+const absImg = p => (images[p.img] ? big(p.img) : p.img);
+
+const cardImg = (p, sizes) => media(p, { alt: p.alt, sizes, ratio: '16 / 9' });
 
 module.exports = site => {
   const home = { name: 'Home', href: '/' };
@@ -191,7 +258,7 @@ module.exports = site => {
       },
       jn: {
         eyebrow: 'Latest articles',
-        posts: POSTS.map((p, i) => ({
+        posts: ALL.map((p, i) => ({
           n: String(i + 1).padStart(2, '0'), href: `/${p.slug}/`, title: p.name || p.h1,
           date: p.date, dateText: p.dateText, author: p.author, excerpt: p.excerpt,
           img: cardImg(p, '(max-width: 860px) 92vw, 56vw')
@@ -205,18 +272,20 @@ module.exports = site => {
 
     schema: [nav.schema, {
       '@context': 'https://schema.org', '@type': 'Blog', name: 'Miracle Detail Journal', url: site.origin + `/${SLUG}/`,
-      blogPost: POSTS.map(p => ({ '@type': 'BlogPosting', headline: p.name || p.h1, url: site.origin + `/${p.slug}/`, datePublished: p.date }))
+      blogPost: ALL.filter(p => !p.noindex).map(p => ({ '@type': 'BlogPosting', headline: p.plain || p.name || p.h1, url: site.origin + `/${p.slug}/`, datePublished: p.date }))
     }]
   };
 
-  const posts = POSTS.map((p, i) => {
+  const posts = ALL.map((p, i) => {
     const pnav = crumbs([home, jn, { name: p.name || p.h1, href: `/${p.slug}/` }]);
-    const other = POSTS[(i + 1) % POSTS.length];
+    const other = ALL[(i + 1) % ALL.length];
     return {
       slug: p.slug,
       title: p.title,
       description: p.description,
-      preload: [{ id: p.img, media: '(min-width: 0px)', sizes: '(max-width: 1320px) 92vw, 1224px' }],
+      /* CMS posts: their SEO comes from posts.json, not content/pages (build.js, tools/cms-pages.js skip them) */
+      ...(p.cms ? { cmsPost: true, noindex: p.noindex, ...(p.ogImage ? { ogImage: p.ogImage } : {}) } : {}),
+      preload: images[p.img] ? [{ id: p.img, media: '(min-width: 0px)', sizes: '(max-width: 1320px) 92vw, 1224px' }] : undefined,
 
       blocks: ['01-header', '61-post', '12-book', '13-footer', '14-sticky'],
 
@@ -224,7 +293,7 @@ module.exports = site => {
         crumbs: pnav.html,
         post: {
           h1: p.h1, sub: p.sub, date: p.date, dateText: p.dateText, author: p.author, read: p.read || null, cta: p.cta || null, related: p.related ? { links: p.related } : null,
-          img: frame(p.img, { alt: p.alt, priority: true, sizes: '(max-width: 1320px) 92vw, 1224px', ratio: '1920 / 1083' }),
+          img: media(p, { alt: p.alt, priority: true, sizes: '(max-width: 1320px) 92vw, 1224px', ratio: '1920 / 1083' }),
           body: p.body(),
           next: {
             href: `/${other.slug}/`, title: other.name || other.h1, date: other.date, dateText: other.dateText,
@@ -237,8 +306,8 @@ module.exports = site => {
 
       schema: [pnav.schema, {
         '@context': 'https://schema.org', '@type': 'BlogPosting',
-        headline: p.name || p.h1, description: p.description, datePublished: p.date,
-        image: site.origin + big(p.img),
+        headline: p.plain || p.name || p.h1, description: p.description, datePublished: p.date,
+        image: /^https?:/.test(absImg(p)) ? absImg(p) : site.origin + absImg(p),
         author: { '@type': 'Person', name: 'Paul Dalton' },
         publisher: { '@type': 'Organization', name: site.name },
         mainEntityOfPage: site.origin + `/${p.slug}/`
