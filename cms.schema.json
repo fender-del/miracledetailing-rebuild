@@ -390,6 +390,87 @@
       ]
     },
     {
+      "key": "posts",
+      "label": "Journal posts",
+      "file": "posts.json",
+      "group": "Journal",
+      "root": "list",
+      "seoEditable": true,
+      "path": "/journal/",
+      "help": "New articles for the Journal, newest first on the website. The three older articles stay as they are.",
+      "fields": [
+        {
+          "name": "posts",
+          "type": "list",
+          "label": "Articles",
+          "itemName": "article",
+          "itemLabel": "title",
+          "fields": [
+            {
+              "name": "title",
+              "type": "text",
+              "label": "Title",
+              "required": true,
+              "max": 90
+            },
+            {
+              "name": "slug",
+              "type": "slug",
+              "label": "Web address",
+              "required": true,
+              "unique": true,
+              "max": 70,
+              "help": "The end of the article's link: miracledetail.co.uk/journal/<this>/. Lowercase words joined by dashes. Changing it later breaks links people already shared."
+            },
+            {
+              "name": "date",
+              "type": "date",
+              "label": "Date",
+              "required": true
+            },
+            {
+              "name": "author",
+              "type": "text",
+              "label": "Author",
+              "placeholder": "Paul Dalton",
+              "max": 60
+            },
+            {
+              "name": "excerpt",
+              "type": "textarea",
+              "label": "Short summary",
+              "max": 300,
+              "rows": 3,
+              "help": "Shown on the Journal page under the title, and used by Google when there is no meta description."
+            },
+            {
+              "name": "cover",
+              "type": "image",
+              "label": "Cover photo",
+              "help": "For now, the address of a photo already on the website (e.g. /assets/img/jn-matte-1448.webp). Uploading new photos is coming. Leave empty to use the studio photo."
+            },
+            {
+              "name": "body",
+              "type": "richtext",
+              "label": "Article",
+              "required": true,
+              "rows": 18
+            },
+            {
+              "name": "hidden",
+              "type": "boolean",
+              "label": "Hide this article (not on the website yet)"
+            },
+            {
+              "name": "seo",
+              "type": "seo",
+              "help": "Leave empty to use the title and the short summary."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "key": "page-home",
       "label": "Home page",
       "file": "pages/home.json",
