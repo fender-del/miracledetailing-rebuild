@@ -259,7 +259,7 @@ module.exports = site => {
         stats: true,
         /* phones: where the poster crop is held (08/10) */
         mpos: '96% 40%',
-        h1: 'About Paul Dalton',
+        h1: 'About Paul Dalton, Car Detailer in Surrey',
         line: '37 years. Not one <span class="gold it">shortcut.</span>',
         lede: 'How a teenage mountain biker washing cars for pocket money in Surrey ended up detailing Bugattis, Koenigseggs, and a LaFerrari that out-shone Pebble Beach.',
         img: frame('ab-hero', {

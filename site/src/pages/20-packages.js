@@ -145,7 +145,7 @@ module.exports = site => {
         stats: true,
         /* phones: where the poster crop is held (08/10) */
         mpos: '72% 50%',
-        h1: 'Detailing Packages',
+        h1: 'Car Detailing Packages in Surrey',
         line: 'Five levels. <span class="gold it">One standard.</span>',
         /* Paul 02/11 (note 2): his new lede, word for word */
         lede: 'From a maintenance detail between comprehensive treatments to the complete Paul Dalton Signature experience, every package is carried out personally by Paul, with the same uncompromising attention to detail, regardless of the level you choose.',

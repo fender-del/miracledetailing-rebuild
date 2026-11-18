@@ -109,7 +109,7 @@ module.exports = site => {
         /* phones: where the poster crop is held (08/10) */
         mpos: '62% 45%',
         dpos: '100% 50%',
-        h1: 'Paint Protection Film',
+        h1: 'Paint Protection Film (PPF) Installation in Surrey',
         line: 'The strongest <span class="gold">shield</span> paint has ever <span class="gold it">had.</span>',
         lede: 'Paint Protection Film is an invisible armour: a self-healing urethane film that absorbs stone chips, abrasion and environmental damage so your paint never has to. Paul has been installing PPF since 2006. Longer than any other detailer in the UK.',
         img: frame('ppf-hero', {

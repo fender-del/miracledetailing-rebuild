@@ -163,7 +163,7 @@ module.exports = site => {
         stats: true,
         /* phones: where the poster crop is held (08/10) */
         mfit: true,
-        h1: 'Ceramic Coatings',
+        h1: 'Car Ceramic Coating in Surrey',
         line: 'Protection applied by the man who <span class="gold it">helped create it.</span>',
         lede: 'Paul Dalton is a certified Feynlab installer and the detailer behind Ceramic by Paul Dalton, a coating developed with Feynlab and sold to professionals worldwide. When your car receives a Feynlab coating at Miracle Detail, it’s applied by the person who knows it better than almost anyone on earth.',
         img: frame('cc-hero', {

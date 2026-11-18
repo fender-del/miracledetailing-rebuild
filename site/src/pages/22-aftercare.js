@@ -127,7 +127,7 @@ module.exports = site => {
         stats: true, fit: true,
         /* phones: where the poster crop is held (08/10) */
         mpos: '40% 50%',
-        h1: 'Aftercare & Washing Guide',
+        h1: 'Ceramic Coating Aftercare & Washing Guide',
         line: 'Look after your <span class="gold it">coating properly.</span>',
         lede: 'Your Feynlab coating is designed to last years, but how you wash the car matters. This is the exact procedure and the exact products Paul recommends to every client after a ceramic coating. Follow it and the coating will perform the way it should.',
         img: frame('ac-hero', {

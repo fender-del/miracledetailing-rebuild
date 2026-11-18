@@ -132,7 +132,7 @@ module.exports = site => {
          the display line, the rest the lede */
       hero: {
         stats: true, shift: true, dpos: '50% 40%',
-        h1: 'Interior Cleaning & Protection',
+        h1: 'Interior Car Detailing in Surrey',
         line: 'Exceptional interiors deserve <span class="gold it">more than a quick clean.</span>',
         lede: 'From delicate leather and fine upholstery to the smallest, often-overlooked details, we restore cleanliness, refine presentation and protect the surfaces you experience every time you drive.',
         img: frame('in-hero', {

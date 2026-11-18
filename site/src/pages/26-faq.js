@@ -31,7 +31,7 @@ module.exports = site => {
       hero: {
         stats: true,
         mpos: '50% 40%',
-        h1: 'Frequently Asked Questions',
+        h1: 'Car Detailing FAQs',
         line: 'Questions. <span class="gold it">Answered honestly.</span>',
         lede: 'If something isn\'t covered here, call or message Paul directly. Every enquiry is answered personally: there\'s no queue, no chatbot, no contact form that disappears into a void.',
         img: frame('jn-hero', {

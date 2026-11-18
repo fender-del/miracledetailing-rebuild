@@ -43,7 +43,7 @@ module.exports = site => {
         stats: true,
         /* phones: where the poster crop is held (08/10) */
         mpos: '50% 50%',
-        h1: 'Services',
+        h1: 'Car Detailing Services in Surrey',
         /* Paul 29/10 (email): his three lines, the second in italic, the third gold */
         line: 'Exceptional care.<br><span class="it">Without compromise.</span><br><span class="gold">Miracle Detail.</span>',
         img: frame('sv-hero', {

@@ -222,7 +222,7 @@ module.exports = site => {
         stats: true, shift: true, dpos: '50% 55%',
         /* phones: the Ioniq whole, not a tall crop of the lights (05/11) */
         mfit: true, mshort: true,
-        h1: NAME,
+        h1: 'New Car Detailing & Protection in Surrey',
         line: 'The perfect finish starts <span class="gold it">before the first mile.</span>',
         img: frame('nc-hero', {
           priority: true, ratio: false, sizes: '(max-width: 900px) 100vw, 66vw',

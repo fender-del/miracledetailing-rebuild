@@ -121,7 +121,7 @@ module.exports = site => {
          studio lift (Drive, 21/10); his page's hero words ---------- */
       hero: {
         stats: true, shift: true, dpos: '50% 30%',
-        h1: 'Underside & Underbody Coating',
+        h1: 'Car Underbody Coating in Surrey',
         line: 'The part of your car nobody sees. <span class="gold it">Protected like they do.</span>',
         lede: 'Your underbody faces more punishment than any other part of your car. Stone chips, road salt, chemical contamination, moisture and abrasion: relentlessly, every single mile. Feynlab Industrial V2 puts a stop to it.',
         img: frame('us-hero', {

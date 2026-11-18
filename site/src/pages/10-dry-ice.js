@@ -103,7 +103,7 @@ module.exports = site => {
         stats: true,
         /* phones: where the poster crop is held (08/10) */
         mpos: '100% 50%',
-        h1: 'Dry Ice Cleaning',
+        h1: 'Dry Ice Cleaning in Surrey',
         line: 'No water. No chemicals. <span class="gold it">No compromise.</span>',
         lede: 'Dry ice cleaning removes contamination that nothing else can touch, without a single drop of water, without chemicals, and without any risk to the surfaces being cleaned. Paul was the first detailer in the UK to offer it, in 2014.',
         img: frame('dx-hero', {

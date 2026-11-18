@@ -126,7 +126,7 @@ module.exports = site => {
 
         mfit: true,
 
-        h1: 'Leather Restoration',
+        h1: 'Car Leather Restoration in Surrey',
 
         line: 'Leather that looks <span class="gold it">the way it should.</span>',
 

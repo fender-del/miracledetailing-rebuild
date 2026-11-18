@@ -77,7 +77,7 @@ module.exports = site => {
         stats: true,
         /* phones: where the poster crop is held (08/10) */
         mfit: true,
-        h1: 'Gallery',
+        h1: 'Car Detailing Gallery',
         /* Paul 22/10 (board note 68); 28/10 (requests #35): only "Speaks" in italic, and his new lede */
         line: 'The Work <span class="gold it">Speaks</span>',
         lede: 'Three decades of exceptional cars, meticulous craftsmanship and results that speak for themselves. Explore a selection of vehicles personally prepared by Paul Dalton.',

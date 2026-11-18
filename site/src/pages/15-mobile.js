@@ -124,7 +124,7 @@ module.exports = site => {
         shift: true,
         /* phones: where the poster crop is held (08/10) */
         mfit: true,
-        h1: 'Mobile Detailing',
+        h1: 'Mobile Car Detailing in Surrey, Sussex, Kent & London',
         line: 'The studio. At your <span class="gold it">location.</span>',
         lede: 'The same standard Paul applies in the studio, delivered to your home, your office, or anywhere else you need it. Surrey, Kent, Sussex, London and beyond.',
         /* 13/10 (Ed, Paul): Paul's own black Caddy (was the Portugal Caddy) */

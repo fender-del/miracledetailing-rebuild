@@ -179,7 +179,7 @@ module.exports = site => {
         stats: true,
         /* phones: where the poster crop is held (08/10) */
         mpos: '50% 40%',
-        h1: 'Journal',
+        h1: 'Car Detailing Journal',
         line: 'Our <span class="gold it">blog.</span>',
         lede: 'Take a look through our latest blogs to learn about the wide range of vehicle detailing, paint correction, PPF and ceramic coating services offered at Miracle Detail.',
         img: frame('jn-hero', {

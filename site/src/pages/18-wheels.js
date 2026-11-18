@@ -117,7 +117,7 @@ module.exports = site => {
         stats: true, fit: true, shift: true,
         /* phones: where the poster crop is held (08/10) */
         mfit: true,
-        h1: 'Wheel Refurbishment',
+        h1: 'Alloy Wheel Refurbishment in Surrey',
         line: 'Your wheels. <span class="gold it">Restored to perfect.</span>',
         lede: 'Kerbed, corroded, faded or simply in need of a refresh: wheel refurbishment is available through Miracle Detail as part of a full detail package. Diamond cut, powder coat, colour change and structural repair all covered.',
         img: frame('wr-hero', {

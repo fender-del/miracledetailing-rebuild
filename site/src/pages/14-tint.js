@@ -253,7 +253,7 @@ module.exports = site => {
         stats: true,
         /* phones: where the poster crop is held (08/10) */
         mfit: true,
-        h1: 'Window Tinting & Protection',
+        h1: 'Car Window Tinting in Surrey',
         line: 'Privacy, protection, presence, and <span class="gold it">security.</span>',
         lede: 'Window tinting and ballistic protection film, both available through Miracle Detail. From chameleon windscreen film to invisible security glazing for private clients and chauffeur vehicles. Coordinated alongside your detail.',
         img: frame('wt-hero', {

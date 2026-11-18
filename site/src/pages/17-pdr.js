@@ -125,7 +125,7 @@ module.exports = site => {
         stats: true,
         /* phones: where the poster crop is held (08/10) */
         mpos: '28% 50%',
-        h1: 'Paintless Dent Removal',
+        h1: 'Paintless Dent Removal (PDR) in Surrey',
         line: 'The dent is gone. <span class="gold it">The paint stays.</span>',
         lede: 'Paintless dent removal is the only method that removes a dent without disturbing the original paint. No filler, no respray, no risk to the original finish. Available through Miracle Detail, carried out by a technician Paul trusts completely.',
         img: frame('pd-hero', {

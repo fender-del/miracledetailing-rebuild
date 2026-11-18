@@ -161,7 +161,7 @@ module.exports = site => {
         /* 13/10: Ed's photo of Paul and an E30 M3 (tall): held right with
            Paul's head in frame on desktops, shown whole on phones */
         shift: true, mfit: true, dpos: '50% 0%',
-        h1: 'Paint Correction',
+        h1: 'Car Paint Correction in Surrey',
         line: 'The art of <span class="gold it">reading paint.</span>',
         lede: 'Most people see a scratch. Paul sees a story: how deep it goes, what the paint can give, and exactly what it will take to make it right. Thirty-seven years of that instinct don’t lie.',
         img: frame('pc-ed', {
