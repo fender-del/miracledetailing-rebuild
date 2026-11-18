@@ -3,11 +3,6 @@
 [build]
   publish = "."
 
-# Demo: keep it out of the index (remove at launch)
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Robots-Tag = "noindex, nofollow"
 
 [[headers]]
   for = "/assets/*"

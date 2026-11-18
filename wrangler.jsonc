@@ -19,8 +19,8 @@
     "run_worker_first": ["/api/*"]
   },
   "vars": {
-    // Testing: the DMI inbox. GO-LIVE (task step 5): change to info@miracledetail.co.uk and push.
-    "BOOK_TO": "gsc@detailersmovement.com",
+    // Live since 18/11: Paul's inbox. For a test, point it at your own inbox and push.
+    "BOOK_TO": "info@miracledetail.co.uk",
     "BOOK_FROM": "Miracle Detail website <booking@send.miracledetail.co.uk>"
   },
   // Branch builds run `npx wrangler preview`, which needs this block (it may stay empty).

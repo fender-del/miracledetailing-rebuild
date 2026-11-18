@@ -8,3 +8,5 @@ package-lock.json
 netlify.toml
 README.md
 content
+# launch (preview off): the review board is for the preview only
+review
