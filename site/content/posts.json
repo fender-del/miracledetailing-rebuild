@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "title": "CMS preview test (not live)",
+    "slug": "cms-preview-test",
+    "date": "2026-11-18",
+    "author": "",
+    "excerpt": "",
+    "cover": {
+      "src": "",
+      "alt": ""
+    },
+    "body": "This article only checks the CMS preview. It is never published.\n\n## Heading",
+    "hidden": false,
+    "seo": {
+      "title": "",
+      "description": "",
+      "ogImage": {
+        "src": "",
+        "alt": ""
+      },
+      "noindex": false
+    }
+  }
+]
