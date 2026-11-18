@@ -78,6 +78,7 @@ for (const p of pages) {
   if (seo.title && seo.title.trim()) p.title = seo.title.trim();
   if (seo.description && seo.description.trim()) p.description = seo.description.trim();
   if (seo.ogImage && seo.ogImage.src && seo.ogImage.src.trim()) p.ogImage = seo.ogImage.src.trim();
+  if (seo.ogImage && seo.ogImage.alt && seo.ogImage.alt.trim()) p.ogAlt = seo.ogImage.alt.trim();
   if (typeof seo.noindex === 'boolean') p.noindex = seo.noindex;
 }
 if (noSeo.length) console.log(`no CMS content file for ${noSeo.join(', ')} (run node tools/cms-pages.js)`);
@@ -203,7 +204,16 @@ for (const page of pages) {
     description: page.description,
     canonical: abs(url),
     robots: site.preview || page.noindex ? 'noindex,nofollow' : null,
-    ogImage: abs(page.ogImage || '/assets/img/og.jpg'),
+    /* Share image (18/11): the CMS choice, else this page's own crop made by
+       tools/og.js (assets/img/og/<key>.jpg), else the site-wide og.jpg. */
+    ogImage: abs(page.ogImage || (() => {
+      const f = path.join(ROOT, 'assets/img/og', pageKey(page) + '.jpg');
+      if (!fs.existsSync(f)) return '/assets/img/og.jpg';
+      /* /assets/* is cached for a year: the content hash makes a re-cut image a new URL */
+      const v = require('crypto').createHash('md5').update(fs.readFileSync(f)).digest('hex').slice(0, 8);
+      return `/assets/img/og/${pageKey(page)}.jpg?v=${v}`;
+    })()),
+    ogAlt: page.ogAlt || page.title,
     preload: preloadTags(page.preload),
     /* Inline the page's own CSS (one round trip saved). Flip to the
        <link> once returning visitors matter more than first paint. */

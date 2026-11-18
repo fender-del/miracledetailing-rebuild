@@ -49,7 +49,7 @@ const SZ2 = '(max-width: 767px) 92vw, 34ch';
 const POSTS = [
   {
     slug: 'why-matte-and-satin-paint-needs-ppf',
-    h1: 'Why matte and satin paint <span class="gold it">absolutely needs PPF.</span>',
+    h1: 'Why Matte and Satin Paint Need <span class="gold it">Paint Protection Film (PPF)</span>',
     name: 'Why matte and satin paint absolutely needs PPF',
     title: 'Why Matte and Satin Paint Absolutely Needs PPF | Journal | Miracle Detail',
     description: 'One stone chip on a matte or satin finish car can mean a full panel repaint, or worse, the entire side of the car. Paul Dalton explains why PPF isn’t optional on these finishes.',
