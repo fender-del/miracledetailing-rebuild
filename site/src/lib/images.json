@@ -344,13 +344,15 @@
   "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAABQBACdASoYABAAPu1iqU2ppaOiMAgBMB2JQBdgBEPZZaTVwUSosQQjS32AAP7ZID8CTGx6krF7p38MgMFieR84nUp2ZDlmWkhOoFnx3zT+eYpVmLnVGVTBBVwPil+nO0Q0J60Q/C/7e0rLrtBLfe0mUP8vzYMv8A4HudrjdpaxlavBMmZv9EO7w0gn/udll1Lc0mhFvkAAAA=="
  },
  "ab-41-1": {
-  "w": 393,
-  "h": 700,
+  "w": 941,
+  "h": 1672,
   "widths": [
-   393
+   480,
+   760,
+   941
   ],
-  "v": "a7615805",
-  "lqip": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAADQBQCdASoYACsAPu1iqU+ppSOiMBVaqTAdiWcA0qwubWNRfTaLD0oegY88033Jt2YlkGUf6XgAAP72iA49QMP1brepYmO9sqwlCkMrpmmwm23i1wWrJxkLiQwMWPnL00cHaW4pBsBFHGR42tBZWRE79OKL/kuu97ZaSKtn6h7jA6DhZh2Ar2OvlAAAAA=="
+  "v": "0164db0e",
+  "lqip": "data:image/webp;base64,UklGRs4AAABXRUJQVlA4IMIAAADQBQCdASoYACsAPu1urVIppiQipWsxMB2JZQDMlC/dCWNjgXTrBsXSasgoWTjf0MeZDrqDQ7YcAP72rSjKbEO2vOP5kaZ2+koDJHH+vopZEg6OQK3QlYFWGs9XOqKrEq+QrzCS8IVjwpGRDIgvY+ltbiOrpMvCD0CXrGZsRSwzd+2FFdv+1hYEqPH6UJ5fO7OuC4RXOUYxrA0GrO6Gc2hgr/B5zdAxyjgsE1s2ND2xaWqrE3jSr0x82gbrsTSdqIYAAA=="
  },
  "ab-42-1": {
   "w": 900,

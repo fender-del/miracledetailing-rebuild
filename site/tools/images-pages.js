@@ -428,9 +428,12 @@ module.exports = [
   { id: 'ab-monza',  src: V + 'about-paul/download-49.jpg', widths: [600, 1125] },
   ...['1-1', '2-1', '3-1', '4-1', '5-1', '6-1', '7-1', '10-1', '11-1', '12-1', '13-1', '14-1', '15-1', '16-1', '17-1',
     '18-1', '19-1', '20-1', '22-1', '23-1', '24-1', '25-1', '26-1', '27-1', '28-1', '29-1', '30-1', '31-1', '32-1', '33-1',
-    '34-1', '35-1', '36-1', '37-1', '38-1', '39-1', '40-1', '41-1', '42-1', '43-1', '44-1', '45-1',
+    '34-1', '35-1', '36-1', '37-1', '38-1', '39-1', '40-1', '42-1', '43-1', '44-1', '45-1',
     '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60', '']
     .map(n => ({ id: 'ab-' + (n || 'laf'), src: V + 'about-paul/download' + (n ? '-' + n : '') + '.jpg', widths: [480, 900, 1400] })),
+  /* 19/11 (Fender: the 2023 Glansz photo was blurry, v0.5's copy is 393px wide): the same
+     photo from Paul's Drive, as on the homepage (drive/18-paul-portrait.png, 941 x 1672) */
+  { id: 'ab-41-1', src: 'drive/18-paul-portrait.png', widths: [480, 760, 941] },
   /* 23/10 (Paul's board note 3): the 1988 entry's mountain bike photo from his
      Drive ("It start age 13"); Fender: the rider is not Paul, a stand-in */
   /* 23/10 (Paul's board note 6, Fender): "Before correction" over swirled
