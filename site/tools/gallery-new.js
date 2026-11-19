@@ -10,7 +10,7 @@
    car in the set (64). 125-132 (red car, 2024): Paul 19/11 "this is
    for the ferrari 348", added to that job.
 
-   Encodes like tools/gallery.js (<n>-480.webp q60, <n>-1400.webp q66)
+   Encodes like tools/gallery.js (<n>-480.webp q60, <n>-1400.webp q80, cover 1-800.webp)
    into site/assets/gallery/<slug>/ and writes src/lib/gallery-new.json
    (same shape as gallery.json; the Gallery page and the homepage read both).
      node tools/gallery-new.js
@@ -67,7 +67,8 @@ const JOBS = [
       const src = path.join(SRC, files[i]), n = i + 1;
       await sharp(src).rotate().resize({ width: 480, withoutEnlargement: true }).webp({ quality: 60 }).toFile(path.join(dir, `${n}-480.webp`));
       const big = path.join(dir, `${n}-1400.webp`);
-      await sharp(src).rotate().resize({ width: 1400, withoutEnlargement: true }).webp({ quality: 66 }).toFile(big);
+      await sharp(src).rotate().resize({ width: 1400, withoutEnlargement: true }).webp({ quality: 80, smartSubsample: true }).toFile(big);
+      if (n === 1) await sharp(src).rotate().resize({ width: 800, withoutEnlargement: true }).webp({ quality: 78, smartSubsample: true }).toFile(path.join(dir, '1-800.webp'));
       const md = await sharp(big).metadata();
       photos.push({ w: md.width, h: md.height });
     }

@@ -33,9 +33,9 @@ const argv = process.argv.slice(2);
 const arg = (k, d) => { const i = argv.indexOf(k); return i >= 0 ? argv[i + 1] : d; };
 const REFETCH = argv.includes('--refetch');
 let BIG_W = +arg('--big', 1400);
-let BIG_Q = +arg('--q', 66);
+let BIG_Q = +arg('--q', 80); // 19/11: 66 -> 80 (Paul: "used to be a lot clearer")
 let FORCE_BIG = argv.includes('--force-big');
-const BUDGET_MB = 320;
+const BUDGET_MB = 520;
 const MAX_PHOTOS = 24;
 /* the homepage project cards open these jobs: every photo, so the card's
    count is what the lightbox shows (Fender 07/10) */
@@ -183,7 +183,7 @@ async function encodeJob(job) {
       if (!fresh(small))
         await sharp(src).rotate().resize({ width: 480, withoutEnlargement: true }).webp({ quality: 60 }).toFile(small);
       if (!fresh(big) || FORCE_BIG)
-        await sharp(src).rotate().resize({ width: BIG_W, withoutEnlargement: true }).webp({ quality: BIG_Q }).toFile(big + '.tmp')
+        await sharp(src).rotate().resize({ width: BIG_W, withoutEnlargement: true }).webp({ quality: BIG_Q, smartSubsample: true }).toFile(big + '.tmp')
           .then(() => fs.renameSync(big + '.tmp', big));
       const md = await sharp(big).metadata();
       photos.push({ w: md.width, h: md.height });
