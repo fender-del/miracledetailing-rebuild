@@ -47,8 +47,11 @@ html:has(.hd.is-hidden) .gal__bar{top:0}
 .lb__close{position:relative;flex:none;width:44px;height:44px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--line-2)}
 .lb__close i{position:absolute;left:13px;right:13px;top:21px;height:1.5px;background:var(--white);transform:rotate(45deg)}
 .lb__close i+i{transform:rotate(-45deg)}
-.lb__stage{display:grid;place-items:center;margin:0;padding:0 clamp(16px,6vw,96px) clamp(16px,3vw,32px);min-height:0;touch-action:pan-y}
-.lb__stage img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:6px;transition:opacity .3s}
+/* 19/11 (Paul: portrait photos cut off on a Mac, sitting low on an iPad): Safari
+   ignores max-height:100% on an image in a grid row, so a tall photo grew to its
+   own height. The photo is now placed inside the stage box itself and centred. */
+.lb__stage{--px:clamp(16px,6vw,96px);--pb:clamp(16px,3vw,32px);position:relative;margin:0;padding:0;min-height:0;touch-action:pan-y}
+.lb__stage img{position:absolute;inset:0 var(--px) var(--pb);margin:auto;max-width:calc(100% - 2 * var(--px));max-height:calc(100% - var(--pb));width:auto;height:auto;object-fit:contain;border-radius:6px;transition:opacity .3s}
 .lb__stage img.is-loading{opacity:.35}
 .lb__nav{position:absolute;top:50%;width:52px;height:52px;margin-top:-26px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px var(--line-2);color:var(--white);transition:background .3s}
 .lb__nav:hover{background:var(--gold);color:var(--ink)}
@@ -56,5 +59,5 @@ html:has(.hd.is-hidden) .gal__bar{top:0}
 .lb[data-one] .lb__nav{display:none}
 .lb__nav--prev{left:clamp(8px,1.5vw,24px)}
 .lb__nav--next{right:clamp(8px,1.5vw,24px)}
-@media (max-width:767px){.lb__nav{top:auto;bottom:18px;margin:0}.lb__stage{padding-bottom:84px}}
+@media (max-width:767px){.lb__nav{top:auto;bottom:18px;margin:0}.lb__stage{--pb:84px}}
 html.lb-open{overflow:hidden}
