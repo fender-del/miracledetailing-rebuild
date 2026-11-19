@@ -9,7 +9,8 @@
 'use strict';
 const { frame } = require('../lib/pic.js');
 const { crumbs } = require('../lib/shared.js');
-const jobs = require('../lib/gallery.json');
+/* + the cars Paul sent on 18/11 (tools/gallery-new.js) */
+const jobs = require('../lib/gallery.json').concat(require('../lib/gallery-new.json'));
 
 const SLUG = 'car-detail-gallery';
 

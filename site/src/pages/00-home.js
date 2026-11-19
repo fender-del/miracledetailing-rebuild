@@ -9,7 +9,7 @@
 'use strict';
 const { frame, images } = require('../lib/pic.js');
 const { stars, reviews } = require('../lib/shared.js');
-const GALLERY = require('../lib/gallery.json');
+const GALLERY = require('../lib/gallery.json').concat(require('../lib/gallery-new.json'));
 
 /* A logo from tools/images.js (white mark), or null so the template
    falls back to the name in type. `k` evens out how big the marks look:
@@ -38,6 +38,58 @@ const CARS = [
     story: 'An Enzo in Rosso Corsa, one of 150+ jobs in Paul’s gallery, told there in seventeen photographs.',
     work: ['Detailed by Paul', '17 photographs'], href: '/car-detail-gallery/?job=ferrari-enzo-rossa-corsa',
     alt: 'Red Ferrari Enzo in a white showroom' },
+  /* 19/11 (Paul, WeTransfer: "for home page under where it says - The
+     studio sees everything from classics to daily drivers"): twelve recent
+     cars, each its own gallery job (tools/gallery-new.js). Paul sent photos,
+     no words: each line says only what the photos show. The Enzo still leads. */
+  { id: 'car-bmw-e30-m3-silver', name: 'BMW E30 M3', tag: 'Recent work · 2026', sub: 'Classic',
+    story: 'Gearbox and underside cleaned, the seats brought back and the paint corrected, panel by panel.',
+    work: ['Classic', '60 photographs'], href: '/car-detail-gallery/?job=bmw-e30-m3-silver',
+    alt: 'Silver BMW E30 M3 in the studio after detailing' },
+  { id: 'car-ferrari-360-red', name: 'Ferrari 360', tag: 'Recent work · 2026', sub: 'Red',
+    story: 'Swirls polished out of the red paint, then the arches and suspension cleaned and detailed.',
+    work: ['Paint correction', '21 photographs'], href: '/car-detail-gallery/?job=ferrari-360-red',
+    alt: 'Red Ferrari 360 in the studio after paint correction' },
+  { id: 'car-ferrari-348-red', name: 'Ferrari 348', tag: 'Recent work · 2026', sub: 'Red',
+    story: 'Underside, arches and interior detailed, down to the door seals.',
+    work: ['Underside & interior', '13 photographs'], href: '/car-detail-gallery/?job=ferrari-348-red',
+    alt: 'Red Ferrari 348 on the studio lift' },
+  { id: 'car-honda-civic-type-r-white', name: 'Honda Civic Type R', tag: 'Recent work · 2026', sub: 'White',
+    story: 'Paint protection film on the rear wing, the wheels off, and the underside cleaned and protected.',
+    work: ['PPF & underside', '38 photographs'], href: '/car-detail-gallery/?job=honda-civic-type-r-white',
+    alt: 'White Honda Civic Type R in the studio' },
+  { id: 'car-porsche-macan-turbo-blue', name: 'Porsche Macan Turbo', tag: 'Recent work · 2026', sub: 'Blue',
+    story: 'Defects levelled by hand, then the paint corrected under the studio lights.',
+    work: ['Paint correction', '20 photographs'], href: '/car-detail-gallery/?job=porsche-macan-turbo-blue',
+    alt: 'Blue Porsche Macan Turbo in the studio' },
+  { id: 'car-bmw-m3-touring', name: 'BMW M3 Touring', tag: 'Recent work · 2026', sub: 'Machine polished',
+    story: 'Machine polished by Paul in the studio, then finished with a coating.',
+    work: ['Polish & coating', '9 photographs'], href: '/car-detail-gallery/?job=bmw-m3-touring',
+    alt: 'BMW M3 Touring in the studio after polishing' },
+  { id: 'car-audi-q8-red', name: 'Audi Q8', tag: 'Recent work · 2026', sub: 'Red',
+    story: 'The red paint corrected, with the before and after in the gallery.',
+    work: ['Paint correction', '9 photographs'], href: '/car-detail-gallery/?job=audi-q8-red',
+    alt: 'Red Audi Q8 in the studio after paint correction' },
+  { id: 'car-tesla-roadster-red', name: 'Tesla Roadster', tag: 'Recent work · 2026', sub: 'The original',
+    story: 'Arches and suspension cleaned, then protected with Feynlab Industrial Coating.',
+    work: ['Underside protection', '7 photographs'], href: '/car-detail-gallery/?job=tesla-roadster-red',
+    alt: 'Red Tesla Roadster in the studio' },
+  { id: 'car-hyundai-ioniq-5-n', name: 'Hyundai Ioniq 5 N', tag: 'Recent work · 2026', sub: 'Electric',
+    story: 'Wheels off, the arches and brakes cleaned and protected.',
+    work: ['Arches & underside', '5 photographs'], href: '/car-detail-gallery/?job=hyundai-ioniq-5-n',
+    alt: 'Light blue Hyundai Ioniq 5 N in the studio' },
+  { id: 'car-volvo-xc90-blue', name: 'Volvo XC90', tag: 'Recent work · 2026', sub: 'Daily driver',
+    story: 'Leather and steering wheel cleaned, before and after in the gallery, and the paint brought back to gloss.',
+    work: ['Interior & paint', '13 photographs'], href: '/car-detail-gallery/?job=volvo-xc90-blue',
+    alt: 'Blue Volvo XC90 in the studio' },
+  { id: 'car-ford-transit-custom-ms-rt-blue', name: 'Ford Transit Custom MS-RT', tag: 'Recent work · 2026', sub: 'Van',
+    story: 'A van, given the same studio detail as everything else that comes in.',
+    work: ['Van detail', '10 photographs'], href: '/car-detail-gallery/?job=ford-transit-custom-ms-rt-blue',
+    alt: 'Blue Ford Transit Custom MS-RT van in the studio' },
+  { id: 'car-nissan-x-trail-black', name: 'Nissan X-Trail', tag: 'Recent work · 2026', sub: 'Daily driver',
+    story: 'A family SUV, snow foamed, washed and brought back to a deep black gloss.',
+    work: ['Daily driver', '8 photographs'], href: '/car-detail-gallery/?job=nissan-x-trail-black',
+    alt: 'Black Nissan X-Trail in the studio after detailing' },
   { id: 'car-laferrari', name: 'Ferrari LaFerrari', tag: 'Dunsfold Park · 2015', sub: 'Red',
     story: 'A week-long detail. GF Williams came down to shoot it while the work was still going on.',
     work: ['Week-long detail', 'Shot by GF Williams'], href: '/car-detail-gallery/?make=ferrari',
