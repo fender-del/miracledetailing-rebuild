@@ -98,8 +98,11 @@ module.exports = site => {
       { block: '57-svc-pairs', with: { pairs: pairs({
         id: 'before-after', light: true,
         eyebrow: 'Before &amp; after',
-        title: 'Seven repairs, <span class="gold it">side by side.</span>',
+        title: 'Nine repairs, <span class="gold it">side by side.</span>',
         items: [
+          /* 19/11 (Paul): the BMW E30 M3's black bolster, restored the same day */
+          ['lr-e30-b1', 'The cracked black leather bolster of a BMW E30 M3 seat, before restoration', 'lr-e30-a1', 'The same bolster after restoration'],
+          ['lr-e30-b2', 'The worn black leather side bolster of a BMW E30 M3 seat, before restoration', 'lr-e30-a2', 'The same bolster after restoration'],
           ['lr-5155', 'A cream leather bolster with red piping, cracked and creased, before repair', 'lr-5156', 'The same bolster after repair'],
           ['lr-7083', 'A worn, creased beige leather seat cushion before restoration', 'lr-7084', 'The same seat cushion after restoration'],
           ['lr-5153', 'A creased cream seat bolster before restoration', 'lr-5154', 'The same bolster after restoration'],

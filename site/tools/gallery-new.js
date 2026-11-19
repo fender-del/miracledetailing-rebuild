@@ -7,8 +7,8 @@
    to jpg/ beside them) and 132 loose photos of eight more cars, in
    Paul's order. Each car becomes a job; the cover goes first.
    Left out: 2 bottle-only shots (04, 34), a 2025 red panel of no
-   car in the set (64) and 8 photos of an unnamed red car from 2024
-   (125-132).
+   car in the set (64). 125-132 (red car, 2024): Paul 19/11 "this is
+   for the ferrari 348", added to that job.
 
    Encodes like tools/gallery.js (<n>-480.webp q60, <n>-1400.webp q66)
    into site/assets/gallery/<slug>/ and writes src/lib/gallery-new.json
@@ -40,7 +40,7 @@ const folder = d => fs.readdirSync(path.join(SRC, d, 'jpg')).sort().map(f => pat
 /* cover: a file name in the list, shown first */
 const JOBS = [
   { slug: 'ferrari-360-red', title: 'Ferrari 360', make: 'Ferrari', model: '360', files: folder('Ferrari 360'), cover: 'IMG_4685.jpg' },
-  { slug: 'ferrari-348-red', title: 'Ferrari 348', make: 'Ferrari', model: '348', files: folder('Ferrari 348'), cover: 'IMG_3957.jpg' },
+  { slug: 'ferrari-348-red', title: 'Ferrari 348', make: 'Ferrari', model: '348', files: folder('Ferrari 348').concat(loose(125, 132)), cover: 'IMG_3957.jpg' },
   { slug: 'honda-civic-type-r-white', title: 'Honda Civic Type R', make: 'Honda', model: 'Civic Type R', files: folder('Honda civic type-R'), cover: 'IMG_4936.jpg' },
   { slug: 'porsche-macan-turbo-blue', title: 'Porsche Macan Turbo', make: 'Porsche', model: 'Macan Turbo', files: folder('Porsche Macan Turbo'), cover: 'IMG_2007.jpg' },
   { slug: 'bmw-m3-touring', title: 'BMW M3 Touring', make: 'BMW', model: 'M3 Touring', files: loose(1, 10, [4]), cover: 'image00007.jpeg' },

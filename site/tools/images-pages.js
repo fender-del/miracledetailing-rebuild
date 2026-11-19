@@ -394,7 +394,13 @@ module.exports = [
   ...['5153', '5154', '5155', '7083', '7084', '7085', '7086'].map(n => ({ id: 'lr-' + n, src: LB + 'IMG_' + n + '.jpg', widths: [480, 768] })),
   /* a phone screenshot: its top edge carries an app icon */
   { id: 'lr-5156', src: LB + 'IMG_5156.jpg', crop: { l: 0, t: .05, w: 1, h: .95 }, widths: [480, 768] },
-  { id: 'lr-seat',   src: O + '2023_12_Auto-Leather-Restoration-services-in-Lingfield-Surrey-10.jpeg', widths: [480, 768] },
+  /* 19/11 (Paul: "the leather resto pics of the m3 e30 ... in the leather resto page"):
+     the E30 M3's driver's bolster, cracked (taken 10:13) and restored (13:12) the same day, WeTransfer 18/11 */
+  { id: 'lr-e30-b1', src: 'drive-paul/1811-wetransfer/leather/e30-00086.jpg', widths: [480, 768] },
+  { id: 'lr-e30-a1', src: 'drive-paul/1811-wetransfer/leather/e30-00078.jpg', widths: [480, 768] },
+  { id: 'lr-e30-b2', src: 'drive-paul/1811-wetransfer/leather/e30-00079.jpg', widths: [480, 768] },
+  { id: 'lr-e30-a2', src: 'drive-paul/1811-wetransfer/leather/e30-00108.jpg', widths: [480, 768] },
+  { id: 'lr-seat',   src: O +'2023_12_Auto-Leather-Restoration-services-in-Lingfield-Surrey-10.jpeg', widths: [480, 768] },
   { id: 'lr-bolster', src: O + '2023_12_Auto-Leather-Restoration-services-in-Lingfield-Surrey-11.jpeg', widths: [480, 768] },
   { id: 'lr-red',    src: O + '2023_12_Auto-Leather-Restoration-services-in-Lingfield-Surrey-12.jpeg', widths: [480, 768] },
   { id: 'lr-fixed',  src: O + '2023_12_Auto-Leather-Restoration-services-in-Lingfield-Surrey-6.jpeg', widths: [480, 768] },
