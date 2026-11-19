@@ -35,7 +35,7 @@ const mark = id => {
    counts match; the 458's old page showed two photos twice. The Enzo leads (Fender 02/10). */
 const CARS = [
   { id: 'car-enzo', name: 'Ferrari Enzo', tag: 'From the gallery', sub: 'Rosso Corsa',
-    story: 'An Enzo in Rosso Corsa, one of 150+ jobs in Paul’s gallery, told there in seventeen photographs.',
+    story: 'An Enzo in Rosso Corsa, one of 160+ jobs in Paul’s gallery, told there in seventeen photographs.',
     work: ['Detailed by Paul', '17 photographs'], href: '/car-detail-gallery/?job=ferrari-enzo-rossa-corsa',
     alt: 'Red Ferrari Enzo in a white showroom' },
   /* 19/11 (Paul, WeTransfer: "for home page under where it says - The
