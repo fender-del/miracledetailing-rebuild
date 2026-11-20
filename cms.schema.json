@@ -447,7 +447,7 @@
               "name": "cover",
               "type": "image",
               "label": "Cover photo",
-              "help": "For now, the address of a photo already on the website (e.g. /assets/img/jn-matte-1448.webp). Uploading new photos is coming. Leave empty to use the studio photo."
+              "help": "Upload a photo (it is resized for phones and computers automatically), pick one from the library, or leave empty to use the studio photo. Landscape works best."
             },
             {
               "name": "body",
