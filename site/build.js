@@ -158,7 +158,9 @@ const shell = read(path.join(SRC, 'shell.html'));
 /* BUILD_VERSION: fixed cache-buster for reproducible builds (CMS byte checks); default = build time */
 const version = process.env.BUILD_VERSION || Date.now().toString(36);
 const jsonld = o => JSON.stringify(o).replace(/</g, '\\u003c');
-const abs = href => site.origin + (href.startsWith('/') ? href : '/' + href);
+/* a full URL stays as it is (26/11: a share image picked from the CMS photo library lives on
+   media.detailersmovement.com and came out as https://miracledetail.co.uk/https://media...) */
+const abs = href => (/^https?:\/\//i.test(href) ? href : site.origin + (href.startsWith('/') ? href : '/' + href));
 const written = [];
 
 /* LCP preload, one tag per art-direction band: page.preload =
