@@ -454,7 +454,9 @@
               "type": "richtext",
               "label": "Article",
               "required": true,
-              "rows": 18
+              "rows": 18,
+              "photos": true,
+              "help": "Leave an empty line between paragraphs. Use Photo to put a picture between paragraphs: every photo needs a short description, the caption is optional."
             },
             {
               "name": "hidden",

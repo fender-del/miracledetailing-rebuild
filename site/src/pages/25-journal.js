@@ -175,9 +175,13 @@ const CMS_POSTS = path.join(__dirname, '../../content/posts.json');
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const longDate = d => { const [y, m, day] = d.split('-').map(Number); return `${day} ${MONTHS[m - 1]} ${y}`; };
 const realDate = d => /^\d{4}-\d{2}-\d{2}$/.test(d) && !Number.isNaN(Date.parse(d + 'T00:00:00Z')) && new Date(d + 'T00:00:00Z').toISOString().slice(0, 10) === d;
-const postBody = md => renderRich(md || '')
+/* photos (26/11): Paul's photos between paragraphs come from the CMS library
+   (R2, MEDIA_URL) and use the photo-post figure style (.post__fig) */
+const { MEDIA_URL } = require('../lib/media.js');
+const postBody = md => renderRich(md || '', { photos: true, mediaUrl: MEDIA_URL, sizes: '(max-width: 767px) 92vw, 68ch' })
   .replace(/<h2>(.*?)<\/h2>/g, (_, h) => `<h2 data-reveal>${h.replace(/<em>(.*?)<\/em>/g, '<span class="gold it">$1</span>')}</h2>`)
-  .replace(/<blockquote>/g, '<blockquote class="post__quote" data-reveal>');
+  .replace(/<blockquote>/g, '<blockquote class="post__quote" data-reveal>')
+  .replace(/<figure>/g, '<figure class="post__fig" data-reveal="card">');
 
 function cmsPosts() {
   if (!fs.existsSync(CMS_POSTS)) return [];

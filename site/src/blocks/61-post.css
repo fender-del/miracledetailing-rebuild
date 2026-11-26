@@ -87,6 +87,8 @@
 .post__fig img{transition:transform 1.2s var(--ease)}
 @media (hover:hover){.post__fig:hover img{transform:scale(1.025)}}
 .post__fig figcaption{margin-top:12px;font-size:.8125rem;letter-spacing:.04em;color:var(--muted)}
+/* a CMS photo that is already on the site (plain <img>, no sizes) */
+.post__fig>img{display:block;width:100%;height:auto;border-radius:var(--r-lg)}
 .post__duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,24px);margin-top:2.2em}
 .post__duo .post__fig{margin:0}
 .post__col .post__duo{margin-top:2.2em}
